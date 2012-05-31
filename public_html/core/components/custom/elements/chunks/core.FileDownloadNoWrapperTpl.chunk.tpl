@@ -1,0 +1,3 @@
+<table>
+    [[+fd.rows]]
+</table>

@@ -1,0 +1,1 @@
+<label><input type="checkbox" name="VisualLightboxImagesTV[]" value="[[+imagefilepath]]" [[!+fi.VisualLightboxImagesTV:FormItIsChecked=`[[+imagefilepath]]`]] >&nbsp;[[+imagefilename]]</label>

@@ -1,0 +1,6 @@
+#page{border:5px solid #b22222;background-color:rgba(255, 255, 255, 0.5);}
+#menubar{background-color:#b22222;}
+header nav#main_nav ul li.active{background:#871a1a;background-image:-moz-linear-gradient(#871a1a, #d73030);background-image:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#871a1a), to(#d73030));filter:progid:dximagetransform.microsoft.gradient(enabled='true', startColorstr=#871a1a, endColorstr=#d73030, GradientType=0);background-color:#871a1a;}
+dl.sub-nav dd.active a{background:#b22222;color:#fff;}
+.sisea-highlight{background-color:#22b222;}
+.sisea-result a{color:#b22222;}

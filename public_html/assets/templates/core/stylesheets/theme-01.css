@@ -1,0 +1,39 @@
+/* core stylesheet */
+/* theme 01 - Red */
+/* Page */
+#page {
+  border: 5px solid #ff0000;
+  /* the base color */
+
+  background-color: rgba(255, 255, 255, 0.5);
+  /* to make it bright (90%) and readable, yet a bit transparent (50%) */
+
+}
+/* Menubar */
+#menubar {
+  background-color: #ff0000;
+  /* same as page border color */
+
+}
+/* Header Nav */
+header nav#main_nav ul li.active {
+  background: #cc0000;
+  background-image: -moz-linear-gradient(#cc0000, #ff3333);
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#cc0000), to(#ff3333));
+  filter: progid:dximagetransform.microsoft.gradient(enabled='true', startColorstr=#cc0000, endColorstr=#ff3333, GradientType=0);
+  /* fall back colour for other browsers */
+
+  background-color: #cc0000;
+}
+/* Sub-nav */
+dl.sub-nav dd.active a {
+  background: #ff0000;
+  color: #fff;
+}
+/* Simple Search (sisea) */
+.sisea-highlight {
+  background-color: #00ff00;
+}
+.sisea-result a {
+  color: #ff0000;
+}

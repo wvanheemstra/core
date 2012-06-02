@@ -1,0 +1,1118 @@
+/* core stylesheet */
+/* Image style options, see http://webdesignerwall.com/tutorials/css3-image-styles */
+.image-wrap {
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+  vertical-align: bottom;
+}
+.image-wrap:after {
+  content: ' ';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  border: solid 1px #1b1b1b;
+  -wekbit-box-shadow: inset 0 0 1px rgba(255, 255, 255, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 2px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: inset 0 0 1px rgba(255, 255, 255, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 0 1px rgba(255, 255, 255, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 2px rgba(0, 0, 0, 0.3);
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  border-radius: 7px;
+}
+.image-wrap img {
+  vertical-align: bottom;
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+}
+.circle .image-wrap {
+  -webkit-border-radius: 50em;
+  -moz-border-radius: 50em;
+  border-radius: 50em;
+}
+.card .image-wrap {
+  -webkit-box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.8), inset 0 2px 0 rgba(255, 255, 255, 0.5), inset 0 -1px 0 rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.8), inset 0 2px 0 rgba(255, 255, 255, 0.5), inset 0 -1px 0 rgba(0, 0, 0, 0.4);
+  box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.8), inset 0 2px 0 rgba(255, 255, 255, 0.5), inset 0 -1px 0 rgba(0, 0, 0, 0.4);
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+}
+.embossed .image-wrap {
+  -webkit-box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.8), inset 0 2px 0 rgba(255, 255, 255, 0.5), inset 0 -7px 0 rgba(0, 0, 0, 0.6), inset 0 -9px 0 rgba(255, 255, 255, 0.3);
+  -moz-box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.8), inset 0 2px 0 rgba(255, 255, 255, 0.5), inset 0 -7px 0 rgba(0, 0, 0, 0.6), inset 0 -9px 0 rgba(255, 255, 255, 0.3);
+  box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.8), inset 0 2px 0 rgba(255, 255, 255, 0.5), inset 0 -7px 0 rgba(0, 0, 0, 0.6), inset 0 -9px 0 rgba(255, 255, 255, 0.3);
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+}
+.soft-embossed .image-wrap {
+  -webkit-box-shadow: inset 0 0 4px #000000, inset 0 2px 1px rgba(255, 255, 255, 0.5), inset 0 -9px 2px rgba(0, 0, 0, 0.6), inset 0 -12px 2px rgba(255, 255, 255, 0.3);
+  -moz-box-shadow: inset 0 0 4px #000000, inset 0 2px 1px rgba(255, 255, 255, 0.5), inset 0 -9px 2px rgba(0, 0, 0, 0.6), inset 0 -12px 2px rgba(255, 255, 255, 0.3);
+  box-shadow: inset 0 0 4px #000000, inset 0 2px 1px rgba(255, 255, 255, 0.5), inset 0 -9px 2px rgba(0, 0, 0, 0.6), inset 0 -12px 2px rgba(255, 255, 255, 0.3);
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+}
+.cut-out .image-wrap {
+  -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2), inset 0 4px 5px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(0, 0, 0, 0.6);
+  -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2), inset 0 4px 5px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(0, 0, 0, 0.6);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2), inset 0 4px 5px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(0, 0, 0, 0.6);
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+}
+.morphing-glowing .image-wrap {
+  -webkit-transition: 1s;
+  -moz-transition: 1s;
+  transition: 1s;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+}
+.morphing-glowing .image-wrap:hover {
+  -webkit-box-shadow: 0 0 20px rgba(255, 255, 255, 0.6), inset 0 0 20px #ffffff;
+  -moz-box-shadow: 0 0 20px rgba(255, 255, 255, 0.6), inset 0 0 20px #ffffff;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.6), inset 0 0 20px #ffffff;
+  -webkit-border-radius: 60em;
+  -moz-border-radius: 60em;
+  border-radius: 60em;
+}
+.glossy .image-wrap {
+  -webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.5);
+  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.5);
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+}
+.glossy .image-wrap:after {
+  position: absolute;
+  content: ' ';
+  width: 100%;
+  height: 50%;
+  top: 0;
+  left: 0;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  background: -moz-linear-gradient(top, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.1) 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(255, 255, 255, 0.7)), color-stop(100%, rgba(255, 255, 255, 0.1)));
+  background: linear-gradient(top, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.1) 100%);
+}
+.reflection .image-wrap:after {
+  position: absolute;
+  content: ' ';
+  width: 100%;
+  height: 30px;
+  bottom: -31px;
+  left: 0;
+  -webkit-border-top-left-radius: 20px;
+  -webkit-border-top-right-radius: 20px;
+  -moz-border-radius-topleft: 20px;
+  -moz-border-radius-topright: 20px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.3) 0%, rgba(255, 255, 255, 0) 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0, 0, 0, 0.3)), color-stop(100%, rgba(255, 255, 255, 0)));
+  background: linear-gradient(top, rgba(0, 0, 0, 0.3) 0%, rgba(255, 255, 255, 0) 100%);
+}
+.reflection .image-wrap:hover {
+  position: relative;
+  top: -8px;
+}
+.glossy-reflection .image-wrap {
+  -webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  -moz-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  -webkit-transition: 1s;
+  -moz-transition: 1s;
+  transition: 1s;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+}
+.glossy-reflection .image-wrap:before {
+  position: absolute;
+  content: ' ';
+  width: 100%;
+  height: 50%;
+  top: 0;
+  left: 0;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  background: -moz-linear-gradient(top, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.1) 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(255, 255, 255, 0.7)), color-stop(100%, rgba(255, 255, 255, 0.1)));
+  background: linear-gradient(top, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.1) 100%);
+}
+.glossy-reflection .image-wrap:after {
+  position: absolute;
+  content: ' ';
+  width: 100%;
+  height: 30px;
+  bottom: -31px;
+  left: 0;
+  -webkit-border-top-left-radius: 20px;
+  -webkit-border-top-right-radius: 20px;
+  -moz-border-radius-topleft: 20px;
+  -moz-border-radius-topright: 20px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  background: -moz-linear-gradient(top, rgba(230, 230, 230, 0.3) 0%, rgba(230, 230, 230, 0) 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(230, 230, 230, 0.3)), color-stop(100%, rgba(230, 230, 230, 0)));
+  background: linear-gradient(top, rgba(230, 230, 230, 0.3) 0%, rgba(230, 230, 230, 0) 100%);
+}
+.tape .image-wrap {
+  -webkit-box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.7), inset 0 2px 0 rgba(255, 255, 255, 0.3), inset 0 -1px 0 rgba(0, 0, 0, 0.5), 0 1px 3px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.7), inset 0 2px 0 rgba(255, 255, 255, 0.3), inset 0 -1px 0 rgba(0, 0, 0, 0.5), 0 1px 3px rgba(0, 0, 0, 0.4);
+  box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.7), inset 0 2px 0 rgba(255, 255, 255, 0.3), inset 0 -1px 0 rgba(0, 0, 0, 0.5), 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+.tape .image-wrap:after {
+  position: absolute;
+  content: ' ';
+  width: 60px;
+  height: 25px;
+  top: -10px;
+  left: 50%;
+  margin-left: -30px;
+  border: solid 1px rgba(137, 130, 48, 0.2);
+  background: -moz-linear-gradient(top, rgba(254, 243, 127, 0.6) 0%, rgba(240, 224, 54, 0.6) 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(254, 243, 127, 0.6)), color-stop(100%, rgba(240, 224, 54, 0.6)));
+  background: linear-gradient(top, rgba(254, 243, 127, 0.6) 0%, rgba(240, 224, 54, 0.6) 100%);
+  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 1px 0 rgba(0, 0, 0, 0.2);
+}
+.morphing-tinting .image-wrap {
+  position: relative;
+  -webkit-transition: 1s;
+  -moz-transition: 1s;
+  transition: 1s;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+}
+.morphing-tinting .image-wrap:hover {
+  -webkit-border-radius: 30em;
+  -moz-border-radius: 30em;
+  border-radius: 30em;
+}
+.morphing-tinting .image-wrap:after {
+  position: absolute;
+  content: ' ';
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  -webkit-transition: 1s;
+  -moz-transition: 1s;
+  transition: 1s;
+  -webkit-border-radius: 30em;
+  -moz-border-radius: 30em;
+  border-radius: 30em;
+}
+.morphing-tinting .image-wrap:hover:after {
+  background: -webkit-gradient(radial, 50% 50%, 40, 50% 50%, 80, from(rgba(0, 0, 0, 0)), to(#000000));
+  background: -moz-radial-gradient(50% 50%, circle, rgba(0, 0, 0, 0) 40px, #000000 80px);
+}
+.feather .image-wrap {
+  position: relative;
+  -webkit-border-radius: 30em;
+  -moz-border-radius: 30em;
+  border-radius: 30em;
+}
+.feather .image-wrap:after {
+  position: absolute;
+  content: ' ';
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: -webkit-gradient(radial, 50% 50%, 50, 50% 50%, 70, from(rgba(255, 255, 255, 0)), to(#ffffff));
+  background: -moz-radial-gradient(50% 50%, circle, rgba(255, 255, 255, 0) 50px, #ffffff 70px);
+}
+/* START of page */
+body {
+  background: url(../images/background.jpg) repeat;
+}
+.container {
+  border: 0px solid red;
+  /*for testing purposes only */
+
+}
+header.row {
+  margin-top: 1px;
+  margin-bottom: 1px;
+  border: 0px solid gray;
+  /*for testing purposes only */
+
+}
+.row {
+  border: 0px solid gray;
+  /*for testing purposes only */
+
+}
+/* Header Nav */
+header nav#main_nav {
+  margin-top: 10px;
+  width: 100%;
+  text-align: center;
+}
+header nav#main_nav ul {
+  margin: 0;
+  padding: 0;
+  z-index: 10000;
+  display: inline-block;
+  /*float: right;*/
+
+}
+header nav#main_nav ul li {
+  float: left;
+  position: relative;
+  font-size: 10px;
+  list-style: none;
+  margin: 0;
+  min-width: 70px;
+  padding: 0px 10px 0px 10px;
+  text-align: center;
+  text-transform: uppercase;
+  border-right: 1px solid #ccc;
+  line-height: 30px;
+  background: #c4c8cc;
+  background-image: -moz-linear-gradient(#e2e6ea, #c4c8cc);
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#e2e6ea), to(#c4c8cc));
+  filter: progid:dximagetransform.microsoft.gradient(enabled='true', startColorstr=#e2e6ea, endColorstr=#c4c8cc, GradientType=0);
+  /* fall back colour for other browsers */
+
+  background-color: #E2E6EA;
+  -webkit-box-shadow: 0px 0px 1px 0px #7F7F7F;
+  -moz-box-shadow: 0px 0px 1px 0px #7F7F7F;
+  box-shadow: 0px 0px 1px 0px #7F7F7F;
+}
+header nav#main_nav ul li:first-child {
+  border-left: 1px solid #ccc;
+}
+header nav#main_nav ul li#nav_end_left {
+  min-width: 10px;
+  padding-left: 0em;
+  -webkit-border-top-left-radius: 20px;
+  -webkit-border-bottom-left-radius: 20px;
+  -moz-border-radius-topleft: 20px;
+  -moz-border-radius-bottomleft: 20px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+header nav#main_nav ul li#nav_end_right {
+  min-width: 10px;
+  padding-right: 0em;
+  -webkit-border-top-right-radius: 20px;
+  -webkit-border-bottom-right-radius: 20px;
+  -moz-border-radius-topright: 20px;
+  -moz-border-radius-bottomright: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+header nav#main_nav ul li a {
+  color: #787878;
+  text-decoration: none;
+  display: block;
+}
+header nav#main_nav ul li.active {
+  background: #0000CD;
+  background-image: -moz-linear-gradient(#0000cd, #00a6fc);
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#0000cd), to(#00a6fc));
+  filter: progid:dximagetransform.microsoft.gradient(enabled='true', startColorstr=#0000cd, endColorstr=#00a6fc, GradientType=0);
+  /* fall back colour for other browsers */
+
+  background-color: #0000CD;
+  -webkit-box-shadow: 1px 1px 6px 0px #7F7F7F inset;
+  -moz-box-shadow: 1px 1px 6px 0px #7F7F7F inset;
+  box-shadow: 1px 1px 6px 0px #7F7F7F inset;
+}
+header nav#main_nav ul li.active a {
+  color: #ffffff;
+}
+header nav#main_nav ul li a:hover {
+  color: #000000;
+}
+header nav#main_nav ul li:hover > a {
+  color: #000000;
+}
+header nav#main_nav ul li span {
+  background: url(../images/arrow.png) center no-repeat;
+  height: 10px;
+  position: absolute;
+  text-indent: -9999px;
+  top: 10px;
+  right: 5px;
+  width: 10px;
+}
+header nav#main_nav ul li span.arrow {
+  background-position: 0 2px;
+}
+header nav#main_nav ul li span.arrow-right {
+  background-position: -10px 2px;
+}
+header nav#main_nav ul li ul.sublist {
+  float: left;
+  list-style: none;
+}
+header nav#main_nav ul li ul.sublist li {
+  width: 140px;
+}
+/* SUB SUB LIST */
+header nav#main_nav.mobile_nav li {
+  float: left;
+  width: 50%;
+  text-align: center;
+  border-right: none;
+  padding: 0px;
+  background: #222;
+  line-height: 30px;
+}
+header nav#main_nav.mobile_nav ul {
+  float: none;
+}
+header nav#main_nav.mobile_nav ul li:first-child {
+  border-left: none;
+}
+header nav#main_nav.mobile_nav li ul {
+  display: none;
+}
+/* Override foundation nav-bar with dropdowns */
+header nav#main_nav ul.nav-bar {
+  height: 30px;
+  background-color: transparent;
+}
+header nav#main_nav ul.nav-bar > li > a.main {
+  font-size: 10px;
+}
+header nav#main_nav ul.nav-bar > li.has-flyout > a.flyout-toggle {
+  height: 0px;
+  padding: 14px;
+}
+header nav#main_nav .flyout {
+  padding: 0px;
+  top: 30px;
+  border: 2px solid #ddd;
+  width: 162px;
+}
+/* Header Caption */
+header div#main_caption h2 {
+  margin-top: 20px;
+  font: bold 80px/1 Viga, sans-serif;
+  font-style: italic;
+  color: #999;
+  letter-spacing: -3px;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.6);
+}
+header div#main_caption p {
+  font: normal 40px/1 Asap, sans-serif;
+  color: #666;
+  font-style: italic;
+}
+/* Logo */
+.logo a img {
+  border: 1px dotted #333;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+}
+/* Search */
+.search {
+  float: right;
+  margin-bottom: 20px;
+}
+fieldset.search {
+  border: none;
+  margin: 0 auto;
+  height: 24px;
+  padding-right: 4px;
+  padding-left: 4px;
+  padding-top: 4px;
+}
+.search input,
+.search button {
+  border: none;
+  float: left;
+}
+.search input.box {
+  color: #787878;
+  font-size: 1.2em;
+  width: 100px;
+  height: 18px;
+  padding: 0px 0px 0px 0px;
+  border: 1px solid #7F7F7F;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  background: url('../images/searchButton.png') no-repeat bottom right;
+  padding-right: 24px;
+  padding-left: 2px;
+  /* note: cannot use property background-color in following fall back scenario */
+
+  /* only property background */
+
+  background: #ffffff;
+  /* The Fallback for e.g IE */
+
+  background: rgba(255, 255, 255, 0.2);
+}
+.search input.box:focus {
+  outline: none;
+  width: 190px;
+  color: #787878;
+  background: url('../images/searchButton.png') no-repeat bottom right;
+  padding-right: 24px;
+  padding-left: 6px;
+  border: 1px solid #c4c8cc;
+  /* note: cannot use property background-color in following fall back scenario */
+
+  /* only property background */
+
+  background: #ffffff;
+  /* The Fallback for e.g IE */
+
+  background: rgba(255, 255, 255, 0.8);
+}
+/* Page */
+#page {
+  border: 5px solid #c4c8cc;
+  -moz-box-shadow: 5px 5px 7px #888;
+  -moz-border-radius: 5px;
+  -webkit-box-shadow: 5px 5px 7px #888;
+  -webkit-border-radius: 5px;
+  padding: 0px;
+  /* note: cannot use property background-color in following fall back scenario */
+
+  /* only property background */
+
+  background: #ffffff;
+  /* The Fallback for e.g IE */
+
+  background: rgba(255, 255, 255, 0.6);
+}
+/* Menubar */
+#menubar {
+  background-color: #c4c8cc;
+  /* same as page border color */
+
+  height: 36px;
+}
+/* Breadcrumbs */
+#breadcrumb ul,
+li {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+#breadcrumb {
+  border: 1px solid #dedede;
+  height: 2.3em;
+}
+#breadcrumb li {
+  float: left;
+  line-height: 2.3em;
+  padding-left: .75em;
+  color: #777;
+}
+#breadcrumb li:last-child {
+  font-weight: bold;
+}
+#breadcrumb li a {
+  display: block;
+  padding: 0 20px 0 0;
+  background: url(../images/crumbs.png) no-repeat right center;
+}
+#breadcrumb li a:link,
+#breadcrumb li a:visited {
+  text-decoration: none;
+  color: #777;
+}
+#breadcrumb li a:hover,
+#breadcrumb li a:focus {
+  color: #dd2c0d;
+}
+/* Translation */
+#translation {
+  padding: 0.5em;
+}
+/* Polaroids images style */
+/* See http://www.zurb.com/playground/css3-polaroids/ */ul.polaroids {
+  max-width: 960px;
+  margin: 0 0 18px -30px;
+}
+ul.polaroids li {
+  display: inline;
+}
+ul.polaroids a {
+  background: #fff;
+  display: inline;
+  float: left;
+  margin: 0 0 27px 30px;
+  width: auto;
+  padding: 10px 10px 15px;
+  text-align: center;
+  font-family: "Marker Felt", sans-serif;
+  text-decoration: none;
+  color: #333;
+  font-size: 12px;
+  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
+  /* By default, we tilt all our images -2 degrees */
+  -webkit-transform: rotate(-2deg);
+  -moz-transform: rotate(-2deg);
+}
+ul.polaroids img {
+  /* set max-width to 100% so ImgSizer can scale them */
+
+  max-width: 100%;
+  display: block;
+  width: 120px;
+  margin-bottom: 12px;
+}
+ul.polaroids a:after {
+  content: attr(title);
+}
+/* Rotate all even images 2 degrees */
+ul.polaroids li:nth-child(even) a {
+  -webkit-transform: rotate(2deg);
+  -moz-transform: rotate(2deg);
+}
+/* Don't rotate every third image, but offset its position */
+ul.polaroids li:nth-child(3n) a {
+  -webkit-transform: none;
+  -moz-transform: none;
+  position: relative;
+  top: -5px;
+}
+/* Rotate every fifth image by 5 degrees and offset it */
+ul.polaroids li:nth-child(5n) a {
+  -webkit-transform: rotate(5deg);
+  -moz-transform: rotate(5deg);
+  position: relative;
+  right: 5px;
+}
+/* Keep default rotate for every eighth, but offset it */
+ul.polaroids li:nth-child(8n) a {
+  position: relative;
+  top: 8px;
+  right: 5px;
+}
+/* Keep default rotate for every eleventh, but offset it */
+ul.polaroids li:nth-child(11n) a {
+  position: relative;
+  top: 3px;
+  left: -5px;
+}
+/* Scale the images on hover, add transitions for smoothing things out, and ensure the hover appears on top */
+ul.polaroids a:hover {
+  -webkit-transform: scale(2);
+  -moz-transform: scale(2);
+  position: relative;
+  z-index: 5;
+}
+/* Add drop shadows and smooth out the transition (Safari only) */
+ul.polaroids a {
+  -webkit-transition: -webkit-transform 0.15s linear;
+  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
+}
+/* On hover, darken the shadows a bit */
+ul.polaroids a {
+  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5);
+}
+/* Content */
+#content img {
+  /* set max-width to 100% so ImgSizer can scale them */
+
+  max-width: 100%;
+}
+/* Profile */
+#profile {
+  margin: 1em 1em 1em 1.5em;
+  padding: 0em 0em 0em 0em;
+}
+/* Update Profile */
+#update_profile {
+  margin: 1em 1em 1em 1.5em;
+  padding: 0em 0em 0em 0em;
+}
+/* Update Profile Picture */
+#update_profile_picture {
+  margin: 1em 1em 1em 1.5em;
+  padding: 0em 0em 0em 0em;
+}
+/* Create Resource */
+#create_resource {
+  margin: 1em 1em 1em 1.5em;
+  padding: 0em 0em 0em 0em;
+}
+/* Edit Resource */
+#edit_resource {
+  margin: 1em 1em 1em 1.5em;
+  padding: 0em 0em 0em 0em;
+}
+/* Create Article */
+#create_article {
+  margin: 1em 1em 1em 1.5em;
+  padding: 0em 0em 0em 0em;
+}
+/* Edit Article */
+#edit_article {
+  margin: 1em 1em 1em 1.5em;
+  padding: 0em 0em 0em 0em;
+}
+/* Media */
+#media {
+  margin: 1em 1em 1em 1.5em;
+  padding: 0em 0em 0em 0em;
+}
+/* Sidebar */
+#sidebar {
+  margin: 0em 1em 1em 0em;
+  padding: 0.5em 0.5em 0.5em 0.5em;
+}
+/* Side Content */
+#side_content {
+  /* set max-width to 100% so ImgSizer can scale them */
+
+  max-width: 100%;
+  margin: 1em 1.5em 1em 1em;
+  padding: 1.5em 1em 0.5em 1em;
+}
+/* Social Media in Sidebar */
+#social_media_links_in_sidebar {
+  /* set max-width to 100% so ImgSizer can scale them */
+
+  max-width: 100%;
+  margin: 1em 1.5em 1em 1em;
+  padding: 1.5em 1em 0.5em 1em;
+}
+/* Modal Link */
+#modal_link {
+  margin: 1em 1.5em 1em 1em;
+  padding: 1.5em 1em 0.5em 1em;
+}
+/* Twitter Feed */
+#twitter_feed {
+  margin: 1em 1.5em 1em 1em;
+  padding: 1.5em 1em 0.5em 1em;
+}
+/* Latest Posts */
+#latest_posts {
+  margin: 1em 1.5em 1em 1em;
+  padding: 1.5em 1em 0.5em 1em;
+}
+/* Latest Comments */
+#latest_comments {
+  margin: 1em 1.5em 1em 1em;
+  padding: 1.5em 1em 0.5em 1em;
+}
+/* Tags */
+#tags {
+  margin: 1em 1em 1em 1.5em;
+  padding: 0em 0em 0em 0em;
+}
+/* External links */
+a.external {
+  background: url(../images/external.png) center right no-repeat;
+  padding-right: 13px;
+}
+/* Archives */
+#archives {
+  margin: 1em 1em 1em 1.5em;
+  padding: 0em 0em 0em 0em;
+}
+/* Content of Page */
+.page {
+  margin: 1em 1em 1em 1.5em;
+  padding: 0em 0em 0em 0em;
+}
+.row {
+  max-width: 100%;
+}
+/* Search Results */
+#searchresults {
+  margin: 1em 1em 1em 1.5em;
+  padding: 1.5em 1em 1em 1em;
+}
+/* Multiple Selects */
+.multiselect {
+  width: 20em;
+  height: 15em;
+  border: solid 1px #c0c0c0;
+  overflow: auto;
+}
+.multiselect label {
+  display: block;
+}
+.multiselect-on {
+  color: #ffffff;
+  background-color: #000099;
+}
+/* PageBox01 */
+#pagebox01 {
+  /* set max-width to 100% so ImgSizer can scale them */
+
+  max-width: 100%;
+  margin: 1em 1em 1em 1.5em;
+  padding: 1.5em 1em 0.5em 1em;
+  border-left: thin solid #C0C0C0;
+}
+/* PageBox02 */
+#pagebox02 {
+  /* set max-width to 100% so ImgSizer can scale them */
+
+  max-width: 100%;
+  margin: 1em 1em 1em 1em;
+  padding: 1.5em 1em 0.5em 1em;
+  border-left: thin solid #C0C0C0;
+}
+/* PageBox03 */
+#pagebox03 {
+  /* set max-width to 100% so ImgSizer can scale them */
+
+  max-width: 100%;
+  margin: 1em 1em 1em 1em;
+  padding: 1.5em 1em 0.5em 1em;
+  border-left: thin solid #C0C0C0;
+}
+/* PageBox04 */
+#pagebox04 {
+  /* set max-width to 100% so ImgSizer can scale them */
+
+  max-width: 100%;
+  margin: 1em 1.5em 1em 1em;
+  padding: 1.5em 1em 0.5em 1em;
+  border-left: thin solid #C0C0C0;
+}
+/* Subpages */
+#subpages {
+  /* set max-width to 100% so ImgSizer can scale them */
+
+  max-width: 100%;
+  margin: 1em 1em 1em 1.5em;
+  padding: 0em 0em 0em 0em;
+}
+/* Slider */
+#slider .content {
+  padding: 0.5em 0.5em 0.5em 0.5em;
+}
+#slider,
+div.orbit-wrapper {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* Gallery */
+#gallery {
+  padding: 0.5em;
+}
+.gal-item {
+  float: left;
+  margin: 10px 10px 10px 0px;
+  text-align: center;
+}
+.gal-item a {
+  display: block;
+}
+.gal-item img {
+  border: solid 4px #CCC;
+  width: 227px;
+}
+.gal-item img:hover {
+  border: solid 4px #666;
+}
+/*
+    ColorBox Core Style:
+    The following CSS is consistent between example themes and should not be altered.
+*/
+#colorbox,
+#cboxOverlay,
+#cboxWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  overflow: hidden;
+}
+#cboxOverlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+#cboxMiddleLeft,
+#cboxBottomLeft {
+  clear: left;
+}
+#cboxContent {
+  position: relative;
+}
+#cboxLoadedContent {
+  overflow: auto;
+}
+#cboxTitle {
+  margin: 0;
+}
+#cboxLoadingOverlay,
+#cboxLoadingGraphic {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+#cboxPrevious,
+#cboxNext,
+#cboxClose,
+#cboxSlideshow {
+  cursor: pointer;
+}
+.cboxPhoto {
+  float: left;
+  margin: auto;
+  border: 0;
+  display: block;
+}
+.cboxIframe {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border: 0;
+}
+/* 
+    User Style:
+    Change the following styles to modify the appearance of ColorBox.  They are
+    ordered & tabbed in a way that represents the nesting of the generated HTML.
+*/
+#cboxOverlay {
+  background: #000;
+}
+#cboxContent {
+  margin-top: 20px;
+}
+.cboxIframe {
+  background: #fff;
+}
+#cboxError {
+  padding: 50px;
+  border: 1px solid #ccc;
+}
+#cboxLoadedContent {
+  border: 5px solid #000;
+  background: #fff;
+}
+#cboxTitle {
+  position: absolute;
+  top: -20px;
+  left: 0;
+  color: #ccc;
+}
+#cboxCurrent {
+  position: absolute;
+  top: -20px;
+  right: 0px;
+  color: #ccc;
+}
+#cboxSlideshow {
+  position: absolute;
+  top: -20px;
+  right: 90px;
+  color: #fff;
+}
+#cboxPrevious {
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  margin-top: -32px;
+  background: url(../images/controls.png) no-repeat top left;
+  width: 28px;
+  height: 65px;
+  text-indent: -9999px;
+}
+#cboxPrevious:hover {
+  background-position: bottom left;
+}
+#cboxNext {
+  position: absolute;
+  top: 50%;
+  right: 5px;
+  margin-top: -32px;
+  background: url(../images/controls.png) no-repeat top right;
+  width: 28px;
+  height: 65px;
+  text-indent: -9999px;
+}
+#cboxNext:hover {
+  background-position: bottom right;
+}
+#cboxLoadingOverlay {
+  background: #000;
+}
+#cboxLoadingGraphic {
+  background: url(../images/loading.gif) no-repeat center center;
+}
+#cboxClose {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  display: block;
+  background: url(../images/controls.png) no-repeat top center;
+  width: 38px;
+  height: 19px;
+  text-indent: -9999px;
+}
+#cboxClose:hover {
+  background-position: bottom center;
+}
+/* Contactform*/
+.contactform {
+  width: 560px;
+  margin: 100px auto;
+  padding: 51px 0 0 0;
+  background: url(../images/contactform_lines.png);
+  position: relative;
+  font-family: Helvetica, Sans-Serif;
+  color: #525c73;
+  line-height: 40px;
+  text-transform: uppercase;
+  padding-top: 0px;
+}
+.contactform:before {
+  content: "";
+  width: 19px;
+  height: 365px;
+  position: absolute;
+  left: -19px;
+  top: 0;
+  background: url(../images/contactform_shadow.png);
+}
+.contactform h2 {
+  font-size: 30px;
+  color: rgba(124, 124, 124, 0.3);
+  text-align: center;
+  letter-spacing: 5px;
+  margin: 0 0 44px 0;
+}
+.contactform label {
+  width: 150px;
+  display: block;
+  text-align: right;
+  float: left;
+  font-size: 18px;
+  letter-spacing: 3px;
+  margin: 0 10px 40px 0;
+  clear: left;
+}
+.contactform input {
+  width: 300px;
+  height: 40px;
+  float: left;
+  margin: -14px 0 0 0;
+  background: url(../images/contactform_dots.png);
+  font-family: 'Shadows Into Light', cursive;
+  font-size: 24px;
+  color: #18326d;
+  letter-spacing: 3px;
+  border: none;
+}
+.contactform textarea {
+  width: 300px;
+  height: 200px;
+  float: left;
+  margin: -14px 0 40px 0;
+  background: url(../images/contactform_dots.png);
+  font-family: 'Shadows Into Light', cursive;
+  font-size: 24px;
+  color: #18326d;
+  letter-spacing: 3px;
+  border: none;
+}
+.contactform input#send {
+  width: 202px;
+  height: 84px;
+  float: right;
+  margin: 0 70px 36px 0;
+  padding: 0 0 0 77px;
+  background: url(../images/post-mark.png);
+  font: bold 30px Helvetica, Sans-Serif;
+  text-transform: uppercase;
+  color: #525c73;
+  cursor: pointer;
+}
+.contactform span.error {
+  color: #dc2027;
+}
+/*
+form legend {
+	color: #333;
+	padding: 0 0 20px 0;
+	text-transform: uppercase;
+}
+
+input, textarea, label {
+	padding: 2px 3px 2px 3px;
+	width: 300px;
+}
+input, textarea {
+	margin-bottom: 10px;
+}
+form p { position: relative; margin: 10px 0;}
+form p label { position: absolute; top: 0; left: 0;}
+form p br {display: none;}
+
+
+form fieldset p input,
+form fieldset p textarea {
+	display: block;
+	padding: 4px;
+	width: 400px;
+	margin: 0;
+}
+
+form fieldset p label {
+	width: 380px;
+	display: block;
+	margin: 5px 5px 5px 6px;
+	padding: 0;
+}
+
+form fieldset p textarea {
+	padding: 2px;
+	width: 404px;
+}
+
+form fieldset p textarea,
+form fieldset p input {
+	border: solid 1px #ccc;
+}
+form fieldset p label {
+	color: #777;
+}
+*/
+/* Mobile */
+@media only screen and (max-width: 682px) {
+  .search {
+    float: none;
+    margin: 0 auto 20px;
+    width: 232px;
+  }
+  .gal-item img {
+    width: 150px;
+  }
+  .logo {
+    float: none;
+    margin: 0 auto 5px;
+    width: 320px;
+  }
+}
+#footer {
+  border: 0px solid blue;
+  /*for testing purposes only */
+
+}

@@ -1,0 +1,36 @@
+div.newspublisher{}
+div.newspublisher form{margin:0;padding:20px 0px 10px 0px;}
+textarea#np-content{width:95%;height:300px;}
+textarea#np-introtext{width:95%;height:100px;}
+div.newspublisher img.np-image{margin:0px 0px 0px 20px;height:50px;width:70px;vertical-align:middle;}
+div.newspublisher label{width:10em;text-align:left;margin:12px 5px 3px 0px;padding:0;display:block;font-weight:bold;}
+div.datepicker input{width:10em !important;}
+div.np-date-hints{margin:0;padding:0;}
+span.np-date-hint{margin:1px 0px 3px 0px !important;padding:0px;}
+span.np-time-hint{margin:1px 120px 3px 110px !important;padding:0px;}
+div.newspublisher textarea.textarea{font-family:arial,sans-serif;width:95%;height:10em;display:block;}
+div.newspublisher textarea.textareamini{font-family:arial,sans-serif;width:55%;height:5em;display:block;}
+div.newspublisher span.buttons{display:block;}
+div.newspublisher span.option{display:block;}
+div.newspublisher legend{font-weight:bold;padding:0px 6px 0px 6px;}
+div.newspublisher input{font-family:arial,sans-serif;width:30em;display:inline;}
+div.newspublisher p.error{font-weight:bold;color:red;}
+span.errormessage{color:red;font-weight:bold;display:block;margin:5px 0px 5px 0px;padding:0;}
+span.fielderrormessage{color:red;font-weight:bold;display:block;margin:20px 0px 0px 0px;padding:0;}
+div.newspublisher input.submit{display:inline;margin:30px;padding:0;width:8em;}
+div.newspublisher input.int{width:6em;}
+input#np-id{background-color:#dcdcdc;color:gray;width:4em;}
+div.newspublisher input.cancel{display:inline;margin:30px;padding:0;width:8em;}
+div.newspublisher input.checkbox{width:2em;}
+div.newspublisher input.radio{width:2em;}
+div.newspublisher fieldset{display:block;padding:5px 5px 10px 10px;margin:10px 0px 0px 0px;background-color:white;}
+div.newspublisher fieldset p{margin:0;padding:0;}
+div.newspublisher fieldset select{width:10em;margin:0;padding:0;}
+div.newspublisher fieldset option{margin:0;padding:0;}
+fieldset.np-tv-radio{width:10em;}
+fieldset.np-tv-checkbox{width:10em;}
+fieldset.np-tv-listbox{width:10em;}
+fieldset.np-tv-listbox-multiple{width:10em;}
+fieldset.np-tv-text{width:10em;}
+fieldset.np-tv-textbox{width:10em;}
+fieldset.np-tv-email{width:10em;}

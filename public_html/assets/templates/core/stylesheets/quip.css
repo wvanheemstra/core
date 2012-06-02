@@ -1,0 +1,36 @@
+/* core stylesheet */
+/* comments */
+.quip-comment-createdon {
+  font-size: 10px !important;
+  padding: 0;
+}
+.quip-comment {
+  padding-top: 7px !important;
+}
+/* quip */
+li.quip-comment {
+  margin-top: 5px;
+}
+.quip-comment-body {
+  border: 1px solid #eee;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  box-shadow: 3px 3px 3px #bbb;
+  -webkit-box-shadow: 3px 3px 3px #bbb;
+  -moz-box-shadow: 3px 3px 3px #bbb;
+  padding: 7px !important;
+}
+ol.quip-comment-list li ol {
+  padding-right: 0;
+}
+ol.quip-comment-list {
+  margin-right: 0;
+  padding-right: 0;
+}
+.quip-reply-link {
+  float: none !important;
+}
+ol.quip-comment-list li {
+  margin: 13px 0;
+}

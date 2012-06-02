@@ -16,7 +16,7 @@
  * 1. Paste this as new plugin and connect it to system event
  *    'OnDocFormRender'.
  *
- * 2. Assign a new TV 'ChildDefaultTemplate' to each template,
+ * 2. Assign a new TV 'ChildDefaultTemplateTV' to each template,
  *    for which you want to define the default children template.
  *
  * 3. Set the newly created TV to type List Box and its 'Input Option
@@ -32,7 +32,7 @@
 if ($modx->event->name == OnDocFormRender && $mode == modSystemEvent::MODE_NEW) {
   if ($parentId = $_REQUEST['parent']) {
     if ($parent = $modx->getObject('modResource', $parentId)) {
-      if ($childTemplate = $parent->getTVValue('core.ChildDefaultTemplate')) {
+      if ($childTemplate = $parent->getTVValue('ChildDefaultTemplateTV')) {
         if (isset($modx->controller)) {
           $modx->controller->setProperty('template', $childTemplate);
         } else { // modX < 2.2.0

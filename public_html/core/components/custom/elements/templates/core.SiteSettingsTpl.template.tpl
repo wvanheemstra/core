@@ -1,1 +1,1 @@
-[[$core.SiteSettingsTpl]]
+[[$core.PageTpl]]

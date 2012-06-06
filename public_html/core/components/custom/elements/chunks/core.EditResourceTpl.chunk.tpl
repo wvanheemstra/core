@@ -82,7 +82,7 @@
 		</td>
 		<td>
     <select id="parent" name="parent:required">
-    <option value="[[++lgv.site_start]]" [[!+fi.parent:FormItIsSelected=`[[++custom.site_start]]`]]>START</option>
+    <option value="[[++custom.site_start]]" [[!+fi.parent:FormItIsSelected=`[[++custom.site_start]]`]]>START</option>
 [[!Wayfinder? &startId=`[[++custom.site_start]]` &startIdContext=`[[++custom.context]]`  &rowTpl=`core.EditResourceParentRowTpl` &parentRowTpl=`core.EditResourceParentParentRowTpl` &sortBy=`menutitle` &sortOrder=`ASC` &excludeDocs=`[[++custom.exclude_docs_as_resource_parent]]`]]
     </select>
 		</td>
@@ -154,32 +154,6 @@
 </table>
 </div>
     <!-- NOTE: alias is auto-generated on the server, therefor not supplied here -->
-
-
-
-<div class="panel">
-<table style="width:100%">
-	<tbody>
-		<tr>
-		<td>
-    <label>
-        Colors:[[!+fi.error.colors]]
-        <input type="hidden" name="colors[]" value="" />
-    </label>
-		</td>
-		<td>
-      <label><input type="checkbox" name="colors[]" value="red" [[!+fi.colors:FormItIsChecked=`red`]] /> Red</label>
-      <label><input type="checkbox" name="colors[]" value="blue" [[!+fi.colors:FormItIsChecked=`blue`]] /> Blue</label>
-      <label><input type="checkbox" name="colors[]" value="green" [[!+fi.colors:FormItIsChecked=`green`]] /> Green</label>
-      
-		</td>
-		</tr>
-	</tbody>
-</table>
-</div>
-
-
-
 <div class="panel">
 <table style="width:100%">
 	<tbody>

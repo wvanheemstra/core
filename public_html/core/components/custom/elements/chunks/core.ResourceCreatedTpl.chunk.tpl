@@ -130,22 +130,8 @@
     </td><td>
     <div class="multiselect">
         <input type="hidden" name="VisualLightboxImagesTV[]" value="" />
-[[!VisualLightboxImagesCollection? &path=`assets/templates/lgv/gallery/7/` &ext=`jpg` &tpl=`core.VisualLightboxImagesCheckboxDisabledRowTpl`]]
+[[!VisualLightboxImagesCollection? &path=`assets/templates/[[++custom.domain_abbreviation]]/gallery/3/` &ext=`jpg` &tpl=`core.VisualLightboxImagesCheckboxDisabledRowTpl`]]
     </div>
-    </td>
-  </tr><tr>
-    <td>
-
-    <label>
-        Colors:[[!+fi.error.colors]]
-        <input type="hidden" name="colors[]" value="" />
-    </label>
-    </td>
-    <td>
-      <label><input type="checkbox" name="colors[]" value="red" [[!+fi.colors:FormItIsChecked=`red`]] /> Red</label>
-      <label><input type="checkbox" name="colors[]" value="blue" [[!+fi.colors:FormItIsChecked=`blue`]] /> Blue</label>
-      <label><input type="checkbox" name="colors[]" value="green" [[!+fi.colors:FormItIsChecked=`green`]] /> Green</label>
-
     </td>
   </tr><tr>
     <td>     

@@ -113,48 +113,6 @@
     [[+fi.introtext]]
     </td>
   </tr><tr>
-
-
-    <td>
-    <label for="colors">
-        Colors:
-        <span class="alert-box error">[[+fi.error.colors]]</span>
-    </label>
-    </td><td>
-<hr />
-isChecked
-<label><input type="checkbox" name="colors[]" value="red" [[+fi.colors:FormItIsChecked=`red`]] disabled="disabled" /> Red</label><br />
-<label><input type="checkbox" name="colors[]" value="blue" [[+fi.colors:FormItIsChecked=`blue`]] disabled="disabled" /> Blue</label><br />
-<label><input type="checkbox" name="colors[]" value="green" [[+fi.colors:FormItIsChecked=`green`]] disabled="disabled" /> Green</label>
-
-<hr />
-isSelected
-<select name="colors" multiple="multiple" size="3" disabled="disabled">
-   <option value="red" [[+fi.colors:FormItIsSelected=`red`]] disabled="disabled" >Red</option>
-   <option value="blue" [[+fi.colors:FormItIsSelected=`blue`]] disabled="disabled" >Blue</option>
-   <option value="green" [[+fi.colors:FormItIsSelected=`green`]] disabled="disabled" >Green</option>
-</select>
-
-<hr />
-just the colors[index]:
-[[+fi.colors]]<br/>
-[[+fi.colors[]:required]]<br/>
-[[+fi.colors[0]:required]]<br/>
-[[+fi.colors[1]:required]]<br/>
-[[+fi.colors[2]:required]]<br/>
-
-just the colors.index:
-[[+fi.colors.0:notempty=`[[+fi.colors.0]]`]]<br/>
-[[+fi.colors.1:notempty=`[[+fi.colors.1]]`]]<br/>
-[[+fi.colors.2:notempty=`[[+fi.colors.2]]`]]<br/>
-[[+fi.colors.3:notempty=`[[+fi.colors.3]]`]]<br/>
-[[+fi.colors.4:notempty=`[[+fi.colors.4]]`]]<br/>
-
-
-    </td>
-  </tr><tr>
-
-
     <td>     
     <label for="content">
         Inhoud:

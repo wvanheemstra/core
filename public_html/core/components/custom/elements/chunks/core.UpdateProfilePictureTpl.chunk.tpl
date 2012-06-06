@@ -3,7 +3,7 @@
 <div class="twelve columns centered">
 <h5>Huidig Profiel Plaatje</h5>
 [[!FileDownload?
-  &getDir=`assets/uploads/[[+username]]`
+  &getDir=`assets/templates/[[++custom.domain_abbreviation]]/uploads/[[+username]]`
   &extShown=`gif,GIF,Gif,png,PNG,Png,jpeg,Jpeg,JPeg,JPEG,jpg,JPG`
   &noDownload=`1`
   &browseDirectories=`0`
@@ -27,7 +27,7 @@
   &language=`[[++cultureKey]]`
   &allowoverwrite=`1`
   &createpath=`Yes`
-  &path=`assets/uploads/[[+username]]/`
+  &path=`assets/templates/[[++custom.domain_abbreviation]]/uploads/[[+username]]/`
 ]]
 </div>
 </div>

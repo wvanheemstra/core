@@ -33,10 +33,10 @@
 		&preHooks=`resource2formit`
 		&redirectTo=`[[++custom.resource_created]]`
 		&store=`1`
-		&validate=`colors:required,content:allowTags:escape,SideContentTV:allowTags:escape,PageBox01TV:allowTags:escape,PageBox02TV:allowTags:escape,PageBox03TV:allowTags:escape,PageBox04TV:allowTags:escape`
+		&validate=`content:allowTags:escape,SideContentTV:allowTags:escape,PageBox01TV:allowTags:escape,PageBox02TV:allowTags:escape,PageBox03TV:allowTags:escape,PageBox04TV:allowTags:escape`
 		&template=`[[++custom.page_template]]`
 		&clearFieldsOnSuccess=`1`
-		&resource2formitfields=`BreadCrumbTV,parent,page title,menutitle,longtitle,description,introtext,VisualLightboxTV,VisualLightboxImagesTV,colors,content,SideBarTV,SideContentTV,TwitterFeedTV,LatestPostsTV,LatestCommentsTV,NumberOfPageBoxesTV,PageBox01TV,PageBox02TV,PageBox03TV,PageBox04TV,SubpagesTV,published,isfolder`   
+		&resource2formitfields=`BreadCrumbTV,parent,page title,menutitle,longtitle,description,introtext,VisualLightboxTV,VisualLightboxImagesTV,content,SideBarTV,SideContentTV,TwitterFeedTV,LatestPostsTV,LatestCommentsTV,NumberOfPageBoxesTV,PageBox01TV,PageBox02TV,PageBox03TV,PageBox04TV,SubpagesTV,published,isfolder`   
 		&successMessage=`[[%custom.label_resource_created? namespace=`custom`]].<br/>[[%custom.label_confirmation_emailed_to? &namespace=`custom`]]&nbsp;[[+email]]`
 		&successMessagePlaceholder=`fi.successMessage`
 		&emailSubject=`[[++site_name]] | [[%custom.label_resource_created? namespace=`custom`]]: [[+pagetitle]]`
@@ -183,23 +183,8 @@
 		<td>
     <div class="multiselect">
         <input type="hidden" name="VisualLightboxImagesTV[]" value="" />
-[[!VisualLightboxImagesCollection? &path=`assets/templates/lgv/gallery/7/` &ext=`jpg` &tpl=`core.VisualLightboxImagesCheckboxRowTpl`]]
+[[!VisualLightboxImagesCollection? &path=`assets/templates/[[++custom.domain_abbreviation]]/gallery/3/` &ext=`jpg` &tpl=`core.VisualLightboxImagesCheckboxRowTpl`]]
     </div>
-
-		</td>
-		</tr><tr>
-		<td>
-
-    <label>
-        Colors:[[!+fi.error.colors]]
-        <input type="hidden" name="colors[]" value="" />
-    </label>
-		</td>
-		<td>
-      <label><input type="checkbox" name="colors[]" value="red" [[!+fi.colors:FormItIsChecked=`red`]] /> Red</label>
-      <label><input type="checkbox" name="colors[]" value="blue" [[!+fi.colors:FormItIsChecked=`blue`]] /> Blue</label>
-      <label><input type="checkbox" name="colors[]" value="green" [[!+fi.colors:FormItIsChecked=`green`]] /> Green</label>
-      
 		</td>
 		</tr>
 	</tbody>

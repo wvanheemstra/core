@@ -77,7 +77,7 @@
         <span class="tags left">&nbsp;| Tags: [[+article_tags]]</span>
 `]]
         [[+comments_enabled:is=`1`:then=`&nbsp;| <a href="[[~[[*id]]]]#comments" class="comments">Reacties ([[+comments_count]])</a>`]]
-    </p>
+    </p><br/>
     <div class="entry">
         <p>[[*introtext]]</p>
         <hr />

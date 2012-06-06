@@ -1,8 +1,8 @@
 [[!Profile]]
 <div class="three columns">
 [[!FileDownload?
-  &getDir=`assets/uploads/[[+username]]`
-  &extShown=`gif,png,jpeg,jpg`
+  &getDir=`assets/templates/[[++custom.domain_abbreviation]]/uploads/[[+username]]`
+  &extShown=`gif,GIF,Gif,png,PNG,Png,jpeg,Jpeg,JPeg,JPEG,jpg,JPG`
   &noDownload=`1`
   &browseDirectories=`0`
   &tplDir=`tpl-dir`

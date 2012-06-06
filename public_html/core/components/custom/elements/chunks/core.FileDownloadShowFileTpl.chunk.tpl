@@ -1,7 +1,7 @@
 [[!Profile]]
 <tr[[+fd.class]]>
   <td>
-    <img src="assets/uploads/[[+username]]/[[+fd.filename]]">
+    <img src="assets/templates/[[++custom.domain_abbreviation]]/uploads/[[+username]]/[[+fd.filename]]">
   </td>
 </tr>
   [[-- This is the description row if the &chkDesc=`chunkName` is provided --]]

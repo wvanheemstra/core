@@ -203,7 +203,7 @@
         Inhoud van de zijbalk:
         <span class="alert-box error">[[!+fi.error.SideContentTV]]</span>
     </label><br />
-    <textarea id="SideContentTV" cols="80" rows="14" name="SideContentTV">[[!+fi.SideContentTV]]</textarea>
+    <textarea id="SideContentTV" cols="80" rows="14" name="SideContentTV">[[!+fi.SideContentTV:allowTags]]</textarea>
 		</td>
 		</tr><tr>
 		<td>

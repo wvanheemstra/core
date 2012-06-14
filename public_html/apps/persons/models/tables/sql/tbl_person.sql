@@ -9,7 +9,7 @@
  Target Server Version : 50509
  File Encoding         : utf-8
 
- Date: 06/14/2012 13:34:23 PM
+ Date: 06/14/2012 13:59:10 PM
 */
 
 SET NAMES utf8;
@@ -34,12 +34,5 @@ CREATE TABLE `tbl_person` (
   `_kf_SkillID` float DEFAULT NULL,
   PRIMARY KEY (`__kp_PersonID`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
--- ----------------------------
---  Records of `tbl_person`
--- ----------------------------
-BEGIN;
-INSERT INTO `tbl_person` VALUES ('25', '1', '1', 'Willem', 'van Heemstra', '26', '6', '1', '4', null, '196', '1'), ('26', '1', '1', 'Gijs', 'van Heemstra', null, null, '2', '4', 'Brother', null, null), ('27', '2', '2', 'Valerie', 'Reynolds', '27', null, '3', null, null, '194', null), ('28', '1', '1', 'Peter', 'Jones', '171', '10', '1', '6', null, '195', '2'), ('29', '1', null, 'fdfd', 'Nielsen', '75', '11', '1', '7', null, null, null), ('30', null, null, 'fdsf', 'hfghfghf', null, null, '2', '7', 'fdsfds', null, null);
-COMMIT;
 
 SET FOREIGN_KEY_CHECKS = 1;

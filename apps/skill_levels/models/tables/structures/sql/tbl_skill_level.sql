@@ -9,7 +9,7 @@
  Target Server Version : 50509
  File Encoding         : utf-8
 
- Date: 06/14/2012 14:56:58 PM
+ Date: 06/15/2012 11:13:06 AM
 */
 
 SET NAMES utf8;
@@ -20,10 +20,11 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP TABLE IF EXISTS `tbl_skill_level`;
 CREATE TABLE `tbl_skill_level` (
-  `__kp_SkillLevelID` float NOT NULL,
-  `SkillLevelName` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `_kf_LanguageID` float DEFAULT NULL,
-  PRIMARY KEY (`__kp_SkillLevelID`)
+  `__kp_SkillLevelID` int(11) NOT NULL AUTO_INCREMENT,
+  `SkillLevelName` varchar(255) COLLATE utf8_bin NOT NULL,
+  `_kf_LanguageID` int(11) NOT NULL,
+  PRIMARY KEY (`__kp_SkillLevelID`),
+  KEY `_kf_LanguageID` (`_kf_LanguageID`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 SET FOREIGN_KEY_CHECKS = 1;

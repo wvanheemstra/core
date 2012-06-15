@@ -9,7 +9,7 @@
  Target Server Version : 50509
  File Encoding         : utf-8
 
- Date: 06/14/2012 14:54:20 PM
+ Date: 06/15/2012 10:56:31 AM
 */
 
 SET NAMES utf8;
@@ -20,11 +20,11 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP TABLE IF EXISTS `tbl_registry`;
 CREATE TABLE `tbl_registry` (
-  `__kp_RegistryID` float NOT NULL,
-  `gKindOfPersonID_self` float DEFAULT NULL,
-  `gKindOfPersonID_emergency` float DEFAULT NULL,
-  `gPersonID_registrar` float DEFAULT NULL,
-  `gKindOfPersonID_registrar` float DEFAULT NULL,
+  `__kp_RegistryID` int(11) NOT NULL AUTO_INCREMENT,
+  `gKindOfPersonID_self` int(11) NOT NULL,
+  `gKindOfPersonID_emergency` int(11) NOT NULL,
+  `gPersonID_registrar` int(11) NOT NULL,
+  `gKindOfPersonID_registrar` int(11) NOT NULL,
   PRIMARY KEY (`__kp_RegistryID`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 

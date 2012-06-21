@@ -9,7 +9,7 @@
  Target Server Version : 50509
  File Encoding         : utf-8
 
- Date: 06/14/2012 23:29:34 PM
+ Date: 06/21/2012 18:05:47 PM
 */
 
 SET NAMES utf8;
@@ -20,12 +20,12 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP TABLE IF EXISTS `tbl_photo`;
 CREATE TABLE `tbl_photo` (
-  `__kp_PhotoID` int(11) NOT NULL AUTO_INCREMENT,
-  `_kf_MultimediaID` int(11) NOT NULL,
+  `kp_PhotoID` int(11) NOT NULL AUTO_INCREMENT,
+  `kf_MultimediaID` int(11) NOT NULL,
   `PhotoFile` blob NOT NULL,
-  PRIMARY KEY (`__kp_PhotoID`),
-  UNIQUE KEY `__kp_PhotoID` (`__kp_PhotoID`),
-  KEY `_kf_MultimediaID` (`_kf_MultimediaID`)
+  PRIMARY KEY (`kp_PhotoID`),
+  UNIQUE KEY `kp_PhotoID` (`kp_PhotoID`) USING BTREE,
+  KEY `kf_MultimediaID` (`kf_MultimediaID`) USING BTREE
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 SET FOREIGN_KEY_CHECKS = 1;

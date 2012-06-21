@@ -9,7 +9,7 @@
  Target Server Version : 50509
  File Encoding         : utf-8
 
- Date: 06/14/2012 22:39:37 PM
+ Date: 06/21/2012 17:54:32 PM
 */
 
 SET NAMES utf8;
@@ -20,19 +20,19 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP TABLE IF EXISTS `tbl_lodging`;
 CREATE TABLE `tbl_lodging` (
-  `__kp_LodgingID` int(11) NOT NULL AUTO_INCREMENT,
-  `_kf_PersonID` int(11) NOT NULL,
-  `_kf_AccommodationID` int(11) NOT NULL,
-  `_kf_RoleID` int(11) NOT NULL,
-  `_kf_ContactID` int(11) NOT NULL,
-  `_kf_MultimediaID` int(11) NOT NULL,
-  PRIMARY KEY (`__kp_LodgingID`),
-  UNIQUE KEY `__kp_LodgingID` (`__kp_LodgingID`),
-  KEY `_kf_PersonID` (`_kf_PersonID`),
-  KEY `_kf_AccommodationID` (`_kf_AccommodationID`),
-  KEY `_kf_RoleID` (`_kf_RoleID`),
-  KEY `_kf_ContactID` (`_kf_ContactID`),
-  KEY `_kf_MultimediaID` (`_kf_MultimediaID`)
+  `kp_LodgingID` int(11) NOT NULL AUTO_INCREMENT,
+  `kf_PersonID` int(11) NOT NULL,
+  `kf_AccommodationID` int(11) NOT NULL,
+  `kf_RoleID` int(11) NOT NULL,
+  `kf_ContactID` int(11) NOT NULL,
+  `kf_MultimediaID` int(11) NOT NULL,
+  PRIMARY KEY (`kp_LodgingID`),
+  UNIQUE KEY `kp_LodgingID` (`kp_LodgingID`) USING BTREE,
+  KEY `kf_PersonID` (`kf_PersonID`) USING BTREE,
+  KEY `kf_AccommodationID` (`kf_AccommodationID`) USING BTREE,
+  KEY `kf_RoleID` (`kf_RoleID`) USING BTREE,
+  KEY `kf_ContactID` (`kf_ContactID`) USING BTREE,
+  KEY `kf_MultimediaID` (`kf_MultimediaID`) USING BTREE
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 SET FOREIGN_KEY_CHECKS = 1;

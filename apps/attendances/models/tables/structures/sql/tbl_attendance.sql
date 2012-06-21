@@ -9,7 +9,7 @@
  Target Server Version : 50509
  File Encoding         : utf-8
 
- Date: 06/14/2012 21:41:49 PM
+ Date: 06/21/2012 17:30:41 PM
 */
 
 SET NAMES utf8;
@@ -20,23 +20,23 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP TABLE IF EXISTS `tbl_attendance`;
 CREATE TABLE `tbl_attendance` (
-  `__kp_AttendanceID` int(11) NOT NULL AUTO_INCREMENT,
-  `_kf_PersonID` int(11) NOT NULL,
-  `_kf_EventID` int(11) NOT NULL,
-  `_kf_RoleID` int(11) NOT NULL,
-  `_kf_ContactID` int(11) NOT NULL,
-  `_kf_MultimediaID` int(11) NOT NULL,
-  `_kf_TransportationID` int(11) NOT NULL,
+  `kp_AttendanceID` int(11) NOT NULL AUTO_INCREMENT,
+  `kf_PersonID` int(11) NOT NULL,
+  `kf_EventID` int(11) NOT NULL,
+  `kf_RoleID` int(11) NOT NULL,
+  `kf_ContactID` int(11) NOT NULL,
+  `kf_MultimediaID` int(11) NOT NULL,
+  `kf_TransportationID` int(11) NOT NULL,
   `gKindOfEventID_stay` int(11) NOT NULL,
   `gKindOfEventID_study` int(11) NOT NULL,
-  PRIMARY KEY (`__kp_AttendanceID`),
-  UNIQUE KEY `__kp_AttendanceID` (`__kp_AttendanceID`),
-  KEY `_kf_PersonID` (`_kf_PersonID`),
-  KEY `_kf_EventID` (`_kf_EventID`),
-  KEY `_kf_RoleID` (`_kf_RoleID`),
-  KEY `_kf_ContactID` (`_kf_ContactID`),
-  KEY `_kf_MultimediaID` (`_kf_MultimediaID`),
-  KEY `_kf_TransportationID` (`_kf_TransportationID`)
+  PRIMARY KEY (`kp_AttendanceID`),
+  UNIQUE KEY `kp_AttendanceID` (`kp_AttendanceID`) USING BTREE,
+  KEY `kf_PersonID` (`kf_PersonID`) USING BTREE,
+  KEY `kf_EventID` (`kf_EventID`) USING BTREE,
+  KEY `kf_RoleID` (`kf_RoleID`) USING BTREE,
+  KEY `kf_ContactID` (`kf_ContactID`) USING BTREE,
+  KEY `kf_MultimediaID` (`kf_MultimediaID`) USING BTREE,
+  KEY `kf_TransportationID` (`kf_TransportationID`) USING BTREE
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 SET FOREIGN_KEY_CHECKS = 1;

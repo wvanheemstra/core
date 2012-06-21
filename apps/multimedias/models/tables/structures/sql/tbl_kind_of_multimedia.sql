@@ -9,7 +9,7 @@
  Target Server Version : 50509
  File Encoding         : utf-8
 
- Date: 06/14/2012 22:16:53 PM
+ Date: 06/21/2012 17:45:59 PM
 */
 
 SET NAMES utf8;
@@ -20,10 +20,10 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP TABLE IF EXISTS `tbl_kind_of_multimedia`;
 CREATE TABLE `tbl_kind_of_multimedia` (
-  `__kp_KindOfMultimediaID` int(11) NOT NULL AUTO_INCREMENT,
+  `kp_KindOfMultimediaID` int(11) NOT NULL AUTO_INCREMENT,
   `KindOfMultimediaName` varchar(255) COLLATE utf8_bin NOT NULL,
-  PRIMARY KEY (`__kp_KindOfMultimediaID`),
-  UNIQUE KEY `__kp_KindOfMultimediaID` (`__kp_KindOfMultimediaID`)
+  PRIMARY KEY (`kp_KindOfMultimediaID`),
+  UNIQUE KEY `kp_KindOfMultimediaID` (`kp_KindOfMultimediaID`) USING BTREE
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 SET FOREIGN_KEY_CHECKS = 1;

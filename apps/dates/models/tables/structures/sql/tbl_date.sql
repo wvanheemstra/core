@@ -9,7 +9,7 @@
  Target Server Version : 50509
  File Encoding         : utf-8
 
- Date: 06/14/2012 21:46:29 PM
+ Date: 06/21/2012 17:34:08 PM
 */
 
 SET NAMES utf8;
@@ -20,12 +20,12 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP TABLE IF EXISTS `tbl_date`;
 CREATE TABLE `tbl_date` (
-  `__kp_DateID` int(11) NOT NULL AUTO_INCREMENT,
+  `kp_DateID` int(11) NOT NULL AUTO_INCREMENT,
   `DateStart` date NOT NULL,
   `DateFinish` date NOT NULL,
   `DurationInWeeks` float NOT NULL,
-  PRIMARY KEY (`__kp_DateID`),
-  UNIQUE KEY `__kp_DateID` (`__kp_DateID`),
+  PRIMARY KEY (`kp_DateID`),
+  UNIQUE KEY `kp_DateID` (`kp_DateID`) USING BTREE,
   KEY `DateStart` (`DateStart`),
   KEY `DateFinish` (`DateFinish`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;

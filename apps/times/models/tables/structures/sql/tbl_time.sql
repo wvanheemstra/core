@@ -9,7 +9,7 @@
  Target Server Version : 50509
  File Encoding         : utf-8
 
- Date: 06/15/2012 11:18:43 AM
+ Date: 06/21/2012 18:15:55 PM
 */
 
 SET NAMES utf8;
@@ -20,10 +20,10 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP TABLE IF EXISTS `tbl_time`;
 CREATE TABLE `tbl_time` (
-  `__kp_TimeID` int(11) NOT NULL AUTO_INCREMENT,
+  `kp_TimeID` int(11) NOT NULL AUTO_INCREMENT,
   `TimeStart` time NOT NULL,
   `TimeFinish` time NOT NULL,
-  PRIMARY KEY (`__kp_TimeID`)
+  PRIMARY KEY (`kp_TimeID`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 SET FOREIGN_KEY_CHECKS = 1;

@@ -17,7 +17,11 @@ SET FOREIGN_KEY_CHECKS = 0;
 --  View structure for `contact`
 -- ----------------------------
 DROP VIEW IF EXISTS `contact`;
-CREATE VIEW `person` AS
-  SELECT * FROM `tbl_contact`;
+CREATE VIEW `contact` AS 
+  SELECT `kp_ContactID`, 
+	`kf_KindOfContactID`, 
+	`ContactValue`, 
+	`kf_MembershipID`
+FROM tbl_contact;
 
 SET FOREIGN_KEY_CHECKS = 1;

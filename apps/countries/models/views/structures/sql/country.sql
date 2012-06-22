@@ -17,7 +17,10 @@ SET FOREIGN_KEY_CHECKS = 0;
 --  View structure for `country`
 -- ----------------------------
 DROP VIEW IF EXISTS `country`;
-CREATE VIEW `person` AS
-  SELECT * FROM `tbl_country`;
+CREATE VIEW `country` AS 
+  SELECT `kp_CountryID`, 
+	`CountryCode`, 
+	`CountryName`
+FROM tbl_country;
 
 SET FOREIGN_KEY_CHECKS = 1;

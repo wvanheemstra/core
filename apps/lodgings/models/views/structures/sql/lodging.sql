@@ -17,7 +17,13 @@ SET FOREIGN_KEY_CHECKS = 0;
 --  View structure for `lodging`
 -- ----------------------------
 DROP VIEW IF EXISTS `lodging`;
-CREATE VIEW `person` AS
-  SELECT * FROM `tbl_lodging`;
+CREATE VIEW `lodging` AS 
+  SELECT `kp_LodgingID`,
+	`kf_PersonID`,
+	`kf_AccommodationID`,
+	`kf_RoleID`,
+	`kf_ContactID`,
+	`kf_MultimediaID`
+FROM tbl_lodging;
 
 SET FOREIGN_KEY_CHECKS = 1;

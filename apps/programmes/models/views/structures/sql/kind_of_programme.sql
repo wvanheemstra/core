@@ -14,13 +14,12 @@ SET NAMES utf8;
 SET FOREIGN_KEY_CHECKS = 0;
 
 -- ----------------------------
---  View structure for `time`
+--  View structure for `kind_of_programme`
 -- ----------------------------
-DROP VIEW IF EXISTS `time`;
-CREATE VIEW `time` AS 
-  SELECT `kp_TimeID`,
-    `TimeStart`,
-    `TimeFinish`
-FROM tbl_time;
+DROP VIEW IF EXISTS `kind_of_programme`;
+CREATE VIEW `kind_of_programme` AS 
+  SELECT `kp_KindOfProgrammeID`, 
+	`KindOfProgrammeName`
+FROM tbl_kind_of_programme;
 
 SET FOREIGN_KEY_CHECKS = 1;

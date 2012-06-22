@@ -17,7 +17,16 @@ SET FOREIGN_KEY_CHECKS = 0;
 --  View structure for `membership`
 -- ----------------------------
 DROP VIEW IF EXISTS `membership`;
-CREATE VIEW `person` AS
-  SELECT * FROM `tbl_membership`;
+CREATE VIEW `membership` AS 
+  SELECT `kp_MembershipID`,
+	`kf_PersonID`,
+	`kf_OrganisationID`,
+	`kf_MultimediaID`,
+	`gKindOfContactID_telephone`,
+	`gkindOfContactID_fax`,
+	`gKindOfContactID_email`,
+	`gKindOfContactID_mobile`,
+	`gKindOfRoleID_occupation`
+FROM tbl_membership;
 
 SET FOREIGN_KEY_CHECKS = 1;

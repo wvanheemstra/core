@@ -17,7 +17,11 @@ SET FOREIGN_KEY_CHECKS = 0;
 --  View structure for `transportation`
 -- ----------------------------
 DROP VIEW IF EXISTS `transportation`;
-CREATE VIEW `person` AS
-  SELECT * FROM `tbl_transportation`;
+CREATE VIEW `transportation` AS 
+  SELECT `kp_TransportationID`,
+    `TransportationName`,
+    `kf_LanguageID`,
+    `kf_KindOfTransportationID`
+FROM tbl_transportation;
 
 SET FOREIGN_KEY_CHECKS = 1;

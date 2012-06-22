@@ -17,7 +17,9 @@ SET FOREIGN_KEY_CHECKS = 0;
 --  View structure for `party`
 -- ----------------------------
 DROP VIEW IF EXISTS `party`;
-CREATE VIEW `party` AS
-  SELECT * FROM `tbl_party`;
+CREATE VIEW `party` AS 
+  SELECT `kp_PartyID`,
+    `kf_KindOfPartyID`
+FROM tbl_party;
 
 SET FOREIGN_KEY_CHECKS = 1;

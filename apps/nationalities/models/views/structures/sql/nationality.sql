@@ -17,7 +17,10 @@ SET FOREIGN_KEY_CHECKS = 0;
 --  View structure for `nationality`
 -- ----------------------------
 DROP VIEW IF EXISTS `nationality`;
-CREATE VIEW `person` AS
-  SELECT * FROM `tbl_nationality`;
+CREATE VIEW `nationality` AS 
+  SELECT `kp_NationalityID`,
+    `NationalityName`,
+	`kf_LanguageID`
+FROM tbl_nationality;
 
 SET FOREIGN_KEY_CHECKS = 1;

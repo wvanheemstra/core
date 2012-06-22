@@ -14,13 +14,12 @@ SET NAMES utf8;
 SET FOREIGN_KEY_CHECKS = 0;
 
 -- ----------------------------
---  View structure for `time`
+--  View structure for `kind_of_multimedia`
 -- ----------------------------
-DROP VIEW IF EXISTS `time`;
-CREATE VIEW `time` AS 
-  SELECT `kp_TimeID`,
-    `TimeStart`,
-    `TimeFinish`
-FROM tbl_time;
+DROP VIEW IF EXISTS `kind_of_multimedia`;
+CREATE VIEW `kind_of_multimedia` AS 
+  SELECT `kp_KindOfMultimediaID`, 
+	`KindOfMultimediaName`
+FROM tbl_kind_of_multimedia;
 
 SET FOREIGN_KEY_CHECKS = 1;

@@ -17,7 +17,13 @@ SET FOREIGN_KEY_CHECKS = 0;
 --  View structure for `management`
 -- ----------------------------
 DROP VIEW IF EXISTS `management`;
-CREATE VIEW `person` AS
-  SELECT * FROM `tbl_management`;
+CREATE VIEW `management` AS 
+  SELECT `kp_ManagementID`,
+	`kf_EventID`,
+	`kf_OrganisationID`,
+	`kf_RoleID`,
+	`kf_ContactID`,
+	`kf_MultimediaID`
+FROM tbl_management;
 
 SET FOREIGN_KEY_CHECKS = 1;

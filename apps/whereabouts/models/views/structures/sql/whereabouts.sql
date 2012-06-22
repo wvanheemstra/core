@@ -14,10 +14,14 @@ SET NAMES utf8;
 SET FOREIGN_KEY_CHECKS = 0;
 
 -- ----------------------------
---  View structure for `transportation`
+--  View structure for `whereabouts`
 -- ----------------------------
-DROP VIEW IF EXISTS `transportation`;
-CREATE VIEW `person` AS
-  SELECT * FROM `tbl_transportation`;
+DROP VIEW IF EXISTS `whereabouts`;
+CREATE VIEW `whereabouts` AS 
+  SELECT `kp_WhereaboutsID`,
+    `kf_TimeID`,
+    `kf_LocationID`,
+    `kf_DateID`
+FROM tbl_whereabouts;
 
 SET FOREIGN_KEY_CHECKS = 1;

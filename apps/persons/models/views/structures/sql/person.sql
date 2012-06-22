@@ -17,7 +17,20 @@ SET FOREIGN_KEY_CHECKS = 0;
 --  View structure for `person`
 -- ----------------------------
 DROP VIEW IF EXISTS `person`;
-CREATE VIEW `person` AS
-  SELECT * FROM `tbl_person`;
+CREATE VIEW `person` AS 
+  SELECT `kp_PersonID`,
+    `kf_SalutationID`,
+    `kf_GenderID`,
+    `PersonFirstName`,
+    `PersonLastName`,
+    `kf_NationalityID`,
+    `kf_DateID`,
+    `kf_KindOfPersonID`,
+    `kf_RegistryID`,
+    `RelationshipWithSelf`,
+    `kf_RequirementID`,
+    `kf_SkillID`,
+    `kf_PartyID`
+FROM tbl_person;
 
 SET FOREIGN_KEY_CHECKS = 1;

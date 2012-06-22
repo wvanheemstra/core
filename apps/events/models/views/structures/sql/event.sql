@@ -17,7 +17,11 @@ SET FOREIGN_KEY_CHECKS = 0;
 --  View structure for `event`
 -- ----------------------------
 DROP VIEW IF EXISTS `event`;
-CREATE VIEW `person` AS
-  SELECT * FROM `tbl_event`;
+CREATE VIEW `event` AS 
+  SELECT `kp_EventID`, 
+	`EventName`, 
+	`kf_WhereaboutsID`,
+	`kf_KindOfEventID`
+FROM tbl_event;
 
 SET FOREIGN_KEY_CHECKS = 1;

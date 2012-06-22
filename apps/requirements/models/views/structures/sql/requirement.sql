@@ -17,7 +17,10 @@ SET FOREIGN_KEY_CHECKS = 0;
 --  View structure for `requirement`
 -- ----------------------------
 DROP VIEW IF EXISTS `requirement`;
-CREATE VIEW `person` AS
-  SELECT * FROM `tbl_requirement`;
+CREATE VIEW `requirement` AS 
+  SELECT `kp_RequirementID`,
+    `RequirementName`,
+    `kf_LanguageID`
+FROM tbl_requirement;
 
 SET FOREIGN_KEY_CHECKS = 1;

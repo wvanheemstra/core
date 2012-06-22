@@ -17,7 +17,14 @@ SET FOREIGN_KEY_CHECKS = 0;
 --  View structure for `location`
 -- ----------------------------
 DROP VIEW IF EXISTS `location`;
-CREATE VIEW `person` AS
-  SELECT * FROM `tbl_location`;
+CREATE VIEW `location` AS 
+  SELECT `kp_LocationID`,
+	`LocationAddress`,
+	`LocationPlace`,
+	`LocationPostalCode`,
+	`LocationRegion`,
+	`kf_CountryID`,
+	`kf_KindOfLocationID`
+FROM tbl_location;
 
 SET FOREIGN_KEY_CHECKS = 1;

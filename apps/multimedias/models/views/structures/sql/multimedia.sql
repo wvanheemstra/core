@@ -17,7 +17,9 @@ SET FOREIGN_KEY_CHECKS = 0;
 --  View structure for `multimedia`
 -- ----------------------------
 DROP VIEW IF EXISTS `multimedia`;
-CREATE VIEW `person` AS
-  SELECT * FROM `tbl_multimedia`;
+CREATE VIEW `multimedia` AS 
+  SELECT `kp_MultimediaID`,
+	`kf_KindOfMultimediaID`
+FROM tbl_multimedia;
 
 SET FOREIGN_KEY_CHECKS = 1;

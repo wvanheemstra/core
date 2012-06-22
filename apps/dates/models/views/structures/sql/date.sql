@@ -17,7 +17,11 @@ SET FOREIGN_KEY_CHECKS = 0;
 --  View structure for `date`
 -- ----------------------------
 DROP VIEW IF EXISTS `date`;
-CREATE VIEW `person` AS
-  SELECT * FROM `tbl_date`;
+CREATE VIEW `date` AS 
+  SELECT `kp_DateID`, 
+	`DateStart`, 
+	`DateFinish`,
+	`DurationInWeeks`
+FROM tbl_date;
 
 SET FOREIGN_KEY_CHECKS = 1;

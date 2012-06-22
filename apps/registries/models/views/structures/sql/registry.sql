@@ -17,7 +17,12 @@ SET FOREIGN_KEY_CHECKS = 0;
 --  View structure for `registry`
 -- ----------------------------
 DROP VIEW IF EXISTS `registry`;
-CREATE VIEW `registry` AS
-  SELECT * FROM `tbl_registry`;
+CREATE VIEW `registry` AS 
+  SELECT `kp_RegistryID`,
+    `gKindOfPersonID_self`,
+    `gKindOfPersonID_emergency`,
+    `gPersonID_registrar`,
+    `gKindOfPersonID_registrar`
+FROM tbl_registry;
 
 SET FOREIGN_KEY_CHECKS = 1;

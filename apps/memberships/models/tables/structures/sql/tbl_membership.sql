@@ -9,7 +9,7 @@
  Target Server Version : 50509
  File Encoding         : utf-8
 
- Date: 06/21/2012 17:58:06 PM
+ Date: 06/22/2012 17:53:47 PM
 */
 
 SET NAMES utf8;
@@ -24,11 +24,11 @@ CREATE TABLE `tbl_membership` (
   `kf_PersonID` int(11) NOT NULL,
   `kf_OrganisationID` int(11) NOT NULL,
   `kf_MultimediaID` int(11) NOT NULL,
-  `gKindOfContactID_Telephone` int(11) NOT NULL,
-  `gKindOfContactID_Fax` int(11) NOT NULL,
-  `gKindOfContactID_Email` int(11) NOT NULL,
-  `gKindOfContactID_Mobile` int(11) NOT NULL,
-  `gKindOfRoleID_Occupation` int(11) NOT NULL,
+  `gKindOfContactID_telephone` int(11) NOT NULL,
+  `gKindOfContactID_fax` int(11) NOT NULL,
+  `gKindOfContactID_email` int(11) NOT NULL,
+  `gKindOfContactID_mobile` int(11) NOT NULL,
+  `gKindOfRoleID_occupation` int(11) NOT NULL,
   PRIMARY KEY (`kp_MembershipID`),
   UNIQUE KEY `kp_MembershipID` (`kp_MembershipID`) USING BTREE,
   KEY `kf_PersonID` (`kf_PersonID`) USING BTREE,

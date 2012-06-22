@@ -14,13 +14,12 @@ SET NAMES utf8;
 SET FOREIGN_KEY_CHECKS = 0;
 
 -- ----------------------------
---  View structure for `time`
+--  View structure for `kind_of_contact`
 -- ----------------------------
-DROP VIEW IF EXISTS `time`;
-CREATE VIEW `time` AS 
-  SELECT `kp_TimeID`,
-    `TimeStart`,
-    `TimeFinish`
-FROM tbl_time;
+DROP VIEW IF EXISTS `kind_of_contact`;
+CREATE VIEW `kind_of_contact` AS 
+  SELECT `kp_KindOfContactID`, 
+	`KindOfContactName`
+FROM tbl_kind_of_contact;
 
 SET FOREIGN_KEY_CHECKS = 1;

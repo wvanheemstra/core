@@ -9,7 +9,7 @@
  Target Server Version : 50509
  File Encoding         : utf-8
 
- Date: 06/22/2012 23:34:19 PM
+ Date: 06/23/2012 00:06:51 AM
 */
 
 SET NAMES utf8;
@@ -46,12 +46,19 @@ CREATE TABLE `tbl_person` (
   KEY `kf_RequirementID` (`kf_RequirementID`) USING BTREE,
   KEY `kf_SkillID` (`kf_SkillID`) USING BTREE,
   KEY `kf_PartyID` (`kf_PartyID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 delimiter ;;
 CREATE TRIGGER `ts_Created` BEFORE INSERT ON `tbl_person` FOR EACH ROW BEGIN
-	SET NEW.ts_Created = `CURRENT_TIMESTAMP`();
+	SET NEW.ts_Created = CURRENT_TIMESTAMP();
 END;
  ;;
 delimiter ;
+
+-- ----------------------------
+--  Records of `tbl_person`
+-- ----------------------------
+BEGIN;
+INSERT INTO `tbl_person` VALUES ('1', '0', '0', 'John', 'Mayor', '0', '0', '0', '0', '', '0', '0', '0', '2012-06-23 00:05:14', '2012-06-23 00:05:35');
+COMMIT;
 
 SET FOREIGN_KEY_CHECKS = 1;

@@ -88,3 +88,5 @@ mysql --host=127.0.0.1 --port=3306 --user=root --database=core < "c:\sql\core\vi
 REM Data: These will replace current data in the tables with new data as stored in these files
 REM Only to be used with empty tables and/or lookup tables e.g. countries.
 REM Be aware that keys will be assigned to the next increment (hence ids may change value!)
+
+mysql --host=127.0.0.1 --port=3306 --user=root --database=core < "c:\sql\core\tables\data\tbl_country_data.sql"

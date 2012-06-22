@@ -9,7 +9,7 @@
  Target Server Version : 50509
  File Encoding         : utf-8
 
- Date: 06/21/2012 18:04:03 PM
+ Date: 06/22/2012 13:27:29 PM
 */
 
 SET NAMES utf8;
@@ -32,6 +32,7 @@ CREATE TABLE `tbl_person` (
   `RelationshipWithSelf` varchar(255) COLLATE utf8_bin NOT NULL,
   `kf_RequirementID` int(11) NOT NULL,
   `kf_SkillID` int(11) NOT NULL,
+  `kf_PartyID` int(11) NOT NULL,
   PRIMARY KEY (`kp_PersonID`),
   UNIQUE KEY `kp_PersonID` (`kp_PersonID`) USING BTREE,
   KEY `kf_SalutationID` (`kf_SalutationID`) USING BTREE,
@@ -41,7 +42,8 @@ CREATE TABLE `tbl_person` (
   KEY `kf_KindOfPersonID` (`kf_KindOfPersonID`) USING BTREE,
   KEY `kf_RegistryID` (`kf_RegistryID`) USING BTREE,
   KEY `kf_RequirementID` (`kf_RequirementID`) USING BTREE,
-  KEY `kf_SkillID` (`kf_SkillID`) USING BTREE
+  KEY `kf_SkillID` (`kf_SkillID`) USING BTREE,
+  KEY `kf_PartyID` (`kf_PartyID`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 SET FOREIGN_KEY_CHECKS = 1;

@@ -9,7 +9,7 @@
  Target Server Version : 50509
  File Encoding         : utf-8
 
- Date: 06/21/2012 18:02:40 PM
+ Date: 06/22/2012 13:27:09 PM
 */
 
 SET NAMES utf8;
@@ -23,16 +23,18 @@ CREATE TABLE `tbl_organisation_data` (
   `kp_OrganisationID` int(11) NOT NULL AUTO_INCREMENT,
   `kf_WhereaboutsID` int(11) NOT NULL,
   `OrganisationName` varchar(255) COLLATE utf8_bin NOT NULL,
+  `kf_PartyID` int(11) NOT NULL,
   PRIMARY KEY (`kp_OrganisationID`),
   UNIQUE KEY `kp_OrganisationID` (`kp_OrganisationID`) USING BTREE,
-  KEY `kf_WhereaboutsID` (`kf_WhereaboutsID`) USING BTREE
+  KEY `kf_WhereaboutsID` (`kf_WhereaboutsID`) USING BTREE,
+  KEY `kf_PartyID` (`kf_PartyID`)
 ) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- ----------------------------
 --  Records of `tbl_organisation_data`
 -- ----------------------------
 BEGIN;
-INSERT INTO `tbl_organisation_data` VALUES ('8', '8', ''), ('9', '9', 'Randolph School of English'), ('10', '10', ''), ('11', '14', '');
+INSERT INTO `tbl_organisation_data` VALUES ('8', '8', '', '0'), ('9', '9', 'Randolph School of English', '0'), ('10', '10', '', '0'), ('11', '14', '', '0');
 COMMIT;
 
 SET FOREIGN_KEY_CHECKS = 1;

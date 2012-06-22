@@ -14,10 +14,10 @@ SET NAMES utf8;
 SET FOREIGN_KEY_CHECKS = 0;
 
 -- ----------------------------
---  View structure for `registry`
+--  View structure for `party`
 -- ----------------------------
-DROP VIEW IF EXISTS `registry`;
-CREATE VIEW `registry` AS
-  SELECT * FROM `tbl_registry`;
+DROP VIEW IF EXISTS `party`;
+CREATE VIEW `party` AS
+  SELECT * FROM `tbl_party`;
 
 SET FOREIGN_KEY_CHECKS = 1;

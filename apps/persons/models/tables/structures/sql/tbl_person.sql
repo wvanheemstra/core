@@ -9,7 +9,7 @@
  Target Server Version : 50509
  File Encoding         : utf-8
 
- Date: 06/23/2012 00:06:51 AM
+ Date: 06/23/2012 00:08:50 AM
 */
 
 SET NAMES utf8;
@@ -53,12 +53,5 @@ CREATE TRIGGER `ts_Created` BEFORE INSERT ON `tbl_person` FOR EACH ROW BEGIN
 END;
  ;;
 delimiter ;
-
--- ----------------------------
---  Records of `tbl_person`
--- ----------------------------
-BEGIN;
-INSERT INTO `tbl_person` VALUES ('1', '0', '0', 'John', 'Mayor', '0', '0', '0', '0', '', '0', '0', '0', '2012-06-23 00:05:14', '2012-06-23 00:05:35');
-COMMIT;
 
 SET FOREIGN_KEY_CHECKS = 1;

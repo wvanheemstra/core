@@ -9,7 +9,7 @@
  Target Server Version : 50509
  File Encoding         : utf-8
 
- Date: 06/23/2012 09:34:58 AM
+ Date: 06/23/2012 10:08:32 AM
 */
 
 SET NAMES utf8;
@@ -20,16 +20,14 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP TABLE IF EXISTS `tbl_journal`;
 CREATE TABLE `tbl_journal` (
-  `kp_JournalID` int(11) NOT NULL,
+  `kp_JournalID` int(11) NOT NULL AUTO_INCREMENT,
   `kf_KindOfJournalID` int(11) NOT NULL,
   `kf_BatchID` int(11) NOT NULL,
   `kf_DateID` int(11) NOT NULL,
   PRIMARY KEY (`kp_JournalID`),
   KEY `kf_KindOfJournalID` (`kf_KindOfJournalID`),
   KEY `kf_BatchID` (`kf_BatchID`),
-  KEY `kf_DateID` (`kf_DateID`),
-  CONSTRAINT `kf_BatchID` FOREIGN KEY (`kf_BatchID`) REFERENCES `tbl_batch` (`kp_BatchID`),
-  CONSTRAINT `kf_KindOfJournalID` FOREIGN KEY (`kf_KindOfJournalID`) REFERENCES `tbl_kind_of_journal` (`kp_KindOfJournalID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  KEY `kf_DateID` (`kf_DateID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 SET FOREIGN_KEY_CHECKS = 1;

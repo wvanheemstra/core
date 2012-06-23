@@ -8,18 +8,22 @@
 
  Target Server Version : 50509
  File Encoding         : utf-8
+
+ Date: 06/23/2012 08:51:31 AM
 */
 
 SET NAMES utf8;
 SET FOREIGN_KEY_CHECKS = 0;
 
 -- ----------------------------
---  View structure for `account`
+--  Table structure for `tbl_kind_of_account`
 -- ----------------------------
-DROP VIEW IF EXISTS `account`;
-CREATE VIEW `account` AS 
-  SELECT `kp_AccountID`, 
-	`kf_KindOfAccountID`
-FROM tbl_account;
+DROP TABLE IF EXISTS `tbl_kind_of_account`;
+CREATE TABLE `tbl_kind_of_account` (
+  `kp_KindOfAccountID` int(11) NOT NULL AUTO_INCREMENT,
+  `KindOfAccountName` varchar(255) NOT NULL,
+  `KindOfAccountCode` varchar(255) NOT NULL,
+  PRIMARY KEY (`kp_KindOfAccountID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 SET FOREIGN_KEY_CHECKS = 1;

@@ -14,12 +14,13 @@ SET NAMES utf8;
 SET FOREIGN_KEY_CHECKS = 0;
 
 -- ----------------------------
---  View structure for `account`
+--  View structure for `kind_of_account`
 -- ----------------------------
-DROP VIEW IF EXISTS `account`;
-CREATE VIEW `account` AS 
-  SELECT `kp_AccountID`, 
-	`kf_KindOfAccountID`
-FROM tbl_account;
+DROP VIEW IF EXISTS `kind_of_account`;
+CREATE VIEW `kind_of_account` AS 
+  SELECT `kp_KindOfAccountID`, 
+	`KindOfAccountName`,
+	`KindOfAccountCode`
+FROM tbl_kind_of_account;
 
 SET FOREIGN_KEY_CHECKS = 1;

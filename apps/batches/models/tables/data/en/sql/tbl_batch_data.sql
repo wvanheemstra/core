@@ -9,21 +9,19 @@
  Target Server Version : 50509
  File Encoding         : utf-8
 
- Date: 06/23/2012 09:56:01 AM
+ Date: 06/23/2012 09:36:25 AM
 */
 
 SET NAMES utf8;
 SET FOREIGN_KEY_CHECKS = 0;
 
 -- ----------------------------
---  Table structure for `tbl_account`
+--  Table structure for `tbl_batch_data`
 -- ----------------------------
-DROP TABLE IF EXISTS `tbl_account`;
-CREATE TABLE `tbl_account` (
-  `kp_AccountID` int(11) NOT NULL AUTO_INCREMENT,
-  `kf_KindOfAccountID` int(11) NOT NULL,
-  PRIMARY KEY (`kp_AccountID`),
-  KEY `kf_KindOfAccountID` (`kf_KindOfAccountID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+DROP TABLE IF EXISTS `tbl_batch_data`;
+CREATE TABLE `tbl_batch_data` (
+  `kp_BatchID` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`kp_BatchID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 SET FOREIGN_KEY_CHECKS = 1;

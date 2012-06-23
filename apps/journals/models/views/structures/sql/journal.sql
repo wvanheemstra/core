@@ -8,22 +8,20 @@
 
  Target Server Version : 50509
  File Encoding         : utf-8
-
- Date: 06/23/2012 09:56:01 AM
 */
 
 SET NAMES utf8;
 SET FOREIGN_KEY_CHECKS = 0;
 
 -- ----------------------------
---  Table structure for `tbl_account`
+--  View structure for `journal`
 -- ----------------------------
-DROP TABLE IF EXISTS `tbl_account`;
-CREATE TABLE `tbl_account` (
-  `kp_AccountID` int(11) NOT NULL AUTO_INCREMENT,
-  `kf_KindOfAccountID` int(11) NOT NULL,
-  PRIMARY KEY (`kp_AccountID`),
-  KEY `kf_KindOfAccountID` (`kf_KindOfAccountID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+DROP VIEW IF EXISTS `journal`;
+CREATE VIEW `journal` AS 
+  SELECT `kp_JournalID`, 
+	`kf_KindOfJournalID`,
+	`kf_DateID`,
+	`kf_BatchID`
+FROM tbl_journal;
 
 SET FOREIGN_KEY_CHECKS = 1;

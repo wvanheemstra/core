@@ -9,7 +9,7 @@
  Target Server Version : 50509
  File Encoding         : utf-8
 
- Date: 06/23/2012 08:50:53 AM
+ Date: 06/23/2012 09:56:13 AM
 */
 
 SET NAMES utf8;
@@ -23,8 +23,7 @@ CREATE TABLE `tbl_account_data` (
   `kp_AccountID` int(11) NOT NULL AUTO_INCREMENT,
   `kf_KindOfAccountID` int(11) NOT NULL,
   PRIMARY KEY (`kp_AccountID`),
-  KEY `kf_KindOfAccountID` (`kf_KindOfAccountID`),
-  CONSTRAINT `tbl_account_data_ibfk_1` FOREIGN KEY (`kf_KindOfAccountID`) REFERENCES `tbl_kind_of_account` (`kp_KindOfAccountID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  KEY `kf_KindOfAccountID` (`kf_KindOfAccountID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 SET FOREIGN_KEY_CHECKS = 1;

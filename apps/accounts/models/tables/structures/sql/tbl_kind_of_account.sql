@@ -9,7 +9,7 @@
  Target Server Version : 50509
  File Encoding         : utf-8
 
- Date: 06/23/2012 08:51:31 AM
+ Date: 06/23/2012 09:54:03 AM
 */
 
 SET NAMES utf8;
@@ -21,9 +21,9 @@ SET FOREIGN_KEY_CHECKS = 0;
 DROP TABLE IF EXISTS `tbl_kind_of_account`;
 CREATE TABLE `tbl_kind_of_account` (
   `kp_KindOfAccountID` int(11) NOT NULL AUTO_INCREMENT,
-  `KindOfAccountName` varchar(255) NOT NULL,
-  `KindOfAccountCode` varchar(255) NOT NULL,
+  `KindOfAccountName` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `KindOfAccountCode` varchar(255) COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`kp_KindOfAccountID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 SET FOREIGN_KEY_CHECKS = 1;

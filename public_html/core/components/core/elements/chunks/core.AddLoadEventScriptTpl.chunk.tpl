@@ -69,22 +69,38 @@ addLoadEvent(function() {
 addLoadEvent(function() {
 	/* Allows for making images size fluid */
 	if (document.getElementById && document.getElementsByTagName) {
-	var contentImgs = document.getElementById("content").getElementsByTagName("img");
-	imgSizer.collate(contentImgs);
-	var side_contentImgs = document.getElementById("side_content").getElementsByTagName("img");
-	imgSizer.collate(side_contentImgs);
-	var pagebox01Imgs = document.getElementById("pagebox01").getElementsByTagName("img");
-	imgSizer.collate(pagebox01Imgs);
-	var pagebox02Imgs = document.getElementById("pagebox02").getElementsByTagName("img");
-	imgSizer.collate(pagebox02Imgs);
-	var pagebox03Imgs = document.getElementById("pagebox03").getElementsByTagName("img");
-	imgSizer.collate(pagebox03Imgs);
-	var pagebox04Imgs = document.getElementById("pagebox04").getElementsByTagName("img");
-	imgSizer.collate(pagebox04Imgs);
-	var subpagesImgs = document.getElementById("subpages").getElementsByTagName("img");
-	imgSizer.collate(subpagesImgs);
-	var polaroidsImgs = document.getElementById("polaroids").getElementsByTagName("img");
-	imgSizer.collate(polaroidsImgs);
+          if(document.getElementById("content")!= null) {
+	    var contentImgs = document.getElementById("content").getElementsByTagName("img");
+	    imgSizer.collate(contentImgs);
+          }
+          if(document.getElementById("side_content")!=null) {
+	    var side_contentImgs = document.getElementById("side_content").getElementsByTagName("img");
+	    imgSizer.collate(side_contentImgs);
+          }
+          if(document.getElementById("pagebox01")!=null) {
+	    var pagebox01Imgs = document.getElementById("pagebox01").getElementsByTagName("img");
+	    imgSizer.collate(pagebox01Imgs);
+          }
+          if(document.getElementById("pagebox02")!=null) {
+	    var pagebox02Imgs = document.getElementById("pagebox02").getElementsByTagName("img");
+	    imgSizer.collate(pagebox02Imgs);
+          }
+          if(document.getElementById("pagebox03")!=null) {
+	    var pagebox03Imgs = document.getElementById("pagebox03").getElementsByTagName("img");
+	    imgSizer.collate(pagebox03Imgs);
+          }
+          if(document.getElementById("pagebox04")!=null) {
+	    var pagebox04Imgs = document.getElementById("pagebox04").getElementsByTagName("img");
+	    imgSizer.collate(pagebox04Imgs);
+          }
+          if(document.getElementById("subpages")!=null) {
+	    var subpagesImgs = document.getElementById("subpages").getElementsByTagName("img");
+	    imgSizer.collate(subpagesImgs);
+          }
+          if(document.getElementById("polaroids")!=null) {
+	    var polaroidsImgs = document.getElementById("polaroids").getElementsByTagName("img");
+	    imgSizer.collate(polaroidsImgs);
+          }
 	}
 });
 </script>

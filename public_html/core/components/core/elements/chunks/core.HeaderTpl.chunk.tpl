@@ -69,8 +69,8 @@
 		</header>
 		<header class="row">
 			<div class="twelve columns centered show-on-desktops" style="background: url('assets/templates/[[++custom.domain_abbreviation]]/images/logo_banner_large.png') no-repeat;width:970px;height:250px;margin-top:6px;margin-bottom:8px;"><div style="float:right;color:#F2E81C;margin-top:8px;margin-right:8px;">[[$core.CurrentDateTpl]]</div></div>
-			<div class="twelve columns show-on-tablets" style="background: url('assets/templates/[[++custom.domain_abbrevation]]/images/logo_banner_medium.png') no-repeat;width:750px;height:193px;margin-top:6px;margin-bottom:8px;"><div style="float:right;color:#F2E81C;margin-top:8px;margin-right:8px;">[[$core.CurrentDateTpl]]</div></div>
-			<div class="twelve columns show-on-phones" style="background: url('assets/templates/[[++custom.domain_abbrevation]]/images/logo_banner_small.png') no-repeat;width:278px;height:122px;margin-top:6px;margin-bottom:8px;"></div>
+			<div class="twelve columns show-on-tablets" style="background: url('assets/templates/[[++custom.domain_abbreviation]]/images/logo_banner_medium.png') no-repeat;width:750px;height:193px;margin-top:6px;margin-bottom:8px;"><div style="float:right;color:#F2E81C;margin-top:8px;margin-right:8px;">[[$core.CurrentDateTpl]]</div></div>
+			<div class="twelve columns show-on-phones" style="background: url('assets/templates/[[++custom.domain_abbreviation]]/images/logo_banner_small.png') no-repeat;width:278px;height:122px;margin-top:6px;margin-bottom:8px;"></div>
 
 			<div class="loginMessage">[[+errors]]</div>
 		</header>

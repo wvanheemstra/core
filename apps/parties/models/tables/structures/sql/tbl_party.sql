@@ -9,7 +9,7 @@
  Target Server Version : 50509
  File Encoding         : utf-8
 
- Date: 06/22/2012 13:19:27 PM
+ Date: 06/29/2012 12:40:04 PM
 */
 
 SET NAMES utf8;
@@ -22,8 +22,16 @@ DROP TABLE IF EXISTS `tbl_party`;
 CREATE TABLE `tbl_party` (
   `kp_PartyID` int(11) NOT NULL AUTO_INCREMENT,
   `kf_KindOfPartyID` int(11) NOT NULL,
+  `ts_Created` datetime DEFAULT NULL,
+  `ts_Updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`kp_PartyID`),
   KEY `kf_KindOfPartyID` (`kf_KindOfPartyID`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+delimiter ;;
+CREATE TRIGGER `Party.ts_Created` BEFORE INSERT ON `tbl_party` FOR EACH ROW BEGIN
+	SET NEW.ts_Created = CURRENT_TIMESTAMP();
+END;
+ ;;
+delimiter ;
 
 SET FOREIGN_KEY_CHECKS = 1;

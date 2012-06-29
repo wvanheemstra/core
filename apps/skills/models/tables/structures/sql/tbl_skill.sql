@@ -9,7 +9,7 @@
  Target Server Version : 50509
  File Encoding         : utf-8
 
- Date: 06/21/2012 18:13:31 PM
+ Date: 06/29/2012 12:43:03 PM
 */
 
 SET NAMES utf8;
@@ -24,9 +24,17 @@ CREATE TABLE `tbl_skill` (
   `SkillName` varchar(255) COLLATE utf8_bin NOT NULL,
   `kf_LanguageID` int(11) NOT NULL,
   `kf_SkillLevelID` int(11) NOT NULL,
+  `ts_Created` datetime DEFAULT NULL,
+  `ts_Updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`kp_SkillID`),
   KEY `kf_LanguageID` (`kf_LanguageID`) USING BTREE,
   KEY `kf_SkillLevelID` (`kf_SkillLevelID`) USING BTREE
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+delimiter ;;
+CREATE TRIGGER `Skill.ts_Created` BEFORE INSERT ON `tbl_skill` FOR EACH ROW BEGIN
+	SET NEW.ts_Created = CURRENT_TIMESTAMP();
+END;
+ ;;
+delimiter ;
 
 SET FOREIGN_KEY_CHECKS = 1;

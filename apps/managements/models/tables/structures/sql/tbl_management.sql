@@ -9,7 +9,7 @@
  Target Server Version : 50509
  File Encoding         : utf-8
 
- Date: 06/21/2012 17:56:28 PM
+ Date: 06/29/2012 12:38:18 PM
 */
 
 SET NAMES utf8;
@@ -26,6 +26,8 @@ CREATE TABLE `tbl_management` (
   `kf_RoleID` int(11) NOT NULL,
   `kf_ContactID` int(11) NOT NULL,
   `kf_MultimediaID` int(11) NOT NULL,
+  `ts_Created` datetime DEFAULT NULL,
+  `ts_Updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`kp_ManagementID`),
   UNIQUE KEY `kp_ManagementID` (`kp_ManagementID`) USING BTREE,
   KEY `kf_EventID` (`kf_EventID`) USING BTREE,
@@ -34,5 +36,11 @@ CREATE TABLE `tbl_management` (
   KEY `kf_ContactID` (`kf_ContactID`) USING BTREE,
   KEY `kf_MultimediaID` (`kf_MultimediaID`) USING BTREE
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+delimiter ;;
+CREATE TRIGGER `Management.ts_Created` BEFORE INSERT ON `tbl_management` FOR EACH ROW BEGIN
+	SET NEW.ts_Created = CURRENT_TIMESTAMP();
+END;
+ ;;
+delimiter ;
 
 SET FOREIGN_KEY_CHECKS = 1;

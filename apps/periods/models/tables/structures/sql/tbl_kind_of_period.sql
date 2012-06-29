@@ -9,7 +9,7 @@
  Target Server Version : 50509
  File Encoding         : utf-8
 
- Date: 06/23/2012 10:45:40 AM
+ Date: 06/29/2012 12:35:34 PM
 */
 
 SET NAMES utf8;
@@ -22,7 +22,15 @@ DROP TABLE IF EXISTS `tbl_kind_of_period`;
 CREATE TABLE `tbl_kind_of_period` (
   `kp_KindOfPeriodID` int(11) NOT NULL AUTO_INCREMENT,
   `KindOfPeriodName` varchar(255) COLLATE utf8_bin NOT NULL,
+  `ts_Created` datetime DEFAULT NULL,
+  `ts_Updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`kp_KindOfPeriodID`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+delimiter ;;
+CREATE TRIGGER `KindOfPeriod.ts_Created` BEFORE INSERT ON `tbl_kind_of_period` FOR EACH ROW BEGIN
+	SET NEW.ts_Created = CURRENT_TIMESTAMP();
+END;
+ ;;
+delimiter ;
 
 SET FOREIGN_KEY_CHECKS = 1;

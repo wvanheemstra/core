@@ -9,7 +9,7 @@
  Target Server Version : 50509
  File Encoding         : utf-8
 
- Date: 06/21/2012 18:05:47 PM
+ Date: 06/29/2012 12:40:59 PM
 */
 
 SET NAMES utf8;
@@ -23,9 +23,17 @@ CREATE TABLE `tbl_photo` (
   `kp_PhotoID` int(11) NOT NULL AUTO_INCREMENT,
   `kf_MultimediaID` int(11) NOT NULL,
   `PhotoFile` blob NOT NULL,
+  `ts_Created` datetime DEFAULT NULL,
+  `ts_Updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`kp_PhotoID`),
   UNIQUE KEY `kp_PhotoID` (`kp_PhotoID`) USING BTREE,
   KEY `kf_MultimediaID` (`kf_MultimediaID`) USING BTREE
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+delimiter ;;
+CREATE TRIGGER `Photo.ts_Created` BEFORE INSERT ON `tbl_photo` FOR EACH ROW BEGIN
+	SET NEW.ts_Created = CURRENT_TIMESTAMP();
+END;
+ ;;
+delimiter ;
 
 SET FOREIGN_KEY_CHECKS = 1;

@@ -9,7 +9,7 @@
  Target Server Version : 50509
  File Encoding         : utf-8
 
- Date: 06/21/2012 18:08:48 PM
+ Date: 06/29/2012 12:41:39 PM
 */
 
 SET NAMES utf8;
@@ -25,7 +25,15 @@ CREATE TABLE `tbl_registry` (
   `gKindOfPersonID_emergency` int(11) NOT NULL,
   `gPersonID_registrar` int(11) NOT NULL,
   `gKindOfPersonID_registrar` int(11) NOT NULL,
+  `ts_Created` datetime DEFAULT NULL,
+  `ts_Updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`kp_RegistryID`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+delimiter ;;
+CREATE TRIGGER `Registry.ts_Created` BEFORE INSERT ON `tbl_registry` FOR EACH ROW BEGIN
+	SET NEW.ts_Created = CURRENT_TIMESTAMP();
+END;
+ ;;
+delimiter ;
 
 SET FOREIGN_KEY_CHECKS = 1;

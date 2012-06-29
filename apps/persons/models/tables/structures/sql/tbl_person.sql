@@ -9,7 +9,7 @@
  Target Server Version : 50509
  File Encoding         : utf-8
 
- Date: 06/23/2012 00:08:50 AM
+ Date: 06/29/2012 12:40:39 PM
 */
 
 SET NAMES utf8;
@@ -48,7 +48,7 @@ CREATE TABLE `tbl_person` (
   KEY `kf_PartyID` (`kf_PartyID`)
 ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 delimiter ;;
-CREATE TRIGGER `ts_Created` BEFORE INSERT ON `tbl_person` FOR EACH ROW BEGIN
+CREATE TRIGGER `Person.ts_Created` BEFORE INSERT ON `tbl_person` FOR EACH ROW BEGIN
 	SET NEW.ts_Created = CURRENT_TIMESTAMP();
 END;
  ;;

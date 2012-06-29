@@ -9,7 +9,7 @@
  Target Server Version : 50509
  File Encoding         : utf-8
 
- Date: 06/21/2012 17:31:56 PM
+ Date: 06/29/2012 12:29:57 PM
 */
 
 SET NAMES utf8;
@@ -24,10 +24,18 @@ CREATE TABLE `tbl_contact` (
   `kf_KindOfContactID` int(11) NOT NULL,
   `ContactValue` varchar(255) COLLATE utf8_bin NOT NULL,
   `kf_MembershipID` int(11) NOT NULL,
+  `ts_Created` datetime DEFAULT NULL,
+  `ts_Updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`kp_ContactID`),
   UNIQUE KEY `kp_ContactID` (`kp_ContactID`) USING BTREE,
   KEY `kf_KindOfContactID` (`kf_KindOfContactID`) USING BTREE,
   KEY `kf_MembershipID` (`kf_MembershipID`) USING BTREE
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+delimiter ;;
+CREATE TRIGGER `Contact.ts_Created` BEFORE INSERT ON `tbl_contact` FOR EACH ROW BEGIN
+	SET NEW.ts_Created = CURRENT_TIMESTAMP();
+END;
+ ;;
+delimiter ;
 
 SET FOREIGN_KEY_CHECKS = 1;

@@ -9,7 +9,7 @@
  Target Server Version : 50509
  File Encoding         : utf-8
 
- Date: 06/21/2012 17:59:38 PM
+ Date: 06/29/2012 12:38:58 PM
 */
 
 SET NAMES utf8;
@@ -22,9 +22,17 @@ DROP TABLE IF EXISTS `tbl_multimedia`;
 CREATE TABLE `tbl_multimedia` (
   `kp_MultimediaID` int(11) NOT NULL AUTO_INCREMENT,
   `kf_KindOfMultimediaID` int(11) NOT NULL,
+  `ts_Created` datetime DEFAULT NULL,
+  `ts_Updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`kp_MultimediaID`),
   UNIQUE KEY `kp_MultimediaID` (`kp_MultimediaID`) USING BTREE,
   KEY `kf_KindOfMultimediaID` (`kf_KindOfMultimediaID`) USING BTREE
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+delimiter ;;
+CREATE TRIGGER `Multimedia.ts_Created` BEFORE INSERT ON `tbl_multimedia` FOR EACH ROW BEGIN
+	SET NEW.ts_Created = CURRENT_TIMESTAMP();
+END;
+ ;;
+delimiter ;
 
 SET FOREIGN_KEY_CHECKS = 1;

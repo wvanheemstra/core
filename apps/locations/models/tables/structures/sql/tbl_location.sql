@@ -9,7 +9,7 @@
  Target Server Version : 50509
  File Encoding         : utf-8
 
- Date: 06/21/2012 17:52:54 PM
+ Date: 06/29/2012 12:37:40 PM
 */
 
 SET NAMES utf8;
@@ -27,10 +27,18 @@ CREATE TABLE `tbl_location` (
   `LocationRegion` varchar(255) COLLATE utf8_bin NOT NULL,
   `kf_CountryID` int(11) NOT NULL,
   `kf_KindOfLocationID` int(11) NOT NULL,
+  `ts_Created` datetime DEFAULT NULL,
+  `ts_Updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`kp_LocationID`),
   UNIQUE KEY `kp_LocationID` (`kp_LocationID`) USING BTREE,
   KEY `kf_CountryID` (`kf_CountryID`) USING BTREE,
   KEY `kf_KindOfLocationID` (`kf_KindOfLocationID`) USING BTREE
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+delimiter ;;
+CREATE TRIGGER `Location.ts_Created` BEFORE INSERT ON `tbl_location` FOR EACH ROW BEGIN
+	SET NEW.ts_Created = CURRENT_TIMESTAMP();
+END;
+ ;;
+delimiter ;
 
 SET FOREIGN_KEY_CHECKS = 1;

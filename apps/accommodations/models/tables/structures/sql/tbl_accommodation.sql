@@ -9,7 +9,7 @@
  Target Server Version : 50509
  File Encoding         : utf-8
 
- Date: 06/21/2012 17:29:31 PM
+ Date: 06/29/2012 12:28:02 PM
 */
 
 SET NAMES utf8;
@@ -24,10 +24,18 @@ CREATE TABLE `tbl_accommodation` (
   `AccommodationName` varchar(255) COLLATE utf8_bin NOT NULL,
   `kf_WhereaboutsID` int(11) NOT NULL,
   `kf_KindOfAccommodationID` int(11) NOT NULL,
+  `ts_Created` datetime DEFAULT NULL,
+  `ts_Updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`kp_AccommodationID`),
   UNIQUE KEY `kp_AccommodationID` (`kp_AccommodationID`) USING BTREE,
   KEY `kf_WhereaboutsID` (`kf_WhereaboutsID`) USING BTREE,
   KEY `kf_KindOfAccommodationID` (`kf_KindOfAccommodationID`) USING BTREE
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+delimiter ;;
+CREATE TRIGGER `Accommodation.ts_Created` BEFORE INSERT ON `tbl_accommodation` FOR EACH ROW BEGIN
+	SET NEW.ts_Created = CURRENT_TIMESTAMP();
+END;
+ ;;
+delimiter ;
 
 SET FOREIGN_KEY_CHECKS = 1;

@@ -9,7 +9,7 @@
  Target Server Version : 50509
  File Encoding         : utf-8
 
- Date: 06/21/2012 17:34:08 PM
+ Date: 06/29/2012 12:30:35 PM
 */
 
 SET NAMES utf8;
@@ -24,10 +24,18 @@ CREATE TABLE `tbl_date` (
   `DateStart` date NOT NULL,
   `DateFinish` date NOT NULL,
   `DurationInWeeks` float NOT NULL,
+  `ts_Created` datetime DEFAULT NULL,
+  `ts_Updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`kp_DateID`),
   UNIQUE KEY `kp_DateID` (`kp_DateID`) USING BTREE,
   KEY `DateStart` (`DateStart`),
   KEY `DateFinish` (`DateFinish`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+delimiter ;;
+CREATE TRIGGER `Date.ts_Created` BEFORE INSERT ON `tbl_date` FOR EACH ROW BEGIN
+	SET NEW.ts_Created = CURRENT_TIMESTAMP();
+END;
+ ;;
+delimiter ;
 
 SET FOREIGN_KEY_CHECKS = 1;

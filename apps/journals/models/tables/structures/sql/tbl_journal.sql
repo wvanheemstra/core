@@ -9,7 +9,7 @@
  Target Server Version : 50509
  File Encoding         : utf-8
 
- Date: 06/23/2012 10:08:32 AM
+ Date: 06/29/2012 12:32:09 PM
 */
 
 SET NAMES utf8;
@@ -24,10 +24,18 @@ CREATE TABLE `tbl_journal` (
   `kf_KindOfJournalID` int(11) NOT NULL,
   `kf_BatchID` int(11) NOT NULL,
   `kf_DateID` int(11) NOT NULL,
+  `ts_Created` datetime DEFAULT NULL,
+  `ts_Updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`kp_JournalID`),
   KEY `kf_KindOfJournalID` (`kf_KindOfJournalID`),
   KEY `kf_BatchID` (`kf_BatchID`),
   KEY `kf_DateID` (`kf_DateID`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+delimiter ;;
+CREATE TRIGGER `Journal.ts_Created` BEFORE INSERT ON `tbl_journal` FOR EACH ROW BEGIN
+	SET NEW.ts_Created = CURRENT_TIMESTAMP();
+END;
+ ;;
+delimiter ;
 
 SET FOREIGN_KEY_CHECKS = 1;

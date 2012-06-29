@@ -9,7 +9,7 @@
  Target Server Version : 50509
  File Encoding         : utf-8
 
- Date: 06/21/2012 17:50:35 PM
+ Date: 06/29/2012 12:37:01 PM
 */
 
 SET NAMES utf8;
@@ -22,8 +22,16 @@ DROP TABLE IF EXISTS `tbl_kind_of_transportation`;
 CREATE TABLE `tbl_kind_of_transportation` (
   `kp_KindOfTransportationID` int(11) NOT NULL AUTO_INCREMENT,
   `KindOfTransportationName` varchar(255) COLLATE utf8_bin NOT NULL,
+  `ts_Created` datetime DEFAULT NULL,
+  `ts_Updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`kp_KindOfTransportationID`),
   UNIQUE KEY `kp_KindOfTransportationID` (`kp_KindOfTransportationID`) USING BTREE
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+delimiter ;;
+CREATE TRIGGER `KindOfTransportation.ts_Created` BEFORE INSERT ON `tbl_kind_of_transportation` FOR EACH ROW BEGIN
+	SET NEW.ts_Created = CURRENT_TIMESTAMP();
+END;
+ ;;
+delimiter ;
 
 SET FOREIGN_KEY_CHECKS = 1;

@@ -18,8 +18,10 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP VIEW IF EXISTS `kind_of_accommodation`;
 CREATE VIEW `kind_of_accommodation` AS 
-  SELECT `kp_KindOfAccommodationID`, 
-	`KindOfAccommodationName`
+  SELECT `kp_KindOfAccommodationID`,
+	`KindOfAccommodationName`,
+	`ts_Created`,
+	`ts_Updated`
 FROM tbl_kind_of_accommodation;
 
 SET FOREIGN_KEY_CHECKS = 1;

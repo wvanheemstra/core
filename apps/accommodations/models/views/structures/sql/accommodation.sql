@@ -21,7 +21,9 @@ CREATE VIEW `accommodation` AS
   SELECT `kp_AccommodationID`, 
 	`AccommodationName`, 
 	`kf_WhereaboutsID`, 
-	`kf_KindOfAccommodationID`
+	`kf_KindOfAccommodationID`,
+	`ts_Created`,
+	`ts_Updated`
 FROM tbl_accommodation;
 
 SET FOREIGN_KEY_CHECKS = 1;

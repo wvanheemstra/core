@@ -19,9 +19,11 @@ SET FOREIGN_KEY_CHECKS = 0;
 DROP VIEW IF EXISTS `transportation`;
 CREATE VIEW `transportation` AS 
   SELECT `kp_TransportationID`,
-    `TransportationName`,
-    `kf_LanguageID`,
-    `kf_KindOfTransportationID`
+	`TransportationName`,
+	`kf_KindOfTransportationID`,
+	`kf_LanguageID`,
+	`ts_Created`,
+	`ts_Updated`
 FROM tbl_transportation;
 
 SET FOREIGN_KEY_CHECKS = 1;

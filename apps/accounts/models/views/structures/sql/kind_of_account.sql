@@ -18,9 +18,11 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP VIEW IF EXISTS `kind_of_account`;
 CREATE VIEW `kind_of_account` AS 
-  SELECT `kp_KindOfAccountID`, 
+  SELECT `kp_KindOfAccountID`,
 	`KindOfAccountName`,
-	`KindOfAccountCode`
+	`KindOfAccountCode`,
+	`ts_Created`,
+	`ts_Updated`
 FROM tbl_kind_of_account;
 
 SET FOREIGN_KEY_CHECKS = 1;

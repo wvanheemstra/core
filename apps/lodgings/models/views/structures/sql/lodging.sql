@@ -23,7 +23,10 @@ CREATE VIEW `lodging` AS
 	`kf_AccommodationID`,
 	`kf_RoleID`,
 	`kf_ContactID`,
-	`kf_MultimediaID`
+	`kf_CountryID`,
+	`kf_MultimediaID`,
+	`ts_Created`,
+	`ts_Updated`
 FROM tbl_lodging;
 
 SET FOREIGN_KEY_CHECKS = 1;

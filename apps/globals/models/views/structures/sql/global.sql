@@ -18,11 +18,13 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP VIEW IF EXISTS `global`;
 CREATE VIEW `global` AS 
-  SELECT `kp_GlobalID`, 
-	`KindOfContactID_telephone`, 
+  SELECT `kp_GlobalID`,
+	`KindOfContactID_telephone`,
 	`KindOfContactID_fax`,
 	`KindOfContactID_email`,
-	`KindOfContactID_mobile`
+	`KindOfContactID_mobile`,
+	`ts_Created`,
+	`ts_Updated`
 FROM tbl_global;
 
 SET FOREIGN_KEY_CHECKS = 1;

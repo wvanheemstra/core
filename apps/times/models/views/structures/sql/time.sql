@@ -19,8 +19,10 @@ SET FOREIGN_KEY_CHECKS = 0;
 DROP VIEW IF EXISTS `time`;
 CREATE VIEW `time` AS 
   SELECT `kp_TimeID`,
-    `TimeStart`,
-    `TimeFinish`
+	`TimeStart`,
+	`TimeFinish`,
+	`ts_Created`,
+	`ts_Updated`
 FROM tbl_time;
 
 SET FOREIGN_KEY_CHECKS = 1;

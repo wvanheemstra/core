@@ -19,9 +19,11 @@ SET FOREIGN_KEY_CHECKS = 0;
 DROP VIEW IF EXISTS `organisation`;
 CREATE VIEW `organisation` AS 
   SELECT `kp_OrganisationID`,
-    `kf_WhereaboutsID`,
 	`OrganisationName`,
-	`kf_PartyID`
+	`kf_WhereaboutsID`,
+	`kf_PartyID`,
+	`ts_Created`,
+	`ts_Updated`
 FROM tbl_organisation;
 
 SET FOREIGN_KEY_CHECKS = 1;

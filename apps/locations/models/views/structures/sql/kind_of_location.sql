@@ -18,8 +18,10 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP VIEW IF EXISTS `kind_of_location`;
 CREATE VIEW `kind_of_location` AS 
-  SELECT `kp_KindOfLocationID`, 
-	`KindOfLocationName`
+  SELECT `kp_KindOfLocationID`,
+	`KindOfLocationName`,
+	`ts_Created`,
+	`ts_Updated`
 FROM tbl_kind_of_location;
 
 SET FOREIGN_KEY_CHECKS = 1;

@@ -18,8 +18,10 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP VIEW IF EXISTS `kind_of_contact`;
 CREATE VIEW `kind_of_contact` AS 
-  SELECT `kp_KindOfContactID`, 
-	`KindOfContactName`
+  SELECT `kp_KindOfContactID`,
+	`KindOfContactName`,
+	`ts_Created`,
+	`ts_Updated`
 FROM tbl_kind_of_contact;
 
 SET FOREIGN_KEY_CHECKS = 1;

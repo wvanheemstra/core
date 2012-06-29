@@ -18,10 +18,12 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP VIEW IF EXISTS `date`;
 CREATE VIEW `date` AS 
-  SELECT `kp_DateID`, 
-	`DateStart`, 
+  SELECT `kp_DateID`,
+	`DateStart`,
 	`DateFinish`,
-	`DurationInWeeks`
+	`DurationInWeeks`,
+	`ts_Created`,
+	`ts_Updated`
 FROM tbl_date;
 
 SET FOREIGN_KEY_CHECKS = 1;

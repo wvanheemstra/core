@@ -18,8 +18,10 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP VIEW IF EXISTS `kind_of_event`;
 CREATE VIEW `kind_of_event` AS 
-  SELECT `kp_KindOfEventID`, 
-	`KindOfEventName`
+  SELECT `kp_KindOfEventID`,
+	`KindOfEventName`,
+	`ts_Created`,
+	`ts_Updated`
 FROM tbl_kind_of_event;
 
 SET FOREIGN_KEY_CHECKS = 1;

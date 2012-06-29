@@ -19,9 +19,11 @@ SET FOREIGN_KEY_CHECKS = 0;
 DROP VIEW IF EXISTS `whereabouts`;
 CREATE VIEW `whereabouts` AS 
   SELECT `kp_WhereaboutsID`,
-    `kf_TimeID`,
-    `kf_LocationID`,
-    `kf_DateID`
+	`kf_TimeID`,
+	`kf_LocationID`,
+	`kf_DateID`,
+	`ts_Created`,
+	`ts_Updated`
 FROM tbl_whereabouts;
 
 SET FOREIGN_KEY_CHECKS = 1;

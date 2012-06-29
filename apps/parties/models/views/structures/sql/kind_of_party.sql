@@ -18,8 +18,10 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP VIEW IF EXISTS `kind_of_party`;
 CREATE VIEW `kind_of_party` AS 
-  SELECT `kp_KindOfPartyID`, 
-	`KindOfPartyName`
+  SELECT `kp_KindOfPartyID`,
+	`KindOfPartyName`,
+	`ts_Created`,
+	`ts_Updated`
 FROM tbl_kind_of_party;
 
 SET FOREIGN_KEY_CHECKS = 1;

@@ -18,8 +18,10 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP VIEW IF EXISTS `kind_of_role`;
 CREATE VIEW `kind_of_role` AS 
-  SELECT `kp_KindOfRoleID`, 
-	`KindOfRoleName`
+  SELECT `kp_KindOfRoleID`,
+	`KindOfRoleName`,
+	`ts_Created`,
+	`ts_Updated`
 FROM tbl_kind_of_role;
 
 SET FOREIGN_KEY_CHECKS = 1;

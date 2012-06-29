@@ -24,7 +24,9 @@ CREATE VIEW `location` AS
 	`LocationPostalCode`,
 	`LocationRegion`,
 	`kf_CountryID`,
-	`kf_KindOfLocationID`
+	`kf_KindOfLocationID`,
+	`ts_Created`,
+	`ts_Updated`
 FROM tbl_location;
 
 SET FOREIGN_KEY_CHECKS = 1;

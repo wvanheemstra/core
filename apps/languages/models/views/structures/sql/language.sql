@@ -18,8 +18,10 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP VIEW IF EXISTS `language`;
 CREATE VIEW `language` AS 
-  SELECT `kp_LanguageID`, 
-	`LanguageName`
+  SELECT `kp_LanguageID`,
+	`LanguageName`,
+	`ts_Created`,
+	`ts_Updated`
 FROM tbl_language;
 
 SET FOREIGN_KEY_CHECKS = 1;

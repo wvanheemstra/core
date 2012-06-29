@@ -18,9 +18,11 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP VIEW IF EXISTS `gender`;
 CREATE VIEW `gender` AS 
-  SELECT `kp_GenderID`, 
-	`GenderName`, 
-	`kf_LanguageID`
+  SELECT `kp_GenderID`,
+	`GenderName`,
+	`kf_LanguageID`,
+	`ts_Created`,
+	`ts_Updated`
 FROM tbl_gender;
 
 SET FOREIGN_KEY_CHECKS = 1;

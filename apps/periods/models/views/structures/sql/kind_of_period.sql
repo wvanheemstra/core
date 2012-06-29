@@ -18,8 +18,10 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP VIEW IF EXISTS `kind_of_period`;
 CREATE VIEW `kind_of_period` AS 
-  SELECT `kp_KindOfPeriodID`, 
-	`KindOfPeriodName`
+  SELECT `kp_KindOfPeriodID`,
+	`KindOfPeriodName`,
+	`ts_Created`,
+	`ts_Updated`
 FROM tbl_kind_of_period;
 
 SET FOREIGN_KEY_CHECKS = 1;

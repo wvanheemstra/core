@@ -19,8 +19,10 @@ SET FOREIGN_KEY_CHECKS = 0;
 DROP VIEW IF EXISTS `salutation`;
 CREATE VIEW `salutation` AS 
   SELECT `kp_SalutationID`,
-    `SalutationAbbreviation`,
-    `kf_LanguageID`
+	`SalutationAbbreviation`,
+	`kf_LanguageID`,
+	`ts_Created`,
+	`ts_Updated`
 FROM tbl_salutation;
 
 SET FOREIGN_KEY_CHECKS = 1;

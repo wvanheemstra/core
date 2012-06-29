@@ -18,8 +18,10 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP VIEW IF EXISTS `kind_of_journal`;
 CREATE VIEW `kind_of_journal` AS 
-  SELECT `kp_KindOfJournalID`, 
-	`KindOfJournalName`
+  SELECT `kp_KindOfJournalID`,
+	`KindOfJournalName`,
+	`ts_Created`,
+	`ts_Updated`
 FROM tbl_kind_of_journal;
 
 SET FOREIGN_KEY_CHECKS = 1;

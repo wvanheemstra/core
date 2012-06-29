@@ -19,9 +19,11 @@ SET FOREIGN_KEY_CHECKS = 0;
 DROP VIEW IF EXISTS `skill`;
 CREATE VIEW `skill` AS 
   SELECT `kp_SkillID`,
-    `SkillName`,
-    `kf_LanguageID`,
-    `kf_SkillLevelID`
+	`SkillName`,
+	`kf_SkillLevelID`,
+	`kf_LanguageID`,
+	`ts_Created`,
+	`ts_Updated`
 FROM tbl_skill;
 
 SET FOREIGN_KEY_CHECKS = 1;

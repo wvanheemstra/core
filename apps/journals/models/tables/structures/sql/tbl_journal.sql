@@ -9,7 +9,7 @@
  Target Server Version : 50509
  File Encoding         : utf-8
 
- Date: 06/29/2012 12:32:09 PM
+ Date: 06/29/2012 16:02:59 PM
 */
 
 SET NAMES utf8;
@@ -30,7 +30,7 @@ CREATE TABLE `tbl_journal` (
   KEY `kf_KindOfJournalID` (`kf_KindOfJournalID`),
   KEY `kf_BatchID` (`kf_BatchID`),
   KEY `kf_DateID` (`kf_DateID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 delimiter ;;
 CREATE TRIGGER `Journal.ts_Created` BEFORE INSERT ON `tbl_journal` FOR EACH ROW BEGIN
 	SET NEW.ts_Created = CURRENT_TIMESTAMP();

@@ -18,9 +18,11 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP VIEW IF EXISTS `country`;
 CREATE VIEW `country` AS 
-  SELECT `kp_CountryID`, 
-	`CountryCode`, 
-	`CountryName`
+  SELECT `kp_CountryID`,
+	`CountryCode`,
+	`CountryName`,
+	`ts_Created`,
+	`ts_Updated`
 FROM tbl_country;
 
 SET FOREIGN_KEY_CHECKS = 1;

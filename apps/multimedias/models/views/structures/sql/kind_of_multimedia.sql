@@ -18,8 +18,10 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP VIEW IF EXISTS `kind_of_multimedia`;
 CREATE VIEW `kind_of_multimedia` AS 
-  SELECT `kp_KindOfMultimediaID`, 
-	`KindOfMultimediaName`
+  SELECT `kp_KindOfMultimediaID`,
+	`KindOfMultimediaName`,
+	`ts_Created`,
+	`ts_Updated`
 FROM tbl_kind_of_multimedia;
 
 SET FOREIGN_KEY_CHECKS = 1;

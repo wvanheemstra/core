@@ -19,8 +19,10 @@ SET FOREIGN_KEY_CHECKS = 0;
 DROP VIEW IF EXISTS `photo`;
 CREATE VIEW `photo` AS 
   SELECT `kp_PhotoID`,
-    `kf_MultimediaID`,
-    `PhotoFile`
+	`PhotoFile`,
+	`kf_MultimediaID`,
+	`ts_Created`,
+	`ts_Updated`
 FROM tbl_photo;
 
 SET FOREIGN_KEY_CHECKS = 1;

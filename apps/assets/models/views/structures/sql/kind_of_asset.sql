@@ -18,9 +18,11 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP VIEW IF EXISTS `kind_of_asset`;
 CREATE VIEW `kind_of_asset` AS 
-  SELECT `kp_KindOfAssetID`, 
+  SELECT `kp_KindOfAssetID`,
 	`KindOfAssetName`,
-	`KindOfAssetCode`
+	`KindOfAssetCode`,
+	`ts_Created`,
+	`ts_Updated`
 FROM tbl_kind_of_asset;
 
 SET FOREIGN_KEY_CHECKS = 1;

@@ -18,8 +18,10 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP VIEW IF EXISTS `kind_of_programme`;
 CREATE VIEW `kind_of_programme` AS 
-  SELECT `kp_KindOfProgrammeID`, 
-	`KindOfProgrammeName`
+  SELECT `kp_KindOfProgrammeID`,
+	`KindOfProgrammeName`,
+	`ts_Created`,
+	`ts_Updated`
 FROM tbl_kind_of_programme;
 
 SET FOREIGN_KEY_CHECKS = 1;

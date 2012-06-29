@@ -19,10 +19,14 @@ SET FOREIGN_KEY_CHECKS = 0;
 DROP VIEW IF EXISTS `registry`;
 CREATE VIEW `registry` AS 
   SELECT `kp_RegistryID`,
-    `gKindOfPersonID_self`,
-    `gKindOfPersonID_emergency`,
-    `gPersonID_registrar`,
-    `gKindOfPersonID_registrar`
+	`ProgrammeName`,
+	`gKindOfPersonID_self`,
+	`gKindOfPersonID_emergency`,
+	`gKindOfPersonID_registrar`,
+	`gPersonID_registrar`,
+	`kf_EventID`,
+	`ts_Created`,
+	`ts_Updated`
 FROM tbl_registry;
 
 SET FOREIGN_KEY_CHECKS = 1;

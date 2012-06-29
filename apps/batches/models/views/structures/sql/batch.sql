@@ -18,7 +18,9 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP VIEW IF EXISTS `batch`;
 CREATE VIEW `batch` AS 
-  SELECT `kp_BatchID`
+  SELECT `kp_BatchID`,
+	`ts_Created`,
+	`ts_Updated`
 FROM tbl_batch;
 
 SET FOREIGN_KEY_CHECKS = 1;

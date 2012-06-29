@@ -23,10 +23,12 @@ CREATE VIEW `membership` AS
 	`kf_OrganisationID`,
 	`kf_MultimediaID`,
 	`gKindOfContactID_telephone`,
-	`gkindOfContactID_fax`,
+	`gKindOfContactID_fax`,
 	`gKindOfContactID_email`,
 	`gKindOfContactID_mobile`,
-	`gKindOfRoleID_occupation`
+	`gKindOfRoleID_occupation`,
+	`ts_Created`,
+	`ts_Updated`
 FROM tbl_membership;
 
 SET FOREIGN_KEY_CHECKS = 1;

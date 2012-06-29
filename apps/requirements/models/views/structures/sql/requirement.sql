@@ -19,8 +19,10 @@ SET FOREIGN_KEY_CHECKS = 0;
 DROP VIEW IF EXISTS `requirement`;
 CREATE VIEW `requirement` AS 
   SELECT `kp_RequirementID`,
-    `RequirementName`,
-    `kf_LanguageID`
+	`RequirementName`,
+	`kf_LanguageID`,
+	`ts_Created`,
+	`ts_Updated`
 FROM tbl_requirement;
 
 SET FOREIGN_KEY_CHECKS = 1;

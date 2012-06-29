@@ -18,15 +18,17 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP VIEW IF EXISTS `attendance`;
 CREATE VIEW `attendance` AS 
-  SELECT `kp_AttendanceID`, 
-	`kf_PersonID`, 
-	`kf_EventID`, 
+  SELECT `kp_AttendanceID`,
+	`kf_PersonID`,
+	`kf_EventID`,
 	`kf_RoleID`,
 	`kf_ContactID`,
 	`kf_MultimediaID`,
 	`kf_TransportationID`,
 	`gKindOfEventID_stay`,
-	`gKindOfEventID_study`
+	`gKindOfEventID_study`,
+	`ts_Created`,
+	`ts_Updated`
 FROM tbl_attendance;
 
 SET FOREIGN_KEY_CHECKS = 1;

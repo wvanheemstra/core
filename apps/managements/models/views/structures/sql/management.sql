@@ -23,7 +23,9 @@ CREATE VIEW `management` AS
 	`kf_OrganisationID`,
 	`kf_RoleID`,
 	`kf_ContactID`,
-	`kf_MultimediaID`
+	`kf_MultimediaID`,
+	`ts_Created`,
+	`ts_Updated`
 FROM tbl_management;
 
 SET FOREIGN_KEY_CHECKS = 1;

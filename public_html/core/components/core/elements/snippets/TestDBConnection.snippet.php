@@ -48,9 +48,9 @@ $credentialsMySQLI = array (
 print_r("<pre>");
 print_r($credentialsMySQLI);
 print_r("</pre>");
-print_r("<br/>select * from tbl_person<br/>");
+print_r("<br/>select * from person<br/>");
 $dbMySQLI->doConnect($credentialsMySQLI);
-$dbMySQLI->doQuery("select * from tbl_person");
+$dbMySQLI->doQuery("select * from person");
 $result = $dbMySQLI->loadObjectList();
 $dbMySQLI->doDisconnect();
 print_r(implode(',', $result)."<br/><hr/>");

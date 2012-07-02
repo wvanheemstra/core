@@ -17,7 +17,7 @@
 	
 	// methods
 	function methods() {
-		array $methods = get_class_methods(new Person()); // returns the names of all methods of this class
+		$methods[] = get_class_methods(new Person()); // returns the names of all methods of this class
 		return($methods);
 	}
 
@@ -28,7 +28,7 @@
 			$person->bind($data);
 			$person->store('kp_PersonID'); // provide the name of the id field
 		}
-		catch(exception e) {
+		catch(exception $ex) {
 			// do something with the exception;
 			return(false);
 			exit;
@@ -44,7 +44,7 @@
 			$person->bind($data);
 			$person->store('kp_PersonID'); // provide the name of the id field
 		}
-		catch(exception e) {
+		catch(exception $ex) {
 			// do something with the exception;
 			return(false);
 			exit;
@@ -59,7 +59,7 @@
 			// AND WHAT IF NO ID IS PROVIDED IN THE fields
 			$person->load($id,'kp_PersonID');
 		}
-		catch(exception e) {
+		catch(exception $ex) {
 			// do something with the exception;
 			return(null);
 			exit;

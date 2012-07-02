@@ -41,7 +41,7 @@
 	
 	public function doQuery($sql)
 	{
-		// $rs2 = odbc_exec($con, "select * from Table1");
+		// $rs2 = odbc_exec($con, "select * from PERSON_self");
 		$this->_results = odbc_exec($this->_connection,$sql);
 	}
 	

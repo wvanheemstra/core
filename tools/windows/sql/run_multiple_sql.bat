@@ -111,3 +111,6 @@ mysql --host=127.0.0.1 --port=3306 --user=root --database=core < "c:\sql\core\ta
 mysql --host=127.0.0.1 --port=3306 --user=root --database=core < "c:\sql\core\tables\data\tbl_gender_data.sql"
 mysql --host=127.0.0.1 --port=3306 --user=root --database=core < "c:\sql\core\tables\data\tbl_nationality_data.sql"
 mysql --host=127.0.0.1 --port=3306 --user=root --database=core < "c:\sql\core\tables\data\tbl_salutation_data.sql"
+
+REM Data: Samples !!! .... do not use in a production database
+mysql --host=127.0.0.1 --port=3306 --user=root --database=core < "c:\sql\core\tables\data\tbl_person_data.sql"

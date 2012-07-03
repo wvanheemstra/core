@@ -9,7 +9,7 @@
  Target Server Version : 50509
  File Encoding         : utf-8
 
- Date: 06/29/2012 12:30:15 PM
+ Date: 07/03/2012 09:32:23 AM
 */
 
 SET NAMES utf8;
@@ -23,6 +23,7 @@ CREATE TABLE `tbl_country` (
   `kp_CountryID` int(11) NOT NULL AUTO_INCREMENT,
   `CountryCode` varchar(255) COLLATE utf8_bin NOT NULL,
   `CountryName` varchar(255) COLLATE utf8_bin NOT NULL,
+  `CountryNameTranslation` text COLLATE utf8_bin NOT NULL,
   `ts_Created` datetime DEFAULT NULL,
   `ts_Updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`kp_CountryID`),

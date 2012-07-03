@@ -110,3 +110,4 @@ REM Be aware that keys will be assigned to the next increment (hence ids may cha
 mysql --host=127.0.0.1 --port=3306 --user=root --database=core < "c:\sql\core\tables\data\tbl_country_data.sql"
 mysql --host=127.0.0.1 --port=3306 --user=root --database=core < "c:\sql\core\tables\data\tbl_gender_data.sql"
 mysql --host=127.0.0.1 --port=3306 --user=root --database=core < "c:\sql\core\tables\data\tbl_nationality_data.sql"
+mysql --host=127.0.0.1 --port=3306 --user=root --database=core < "c:\sql\core\tables\data\tbl_salutation_data.sql"

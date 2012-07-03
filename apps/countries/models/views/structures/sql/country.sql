@@ -21,6 +21,7 @@ CREATE VIEW `country` AS
   SELECT `kp_CountryID`,
 	`CountryCode`,
 	`CountryName`,
+	`CountryNameTranslation`,
 	`ts_Created`,
 	`ts_Updated`
 FROM tbl_country;

@@ -9,7 +9,7 @@
  Target Server Version : 50509
  File Encoding         : utf-8
 
- Date: 06/29/2012 12:42:42 PM
+ Date: 07/03/2012 11:15:50 AM
 */
 
 SET NAMES utf8;
@@ -22,6 +22,7 @@ DROP TABLE IF EXISTS `tbl_salutation`;
 CREATE TABLE `tbl_salutation` (
   `kp_SalutationID` int(11) NOT NULL AUTO_INCREMENT,
   `SalutationAbbreviation` varchar(255) COLLATE utf8_bin NOT NULL,
+  `SalutationAbbreviationTranslation` text COLLATE utf8_bin NOT NULL,
   `kf_LanguageID` int(11) NOT NULL,
   `ts_Created` datetime DEFAULT NULL,
   `ts_Updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,

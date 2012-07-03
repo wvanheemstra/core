@@ -20,6 +20,7 @@ DROP VIEW IF EXISTS `salutation`;
 CREATE VIEW `salutation` AS 
   SELECT `kp_SalutationID`,
 	`SalutationAbbreviation`,
+	`SalutationAbbreviationTranslation`,
 	`kf_LanguageID`,
 	`ts_Created`,
 	`ts_Updated`

@@ -23,7 +23,7 @@ DELETE FROM `tbl_salutation`;
 --  Records of `tbl_salutation`
 -- ----------------------------
 BEGIN;
-INSERT INTO `tbl_salutation_data` VALUES ('1', 'Mr', 0x7b22656e2d4742223a224d72222c226e6c2d4e4c223a224d72227d, '1', null, '2012-07-03 10:59:01'), ('2', 'Mrs', 0x7b22656e2d4742223a224d7273222c226e6c2d4e4c223a224d657672227d, '1', null, '2012-07-03 10:59:58'), ('3', 'Miss', 0x7b22656e2d4742223a224d697373227d, '1', null, '2012-07-03 11:00:44'), ('4', 'Ms', 0x7b22656e2d4742223a224d73227d, '1', null, '2012-07-03 11:01:12');
+INSERT INTO `tbl_salutation` VALUES ('1', 'Mr', 0x7b22656e2d4742223a224d72222c226e6c2d4e4c223a224d72227d, '1', null, '2012-07-03 10:59:01'), ('2', 'Mrs', 0x7b22656e2d4742223a224d7273222c226e6c2d4e4c223a224d657672227d, '1', null, '2012-07-03 10:59:58'), ('3', 'Miss', 0x7b22656e2d4742223a224d697373227d, '1', null, '2012-07-03 11:00:44'), ('4', 'Ms', 0x7b22656e2d4742223a224d73227d, '1', null, '2012-07-03 11:01:12');
 COMMIT;
 
 SET FOREIGN_KEY_CHECKS = 1;

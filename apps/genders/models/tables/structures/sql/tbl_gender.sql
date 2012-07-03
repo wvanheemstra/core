@@ -9,7 +9,7 @@
  Target Server Version : 50509
  File Encoding         : utf-8
 
- Date: 06/29/2012 12:31:12 PM
+ Date: 07/03/2012 10:09:08 AM
 */
 
 SET NAMES utf8;
@@ -22,6 +22,7 @@ DROP TABLE IF EXISTS `tbl_gender`;
 CREATE TABLE `tbl_gender` (
   `kp_GenderID` int(11) NOT NULL AUTO_INCREMENT,
   `GenderName` varchar(255) COLLATE utf8_bin NOT NULL,
+  `GenderNameTranslation` text COLLATE utf8_bin NOT NULL,
   `kf_LanguageID` int(11) NOT NULL,
   `ts_Created` datetime DEFAULT NULL,
   `ts_Updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,

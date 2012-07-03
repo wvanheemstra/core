@@ -20,6 +20,7 @@ DROP VIEW IF EXISTS `gender`;
 CREATE VIEW `gender` AS 
   SELECT `kp_GenderID`,
 	`GenderName`,
+	`GenderNameTranslation`,
 	`kf_LanguageID`,
 	`ts_Created`,
 	`ts_Updated`

@@ -9,23 +9,21 @@
  Target Server Version : 50509
  File Encoding         : utf-8
 
- Date: 06/21/2012 17:37:33 PM
 */
 
 SET NAMES utf8;
 SET FOREIGN_KEY_CHECKS = 0;
 
 -- ----------------------------
---  Table structure for `tbl_gender_data`
+--  Delete all records of `tbl_gender`
 -- ----------------------------
-DROP TABLE IF EXISTS `tbl_gender_data`;
-CREATE TABLE `tbl_gender_data` (
-  `kp_GenderID` int(11) NOT NULL AUTO_INCREMENT,
-  `GenderName` varchar(255) COLLATE utf8_bin NOT NULL,
-  `kf_LanguageID` int(11) NOT NULL,
-  PRIMARY KEY (`kp_GenderID`),
-  UNIQUE KEY `kp_GenderID` (`kp_GenderID`) USING BTREE,
-  KEY `kf_LanguageID` (`kf_LanguageID`) USING BTREE
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+DELETE FROM `tbl_gender`;
+
+-- ----------------------------
+--  Records of `tbl_gender`
+-- ----------------------------
+BEGIN;
+INSERT INTO `tbl_gender` VALUES ('1', 'Male', 0x277b22656e2d4742223a224d616c65222c226e6c2d4e4c223a224d616e227d27, '0', null, '2012-07-03 10:20:37'), ('2', 'Female', 0x277b22656e2d4742223a2246656d616c65222c226e6c2d4e4c223a2256726f7577227d27, '0', null, '2012-07-03 10:24:39');
+COMMIT;
 
 SET FOREIGN_KEY_CHECKS = 1;

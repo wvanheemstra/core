@@ -9,29 +9,21 @@
  Target Server Version : 50509
  File Encoding         : utf-8
 
- Date: 06/21/2012 18:12:46 PM
 */
 
 SET NAMES utf8;
 SET FOREIGN_KEY_CHECKS = 0;
 
 -- ----------------------------
---  Table structure for `tbl_salutation_data`
+--  Delete all records of `tbl_salutation`
 -- ----------------------------
-DROP TABLE IF EXISTS `tbl_salutation_data`;
-CREATE TABLE `tbl_salutation_data` (
-  `kp_SalutationID` int(11) NOT NULL AUTO_INCREMENT,
-  `SalutationAbbreviation` varchar(255) COLLATE utf8_bin NOT NULL,
-  `kf_LanguageID` int(11) NOT NULL,
-  PRIMARY KEY (`kp_SalutationID`),
-  KEY `kf_LanguageID` (`kf_LanguageID`) USING BTREE
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+DELETE FROM `tbl_salutation`;
 
 -- ----------------------------
---  Records of `tbl_salutation_data`
+--  Records of `tbl_salutation`
 -- ----------------------------
 BEGIN;
-INSERT INTO `tbl_salutation_data` VALUES ('1', 'Mr', '1'), ('2', 'Mrs', '1'), ('3', 'Miss', '1');
+INSERT INTO `tbl_salutation_data` VALUES ('1', 'Mr', 0x7b22656e2d4742223a224d72222c226e6c2d4e4c223a224d72227d, '1', null, '2012-07-03 10:59:01'), ('2', 'Mrs', 0x7b22656e2d4742223a224d7273222c226e6c2d4e4c223a224d657672227d, '1', null, '2012-07-03 10:59:58'), ('3', 'Miss', 0x7b22656e2d4742223a224d697373227d, '1', null, '2012-07-03 11:00:44'), ('4', 'Ms', 0x7b22656e2d4742223a224d73227d, '1', null, '2012-07-03 11:01:12');
 COMMIT;
 
 SET FOREIGN_KEY_CHECKS = 1;

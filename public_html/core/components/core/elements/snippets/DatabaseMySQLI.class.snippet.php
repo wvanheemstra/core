@@ -51,7 +51,7 @@
 	
 	public function doQuery($sql)
 	{
-		$this->_results = mysqli_query($this->_connection,$sql);
+	    $this->_results = mysqli_query($this->_connection,$sql);
 		$this->_numRows = $this->_results->num_rows;
 	}
 	
@@ -59,10 +59,24 @@
 	{
 		$obj = "No Results";
 		if($this->_results)
-		{
+		{	
 			$obj = mysqli_fetch_assoc($this->_results);
 		}
 		return $obj;
+	}
+
+	public function loadAllObjectList()
+	{
+		$objs = array();
+		if($this->_results)
+		{	
+			$i=1;
+			while($row = mysqli_fetch_assoc($this->_results)){
+				$objs[$i] = $row;
+				$i=$i+1;
+			}
+		}
+		return $objs;
 	}
 	
 	public function doDisconnect()

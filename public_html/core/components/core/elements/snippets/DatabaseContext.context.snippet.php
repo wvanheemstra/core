@@ -41,6 +41,11 @@
 	{
 		return $this->_database->loadObjectList();
 	}
+
+	public function loadAllObjectList()
+	{
+		return $this->_database->loadAllObjectList();
+	}	
 	
 	public function doDisconnect()
 	{

@@ -59,6 +59,18 @@
 		return $obj;
 	}
 	
+	public function loadAllObjectList()
+	{
+		$objs = array();
+		if($this->_results)
+		{	
+			while($row = mysql_fetch_assoc($this->_results)){
+				$objs[] = $row;
+			}
+		}
+		return $objs;
+	}
+	
 	public function doDisconnect()
 	{
 		$this->_connection->close();

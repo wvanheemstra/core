@@ -56,6 +56,17 @@
 		return $obj;
 	}
 	
+	public function loadAllObjectList()
+	{
+		$obj = "No Results";
+		if($this->_results)
+		{
+			// odbc_result_all($rs2);
+			$obj = odbc_result_all($this->_results);
+		}
+		return $obj;
+	}	
+	
 	public function doDisconnect()
 	{
 		// odbc_close($con);

@@ -1,4 +1,10 @@
-core
-====
+Ext.application({
+    name: 'AM',
 
-Dummy file
+    // automatically create an instance of AM.view.Viewport
+    autoCreateViewport: true,
+
+    controllers: [
+        'Users'
+    ]
+});

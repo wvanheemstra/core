@@ -1,7 +1,7 @@
 //Ext.require('Ext.container.Viewport');
 Ext.application({
    name: 'AM',
-   
+   appFolder: 'core/components/core/apps/account_manager/app',
    controllers: ['Users'],
    
    launch: function() {

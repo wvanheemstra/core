@@ -11,7 +11,8 @@ Ext.application({
                         items: [
                                 {
                                         title: 'Account Manager',
-                                        html : 'Hello! Welcome to Account Manager.'
+                                        html : 'Hello! Welcome to Account Manager.',
+                                        xtype: 'userlist'
                                 }
                         ]
                 });

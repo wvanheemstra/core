@@ -1,4 +1,8 @@
-core
-====
+Ext.define('AM.view.Viewport', {
+    extend: 'Ext.container.Viewport',
 
-Dummy file
+    layout: 'fit',
+    items: [{
+        xtype: 'userlist'
+    }]
+});

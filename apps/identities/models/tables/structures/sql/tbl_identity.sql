@@ -9,7 +9,7 @@
  Target Server Version : 50509
  File Encoding         : utf-8
 
- Date: 07/05/2012 14:12:24 PM
+ Date: 07/05/2012 16:31:05 PM
 */
 
 SET NAMES utf8;
@@ -25,7 +25,8 @@ CREATE TABLE `tbl_identity` (
   `IdentityPassword` varchar(255) COLLATE utf8_bin NOT NULL,
   `ts_Created` datetime DEFAULT NULL,
   `ts_Updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`kp_IdentityID`)
+  PRIMARY KEY (`kp_IdentityID`),
+  UNIQUE KEY `IdentityName` (`IdentityName`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 delimiter ;;
 CREATE TRIGGER `Identity.ts_Created` BEFORE INSERT ON `tbl_identity` FOR EACH ROW BEGIN

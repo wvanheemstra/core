@@ -14,26 +14,15 @@ SET NAMES utf8;
 SET FOREIGN_KEY_CHECKS = 0;
 
 -- ----------------------------
---  View structure for `person`
+--  View structure for `identity`
 -- ----------------------------
-DROP VIEW IF EXISTS `person`;
-CREATE VIEW `person` AS 
-  SELECT `kp_PersonID`,
-	`PersonFirstName`,
-	`PersonLastName`,
-	`RelationshipWithSelf`,
-	`kf_KindOfPersonID`,
-	`kf_SalutationID`,
-	`kf_NationalityID`,
-	`kf_GenderID`,
-	`kf_DateID`,
-	`kf_RegistryID`,
-	`kf_RequirementID`,
-	`kf_SkillID`,
-	`kf_PartyID`,
-	`kf_IdentityID`,
+DROP VIEW IF EXISTS `identity`;
+CREATE VIEW `identity` AS 
+  SELECT `kp_IdentityID`,
+	`IdentityName`,
+	`IdentityPassword`,
 	`ts_Created`,
 	`ts_Updated`
-FROM tbl_person;
+FROM tbl_identity;
 
 SET FOREIGN_KEY_CHECKS = 1;

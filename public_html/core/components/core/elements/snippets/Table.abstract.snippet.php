@@ -31,7 +31,7 @@
 		}
 	}
 	
-	function load($id,$idField)
+	function load($id,$idField,$limit)
 	{
 		$this->id = $id;
 		$this->idField = $idField;
@@ -40,9 +40,31 @@
 			$this->db = new DatabaseContext($this->dbConnType);
 			$this->db->doConnect($this->credentials);
 		}
-		$sql = $this->buildQuery('load');
+		$sql = $this->buildQuery('load',$limit);
 		$this->db->doQuery($sql);
 		$row = $this->db->loadObjectList();
+		if (is_array($row)) {
+			foreach($row as $key=>$value)
+			{
+				if($key == "id")
+				{
+					continue;
+				}
+				$this->$key = $value;
+			}
+		}
+	}
+	
+	function loadAll($limit)
+	{
+		if(!$this->db)
+		{
+			$this->db = new DatabaseContext($this->dbConnType);
+			$this->db->doConnect($this->credentials);
+		}		
+		$sql = $this->buildQuery('loadAll',$limit);
+		$this->db->doQuery($sql);
+		$row = $this->db->loadAllObjectList();
 		if (is_array($row)) {
 			foreach($row as $key=>$value)
 			{
@@ -67,7 +89,7 @@
 		$this->db->doQuery($sql);
 	}
 	
-	protected function buildQuery($task)
+	protected function buildQuery($task,$limit)
 	{
 		$sql = "";
 		if($task == 'store')
@@ -107,7 +129,22 @@
 		}
 		elseif($task == 'load')
 		{
-			$sql = "Select * from {$this->table} where {$this->idField} = {$this->id}";
+			if($limit != null) {
+				$sql = "Select * from {$this->table} where {$this->idField} = {$this->id} LIMIT {$limit}";
+			}
+			else{
+				$sql = "Select * from {$this->table} where {$this->idField} = {$this->id}";
+			}
+		}
+		elseif($task == 'loadAll')
+		{
+			if($limit != null) {
+				$sql = "Select * from {$this->table} LIMIT {$limit}";
+			}
+			else {
+				$sql = "Select * from {$this->table}";
+			}
+			//echo($sql); // for debugging only
 		}
 		return $sql;
 	}

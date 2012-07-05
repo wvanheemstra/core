@@ -12,6 +12,8 @@
 	
 	public function loadObjectList();
 	
+	public function loadAllObjectList();
+	
 	public function doDisconnect();
 
  }

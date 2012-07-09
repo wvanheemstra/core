@@ -1,4 +1,4 @@
-Ext.define('core.Person', {
+Ext.define('Person', {
 	/** @readonly */	
 	isPerson: true,
 

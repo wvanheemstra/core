@@ -7,18 +7,5 @@ Ext.define('core.model.Person', {
         {name: 'kf_GenderID', type: 'int', defaultValue: '0'},
         {name: 'kf_Salutation', type: 'int', defaultValue: '0'}
     ],
-    idProperty:'kp_PersonID',
-	// The model's default proxy
-	proxy: {
-        type: 'ajax',
-        api: {
-			read: 'http://localhost/core/components/core/apps/core/data/persons.json',
-			update: 'http://localhost/core/components/core/apps/core/data/updatePersons.json'
-		},
-        reader: {
-            type: 'json',
-            root: 'persons',
-            successProperty: 'success'
-        }
-    }
+    idProperty:'kp_PersonID'
 });

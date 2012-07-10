@@ -33,55 +33,40 @@ Ext.define('core.view.Viewport', {
 				type: 'hbox',
 				align: 'stretch'
 			},
-            items: [{
-                title: 'Some Title',
-                layout : {
-					type: 'hbox',
+			items: [{
+				width: 250,
+				xtype: 'panel',
+				layout: {
+					type: 'vbox',
 					align: 'stretch'
 				},
 				items: [{
-					width: 250,
-					xtype: 'panel',
-					layout: {
-						type: 'vbox',
-						align: 'stretch'
-					},
-					items: [{
-						xtype: 'stationslist',
-						flex: 1
-					}, {
-						html: 'Ad',
-						height: 250,
-						xtype: 'panel'
-					}]
+					xtype: 'stationslist',
+					flex: 1
 				}, {
-					xtype: 'container',
-					flex: 1,
-					layout: {
-						type: 'vbox',
-						align: 'stretch'
-					},
-					items: [{
-						xtype: 'recentlyplayedscroller',
-						height: 250
-					}, {
-						xtype: 'songinfo',
-						flex: 1
-					}]
+					html: 'Ad',
+					height: 50,
+					xtype: 'panel'
 				}]
-            }]
+			}, {
+				xtype: 'container',
+				flex: 1,
+				layout: {
+					type: 'vbox',
+					align: 'stretch'
+				},
+				items: [{
+					xtype: 'recentlyplayedscroller',
+					height: 250
+				}, {
+					xtype: 'songinfo',
+					height: 250
+				}]
+			}]
         });
-		
 		//pass along browser window resize events to the panel
         Ext.EventManager.onWindowResize(panel.doLayout, panel);
-		
-		//Ext.EventManager.onWindowResize(function() {
-			// pass "true" to get the contendWidth (excluding border/padding/etc.)
-		//	mainPanel.setWidth(Ext.getBody().getWidth(true));
-			// seems to be no need to call mainPanel.doLayout() here in my situation
-		//});
 		
 		this.callParent();
     }
 });
-	

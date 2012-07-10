@@ -12,7 +12,7 @@ Ext.define('Person', {
 				lastName: lastName
 			});
 		}
-	}
+	},
 	
     config: {
 		firstName: 'Unknown',

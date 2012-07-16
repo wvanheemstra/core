@@ -352,7 +352,7 @@ function DoEmail()
 		{
 			//anhang zu gross
 			$subject="Backup '".$databases['Name'][$dump['dbindex']]."' - ".date("d\.m\.Y H:i",time());
-			$header.="FROM:".$config['email_sender']."\n";
+			$header.="FROM:<".$config['email_sender'].">\n";
 			if (isset($config['email_recipient_cc'])&&trim($config['email_recipient_cc'])>'') $header.="Cc:     ".$config['email_recipient_cc']."\r\n";
 			$header.="MIME-version: 1.0\n";
 			$header.="X-Mailer: PHP/".phpversion()."\n";
@@ -380,7 +380,7 @@ function DoEmail()
 			$contents=fread($fp,$file_size);
 			$encoded_file=chunk_split(base64_encode($contents));
 			fclose($fp);
-			$header.="FROM:".$config['email_sender']."\n";
+			$header.="FROM:<".$config['email_sender'].">\n";
 			if (isset($config['email_recipient_cc'])&&trim($config['email_recipient_cc'])>'') $header.="Cc:     ".$config['email_recipient_cc']."\r\n";
 			$header.="MIME-version: 1.0\n";
 			$header.="Content-type: multipart/mixed; ";
@@ -407,7 +407,7 @@ function DoEmail()
 		//Multipart
 		$mp_sub="Backup '".$databases['Name'][$dump['dbindex']]."' - ".date("d\.m\.Y",time());
 		$subject=$mp_sub;
-		$header.="FROM:".$config['email_sender']."\n";
+		$header.="FROM:<".$config['email_sender'].">\n";
 		if (isset($config['email_recipient_cc'])&&trim($config['email_recipient_cc'])>'') $header.="Cc:     ".$config['email_recipient_cc']."\r\n";
 		$header.="MIME-version: 1.0\n";
 		$header.="X-Mailer: PHP/".phpversion()."\n";
@@ -452,7 +452,7 @@ function DoEmail()
 			$encoded_file=chunk_split(base64_encode($contents));
 			fclose($fp);
 			$subject=$mp_sub."  [Part ".($i+1)." / ".count($mpdatei)."]";
-			$header="FROM:".$config['email_sender']."\n";
+			$header="FROM:<".$config['email_sender'].">\n";
 			if (isset($config['email_recipient_cc'])&&trim($config['email_recipient_cc'])>'') $header.="Cc:     ".$config['email_recipient_cc']."\r\n";
 			$header.="MIME-version: 1.0\n";
 			$header.="Content-type: multipart/mixed; ";

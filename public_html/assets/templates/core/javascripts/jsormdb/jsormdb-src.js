@@ -1,10 +1,29 @@
+(function(exports){
 /*
- * Copyright © Atomic Inc 2007-2009
+ * Copyright © Atomic Inc 2007-2012
  * http://jsorm.com
  *
- * This file contains work that is copyrighted and is distributed under one of several licenses. 
- * You may not use, modify or distribute this work, except under an approved license. 
- * Please visit the Web site listed above to obtain the original work and a license.
+ Permission is hereby granted, free of charge, to any person
+ obtaining a copy of this software and associated documentation
+ files (the "Software"), to deal in the Software without
+ restriction, including without limitation the rights to use,
+ copy, modify, merge, publish, distribute, sublicense, and/or sell
+ copies of the Software, and to permit persons to whom the
+ Software is furnished to do so, subject to the following
+ conditions:
+
+ The above copyright notice and this permission notice shall be
+ included in all copies or substantial portions of the Software.
+
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+ EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+ OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+ NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+ HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+ FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+ OTHER DEALINGS IN THE SOFTWARE.
+ * 
  * 
  * These libraries contains work written and published by Douglas Crockford www.crockford.com. 
  * Page xii of "JavaScript: The Good Parts" ISBN 978-0-596-51774-8 explicitly states that
@@ -15,47 +34,26 @@
  */
 
 
-var JSORM={version:"1.3b"};Array.prototype.isArray=true;Array.prototype.pushAll=function(a){a=[].concat(a);Array.prototype.push.apply(this,a);};Array.prototype.insert=function(i,elm){Array.prototype.splice.apply(this,[].concat(i,0,elm));};Array.prototype.clear=function(){Array.prototype.splice.apply(this,[0]);};Array.prototype.replace=function(elm){this.clear();this.pushAll(elm);};Array.prototype.hasher=function(){var i,len,h={};for(i=0,len=this.length;i<len;i++){h[this[i]]=i;}
-return(h);};Array.prototype.indexOf=function(elm){var i,len,found=false;for(i=0,len=this.length;i<len;i++){if(this[i]===elm){found=true;break;}}
-return(found?i:-1);};Array.prototype.remove=function(elm){var i=this.indexOf(elm);if(i>=0){this.splice(i,1);}};JSORM.clear=function(o){var i;for(i in o){if(o.hasOwnProperty(i)&&typeof(i)!=="function"){delete o[i];}}};JSORM.apply=function(target,source,fields){source=source&&typeof(source)==="object"?source:{};fields=fields&&typeof(fields)==="object"?fields:source;target=target||{};for(var prp in fields){if(source.hasOwnProperty(prp)){target[prp]=source[prp];}}
-return(target);};JSORM.common=function(a,b,keys){var i,c={};if(a&&typeof(a)==="object"&&b&&typeof(b)==="object"){for(i in a){if(typeof(a[i])!=="function"&&typeof(b[i])===typeof(a[i])&&(keys||a[i]===b[i])){c[i]=a[i];}}}
-return(c);};JSORM.first=function(){var ret=null,i,len;for(i=0,len=arguments.length;i<len;i++){if(arguments[i]!==undefined){ret=arguments[i];break;}}
-return(ret);};JSORM.compare=function(a,b){var ident=false,i,len,compare=JSORM.compare;if(a===b){return(true);}
-else if(a.isArray&&b.isArray){len=a.length;if(len!=b.length){return(false);}
-for(i=0;i<len;i++){if(!compare(a[i],b[i])){return(false);}}
-return(true);}else if(typeof(a)=="object"&&typeof(b)=="object"){for(i in a){if(!compare(a[i],b[i])){return(false);}}
-for(i in b){if(!compare(a[i],b[i])){return(false);}}
-return(true);}else{return(false);}}
-JSORM.clone=function(){var c=function(obj,deep){var newObj,prp,rec,type;if(typeof(obj)==="object"&&obj!==null){newObj=new obj.constructor();for(prp in obj){if(obj.hasOwnProperty(prp)&&(type=typeof(rec=obj[prp]))!=="function"){if(type==="object"&&deep){newObj[prp]=c(rec);}else{newObj[prp]=rec;}}}}else{newObj=obj;}
-return(newObj);}
-return(c);}();JSORM.iclone=function(obj,deep){var newObj,child,o,prp,rec,type,stack=[],newP=[],children;stack.push({o:obj,p:null});newP.push(new obj.constructor());while(stack.length>0){obj=stack[stack.length-1];if(!obj.hasOwnProperty("c")){children=[];o=obj.o;for(prp in o){if(o.hasOwnProperty(prp)&&(type=typeof(rec=o[prp]))!=="function"){if(type==="object"&&deep){children.push({o:rec,p:prp});}else{newP[newP.length-1][prp]=rec;}}}
-obj.c=children;}
-if(obj.c.length>0){child=obj.c.shift();stack.push(child);newP.push(new child.o.constructor());}else{stack.pop();newObj=newP.pop();if(stack.length>0){newP[newP.length-1][obj.p]=newObj;}}}
-return(newObj);};JSORM.zeropad=function(n,l){var ret=n+'';var d=l-ret.length;if(d>0){for(var i=0;i<d;i++){ret='0'+ret;}}
-return(ret);};JSORM.fork=function(){var fork,window=this,t;if(window&&window.setTimeout&&typeof(window.setTimeout)==="function"){fork=function(f){window.setTimeout(f,1);};}else if(java&&java.lang&&java.lang.Thread&&typeof(java.lang.Thread)==="function"){fork=function(f){t=new java.lang.Thread(new java.lang.Runnable({run:function(){f();}})).start();};}else{fork=null;}
-return(fork?function(conf){var f=conf.fn,scope=conf.scope,arg=[].concat(conf.arg);fork(function(){f.apply(scope,arg);});}:fork);}();JSORM.ajax=function(arg){var url=arg.url,callback=arg.callback,scope=arg.scope,options=arg.options,xmlHttp;var method=arg.method||"GET",params=arg.params,pstr=null,i;try{xmlHttp=new window.XMLHttpRequest();}catch(e0){try{xmlHttp=new window.ActiveXObject("Msxml2.XMLHTTP");}catch(e1){try{xmlHttp=new window.ActiveXObject("Microsoft.XMLHTTP");}catch(e2){JSORM.fork({fn:callback,scope:scope,arg:[url,xmlHttp,false,options,"Your environment does not support AJAX!"]});}}}
-var h=xmlHttp;xmlHttp.onreadystatechange=function(){var success;if(h.readyState==4){success=h.status==200||(document.location.protocol=='file:');callback.apply(scope,[url,h,success,options]);}};try{xmlHttp.open(method,url,true);if(params){if(typeof(params)==="string"){pstr=params;}else if(typeof(params)==="object"){pstr=[];for(i in params){if(params.hasOwnProperty(i)){pstr.push(i+"="+arg.params[i]);}}
-pstr=pstr.join("&");}else{pstr=null;}}
-xmlHttp.send(pstr);}catch(e3){options=options||{};options.e=e3;JSORM.fork({fn:callback,scope:scope,arg:[url,xmlHttp,false,options]});}};JSORM.extend=function(parent,constr,stat){var ret,proto;if(!parent){parent={};}else if(typeof parent=='object'){proto=parent;}else{proto=parent.prototype;}
-ret=function(){var F=function(){};F.prototype=proto;var that=new F();that.superclass=proto;that.myclass=ret;if(constr!==null&&typeof(constr)=='function'){constr.apply(that,arguments);}
-return(that);};if(stat){JSORM.apply(ret,stat);}
-return ret;};JSORM.eventualize=function(that){var registry={};that.fire=function(event,params){var array,func,handler,i,len,pass=true,ret,p;var type=typeof(event)=='string'?event:event.type;if(registry.hasOwnProperty(type)){array=registry[type];for(i=0,len=array.length;i<len;i++){handler=array[i];func=handler.method;p=JSORM.apply({},handler.parameters);JSORM.apply(p,params);p.launcher=this;ret=func.apply(handler.scope,[p]);if(ret===false){pass=false;}}}
-return(pass);};that.on=function(type,method,parameters,scope){var handler={method:method,parameters:parameters,scope:scope};if(registry.hasOwnProperty(type)&&method&&typeof(method)==="function"){registry[type].push(handler);}
-return(this);};that.off=function(type,method,parameters){var array,i;if(registry.hasOwnProperty(type)){array=registry[type];for(i=0;i<array.length;i++){if(array[i].method===method&&array[i].parameters===parameters){registry.splice(i,1);break;}}}
-return(this);};that.events=function(){for(var i=0;i<arguments.length;i++){registry[arguments[i]]=[];}};that.nonevents=function(){for(var i=0;i<arguments.length;i++){delete registry[arguments[i]];}};return(that);};/**
+/**
  * @author adeitcher
  * @fileOverview Ensure that appropriate vars are defined.
  */
 /*
  * Ensure that our variables are in place
  */
-/*global JSORM */
-JSORM = JSORM || {};
+/*jslint node:true */
+/*global exports */
+var j = exports || {}, JSORM;
+
+/* and what if I am in node? then I need to get JSORM, it will not be a global */
+if (typeof(require) === "function" && typeof(process) === "object" && typeof(process.version) === "string" && typeof(JSORM) === "undefined") {
+  JSORM = require('jsorm-utilities');
+}
 
 /**
  * @namespace Container for all jsormdb
  */
-JSORM.db = {
+j.db = {
 	/** @namespace Container for all index components */
 	index: {}, 
 	/** @namespace Container for all parser components */
@@ -64,247 +62,13 @@ JSORM.db = {
 	channel: {}
 };
 
-/**
- * @author Avi Deitcher
- * @fileOverview Channel to read/write from an HTTP server
- */
-/*global JSORM */
-
-/**
- * Create new HTTP channel
- * @class Channel to communicate over http via Ajax with the back-end server.
- * 
- * @param {Object} config Configuration object, must have at least one url parameter
- * @param {String} config.url URL to use for loading and updating. If it begins with '/', then absolute, else relative.
- * @param {String} config.loadUrl URL to use for loading. If it begins with '/', then absolute, else relative.
- * @param {String} config.updateUrl URL to use for updating. If it begins with '/', then absolute, else relative.
- */
-JSORM.db.channel.http = JSORM.extend({}, function(config){
-	config = config || {};
-	// convenience
-	var ajax = JSORM.ajax, fork = JSORM.fork, that = this;
-	
-	// our URLs; if only one url is given, use it for both
-	var loadUrl = config.loadUrl || config.url, updateUrl = config.updateUrl || config.url;
-
-	// create event-handling
-	JSORM.eventualize(this);
-	this.events('beforeupdate','update','updateexception','beforeload','load','loadexception');
-
-	var processResponse = function(eSuccess, eFailure, filename, xhr, success, o) {
-		var e, a, s, ct, ct2, res;
-		if (success) {
-			e = eSuccess; a = o.options; s = true;
-			// because both types are sometimes used
-			ct = xhr.getResponseHeader("Content-type");
-			ct2 = xhr.getResponseHeader("Content-Type");
-			res = ct === "text/xml" || ct2 === "text/xml" ? xhr.responseXML : xhr.responseText;
-		} else {
-			e = eFailure; a = xhr; s = false;
-		}
-		that.fire(e,o);
-		o.callback.call(o.scope,{options: o.arg, success: s, response: res});		
-	};
-	
-	var updateResponse = function(filename, xhr, success, o){
-		processResponse("update","updateexception",filename,xhr,success,o);
-	};
-
-	var loadResponse = function(filename, xhr, success, o){
-		processResponse("load","loadexception",filename,xhr,success,o);
-	};
-	
-	var message = function(beforeevent, arg, callback, method, url) {
-		var params = arg.params, cb = arg.callback, scope = arg.scope, options = arg.options;
-        if(that.fire("beforeevent", params) !== false){
-            var  o = {
-                params : params || {},
-                options: {
-                    callback : cb,
-                    scope : scope,
-                    arg : options
-                },				
-                callback : callback,
-				method: method,
-                scope: this,
-				url: url
-            };
-            ajax(o);
-        }else{
-			fork({fn: cb, scope: scope || that, arg: [{options: options, success: false}]});
-        }		
-	};
-	
-	JSORM.apply(this,/** @lends JSORM.db.channel.http.prototype */{
-		/**
-		 * Update the remote data source via http. This is presumed to be asynchronous, and thus will
-		 * return before the call is complete. Use a callback to capture the result.
-		 * 
-		 * @param {Object} [config] Configuration information for the update
-		 * @param {Object} [config.params] Parameters to add to the update. Each element is given as a parameter name to the HTTP
-		 * 			PUT, while the values are expected to be Strings given as the value of HTTP parameter 
-		 * @param {Function} [config.callback] Function to be executed when the update is complete, whether success or failure.
-		 *   The callback should expect a single argument, an object, with the following elements:
-		 *    <ul>
-		 *     <li>success: boolean as to whether or not the update succeeded</li>
-		 *     <li>options: the options that were passed to update as config.options</li>
-		 *    </ul>
-		 * @param {Object} [config.scope] Scope within which to execute the callback
-		 * @param {Object} [config.options] Options to pass to the callback
-		 */
-	    update : function(arg){
-			message("beforeupdate",arg,updateResponse, "POST", updateUrl);
-		},
-	
-		/**
-		 * Load from the remote data source via http. This is presumed to be asynchronous, and thus will
-		 * return before the call is complete. Use a callback to capture the result.
-		 * 
-		 * @param {Object} [config] Configuration information for the load
-		 * @param {Object} [config.params] Parameters to add to the load. Each element is given as a parameter name to the HTTP
-		 * 			GET, while the values are expected to be Strings given as the value of HTTP parameter 
-		 * @param {Function} [config.callback] Function to be executed when the load is complete, whether success or failure.
-		 *   The callback should expect a single argument, an object, with the following elements:
-		 *    <ul>
-		 *     <li>success: boolean as to whether or not the load succeeded</li>
-		 *     <li>options: the options that were passed to load as config.options</li>
-		 *    </ul>
-		 * @param {Object} [config.scope] Scope within which to execute the callback
-		 * @param {Object} [config.options] Options to pass to the callback
-		 */
-		load : function(arg) {
-			message("beforeload",arg,loadResponse, "GET", loadUrl);
-		}
-
-	});
-
-});
-
-/**
- * @author Avi Deitcher
- * @fileOverview JSON Parser to convert JSON into objects suitable for jsormdb and vice-versa
- */
-/*global JSORM */
-/**
- * Create a new JSON parser
- * @class Parser to convert JSON into objects when loaded from a channel and vice-versa
- * 
- * @param {Object} [config] Configuration parameters
- * @param {String} [config.id] Default field to use as the unique identifier field in parsed data
- * @param {String} [config.root] Default element to use as the root of actual records in parsed data
- */
-JSORM.db.parser.json = JSORM.extend({}, function(config){
-	config = config || {};
-	var id = config.id, root = config.root, lastMeta = {}, lastRoot = {};
-	
-	// read - input JSON, write out objects
-	JSORM.apply(this, /** @lends JSORM.db.parser.json.prototype */{
-		/**
-		 * Convert JSON into an object structure suitable to load into jsormdb
-		 * 
-		 * @param {String} json JavaScript Object Notation string with the appropriate information
-		 * @returns {Object} An object with the appropriate elements
-		 */
-		read : function(json) {
-			// first parse the data
-			var data = null, p;
-			p = JSON.parse(json);
-
-			// data better be a valid object
-			if (p && typeof(p) === "object") {
-				data = {};
-				// if it is an array, just use it directly 
-				if (p.isArray) {
-					data.records = p;
-					data.id = id;
-				} else {
-					// find out our root and our id
-					root = p.meta && p.meta.root ? p.meta.root : root;
-					data.records = p[root];
-					data.id = p.meta && p.meta.id ? p.meta.id : id;
-
-					// keep the root information
-					lastMeta = p.meta;
-					lastRoot = root;
-				}
-			}
-
-			return(data);
-		},
-
-		/**
-		 * Convert an array of jsormdb objects into JSON as per the original load structure
-		 * 
-		 * @param {Object[]} records Array of records from a jsormdb database
-		 * @returns {String} JSON-encoded String, including appropriate metadata and root
-		 */
-		write : function(records) {
-			// hold our new structure
-			var obj = {};
-			obj[lastRoot] = records;
-			if (lastMeta) {
-				obj.meta = lastMeta;
-			}
-			var j = JSON.stringify(obj);
-			if (!j) {throw{message: "JsonParser.write: unable to encode records into Json"};}
-			return(j);
-		}		
-	});
-});
-/**
- * @author adeitcher
- * @fileOverview Parser to convert objects into objects, essentially making no translation. Because
- * the database must have a parser for other conversions, e.g. JSON and XML, we need an object parser as well, especially
- * when the channel talks to some other object generator.
- */
-/*global JSORM */
-
-/**
- * Create a new object parser
- * 
- * @class Parser to convert objects into objects, essentially making no translation. Because
- * the database must have a parser for other conversions, e.g. JSON and XML, we need an object parser as well, especially
- * when the channel talks to some other object generator.
- */
-JSORM.db.parser.object = JSORM.extend({}, function(){
-	var clone = JSORM.clone;
-	
-	JSORM.apply(this,/** @lends JSORM.db.parser.object.prototype */{
-		/**
-		 * Convert raw JavaScript object records into a structure appropriate for consumption by jsormdb
-		 * 
-		 * @param {Object[]} data Array of objects
-		 * @returns {Object} Object data structure with the original data cloned and loaded
-		 */
-	    read : function(data){
-			data = [].concat(clone(data,true));
-			// return an object as expected
-		    return {
-		        records : data
-		    };
-	    },
-
-		/**
-		 * Convert jsormdb internal records into JavaScript objects. This method does almost nothing, just clones the 
-		 * objects and passed them back.
-		 * 
-		 * @param {Object[]} records Records from a jsormdb
-		 * @returns {Object[]} Cloned records
-		 */
-		write : function(records) {
-			// clone so we do not confuse objects
-			return(clone(records,true));
-		}		
-	});
-});
-
 
 /**
  * @fileOverview Database with full transactions, partial and complete rollbacks, load from and store
  * to server-side, and much much more
  * @author adeitcher
  */
-/*global JSORM */
+/*global JSORM, j */
 
 /** 
  * @constructor
@@ -315,24 +79,25 @@ JSORM.db.parser.object = JSORM.extend({}, function(){
  * @param {Object} [config.updateParams] Object literal with parameters to pass to the channel for each commit(), by default
  * @param {Object} [config.loadParams] Object literal with parameters to pass to the channel for each load(), by default
  */
-JSORM.db.db = JSORM.extend({},	function(config) {
+j.db.db = JSORM.extend({},	function(config) {
 	// ensure config is an object for convenience
 	config = config || {};
 
 	// convenience definitions
-	var clone = JSORM.clone, common=JSORM.common, apply=JSORM.apply, fork = JSORM.fork, first=JSORM.first;
+	var clone = JSORM.clone, common=JSORM.common, apply=JSORM.apply, fork = JSORM.fork, first=JSORM.first,
 	
-	var journal = [], channel = config.channel || null, idField, myclass = this.myclass;
+	journal = [], channel = config.channel || null, idField, myclass = this.myclass,
 	// updateMode, writeMode
-	var updateMode = config.updateMode || myclass.updates.nothing, writeMode = config.writeMode || myclass.modes.nothing;
+	updateMode = config.updateMode || myclass.updates.nothing, writeMode = config.writeMode || myclass.modes.nothing,
 	// we automatically use "type" as an indexed field
-	var store = JSORM.db.engine.hash(JSORM.db.index.hash("type"));
+	store = j.db.engine.hash(j.db.index.hash("type")),
 	// default writeMode, updateMode
-	var defaultWriteMode = myclass.modes.nothing, defaultUpdateMode = myclass.updates.nothing;
+	defaultWriteMode = myclass.modes.nothing, defaultUpdateMode = myclass.updates.nothing,
 	// do we have a parser?
-	var parser = config.parser || JSORM.db.parser.json();
+	parser = config.parser || j.db.parser.json(),
 	// params
-	var updateParams = config.updateParams || {}, loadParams = config.loadParams || {};
+	updateParams = config.updateParams || {}, loadParams = config.loadParams || {}, 
+	findInternal, clearInternal, loadData, loadCallback, removeAt, write, writeCallback;
 
 
 	// create event-handling
@@ -344,21 +109,13 @@ JSORM.db.db = JSORM.extend({},	function(config) {
 		'beforewrite','write','writeexception','commit', 'commitexception');
 
 	/*
-	 * START legacy event management stuff from when this was based upon Ext.ux.WriteStore
-	 */
-    //this.relayEvents(channel, ["updateexception"]);
-	/*
-	 * END legacy event management stuff from when this was based upon Ext.ux.WriteStore
-	 */
-
-	/*
 	 * BEGIN PRIVATE FUNCTIONS
 	 */
 
 	/**
 	 * Internal search function, returns the index
 	 */
-	var findInternal = function(args) {
+	findInternal = function(args) {
 		var ret = null, i, len, query, idx, data;
 		
 		// query the store
@@ -380,7 +137,7 @@ JSORM.db.db = JSORM.extend({},	function(config) {
 		return(ret);
 	};
 	
-	var clearInternal = function(log) {
+	clearInternal = function(log) {
 		// log the event in the journal, unless suppressed
 		if (log) {
 			journal.push({type: myclass.types.clear, data: store.get()});
@@ -390,7 +147,7 @@ JSORM.db.db = JSORM.extend({},	function(config) {
 		store.clear();
 	};
 
-	var loadData = function(data) {
+	loadData = function(data) {
 		var r = data.records;
 		clearInternal(false);
 		idField = data.id || "id";
@@ -410,9 +167,9 @@ JSORM.db.db = JSORM.extend({},	function(config) {
 	 * 2) Do the load
 	 * 3) Start a new transaction journal
 	 */
-	var loadCallback = function(args){
-		var options = args.options || {}, r = [], parsed, processed = false;
-		var e, sfcb, cb = args.callback, scope = args.scope || this;
+	loadCallback = function(args){
+		var options = args.options || {}, r = [], parsed, processed = false,
+		e, sfcb, cb = args.callback, scope = args.scope || this;
 
 		// only clear and load if we successfully get and parse the data
 		if (args.success && (parsed = parser.read(args.response))) {
@@ -443,7 +200,7 @@ JSORM.db.db = JSORM.extend({},	function(config) {
 		}
 	};
 
-    var removeAt = function(index){
+  removeAt = function(index){
 		var i,len, removed = [], entry;
 		index = [].concat(index);
 		for (i=0,len=index.length;i<len;i++) {
@@ -451,9 +208,9 @@ JSORM.db.db = JSORM.extend({},	function(config) {
 			removed.push(entry);
 		}
 		return(removed);
-    };
+  };
 
-	var write = function(mode) {
+	write = function(mode) {
 		var data, tmp, i, len, j, lenj, recs = {}, entry, den, curId, condensed, orig;
 
 		// replace mode just dumps it all
@@ -559,13 +316,13 @@ JSORM.db.db = JSORM.extend({},	function(config) {
 	 * @success boolean whether the write succeeded or not
 	 * @response String full contents of response from the server
 	 */	
-	var writeCallback = function(args) {
+	writeCallback = function(args) {
 		// if the POST worked, i.e. we reached the server and found the processing URL,
 		// which handled the processing and responded, AND the processing itself succeeded,
 		// then success, else exception
-		var i, len, response = args.response, o = args.options || {}, update;
-		var r = [], e, sfcb, cb = o.callback, scope = o.scope || this, options = o.options;
-		var newRec, where, index;
+		var i, len, response = args.response, o = args.options || {}, update,
+		r = [], e, sfcb, cb = o.callback, scope = o.scope || this, options = o.options,
+		newRec, where, index;
 
 		// the expectation for success is that the application itself will determine it
 		//  via a 'write' handler
@@ -784,12 +541,10 @@ JSORM.db.db = JSORM.extend({},	function(config) {
 		 * @param {Object} [params.where] Search term, either primitive or composite, to determine which records to remove.
 		 */
 	    remove : function(params){
-			var args = params || {};
-	        var index = findInternal({where: args.where, index: true});
-			var removed = removeAt(index);
+			var args = params || {}, index = findInternal({where: args.where, index: true}), removed = removeAt(index);
 			// mark the record itself as having been deleted, so we can know if we commit it
 			journal.push({type: myclass.types.remove, data: removed});
-	    	this.fire("remove", {records: removed});
+        this.fire("remove", {records: removed});
 	    },
 
 		/**
@@ -884,7 +639,7 @@ JSORM.db.db = JSORM.extend({},	function(config) {
 		 */
 	    reject : function(count){
 			// are we rejecting all or some?
-			var start = 0, index, data, type, i, j, len, lenj, orig;
+			var start = 0, index, data, type, i, j, len, lenj, orig, m;
 			if (!count || count > journal.length) {
 				count = journal.length;
 				start = 0;
@@ -894,7 +649,7 @@ JSORM.db.db = JSORM.extend({},	function(config) {
 
 			// back out the last 'count' changes in reverse order
 			// get the last 'count' elements of the journal
-			var m = journal.splice(start,count).reverse();
+			m = journal.splice(start,count).reverse();
 			for (i=0, len=m.length; i<len; i++) {
 				index = m[i].index; data = m[i].data; type = m[i].type;
 				switch(type) {
@@ -964,22 +719,23 @@ JSORM.db.db = JSORM.extend({},	function(config) {
 	joins: {or: 0, and: 1}
 });
 
+
 /**
  * @author adeitcher
  * @fileOverview Storage engines for jsormdb. Currently only supports in-memory array and in-memory hash
  */
-/*global JSORM */
+/*global j, JSORM */
 
 
 /** 
  * @namespace Container for all engine components, and parent for included engines
  */
-JSORM.db.engine = function(){
-	var apply = JSORM.apply, clone = JSORM.clone;
-	var compares, pass1, pass2, pass3, intersection, union, keysAsArray, isPrimitive, isCompound;
+j.db.engine = (function(){
+	var apply = JSORM.apply, clone = JSORM.clone,
+	compares, pass1, pass2, pass3, intersection, union, keysAsArray, isPrimitive, isCompound;
 	
 	compares = {
-		equals: function(name,val) {return(function(entry){return(entry[name]===val);});},
+		equals: function(name,val) {return function(entry){return(entry[name]===val);};},
 		"in": function(name,val) {
 				var h, ret;
 				if (val.isArray) {h=val.hasher(); ret = function(entry){return(h.hasOwnProperty(entry[name]));};}
@@ -1007,15 +763,15 @@ JSORM.db.engine = function(){
 		contains: function(name,val) {
 				return(typeof(val) === "string" ? function(entry){return(entry[name].indexOf(val) >= 0);} : null);
 			},
-		isnull: function(name,val) {return(function(entry){return(entry[name]===null);});},
-		notnull: function(name,val) {return(function(entry){return(entry[name]!==null);});}
+		isnull: function(name,val) {return function(entry){return(entry[name]===null);};},
+		notnull: function(name,val) {return function(entry){return(entry[name]!==null);};}
 	};	
 
 	intersection = function() {
 		var result,i,len,o;
 		if (!arguments || arguments.length<1) {
 			result = {};
-		} else if (arguments.length == 1 && typeof(arguments[0]) === "object") {
+		} else if (arguments.length === 1 && typeof(arguments[0]) === "object") {
 			result = arguments[0];
 		} else {
 			result = arguments[0].isArray ? arguments[0].hasher() : arguments[0];
@@ -1044,7 +800,7 @@ JSORM.db.engine = function(){
 	keysAsArray = function(o) {
 		var i, r = [];
 		for (i in o) {
-			if (i && o.hasOwnProperty(i) && typeof(o[i]) !== "function") {r.push(i);}
+			if (o.hasOwnProperty(i) && i && typeof(o[i]) !== "function") {r.push(i);}
 		}		
 		return(r);
 	};
@@ -1081,8 +837,8 @@ JSORM.db.engine = function(){
 				}
 		} else if (isCompound(where)) {
 			// is it a compound?
-			r = {join: where.join, terms:[], fn:[],comps:[]}
-			if (where.type) {r.type = where.type};
+			r = {join: where.join, terms:[], fn:[],comps:[]};
+			if (where.type) {r.type = where.type;}
 			for (i=0, len=where.terms.length; i<len; i++) {
 				r2 = pass1(where.terms[i],index);
 				// determine if it is a list of indexes, or a function
@@ -1118,20 +874,20 @@ JSORM.db.engine = function(){
 		
 		/*
 		 * How does this work? Everything passed will be like a compound.
-		 * 		A: join AND: 
-		 * 				1) take the intersection of any earlier terms
-		 * 				2) take those results, and feed each one into each function. Those for which every function returns 
-		 * 					true, we keep; others are discarded
-		 * 				3) take those results, and use them as a limit. Feed those as the limiting factor into 
-		 * 					each sub-compound
-		 * 			Any that survive all three steps are valid.
-		 * 		B: join OR:
-		 * 				1) take the union of any earlier terms
-		 * 				2) take the limit, or the entire data set, and feed each one into each function. Those for which any
-		 * 					function returns true, we keep; others are discarded
-		 * 				3) take the limit, or the entire data set, and feed each one into each sub-compound. Union the results
-		 * 					of each compound into the total set.
-		 * 			Any that survive any one step are valid.
+		 *  A: join AND: 
+		 *    1) take the intersection of any earlier terms
+		 *    2) take those results, and feed each one into each function. Those for which every function returns 
+		 *      true, we keep; others are discarded
+		 *    3) take those results, and use them as a limit. Feed those as the limiting factor into 
+		 *      each sub-compound
+		 *      Any that survive all three steps are valid.
+		 *  B: join OR:
+		 *    1) take the union of any earlier terms
+		 *    2) take the limit, or the entire data set, and feed each one into each function. Those for which any
+		 *      function returns true, we keep; others are discarded
+		 *    3) take the limit, or the entire data set, and feed each one into each sub-compound. Union the results
+		 *      of each compound into the total set.
+		 *    Any that survive any one step are valid.
 		 */
 		// is there a type limit?
 		if (where.type) {
@@ -1286,19 +1042,18 @@ JSORM.db.engine = function(){
 		}		
 	};
 	
-}();
+}());
 
 /** 
  * Create new JSORM.db.engine.array.
  * @class Array-based in-memory storage engine.<br/>
  * Note: array engine does not support indexing
  */
-JSORM.db.engine.array = JSORM.extend(JSORM.db.engine,function() {
+j.db.engine.array = JSORM.extend(j.db.engine,function() {
 	this.type = "array";
-	var data = [], index = null;
-	var apply = JSORM.apply;
+	var data = [], index = null, apply = JSORM.apply, foreach;
 	// the looping function
-	var foreach = function(fn,limit) {
+	foreach = function(fn,limit) {
 		var i, len, r = [];
 		if (limit && limit.isArray)  {
 			for (i=0,len=limit.length;i<len;i++) {
@@ -1457,13 +1212,12 @@ JSORM.db.engine.array = JSORM.extend(JSORM.db.engine,function() {
  * @param {Object} index A pre-constructed index to use for this table storage engine. If none is passed, use the default
  *    JSORM.db.index.hash.
  */
-JSORM.db.engine.hash = JSORM.extend(JSORM.db.engine,function(index) {
+j.db.engine.hash = JSORM.extend(j.db.engine,function(index) {
 	this.type = "hash";
-	var data = {}, length = 0, max = 0, unused = [];
-	var apply = JSORM.apply; 
-	index = index || JSORM.db.index.hash();
+	var data = {}, length = 0, max = 0, unused = [], apply = JSORM.apply, foreach; 
+	index = index || j.db.index.hash();
 
-	var foreach = function(fn,limit) {
+	foreach = function(fn,limit) {
 		var i,len,r = [];
 		if (limit) {
 			for (i=0,len=limit.length;i<len;i++) {
@@ -1473,7 +1227,7 @@ JSORM.db.engine.hash = JSORM.extend(JSORM.db.engine,function(index) {
 			}
 		} else {
 			for (i in data) {
-				if (fn(data[i])) {
+				if (data.hasOwnProperty(i) && fn(data[i])) {
 					r.push(i);
 				}
 			}
@@ -1481,7 +1235,7 @@ JSORM.db.engine.hash = JSORM.extend(JSORM.db.engine,function(index) {
 		return(r);
 	};
 
-	apply(this,/** lends JSORM.db.engine.hash.prototype */{
+	apply(this,/** lends j.db.engine.hash.prototype */{
 		/**
 		 * Determine how many records are in the database. Equivalent of "select count(index)"
 		 * 
@@ -1571,7 +1325,7 @@ JSORM.db.engine.hash = JSORM.extend(JSORM.db.engine,function(index) {
 				// need to return as an array
 				ret = [];
 				for (i in data) {
-					if (i && typeof(i) !== "function" && typeof(data[i]) === "object") {ret.push(data[i]);}
+					if (data.hasOwnProperty(i) && i && typeof(i) !== "function" && typeof(data[i]) === "object") {ret.push(data[i]);}
 				}
 			} else if (idx && idx.isArray) {
 				ret = [];
@@ -1651,11 +1405,12 @@ JSORM.db.engine.hash = JSORM.extend(JSORM.db.engine,function(index) {
 });
 
 
+
 /**
  * @author adeitcher
  * @fileOverview Indexes for jsormdb. Currently provides only in-memory hash
  */
-/*global JSORM */
+/*global j, JSORM */
 
 /** 
 * Create new JSORM.db.index.hash
@@ -1663,7 +1418,7 @@ JSORM.db.engine.hash = JSORM.extend(JSORM.db.engine,function(index) {
  * 
  * @param {String|String[]} fields Single name of field or array of field names to initially index. Can be changed later.
  */
-JSORM.db.index.hash = JSORM.extend({},function(f) {
+j.db.index.hash = JSORM.extend({},function(f) {
 	this.type = "hash";
 	var fields = 0, data = {};
 	
@@ -1773,9 +1528,9 @@ JSORM.db.index.hash = JSORM.extend({},function(f) {
 		 * <li>nomatch - able to perform the query, but found no matches, hence return an empty array</li>
 		 * <li>noquery - unable to perform the query because one or more of the following is true:
 		 *   <ul>
-		 * 		<li>The query type compares clause is not indexable by this index, e.g. "contains"</li>
-		 * 		<li>The query type is invalid or not a primitive</li>
-		 * 		<li>The query type field is not indexed</li>
+		 *    <li>The query type compares clause is not indexable by this index, e.g. "contains"</li>
+		 *    <li>The query type is invalid or not a primitive</li>
+		 *    <li>The query type field is not indexed</li>
 		 * </ul>
 		 * For example, a match returns an array [1,5,789]; nomatch returns an empty array []; noquery returns null. 
 		 * 
@@ -1804,7 +1559,7 @@ JSORM.db.index.hash = JSORM.extend({},function(f) {
 			var i, field;
 			// check each field if it is indexed
 			for (i in newdata) {
-				if (newdata.hasOwnProperty(i) && data.hasOwnProperty(i) && (field = data[i]) && old[i] != newdata[i]) {
+				if (newdata.hasOwnProperty(i) && data.hasOwnProperty(i) && (field = data[i]) && old[i] !== newdata[i]) {
 					// if the field is indexed, change the value for a particular index. Here it is indexed,
 					//  so we remove the index from the old value and add it to the new
 					field[old[i]].remove(index);
@@ -1818,6 +1573,124 @@ JSORM.db.index.hash = JSORM.extend({},function(f) {
 	
 });
 	
+
+/**
+ * @author Avi Deitcher
+ * @fileOverview Channel to read/write from an HTTP server
+ */
+/*global j, JSORM */
+
+/**
+ * Create new HTTP channel
+ * @class Channel to communicate over http via Ajax with the back-end server.
+ * 
+ * @param {Object} config Configuration object, must have at least one url parameter
+ * @param {String} config.url URL to use for loading and updating. If it begins with '/', then absolute, else relative.
+ * @param {String} config.loadUrl URL to use for loading. If it begins with '/', then absolute, else relative.
+ * @param {String} config.updateUrl URL to use for updating. If it begins with '/', then absolute, else relative.
+ */
+j.db.channel.http = JSORM.extend({}, function(config){
+	config = config || {};
+	// convenience
+	var ajax = JSORM.ajax, fork = JSORM.fork, that = this, processResponse, updateResponse, loadResponse, message,
+	
+	// our URLs; if only one url is given, use it for both
+	loadUrl = config.loadUrl || config.url, updateUrl = config.updateUrl || config.url;
+
+	// create event-handling
+	JSORM.eventualize(this);
+	this.events('beforeupdate','update','updateexception','beforeload','load','loadexception');
+
+	processResponse = function(eSuccess, eFailure, filename, xhr, success, o) {
+		var e, a, s, ct, ct2, res;
+		if (success) {
+			e = eSuccess; a = o.options; s = true;
+			// because both types are sometimes used
+			ct = xhr.getResponseHeader("Content-type");
+			ct2 = xhr.getResponseHeader("Content-Type");
+			res = ct === "text/xml" || ct2 === "text/xml" ? xhr.responseXML : xhr.responseText;
+		} else {
+			e = eFailure; a = xhr; s = false;
+		}
+		that.fire(e,o);
+		o.callback.call(o.scope,{options: o.arg, success: s, response: res});		
+	};
+	
+	updateResponse = function(filename, xhr, success, o){
+		processResponse("update","updateexception",filename,xhr,success,o);
+	};
+
+	loadResponse = function(filename, xhr, success, o){
+		processResponse("load","loadexception",filename,xhr,success,o);
+	};
+	
+	message = function(beforeevent, arg, callback, method, url) {
+		var params = arg.params, cb = arg.callback, scope = arg.scope, options = arg.options, o;
+        if(that.fire("beforeevent", params) !== false){
+            o = {
+                params : params || {},
+                options: {
+                    callback : cb,
+                    scope : scope,
+                    arg : options
+                },				
+                callback : callback,
+				method: method,
+                scope: this,
+				url: url
+            };
+            ajax(o);
+        }else{
+			fork({fn: cb, scope: scope || that, arg: [{options: options, success: false}]});
+        }		
+	};
+	
+	JSORM.apply(this,/** @lends JSORM.db.channel.http.prototype */{
+		/**
+		 * Update the remote data source via http. This is presumed to be asynchronous, and thus will
+		 * return before the call is complete. Use a callback to capture the result.
+		 * 
+		 * @param {Object} [config] Configuration information for the update
+		 * @param {Object} [config.params] Parameters to add to the update. Each element is given as a parameter name to the HTTP
+     *    PUT, while the values are expected to be Strings given as the value of HTTP parameter 
+     * @param {Function} [config.callback] Function to be executed when the update is complete, whether success or failure.
+		 *   The callback should expect a single argument, an object, with the following elements:
+		 *    <ul>
+		 *     <li>success: boolean as to whether or not the update succeeded</li>
+		 *     <li>options: the options that were passed to update as config.options</li>
+		 *    </ul>
+		 * @param {Object} [config.scope] Scope within which to execute the callback
+		 * @param {Object} [config.options] Options to pass to the callback
+		 */
+	    update : function(arg){
+			message("beforeupdate",arg,updateResponse, "POST", updateUrl);
+		},
+	
+		/**
+		 * Load from the remote data source via http. This is presumed to be asynchronous, and thus will
+		 * return before the call is complete. Use a callback to capture the result.
+		 * 
+		 * @param {Object} [config] Configuration information for the load
+		 * @param {Object} [config.params] Parameters to add to the load. Each element is given as a parameter name to the HTTP
+		 *  GET, while the values are expected to be Strings given as the value of HTTP parameter 
+		 * @param {Function} [config.callback] Function to be executed when the load is complete, whether success or failure.
+		 *   The callback should expect a single argument, an object, with the following elements:
+		 *    <ul>
+		 *     <li>success: boolean as to whether or not the load succeeded</li>
+		 *     <li>options: the options that were passed to load as config.options</li>
+		 *    </ul>
+		 * @param {Object} [config.scope] Scope within which to execute the callback
+		 * @param {Object} [config.options] Options to pass to the callback
+		 */
+		load : function(arg) {
+			message("beforeload",arg,loadResponse, "GET", loadUrl);
+		}
+
+	});
+
+});
+
+
 /**
  * @ignore
  */
@@ -2299,3 +2172,125 @@ replace(/(?:^|:|,)(?:\s*\[)+/g, ''))) {
         };
     }
 })();
+/**
+ * @author Avi Deitcher
+ * @fileOverview JSON Parser to convert JSON into objects suitable for jsormdb and vice-versa
+ */
+/*global JSORM, j */
+/**
+ * Create a new JSON parser
+ * @class Parser to convert JSON into objects when loaded from a channel and vice-versa
+ * 
+ * @param {Object} [config] Configuration parameters
+ * @param {String} [config.id] Default field to use as the unique identifier field in parsed data
+ * @param {String} [config.root] Default element to use as the root of actual records in parsed data
+ */
+j.db.parser.json = JSORM.extend({}, function(config){
+	config = config || {};
+	var id = config.id, root = config.root, lastMeta = {}, lastRoot = {};
+	
+	// read - input JSON, write out objects
+	JSORM.apply(this, /** @lends JSORM.db.parser.json.prototype */{
+		/**
+		 * Convert JSON into an object structure suitable to load into jsormdb
+		 * 
+		 * @param {String} json JavaScript Object Notation string with the appropriate information
+		 * @returns {Object} An object with the appropriate elements
+		 */
+		read : function(json) {
+			// first parse the data
+			var data = null, p;
+			p = JSON.parse(json);
+
+			// data better be a valid object
+			if (p && typeof(p) === "object") {
+				data = {};
+				// if it is an array, just use it directly 
+				if (p.isArray) {
+					data.records = p;
+					data.id = id;
+				} else {
+					// find out our root and our id
+					root = p.meta && p.meta.root ? p.meta.root : root;
+					data.records = p[root];
+					data.id = p.meta && p.meta.id ? p.meta.id : id;
+
+					// keep the root information
+					lastMeta = p.meta;
+					lastRoot = root;
+				}
+			}
+
+			return(data);
+		},
+
+		/**
+		 * Convert an array of jsormdb objects into JSON as per the original load structure
+		 * 
+		 * @param {Object[]} records Array of records from a jsormdb database
+		 * @returns {String} JSON-encoded String, including appropriate metadata and root
+		 */
+		write : function(records) {
+			// hold our new structure
+			var obj = {}, j;
+			obj[lastRoot] = records;
+			if (lastMeta) {
+				obj.meta = lastMeta;
+			}
+			j = JSON.stringify(obj);
+			if (!j) {throw{message: "JsonParser.write: unable to encode records into Json"};}
+			return(j);
+		}		
+	});
+});
+
+/**
+ * @author adeitcher
+ * @fileOverview Parser to convert objects into objects, essentially making no translation. Because
+ * the database must have a parser for other conversions, e.g. JSON and XML, we need an object parser as well, especially
+ * when the channel talks to some other object generator.
+ */
+/*global JSORM, j */
+
+/**
+ * Create a new object parser
+ * 
+ * @class Parser to convert objects into objects, essentially making no translation. Because
+ * the database must have a parser for other conversions, e.g. JSON and XML, we need an object parser as well, especially
+ * when the channel talks to some other object generator.
+ */
+j.db.parser.object = JSORM.extend({}, function(){
+	var clone = JSORM.clone;
+	
+	JSORM.apply(this,/** @lends JSORM.db.parser.object.prototype */{
+		/**
+		 * Convert raw JavaScript object records into a structure appropriate for consumption by jsormdb
+		 * 
+		 * @param {Object[]} data Array of objects
+		 * @returns {Object} Object data structure with the original data cloned and loaded
+		 */
+	    read : function(data){
+			data = [].concat(clone(data,true));
+			// return an object as expected
+		    return {
+		        records : data
+		    };
+	    },
+
+		/**
+		 * Convert jsormdb internal records into JavaScript objects. This method does almost nothing, just clones the 
+		 * objects and passed them back.
+		 * 
+		 * @param {Object[]} records Records from a jsormdb
+		 * @returns {Object[]} Cloned records
+		 */
+		write : function(records) {
+			// clone so we do not confuse objects
+			return(clone(records,true));
+		}		
+	});
+});
+
+
+
+}(typeof module === "undefined" || typeof module.exports === "undefined" ? (this.JSORM === undefined ? this.JSORM = {} : this.JSORM) : module.exports));

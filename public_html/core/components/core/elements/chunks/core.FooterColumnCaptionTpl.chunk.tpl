@@ -1,0 +1,1 @@
+[[getResources? &resources =`[[++custom.site_settings]]` &tpl=`core.FooterCaptionTpl` &includeTVs=`1` &processTVs=`1` &tvPrefix=`` &parents=`-1`]]

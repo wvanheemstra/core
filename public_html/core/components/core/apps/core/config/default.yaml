@@ -1,0 +1,4 @@
+Customer:
+  dbHost: localhost
+  dbPort: 3306
+  dbName: core

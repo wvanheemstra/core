@@ -21,13 +21,31 @@ GLOBAL.express = express;
  * Retrieve Command Line Arguments
  * [0] process : String 'node'
  * [1] app : void
- * [2] port : Number 3000
+ * [2] address : String '127.0.0.1'
+ * [3] port : Number 3000
  */
 var args = process.argv;
 
 /**
+ * address
+ * @type {String}
+ *
+ * HTTP Server Address (i.e. IP or host)
+ */
+var address = args[2] ? args[2]: '127.0.0.1';
+
+/**
+ * port
+ * @type {Number}
+ *
+ * HTTP Server Port
+ */
+var port = args[3] ? args[3]: 3000;
+
+/**
  * HTTP Server
  */
-server.listen(3000);
-console.log("Express server listening on port %d.",
-	server.address().port);
+server.listen(port, address, function() {
+  console.log("Express server listening on " + server.address().address + " at port " + server.address().port + " in development mode.");
+});	  
+	  

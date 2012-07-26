@@ -57,7 +57,7 @@ var database = "./core_database.js";
 var database_options = {
 	schema: config.dbSchema,
 	user: config.dbUser,
-	password: "",  // High Security FTW.
+	password: config.dbPassword,
 	host: config.dbHost,
 	port: config.dbPort,
 	logging: config.dbLogging

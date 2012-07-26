@@ -10,6 +10,11 @@ var http = require('http');
 var server = http.createServer(express);
 
 /**
+ * Set Database Init Path.
+ */
+var database = "./core_database.js";
+
+/**
  * express
  * @type {Express}
  *
@@ -46,6 +51,12 @@ var port = args[3] ? args[3]: 3000;
  * HTTP Server
  */
 server.listen(port, address, function() {
-  console.log("Express server listening on " + server.address().address + " at port " + server.address().port + " in " + process.env.NODE_ENV + " mode.");
+  console.log("Express server listening on " 
+  + server.address().address 
+  + " at port " 
+  + server.address().port 
+  + " in " 
+  + process.env.NODE_ENV 
+  + " mode.");
 });	  
 	  

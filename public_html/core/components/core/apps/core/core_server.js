@@ -46,6 +46,6 @@ var port = args[3] ? args[3]: 3000;
  * HTTP Server
  */
 server.listen(port, address, function() {
-  console.log("Express server listening on " + server.address().address + " at port " + server.address().port + " in development mode.");
+  console.log("Express server listening on " + server.address().address + " at port " + server.address().port + " in " + process.env.NODE_ENV + " mode.");
 });	  
 	  

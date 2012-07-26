@@ -3,16 +3,12 @@
  */
 var express = require('express');
 var http = require('http');
+var config = require('config').Customer;
 
 /**
  * Create Application Server.
  */
 var server = http.createServer(express);
-
-/**
- * Set Database Init Path.
- */
-var database = "./core_database.js";
 
 /**
  * express
@@ -46,6 +42,33 @@ var address = args[2] ? args[2]: '127.0.0.1';
  * HTTP Server Port
  */
 var port = args[3] ? args[3]: 3000;
+
+/**
+ * Set Database Init Path.
+ */
+var database = "./core_database.js";
+
+/**
+ * Database Connections
+ */
+/**
+ * Database Connections
+ */
+var database_options = {
+	schema: config.dbSchema,
+	user: config.dbUser,
+	password: "",  // High Security FTW.
+	host: config.dbHost,
+	port: config.dbPort,
+	logging: config.dbLogging
+}; 
+
+/**
+ * db (database)
+ * @type {Object}
+ * @param Object [database_options] the database options
+ */
+GLOBAL.db = require(database) (database_options);
 
 /**
  * HTTP Server

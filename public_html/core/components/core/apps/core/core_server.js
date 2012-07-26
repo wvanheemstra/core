@@ -51,9 +51,6 @@ var database = "./core_database.js";
 /**
  * Database Connections
  */
-/**
- * Database Connections
- */
 var database_options = {
 	schema: config.dbSchema,
 	user: config.dbUser,

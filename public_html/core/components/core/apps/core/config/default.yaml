@@ -4,4 +4,4 @@ Customer:
   dbSchema: core
   dbUser: root
   dbPassword: null
-  dbLogging: true
+  dbLogging: console.log

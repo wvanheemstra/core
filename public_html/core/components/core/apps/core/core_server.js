@@ -68,6 +68,16 @@ var database_options = {
 GLOBAL.db = require(database) (database_options);
 
 /**
+ * Set Route Init Path.
+ */ 
+var routes = "./routes.js";
+
+/**
+ * Routes
+ */
+var routes = require(routes);
+
+/**
  * HTTP Server
  */
 server.listen(port, address, function() {

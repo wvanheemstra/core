@@ -1,1 +1,1 @@
-This is the MQL Read Chunk
+[[!core.MQLRead]]

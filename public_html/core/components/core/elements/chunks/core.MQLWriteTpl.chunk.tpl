@@ -1,1 +1,1 @@
-This is the MQL Write Chunk
+[[!core.MQLWrite]]

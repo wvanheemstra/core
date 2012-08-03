@@ -124,7 +124,7 @@
                     <textarea 
                         id="txtResult" 
                         rows="20"
-                        title="This is where the JSON result of you MQL query will be returned"
+                        title="This is where the JSON result of your MQL query will be returned."
                     ></textarea>
                 </td>
             </tr>

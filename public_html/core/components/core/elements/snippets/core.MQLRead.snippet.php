@@ -1282,7 +1282,13 @@ function init_dialect($pdo_config){
     global $sql_dialect;
     $pdo_dsn = $pdo_config['dsn'];
     $db_type = substr($pdo_dsn, 0, strpos($pdo_dsn, ':'));
-    include($db_type.'-dialect.php');
+    //include($db_type.'-dialect.php');
+	$sql_dialect = array(
+    'identifier_quote_start' => '`',
+    'identifier_quote_end' => '`',
+    'single_row_from_clause' => '',
+    'supports_limit' => TRUE
+    );
 }
 
 function init_pdo(){

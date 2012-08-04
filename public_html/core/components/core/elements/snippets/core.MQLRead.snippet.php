@@ -1113,7 +1113,7 @@ function create_inline_tables_for_indexes(&$indexes){
 *   Executes multiple SQL queries
 *
 *   arguments:
-*   sql_queries:    an arrra
+*   sql_queries:    an array
 *
 *   return:
 */

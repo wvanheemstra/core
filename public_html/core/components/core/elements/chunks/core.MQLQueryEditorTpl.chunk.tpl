@@ -150,7 +150,7 @@
                       (document.getElementById("debug").checked ? ", \"debug_info\": true" : "") +
                       (document.getElementById("noexecute").checked ? ", \"noexecute\": true" : "") +
                       "}";
-                    var url = "http://localhost/index.php?id=5&query=" + encodeURIComponent(queryEnvelope);
+                    var url = "/api/services/mqlread/?query=" + encodeURIComponent(queryEnvelope);
                     var xhr = new XMLHttpRequest();
                     xhr.open("GET", url, true);
                     xhr.setRequestHeader("Accept", "application/json");

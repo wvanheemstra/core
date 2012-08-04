@@ -1,0 +1,10 @@
+{
+    "pdo": {
+        "dsn": "mysql:dbname=core;host=localhost;port=3306;charset=utf8",
+        "username": "json",
+        "password": "json",
+        "driver_options": {
+        }
+    },
+    "explicit_type_conversion": true
+}

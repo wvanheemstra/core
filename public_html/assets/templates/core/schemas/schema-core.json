@@ -1,0 +1,35 @@
+{
+    "domains": {
+        "core": {
+            "types": {
+                "person_data": {
+                    "keys": {
+                        "PRIMARY": {
+                            "columns": [
+                                "kp_PersonID"
+                            ], 
+                            "type": "PRIMARY KEY"
+                        }
+                    }, 
+                    "properties": {
+                        "PersonFirstName": {
+                            "column_name": "PersonFirstName", 
+                            "nullable": false, 
+                            "type": "/type/text"
+                        }, 
+                        "PersonLastName": {
+                            "column_name": "PersonLastName", 
+                            "nullable": false, 
+                            "type": "/type/text"
+                        }, 
+                        "kp_PersonID": {
+                            "column_name": "kp_PersonID", 
+                            "nullable": false, 
+                            "type": "/type/int"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

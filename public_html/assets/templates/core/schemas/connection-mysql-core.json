@@ -1,6 +1,6 @@
 {
     "pdo": {
-        "dsn": "mysql:dbname=core;host=localhost;port=3306;charset=utf8",
+        "dsn": "mysql:dbname=core;host=localhost;port=3306;charset=utf-8",
         "username": "json",
         "password": "json",
         "driver_options": {

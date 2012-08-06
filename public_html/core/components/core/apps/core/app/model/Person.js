@@ -5,7 +5,7 @@ Ext.define('core.model.Person', {
         {name: 'PersonFirstName',  type: 'string'},
         {name: 'PersonLastName',   type: 'string'},
         {name: 'kf_GenderID', type: 'int', defaultValue: '0'},
-        {name: 'kf_Salutation', type: 'int', defaultValue: '0'}
+        {name: 'kf_SalutationID', type: 'int', defaultValue: '0'}
     ],
     idProperty:'kp_PersonID'
 });

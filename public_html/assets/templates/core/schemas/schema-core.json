@@ -2,7 +2,7 @@
     "domains": {
         "core": {
             "types": {
-                "person_data": {
+                "person": {
                     "keys": {
                         "PRIMARY": {
                             "columns": [
@@ -24,6 +24,44 @@
                         }, 
                         "kp_PersonID": {
                             "column_name": "kp_PersonID", 
+                            "nullable": false, 
+                            "type": "/type/int"
+                        },
+                        "kf_GenderID": {
+                            "column_name": "kf_GenderID",
+                            "nullable": false, 
+                            "type": "/type/int"
+                        },
+						"fk_person_gender": {
+                            "type": "/core/gender",
+                            "direction": "referencing->referenced",
+                            "join_condition": [
+                                {
+                                    "referencing_column": "kf_GenderID",
+                                    "referenced_column": "kp_GenderID"
+                                }
+                            ],
+                            "nullable": false
+                        }
+                    }
+                },
+                "gender": {
+                    "keys": {
+                        "PRIMARY": {
+                            "columns": [
+                                "kp_GenderID"
+                            ], 
+                            "type": "PRIMARY KEY"
+                        }
+                    }, 
+                    "properties": {
+                        "GenderName": {
+                            "column_name": "GenderName", 
+                            "nullable": false, 
+                            "type": "/type/text"
+                        }, 
+                        "kp_GenderID": {
+                            "column_name": "kp_GenderID", 
                             "nullable": false, 
                             "type": "/type/int"
                         }

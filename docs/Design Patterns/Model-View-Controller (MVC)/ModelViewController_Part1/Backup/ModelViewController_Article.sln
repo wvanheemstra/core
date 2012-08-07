@@ -1,0 +1,30 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModelViewController_Sample", "ModelViewController_Sample.csproj", "{0AB7A3BD-03B8-43C9-85DA-130C9D2A4C66}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SourceCodeControl) = preSolution
+		SccNumberOfProjects = 2
+		SccLocalPath0 = .
+		CanCheckoutShared = false
+		SolutionUniqueID = {9697C59E-D499-4610-8090-97C6EC0B3A42}
+		SccProjectUniqueName1 = ModelViewController_Sample.csproj
+		SccLocalPath1 = .
+		CanCheckoutShared = false
+	EndGlobalSection
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{0AB7A3BD-03B8-43C9-85DA-130C9D2A4C66}.Debug.ActiveCfg = Debug|.NET
+		{0AB7A3BD-03B8-43C9-85DA-130C9D2A4C66}.Debug.Build.0 = Debug|.NET
+		{0AB7A3BD-03B8-43C9-85DA-130C9D2A4C66}.Release.ActiveCfg = Release|.NET
+		{0AB7A3BD-03B8-43C9-85DA-130C9D2A4C66}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

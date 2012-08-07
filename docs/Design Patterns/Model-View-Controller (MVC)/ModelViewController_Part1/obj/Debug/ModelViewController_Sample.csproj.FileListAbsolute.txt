@@ -1,0 +1,9 @@
+C:\Users\Willem van Heemstra\Documents\Design Patterns\Model-View-Controller (MVC)\ModelViewController_Part1\bin\Debug\ModelViewController_Sample.exe
+C:\Users\Willem van Heemstra\Documents\Design Patterns\Model-View-Controller (MVC)\ModelViewController_Part1\bin\Debug\ModelViewController_Sample.pdb
+C:\Users\Willem van Heemstra\Documents\Design Patterns\Model-View-Controller (MVC)\ModelViewController_Part1\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Willem van Heemstra\Documents\Design Patterns\Model-View-Controller (MVC)\ModelViewController_Part1\obj\Debug\ModelViewController_Sample.frmAutomobileView.resources
+C:\Users\Willem van Heemstra\Documents\Design Patterns\Model-View-Controller (MVC)\ModelViewController_Part1\obj\Debug\ModelViewController_Sample.AutoView.resources
+C:\Users\Willem van Heemstra\Documents\Design Patterns\Model-View-Controller (MVC)\ModelViewController_Part1\obj\Debug\ResGen.read.1.tlog
+C:\Users\Willem van Heemstra\Documents\Design Patterns\Model-View-Controller (MVC)\ModelViewController_Part1\obj\Debug\ResGen.write.1.tlog
+C:\Users\Willem van Heemstra\Documents\Design Patterns\Model-View-Controller (MVC)\ModelViewController_Part1\obj\Debug\ModelViewController_Sample.exe
+C:\Users\Willem van Heemstra\Documents\Design Patterns\Model-View-Controller (MVC)\ModelViewController_Part1\obj\Debug\ModelViewController_Sample.pdb

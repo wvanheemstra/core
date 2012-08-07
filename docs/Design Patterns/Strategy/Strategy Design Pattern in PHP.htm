@@ -1,0 +1,381 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0052)http://sourcemaking.com/design_patterns/strategy/php -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us" class="js"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><link rel="stylesheet" type="text/css" href="./Strategy Design Pattern in PHP_files/widget084.css" media="all">
+
+  <title>Strategy Design Pattern in PHP</title>
+  
+<link rel="prev" href="http://sourcemaking.com/design_patterns/state">
+<link rel="up" href="http://sourcemaking.com/behavioral_patterns">
+<link rel="next" href="http://sourcemaking.com/design_patterns/template_method">
+<link rel="shortcut icon" href="http://sourcemaking.com/files/favicon.gif" type="image/x-icon">
+  <link type="text/css" rel="stylesheet" media="all" href="./Strategy Design Pattern in PHP_files/codefilter.css">
+<link type="text/css" rel="stylesheet" media="all" href="./Strategy Design Pattern in PHP_files/css_2b96f87b65cd010addbc31ced558d1f6.css">
+<link type="text/css" rel="stylesheet" media="screen" href="./Strategy Design Pattern in PHP_files/css_34982c3de2a2dec80c4406d658c983d1.css">
+<link type="text/css" rel="stylesheet" media="print" href="./Strategy Design Pattern in PHP_files/css_d964b2ee96a44997fb9ee8c49fb40396.css">
+  <script type="text/javascript" src="./Strategy Design Pattern in PHP_files/js_8b39df139e89414f344e00d344a87d4c.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, { "basePath": "/", "dhtmlMenu": { "slide": "slide", "children": "children", "clone": "clone", "siblings": 0, "relativity": 0, "doubleclick": 0 } });
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+var global_path = "/sites/all/modules/contrib/highlightjs/highlight/"; initHighlightingOnLoad("javascript", "php", "cpp", "java", "delphi", "python", "c-sharp", "html", "css", "actionscript", "output");
+//--><!]]>
+</script><script type="text/javascript" src="./Strategy Design Pattern in PHP_files/javascript.js"></script><script type="text/javascript" src="./Strategy Design Pattern in PHP_files/dynamic.js"></script><script type="text/javascript" src="./Strategy Design Pattern in PHP_files/static.js"></script><script type="text/javascript" src="./Strategy Design Pattern in PHP_files/www.js"></script>
+  <!--[if lt IE 7]>
+    <link type="text/css" rel="stylesheet" media="all" href="/sites/all/themes/sm3/styles/ie6.css" />
+  <![endif]-->
+  <!--[if IE 7]>
+    <link type="text/css" rel="stylesheet" media="all" href="/sites/all/themes/sm3/styles/ie.css" />
+  <![endif]-->
+<div style="visibility: hidden; height: 1px; width: 1px; position: absolute; z-index: 100000; " id="_atssh"><iframe id="_atssh542" title="AddThis utility frame" style="height: 1px; width: 1px; position: absolute; z-index: 100000; border: 0px; left: 0px; top: 0px; " src="./Strategy Design Pattern in PHP_files/sh089.htm"></iframe></div><script type="text/javascript" src="./Strategy Design Pattern in PHP_files/core016.js"></script><style type="text/css">.gssb_c{border:0;position:absolute;z-index:989}.gssb_e{border:1px solid #ccc;border-top-color:#d9d9d9;box-shadow:0 2px 4px rgba(0,0,0,0.2);-webkit-box-shadow:0 2px 4px rgba(0,0,0,0.2);cursor:default}.gssb_f{visibility:hidden;white-space:nowrap}.gssb_k{border:0;display:block;position:absolute;top:0;z-index:988}.gsdd_a{border:none!important}.gsib_a{width:100%;padding:4px 6px 0}.gsib_a,.gsib_b{vertical-align:top}.gssb_a{padding:0 7px}.gssb_a,.gssb_a td{white-space:nowrap;overflow:hidden;line-height:22px}#gssb_b{font-size:11px;color:#36c;text-decoration:none}#gssb_b:hover{font-size:11px;color:#36c;text-decoration:underline}.gssb_m{color:#000;background:#fff}.gssb_g{text-align:center;padding:8px 0 7px;position:relative}.gssb_h{font-size:15px;height:28px;margin:0.2em;-webkit-appearance:button}.gssb_i{background:#eee}.gss_ifl{visibility:hidden;padding-left:5px}.gssb_i .gss_ifl{visibility:visible}a.gssb_j{font-size:13px;color:#36c;text-decoration:none;line-height:100%}a.gssb_j:hover{text-decoration:underline}.gssb_l{height:1px;background-color:#e5e5e5}.gscsep_a{display:none}.gsq_a{padding:0}.gsfe_a{border:1px solid #b9b9b9;border-top-color:#a0a0a0;box-shadow:inset 0px 1px 2px rgba(0,0,0,0.1);-moz-box-shadow:inset 0px 1px 2px rgba(0,0,0,0.1);-webkit-box-shadow:inset 0px 1px 2px rgba(0,0,0,0.1);}.gsfe_b{border:1px solid #4d90fe;outline:none;box-shadow:inset 0px 1px 2px rgba(0,0,0,0.3);-moz-box-shadow:inset 0px 1px 2px rgba(0,0,0,0.3);-webkit-box-shadow:inset 0px 1px 2px rgba(0,0,0,0.3);}.gscb_a{display:inline-block;font:27px/13px arial,sans-serif}.gsst_a .gscb_a{color:#a1b9ed;cursor:pointer}.gsst_a:hover .gscb_a{color:#36c}.gsst_a,.gsst_d{display:inline-block}.gsst_a{cursor:pointer;padding:0 3px}.gsst_a:hover{text-decoration:none!important}.gsst_b{font-size:16px;padding:0 3px;user-select:none;-webkit-user-select:none;white-space:nowrap}.gsst_d{width:4px}.gsst_e{opacity:0.55;}.gsst_a:hover .gsst_e{opacity:0.72;}.gsst_a:active .gsst_e{opacity:1;}.gssb_a{padding:0 7px}.gssb_e{border:0}.gssb_l{margin:5px 0}.gssb_c .gsc-completion-container{position:static}.gssb_c{z-index:5000}.gsc-completion-container table{background:transparent;font-size:inherit;font-family:inherit}.gssb_c > tbody > tr,.gssb_c > tbody > tr > td,.gssb_d,.gssb_d > tbody > tr,.gssb_d > tbody > tr > td,.gssb_e,.gssb_e > tbody > tr,.gssb_e > tbody > tr > td{padding:0;margin:0;border:0}.gssb_a table,.gssb_a table tr,.gssb_a table tr td{padding:0;margin:0;border:0}</style></head>
+<body class="home">
+  
+  <div class="wrapper">
+    <div class="container"><!--end container-->
+
+      <div class="header">
+        <div class="title"><a href="http://sourcemaking.com/">SourceMaking</a></div>
+        <div class="menu-wrapper">
+          <div class="menu-container">
+                          <ul class="nav menu"><li class="expanded first no-dhtml  active-trail"><a href="http://sourcemaking.com/design_patterns" class="menu-patterns" id="dhtml_menu-24">Design Patterns</a><div class="li-wrapper"><div class="wl"></div><div class="wr"></div><ul class=" menu" style="padding-top: 5px; "><li class="leaf first no-dhtml "><a href="http://sourcemaking.com/design_patterns" id="dhtml_menu-4320">Design Patterns Reference</a></li>
+<li class="leaf last no-dhtml "><a href="http://sourcemaking.com/design-patterns-video" class="menu-star" id="dhtml_menu-423">Design Patterns Video Course</a></li>
+</ul></div></li>
+<li class="expanded  no-dhtml "><a href="http://sourcemaking.com/antipatterns" class="menu-apatterns" id="dhtml_menu-262">AntiPatterns<span class="mexpand"></span></a><div class="li-wrapper"><div class="wl"></div><div class="wr"></div><ul class=" menu"><li class="leaf first no-dhtml "><a href="http://sourcemaking.com/antipatterns" id="dhtml_menu-4321">Antipatterns Reference</a></li>
+<li class="leaf last no-dhtml "><a href="http://sourcemaking.com/antipatterns-book" class="menu-star" id="dhtml_menu-432">AntiPatterns Book</a></li>
+</ul></div></li>
+<li class="expanded  no-dhtml "><a href="http://sourcemaking.com/refactoring" class="menu-refactoring" id="dhtml_menu-306">Refactoring<span class="mexpand"></span></a><div class="li-wrapper"><div class="wl"></div><div class="wr"></div><ul class=" menu"><li class="leaf first last no-dhtml "><a href="http://sourcemaking.com/refactoring" id="dhtml_menu-4322">Refactoring Reference</a></li>
+</ul></div></li>
+<li class="expanded last no-dhtml "><a href="http://sourcemaking.com/uml" class="menu-uml" id="dhtml_menu-4225">UML<span class="mexpand"></span></a><div class="li-wrapper"><div class="wl"></div><div class="wr"></div><ul class=" menu"><li class="leaf first no-dhtml "><a href="http://sourcemaking.com/uml" id="dhtml_menu-4323">UML Reference</a></li>
+<li class="leaf last no-dhtml "><a href="http://sourcemaking.com/uml-course" class="menu-star" id="dhtml_menu-4319">UML Course</a></li>
+</ul></div></li>
+</ul>                      </div>
+          <div class="clear"></div>
+        </div>
+        <div class="head-links">
+                      <ul class=" menu"><li class="leaf first login-link no-dhtml "><a href="http://sourcemaking.com/user" class="account" id="dhtml_menu-1398">Log in</a></li>
+<li class="leaf last no-dhtml "><a href="http://sourcemaking.com/contact" class="contact" id="dhtml_menu-2464">Contact</a></li>
+</ul>          
+          <div class="head-center"></div>
+        </div>
+      </div>
+
+        <div class="content-main">
+          <div id="block-block-31" class="clear-block block block-block">
+
+
+  <div class="content"><a href="https://twitter.com/sourcemaking" rel="nofollow" style="position:absolute; top:-130px; left:310px; background:transparent url(/files/sm/twitter.png) no-repeat 0 0; width: 74px; height:53px;" title="Twitter" onclick="javascript: pageTracker._trackEvent(&#39;Click&#39;, &#39;Twitter&#39;, &#39;Top&#39;);"></a>
+</div>
+</div>
+          <div class="breadcrumb"><a href="http://sourcemaking.com/">Home</a> › <a href="http://sourcemaking.com/design_patterns">Design Patterns</a> › <a href="http://sourcemaking.com/behavioral_patterns">Behavioral patterns</a> › <a href="http://sourcemaking.com/design_patterns/strategy">Strategy</a></div>          
+                      <div class="title">
+              <h1>Strategy in PHP</h1>
+              <script type="text/javascript">
+                title = $('h1').text();title = title.replace(' Design Pattern in ', ' in ');$('h1').text(title);
+                $('.breadcrumb a').each(function(){ bread = $(this).text();bread = bread.replace(/ Design Pattern$/, '');$(this).text(bread); }) 
+                
+              </script>
+                          </div>
+            <div class="clear" style="height:1px;"></div>
+          
+                                                  <div id="block-ad-14" class="clear-block block block-ad">
+
+
+  <div class="content"><script type="text/javascript" src="./Strategy Design Pattern in PHP_files/serve.php"></script><div class="html-advertisement" id="ad-513"><style>
+.video-new {
+  margin-top:10px;
+  padding:20px 20px 20px 85px;
+  height:70px;
+  background:transparent url("/files/sm/images/ads/v1-1.gif") no-repeat 20px 10px;
+}
+
+.video-new h4{
+  font-size:1.5em;
+  padding:0;
+  margin:0;
+}
+
+.video-new a{
+  text-decoration:underline;
+  font-size:14px;
+}
+</style>
+
+<div class="video-new">
+  <h4>Why read if you can watch?</h4>
+  <a href="http://sourcemaking.com/design-patterns-video">Watch design patterns video tutorial</a>
+</div></div></div>
+</div>
+<div id="block-bonus_block-0" class="clear-block block block-bonus_block">
+
+
+  <div class="content"><div class="article_i"><a href="http://sourcemaking.com/design_patterns/strategy">Read full article</a></div><div class="clear:left;"></div><div id="whitebox" style="height:700px;"><div class="code_i"><a onclick="$(&#39;#whitebox&#39;).slideUp(&#39;fast&#39;); return false;" href="http://sourcemaking.com/design_patterns/strategy/php#code">See the code</a></div></div><script type="text/javascript">
+                    var coo = "";
+                    var nameEQ = "was=";
+                    var ca = document.cookie.split(";");
+                      for(var i=0;i < ca.length;i++) {
+                        var c = ca[i];
+                        while (c.charAt(0) == " ") c = c.substring(1,c.length);
+                        if (c.indexOf(nameEQ) == 0) coo = c.substring(nameEQ.length,c.length);
+                    }
+                    if (coo) { $("#whitebox").hide(); }
+                  </script><a id="code"></a></div>
+</div>
+          <div class="node">
+
+  <div class="content clear">
+    <div class="putanchors"><a id="permalink-1" href="http://sourcemaking.com/design_patterns/strategy/php#permalink-1" title="Permalink to this place" class="permalink">01</a><p class="addanchor">In the Strategy Pattern a context will choose the appropriate concrete extension of a class&nbsp;interface.</p> 
+
+<a id="permalink-2" href="http://sourcemaking.com/design_patterns/strategy/php#permalink-2" title="Permalink to this place" class="permalink">02</a><p class="addanchor">In this example, the <code>StrategyContext</code> class will set a strategy of <code>StrategyCaps</code>, <code>StrategyExclaim</code>, or <code>StrategyStars</code> depending on a paramter <code>StrategyContext</code> receives at instantiation. When the <code>showName()</code> method is called in <code>StrategyContext</code> it will call the <code>showName()</code> method in the Strategy that it&nbsp;set.</p>
+
+<a id="permalink-3" href="http://sourcemaking.com/design_patterns/strategy/php#permalink-3" title="Permalink to this place" class="permalink">03</a><pre><code class="php">&lt;?php
+
+<span class="keyword">class</span> StrategyContext {
+    <span class="keyword">private</span> <span class="variable">$strategy</span> = <span class="keyword">NULL</span>; 
+    <span class="comment">//bookList is not instantiated at construct time</span>
+    <span class="keyword">public</span> <span class="keyword">function</span> __construct(<span class="variable">$strategy_ind_id</span>) {
+        <span class="keyword">switch</span> (<span class="variable">$strategy_ind_id</span>) {
+            <span class="keyword">case</span> <span class="string">"C"</span>: 
+                <span class="variable">$this</span>-&gt;strategy = <span class="keyword">new</span> StrategyCaps();
+            <span class="keyword">break</span>;
+            <span class="keyword">case</span> <span class="string">"E"</span>: 
+                <span class="variable">$this</span>-&gt;strategy = <span class="keyword">new</span> StrategyExclaim();
+            <span class="keyword">break</span>;
+            <span class="keyword">case</span> <span class="string">"S"</span>: 
+                <span class="variable">$this</span>-&gt;strategy = <span class="keyword">new</span> StrategyStars();
+            <span class="keyword">break</span>;
+        }
+    }
+    <span class="keyword">public</span> <span class="keyword">function</span> showBookTitle(<span class="variable">$book</span>) {
+      <span class="keyword">return</span> <span class="variable">$this</span>-&gt;strategy-&gt;showTitle(<span class="variable">$book</span>);
+    }
+}
+
+<span class="keyword">interface</span> StrategyInterface {
+    <span class="keyword">public</span> <span class="keyword">function</span> showTitle(<span class="variable">$book_in</span>);
+}
+ 
+<span class="keyword">class</span> StrategyCaps <span class="keyword">implements</span> StrategyInterface {
+    <span class="keyword">public</span> <span class="keyword">function</span> showTitle(<span class="variable">$book_in</span>) {
+        <span class="variable">$title</span> = <span class="variable">$book_in</span>-&gt;getTitle();
+        <span class="variable">$this</span>-&gt;titleCount++;
+        <span class="keyword">return</span> strtoupper (<span class="variable">$title</span>);
+    }
+}
+
+<span class="keyword">class</span> StrategyExclaim <span class="keyword">implements</span> StrategyInterface {
+    <span class="keyword">public</span> <span class="keyword">function</span> showTitle(<span class="variable">$book_in</span>) {
+        <span class="variable">$title</span> = <span class="variable">$book_in</span>-&gt;getTitle();
+        <span class="variable">$this</span>-&gt;titleCount++;
+        <span class="keyword">return</span> Str_replace(<span class="string">' '</span>,<span class="string">'!'</span>,<span class="variable">$title</span>);
+    }
+}
+
+<span class="keyword">class</span> StrategyStars <span class="keyword">implements</span> StrategyInterface {
+    <span class="keyword">public</span> <span class="keyword">function</span> showTitle(<span class="variable">$book_in</span>) {
+        <span class="variable">$title</span> = <span class="variable">$book_in</span>-&gt;getTitle();
+        <span class="variable">$this</span>-&gt;titleCount++;
+        <span class="keyword">return</span> Str_replace(<span class="string">' '</span>,<span class="string">'*'</span>,<span class="variable">$title</span>);
+    }
+}
+
+<span class="keyword">class</span> Book {
+    <span class="keyword">private</span> <span class="variable">$author</span>;
+    <span class="keyword">private</span> <span class="variable">$title</span>;
+    <span class="keyword">function</span> __construct(<span class="variable">$title_in</span>, <span class="variable">$author_in</span>) {
+        <span class="variable">$this</span>-&gt;author = <span class="variable">$author_in</span>;
+        <span class="variable">$this</span>-&gt;title  = <span class="variable">$title_in</span>;
+    }
+    <span class="keyword">function</span> getAuthor() {
+        <span class="keyword">return</span> <span class="variable">$this</span>-&gt;author;
+    }
+    <span class="keyword">function</span> getTitle() {
+        <span class="keyword">return</span> <span class="variable">$this</span>-&gt;title;
+    }
+    <span class="keyword">function</span> getAuthorAndTitle() {
+        <span class="keyword">return</span> <span class="variable">$this</span>-&gt;getTitle() . <span class="string">' by '</span> . <span class="variable">$this</span>-&gt;getAuthor();
+    }
+}
+
+  writeln(<span class="string">'BEGIN TESTING STRATEGY PATTERN'</span>);
+  writeln(<span class="string">''</span>);
+
+  <span class="variable">$book</span> = <span class="keyword">new</span> Book(<span class="string">'PHP for Cats'</span>,<span class="string">'Larry Truett'</span>);
+ 
+  <span class="variable">$strategyContextC</span> = <span class="keyword">new</span> StrategyContext(<span class="string">'C'</span>);
+  <span class="variable">$strategyContextE</span> = <span class="keyword">new</span> StrategyContext(<span class="string">'E'</span>);
+  <span class="variable">$strategyContextS</span> = <span class="keyword">new</span> StrategyContext(<span class="string">'S'</span>);
+ 
+  writeln(<span class="string">'test 1 - show name context C'</span>);
+  writeln(<span class="variable">$strategyContextC</span>-&gt;showBookTitle(<span class="variable">$book</span>));
+  writeln(<span class="string">''</span>);
+
+  writeln(<span class="string">'test 2 - show name context E'</span>);
+  writeln(<span class="variable">$strategyContextE</span>-&gt;showBookTitle(<span class="variable">$book</span>));
+  writeln(<span class="string">''</span>);
+ 
+  writeln(<span class="string">'test 3 - show name context S'</span>);
+  writeln(<span class="variable">$strategyContextS</span>-&gt;showBookTitle(<span class="variable">$book</span>));
+  writeln(<span class="string">''</span>);
+
+  writeln(<span class="string">'END TESTING STRATEGY PATTERN'</span>);
+
+  <span class="keyword">function</span> writeln(<span class="variable">$line_in</span>) {
+    <span class="keyword">echo</span> <span class="variable">$line_in</span>.<span class="string">"&lt;br/&gt;"</span>;
+  }
+
+?&gt;</code></pre>
+
+<code class="output">BEGIN TESTING STRATEGY PATTERN
+
+test 1 - show name context C
+PHP FOR CATS
+
+test 2 - show name context E
+PHP!for!Cats
+
+test 3 - show name context S
+PHP*for*Cats
+
+END TESTING STRATEGY PATTERN
+</code></div><div id="block-ad-12" class="clear-block block block-ad">
+
+
+  <div class="content"><script type="text/javascript" src="./Strategy Design Pattern in PHP_files/serve(1).php"></script><!-- No active ads were found in t12 --></div>
+</div>
+<div class="examples"><h3>List of Strategy examples</h3><h4>C# examples</h4><div class="item-list"><ul><li class="first last"><a href="http://sourcemaking.com/design_patterns/strategy/c%2523">Strategy in C#</a></li>
+</ul></div><h4>C++ examples</h4><div class="item-list"><ul><li class="first last"><a href="http://sourcemaking.com/design_patterns/strategy/cpp/1">Strategy in C++</a></li>
+</ul></div><h4>Delphi examples</h4><div class="item-list"><ul><li class="first last"><a href="http://sourcemaking.com/design_patterns/strategy/delphi">Strategy in Delphi</a></li>
+</ul></div><h4>Java examples</h4><div class="item-list"><ul><li class="first last"><a href="http://sourcemaking.com/design_patterns/strategy/java/1">Strategy in Java</a></li>
+</ul></div><h4>PHP examples</h4><div class="item-list"><ul><li class="first last"><a href="./Strategy Design Pattern in PHP_files/Strategy Design Pattern in PHP.htm" class="active">Strategy in PHP</a> <span class="tip"> &lt;=[You are here]</span></li>
+</ul></div></div>  <div id="book-navigation-2" class="book-navigation">
+        
+    
+    
+        <div class="page-links page-current  clear-block">
+              <a href="http://sourcemaking.com/design_patterns/state" class="page-previous" title="Go to previous page">‹ State Design Pattern</a>
+                
+              <a href="http://sourcemaking.com/design_patterns/template_method" class="page-next" title="Go to next page">Template Method Design Pattern ›</a>
+            
+              <a href="http://sourcemaking.com/design_patterns/strategy" class="page-up" title="Go to parent page">↑ Strategy</a>
+            
+    </div>
+        <div class="clear"></div>
+  </div>
+  </div>
+</div>
+<div id="block-block-18" class="clear-block block block-block">
+
+
+  <div class="content"><table class="copyfooter"><tbody><tr>
+<td class="footerimg">
+  <a class="non" rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/"><img alt="Creative Commons License" style="border-width:0" src="./Strategy Design Pattern in PHP_files/cc88x31.png"></a>
+</td>
+<td class="footertext">
+  This work is licensed under a 
+  <a class="non" rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/">Creative Commons Attribution-Noncommercial-No Derivative Works 3.0 Unported License</a>
+</td>
+</tr></tbody></table></div>
+</div>
+        </div><!-- end content-main-->
+
+        <div class="content-secondary">
+                      <div id="block-bonus_block-1" class="clear-block block block-bonus_block">
+
+
+  <div class="content"><table style="margin:0;vertical-align:bottom;"><tbody><tr>
+    <td style="padding:0 10px 0 0; width:95px;">
+      <div class="addthis">
+        <!-- AddThis Button BEGIN -->
+        <script type="text/javascript">var addthis_pub = "neochief";</script>
+        <a href="http://www.addthis.com/bookmark.php" onmouseover="return addthis_open(this, &#39;&#39;, &#39;[URL]&#39;, &#39;[TITLE]&#39;)" onmouseout="addthis_close()" onclick="return addthis_sendto()"><img src="./Strategy Design Pattern in PHP_files/sm-bookmark-en.gif" width="83" height="16" alt=""></a>
+        <!-- AddThis Button END -->
+        <div class="clear"></div>
+      </div>
+    </td><td style="padding:0 10px 0 0;">
+    </td>
+  </tr></tbody></table><div class="clear"></div>
+    <div id="search">
+      <div id="searchcontrol"><div class="gsc-control" dir="ltr"><form class="gsc-search-box" accept-charset="utf-8"><table cellspacing="0" cellpadding="0" class="gsc-search-box"><tbody><tr><td class="gsc-input"><input autocomplete="off" type="text" size="10" class=" gsc-input" name="search" title="search" id="gsc-i-id1" dir="ltr" spellcheck="false" style="outline: none; "></td><td class="gsc-search-button"><input type="button" value="Search" class="gsc-search-button" title="search"></td><td class="gsc-clear-button"><div class="gsc-clear-button" title="clear results">&nbsp;</div></td></tr></tbody></table><table cellspacing="0" cellpadding="0" class="gsc-branding"><tbody><tr style="display: none; "><td class="gsc-branding-user-defined"></td><td class="gsc-branding-text"><div class="gsc-branding-text">powered by</div></td><td class="gsc-branding-img"><img src="./Strategy Design Pattern in PHP_files/small-logo.png" class="gsc-branding-img"></td></tr></tbody></table></form><div class="gsc-tabsAreaInvisible"><div class="gsc-tabHeader gsc-inline-block gsc-tabhActive">Sourcemaking.com</div><span class="gs-spacer"> </span></div><div class="gsc-above-wrapper-area-invisible"><table cellspacing="0" cellpadding="0" class="gsc-above-wrapper-area-container"><tbody><tr><td class="gsc-result-info-container"><div class="gsc-result-info-invisible"></div></td></tr></tbody></table></div><div class="gsc-resultsbox-invisible"><div class="gsc-resultsRoot gsc-tabData gsc-tabdActive"><table cellspacing="0" cellpadding="0" class="gsc-resultsHeader"><tbody><tr><td class="gsc-twiddleRegionCell"><div class="gsc-twiddle"><div class="gsc-title">Sourcemaking.com</div></div><div class="gsc-stats"></div><div class="gsc-results-selector gsc-more-results-active"><div class="gsc-result-selector gsc-one-result" title="show one result">&nbsp;</div><div class="gsc-result-selector gsc-more-results" title="show more results">&nbsp;</div><div class="gsc-result-selector gsc-all-results" title="show all results">&nbsp;</div></div></td><td class="gsc-configLabelCell"></td></tr></tbody></table><div><div class="gsc-expansionArea"></div></div></div></div></div></div>
+    </div></div>
+</div>
+<div id="block-bonus_book-0" class="clear-block block block-bonus_book">
+
+  <h2><a href="http://sourcemaking.com/design_patterns" class="book-title">Design Patterns</a></h2><span class="contents">contents</span>
+
+  <div class="content clear"><ul class=" menu"><li class="first dhtml-menu collapsed start-collapsed "><a href="http://sourcemaking.com/creational_patterns" id="dhtml_menu-1010">Creational patterns</a><script type="text/javascript"> document.write('<ul  class=" menu"><li class="leaf first dhtml-menu "><a href="/design_patterns/abstract_factory" id="dhtml_menu-1013">Abstract Factory Design Pattern</a></li> <li class="leaf  dhtml-menu "><a href="/design_patterns/builder" id="dhtml_menu-1014">Builder Design Pattern</a></li> <li class="leaf  dhtml-menu "><a href="/design_patterns/factory_method" id="dhtml_menu-1015">Factory Method Design Pattern</a></li> <li class="leaf  dhtml-menu "><a href="/design_patterns/object_pool" id="dhtml_menu-1016">Object Pool Design Pattern</a></li> <li class="leaf  dhtml-menu "><a href="/design_patterns/prototype" id="dhtml_menu-1017">Prototype Design Pattern</a></li> <li class="leaf last dhtml-menu "><a href="/design_patterns/singleton" id="dhtml_menu-1018">Singleton Design Pattern</a></li> </ul>');</script><ul class=" menu"><li class="leaf fake-leaf"><a href="http://sourcemaking.com/creational_patterns" id="dhtml_menu-1010">Creational patterns</a></li><li class="leaf first dhtml-menu "><a href="http://sourcemaking.com/design_patterns/abstract_factory" id="dhtml_menu-1013">Abstract Factory Design Pattern</a></li> <li class="leaf  dhtml-menu "><a href="http://sourcemaking.com/design_patterns/builder" id="dhtml_menu-1014">Builder Design Pattern</a></li> <li class="leaf  dhtml-menu "><a href="http://sourcemaking.com/design_patterns/factory_method" id="dhtml_menu-1015">Factory Method Design Pattern</a></li> <li class="leaf  dhtml-menu "><a href="http://sourcemaking.com/design_patterns/object_pool" id="dhtml_menu-1016">Object Pool Design Pattern</a></li> <li class="leaf  dhtml-menu "><a href="http://sourcemaking.com/design_patterns/prototype" id="dhtml_menu-1017">Prototype Design Pattern</a></li> <li class="leaf last dhtml-menu "><a href="http://sourcemaking.com/design_patterns/singleton" id="dhtml_menu-1018">Singleton Design Pattern</a></li> </ul></li>
+<li class="dhtml-menu collapsed start-collapsed "><a href="http://sourcemaking.com/structural_patterns" id="dhtml_menu-1011">Structural patterns</a><script type="text/javascript"> document.write('<ul  class=" menu"><li class="leaf first dhtml-menu "><a href="/design_patterns/adapter" id="dhtml_menu-1019">Adapter Design Pattern</a></li> <li class="leaf  dhtml-menu "><a href="/design_patterns/bridge" id="dhtml_menu-1020">Bridge Design Pattern</a></li> <li class="leaf  dhtml-menu "><a href="/design_patterns/composite" id="dhtml_menu-1021">Composite Design Pattern</a></li> <li class="leaf  dhtml-menu "><a href="/design_patterns/decorator" id="dhtml_menu-1022">Decorator Design Pattern</a></li> <li class="leaf  dhtml-menu "><a href="/design_patterns/facade" id="dhtml_menu-1023">Facade Design Pattern</a></li> <li class="leaf  dhtml-menu "><a href="/design_patterns/flyweight" id="dhtml_menu-1024">Flyweight Design Pattern</a></li> <li class="leaf  dhtml-menu "><a href="/design_patterns/private_class_data" id="dhtml_menu-1025">Private Class Data</a></li> <li class="leaf last dhtml-menu "><a href="/design_patterns/proxy" id="dhtml_menu-1026">Proxy Design Pattern</a></li> </ul>');</script><ul class=" menu"><li class="leaf fake-leaf"><a href="http://sourcemaking.com/structural_patterns" id="dhtml_menu-1011">Structural patterns</a></li><li class="leaf first dhtml-menu "><a href="http://sourcemaking.com/design_patterns/adapter" id="dhtml_menu-1019">Adapter Design Pattern</a></li> <li class="leaf  dhtml-menu "><a href="http://sourcemaking.com/design_patterns/bridge" id="dhtml_menu-1020">Bridge Design Pattern</a></li> <li class="leaf  dhtml-menu "><a href="http://sourcemaking.com/design_patterns/composite" id="dhtml_menu-1021">Composite Design Pattern</a></li> <li class="leaf  dhtml-menu "><a href="http://sourcemaking.com/design_patterns/decorator" id="dhtml_menu-1022">Decorator Design Pattern</a></li> <li class="leaf  dhtml-menu "><a href="http://sourcemaking.com/design_patterns/facade" id="dhtml_menu-1023">Facade Design Pattern</a></li> <li class="leaf  dhtml-menu "><a href="http://sourcemaking.com/design_patterns/flyweight" id="dhtml_menu-1024">Flyweight Design Pattern</a></li> <li class="leaf  dhtml-menu "><a href="http://sourcemaking.com/design_patterns/private_class_data" id="dhtml_menu-1025">Private Class Data</a></li> <li class="leaf last dhtml-menu "><a href="http://sourcemaking.com/design_patterns/proxy" id="dhtml_menu-1026">Proxy Design Pattern</a></li> </ul></li>
+<li class="expanded last dhtml-menu  active-trail"><a href="http://sourcemaking.com/behavioral_patterns" id="dhtml_menu-1012">Behavioral patterns</a><ul class=" menu"><li class="leaf fake-leaf"><a href="http://sourcemaking.com/behavioral_patterns" id="dhtml_menu-1012">Behavioral patterns</a></li><li class="leaf first dhtml-menu "><a href="http://sourcemaking.com/design_patterns/chain_of_responsibility" id="dhtml_menu-1027">Chain of Responsibility</a></li>
+<li class="leaf  dhtml-menu "><a href="http://sourcemaking.com/design_patterns/command" id="dhtml_menu-1028">Command Design Pattern</a></li>
+<li class="leaf  dhtml-menu "><a href="http://sourcemaking.com/design_patterns/interpreter" id="dhtml_menu-1029">Interpreter Design Pattern</a></li>
+<li class="leaf  dhtml-menu "><a href="http://sourcemaking.com/design_patterns/iterator" id="dhtml_menu-1030">Iterator Design Pattern</a></li>
+<li class="leaf  dhtml-menu "><a href="http://sourcemaking.com/design_patterns/mediator" id="dhtml_menu-1031">Mediator Design Pattern</a></li>
+<li class="leaf  dhtml-menu "><a href="http://sourcemaking.com/design_patterns/memento" id="dhtml_menu-1032">Memento Design Pattern</a></li>
+<li class="leaf  dhtml-menu "><a href="http://sourcemaking.com/design_patterns/null_object" id="dhtml_menu-1033">Null Object Design Pattern</a></li>
+<li class="leaf  dhtml-menu "><a href="http://sourcemaking.com/design_patterns/observer" id="dhtml_menu-1034">Observer Design Pattern</a></li>
+<li class="leaf  dhtml-menu "><a href="http://sourcemaking.com/design_patterns/state" id="dhtml_menu-1035">State Design Pattern</a></li>
+<li class="leaf  dhtml-menu  active-trail"><a href="http://sourcemaking.com/design_patterns/strategy" id="dhtml_menu-1036">Strategy Design Pattern</a></li>
+<li class="leaf  dhtml-menu "><a href="http://sourcemaking.com/design_patterns/template_method" id="dhtml_menu-1037">Template Method Design Pattern</a></li>
+<li class="leaf last dhtml-menu "><a href="http://sourcemaking.com/design_patterns/visitor" id="dhtml_menu-1038">Visitor Design Pattern</a></li>
+</ul></li>
+</ul></div>
+</div>
+                  </div><!-- end content-secondary-->
+
+      <div class="footer">
+                  <div id="block-feedback-form" class="clear-block block block-feedback feedback-processed" style="display: block; ">
+
+  <div class="title"><span class="feedback-link" style="cursor: pointer; "><span id="feedback-form-toggle">[ + ]</span> Feedback</span></div>
+
+  <div class="content"><form action="./Strategy Design Pattern in PHP_files/Strategy Design Pattern in PHP.htm" accept-charset="UTF-8" method="post" id="feedback-form" class="feedback-form" style="display: none; ">
+<div><input type="hidden" name="ajax" id="edit-ajax" value="1">
+<div class="feedback-help">If you experience a bug or would like to see an addition on the current page, feel free to leave us a message.</div><div class="form-item" id="edit-message-wrapper">
+ <label for="edit-message">Message: <span class="form-required" title="This field is required.">*</span></label>
+ <div class="resizable-textarea"><span><textarea cols="60" rows="5" name="message" id="edit-message" class="form-textarea resizable required feedback-message textarea-processed"></textarea><div class="grippie" style="margin-right: 0px; "></div></span></div>
+</div>
+<div id="feedback-throbber"><input type="submit" name="op" id="feedback-submit" value="Send" class="form-submit">
+</div><input type="hidden" name="form_build_id" id="form-c3c8357ef98097b25f5da8cca9571b69" value="form-c3c8357ef98097b25f5da8cca9571b69">
+<input type="hidden" name="form_id" id="edit-feedback-form" value="feedback_form">
+
+</div></form>
+</div>
+</div>
+<script type="text/javascript" src="./Strategy Design Pattern in PHP_files/addthis_widget.js"></script>
+     <script type="text/javascript" src="./Strategy Design Pattern in PHP_files/jsapi"></script>
+     <script type="text/javascript" src="./Strategy Design Pattern in PHP_files/search_utils.js"></script><script src="./Strategy Design Pattern in PHP_files/saved_resource" type="text/javascript"></script><link href="./Strategy Design Pattern in PHP_files/default+en_GB.css" type="text/css" rel="stylesheet"><script src="./Strategy Design Pattern in PHP_files/default+en_GB.I.js" type="text/javascript"></script>              </div>
+
+    </div><!--end container-->
+  </div><!--end wrapper-->
+
+  <script type="text/javascript">if (typeof window.createCookie == 'function') { createCookie("was", "1"); }</script>
+  <div id="block-feedback-form" class="clear-block block block-feedback">
+
+  <div class="title"><span class="feedback-link">Feedback</span></div>
+
+  <div class="content"><form action="./Strategy Design Pattern in PHP_files/Strategy Design Pattern in PHP.htm" accept-charset="UTF-8" method="post" id="feedback-form-1" class="feedback-form">
+<div><input type="hidden" name="ajax" id="edit-ajax-1" value="0">
+<div class="feedback-help">If you experience a bug or would like to see an addition on the current page, feel free to leave us a message.</div><div class="form-item" id="edit-message-1-wrapper">
+ <label for="edit-message-1">Message: <span class="form-required" title="This field is required.">*</span></label>
+ <div class="resizable-textarea"><span><textarea cols="60" rows="5" name="message" id="edit-message-1" class="form-textarea resizable required feedback-message textarea-processed"></textarea><div class="grippie" style="margin-right: 0px; "></div></span></div>
+</div>
+<div id="feedback-throbber"><input type="submit" name="op" id="feedback-submit" value="Send" class="form-submit">
+</div><input type="hidden" name="form_build_id" id="form-e9e88b9b13a766e12f0e6063f5a6aefb" value="form-e9e88b9b13a766e12f0e6063f5a6aefb">
+<input type="hidden" name="form_id" id="edit-feedback-form-1" value="feedback_form">
+
+</div></form>
+</div>
+</div>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+//--><!]]>
+</script><script src="./Strategy Design Pattern in PHP_files/ga.js" type="text/javascript"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+try{var pageTracker = _gat._getTracker("UA-521840-6");pageTracker._trackPageview();} catch(err) {}
+//--><!]]>
+</script>
+
+  
+<table cellspacing="0" cellpadding="0" style="display: none; position: absolute; top: 230px; width: 160px; left: 805px; " class="gstl_0 gssb_c"><tbody><tr><td class="gssb_f"></td><td class="gssb_e" style="width: 100%; "></td></tr></tbody></table></body></html>

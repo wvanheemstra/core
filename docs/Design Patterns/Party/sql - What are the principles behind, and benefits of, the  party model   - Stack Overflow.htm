@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<!-- saved from url=(0104)http://stackoverflow.com/questions/716549/what-are-the-principles-behind-and-benefits-of-the-party-model -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script type="text/javascript" async="" src="./sql - What are the principles behind, and benefits of, the  party model   - Stack Overflow_files/adzerk1_2_4_43,adzerk2_2_17_45,adzerk3_2_4_44"></script><script type="text/javascript" async="" src="./sql - What are the principles behind, and benefits of, the  party model   - Stack Overflow_files/probes.js"></script><script type="text/javascript" async="" src="./sql - What are the principles behind, and benefits of, the  party model   - Stack Overflow_files/ga.js"></script><script type="text/javascript" async="" src="./sql - What are the principles behind, and benefits of, the  party model   - Stack Overflow_files/quant.js"></script><script>window.serq=[];StackExchange={ready:function(f){serq.push(f)}}</script>
+    <script type="text/javascript">mPt=function(){var t=[];return{t:t,probe:function(n){t.push({d:new Date(),n:n})}}}()</script>
+    
+    <title>sql - What are the principles behind, and benefits of, the "party model"? - Stack Overflow</title>
+    <link rel="shortcut icon" href="http://cdn.sstatic.net/stackoverflow/img/favicon.ico">
+    <link rel="apple-touch-icon" href="http://cdn.sstatic.net/stackoverflow/img/apple-touch-icon.png">
+    <link rel="search" type="application/opensearchdescription+xml" title="Stack Overflow" href="http://stackoverflow.com/opensearch.xml">
+
+    
+    
+    
+    <script type="text/javascript">mPt.probe(2)</script><link rel="stylesheet" type="text/css" href="./sql - What are the principles behind, and benefits of, the  party model   - Stack Overflow_files/all.css"><script type="text/javascript">mPt.probe(2)</script>
+    
+    <meta name="relativepagescore" content="191811">
+    <link rel="canonical" href="./sql - What are the principles behind, and benefits of, the  party model   - Stack Overflow_files/sql - What are the principles behind, and benefits of, the  party model   - Stack Overflow.htm">
+    <link rel="alternate" type="application/atom+xml" title="Feed for question &#39;What are the principles behind, and benefits of, the &quot;party model&quot;?&#39;" href="http://stackoverflow.com/feeds/question/716549">
+
+
+
+    
+
+<script async="" type="text/javascript" src="./sql - What are the principles behind, and benefits of, the  party model   - Stack Overflow_files/full-anon.js"></script><link href="./sql - What are the principles behind, and benefits of, the  party model   - Stack Overflow_files/sidebar.chirp.min.css" type="text/css" rel="stylesheet"></head>
+<body class="question-page">
+    <noscript>&lt;div id="noscript-padding"&gt;&lt;/div&gt;</noscript>
+    <div id="notify-container"></div>
+    <div id="overlay-header"></div>
+    <div id="custom-header"></div>
+
+    <div class="container">
+        <div id="header">
+            <div id="portalLink">
+                <a class="genu" onclick="StackExchange.ready(function(){genuwine.click();});return false;">Stack Exchange</a>
+            </div>
+            <div id="topbar">
+                <div id="hlinks">
+                    <span id="hlinks-user">
+                  
+                  </span>
+                  <span id="hlinks-nav">
+                  <a href="http://stackoverflow.com/users/login?returnurl=%2fquestions%2f716549%2fwhat-are-the-principles-behind-and-benefits-of-the-party-model">log in</a>
+ <span class="lsep">|</span>
+<a href="http://careers.stackoverflow.com/">careers</a>
+ <span class="lsep">|</span>
+
+                  </span>
+                  <span id="hlinks-custom">
+                  <a href="http://chat.stackoverflow.com/">chat</a>
+ <span class="lsep">|</span>
+<a href="http://meta.stackoverflow.com/">meta</a>
+ <span class="lsep">|</span>
+<a href="http://stackoverflow.com/about">about</a>
+ <span class="lsep">|</span>
+<a href="http://stackoverflow.com/faq">faq</a>
+                  </span>
+                </div>
+                <div id="hsearch">
+                    <form id="search" action="http://stackoverflow.com/search" method="get" autocomplete="off">
+                    <div>
+                        <input autocomplete="off" name="q" class="textbox" placeholder="search" tabindex="1" type="text" maxlength="140" size="28" value="">
+                    </div>
+                    </form>
+                </div>
+            </div>
+            <br class="cbt">
+            <div id="hlogo">
+                <a href="http://stackoverflow.com/">Stack Overflow</a>
+            </div>
+            <div id="hmenus">
+                <div class="nav mainnavs">
+                    <ul>
+                        <li class="youarehere"><a id="nav-questions" href="http://stackoverflow.com/questions">Questions</a></li>
+                        <li><a id="nav-tags" href="http://stackoverflow.com/tags">Tags</a></li>
+                        <li><a id="nav-users" href="http://stackoverflow.com/users">Users</a></li>
+                        <li><a id="nav-badges" href="http://stackoverflow.com/badges">Badges</a></li>
+                        <li><a id="nav-unanswered" href="http://stackoverflow.com/unanswered">Unanswered</a></li>
+                    </ul>
+                </div>
+                <div class="nav askquestion">
+                    <ul>
+                        <li>
+                            <a id="nav-askquestion" href="http://stackoverflow.com/questions/ask">Ask Question</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        
+
+
+        <div id="content">
+            <script type="text/javascript">mPt.probe(3)</script>
+            
+
+
+<div itemscope="" itemtype="http://schema.org/Article">
+<link itemprop="image" href="http://cdn.sstatic.net/stackoverflow/img/apple-touch-icon.png">
+<div id="question-header">
+    <h1 itemprop="name"><a href="./sql - What are the principles behind, and benefits of, the  party model   - Stack Overflow_files/sql - What are the principles behind, and benefits of, the  party model   - Stack Overflow.htm" class="question-hyperlink">What are the principles behind, and benefits of, the “party model”?</a></h1>
+</div>
+<div id="mainbar">
+
+
+<div class="question" id="question" data-questionid="716549">
+
+    <div class="everyonelovesstackoverflow" id="adzerk1"><a href="http://engine.adzerk.net/redirect/0/17286/16091/8277/d4f4add4b2914ce88eb5ba9de1375e5e/43/1178/25323/634758832698044140/?keywords=sql%2cdatabase-design%2corm%2cdata-modeling" rel="nofollow" target="_blank" title=""><img src="./sql - What are the principles behind, and benefits of, the  party model   - Stack Overflow_files/ea9cd4037de546cc8b1f811f9e38faae.jpg" title="" alt="" border="0" height="90" width="728"></a></div>
+
+    
+    <table>
+    <tbody><tr>
+    <td class="votecell">
+        
+
+<div class="vote">
+    <input type="hidden" value="716549">
+    <a class="vote-up-off" title="This question shows research effort; it is useful and clear (click again to undo)">up vote</a>
+    <span class="vote-count-post">9</span>
+    <a class="vote-down-off" title="This question does not show any research effort; it is unclear or not useful (click again to undo)">down vote</a>
+    <a class="star-off" href="http://stackoverflow.com/questions/716549/what-are-the-principles-behind-and-benefits-of-the-party-model#" title="This is a favorite question (click again to undo)">favorite</a>
+    <div class="favoritecount"><b>3</b></div>   
+ 
+</div>
+
+    </td>
+<td class="postcell">
+<div>          
+    <div class="post-text" itemprop="description">
+        <p>The "party model" is a "pattern" for relational database design. At least part of it involves finding commonality between many entities, such as Customer, Employee, Partner, etc., and factoring that into some more "abstract" database tables. </p>
+
+<p>I'd like to find out your thoughts on the following: </p>
+
+<ol>
+<li>What are the core principles and motivating forces behind the party model?</li>
+<li>What does it prescribe you do to your data model? (My bit above is pretty high level and quite possibly incorrect in some ways. I've been on a project that used it, but I was working with a separate team focused on other issues).</li>
+<li>What has your experience led you to feel about it? Did you use it, and if so, would you do so again? What were the pros and cons?</li>
+<li>Did the party model limit your choice of ORMs? For example, did you have to eliminate certain ORMs because they didn't allow for enough of an "abstraction layer" between your domain objects and your physical data model?</li>
+</ol>
+
+<p>I'm sure every response won't address every one of those questions ... but anything touching on one or more of them is going to help me make some decisions I'm facing.</p>
+
+<p>Thanks.</p>
+
+    </div>            
+    <div class="post-taglist">
+        <a href="http://stackoverflow.com/questions/tagged/sql" class="post-tag" title="show questions tagged &#39;sql&#39;" rel="tag">sql</a> <a href="http://stackoverflow.com/questions/tagged/database-design" class="post-tag" title="show questions tagged &#39;database-design&#39;" rel="tag">database-design</a> <a href="http://stackoverflow.com/questions/tagged/orm" class="post-tag" title="show questions tagged &#39;orm&#39;" rel="tag">orm</a> <a href="http://stackoverflow.com/questions/tagged/data-modeling" class="post-tag" title="show questions tagged &#39;data-modeling&#39;" rel="tag">data-modeling</a> 
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+        <div class="post-menu"><a href="http://stackoverflow.com/q/716549" title="short permalink to this question" id="link-post-716549">link</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/716549/edit">improve this question</a></div>
+    </td>
+    <td align="right" class="post-signature">
+<div class="user-info"><div class="user-action-time">edited <a href="http://stackoverflow.com/posts/716549/revisions" title="show all edits to this post"><span title="2009-04-04 05:40:36Z" class="relativetime">Apr 4 '09 at 5:40</span></a></div><div class="user-gravatar32"></div><div class="user-details"><br></div></div>    </td>
+    <td class="post-signature owner">
+    <div class="user-info user-hover"><div class="user-action-time">asked <span title="2009-04-04 05:17:14Z" class="relativetime">Apr 4 '09 at 5:17</span></div><div class="user-gravatar32"><a href="http://stackoverflow.com/users/80112/charlie-flowers"><div class=""><img src="./sql - What are the principles behind, and benefits of, the  party model   - Stack Overflow_files/9916002af7d33da3db56a4d1b3b74ddf" alt="" width="32" height="32"></div></a></div><div class="user-details"><a href="http://stackoverflow.com/users/80112/charlie-flowers">Charlie Flowers</a><br><span class="reputation-score" title="reputation score" dir="ltr">6,513</span><span title="37 silver badges"><span class="badge2"></span><span class="badgecount">37</span></span><span title="55 bronze badges"><span class="badge3"></span><span class="badgecount">55</span></span></div></div>
+        <br class="cbt">
+        <div class="accept-rate accept-answer-link" title="this user has accepted an answer for 28 of 29 eligible questions">97% accept rate</div>
+    </td>
+    </tr>
+    </tbody></table>
+</div>
+</td>    </tr>
+
+
+<tr>
+<td class="votecell"></td>
+<td>
+    <div id="comments-716549" class="comments">
+        <table>
+        <tbody>
+                    
+    <tr id="comment-14484135" class="comment">
+        <td></td>
+        <td class="comment-text"><div><span class="comment-copy">As for the ORMs it appears that ActiveRecord-type ORMS cannot do Class Table Inheritance, only Single Table Inheritance. DataMapper ORMS can do both.</span> –&nbsp;<a href="http://stackoverflow.com/users/223478/neil-mcguigan" title="2639 reputation" class="comment-user">Neil McGuigan</a> <span class="comment-date" dir="ltr"><a class="comment-link" onclick="StackExchange.question.highlightComment(14484135, 0)" href="http://stackoverflow.com/questions/716549/what-are-the-principles-behind-and-benefits-of-the-party-model#comment14484135_716549"><span title="2012-06-16 21:57:44Z">Jun 16 at 21:57</span></a></span></div></td>
+    </tr>
+
+        </tbody>
+    
+        </table>
+    </div>
+    
+    
+    <div class="was-this-helpful" style="color: rgb(0, 0, 0); ">Was this post useful to you? &nbsp;&nbsp;<input style="" class="anon-vote" type="button" value="Yes"> &nbsp;<input style="" class="anon-vote" type="button" value="No"></div>
+    
+</td>
+</tr>    </tbody></table>    
+</div>
+
+
+
+<div id="answers">
+
+    <a name="tab-top"></a>
+    <div id="answers-header">
+        <div class="subheader answers-subheader">
+            <h2>4 Answers</h2>
+            <div id="tabs">
+                <a href="http://stackoverflow.com/questions/716549/what-are-the-principles-behind-and-benefits-of-the-party-model?answertab=active#tab-top" title="Answers with the latest activity first">active</a>
+<a href="http://stackoverflow.com/questions/716549/what-are-the-principles-behind-and-benefits-of-the-party-model?answertab=oldest#tab-top" title="Answers in the order they were provided">oldest</a>
+<a class="youarehere" href="http://stackoverflow.com/questions/716549/what-are-the-principles-behind-and-benefits-of-the-party-model?answertab=votes#tab-top" title="Answers with the highest score first">votes</a>
+
+            </div>
+        </div>    
+    </div>    
+
+
+  
+    <a name="716617"></a>
+    <div id="answer-716617" class="answer" data-answerid="716617">
+        <table>
+        <tbody><tr>
+        <td class="votecell">
+            
+
+<div class="vote">
+    <input type="hidden" value="716617">
+    <a class="vote-up-off" title="This answer is useful (click again to undo)">up vote</a>
+    <span class="vote-count-post">8</span>
+    <a class="vote-down-off" title="This answer is not useful (click again to undo)">down vote</a>
+<span class="vote-accepted-on" title="The question owner accepted this as the best answer Apr 23 &#39;09 at 18:09">accepted</span> 
+</div>
+
+        </td>
+
+
+<td class="answercell">
+    <div class="post-text"><blockquote>
+  <ol>
+  <li>What are the core principles and motivating forces behind the party
+  model?</li>
+  </ol>
+</blockquote>
+
+<p>To the extent that I've used it, it's mostly about code reuse and flexibility. We've used it before in the guest / user / admin model and it certainly proves its value when you need to move a user from one group to another.  Extend this to having organizations and companies represented with users under them, and it's really providing a form of abstraction that isn't particularly inherent in SQL.</p>
+
+<blockquote>
+  <ol>
+  <li>What does it prescribe you do to your data model? (My bit above is
+  pretty high level and quite possibly
+  incorrect in some ways. I've been on a
+  project that used it, but I was
+  working with a separate team focused
+  on other issues).</li>
+  </ol>
+</blockquote>
+
+<p>You're pretty correct in your bit above, though it needs some more detail.  You can imagine a situation where an entity in the database (call it a Party) contracts out to another Party, which may in turn subcontract work out.  A party might be an Employee, a Contractor, or a Company, all subclasses of Party.  From my understanding, you would have a Party table and then more specific tables for each subclass, which could then be further subclassed (Party -&gt; Person -&gt; Contractor).</p>
+
+<blockquote>
+  <ol>
+  <li>What has your experience led you to feel about it? Did you use it, and if
+  so, would you do so again? What were
+  the pros and cons?</li>
+  </ol>
+</blockquote>
+
+<p>It has its benefits if you need flexibly to add new types to your system and create relationships between types that you didn't expect at the beginning and architect in (users moving to a new level, companies hiring other companies, etc).  It also gives you the benefit of running a single query and retrieving data for multiple types of parties (Companies,Employees,Contractors). On the flip side, you're adding additional layers of abstraction to get to the data you actually need and are increasing load (or at least the number of joins) on the database when you're querying for a specific type.  If your abstraction goes too far, you'll likely need to run multiple queries to retrieve the data as the complexity would start to become detrimental to readability and database load.</p>
+
+<blockquote>
+  <ol>
+  <li>Did the party model limit your choice of ORMs? For example, did you
+  have to eliminate certain ORMs because
+  they didn't allow for enough of an
+  "abstraction layer" between your
+  domain objects and your physical data
+  model?</li>
+  </ol>
+</blockquote>
+
+<p>This is an area that I'm admittedly a bit weak in, but I've found that using views and mirrored abstraction in the application layer haven't made this too much of a problem.  The real problem for me has always been a "where is piece of data X living" when I want to read the data source directly (it's not always intuitive for new developers on the system either).</p>
+</div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/716617" title="short permalink to this answer" id="link-post-716617">link</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/716617/edit">improve this answer</a></div>    </td>
+    <td align="right" class="post-signature">
+<div class="user-info user-hover"><div class="user-action-time">edited <a href="http://stackoverflow.com/posts/716617/revisions" title="show all edits to this post"><span title="2009-04-04 09:14:17Z" class="relativetime">Apr 4 '09 at 9:14</span></a></div><div class="user-gravatar32"><a href="http://stackoverflow.com/users/1060/mike-woodhouse"><div class=""><img src="./sql - What are the principles behind, and benefits of, the  party model   - Stack Overflow_files/5978e2ed3a31f1bd2361dbb919d92012" alt="" width="32" height="32"></div></a></div><div class="user-details"><a href="http://stackoverflow.com/users/1060/mike-woodhouse">Mike Woodhouse</a><br><span class="reputation-score" title="reputation score 17467" dir="ltr">17.5k</span><span title="3 gold badges"><span class="badge1"></span><span class="badgecount">3</span></span><span title="30 silver badges"><span class="badge2"></span><span class="badgecount">30</span></span><span title="64 bronze badges"><span class="badge3"></span><span class="badgecount">64</span></span></div></div>    </td>
+            
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info user-hover"><div class="user-action-time">answered <span title="2009-04-04 06:15:52Z" class="relativetime">Apr 4 '09 at 6:15</span></div><div class="user-gravatar32"><a href="http://stackoverflow.com/users/86906/jeremy-stanley"><div class=""><img src="./sql - What are the principles behind, and benefits of, the  party model   - Stack Overflow_files/e71690a723c9e4ee356a0323eaa8fafb" alt="" width="32" height="32"></div></a></div><div class="user-details"><a href="http://stackoverflow.com/users/86906/jeremy-stanley">Jeremy Stanley</a><br><span class="reputation-score" title="reputation score" dir="ltr">1,727</span><span title="6 silver badges"><span class="badge2"></span><span class="badgecount">6</span></span><span title="16 bronze badges"><span class="badge3"></span><span class="badgecount">16</span></span></div></div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>        </tr>
+
+
+<tr>
+<td class="votecell"></td>
+<td>
+    <div id="comments-716617" class="comments">
+        <table>
+        <tbody>
+                    
+    <tr id="comment-528692" class="comment">
+        <td></td>
+        <td class="comment-text"><div><span class="comment-copy">Fantastic response. Thanks. When you say "mirrored abstraction in the app layer", do you mean that your domain objects also followed the party model pattern?</span> –&nbsp;<a href="http://stackoverflow.com/users/80112/charlie-flowers" title="6513 reputation" class="comment-user owner">Charlie Flowers</a> <span class="comment-date" dir="ltr"><a class="comment-link" onclick="StackExchange.question.highlightComment(528692, 716617)" href="http://stackoverflow.com/questions/716549/what-are-the-principles-behind-and-benefits-of-the-party-model#comment528692_716617"><span title="2009-04-04 06:29:17Z">Apr 4 '09 at 6:29</span></a></span></div></td>
+    </tr>
+            
+    <tr id="comment-528695" class="comment">
+        <td></td>
+        <td class="comment-text"><div><span class="comment-copy">Yes, which also means that you have to essentially write logic in 2 places which causes obvious synchronization issues.  But, the extent of my third party ORM usage is very very limited (though I've used in-house ORM tools quite often)</span> –&nbsp;<a href="http://stackoverflow.com/users/86906/jeremy-stanley" title="1727 reputation" class="comment-user">Jeremy Stanley</a> <span class="comment-date" dir="ltr"><a class="comment-link" onclick="StackExchange.question.highlightComment(528695, 716617)" href="http://stackoverflow.com/questions/716549/what-are-the-principles-behind-and-benefits-of-the-party-model#comment528695_716617"><span title="2009-04-04 06:31:52Z">Apr 4 '09 at 6:31</span></a></span></div></td>
+    </tr>
+
+        </tbody>
+    
+        </table>
+    </div>
+    
+    
+    <div class="was-this-helpful">
+        feedback
+    </div>
+    
+</td>
+</tr>    </tbody></table>
+</div>
+
+    <div class="everyonelovesstackoverflow" id="adzerk3"><a href="http://engine.adzerk.net/redirect/0/5921/2444/8277/2787061525d6448ca9afdd8e22309a53/44/1178/8807/634758832698207750/?keywords=sql%2cdatabase-design%2corm%2cdata-modeling" rel="nofollow" target="_blank" title=""><img src="./sql - What are the principles behind, and benefits of, the  party model   - Stack Overflow_files/9241eb4107b24c588c0ca0042534c03e.png" title="" alt="" border="0" height="90" width="728"></a></div>
+
+    
+  
+    <a name="819607"></a>
+    <div id="answer-819607" class="answer" data-answerid="819607">
+        <table>
+        <tbody><tr>
+        <td class="votecell">
+            
+
+<div class="vote">
+    <input type="hidden" value="819607">
+    <a class="vote-up-off" title="This answer is useful (click again to undo)">up vote</a>
+    <span class="vote-count-post">1</span>
+    <a class="vote-down-off" title="This answer is not useful (click again to undo)">down vote</a>
+ 
+</div>
+
+        </td>
+
+
+<td class="answercell">
+    <div class="post-text"><p>This is a vast topic, I would recommend reading <a href="http://rads.stackoverflow.com/amzn/click/0470178450" rel="nofollow">The Data Model Resource Book Volume 3 - Universal Patterns for Data Modeling</a> by Len Silverston and Paul Agnew.</p>
+
+<p>I've just received my copy and it's pretty good - It provides you with an overlook for many approaches to data modeling, including hybrid contextual role patterns and so on. It has detailed PROs and CONs for every approach.</p>
+
+<p>There is a pletheora of ways to model party relationships and roles all with their benefits and disadvantages. The question that was accepted as an answer covers just one instance of a 'party model'. </p>
+
+<p>For instance, in many approaches, notions like "Employee", "Project Manager" etc. are <strong>roles</strong> that a party can play within a certain context. I will try to give you a better breakdown once I get home.</p>
+</div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/819607" title="short permalink to this answer" id="link-post-819607">link</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/819607/edit">improve this answer</a></div>    </td>
+            
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info user-hover"><div class="user-action-time">answered <span title="2009-05-04 10:31:42Z" class="relativetime">May 4 '09 at 10:31</span></div><div class="user-gravatar32"><a href="http://stackoverflow.com/users/13466/kitsune"><div class=""><img src="./sql - What are the principles behind, and benefits of, the  party model   - Stack Overflow_files/a08215c7e579fbe5bf95484b2d500524" alt="" width="32" height="32"></div></a></div><div class="user-details"><a href="http://stackoverflow.com/users/13466/kitsune">kitsune</a><br><span class="reputation-score" title="reputation score" dir="ltr">3,104</span><span title="3 gold badges"><span class="badge1"></span><span class="badgecount">3</span></span><span title="25 silver badges"><span class="badge2"></span><span class="badgecount">25</span></span><span title="54 bronze badges"><span class="badge3"></span><span class="badgecount">54</span></span></div></div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>        </tr>
+
+
+<tr>
+<td class="votecell"></td>
+<td>
+    <div id="comments-819607" class="comments dno">
+        <table>
+        <tbody>
+        
+            <tr><td></td><td></td></tr>
+        
+        </tbody>
+    
+        </table>
+    </div>
+    
+    
+    <div class="was-this-helpful">
+        feedback
+    </div>
+    
+</td>
+</tr>    </tbody></table>
+</div>
+
+  
+    <a name="967588"></a>
+    <div id="answer-967588" class="answer" data-answerid="967588">
+        <table>
+        <tbody><tr>
+        <td class="votecell">
+            
+
+<div class="vote">
+    <input type="hidden" value="967588">
+    <a class="vote-up-off" title="This answer is useful (click again to undo)">up vote</a>
+    <span class="vote-count-post">1</span>
+    <a class="vote-down-off" title="This answer is not useful (click again to undo)">down vote</a>
+ 
+</div>
+
+        </td>
+
+
+<td class="answercell">
+    <div class="post-text"><p>When I was part of a team implementing these ideas in the early 1980's, it did not limit our choice of ORM's because those hadn't been invented yet.</p>
+
+<p>I'd fall back on those ideas any time, as that particular project was one of the most convincing proofs-of-concept I have ever seen of a "revolutionary" idea (which it certainly was at the time).</p>
+
+<p>It forces you to nothing.  And it doesn't stop you from anything (from any mistake, I mean).  The one defining your own information model is you.</p>
+
+<p>All parties have lots of properties in common.  The fact that they have a name and such (we called those "signaletics").  The fact that they have principal/primary locations called "addresses".  The fact that they all are involved, in some sense, in the business' contracts.</p>
+</div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/967588" title="short permalink to this answer" id="link-post-967588">link</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/967588/edit">improve this answer</a></div>    </td>
+            
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info"><div class="user-action-time">answered <span title="2009-06-08 23:56:28Z" class="relativetime">Jun 8 '09 at 23:56</span></div><div class="user-gravatar32"><span class="anonymous-gravatar"></span></div><div class="user-details">Erwin Smout<br></div></div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>        </tr>
+
+
+<tr>
+<td class="votecell"></td>
+<td>
+    <div id="comments-967588" class="comments dno">
+        <table>
+        <tbody>
+        
+            <tr><td></td><td></td></tr>
+        
+        </tbody>
+    
+        </table>
+    </div>
+    
+    
+    <div class="was-this-helpful">
+        feedback
+    </div>
+    
+</td>
+</tr>    </tbody></table>
+</div>
+
+  
+    <a name="717608"></a>
+    <div id="answer-717608" class="answer" data-answerid="717608">
+        <table>
+        <tbody><tr>
+        <td class="votecell">
+            
+
+<div class="vote">
+    <input type="hidden" value="717608">
+    <a class="vote-up-off" title="This answer is useful (click again to undo)">up vote</a>
+    <span class="vote-count-post">0</span>
+    <a class="vote-down-off" title="This answer is not useful (click again to undo)">down vote</a>
+ 
+</div>
+
+        </td>
+
+
+<td class="answercell">
+    <div class="post-text"><p>I'm not sure, but the party model sounds like a particular case of the generalization-specialization pattern.  A search on "generalization specialization relational modeling"  finds some interesting articles.</p>
+</div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/717608" title="short permalink to this answer" id="link-post-717608">link</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/717608/edit">improve this answer</a></div>    </td>
+            
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info"><div class="user-action-time">answered <span title="2009-04-04 19:07:41Z" class="relativetime">Apr 4 '09 at 19:07</span></div><div class="user-gravatar32"><a href="http://stackoverflow.com/users/19937/walter-mitty"><div class=""><img src="./sql - What are the principles behind, and benefits of, the  party model   - Stack Overflow_files/54ca3dcbcc9ff6cae4d41897748a43c1" alt="" width="32" height="32"></div></a></div><div class="user-details"><a href="http://stackoverflow.com/users/19937/walter-mitty">Walter Mitty</a><br><span class="reputation-score" title="reputation score" dir="ltr">5,305</span><span title="5 silver badges"><span class="badge2"></span><span class="badgecount">5</span></span><span title="17 bronze badges"><span class="badge3"></span><span class="badgecount">17</span></span></div></div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>        </tr>
+
+
+<tr>
+<td class="votecell"></td>
+<td>
+    <div id="comments-717608" class="comments dno">
+        <table>
+        <tbody>
+        
+            <tr><td></td><td></td></tr>
+        
+        </tbody>
+    
+        </table>
+    </div>
+    
+    
+    <div class="was-this-helpful">
+        feedback
+    </div>
+    
+</td>
+</tr>    </tbody></table>
+</div>
+    <a name="new-answer"></a>
+    <form id="post-form" action="http://stackoverflow.com/questions/716549/answer/submit" method="post" class="post-form">
+        <h2 class="space">Your Answer</h2>
+
+
+
+
+<div id="post-editor" class="post-editor">  
+
+    
+    <div class="wmd-container">
+        <div id="wmd-button-bar" class="wmd-button-bar"><ul id="wmd-button-row" class="wmd-button-row"><li id="wmd-bold-button" class="wmd-button" style="left: 0px; "><span style="background-position: 0px -20px; "></span></li><li id="wmd-italic-button" class="wmd-button" style="left: 25px; "><span style="background-position: -20px -20px; "></span></li><li id="wmd-spacer1" class="wmd-spacer" style="left: 50px; "><span style="background-position: -40px -20px; "></span></li><li id="wmd-link-button" class="wmd-button" style="left: 75px; "><span style="background-position: -40px -20px; "></span></li><li id="wmd-quote-button" class="wmd-button" style="left: 100px; "><span style="background-position: -60px -20px; "></span></li><li id="wmd-code-button" class="wmd-button" style="left: 125px; "><span style="background-position: -80px -20px; "></span></li><li id="wmd-image-button" class="wmd-button" style="left: 150px; "><span style="background-position: -100px -20px; "></span></li><li id="wmd-spacer2" class="wmd-spacer" style="left: 175px; "><span style="background-position: -120px -20px; "></span></li><li id="wmd-olist-button" class="wmd-button" style="left: 200px; "><span style="background-position: -120px -20px; "></span></li><li id="wmd-ulist-button" class="wmd-button" style="left: 225px; "><span style="background-position: -140px -20px; "></span></li><li id="wmd-heading-button" class="wmd-button" style="left: 250px; "><span style="background-position: -160px -20px; "></span></li><li id="wmd-hr-button" class="wmd-button" style="left: 275px; "><span style="background-position: -180px -20px; "></span></li><li id="wmd-spacer3" class="wmd-spacer" style="left: 300px; "><span style="background-position: -200px -20px; "></span></li><li id="wmd-undo-button" class="wmd-button" style="left: 325px; "><span style="background-position: -200px -20px; "></span></li><li id="wmd-redo-button" class="wmd-button" style="left: 350px; "><span style="background-position: -220px -20px; "></span></li></ul></div>
+        <textarea id="wmd-input" class="wmd-input" name="post-text" cols="92" rows="15" tabindex="101"></textarea>
+    </div>
+
+    <div class="fl" style="margin-top: 8px; height:24px;">&nbsp;</div>
+    <div id="draft-saved" class="draft-saved community-option fl" style="margin-top: 8px; height:24px; display:none;">draft saved</div>
+
+    <div id="draft-discarded" class="draft-discarded community-option fl" style="margin-top: 8px; height:24px; display:none;">draft discarded</div>
+
+
+
+    <div id="wmd-preview" class="wmd-preview"></div>
+    <div></div>
+    <div class="edit-block">
+        <input id="fkey" name="fkey" type="hidden" value="113d60e5a07544ab99437ef5fb75d12c">
+        <input id="author" name="author" type="text">
+    </div>
+</div>    <div class="form-item">
+        <table>
+        <tbody><tr>
+            <td class="vm open-id-login">
+                <a id="login-link" style="font-size: 200%; margin-left: 30px;" href="http://stackoverflow.com/users/login?returnurl=%2fquestions%2f716549%2fwhat-are-the-principles-behind-and-benefits-of-the-party-model">log in</a>
+                <script type="text/javascript">
+                    StackExchange.ready(function () {
+                        StackExchange.helpers.onClickDraftSave('#login-link');
+                    });
+                </script>
+            </td>
+            <td class="orcell">
+                <div class="orword">or</div>
+                <div class="orline"></div>
+            </td>
+            <td class="vm">
+                <div>
+                    <label for="display-name">Name</label>
+                    <input id="display-name" name="display-name" type="text" size="30" maxlength="30" value="" tabindex="105">
+                </div>
+                <div>
+                    <label for="m-address">Email</label>
+                    <input id="m-address" name="m-address" type="text" size="40" maxlength="100" value="" tabindex="106">
+                    <span class="edit-field-overlay">required, but never shown</span>
+                </div>
+                <div>
+                    <label for="home-page">Home Page</label>
+                    <input id="home-page" name="home-page" type="text" size="40" maxlength="200" value="" tabindex="107">
+                </div>
+            </td>
+        </tr>
+        </tbody></table>
+    </div>
+           
+        <div class="form-submit cbt">
+            <input id="submit-button" type="submit" value="Post Your Answer" tabindex="110">
+            <a href="http://stackoverflow.com/questions/716549/what-are-the-principles-behind-and-benefits-of-the-party-model#" class="discard-answer dno">discard</a>
+    <p class="privacy-policy-agreement">
+        By posting your answer, you agree to the 
+        <a href="http://stackexchange.com/legal/privacy-policy" target="_blank">privacy policy</a> and 
+        <a href="http://stackexchange.com/legal/terms-of-service" target="_blank">terms of service</a>.
+    </p>
+        </div>
+    </form>
+
+
+
+
+        <h2 class="bottom-notice">
+                Not the answer you're looking for? 
+            Browse other questions tagged <a href="http://stackoverflow.com/questions/tagged/sql" class="post-tag" title="show questions tagged &#39;sql&#39;" rel="tag">sql</a> <a href="http://stackoverflow.com/questions/tagged/database-design" class="post-tag" title="show questions tagged &#39;database-design&#39;" rel="tag">database-design</a> <a href="http://stackoverflow.com/questions/tagged/orm" class="post-tag" title="show questions tagged &#39;orm&#39;" rel="tag">orm</a> <a href="http://stackoverflow.com/questions/tagged/data-modeling" class="post-tag" title="show questions tagged &#39;data-modeling&#39;" rel="tag">data-modeling</a> 
+                or <a href="http://stackoverflow.com/questions/ask">ask your own question</a>.
+        </h2>
+</div>
+</div>
+<div id="sidebar">
+
+
+
+     <script type="text/javascript">
+        window.showNewUser = true;
+            
+                (function(){
+                    var cs = window.sessionStorage && window.sessionStorage['tNewsletter'];
+                    var m = /:\/\/([^\/]*)/.exec(document.referrer);
+                    var h = {'www.reddit.com':1,'news.ycombinator.com':1};
+                    if(window.sessionStorage && (cs || (m && m.length == 2 && h[m[1]]))){
+                        showNewUser = false;
+                        StackExchange.ready(function(){
+                            StackExchange.newsletterAd.loader(m[1], cs);
+                        });
+                    }
+                    if (window.localStorage && showNewUser){
+                        var c = parseInt(localStorage['nuCounter'],10); 
+                        c = isNaN(c) ? 1 : c+1;
+                        window.localStorage['nuCounter'] = c; 
+                        showNewUser = c < 10;
+                    }
+                })()
+            
+     </script>
+    <div class="module newuser newuser-greeting" id="newuser-box" style="">
+        <h4>Hello World!</h4>
+        <div>
+            <p>This is a collaboratively edited question and answer site for <b>professional and enthusiast programmers</b>. It's 100% free, no registration required.</p>
+            <p class="ar"><a href="http://stackoverflow.com/about?mnu=1">about »</a>&nbsp;&nbsp;&nbsp;<a href="http://stackoverflow.com/faq?mnu=1">faq »</a>
+            </p>
+        </div>
+    </div>
+     <script type="text/javascript">
+        if (showNewUser) {
+            document.getElementById('newuser-box').style.display = '';
+        }
+     </script>
+    <div class="module question-stats">
+        <p class="label-key">tagged</p>
+        <div class="tagged"><a href="http://stackoverflow.com/questions/tagged/sql" class="post-tag" title="" rel="tag">sql</a>&nbsp;<span class="item-multiplier"><span class="item-multiplier-x">×</span>&nbsp;<span class="item-multiplier-count">84582</span></span><br>
+<a href="http://stackoverflow.com/questions/tagged/database-design" class="post-tag" title="show questions tagged &#39;database-design&#39;" rel="tag">database-design</a>&nbsp;<span class="item-multiplier"><span class="item-multiplier-x">×</span>&nbsp;<span class="item-multiplier-count">8359</span></span><br>
+<a href="http://stackoverflow.com/questions/tagged/orm" class="post-tag" title="show questions tagged &#39;orm&#39;" rel="tag">orm</a>&nbsp;<span class="item-multiplier"><span class="item-multiplier-x">×</span>&nbsp;<span class="item-multiplier-count">5414</span></span><br>
+<a href="http://stackoverflow.com/questions/tagged/data-modeling" class="post-tag" title="show questions tagged &#39;data-modeling&#39;" rel="tag">data-modeling</a>&nbsp;<span class="item-multiplier"><span class="item-multiplier-x">×</span>&nbsp;<span class="item-multiplier-count">769</span></span><br>
+</div>
+        <table id="qinfo">
+            <tbody><tr>
+                <td><p class="label-key">asked</p></td>
+                <td style="padding-left:10px"><p class="label-key" title="2009-04-04 05:17:14Z"><b>3 years ago</b></p></td>
+            </tr>
+            <tr>
+                <td><p class="label-key">viewed</p></td>
+
+                <td style="padding-left:10px"><p class="label-key"><b>3,363 times</b></p></td>
+            </tr>
+            <tr>
+                <td><p class="label-key">active</p></td>
+                <td style="padding-left:10px"><p class="label-key"><b><a href="http://stackoverflow.com/questions/716549/what-are-the-principles-behind-and-benefits-of-the-party-model?lastactivity" class="lastactivity-link" title="2009-06-08 23:56:28Z">3 years ago</a></b></p></td>
+            </tr>
+        </tbody></table>
+    </div>
+
+<div class="module community-bulletin" data-tracker="cb=1">
+    <h4>Community Bulletin</h4>
+    <div class="related">
+        <div class="spacer">
+            <div class="bulletin-item-type event-date">event</div>
+            <div class="bulletin-item-content">
+                <a href="http://meta.stackoverflow.com/questions/136817/june-2012-community-moderator-election-results?cb=1" class="question-hyperlink" target="_blank">Welcome our new community moderators</a>
+                <span class="event-date" style="white-space: nowrap;">– all the livelong day</span>
+            </div>
+            <br class="cbt">
+        </div>
+    </div>
+</div>
+    
+        <script type="text/javascript">
+            var scriptSrc = "http://engine2.adzerk.net/z/8277/adzerk1_2_4_43,adzerk2_2_17_45,adzerk3_2_4_44?keywords=sql,database-design,orm,data-modeling";
+            if (document.referrer) {
+                if (/\?/.test(scriptSrc))
+                    scriptSrc += "&";
+                else
+                    scriptSrc += "?";
+                scriptSrc += "xReferrer=" + document.referrer;
+            }
+            StackExchange.ready(function(){var z = document.createElement("script"); z.type = "text/javascript"; z.async = "true"; z.src = scriptSrc; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(z, s);});
+        </script>
+    
+    <div class="everyonelovesstackoverflow" id="adzerk2"><div id="careersadsdoublehigh" style="display:none;"></div></div>
+
+    
+    <div id="hireme"> <a href="http://careers.stackoverflow.com/jobs?a=24" class="top" target="_blank"></a> <ul class="jobs"> <li> <a href="http://careers.stackoverflow.com/jobs/21125/java-developer-senior-developer-flexiant?a=oXtnH8I" target="_blank" title="Java Developer / Senior Developer at Flexiant. Click to learn more."> Java Developer / Senior Developer<br> <span class="company">Flexiant</span> <span class="location">Livingston, United Kingdom</span> </a> </li> <li> <a href="http://careers.stackoverflow.com/jobs/20733/senior-mid-level-c-sharp-developers-online-gaming-pebble-code?a=ouL3zk4" target="_blank" title="Senior &amp; Mid-level C# Developers // Online Gaming at Pebble Code. Click to learn more."> Senior &amp; Mid-level C# Developers // Online Gaming<br> <span class="company">Pebble Code</span> <span class="location">London, United Kingdom;…</span> </a> </li> <li> <a href="http://careers.stackoverflow.com/jobs/20599/web-developer-front-end-asp-net-mvc-xedo-software?a=okWuN2g" target="_blank" title="Web Developer - Front End (ASP.NET MVC) at Xedo Software. Click to learn more."> Web Developer - Front End (ASP.NET MVC)<br> <span class="company">Xedo Software</span> <span class="location">Glasgow, United Kingdom</span> </a> </li> <li> <a href="http://careers.stackoverflow.com/jobs/20706/web-development-specialist-ncr?a=osMqR8c" target="_blank" title="Web Development Specialist at NCR. Click to learn more."> Web Development Specialist<br> <span class="company">NCR</span> <span class="location">Edinburgh, United Kingdom</span> </a> </li> <li> <a href="http://careers.stackoverflow.com/jobs/21020/web-developer-php-drupal-html5-css-carnyx-group?a=oPMwNcQ" target="_blank" title="Web Developer - PHP, Drupal, HTML5, CSS at Carnyx Group. Click to learn more."> Web Developer - PHP, Drupal, HTML5, CSS<br> <span class="company">Carnyx Group</span> <span class="location">Glasgow, United Kingdom;…</span> </a> </li> <li> <a href="http://careers.stackoverflow.com/jobs/21167/ome-system-administrator-college-life-sciences?a=p0y9l8A" target="_blank" title="OME System Administrator at College of Life Sciences, Open Microscopy Environment Team, University of Dundee. Click to learn more."> OME System Administrator<br> <span class="company">College of Life Sciences, Open…</span> <span class="location">Dundee, United Kingdom</span> </a> </li> </ul> <img alt="" class="impression" src="./sql - What are the principles behind, and benefits of, the  party model   - Stack Overflow_files/oXtnH8I-ouL3zk4-okWuN2g-osMqR8c-oPMwNcQ-p0y9l8A-24" style="display:none"></div>
+
+      
+    
+    <div class="module sidebar-linked">
+        <h4 id="h-linked">Linked</h4>
+        <div class="linked" data-tracker="lq=1">
+            <div class="spacer">
+<a href="http://stackoverflow.com/questions/7337022/what-ways-are-there-to-store-information-about-an-anonymous-guest-user-in-a-data?lq=1" class="question-hyperlink">What ways are there to store information about an anonymous/guest user in a database?</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/7290005/naming-question-non-programmatic-question?lq=1" class="question-hyperlink">naming question - non programmatic question</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/5667414/how-to-handle-groups-of-users-and-single-users-in-data-models?lq=1" class="question-hyperlink">How to handle groups of users and single users in data models</a>
+</div>
+
+        </div>
+    </div>
+    <div class="module sidebar-related">
+        <h4 id="h-related">Related</h4>
+        <div class="related" data-tracker="rq=1">
+            <div class="spacer">
+<a href="http://stackoverflow.com/questions/400540/best-practice-for-managing-data-model-changes-in-a-released-system?rq=1" class="question-hyperlink">Best practice for managing data-model changes in a released system</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/510234/define-generic-data-model-for-custom-product-types?rq=1" class="question-hyperlink">Define Generic Data Model for Custom Product Types</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/635366/one-to-many-modeling-question?rq=1" class="question-hyperlink">“One-to-many” modeling question</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/648463/best-way-to-model-customer-address?rq=1" class="question-hyperlink">Best way to model Customer &lt;--&gt; Address</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/652149/how-to-model-tables-with-foreign-keys-from-several-other-tables?rq=1" class="question-hyperlink">How to model tables with foreign keys from several other tables</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/859492/best-implementation-for-fully-auditable-data-model?rq=1" class="question-hyperlink">Best implementation for fully auditable data model?</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/1126783/what-are-design-patterns-to-support-custom-fields-in-an-application?rq=1" class="question-hyperlink">What are design patterns to support custom fields in an application?</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/1408675/what-do-you-consider-to-be-the-best-balance-of-columns-within-an-address-table?rq=1" class="question-hyperlink">What do you consider to be the best balance of columns within an address table?</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/1439509/diagram-to-model-database-entries?rq=1" class="question-hyperlink">Diagram to model database entries</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/1458320/hidden-problems-when-modelling-data-using-business-objects?rq=1" class="question-hyperlink">Hidden problems when modelling data using business objects</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/1474034/what-are-some-methods-for-persisting-customer-configurable-data-in-a-database?rq=1" class="question-hyperlink">What are some methods for persisting customer configurable data in a database?</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/1489587/what-is-the-best-way-to-design-the-schema-for-the-following?rq=1" class="question-hyperlink">What is the best way to design the schema for the following?</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/1500187/performance-benefit-in-this-data-model?rq=1" class="question-hyperlink">Performance benefit in this data model?</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/1579638/what-is-the-best-way-to-represent-recurring-events-in-database?rq=1" class="question-hyperlink">What is the best way to represent “Recurring Events” in database?</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/1975484/product-groups-better-data-model-new-paradigm-for-implementation?rq=1" class="question-hyperlink">Product groups - Better data model? New paradigm for implementation?</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/2530215/model-a-zero-or-one-to-many-relationship?rq=1" class="question-hyperlink">Model a Zero or One to Many Relationship</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/3647797/what-would-it-mean-if-i-change-the-identifying-relationship-from-this-part-of-a?rq=1" class="question-hyperlink">What would it mean If I change the identifying relationship from this part of a database design to a non-identifying relationship?</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/4823246/how-to-model-data-with-unknown-attributes?rq=1" class="question-hyperlink">How to model data with unknown attributes?</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/5930277/data-model-design-pattern-that-holds-data-changes-until-authorized-by-another-us?rq=1" class="question-hyperlink">data model design pattern that holds data changes until authorized by another user</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/6468892/what-is-the-difference-between-those-terms-association-and-relation?rq=1" class="question-hyperlink">What is the difference between those terms: “Association” and “Relation”?</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/7811464/how-to-represent-this-data-model-in-a-scalable-way?rq=1" class="question-hyperlink">How to represent this data model in a Scalable Way</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/7932870/implementing-a-relational-data-model-what-are-the-constraints-for-this-table?rq=1" class="question-hyperlink">Implementing a relational data model: what are the constraints for this table?</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/9138227/er-data-model-connecting-2-relations?rq=1" class="question-hyperlink">ER data model (connecting 2 relations)</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/9294137/model-design-suggestion-for-coredata?rq=1" class="question-hyperlink">model design suggestion for coredata</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/10367206/what-is-a-order-line?rq=1" class="question-hyperlink">What is a “order line”?</a>
+</div>
+
+        </div>
+    </div>
+</div>
+
+<div id="feed-link">
+    <div id="feed-link-text"><a href="http://stackoverflow.com/feeds/question/716549" title="feed of this question and its answers"><span class="feed-icon"></span>question feed</a></div>
+</div>
+
+<noscript>
+    &lt;div&gt;&lt;img src="/posts/716549/ivc/50e5" class="dno" alt="" width="0" height="0"&gt;&lt;/div&gt;
+</noscript><div style="display:none" id="prettify-lang">lang-sql</div></div>
+        </div>
+    </div>
+    <div id="footer">
+        <div class="footerwrap">
+            <div id="footer-menu">
+                <a href="http://stackoverflow.com/about">about</a> |
+                <a href="http://stackoverflow.com/faq">faq</a> |
+                <a href="http://blog.stackexchange.com/?blb=1">blog</a> |
+                    <a href="http://chat.stackoverflow.com/">chat</a> |
+                <a href="http://data.stackexchange.com/">data</a> |
+                <a href="http://shop.stackexchange.com/">shop</a> |
+                <a href="http://stackexchange.com/legal">legal</a> |
+                <a href="http://stackexchange.com/legal/privacy-policy">privacy policy</a> |
+                <a href="http://engine.adzerk.net/redirect/0/2776/2751/0/4de3c60f719c4dfcb1a57531c7050090/0">advertising info</a> |
+                <a onclick="StackExchange.switchMobile(&#39;on&#39;, &#39;/questions/716549/what-are-the-principles-behind-and-benefits-of-the-party-model&#39;)">mobile</a> |
+
+                <b><a href="mailto:team@stackoverflow.com">contact us</a></b>
+                  | <b><a href="http://meta.stackoverflow.com/">feedback</a></b>
+                <div id="footer-sites">
+                    
+                        <span style="color:#FE7A15;font-size:140%">■</span>&nbsp;<a href="http://stackoverflow.com/">stackoverflow.com</a>&nbsp; 
+                        <span style="color:#FE7A15;font-size:140%">■</span>&nbsp;<a href="http://stackapps.com/">api/apps</a>&nbsp; 
+                        <span style="color:#FE7A15;font-size:140%">■</span>&nbsp;<a href="http://careers.stackoverflow.com/">careers</a>&nbsp; 
+                        <span style="color:#E8272C;font-size:140%">■</span>&nbsp;<a href="http://serverfault.com/">serverfault.com</a>&nbsp; 
+                        <span style="color:#00AFEF;font-size:140%">■</span>&nbsp;<a href="http://superuser.com/">superuser.com</a>&nbsp; 
+                        <span style="color:#969696;font-size:140%">■</span>&nbsp;<a href="http://meta.stackoverflow.com/">meta</a>&nbsp; 
+                        <span style="color:#46937D;font-size:140%">■</span>&nbsp;<a href="http://area51.stackexchange.com/">area&nbsp;51</a>&nbsp; 
+                        <span style="color:#C0D0DC;font-size:140%">■</span>&nbsp;<a href="http://webapps.stackexchange.com/">webapps</a>&nbsp; 
+                        <span style="color:#000000;font-size:140%">■</span>&nbsp;<a href="http://gaming.stackexchange.com/">gaming</a>&nbsp; 
+                        <span style="color:#dd4814;font-size:140%">■</span>&nbsp;<a href="http://askubuntu.com/">ubuntu</a>&nbsp; 
+                        <span style="color:#9ce4fe;font-size:140%">■</span>&nbsp;<a href="http://webmasters.stackexchange.com/">webmasters</a>&nbsp; 
+                        <span style="color:#cf4d3f;font-size:140%">■</span>&nbsp;<a href="http://cooking.stackexchange.com/">cooking</a>&nbsp; 
+                        <span style="color:#f4f28d;font-size:140%">■</span>&nbsp;<a href="http://gamedev.stackexchange.com/">game development</a>&nbsp; 
+                        <span style="color:#0f3559;font-size:140%">■</span>&nbsp;<a href="http://math.stackexchange.com/">math</a>&nbsp; 
+                        <span style="color:#f2f2f2;font-size:140%">■</span>&nbsp;<a href="http://photo.stackexchange.com/">photography</a>&nbsp; 
+                        <span style="color:#037187;font-size:140%">■</span>&nbsp;<a href="http://stats.stackexchange.com/">stats</a>&nbsp; 
+                        <span style="color:#f1e7cc;font-size:140%">■</span>&nbsp;<a href="http://tex.stackexchange.com/">tex</a>&nbsp; 
+                        <span style="color:#e1cdae;font-size:140%">■</span>&nbsp;<a href="http://english.stackexchange.com/">english</a>&nbsp; 
+                        <span style="color:#a2d9f6;font-size:140%">■</span>&nbsp;<a href="http://cstheory.stackexchange.com/">theoretical cs</a>&nbsp; 
+                        <span style="color:#1b3e6c;font-size:140%">■</span>&nbsp;<a href="http://programmers.stackexchange.com/">programmers</a>&nbsp; 
+                        <span style="color:#293a5d;font-size:140%">■</span>&nbsp;<a href="http://unix.stackexchange.com/">unix</a>&nbsp;
+                        <span style="color:#bec0cb;font-size:140%">■</span>&nbsp;<a href="http://apple.stackexchange.com/">apple</a>&nbsp;
+                        <span style="color:#939185;font-size:140%">■</span>&nbsp;<a href="http://wordpress.stackexchange.com/">wordpress</a>&nbsp;
+                        <span style="color:#ebf5f5;font-size:140%">■</span>&nbsp;<a href="http://physics.stackexchange.com/">physics</a>&nbsp;
+                        <span style="color:#4176ab;font-size:140%">■</span>&nbsp;<a href="http://diy.stackexchange.com/">home&nbsp;improvement</a>&nbsp;
+                        <span style="color:#d1d8d7;font-size:140%">■</span>&nbsp;<a href="http://gis.stackexchange.com/">gis</a>&nbsp;
+                        <span style="color:#e5e2d3;font-size:140%">■</span>&nbsp;<a href="http://electronics.stackexchange.com/">electronics</a>&nbsp;
+                        <span style="color:#a4c639;font-size:140%">■</span>&nbsp;<a href="http://android.stackexchange.com/">android</a>&nbsp;
+                        <span style="color:#2e4e60;font-size:140%">■</span>&nbsp;<a href="http://security.stackexchange.com/">security</a>&nbsp;
+                        <span style="color:#45bcb5;font-size:140%">■</span>&nbsp;<a href="http://bicycles.stackexchange.com/">bicycles</a>&nbsp;
+                        <span style="color:#00adee;font-size:140%">■</span>&nbsp;<a href="http://dba.stackexchange.com/">dba</a>&nbsp;
+                        <span style="color:#2edaf0;font-size:140%">■</span>&nbsp;<a href="http://drupal.stackexchange.com/">drupal</a>&nbsp;
+                        <span style="color:#213951;font-size:140%">■</span>&nbsp;<a href="http://sharepoint.stackexchange.com/">sharepoint</a>&nbsp;
+                        <span style="color:#73abb3;font-size:140%">■</span>&nbsp;<a href="http://scifi.stackexchange.com/">scifi &amp; fantasy</a>&nbsp;
+                        <span style="color:#23629F;font-size:140%">■</span>&nbsp;<a href="http://ux.stackexchange.com/">user experience</a>&nbsp;
+                        <span style="color:#faff72;font-size:140%">■</span>&nbsp;<a href="http://skeptics.stackexchange.com/">skeptics</a>&nbsp;
+                        <span style="color:#623121;font-size:140%">■</span>&nbsp;<a href="http://rpg.stackexchange.com/">rpg</a>&nbsp;
+                        <span style="color:#e4be88;font-size:140%">■</span>&nbsp;<a href="http://judaism.stackexchange.com/">judaism</a>&nbsp;
+                </div>
+            </div>
+            <div id="footer-flair">
+                <a class="peer1" href="http://www.peer1.com/stackoverflow"></a>  
+	            <a href="http://creativecommons.org/licenses/by-sa/3.0/" class="cc-wiki-link"></a>
+                <div id="svnrev">rev 2012.6.20.3034</div>
+            </div>
+            <div id="copyright">
+                site design / logo © 2012 stack exchange inc; 
+                user contributions licensed under <a href="http://creativecommons.org/licenses/by-sa/3.0/" rel="license">cc-wiki</a> with <a href="http://blog.stackoverflow.com/2009/06/attribution-required/" rel="license">attribution required</a>
+            </div>
+            
+
+        </div>
+    </div>
+    
+    <noscript>
+        &lt;div id="noscript-warning"&gt;Stack Overflow works best with JavaScript enabled&lt;img src="http://pixel.quantserve.com/pixel/p-c1rF4kxgLUzNc.gif" alt="" class="dno"&gt;&lt;/div&gt;
+    </noscript>
+    <script type="text/javascript">var _gaq=_gaq||[];_gaq.push(['_setAccount','UA-5620270-1']);
+        _gaq.push(['_setCustomVar', 1, 'tags', '|sql|database-design|orm|data-modeling|']); 
+_gaq.push(['_trackPageview']);
+    var _qevents = _qevents || [];
+    (function(){
+        var s=document.getElementsByTagName('script')[0];
+        var ga=document.createElement('script');
+        ga.type='text/javascript';
+        ga.async=true;
+        ga.src='http://www.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(ga,s);
+        var sc=document.createElement('script');
+        sc.type='text/javascript';
+        sc.async=true;
+        sc.src='http://edge.quantserve.com/quant.js'; 
+        s.parentNode.insertBefore(sc,s);
+    })();
+    </script>
+    <script type="text/javascript">
+        _qevents.push({ qacct: "p-c1rF4kxgLUzNc" });
+    </script>    
+    
+    <script type="text/javascript">mPt.probe(1)</script><script type="text/javascript" src="./sql - What are the principles behind, and benefits of, the  party model   - Stack Overflow_files/jquery.min.js"></script><script type="text/javascript">mPt.probe(1)</script><script type="text/javascript">mPt.probe(4)</script><script type="text/javascript" src="./sql - What are the principles behind, and benefits of, the  party model   - Stack Overflow_files/stub.js"></script><script type="text/javascript">mPt.probe(4)</script>    <script type="text/javascript">
+        
+        StackExchange.ready(function () {
+
+            StackExchange.question.init({showAnswerHelp:true,totalCommentCount:1,shownCommentCount:1,highlightColor:'#F4A83D',backgroundColor:'#FFF',questionId:716549});
+
+            styleCode();
+
+                StackExchange.realtime.subscribeToQuestion('1', '716549');
+        });
+    </script>    <script type="text/javascript">
+        StackExchange.init({"stackAuthUrl":"https://stackauth.com","serverTime":1340286469,"styleCode":true,"enableUserHovercards":true,"site":{"name":"Stack Overflow","description":"Q&A for professional and enthusiast programmers","isNoticesTabEnabled":true,"newTitleSearchBoxEnabled":false},"user":{"isAnonymous":true,"fkey":"113d60e5a07544ab99437ef5fb75d12c","notificationsUnviewedCount":0,"inboxUnviewedCount":-1}});
+        StackExchange.using.setCacheBreakers({"js/prettify-full.js":"d1cd9a23171c","js/moderator.js":"8c49fc268737","js/full-anon.js":"8577eab04b42","js/full.js":"e6770c069b64","js/wmd.js":"eb1157179598","js/third-party/jquery.autocomplete.min.js":"e5f01e97f7c3","js/mobile.js":"6e412827da99","js/help.js":"fc9fb0517db2","js/tageditor.js":"c1ba807b32aa","js/tageditornew.js":"bd66fabe1c71","js/inline-tag-editing.js":"be882e188985","js/revisions.js":"8c6bcd93b7fe","js/suggested-edits.js":"03fb8d2c4068","js/probes.js":"beb933322ff0"});
+        
+    </script><script type="text/javascript">
+    StackExchange.ready(function() {
+        initTagRenderer("".split(" "), "".split(" "));
+         
+        prepareEditor({
+            heartbeatType: 'answer',
+            bindNavPrevention: true,
+            postfix: "",
+            onDemand: true,
+            discardSelector: ".discard-answer"
+            ,immediatelyShowMarkdownHelp:true
+        });
+        
+    });  
+</script><script type="text/javascript">
+StackExchange.ready(function(){$.get('/posts/716549/ivc/50e5');});
+</script>
+ <script type="text/javascript">
+window.mPtt = mPt.t;
+window.mPttRG = 'c8ac9451-831d-4ff2-8c2d-9d5147ecc9d2';
+(function(){
+        var f=document.getElementsByTagName('script')[0];
+        var s=document.createElement('script');
+        s.type='text/javascript';
+        s.async=true;
+        s.src = 'http://cdn.sstatic.net/js/probes.js?v=beb933322ff0';
+        f.parentNode.insertBefore(s, f);
+})();
+</script>    
+
+</body></html>

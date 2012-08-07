@@ -1,0 +1,1867 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+	<title>Applying Robustness Analysis on the Model–View–Controller (MVC) Architecture in ASP.NET Framework, using UML - CodeProject</title> 
+	<link type="text/css" rel="stylesheet" href="Applying-Robustness-Analysis-on-the-Model-View-Con_files/CodeProject.css">
+
+	
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="Description" content="This article will enhance your vision on the usage of Robustness Analysis in conjunction with Model View Controller, using UML with application in ASP.NET. This article is a sequel to my articles on Architecture and Design with ASP.NET.; Author: Shams Mukhtar; Updated: 23 Aug 2004; Section: Design and Architecture; Chapter: Development Lifecycle; Updated: 23 Aug 2004">
+<meta name="Keywords" content=".NET1.1, Win2K, WinXP, Win2003, SQL2000, IIS5.1, IIS6, VS.NET2003, C#, ASP.NET, SQL, CEO, Architect, DBA, Dev, ADO.NET, UML, Intermediate,Design and Architecture,Development Lifecycle,Free source code, tutorials">
+<meta name="Author" content="Shams Mukhtar">
+<meta name="Rating" content="General">
+<meta name="Robots" content="index, follow, NOODP">
+<meta name="Revisit-After" content="1 days">
+<meta name="application-name" content="The Code Project">
+
+<meta name="msapplication-navbutton-color" content="#FF9900">
+<meta name="msapplication-tooltip" content="Your Development Resource.">
+<meta name="msapplication-starturl" content="http://www.codeproject.com/?pinned=true">
+<meta name="msapplication-task" content="name=Homepage;action-uri=http://www.codeproject.com/;icon-uri=http://www.codeproject.com/favico.ico">
+<meta name="msapplication-task" content="name=Latest Articles;action-uri=http://www.codeproject.com/script/articles/Latest.aspx;icon-uri=http://www.codeproject.com/favico.ico">
+<meta name="msapplication-task" content="name=Questions and Answers;action-uri=http://www.codeproject.com/script/Answers/;icon-uri=http://www.codeproject.com/favico.ico">
+<meta name="msapplication-task" content="name=The Lounge;action-uri=http://www.codeproject.com/Lounge.aspx;icon-uri=http://www.codeproject.com/favico.ico">
+
+<link rel="dns-prefetch" href="http://ajax.googleapis.com/"> 
+<link rel="canonical" href="http://www.codeproject.com/Articles/8058/Applying-Robustness-Analysis-on-the-Model-View-Con">
+
+
+<link rel="alternate" type="application/rss+xml" title="CodeProject Latest articles - All Topics" href="http://www.codeproject.com/WebServices/ArticleRSS.aspx?cat=1">
+<link rel="alternate" type="application/rss+xml" title="CodeProject Latest articles - MFC/C++" href="http://www.codeproject.com/WebServices/ArticleRSS.aspx?cat=2">
+<link rel="alternate" type="application/rss+xml" title="CodeProject Latest articles - C#" href="http://www.codeproject.com/WebServices/ArticleRSS.aspx?cat=3">
+<link rel="alternate" type="application/rss+xml" title="CodeProject Latest articles - VB.NET" href="http://www.codeproject.com/WebServices/ArticleRSS.aspx?cat=6">
+<link rel="alternate" type="application/rss+xml" title="CodeProject Latest articles - Mobile" href="http://www.codeproject.com/WebServices/ArticleRSS.aspx?cat=18">
+<link rel="alternate" type="application/rss+xml" title="CodeProject Latest articles - ASP.NET" href="http://www.codeproject.com/WebServices/ArticleRSS.aspx?cat=4">
+<link rel="alternate" type="application/rss+xml" title="CodeProject Lounge Postings" href="http://www.codeproject.com/webservices/LoungeRSS.aspx">
+<link rel="search" type="application/opensearchdescription+xml" title="CodeProject" href="http://www.codeproject.com/info/OpenSearch.xml">
+
+	<!-- base href="http://www.codeproject.com/Articles/8058/Applying-Robustness-Analysis-on-the-Model-View-Con" -->
+	<link rel="icon" href="http://www.codeproject.com/favicon.ico" type="image/ico">
+<link rel="shortcut icon" href="http://www.codeproject.com/favicon.ico" type="image/ico">
+<link rel="apple-touch-icon" href="http://www.codeproject.com/images/FavIcon-Apple.png" type="image/png">
+<script src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/beacon.js" async=""></script><script type="text/javascript" language="Javascript">//<![CDATA[
+if(top!=self && !/https?:\/\/([a-zA-Z]+\.)?facebook.com\//gi.test(top.location.href))top.location.href=location.href; if(typeof(DemoUrl)!='undefined')document.write(unescape('%3Cme')+'ta http'+'-equiv="re'+'fresh" con'+'tent="1;url='+DemoUrl+unescape('"%3CE'));
+function SelfCheck(){ return window.confirm("You are about to reply to your own message. Is this really what you want?");}
+function FireNew(elm) { window.location=$(elm).find('a')[0].href;}
+
+var smoothScroll = false;
+var Selected = "-1";
+var oldTitle = document.title;
+function Pin(elm){
+ CloseMsg(Selected);
+ Selected=''
+ var wrk=elm.parentNode; if(wrk)wrk=wrk.children[0];
+ var fc=elm?elm.firstChild:null;
+ if (wrk&&!wrk.pinned) {
+  OpenMsg(wrk.name, true);wrk.pinned=true;fc.src='http://s.codeproject.com/script/forums/images/pinned.gif';fc.title='Pinned. Click to unpin'
+ } else {
+  wrk.pinned=false;CloseMsg(wrk.name); fc.src='http://s.codeproject.com/script/forums/images/pin.gif';fc.title='Click to pin message'
+ }
+ return false;
+}
+function CloseMsg(msgId) {
+ if(!msgId||msgId==''||msgId<0)return;
+ var lnk=document.getElementsByName(msgId);
+ if(lnk&&lnk.length>0&&lnk[0].pinned)return;
+ var hed=document.getElementById('F' + msgId.toString() + '_h0');
+ if(hed) hed.className = hed.className.replace("Sel", "UnSel");
+ var bdy=document.getElementById('F' + msgId.toString() + '_h1');
+ if(bdy) bdy.style.display = 'none';
+ if(oldTitle) document.title = oldTitle;
+}
+function OpenMsg(msgId, keep) {
+ if(!msgId||msgId==''||msgId<0)return;
+ var bdy=document.getElementById('F' + msgId.toString() + '_h1');
+ if(bdy){
+  var lnk=document.getElementsByName(msgId);
+  if(lnk&&lnk.length>0&&lnk[0].pinned)keep=true;
+  if(lnk&&lnk.length>0) { oldTitle=document.title; document.title = lnk[0].innerHTML + ' - CodeProject'; }
+  if(keep&&bdy.style.display!='none')return;
+  if(bdy.style.display=='none') bdy.style.display='';
+  else bdy.style.display = 'none';
+ }
+ var hed=document.getElementById('F' + msgId.toString() + '_h0');
+ if (hed) hed.className = hed.className.replace('UnSel', 'Sel');
+ if(bdy&&hed&&bdy.style.display!='none'){
+  var webkitWeird=document.documentElement.scrollTop < document.body.scrollTop;
+  if (!webkitWeird)document.body.scrollTop = getRealPos(hed, 'Top') - document.body.clientHeight/10;
+  EnsureMessageVisible(msgId, true);
+ }
+}
+function EnsureMessageVisible(msgID, bShowTop) {
+	var webkitWeird = document.documentElement.scrollTop < document.body.scrollTop;
+	var msgHeader = document.getElementById('F' + msgID + '_h0');
+	var msgBody = document.getElementById('F' + msgID + '_h1');
+	if (!msgBody || !msgHeader) return;
+	var scrollContainer = document.documentElement;
+	var top = getRealPos(msgHeader, 'Top');
+	var bottom = getRealPos(msgBody, 'Top') + msgBody.offsetHeight;
+	var scrollTop = webkitWeird? scrollTop = document.body.scrollTop:document.documentElement.scrollTop;
+	if (scrollTop > top && !bShowTop) scrollTop = top - scrollContainer.clientHeight / 10;
+	if (scrollTop + scrollContainer.clientHeight < bottom) scrollTop = bottom - scrollContainer.clientHeight;
+	if (scrollTop > top && bShowTop) scrollTop = top - scrollContainer.clientHeight / 10;
+ if (smoothScroll){
+  if (webkitWeird) $(document.body).stop().animate({'scrollTop' : scrollTop}, 'fast');
+  else $(scrollContainer).stop().animate({'scrollTop' : scrollTop}, 'fast');
+ } else {
+  if (webkitWeird) document.body.scrollTop = scrollTop;
+  else scrollContainer.scrollTop = scrollTop;
+ }
+}
+function getRealPos(i,which) {
+	iPos = 0;
+	while (i!=null)  {
+		iPos += i['offset' + which];
+		i = i.offsetParent;
+	}
+	return iPos;
+}
+var switchCallback;
+function SwitchMessage(e, msgId) {
+  if (msgId) msgId=msgId.toString();
+  else {
+    if(!e)e=window.event;
+    var target=e.target?e.target:e.srcElement;
+    while(target&&target.className!='message-link')target=target.parentNode;
+    if(!target||target.className!='message-link')return;
+    if(target.pinned){/*Selected='';*/return false;}
+    msgId=target.name;
+  }
+  CloseMsg(Selected)
+  if(Selected==msgId) Selected='';
+  else { OpenMsg(msgId, false); Selected=msgId;}
+  if (e){if(e.preventDefault)e.preventDefault;else e.returnValue=false;}
+    if(switchCallback)switchCallback(null, msgId)
+  return false;
+}
+
+
+//]]>
+</script>
+
+	
+<script type="text/javascript">
+  var _comscore = _comscore || [];
+  _comscore.push({ c1: "2", c2: "13507173" });
+  (function() {
+	var s = document.createElement("script"), el = document.getElementsByTagName("script")[0]; s.async = true;
+	s.src = (document.location.protocol == "https:" ? "https://sb" : "http://b") + ".scorecardresearch.com/beacon.js";
+	el.parentNode.insertBefore(s, el);
+  })();
+</script>
+<noscript>
+  <img src="http://b.scorecardresearch.com/p?c1=2&c2=13507173&cv=2.0&cj=1" id="ctl00_Auditing_ComScore" />
+</noscript>
+
+
+
+<script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-1735123-1']);
+	_gaq.push(['_trackPageview']);
+	_gaq.push(['_setDomainName', 'www.codeproject.com']);
+	_gaq.push(['_setSessionTimeout', '1200']); 
+
+	(function () {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+	})(); 
+</script><script src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/ga.js" async="" type="text/javascript"></script>
+
+
+</head>	
+
+<body class="firefox firefox12">
+
+
+
+
+<a href="#Main"><img alt="Click here to Skip to main content" class="access-link" src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/t.gif"></a>
+
+
+<div class="page-background">
+	<div id="A" class="container-content">
+
+		
+		<div id="ctl00_Suggest" class="suggestions">
+		
+<div class="alert-bar " style="">
+	<a href="#" class="close-notify">×</a>
+	<div><b>Not quite what you are looking for? You may want to try:</b><ul class="see-also"><li><a href="http://www.codeproject.com/KB/architecture/MVC_MVP_MVVM_design.aspx?q=Model+View+Controller+UML">Model View Controller, Model View Presenter, and Model View ViewModel Design Patterns</a></li><li><a href="http://www.codeproject.com/KB/macros/pocketuml.aspx?q=Model+View+Controller+UML">Pocket UML</a></li></ul><div id="removeHilite" class="alert-bar-command">
+<a href="#" onclick="unmarkText('contentdiv','removeHilite')">highlights off</a>
+</div>
+</div>
+</div>
+		</div>
+
+		
+
+		
+		
+
+<div class="container nav-memberbar clearfix">
+	<div class="member-stats float-left">8,917,167 members and growing!</div>
+	<div class="float-left"></div>
+
+	<div class="float-right">
+		&nbsp;&nbsp;<a title="Sign in using Facebook" class="oauth" href="http://www.codeproject.com/script/Membership/OAuthLogOn.aspx?auth=Facebook" style="vertical-align: bottom; padding-right: 3px;"><img title="Sign in using Facebook" src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/facebook.png" alt="" style="border-width: 0px;"></a><a title="Sign in using Google" class="oauth" href="http://www.codeproject.com/script/Membership/OAuthLogOn.aspx?auth=Google" style="vertical-align: bottom; padding-right: 3px;"><img title="Sign in using Google" src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/google-plus.png" alt="" style="border-width: 0px;"></a>
+
+	</div>
+
+	<div class="float-right">
+		
+
+		
+
+			<script type="text/javascript">//<!--
+			function doSubmit(secure)
+			{
+				if (secure)
+					document.subForm.action = "https://www.codeproject.com/script/Membership/LogOn.aspx?rp=%2fArticles%2f8058%2fApplying-Robustness-Analysis-on-the-Model-View-Con"
+				else
+					document.subForm.action = "/script/Membership/LogOn.aspx?rp=%2fArticles%2f8058%2fApplying-Robustness-Analysis-on-the-Model-View-Con"
+				document.subForm.submit();
+				return true;
+			}//-->
+			</script>
+
+			<a name="SignUp"></a>
+			<form name="subForm" id="subForm" action="/script/Membership/LogOn.aspx?rp=%2fArticles%2f8058%2fApplying-Robustness-Analysis-on-the-Model-View-Con" method="post" class="tight">
+
+			
+			<input id="FormName" name="FormName" value="MenuBarForm" type="hidden">
+
+			Email <input class="small-text" name="Email" id="Email" style="width: 150px;" type="text">
+			Password <input class="small-text" name="Password" id="Password" style="width: 60px;" type="password">
+			<input value="Sign in" class="button" onclick="return doSubmit(false);" type="submit">
+			
+			<input src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/secure.png" class="align-bottom" title="Sign on securely" onclick="return doSubmit(true);" type="image">
+			<script type="text/javascript">
+function Join(){document.location.href='http://www.codeproject.com/script/Membership/Modify.aspx';return false;}
+document.write('<input type="button" class="button" onclick="return Join();" value="Join"');
+document.write('<input type="hidden" name="fld_quicksign" value="true" />');
+</script><input class="button" onclick="return Join();" value="Join" <input="" name="fld_quicksign" type="button">
+			&nbsp;
+			<a id="ctl00_MemberMenu_SendPassword" href="http://www.codeproject.com/script/Membership/SendPassword.aspx?rp=%2fArticles%2f8058%2fApplying-Robustness-Analysis-on-the-Model-View-Con">Lost password?</a>
+			</form>
+		
+	</div>
+</div>
+		
+
+		
+		<table border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody><tr>
+			<td class="page-header"><a href="http://www.codeproject.com/"><img id="ctl00_Logo" title="The Code Project" src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/logo225x90.gif" alt="Home" style="border-width: 0px;"></a></td>
+			<td class="page-header" align="right">
+				<div class="lqm_ad" lqm_publisher="lqm.codeproject.site" lqm_zone="ros" lqm_format="728x90" lqm_tags=".NET1.1, Win2K, WinXP, Win2003, SQL2000, IIS5.1, IIS6, VS.NET2003, C#, ASP.NET, SQL, CEO, Architect, DBA, Dev, ADO.NET, UML, Intermediate,rating4.5"><iframe id="lqmad1" marginwidth="0" marginheight="0" frameborder="0" height="90" scrolling="no" width="728"></iframe></div>
+			</td>
+		</tr></tbody></table>
+
+		<table class="contrast1-background extended" cellpadding="0" cellspacing="0"><tbody><tr><td nowrap="nowrap">
+			
+
+<div class="navbar clearfix">
+<ul id="nav" class="openable">
+
+<li><a id="ctl00_TopNavBar_Home" class="down" href="http://www.codeproject.com/">Home</a>
+
+
+</li><li class=""><a id="ctl00_TopNavBar_Art" class="down selected" href="http://www.codeproject.com/script/Articles/Latest.aspx">Articles</a>
+
+	<ul>
+		<li class=""><a id="ctl00_TopNavBar_ArtTopicList" class="fly last" onmouseover="navBarMenu.ShowMap(this, 'siteMap');" href="http://www.codeproject.com/script/Content/SiteMap.aspx">Chapters and Sections<span class="fly-menu">&gt;</span></a><ul id="ctl00_TopNavBar_MapFlyout"><li>
+				<div id="siteMap" class="tooltip-flyout">
+					<img src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/animated.gif" alt="loading" style="margin: 150px; width: 100px; height: 100px;">
+				</div>
+			</li></ul>
+		</li>
+		<li><a id="ctl00_TopNavBar_ArtSearch" class="fly break" href="http://www.codeproject.com/search.aspx">Search</a></li>
+		<li><a id="ctl00_TopNavBar_ArtLatestArts" class="fly" href="http://www.codeproject.com/script/Articles/Latest.aspx?at=1,3,7">Latest Articles</a></li>
+		<li><a id="ctl00_TopNavBar_ArtLatestTips" class="fly" href="http://www.codeproject.com/script/Articles/Latest.aspx?at=6">Latest Tips/Tricks</a></li>
+		<li><a id="ctl00_TopNavBar_ArtTop" class="fly" href="http://www.codeproject.com/script/Articles/TopArticles.aspx?ta_so=5">Top Articles</a></li>
+		<li><a id="ctl00_TopNavBar_ArtBeginner" class="fly" href="http://www.codeproject.com/search.aspx?aidlst=152&amp;sa_us=True">Beginner Articles</a></li>
+		
+		<li><a id="ctl00_TopNavBar_ArtBlogArticles" class="fly break" href="http://www.codeproject.com/script/Articles/BlogArticleList.aspx">Technical Blogs</a></li>
+		<li><a id="ctl00_TopNavBar_ArtPostArticle" class="fly" href="http://www.codeproject.com/script/Articles/Submit.aspx">Submit an Article or Tip</a></li>
+		<li><a id="ctl00_TopNavBar_ArtPostBlog" class="fly break" href="http://www.codeproject.com/script/Articles/BlogFeed.aspx">Post your Blog</a></li>
+		<li><a id="ctl00_TopNavBar_ArtGuide" class="fly" href="http://www.codeproject.com/info/Submit.aspx">Posting/Update Guidelines</a></li>
+		<li><a id="ctl00_TopNavBar_ArtCompetition" class="fly last" href="http://www.codeproject.com/script/Awards/CurrentCompetitions.aspx?cmpTpId=1">Article Competition</a></li>
+	</ul>
+
+</li>
+
+
+
+<li class=""><a id="ctl00_TopNavBar_Answers" href="http://www.codeproject.com/script/Answers/List.aspx?tab=active">Quick Answers</a>
+	<ul>
+		<li id="ctl00_TopNavBar_AQL"><a id="ctl00_TopNavBar_ArticleQuestion" class="fly highlight" href="#_comments">Ask a Question about this article</a></li>
+
+		<li><a id="ctl00_TopNavBar_QAAsk" class="fly" href="http://www.codeproject.com/Questions/ask.aspx">Ask a Question</a></li>
+
+		
+		<li><a id="ctl00_TopNavBar_QAUnanswered" class="fly" href="http://www.codeproject.com/script/Answers/List.aspx?tab=unanswered">View Unanswered Questions</a></li>
+		<li><a id="ctl00_TopNavBar_QALatest" class="fly" href="http://www.codeproject.com/script/Answers/List.aspx?tab=active">View All Questions...</a></li>
+		
+				<li><a id="ctl00_TopNavBar_QATR_ctl00_Tag" class="fly" href="http://www.codeproject.com/script/Answers/List.aspx?tab=active&amp;alltags=true&amp;tags=81" style="padding-left: 30px;">C# questions</a></li>
+			
+				<li><a id="ctl00_TopNavBar_QATR_ctl01_Tag" class="fly" href="http://www.codeproject.com/script/Answers/List.aspx?tab=active&amp;alltags=true&amp;tags=85" style="padding-left: 30px;">ASP.NET questions</a></li>
+			
+				<li><a id="ctl00_TopNavBar_QATR_ctl02_Tag" class="fly" href="http://www.codeproject.com/script/Answers/List.aspx?tab=active&amp;alltags=true&amp;tags=842" style="padding-left: 30px;">VB.NET questions</a></li>
+			
+				<li><a id="ctl00_TopNavBar_QATR_ctl03_Tag" class="fly" href="http://www.codeproject.com/script/Answers/List.aspx?tab=active&amp;alltags=true&amp;tags=78" style="padding-left: 30px;">C++ questions</a></li>
+			
+				<li><a id="ctl00_TopNavBar_QATR_ctl04_Tag" class="fly" href="http://www.codeproject.com/script/Answers/List.aspx?tab=active&amp;alltags=true&amp;tags=308" style="padding-left: 30px;">C#4.0 questions</a></li>
+			
+	</ul>
+
+</li>
+
+
+
+<li class=""><a id="ctl00_TopNavBar_Forums" href="http://www.codeproject.com/script/Forums/List.aspx">Discussions</a>
+
+	<ul>
+		<li><a id="ctl00_TopNavBar_MessageBoardsAll" class="fly" href="http://www.codeproject.com/script/Forums/List.aspx">All Message Boards...</a></li>
+		<li class=""><a class="fly" style="padding-left: 30px;" href="http://www.codeproject.com/Forums/1580997/Application-Lifecycle.aspx">Application Lifecycle<span class="fly-menu">&gt;</span></a>
+<ul class="openable"><li><a class="fly" href="http://www.codeproject.com/Forums/1533717/Running-a-Business.aspx">Running a Business</a></li>
+<li><a class="fly" href="http://www.codeproject.com/Forums/1533716/Sales-Marketing.aspx">Sales / Marketing</a></li>
+<li><a class="fly" href="http://www.codeproject.com/Forums/1651/Collaboration-Beta-Testing.aspx">Collaboration / Beta Testing</a></li>
+<li><a class="fly" href="http://www.codeproject.com/Forums/3304/Work-Training-Issues.aspx">Work &amp; Training Issues</a></li>
+</ul></li>
+<li><a class="fly" style="padding-left: 30px;" href="http://www.codeproject.com/Forums/369270/Design-and-Architecture.aspx">Design and Architecture</a>
+</li>
+<li><a class="fly" style="padding-left: 30px;" href="http://www.codeproject.com/Forums/12076/ASP-NET.aspx">ASP.NET</a>
+</li>
+<li><a class="fly" style="padding-left: 30px;" href="http://www.codeproject.com/Forums/1580226/JavaScript.aspx">JavaScript</a>
+</li>
+<li class=""><a class="fly" style="padding-left: 30px;" href="http://www.codeproject.com/Forums/1647/C-Cplusplus-MFC.aspx">C / C++ / MFC<span class="fly-menu">&gt;</span></a>
+<ul class="openable"><li><a class="fly" href="http://www.codeproject.com/Forums/4486/ATL-WTL-STL.aspx">ATL /  WTL / STL</a></li>
+<li><a class="fly" href="http://www.codeproject.com/Forums/3785/Managed-Cplusplus-CLI.aspx">Managed C++/CLI</a></li>
+</ul></li>
+<li><a class="fly" style="padding-left: 30px;" href="http://www.codeproject.com/Forums/1649/Csharp.aspx">C#</a>
+</li>
+<li><a class="fly" style="padding-left: 30px;" href="http://www.codeproject.com/Forums/1627782/Free-Tools.aspx">Free Tools</a>
+</li>
+<li><a class="fly" style="padding-left: 30px;" href="http://www.codeproject.com/Forums/1725/Database.aspx">Database</a>
+</li>
+<li class=""><a class="fly" style="padding-left: 30px;" href="http://www.codeproject.com/Forums/186301/Hardware-Devices.aspx">Hardware &amp; Devices<span class="fly-menu">&gt;</span></a>
+<ul class="openable"><li><a class="fly" href="http://www.codeproject.com/Forums/1644/System-Admin.aspx">System Admin</a></li>
+</ul></li>
+<li><a class="fly" style="padding-left: 30px;" href="http://www.codeproject.com/Forums/1606152/Hosting-and-Servers.aspx">Hosting and Servers</a>
+</li>
+<li><a class="fly" style="padding-left: 30px;" href="http://www.codeproject.com/Forums/1643/Java.aspx">Java</a>
+</li>
+<li><a class="fly" style="padding-left: 30px;" href="http://www.codeproject.com/Forums/1650/NET-Framework.aspx">.NET Framework</a>
+</li>
+<li><a class="fly" style="padding-left: 30px;" href="http://www.codeproject.com/Forums/13695/Mobile.aspx">Mobile</a>
+</li>
+<li><a class="fly" style="padding-left: 30px;" href="http://www.codeproject.com/Forums/1653293/VS-11-NET-4-5.aspx">VS 11 &amp; .NET 4.5</a>
+</li>
+<li><a class="fly" style="padding-left: 30px;" href="http://www.codeproject.com/Forums/1540733/Sharepoint.aspx">Sharepoint</a>
+</li>
+<li><a class="fly" style="padding-left: 30px;" href="http://www.codeproject.com/Forums/1004257/Silverlight-WPF.aspx">Silverlight / WPF</a>
+</li>
+<li><a class="fly" style="padding-left: 30px;" href="http://www.codeproject.com/Forums/1646/Visual-Basic.aspx">Visual Basic</a>
+</li>
+<li><a class="fly" style="padding-left: 30px;" href="http://www.codeproject.com/Forums/1640/Web-Development.aspx">Web Development</a>
+</li>
+<li><a class="fly" style="padding-left: 30px;" href="http://www.codeproject.com/Forums/1645/Site-Bugs-Suggestions.aspx">Site Bugs / Suggestions</a>
+</li>
+
+		<li class="heading">Other Languages<span class="fly-menu">&gt;</span>
+		<ul>
+		<li><a class="fly" href="http://www.codeproject.com/Forums/1580229/Hindi.aspx">General Indian Topics</a></li>
+		<li><a class="fly" href="http://www.codeproject.com/Forums/1580230/Chinese.aspx">General Chinese Topics</a></li>
+		</ul>
+		</li>
+		
+	</ul>
+
+</li>
+
+<li class=""><a id="ctl00_TopNavBar_Zones" href="http://www.codeproject.com/Zones/index.aspx">Zones</a>
+
+	<ul>
+		<!--<li class="heading">Zones</li>-->
+		<li><a href="http://www.codeproject.com/Zones/Commerce/" class="fly">The Commerce Zone</a></li><li><a href="http://www.codeproject.com/Zones/Mobile/" class="fly">The Mobile &amp; App Zone</a></li><li><a href="http://www.codeproject.com/Zones/Cloud/" class="fly">The Cloud Zone</a></li><li><a href="http://www.codeproject.com/Zones/Hardware/" class="fly">The Hardware Zone</a></li><li><a href="http://www.codeproject.com/Zones/Parallelism/" class="fly">The Parallelism Zone</a></li><li><a href="http://www.codeproject.com/Zones/WPF-Silverlight/" class="fly">The WPF / Silverlight Zone</a></li><li><a href="http://www.codeproject.com/Zones/Flex-Flash/" class="fly">The Flex / Flash Zone</a></li><li><a href="http://www.codeproject.com/Zones/HTML-CSS/" class="fly">The HTML5 / CSS3 Zone</a></li><li><a href="http://www.codeproject.com/Zones/SharePoint/" class="fly">SharePoint Zone</a></li><li><a href="http://www.codeproject.com/Zones/SqlServer/" class="fly">The SQL Zone</a></li><li><a href="http://www.codeproject.com/Zones/WhitePapers/" class="fly break">WhitePapers / Webcasts</a></li>
+		<li><a id="ctl00_TopNavBar_Solutions" class="fly last" href="http://www.codeproject.com/KB/solution-center/">Solutions Center</a></li>
+	</ul>
+
+</li>
+
+
+
+
+
+
+
+
+
+
+<li class=""><a id="ctl00_TopNavBar_Features" href="http://www.codeproject.com/Feature/">Features</a>
+
+	<ul>
+		<li><a id="ctl00_TopNavBar_WhosWho" class="fly" href="http://www.codeproject.com/script/Membership/Profiles.aspx">Who's Who</a></li>
+		<li><a id="ctl00_TopNavBar_MVPs" class="fly" href="http://www.codeproject.com/script/Awards/MVPWinners.aspx">Most Valuable Professionals</a></li>
+		<li><a id="ctl00_TopNavBar_Companies" class="fly break" href="http://www.codeproject.com/script/Membership/Profiles.aspx?mgtid=1&amp;mgm=True">Company Listings</a></li>
+		<li><a id="ctl00_TopNavBar_Catalog" class="fly" href="http://www.codeproject.com/script/Catalog/List.aspx">Component &amp; Service Catalog</a></li>
+		<li><a id="ctl00_TopNavBar_Comps" class="fly" href="http://www.codeproject.com/script/Awards/CurrentCompetitions.aspx?cmpTpId=1&amp;awsac=true">Competitions</a></li>
+		<li><a id="ctl00_TopNavBar_News" class="fly" href="http://www.codeproject.com/script/News/List.aspx">News</a></li>
+		<li></li>
+		<li><a id="ctl00_TopNavBar_Insider" class="fly" href="http://www.codeproject.com/Feature/Insider/">The Insider Newsletter</a></li>
+		<li><a id="ctl00_TopNavBar_Newsletters" class="fly" href="http://www.codeproject.com/script/Mailouts/Archive.aspx?mtpid=1">Newsletter archive</a></li>
+		<li><a id="ctl00_TopNavBar_PressRelease" class="fly" href="http://www.codeproject.com/script/PressReleases/Preview.aspx">Press Releases</a></li>
+		<li><a id="ctl00_TopNavBar_Surveys" class="fly" href="http://www.codeproject.com/script/Surveys/List.aspx">Surveys</a></li>
+		<li><a id="ctl00_TopNavBar_Stuff" class="fly last" href="http://www.codeproject.com/Info/Stuff.aspx">CodeProject Stuff</a></li>
+		<li></li>
+	</ul>
+
+</li>
+
+
+<li class=""><a id="ctl00_TopNavBar_Help" href="http://www.codeproject.com/KB/FAQs/">Help!</a>
+
+	<ul>
+		<li><a id="ctl00_TopNavBar_HelpWhatIs" class="fly" href="http://www.codeproject.com/info/guide.aspx">What is 'The Code Project'?</a></li>
+		<li><a id="ctl00_TopNavBar_HelpGeneral" class="fly" href="http://www.codeproject.com/KB/FAQs/">General FAQ</a></li>
+		<li><a id="ctl00_TopNavBar_HelpPostQuestion" class="fly" href="http://www.codeproject.com/Questions/ask.aspx">Post a Question</a></li>
+		<li><a id="ctl00_TopNavBar_HelpBugs" class="fly" href="http://www.codeproject.com/Forums/1645/Site-Bugs-Suggestions.aspx">Bugs and Suggestions</a></li>
+		<li><a id="ctl00_TopNavBar_HelpSiteMap" class="fly" href="http://www.codeproject.com/script/Content/SiteMap.aspx">Site Map</a></li>
+		<li><a id="ctl00_TopNavBar_HelpAdvertise" class="fly" href="http://lakequincy.com/">Advertise with us</a></li>
+		<li><a id="ctl00_TopNavBar_HelpAboutUs" class="fly last" href="http://www.codeproject.com/info/about.aspx">About Us</a></li>
+	</ul>
+
+</li>
+
+
+<li class="" style="margin-left:10px">
+<a id="ctl00_TopNavBar_Lounge" class="simple" href="http://www.codeproject.com/Lounge.aspx">The Lounge</a>
+
+	<ul>
+		<li><a id="ctl00_TopNavBar_InsiderLnk" class="fly" href="http://www.codeproject.com/insider.aspx">The Insider News</a></li>
+		<li><a id="ctl00_TopNavBar_LoungeLnk" class="fly" href="http://www.codeproject.com/Lounge.aspx">The Lounge &nbsp;</a></li>
+		<li><a id="ctl00_TopNavBar_CleverLnk" class="fly" href="http://www.codeproject.com/Feature/CleverCode.aspx">Clever Code</a></li>
+		<li><a id="ctl00_TopNavBar_ShameLnk" class="fly" href="http://www.codeproject.com/Feature/HallOfSHame.aspx">Hall of Shame</a></li>
+		<li><a id="ctl00_TopNavBar_SoapBoxLnk" class="fly" href="http://www.codeproject.com/Forums/1536756/The-Soapbox.aspx">The Soapbox</a></li>
+	</ul>
+
+</li>
+
+</ul>
+
+</div>
+		</td><td align="right">
+			
+
+<div class="search-bar">
+
+<form method="get" action="/search.aspx" name="Search" class="tight">
+
+
+<table class="search" border="0" cellpadding="0" cellspacing="0"><tbody><tr><td><input tabindex="2" class="search highlight" id="sb_tb" value="Model View Controller UML" name="q"></td><td><input src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/search.gif" type="image"></td></tr></tbody></table>
+
+<div class="hover-container">
+	<div style="display: none;" id="SearchFilter" class="search-advanced small-text align-left">
+	<b>Search within:<br></b>
+		
+		<input id="sb_kw" name="sbo" value="kw" checked="checked" type="radio"><label for="sb_kw">Articles</label><br>
+<input id="sb_qa" name="sbo" value="qa" type="radio"><label for="sb_qa">Quick Answers</label><br>
+<input id="sb_fm" name="sbo" value="fm" type="radio"><label for="sb_fm">Messages</label><br>
+<input id="sb_ctlk" name="sbo" value="ctlk" type="radio"><label for="sb_ctlk">Product Catalog</label><br>
+
+
+		
+		
+	</div>
+</div>
+</form>
+
+</div>
+		</td></tr></tbody></table>
+		
+
+		
+		<div class="container-article hreview-aggregate"> 
+		
+			
+			<div class="container-header">
+				<div id="ctl00_Header" class="header">
+
+					<a name="Main"></a>
+
+					
+					<a name="_articleTop" id="_articleTop"></a>
+					
+
+<div class="clearfix hover-container">
+
+	
+	<div class="float-right action-links"> 
+		<span id="SBI"><img src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/share_drop24.png" id="ctl00_TitleArea_ActionLinks_AddTo_Img" alt="add" style="vertical-align: middle;" height="24" width="37">
+</span>
+<div style="left: 613px; top: 20.6333px;" id="ATD" class="list-socialbookmark"><div><a class="AddTo" title="Add this page to Twitter" onclick="return socialLinks.addto(0);" href="#"><img src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/AddTo_Twitter.gif" align="absmiddle" border="0" height="16px" width="16px"> Twitter</a> </div><div><a class="AddTo" title="Add this page to Digg" onclick="return socialLinks.addto(1);" href="#"><img src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/AddTo_Digg.png" align="absmiddle" border="0" height="16px" width="16px"> Digg</a> </div><div><a class="AddTo" title="Add this page to Facebook" onclick="return socialLinks.addto(2);" href="#"><img src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/AddTo_Facebook.png" align="absmiddle" border="0" height="16px" width="16px"> Facebook</a> </div><div><a class="AddTo" title="Add this page to Del.icio.us" onclick="return socialLinks.addto(3);" href="#"><img src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/AddTo_Delicious.png" align="absmiddle" border="0" height="16px" width="16px"> Del.icio.us</a> </div><div><a class="AddTo" title="Add this page to Reddit" onclick="return socialLinks.addto(4);" href="#"><img src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/AddTo_Reddit.png" align="absmiddle" border="0" height="16px" width="16px"> Reddit</a> </div><div><a class="AddTo" title="Add this page to Stumbleupon" onclick="return socialLinks.addto(5);" href="#"><img src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/AddTo_stumbleupon.png" align="absmiddle" border="0" height="16px" width="16px"> Stumbleupon</a> </div><div><a class="AddTo" title="Add this page to Newsvine" onclick="return socialLinks.addto(6);" href="#"><img src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/AddTo_Newsvine.png" align="absmiddle" border="0" height="16px" width="16px"> Newsvine</a> </div><div><a class="AddTo" title="Add this page to Technorati" onclick="return socialLinks.addto(7);" href="#"><img src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/AddTo_Technorati.png" align="absmiddle" border="0" height="16px" width="16px"> Technorati</a> </div><div><a class="AddTo" title="Add this page to Mr. Wong" onclick="return socialLinks.addto(8);" href="#"><img src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/AddTo_MrWong.png" align="absmiddle" border="0" height="16px" width="16px"> Mr. Wong</a> </div><div><a class="AddTo" title="Add this page to Yahoo!" onclick="return socialLinks.addto(9);" href="#"><img src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/AddTo_Yahoo.png" align="absmiddle" border="0" height="16px" width="16px"> Yahoo!</a> </div><div><a class="AddTo" title="Add this page to Google" onclick="return socialLinks.addto(10);" href="#"><img src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/AddTo_Google.png" align="absmiddle" border="0" height="16px" width="16px"> Google</a> </div><div><a class="AddTo" title="Add this page to Windows Live" onclick="return socialLinks.addto(11);" href="#"><img src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/AddTo_Live.png" align="absmiddle" border="0" height="16px" width="16px"> Windows Live</a> </div><div><a class="AddTo" title="Send as Email" onclick="return socialLinks.addto(12);" href="#"><img src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/envelope.gif" align="absmiddle" border="0" height="16px" width="16px"> Send as Email</a> </div></div> 
+ 
+
+<span class="tooltip">
+	 
+	<div class="speech-bubble-container-up">
+		<div class="speech-bubble-up">Add to your CodeProject bookmarks</div>
+		<div class="speech-bubble-pointer-up">
+			<div class="speech-bubble-pointer-up-inner"></div>
+		</div>
+	</div>
+</span>
+
+
+<a id="ctl00_TitleArea_ActionLinks_PrintLnk" class="tooltip" href="http://www.codeproject.com/Articles/8058/Applying-Robustness-Analysis-on-the-Model-View-Con?display=Print">
+	<img src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/print.gif" style="vertical-align: middle; border: 0pt none;" height="24px" width="24px">
+	<div class="speech-bubble-container-up">
+		<div class="speech-bubble-up">Print Article</div>
+		<div class="speech-bubble-pointer-up">
+			<div class="speech-bubble-pointer-up-inner"></div>
+		</div>
+	</div>
+</a>
+	</div>
+
+	<div class="container">
+		
+		<div class="breadcrumb float-left"><a href="http://www.codeproject.com/script/Content/SiteMap.aspx"><span class="sitemap-anchor" onmouseover="navBarMenu.ShowMap(this,'map');"><img src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/sitemap16.png" alt="Site map" style="vertical-align: middle;" border="0" height="16px" width="16px"><div id="map" class="tooltip-flyout"><img src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/animated.gif" style="margin: 150px; width: 100px; height: 100px; border: 0pt none;"></div></span></a> » <a href="http://www.codeproject.com/Chapters/11/Development-Lifecycle.aspx">Development Lifecycle</a> » <a href="http://www.codeproject.com/KB/architecture/">Design and Architecture</a> » <a href="http://www.codeproject.com/KB/architecture/#General">General</a></div>
+	</div>
+
+	
+	<div id="ctl00_TitleArea_InfoArea" class="float-right pad-top">
+		
+
+<div class="infobox">
+	<table class="tight small-text" cellpadding="0" cellspacing="1">
+	<tbody><tr><td>Licence&nbsp;</td><td><a href="http://www.codeproject.com/info/cpol10.aspx" title="The Code Project Open License (CPOL)">CPOL</a></td></tr>
+	
+	<tr><td>First Posted&nbsp;</td><td nowrap="nowrap"><b>22 Aug 2004</b></td></tr>
+	<tr><td>Views&nbsp;</td><td><b>697,207</b></td></tr>
+		
+	
+	<tr><td>Bookmarked&nbsp;</td><td><b>588 times</b></td></tr>
+	
+
+	
+	
+	</tbody></table>
+</div>	
+	</div>
+
+	
+	<div class="item">
+	<h1 id="ctl00_TitleArea_ArticleTitle" class="fn">Applying Robustness Analysis on the Model–View–Controller (MVC) Architecture in ASP.NET Framework, using UML</h1> 
+	</div>
+
+	
+	<div class="author">
+		By <b><a rel="author" href="http://www.codeproject.com/script/Membership/View.aspx?mid=90779">Shams Mukhtar</a></b> | 
+		22 Aug 2004 
+		
+		| <a id="ctl00_TitleArea_ArticleInfoLink" href="http://www.codeproject.com/script/Articles/Types.aspx?#Article">Article</a>
+
+		
+		
+	</div>
+	
+	<div class="tags">
+	<span id="ctl00_TitleArea_TagsList_TagWrp" class="tags">
+	
+	
+	
+	<span id="ctl00_TitleArea_TagsList_VisibleTags"><span class="t"><a rel="tag" href="http://www.codeproject.com/Tags/.NET1.1">.NET1.1</a></span><span class="t"><a rel="tag" href="http://www.codeproject.com/Tags/Win2K">Win2K</a></span><span class="t"><a rel="tag" href="http://www.codeproject.com/Tags/WinXP">WinXP</a></span><span class="t"><a rel="tag" href="http://www.codeproject.com/Tags/Win2003">Win2003</a></span><span class="t"><a rel="tag" href="http://www.codeproject.com/Tags/SQL2000">SQL2000</a></span><span class="t"><a rel="tag" href="http://www.codeproject.com/Tags/IIS5.1">IIS5.1</a></span><span class="t"><a rel="tag" href="http://www.codeproject.com/Tags/IIS6">IIS6</a></span><span class="t"><a rel="tag" href="http://www.codeproject.com/Tags/VS.NET2003">VS.NET2003</a></span><span class="t"><a rel="tag" href="http://www.codeproject.com/Tags/C%23">C#</a></span><span class="t"><a rel="tag" href="http://www.codeproject.com/Tags/ASP.NET">ASP.NET</a></span></span><acronym id="ctl00_TitleArea_TagsList_HiddenTags" title="plus: SQL, CEO, Architect, DBA, Dev, ADO.NET, UML, Intermediate">, +</acronym> 
+
+	
+	
+</span>
+
+	</div>
+
+	
+	<div class="abstract summary"><span id="ctl00_TitleArea_ArticleDescr">This
+ article will enhance your vision on the usage of Robustness Analysis in
+ conjunction with Model View Controller, using UML with application in 
+ASP.NET. This article is a sequel to my articles on Architecture and 
+Design with ASP.NET.</span></div>
+</div>
+
+
+<div class="prize-winner">
+<div><img id="ctl00_TitleArea_ArticleAwards_AR_ctl01_AI" src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/prize-winner30.gif" style="border-width: 0px;" align="absmiddle"> Prize winner in Competition 
+"ASP.NET Jul 2004" <i></i></div>
+</div>
+					
+
+				</div>
+
+				<div id="ctl00_HeadSide" class="header-sidebar">
+					<div class="align-left" style="height:24px">
+						
+
+
+&nbsp;
+
+
+
+
+
+
+
+
+
+
+					</div>
+
+					<div id="ctl00_SeeAlso_ZL" class="zone">
+
+	Part of <a id="ctl00_SeeAlso_ZoneLink" class="bold" href="http://www.codeproject.com/Zones/SqlServer/">The SQL Zone</a>
+	<span id="ctl00_SeeAlso_ZoneSponsor">sponsored by <a id="ctl00_SeeAlso_ZoneLnk" href="http://www.codeproject.com/Zones/SqlServer/"><img id="ctl00_SeeAlso_ZoneImg" src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/Red_Gate_Logo_48x24.gif" style="border-width: 0px; width: 48px; height: 24px; vertical-align: middle;"></a></span>
+	
+</div>
+
+<div class="bold pad-top">See Also</div>
+<ul class="outdent small-text" style="margin-left:5px">
+	<li><a id="ctl00_SeeAlso_LikeThis" href="http://www.codeproject.com/search.aspx?q=Applying+Robustness+Analysis+on++ModelViewController+MVC+Architecture+in+ASP.NET+Framework+using+UML">More like this</a></li>
+	<li><a id="ctl00_SeeAlso_ByAuthor" href="http://www.codeproject.com/script/Articles/MemberArticles.aspx?amid=90779">More by this author</a></li>
+</ul>
+
+				</div>
+
+			</div>
+			
+
+			
+			<div id="ctl00_Nav" class="container-nav">
+				<div id="ctl00_TabContainer" class="tabs-container clearfix">
+
+					<div class="float-left">
+						
+						
+
+<div class="tabs float-left"><table cellpadding="0" cellspacing="0"><tbody><tr>
+	<td class="tab-selected">Article</td><td class="tab-unselected"><a href="http://www.codeproject.com/script/Articles/ViewDownloads.aspx?aid=8058">Browse Code</a></td><td class="tab-unselected"><a href="http://www.codeproject.com/script/Articles/Statistics.aspx?aid=8058">Stats</a></td><td class="tab-unselected"><a href="http://www.codeproject.com/script/Articles/ListVersions.aspx?aid=8058">Revisions</a></td><td class="tab-unselected"><a href="http://www.codeproject.com/script/Articles/ListAlternatives.aspx?aid=8058">Alternatives</a></td>
+</tr></tbody></table></div>	
+
+
+						
+						<div class="float-left" style="margin-left:15px">
+							<div id="ctl00_CurRat" class="tooltip anchorLink" style="cursor:pointer" onclick="scrollToAnchor('#_rating');" name="CurRat_8058">
+								
+
+<table class="small-text" cellpadding="0" cellspacing="0">
+<tbody><tr>
+	
+	<td class="nowrap">
+
+		<span id="ctl00_ArticleRating_VI">
+		<div class="nowrap rating-stars" style="height:24px;width:120px;position:relative;">
+	<div class="clipped align-left float-left" style="height:24px;width:118px;">
+		<img src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/stars-fill.png" style="border-width: 0px;">
+	</div><div class="clipped" style="height:24px;width:2px;position:relative;">
+		<img src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/stars-empty.png" style="border-width: 0px; position: absolute; top: 0pt; right: 0pt;">
+	</div>
+</div>
+		</span>
+
+		
+	</td>
+	
+	<td id="ctl00_ArticleRating_VR" class="nowrap">
+		&nbsp;
+		<span id="ctl00_ArticleRating_VotesR">&nbsp;<span class="rating">4.94</span> (<span class="count">160 votes</span>)</span>
+		
+	</td>
+
+</tr>
+
+</tbody></table>
+
+								<div id="ctl00_RB" class="speech-bubble-container-up">
+									<div class="speech-bubble-up" style="width:150px !important">
+										            
+<div>
+<table class="feature" title="Voting Distribution. Recent data only" cellpadding="0" cellspacing="0" height="50px" width="100%"><tbody><tr><td class="chart-column rating-ignore-vote" title="Outside deviation limits - not included in score."><img src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/pollcol.gif" alt="6 votes, 3.8%" title="6 votes, 3.8%" border="0px" height="2px" width="20pxpx"><br><span title="6 votes">1</span></td>
+<td class="chart-column rating-ignore-vote" title="Outside deviation limits - not included in score."><img src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/pollcol.gif" alt="3 votes, 1.9%" title="3 votes, 1.9%" border="0px" height="1px" width="20pxpx"><br><span title="3 votes">2</span></td>
+<td class="chart-column rating-ignore-vote" title="Outside deviation limits - not included in score."><img src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/pollcol.gif" alt="2 votes, 1.3%" title="2 votes, 1.3%" border="0px" height="1px" width="20pxpx"><br><span title="2 votes">3</span></td>
+<td class="chart-column"><img src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/pollcol.gif" alt="9 votes, 5.6%" title="9 votes, 5.6%" border="0px" height="3px" width="20pxpx"><br><span title="9 votes">4</span></td>
+<td class="chart-column"><img src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/pollcol.gif" alt="140 votes, 87.5%" title="140 votes, 87.5%" border="0px" height="50px" width="20pxpx"><br><span title="140 votes">5</span></td>
+</tr></tbody></table><div class="small-text align-center">4.94/5 - 160 votes</div><div class="small-text align-center subdue">11 removed</div><div class="small-text align-center subdue">μ 4.73, σ<sub>a</sub> 1.56 [<a href="http://www.codeproject.com/KB/FAQs/RatingReputationFAQ.aspx#noisefilter">?</a>]</div>
+</div>
+									</div>
+									<div class="speech-bubble-pointer-up">
+										<div class="speech-bubble-pointer-up-inner"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="float-left">
+							&nbsp; 
+							<a id="discussAnch" href="#_comments" class="tooltip anchorLink">
+							<img src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/discuss.gif" alt="Discuss" style="vertical-align: middle; border: 0pt none;" height="24px" width="24px">
+								<div class="speech-bubble-container-up">
+									<div class="speech-bubble-up">Discuss this article</div>
+									<div class="speech-bubble-pointer-up">
+										<div class="speech-bubble-pointer-up-inner"></div>
+									</div>
+								</div>
+							</a>
+							<span id="ctl00_CmtCnt" class="subdue small-text align-middle" style="margin-left:-4px">116</span>
+
+							&nbsp; 
+
+							   
+						</div>
+
+					</div>
+
+				</div>
+
+				
+			</div>
+			
+
+			
+			<div class="container-text">
+
+				<div id="AT" class="text">
+					
+					
+					
+					
+
+						
+							
+			
+					<form name="aspnetForm" method="post" action="/Articles/8058/Applying-Robustness-Analysis-on-the-Model-View-Con" id="aspnetForm" style="margin:0;padding:0"><div>
+<input name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKMjExOTQzNjk4Mw9kFgJmD2QWAgIHD2QWCgIBDxYCHgdWaXNpYmxlZ2QCEQ9kFgICAQ9kFgZmDw8WAh4LTmF2aWdhdGVVcmwFMS9zY3JpcHQvQXJ0aWNsZXMvQWRtaW4vRWRpdG9yQ2hvaWNlLmFzcHg/YWlkPTgwNThkZAICDw8WAh8BBTcvc2NyaXB0L0F3YXJkcy9BZG1pbi9Bd2FyZE9iamVjdC5hc3B4P29iaWQ9ODA1OCZvYnRpZD0yZGQCCg8PFgIfAQUuL3NjcmlwdC9BcnRpY2xlcy9BZG1pbi9RdWV1ZUVkaXQuYXNweD9haWQ9ODA1OGRkAhMPZBYCAgEPZBYCAgIPFgIeCWlubmVyaHRtbAUDMTE2ZAIVD2QWAgILD2QWBgICDxYCHgZhY3Rpb24FQS9BcnRpY2xlcy84MDU4L0FwcGx5aW5nLVJvYnVzdG5lc3MtQW5hbHlzaXMtb24tdGhlLU1vZGVsLVZpZXctQ29uFgoCAQ8PFgIfAQU1L3NjcmlwdC9BcnRpY2xlcy9TdWJtaXNzaW9uV2l6YXJkLmFzcHg/YXQ9MSZhcGlkPTgwNThkZAIDD2QWAgIBDxYCHwBoZAIFD2QWAgICD2QWAgIBDxBkZBYAZAILDxYCHgtfIUl0ZW1Db3VudAIBZAIND2QWAgIBDxYCHgRUZXh0BXo8YSBjbGFzcz0iYW5jaG9yTGluayIgaHJlZj0iL0FydGljbGVzLzgwNTgvQXBwbHlpbmctUm9idXN0bmVzcy1BbmFseXNpcy1vbi10aGUtTW9kZWwtVmlldy1Db24jX2FydGljbGVUb3AiPkFydGljbGUgVG9wPC9hPmQCCg8PFgQfBQUJUGVybWFsaW5rHwEFQS9BcnRpY2xlcy84MDU4L0FwcGx5aW5nLVJvYnVzdG5lc3MtQW5hbHlzaXMtb24tdGhlLU1vZGVsLVZpZXctQ29uZGQCGQ8WAh8FBR9Db3B5cmlnaHQgMjAwNCBieSBTaGFtcyBNdWtodGFyZAIXD2QWAgIFDw8WAh8AaGRkZA3yAnxj0eg4A8N+ELcGmGgmFEbQ" type="hidden">
+</div>
+
+<div>
+
+	<input name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEWCALFs560BALAlMXDBwLBlMXDBwLClMXDBwLDlMXDBwLElMXDBwLP+++tCwK5upDkCwVzefqRE3dOTZhFAFQw+qYqY08V" type="hidden">
+</div>
+
+						
+
+						<!-- Article Text Start -->
+						<div id="contentdiv">
+						
+
+
+
+<ul class="download">
+<li><a href="http://www.codeproject.com/KB/architecture/ModelViewController/ModelViewController_demo_src.zip">Download demo project - 491 Kb</a> </li></ul>
+<h2>Introduction</h2>
+<p>Recently, I wrote <a href="http://www.codeproject.com/aspnet/Frame_Work_Design.asp">an article</a> on the development of a master-page framework in ASP.NET. Master Page framework was an extension of the ASP.NET <code>UI.Page</code>
+ framework, and most of it is related to the static appearance of the 
+Page. Then, I started receiving emails about the dynamic behavior of 
+pages, and controlling the interactions between user-controls on a page,
+ and communication between different pages etc. So, I thought there is a
+ need of discussion on this aspect of the .NET Framework, and this would
+ not be possible without mentioning the <span class="search-highlight">Model</span>-<span class="search-highlight">View</span>-<span class="search-highlight">Controller</span>
+ Design Pattern, that is embedded everywhere in the ASP.NET Framework. 
+This article is composed of two parts. In the first part, we will 
+discuss in detail about the <span class="search-highlight">Model</span>-<span class="search-highlight">View</span>-<span class="search-highlight">Controller</span> Design pattern in context to ASP.NET, using <span class="search-highlight">UML</span>,
+ and finish our discussion with writing an example application as a 
+bonus for its implementation. In the next part of the article, we’ll 
+wrap up our discussion with dynamic aspects of pages by explaining 
+different types of fine-grained <span class="search-highlight">controller</span>s
+ with their design and implementation, and we’ll discuss about the 
+details of the HTTP pipeline too and what is the best approach to use 
+it; so stay tuned, lot to come :).</p>
+<h3><span class="search-highlight">Model</span>-<span class="search-highlight">View</span>-<span class="search-highlight">Controller</span> Design Pattern:</h3>
+<p>This is the classical and most famous of all design patterns 
+especially when we talk about User Interfaces. A user interface is 
+basically a presentation layer of some sort of <span class="search-highlight">model</span>-data. If the data changes, the <span class="search-highlight">view</span>
+ is updated accordingly, or vice-versa. In this particular scenario, if 
+you look closely, you can observe that there are two objects involved 
+for performing this task, i.e., a <b><span class="search-highlight">View</span></b> and a <b><span class="search-highlight">Model</span></b>. There might be more than one <span class="search-highlight">view</span> of a data <span class="search-highlight">model</span>. Like, one <span class="search-highlight">view</span>
+ could be a Grid presentation, and other could be a Graphical Plot of 
+some sort, like Bar chart or Pie chart, or so. Here is how it would look
+ like:</p>
+<p><a href="http://www.codeproject.com/KB/architecture/ModelViewController/image001_big.jpg" target="_blank"><img alt="image001.jpg" src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/image001.jpg" height="267" width="600"></a></p>
+<p>I know, you should have these questions now, like how the <span class="search-highlight">view</span> object would talk with the <span class="search-highlight">model</span> object and vice versa, and how we want to look at the <span class="search-highlight">model</span>, which part of the <span class="search-highlight">model</span> will go to which <span class="search-highlight">view</span> and which part of the <span class="search-highlight">view</span> and how. Now, we are talking about one other object, the <span class="search-highlight">controller</span> object; this <span class="search-highlight">controller</span> object acts as glue between <span class="search-highlight">model</span> and <span class="search-highlight">view</span>. <span class="search-highlight">Controller</span> object is basically a business object, provides the answer how we want to <span class="search-highlight">view</span>
+ the data, what rules should be applied for its presentation or so, and 
+what will happen if some one changes some parameters in the <span class="search-highlight">view</span>, how to react to some key-board or mouse events if this is an interactive application, and some times you need to update the <span class="search-highlight">model</span> and send messages to other <span class="search-highlight">view</span>s
+ that the data is changed, so that they can postback a request for 
+updating their own contents. You will get all these answers shortly!</p>
+<h3>Robustness Analysis:</h3>
+<p>This <span class="search-highlight">Model</span>-<span class="search-highlight">View</span>-<span class="search-highlight">Controller</span>
+ can be best described visually, using robustness analysis, first 
+introduced by Ivar Jacobson, in his award winning book on Object 
+Oriented Software Engineering (see reference below), and was further 
+explained by Doug Rosenberg et al in his book, Use Case Driven Object <span class="search-highlight">Model</span>ing with <span class="search-highlight">UML</span>.
+ Robustness Analysis involves analyzing the narrative text of use cases,
+ identifying a first-guess set of objects that will participate in those
+ use cases, and classifying these objects based on the roles they play, 
+and it helps you partition objects within a <span class="search-highlight">Model</span>-<span class="search-highlight">View</span>-<span class="search-highlight">Controller</span>
+ paradigm. Robustness analysis enables the ongoing discovery of objects,
+ and helps you ensure that you've identified most of the major domain 
+classes before starting any additional design or development. Ivar has 
+classified them as:</p>
+<ol>
+<li>«entity» objects depict long lived objects, deals mostly with the persisted states. 
+</li><li>«boundary» objects depict links between the system and environment, communicating. 
+</li><li>«control» objects depict use-case-specific behavior. </li></ol>
+<p><b>Entity objects</b> are no more than the information or data your 
+boundary objects are looking for. These might be database tables, Excel 
+files, or might be "transient" session or cached data or so.</p>
+<p><b>Boundary objects</b> are the objects with which the actors (for 
+instance, the users) will be communicating in your software system. 
+These might be any windows, screens, dialogs and menus, or other UIs in 
+your system. You can easily identify them while analyzing your use 
+cases.</p>
+<p><b>Control objects</b> (<span class="search-highlight">controller</span>s)
+ are the business objects or your business web-services. This is where 
+you capture your business rules that are used to filter out the data to 
+be presented to the user he has requested for or something. So, the <span class="search-highlight">controller</span>s are actually controlling the businesses needs or the business itself.</p>
+<p>Here are the visual icons of these three <span class="search-highlight">UML</span> stereotypes:</p>
+<p><img alt="image003.jpg" src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/image003.jpg" height="200" width="534"></p>
+<h3>Rules of the game:</h3>
+<p>Here are the four basic rules you should enforce when extracting 
+these objects while analyzing your use cases and making interaction 
+diagrams among these objects:</p>
+<ul>
+<li>Actors can only talk to the boundary objects. 
+</li><li>Boundary objects can only talk to <span class="search-highlight">controller</span>s and actors. 
+</li><li>Entity objects can only talk to <span class="search-highlight">controller</span>s. 
+</li><li><span class="search-highlight">Controller</span>s can talk to boundary objects and entity objects, and to other <span class="search-highlight">controller</span>s, but not to actors. </li></ul>
+<p><img alt="image005.jpg" src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/image005.jpg" height="360" width="537"></p>
+<p>If you look at the above figure, you can see the only access point 
+for an actor to reach any object is through the Boundary objects. 
+Boundary objects can’t talk with each other. While Control objects can 
+talk freely with all of the objects except that it has no access to the 
+actor or the user of the system. And the Entity objects can’t talk with 
+each other too; they can access each other but through the Control 
+object. Also, an Entity object can only reach Boundary object through 
+the Control object. So the Control object is really a media of 
+communication between each layer, and that’s why it is suited for 
+business rules.</p>
+<h3>Robustness Analysis and <span class="search-highlight">Model</span>-<span class="search-highlight">View</span>-<span class="search-highlight">Controller</span>:</h3>
+<p>Now, we have all the rules in place, let’s see how these objects are related to <span class="search-highlight">Model</span>-<span class="search-highlight">View</span>-<span class="search-highlight">Controller</span> paradigm. Well, good news is this, that they have one-to-one mapping with the objects, derived from this analysis:</p>
+<ul>
+<li>Entity object maps to <span class="search-highlight">Model</span> object, 
+</li><li>Boundary object maps to <span class="search-highlight">View</span> object, and 
+</li><li><span class="search-highlight">Controller</span> is same in both. </li></ul>
+<p>And the other good news is that the same rules are applied to these 
+objects too. It means, when we are doing Robustness Analysis, we can use
+ <span class="search-highlight">Model</span>-<span class="search-highlight">View</span>-<span class="search-highlight">Controller</span> objects in place of Entity-Boundary-<span class="search-highlight">Controller</span> objects. Here is how our objects would look like now:</p>
+<p><img alt="image007.jpg" src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/image007.jpg" height="200" width="503"></p>
+<p>And here is the simplistic and hypothetical sequence diagram for MVC.
+ What you see in this diagram, a web-user initiated a query and an event
+ is generated that is handled by the <span class="search-highlight">controller</span> and gets information that is needed from the <span class="search-highlight">model</span>, validates the information and passes back the result set to the <span class="search-highlight">view</span>.</p>
+<p><img alt="image009.jpg" src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/image009.jpg" height="484" width="600"></p>
+<p><span class="search-highlight">Model</span>-<span class="search-highlight">View</span>-<span class="search-highlight">Controller</span>
+ is an approach for segregating different layers, in such a manner that 
+it can be easy to maintain for a moderate to very complex application. 
+It would be best suitable when you are making something for the web, 
+where the business rules change frequently with time. Also, it’s the 
+best way of writing applications in a service oriented architecture, 
+where you write/encapsulate your business rules in a separate 
+web-service than the Data-Access Layer, where the service is only 
+dealing with <span class="search-highlight">Model</span>/Data related 
+stuff. Since the user interfaces are also separate, you can build 
+powerful Custom Controls, and put them in the User-Controls for 
+deploying as Pagelets. And finally, what is left, you need just to build
+ proper interactions for them, enforcing rules mentioned above, while 
+designing any solution.</p>
+<h3>Examples:</h3>
+<p>So, let’s see where we stand now: we now know what these <span class="search-highlight">model</span>-<span class="search-highlight">view</span>-<span class="search-highlight">controller</span>
+ objects are, how they look like, and what are the rules we should 
+enforce when we do analysis of a particular use case scenario and making
+ interaction diagrams out of them. Let’s take an example scenario and 
+explain it using this technique!</p>
+<h4>Use case (UC.1.001):</h4>
+<p><u>User shall be able to logon to the web-application.</u></p>
+<p>Here is the <span class="search-highlight">UML</span> diagram for 
+this use case; it shows an actor (web-user) and logon use-case 
+relationship, it would more be elaborated when we go into the analysis 
+phase of it. I am taking a very simple case, of login and deferring the 
+registration use-case for our example, for making it simple and 
+understandable at the first go.</p>
+<p><img alt="image011.jpg" src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/image011.jpg" height="216" width="379"></p>
+<p>Before going into any analysis, it would be better, or I call it, 
+it’s a must, that you should have the visual prototype in front of you. 
+Here is how our prototype would look like:</p>
+<p><img alt="image013.jpg" src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/image013.jpg" height="150" width="282"></p>
+<p>What it means, that the user is presented with a logon screen, where 
+he can enter his identity and press the Login button for access to the 
+system. The user can also turn on the check-mark on the check box for 
+remembering him; in that case, a cookie is needed on his system, to be 
+enabled. Also, when he logs in, a new session is created on the server 
+side for keeping his activities alive while using the web-application. 
+With all these, let’s elaborate this scenario using the Robustness 
+Analysis diagrams:</p>
+<p><a href="http://www.codeproject.com/KB/architecture/ModelViewController/image015_big.jpg" target="_blank"><img alt="image015.jpg" src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/image015.jpg" height="371" width="600"></a></p>
+<p>Let’s take a closer look at the above diagram. User interacts with Logon Screen (the <span class="search-highlight">view</span>) that has one submit button for login (has-a relationship in <span class="search-highlight">UML</span>
+ is shown with a diamond shaped line at one end), and has a checkbox for
+ enabling the cookie storage or so. What happens when the user clicks on
+ any of these two buttons, the request goes to the <code>Main<span class="search-highlight">Controller</span></code>
+ object, which then decides what to do with these actions, since it has 
+all the logic built for handling those events, and then does some 
+validations from security control object that in turn takes data from 
+the Data Access object? <code>Main<span class="search-highlight">Controller</span></code>
+ then creates a session for this user, it also stores user's info like 
+encrypted passwords, in somewhere in the cookie store or so. With this 
+analysis, we are now very much clear that, apart from the logon screen, 
+there would be four other objects involved in this scenario; <code>Main<span class="search-highlight">Controller</span></code>, <code>SessionState</code> object, the <code>CookieStore</code>
+ object and the Database Access objects. It does have given you an idea 
+what are the objects required to do a particular job, but it does not 
+tell you what functionality is needed for accomplishing this task. For 
+that, we need a sequence diagram, here is how the sequence diagram 
+should look like:</p>
+<p><a href="http://www.codeproject.com/KB/architecture/ModelViewController/image017_big.jpg" target="_blank"><img alt="image017.jpg" src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/image017.jpg" height="468" width="600"></a></p>
+<p>After careful study of the above sequence diagram, we can safely classify our objects as there should be a <code>Main<span class="search-highlight">Controller</span></code>, that takes care the business logic for the page, and a <code>BusinessService</code> object that takes care of all the validation, Session Management and cookie setup stuff. There would be a <code>DataAccessGateWay</code> (<span class="search-highlight">model</span>) object that encapsulates all the details of talking with the back end database. Here is how the class diagram looks like:</p>
+<p><a href="http://www.codeproject.com/KB/architecture/ModelViewController/image019_big.jpg" target="_blank"><img alt="image019.jpg" src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/image019.jpg" height="302" width="600"></a></p>
+<p>Isn’t it beautiful that all of this robustness analysis leads us to a
+ design where we can define our first set of detailed class diagrams? I 
+know you’ll love it.</p>
+<p>The most important of all of the objects above, are the business objects that are the <span class="search-highlight">controller</span> objects. Now, let’s have a closer look at how ASP.NET framework facilitates us in defining these <span class="search-highlight">Controller</span> classes.</p>
+<h3>ASP.NET and <span class="search-highlight">Model</span>-<span class="search-highlight">View</span>-<span class="search-highlight">Controller</span> (MVC)</h3>
+<p>Basic idea of MVC is to segregate the presentation layer from the business layer and the Data Access Layer, or the <span class="search-highlight">model</span>. Let’s see how it is done in ASP.NET.</p>
+<p><img alt="image021.jpg" src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/image021.jpg" height="263" width="413"></p>
+<p>Let’s have a closer look at this picture, <code><span class="search-highlight">Controller</span></code> is bound to some <span class="search-highlight">model</span>, and updates the <code><span class="search-highlight">View</span></code> when the data changes or vice-versa. So, the <span class="search-highlight">view</span> depends on the <span class="search-highlight">model</span>,
+ passively. We achieve this goal, with the code-behind feature of 
+ASP.NET, the page/user-controls logic is separate from that of the <span class="search-highlight">view</span>, that is presented either in “*.aspx” files or in “*.ascx” files. And the controls you add to the page-<span class="search-highlight">controller</span>, i.e. <code>System.UI.Page</code>,
+ you try to make them data-bounded as much as possible for consistency 
+and synchronization. And also, you embed your event handler’s logic in 
+the page <span class="search-highlight">controller</span> using the code-behind feature. And if your architecture is service-oriented architecture, then you can introduce another <span class="search-highlight">controller</span> as a business service (might be security service) that talks to the back-end <span class="search-highlight">model</span> as needed and returns secured data to the Page <span class="search-highlight">Controller</span>. Here is how it would look like:</p>
+<p><img alt="image023.jpg" src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/image023.jpg" height="600" width="597"></p>
+<h3>It's Showtime (bonus++):</h3>
+<p>As a bonus, we would be developing a full fledged master-details web application that will give you enough details about <span class="search-highlight">model</span>-<span class="search-highlight">view</span>-<span class="search-highlight">controller</span>
+ (MVC) and its inner working, as well as a way of communication between 
+different user-controls without even knowing each other. Also, with it 
+you’ll get a reusable library that is composed of classes <code>OleDataLinkAdapter</code> and <code>MsSqlDataLinkAdapter</code>. These objects are wrappers around ADO.NET Connection and Command objects.</p>
+<h4>Master-Details ASP.NET Application</h4>
+<p>The application is a web-application that has a master-page composed 
+of a company logo, a banner, main contents, and footer. Main contents 
+should display a parent-child relationship in the form of grid-<span class="search-highlight">view</span>.
+ There shall be two grids, the top one would be the master grid and the 
+bottom would be the details one. When the user clicks on any item in the
+ master <span class="search-highlight">view</span>, the details/child <span class="search-highlight">view</span> changes accordingly and should display the related child data.</p>
+<p>Use-Case001: User shall be able to <span class="search-highlight">view</span>/manipulate the master-details for Northwind Customer/Orders tables.</p>
+<p><img alt="image025.png" src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/image025.png" height="240" width="351"></p>
+<p>We would be applying the same technique as in my previous article, 
+that is Pattern Oriented Architecture and Design (POAD). For this, we 
+need the prototypic pattern of our system we are planning to design. And
+ here is how the prototype would look like:</p>
+<p><a href="http://www.codeproject.com/KB/architecture/ModelViewController/image027_big.png" target="_blank"><img alt="image027.png" src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/image027.png" height="431" width="600"></a></p>
+<p>So, what we see is what we get, that is, our application would be composed of a <code>MasterPage</code>,
+ an HTML frame container, then HTML Table, and this table would contain 
+further the two controls, Master-User-Control and the 
+Details-User-Control. These user controls in turn would contain the <code>MasterDataGrid</code> and <code>DetailsDataGrid</code> <span class="search-highlight">View</span>s. Here is the static inventory of the objects, needed to fulfill this job:</p>
+<p><img alt="image029.png" src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/image029.png" height="288" width="549"></p>
+<h4>Robustness Analysis of the Use-Case001</h4>
+<p>We now have some understandings of the objects needed to fulfill this
+ job, but before going into the detailed design, we need to analyze the 
+use cases, to find-out the proper interactions and relationships among 
+them. This would be done using the Robustness Analysis, while keeping 
+into our mind the MVC concept. Let's draw the conceptual Robustness 
+Diagram for this scenario:</p>
+<p><a href="http://www.codeproject.com/KB/architecture/ModelViewController/image031_big.png" target="_blank"><img alt="image031.png" src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/image031.png" height="332" width="600"></a></p>
+<p>What it means, that the user is presented with a master-details <span class="search-highlight">view</span>. The upper Master-Grid-<span class="search-highlight">view</span> is used to select the master table items. So, whenever the user selects master item, the child <span class="search-highlight">view</span>
+ is updated accordingly. Let's see how we achieve these interactions 
+between objects. Look at the above diagram closely and you will see that
+ when the user selects an item from the master-grid-<span class="search-highlight">view</span>, the <code>MasterUserControl</code> would be notified, and that in turn notifies this event to the listener, that is the <code>Main<span class="search-highlight">Controller</span></code> object. <code>Main<span class="search-highlight">Controller</span></code> object would notify about this event to the other listener, the <code>DetailsUserControl</code>.</p>
+<p>These user-controls have direct access to the <span class="search-highlight">Model</span> (<code>DataAccessGateway</code>) that uses <code>MsSqlDataLinkAdapter</code> to establish MS-SQL database connections (for OLEDB connections, use the other adapter, <code>OleDataLinkAdapter</code>).
+ This is a classic example of the MVC and its inner working. Here is the
+ object interaction diagram for this particular scenario:</p>
+<p><img alt="image033.png" src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/image033.png" height="432" width="600"></p>
+<p>The <code>Master<span class="search-highlight">Controller</span></code> and the <code>Details<span class="search-highlight">Controller</span></code> are differential <span class="search-highlight">Controller</span>s, that they are responsible of controlling one User-Control at a time and fine tune them while the <code>Main<span class="search-highlight">Controller</span></code> object acts as an integrator, or a channel for these two <span class="search-highlight">controller</span>s
+ to pass information to and fro between them. Let's see how we are 
+planned for them to work. For an object being a Notifying object, needs 
+to implement the <code>INotifier</code> interface, while a Listener object needs to implement the <code>IListner</code>
+ interface. Also, a listener object needs to attach itself with the 
+relevant notifier in-order for being notified. In our case, we have the 
+Master-<span class="search-highlight">Controller</span> and, the Details-<span class="search-highlight">Controller</span> is the listener. <code>Main<span class="search-highlight">Controller</span></code> is both listener and notifier, and acts as glue between them.</p>
+<p>Now, at this point, we have all the information about the objects, 
+responsible for doing the job, how they would look like, and about their
+ behavior and functionality. Let's now design them and develop the 
+complete class design. And here is the detailed class diagram for this 
+application:</p>
+<p><a href="http://www.codeproject.com/KB/architecture/ModelViewController/image035_big.png" target="_blank"><img alt="image035.png" src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/image035.png" height="455" width="600"></a></p>
+<h2>Implementation using C# and ASP.NET</h2>
+<p>Code hierarchy is shown in the following figure, where you will find DataAccess adapters in <i>Shams.Data.dll</i>, updated MasterPage Framework library in <i>Shams.Web.UI.MasterPages.dll</i>, and I have collected some libraries from different sources on the web, you’ll find them under <i>Shams.Web.UI.WebControls.dll</i>. The sample application is in <code>Shams.MVC.WebApp</code> namespace. All you need is to open <i>Shams.MVC.WebApp</i> solution and you are ready to go. And verify the virtual path in the file “<i>Shams.MVC.WebApp.csproj.webinfo</i>” to be created in the IIS. Here is the one for it:</p><div style="display:block" width="100%" id="premain0" class="pre-action-link"><img preid="0" style="cursor: pointer;" src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/minus.gif" id="preimg0" height="9" width="9"><span preid="0" style="cursor: pointer; margin-bottom: 0pt;" id="precollapse0"> Collapse</span><span> | </span><a preid="0" href="#">Copy Code</a></div><pre style="margin-top: 0pt;" id="pre0" lang="text">&lt;VisualStudioUNCWeb&gt;
+
+&lt;Web URLPath = "http://localhost/shams/MVC/WebApp/Shams.MVC.WebApp.csproj" /&gt;
+
+&lt;/VisualStudioUNCWeb&gt;</pre>
+<p><img alt="image037.png" src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/image037.png" height="595" width="530"></p>
+<p>Here are some code snippets, from the application, starting with the <i>web.config</i>. The <code>AppSettings</code> section in the <i>web.config</i> file would contain two things for this application, the connection string for the NorthWind <code>DataTable</code>, and the path to the <code>MasterPageUserControl</code>.</p>
+<p>Here is how it does look like:</p><div style="display:block" width="100%" id="premain1" class="pre-action-link"><img preid="1" style="cursor: pointer;" src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/minus.gif" id="preimg1" height="9" width="9"><span preid="1" style="cursor: pointer; margin-bottom: 0pt;" id="precollapse1"> Collapse</span><span> | </span><a preid="1" href="#">Copy Code</a></div><pre style="margin-top: 0pt;" id="pre1" lang="xml"><span class="code-keyword">&lt;</span><span class="code-leadattribute">appSettings</span><span class="code-keyword">&gt;</span>
+  <span class="code-keyword">&lt;</span><span class="code-leadattribute">add</span> <span class="code-attribute">key</span><span class="code-keyword">="</span><span class="code-keyword">MasterPageUserControl"</span> <span class="code-attribute">value</span><span class="code-keyword">="</span><span class="code-keyword">MasterPageUserControl.ascx"</span><span class="code-keyword">/</span><span class="code-keyword">&gt;</span>
+  <span class="code-keyword">&lt;</span><span class="code-leadattribute">add</span> <span class="code-attribute">key</span><span class="code-keyword">="</span><span class="code-keyword">ConnectString001"</span> 
+       <span class="code-attribute">value</span><span class="code-keyword">="</span><span class="code-keyword">server=localhost;database=northwind;Integrated Security=true;"</span><span class="code-keyword">/</span><span class="code-keyword">&gt;</span>
+  <span class="code-keyword">&lt;</span><span class="code-leadattribute">add</span> <span class="code-attribute">key</span><span class="code-keyword">="</span><span class="code-keyword">ConnectString002"</span> 
+       <span class="code-attribute">value</span><span class="code-keyword">="</span><span class="code-keyword">Provider=SQLOLEDB;server=localhost;database=northwind;
+                                        Integrated Security=true;"</span><span class="code-keyword">/</span><span class="code-keyword">&gt;</span>
+<span class="code-keyword">&lt;</span><span class="code-keyword">/</span><span class="code-leadattribute">appSettings</span><span class="code-keyword">&gt;</span></pre>
+<p>The <span class="search-highlight">model</span> is the <code>DataAccessGateway</code> class and it returns the <code>DataSet</code> that’s been used in the Master-Details data grid controls. Here is how it looks like:</p>
+<p><img alt="image039.png" src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/image039.png" height="597" width="600"></p>
+<p>It uses the <code>MsSqlDataLinkAdapter</code> that is a wrapper around <b>ADO.NET</b>
+ connection and command objects. This is a singleton class, with all of 
+its functions being static. Here is the skeleton of this class:</p>
+<p><a href="http://www.codeproject.com/KB/architecture/ModelViewController/image041_big.png" target="_blank"><img alt="image041.png" src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/image041.png" height="500" width="600"></a></p>
+<p>In our particular scenario, <code>DataAccessGateway</code> uses this class, to connect to the MS-SQL NorthWind database, by calling the <code>Connect(.)</code> function of it. Once you have this connection object, you call another function <code>FilldataSet(.)</code> to return you a brand-new dataset being used for data-binding. Once it is done, you call <code>Disconnect(.)</code> to close the connection object.</p>
+<p>Other notable classes are the <span class="search-highlight">controller</span> classes, <code>UcMasterDetails</code> (Main-<span class="search-highlight">Controller</span>) and two other classes, <code>UcMainContentsMaster</code> (Master <span class="search-highlight">Controller</span>) and <code>UcMainContentsDetails</code> (Details <span class="search-highlight">Controller</span>). Here is how we connected these two classes with each other using <code>UcMasterDetails</code> as a mediator.</p>
+<p><a href="http://www.codeproject.com/KB/architecture/ModelViewController/image043_big.png" target="_blank"><img alt="image043.png" src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/image043.png" height="443" width="600"></a></p>
+<p>And finally! Here is how the application would look like when you run it. :)</p>
+<p><a href="http://www.codeproject.com/KB/architecture/ModelViewController/image045_big.png" target="_blank"><img alt="image045.png" src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/image045.png" height="347" width="600"></a></p>
+<p>The MVC pattern I used in the application is the minimal use of it, 
+but it’s the best pattern being used in all the navigations between 
+pages and between controls. It also depends on how you plot a plan for 
+your application in making a prototype application. So folks, that’s it 
+for now, I have tried to un-cover everything about the MVC design 
+pattern, with some useful applications for its implementation. This is 
+one of the most commonly used and misunderstood pattern. I tried to make
+ it simple and give you all the details it carries, along with the 
+robustness analysis, that’s the key in analyzing such applications.</p>
+<h4>Improvement:</h4>
+<p>There is always a point of improvement in any system, and the same 
+here is applicable too. I haven’t talked about any efficiency related 
+stuff, because that itself needs a full article. So, I am putting this 
+responsibility on you to go through the documentation for improving 
+efficiency of ASP.NET applications, like Caching, <span class="search-highlight">View</span>-State
+ Management and Session Management, and How to avoid round-trips to the 
+server, like post-backs etc. And I would appreciate if you involve me in
+ your findings, thank you very much.</p>
+<h2>Question-Answers Session:</h2>
+<li>Q) What do you consider when architecting and implementing a new system being successful? 
+</li><li>A) Your vision should be broad when you architect or design it, and should be focused while implementing it. 
+<ul></ul>
+<p>They were my answers, but you are welcome to send me your answers at <a href="mailto:shams@microteck.net">shams@microteck.net</a>, and I will post them on <a href="http://www.microteck.net/" target="_blank">my web site</a> very soon.</p>
+<h2>Bibliography:</h2>
+<ol>
+<li>Object Oriented Software Engineering by Ivar Jacobson. 
+</li><li>Design Patterns by Erich Gamma, et al. 
+</li><li>Patterns Of Enterprise Architecture by Martin Fowler. 
+</li><li>Use Case Driven Object <span class="search-highlight">Model</span>ing with <span class="search-highlight">UML</span> by Rosenberg et al. 
+</li><li><span class="search-highlight">UML</span> Case Tool: Enterprise Architect from <a href="http://www.sparxsystems.com/" target="_blank">www.sparxsystems.com</a>. 
+<ul></ul></li></ol></li>
+
+
+
+
+						</div>
+						<!-- Article Text End -->
+
+						
+						
+						<h2>License</h2>
+						<div id="LicenseTerms"><p>This article, along with any associated source code and files, is licensed under <a href="http://www.codeproject.com/info/cpol10.aspx" rel="license">The Code Project Open License (CPOL)</a></p></div>
+						
+
+						
+						<h2 id="ctl00_AboutHeading">About the Author</h2>
+
+						<div class="float-right">
+						<div class="lqm_ad" lqm_publisher="lqm.codeproject.site" lqm_zone="ros" lqm_format="300x250" lqm_loadonview="true" lqm_tags=".NET1.1, Win2K, WinXP, Win2003, SQL2000, IIS5.1, IIS6, VS.NET2003, C#, ASP.NET, SQL, CEO, Architect, DBA, Dev, ADO.NET, UML, Intermediate,rating4.5"></div>
+						</div>
+
+						
+						
+<table border="0" cellpadding="0" cellspacing="5">
+<tbody><tr valign="top">
+<td id="ctl00_AboutAuthorRptr_ctl00_AboutAuthor_memberPhotoTable" style="width: 155px;" valign="top">
+	<b><a id="ctl00_AboutAuthorRptr_ctl00_AboutAuthor_memberProfileLink" href="http://www.codeproject.com/Members/Shams-Mukhtar">Shams Mukhtar</a></b><br><br>
+	<center><img id="ctl00_AboutAuthorRptr_ctl00_AboutAuthor_memberPhoto" src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/FC19084F-FAB9-468E-936F-4AFFF21A3A9F.jpg" style="border-width: 0px;"></center>
+
+	<div class="small-text">
+		<span id="ctl00_AboutAuthorRptr_ctl00_AboutAuthor_memberJobTitle">Chief Technology Officer</span><br>
+		<span id="ctl00_AboutAuthorRptr_ctl00_AboutAuthor_memberCompany">xpersoft, Inc.</span><br>
+		<span id="ctl00_AboutAuthorRptr_ctl00_AboutAuthor_memberLocation"><img src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/US.gif" alt="United States" height="11px" width="16px"> United States</span><br>
+		<br>
+		<span id="ctl00_AboutAuthorRptr_ctl00_AboutAuthor_memberType">Member</span><br>
+		
+		<br>
+
+		
+	</div>
+</td>
+
+<td>
+	Lead Architect with 20+ years of software design and development 
+experience. Architected and designed many industrial softwares and 
+passed through full software development life-cycle. Strong hold in 
+Object-Oriented software engineering using <span class="search-highlight">UML</span>
+ with Design Patterns, C#, .NET, C++/VC++ and Java. Domain expertise are
+ in Distributed Computing along with WCF/Web services, Messaging Systems
+ (MSMQ), Multi-threading, Component developments, Computer Graphics, 
+Embedded Systems, GIS development, framework development, User-Interface
+ designs (WPF .NET), Rule based development (WF .NET), Chemical 
+Engineering and Process Controls. Having both Bachelors and Masters 
+degrees in Engineering with certifications in Obect Oriented Analysis 
+and design. <img src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/smiley_smile.gif" alt="Smile | :)" align="top"> <br>
+&nbsp;<br>
+<a href="mailto:shams.mukhtar@gmail.com">Email: shams.mukhtar@gmail.com</a><br>
+<a href="http://www.geekscafe.net/">Blog Link: http://www.geekscafe.net</a><br>
+<p></p><br>	
+</td>
+</tr>
+</tbody></table><br>
+						
+						
+
+						<div class="clearfix"></div>
+
+						
+						<div id="ctl00_RateArticleRow" class="clearfix voting-bar">
+						<div class="float-left" style="padding-top:8px"><a class="anchorLink" href="http://www.codeproject.com/Articles/8058/Applying-Robustness-Analysis-on-the-Model-View-Con#_articleTop">Article Top</a></div>
+						<div class="float-right"><a id="_rating" name="_rating">&nbsp;</a></div> 
+						<div class="float-right align-right">
+							<div id="ctl00_RateArticle_RateItemWrapper" class="small-text" name="RateItem_8058">
+
+	<table class="small-text" cellpadding="0" cellspacing="0" width="100%">
+	<tbody><tr>
+		<td id="ctl00_RateArticle_VoteResultDiv" align="right" nowrap="nowrap">
+			<span class="voteRes"></span>
+			<img class="loaderImg" alt="loading..." src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/animated_loading_blue.gif" style="display: none;" height="16px" width="16px"> 
+		</td>
+
+	
+		<td class="voteTbl" style="white-space: nowrap;" align="right">
+			<table class="small-text">
+			<tbody><tr>
+				<td id="ctl00_RateArticle_SignIn" nowrap="nowrap">
+					<a href="#SignUp">Sign Up</a> to vote
+				</td>
+
+				
+				<td id="ctl00_RateArticle_StartForm" align="right" nowrap="nowrap">
+					<i>&nbsp;&nbsp;Poor</i>
+				</td>
+
+				<td id="ctl00_RateArticle_VoteFormDiv" class="nowrap">
+					
+
+					<span id="ctl00_RateArticle_RB" class="tooltip ajaxHist radio voting">
+						<span id="ctl00_RateArticle_VoteRBL"><input id="ctl00_RateArticle_VoteRBL_0" name="ctl00$RateArticle$VoteRBL" value="1" onclick="ChkRtctl00_RateArticle(1, 8058);
+$('#ctl00_RateArticle_RCD').show();
+;" type="radio"><input id="ctl00_RateArticle_VoteRBL_1" name="ctl00$RateArticle$VoteRBL" value="2" onclick="ChkRtctl00_RateArticle(2, 8058);
+$('#ctl00_RateArticle_RCD').show();
+;" type="radio"><input id="ctl00_RateArticle_VoteRBL_2" name="ctl00$RateArticle$VoteRBL" value="3" onclick="ChkRtctl00_RateArticle(3, 8058);
+$('#ctl00_RateArticle_RCD').show();
+;" type="radio"><input id="ctl00_RateArticle_VoteRBL_3" name="ctl00$RateArticle$VoteRBL" value="4" onclick="ChkRtctl00_RateArticle(4, 8058);
+$('#ctl00_RateArticle_RCD').show();
+;" type="radio"><input id="ctl00_RateArticle_VoteRBL_4" name="ctl00$RateArticle$VoteRBL" value="5" onclick="ChkRtctl00_RateArticle(5, 8058);
+$('#ctl00_RateArticle_RCD').show();
+;" type="radio"></span> 
+
+						
+					</span>
+
+				</td>
+
+				<td id="ctl00_RateArticle_EndForm" align="left">
+					<i>Excellent</i>
+				</td>
+
+				<td>	
+					<input name="ctl00$RateArticle$SubmitRateBtn" value="Vote" onclick="return PostBack_ctl00_RateArticle_RateItemWrapper();" id="ctl00_RateArticle_SubmitRateBtn" class="button" type="submit">
+				</td>
+			</tr>
+			</tbody></table>
+			<span id="ctl00_RateArticle_ErrorMessage" class="error"></span>
+		</td>
+	</tr>
+	</tbody></table>
+	<div class="hover-container">
+		<div id="ctl00_RateArticle_RCD" class="rating-comment align-left float-right">
+			Add a reason or comment to your vote: <a href="#" id="clear-rate_ctl00_RateArticle_RCD" title="close">x</a><br>
+			<textarea class="RateComment" rows="5" cols="60" style="width: 98%;"></textarea>
+			<span id="ctl00_RateArticle_CommentReq" class="subdue">Votes of 3 or less require a comment</span>
+		</div>
+	</div>
+</div>
+						</div>
+						</div>
+						
+
+					</form>
+
+					
+					<div style="margin:auto;width:728px;height:90px;margin-top:10px">		  
+						<div class="lqm_ad" lqm_publisher="lqm.codeproject.site" lqm_zone="bottom" lqm_format="728x90" lqm_loadonview="true" lqm_tags=".NET1.1, Win2K, WinXP, Win2003, SQL2000, IIS5.1, IIS6, VS.NET2003, C#, ASP.NET, SQL, CEO, Architect, DBA, Dev, ADO.NET, UML, Intermediate,pos_bottom"></div>
+					</div>
+					
+
+					
+					
+					<h2>Comments and Discussions</h2>
+					<a name="_comments" id="_comments">&nbsp;</a><div id="_MessageBoardctl00_MessageBoard" onclick="return SwitchMessage(event, null)">
+	<table id="ForumTable" class="box forum" cellpadding="0" cellspacing="0">
+		<tbody><tr>
+			<td class="forum-header1 highlight"><b>You must <a href="http://www.codeproject.com/script/Membership/LogOn.aspx?rp=%2fArticles%2f8058%2fApplying-Robustness-Analysis-on-the-Model-View-Con%3ffid%3d94922">Sign In</a> to use this message board.</b> (<a href="https://www.codeproject.com/script/Membership/LogOn.aspx?rp=%2fArticles%2f8058%2fApplying-Robustness-Analysis-on-the-Model-View-Con%3ffid%3d94922">secure sign-in</a>)</td>
+		</tr><tr>
+			<td><table border="0" cellpadding="3px" cellspacing="0" width="100%">
+				<tbody><tr class="forum-header1">
+					<td colspan="2" style="white-space: nowrap;"><div class="container">
+						&nbsp;<div class="float-right">
+							<form action="/Search.aspx?fid=0" method="get" class="tight">
+								<input name="fid" value="94922" type="hidden"><b>Search this forum </b><input class="Frm_Input" name="qf" style="width: 200px;" type="text">&nbsp;<input value="Go" class="button" type="submit">
+							</form>
+						</div>
+					</div></td></tr><tr class="forum-header2">
+						<td style="white-space: nowrap;">&nbsp;<a href="http://www.codeproject.com/KB/FAQs/MessageBoardsFAQ.aspx"><img src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/msg_question.gif" title="FAQ" alt="FAQ" style="border-width: 0pt; width: 16px; height: 16px; vertical-align: middle;"></a></td><td style="width: 100%;"><div style="text-align:right;">
+							<form action="/script/Forums/SetOptions.aspx?floc=%2fArticles%2f8058%2fApplying-Robustness-Analysis-on-the-Model-View-Con&amp;fid=94922" method="get" style="margin:0;padding:0;">
+								<input name="fid" value="94922" type="hidden"><input name="currentQS" value="?floc=%2fArticles%2f8058%2fApplying-Robustness-Analysis-on-the-Model-View-Con&amp;fid=94922" type="hidden"><input name="floc" value="/Articles/8058/Applying-Robustness-Analysis-on-the-Model-View-Con" type="hidden"><input checked="checked" name="prof" id="prof" style="vertical-align: middle;" type="checkbox"><label for="prof">Profile popups</label>&nbsp;&nbsp;&nbsp;&nbsp;Noise<select size="1" class="Frm_DropDown" name="noise">
+									<option value="1">Very High</option><option value="2">High</option><option selected="selected" value="3">Medium</option><option value="4">Low</option><option value="5">Very Low</option>
+								</select>&nbsp;&nbsp;Layout<select size="1" class="Frm_DropDown" name="view">
+									<option selected="selected" value="Quick">Normal</option><option value="Topic">Expand Posts only</option><option value="Expanded">Expand Posts &amp; Replies</option><option value="Thread">Thread View</option><option value="Normal">No Javascript</option><option value="Preview">No JS + Preview</option>
+								</select>&nbsp;&nbsp;Per page<select size="1" class="Frm_DropDown" name="mpp">
+									<option selected="selected" value="10">10</option><option value="25">25</option><option value="50">50</option>
+								</select>&nbsp;&nbsp;&nbsp;<input value="Update" name="SetOpt" class="button" type="submit">
+							</form>
+						</div></td>
+					</tr>
+				
+			</tbody></table></td></tr><tr>
+				<td><a name="xx0xx"></a><table border="0" cellpadding="2px" cellspacing="0" width="100%">
+					<tbody><tr class="forum-navbar">
+						<td>&nbsp;</td><td style="text-align: right; width: 50%;"> <a href="http://www.codeproject.com/Articles/8058/Applying-Robustness-Analysis-on-the-Model-View-Con?fid=94922">Refresh</a></td><td class="nav-link" style="text-align: right; white-space: nowrap;"><span class="subdue">First</span> <span class="subdue">Prev</span><a class="toolbar" name="Frm_HoverNL" href="http://www.codeproject.com/Articles/8058/Applying-Robustness-Analysis-on-the-Model-View-Con?fid=94922&amp;fr=11#xx0xx">Next</a></td>
+					</tr>
+				</tbody></table></td>
+			</tr><tr>
+				<td><table class="fixed-layout blank-background" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tbody><tr>
+						<td><img src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/t_002.gif" alt="" border="0" height="5px" width="1px"></td>
+					</tr><tr class="MsgHd Rt HdUnSel " id="F2948202_h0">
+						<td width="100%"><table class="quickHd" border="0" cellpadding="0" cellspacing="0" width="100%">
+							<tbody><tr class="hover-row">
+								<td class="Frm_MsgIndent" width="16px"><a name="xx2948202xx"></a><img src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/msg_news.gif" alt="News" align="top" height="16px" width="16px"></td><td class="Frm_MsgSubject hover-container"><a class="message-link" name="2948202" parent="0" thread="2948202" href="http://www.codeproject.com/Messages/2948202/The-star-is-born.aspx">The star is born :)</a> <a onclick="return Pin(this);" href="#" title="Click to pin message"><img src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/pin.gif" alt="Pin" align="top" border="0" height="12px" width="13px"></a></td><td class="Frm_MsgIcon"><img src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/icn-member-16.gif" title="member" alt="member" border="0" height="16px"></td><td class="Frm_MsgAuthor"><a href="http://www.codeproject.com/script/Membership/View.aspx?mid=90779">Shams Mukhtar</a></td><td class="Frm_MsgDate" style="vertical-align: top; white-space: nowrap;">13:36 3 Mar '09 &nbsp;</td>
+							</tr>
+						</tbody></table></td>
+					</tr><tr id="F2948202_h1" style="display: none;">
+						<td width="100%"><table class="quickBd" border="0" cellpadding="0" cellspacing="0" width="100%">
+							<tbody><tr>
+								<td class="Frm_MsgIndent" style="width: 16px;"><img src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/t_002.gif" alt="" height="1px" width="16px"></td><td class="MsgBd BdSel "><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+									<tbody><tr>
+										<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+											<tbody><tr>
+												<td colspan="2">I just have launched my blog site (<a href="http://www.geekscafe.net/">http://www.geekscafe.net</a>[<a href="http://www.geekscafe.net/" target="_blank" title="New Window">^</a>]), Also I posted some articles on it, the worth mentioning one is:-<br>
+&nbsp;<br>
+<a href="http://www.geekscafe.net/post/DesignModel-Driven-Development-%28DDD%29-or-Test-Driven-Development-%28TDD%29.aspx">http://www.geekscafe.net/post/DesignModel-Driven-Development-(DDD)-or-Test-Driven-Development-(TDD).aspx</a>[<a href="http://www.geekscafe.net/post/DesignModel-Driven-Development-%28DDD%29-or-Test-Driven-Development-%28TDD%29.aspx" target="_blank" title="New Window">^</a>]<br>
+&nbsp;<br>
+Your comments are greatly appreciated. <br>
+&nbsp;<br>
+Cheers <img src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/smiley_smile.gif" alt="Smile | :)" align="top">  <br>
+&nbsp;<br>
+<div class="ForumSig">shams</div><br></td>
+											</tr><tr style="vertical-align: middle;">
+												<td class="msg-footer"><a class="toolbar" href="http://www.codeproject.com/script/Membership/LogOn.aspx?rp=%2fArticles%2f8058%2fApplying-Robustness-Analysis-on-the-Model-View-Con">Sign In</a>·<a class="toolbar" href="http://www.codeproject.com/Articles/8058/Applying-Robustness-Analysis-on-the-Model-View-Con?fid=94922&amp;tid=2948202" title="View&nbsp;Thread">View&nbsp;Thread</a>·<a class="toolbar" href="http://www.codeproject.com/Messages/2948202/The-star-is-born.aspx" title="Get permanent link">Permalink</a></td><td class="msg-footer" style="text-align: right;"><span id="MVF2948202" style="white-space:nowrap;"></span></td>
+											</tr>
+										</tbody></table></td>
+									</tr>
+								</tbody></table></td>
+							</tr>
+						</tbody></table></td>
+					</tr><tr class="quick">
+						<td class="root msg-divide"><img src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/t_002.gif" alt="" border="0" height="1px" width="1px"></td>
+					</tr><tr class="MsgHd LoVote Rt HdUnSel " id="F2777170_h0">
+						<td width="100%"><table class="quickHd" border="0" cellpadding="0" cellspacing="0" width="100%">
+							<tbody><tr class="hover-row">
+								<td class="Frm_MsgIndent" width="16px"><a name="xx2777170xx"></a><img src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/msg_general.gif" alt="General" align="top" height="16px" width="16px"></td><td class="Frm_MsgSubject hover-container"><a class="message-link" name="2777170" parent="0" thread="2777170" href="http://www.codeproject.com/Messages/2777170/Design-pattern-for-inventory-management-system.aspx">Design pattern for inventory management system</a> <a onclick="return Pin(this);" href="#" title="Click to pin message"><img src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/pin.gif" alt="Pin" align="top" border="0" height="12px" width="13px"></a></td><td class="Frm_MsgIcon"><img src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/icn-member-16.gif" title="member" alt="member" border="0" height="16px"></td><td class="Frm_MsgAuthor"><a href="http://www.codeproject.com/script/Membership/View.aspx?mid=5343712">jyotiprasad</a></td><td class="Frm_MsgDate" style="vertical-align: top; white-space: nowrap;">0:45 23 Oct '08 &nbsp;</td>
+							</tr>
+						</tbody></table></td>
+					</tr><tr id="F2777170_h1" style="display: none;">
+						<td width="100%"><table class="quickBd" border="0" cellpadding="0" cellspacing="0" width="100%">
+							<tbody><tr>
+								<td class="Frm_MsgIndent" style="width: 16px;"><img src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/t_002.gif" alt="" height="1px" width="16px"></td><td class="MsgBd BdSel "><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+									<tbody><tr>
+										<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+											<tbody><tr>
+												<td colspan="2">Hi Shams,<br>
+&nbsp;<br>
+  Very nice article, indeed. I am a novice in design patterns and 
+reading up the GoF book for a while. I need to build an inventory 
+management system in Vb.Net and am quite puzzled as how to use these 
+patterns for designing the system. Is there some specific pattern for 
+designing such systems in a way that will make it easy to extend them in
+ future? If you shed some light into it, it will be very helpful.<br>
+&nbsp;<br>
+regards,<br>
+JP<br></td>
+											</tr><tr style="vertical-align: middle;">
+												<td class="msg-footer"><a class="toolbar" href="http://www.codeproject.com/script/Membership/LogOn.aspx?rp=%2fArticles%2f8058%2fApplying-Robustness-Analysis-on-the-Model-View-Con">Sign In</a>·<a class="toolbar" href="http://www.codeproject.com/Articles/8058/Applying-Robustness-Analysis-on-the-Model-View-Con?fid=94922&amp;tid=2777170" title="View&nbsp;Thread">View&nbsp;Thread</a>·<a class="toolbar" href="http://www.codeproject.com/Messages/2777170/Design-pattern-for-inventory-management-system.aspx" title="Get permanent link">Permalink</a></td><td class="msg-footer" style="text-align: right;"><span id="MVF2777170" style="white-space:nowrap;">1.00/5 (1 vote) </span></td>
+											</tr>
+										</tbody></table></td>
+									</tr>
+								</tbody></table></td>
+							</tr>
+						</tbody></table></td>
+					</tr><tr class="quick">
+						<td class="msg-divide"><img src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/t_002.gif" alt="" border="0" height="1px" width="1px"></td>
+					</tr><tr class="MsgHd HdUnSel " id="F2784259_h0">
+						<td width="100%"><table class="quickHd" border="0" cellpadding="0" cellspacing="0" width="100%">
+							<tbody><tr class="hover-row">
+								<td class="Frm_MsgIndent" width="34px"><a name="xx2784259xx"></a><img src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/msg_general.gif" alt="General" align="top" height="16px" width="16px"></td><td class="Frm_MsgSubject hover-container"><a class="message-link" name="2784259" parent="2777170" thread="2777170" href="http://www.codeproject.com/Messages/2784259/Re-Design-pattern-for-inventory-management-system.aspx">Re: Design pattern for inventory management system</a> <a onclick="return Pin(this);" href="#" title="Click to pin message"><img src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/pin.gif" alt="Pin" align="top" border="0" height="12px" width="13px"></a></td><td class="Frm_MsgIcon"><img src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/icn-member-16.gif" title="member" alt="member" border="0" height="16px"></td><td class="Frm_MsgAuthor"><a href="http://www.codeproject.com/script/Membership/View.aspx?mid=90779">Shams Mukhtar</a></td><td class="Frm_MsgDate" style="vertical-align: top; white-space: nowrap;">14:14 28 Oct '08 &nbsp;</td>
+							</tr>
+						</tbody></table></td>
+					</tr><tr id="F2784259_h1" style="display: none;">
+						<td width="100%"><table class="quickBd" border="0" cellpadding="0" cellspacing="0" width="100%">
+							<tbody><tr>
+								<td class="Frm_MsgIndent" style="width: 34px;"><img src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/t_002.gif" alt="" height="1px" width="34px"></td><td class="MsgBd BdSel "><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+									<tbody><tr>
+										<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+											<tbody><tr>
+												<td colspan="2">Hi JP,<br>
+&nbsp;<br>
+Thanks for liking the article... Answering to your questions in a more 
+generic way is that Architecture of any application either its 
+desktop/web/enterprise wide application, can be divided into these 
+layers, presentation/views, controller, model/business/domain and 
+datastore itself. All you need is to define policies how they interact 
+with eachother. So if I look specifically into your application its is 
+nothing more than this equation:<br>
+&nbsp;<br>
+InventoryIn = InventoryOut + Accumulation.<br>
+&nbsp;<br>
+So whenever the inventory comes in (InventoryIn) you need to be notified
+ and at the same time when it exits(InventoryOut) , you need to know... 
+so that the inventory in-hand (Accumulation factor) can be calculated.. 
+For these notifications, you use controllers act as glue between the 
+view and the backend, so that Inventory is in sync. I hope this will 
+help you a little or so.. alrighty!<br>
+&nbsp;<br>
+Cheers <img src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/smiley_smile.gif" alt="Smile | :)" align="top">  <br>
+&nbsp;<br>
+<div class="ForumSig">shams</div><br></td>
+											</tr><tr style="vertical-align: middle;">
+												<td class="msg-footer"><a class="toolbar" href="http://www.codeproject.com/script/Membership/LogOn.aspx?rp=%2fArticles%2f8058%2fApplying-Robustness-Analysis-on-the-Model-View-Con">Sign In</a>·<a class="toolbar" href="http://www.codeproject.com/Articles/8058/Applying-Robustness-Analysis-on-the-Model-View-Con?fid=94922&amp;tid=2777170" title="View&nbsp;Thread">View&nbsp;Thread</a>·<a class="toolbar" href="http://www.codeproject.com/Messages/2784259/Re-Design-pattern-for-inventory-management-system.aspx" title="Get permanent link">Permalink</a></td><td class="msg-footer" style="text-align: right;"><span id="MVF2784259" style="white-space:nowrap;"></span></td>
+											</tr>
+										</tbody></table></td>
+									</tr>
+								</tbody></table></td>
+							</tr>
+						</tbody></table></td>
+					</tr><tr class="quick">
+						<td class="root msg-divide"><img src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/t_002.gif" alt="" border="0" height="1px" width="1px"></td>
+					</tr><tr class="MsgHd LoVote Rt HdUnSel " id="F2005953_h0">
+						<td width="100%"><table class="quickHd" border="0" cellpadding="0" cellspacing="0" width="100%">
+							<tbody><tr class="hover-row">
+								<td class="Frm_MsgIndent" width="16px"><a name="xx2005953xx"></a><img src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/msg_general.gif" alt="General" align="top" height="16px" width="16px"></td><td class="Frm_MsgSubject hover-container"><a class="message-link" name="2005953" parent="0" thread="2005953" href="http://www.codeproject.com/Messages/2005953/why-we-use-controller.aspx">why we use controller</a> <a onclick="return Pin(this);" href="#" title="Click to pin message"><img src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/pin.gif" alt="Pin" align="top" border="0" height="12px" width="13px"></a></td><td class="Frm_MsgIcon"><img src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/icn-member-16.gif" title="member" alt="member" border="0" height="16px"></td><td class="Frm_MsgAuthor"><a href="http://www.codeproject.com/script/Membership/View.aspx?mid=3991251">shhhhhhhhhh</a></td><td class="Frm_MsgDate" style="vertical-align: top; white-space: nowrap;">2:08 25 Apr '07 &nbsp;</td>
+							</tr>
+						</tbody></table></td>
+					</tr><tr id="F2005953_h1" style="display: none;">
+						<td width="100%"><table class="quickBd" border="0" cellpadding="0" cellspacing="0" width="100%">
+							<tbody><tr>
+								<td class="Frm_MsgIndent" style="width: 16px;"><img src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/t_002.gif" alt="" height="1px" width="16px"></td><td class="MsgBd BdSel "><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+									<tbody><tr>
+										<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+											<tbody><tr>
+												<td colspan="2">i have one question that why we use 
+controller in MVC architecture while we can write all those method on 
+class file of view, so why we need to use controller <br></td>
+											</tr><tr style="vertical-align: middle;">
+												<td class="msg-footer"><a class="toolbar" href="http://www.codeproject.com/script/Membership/LogOn.aspx?rp=%2fArticles%2f8058%2fApplying-Robustness-Analysis-on-the-Model-View-Con">Sign In</a>·<a class="toolbar" href="http://www.codeproject.com/Articles/8058/Applying-Robustness-Analysis-on-the-Model-View-Con?fid=94922&amp;tid=2005953" title="View&nbsp;Thread">View&nbsp;Thread</a>·<a class="toolbar" href="http://www.codeproject.com/Messages/2005953/why-we-use-controller.aspx" title="Get permanent link">Permalink</a></td><td class="msg-footer" style="text-align: right;"><span id="MVF2005953" style="white-space:nowrap;">1.17/5 (5 votes) </span></td>
+											</tr>
+										</tbody></table></td>
+									</tr>
+								</tbody></table></td>
+							</tr>
+						</tbody></table></td>
+					</tr><tr class="quick">
+						<td class="msg-divide"><img src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/t_002.gif" alt="" border="0" height="1px" width="1px"></td>
+					</tr><tr class="MsgHd HiVote HdUnSel " id="F2749700_h0">
+						<td width="100%"><table class="quickHd" border="0" cellpadding="0" cellspacing="0" width="100%">
+							<tbody><tr class="hover-row">
+								<td class="Frm_MsgIndent" width="34px"><a name="xx2749700xx"></a><img src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/msg_general.gif" alt="General" align="top" height="16px" width="16px"></td><td class="Frm_MsgSubject hover-container"><a class="message-link" name="2749700" parent="2005953" thread="2005953" href="http://www.codeproject.com/Messages/2749700/Re-why-we-use-controller-modified.aspx">Re: why we use controller [modified]</a> <a onclick="return Pin(this);" href="#" title="Click to pin message"><img src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/pin.gif" alt="Pin" align="top" border="0" height="12px" width="13px"></a></td><td class="Frm_MsgIcon"><img src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/icn-member-16.gif" title="member" alt="member" border="0" height="16px"></td><td class="Frm_MsgAuthor"><a href="http://www.codeproject.com/script/Membership/View.aspx?mid=736664">bilo81</a></td><td class="Frm_MsgDate" style="vertical-align: top; white-space: nowrap;">0:28 3 Oct '08 &nbsp;</td>
+							</tr>
+						</tbody></table></td>
+					</tr><tr id="F2749700_h1" style="display: none;">
+						<td width="100%"><table class="quickBd" border="0" cellpadding="0" cellspacing="0" width="100%">
+							<tbody><tr>
+								<td class="Frm_MsgIndent" style="width: 34px;"><img src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/t_002.gif" alt="" height="1px" width="34px"></td><td class="MsgBd BdSel "><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+									<tbody><tr>
+										<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+											<tbody><tr>
+												<td colspan="2">Because you can use the same controller for different Views.<br>
+It's happened to me that I had to use a console application instead of a
+ GUI, and I could use the same controller without replicating a line of 
+code. <br>
+&nbsp;<br>
+<div class="ForumMod">modified on Thursday, December 4, 2008 10:39 AM</div><br></td>
+											</tr><tr style="vertical-align: middle;">
+												<td class="msg-footer"><a class="toolbar" href="http://www.codeproject.com/script/Membership/LogOn.aspx?rp=%2fArticles%2f8058%2fApplying-Robustness-Analysis-on-the-Model-View-Con">Sign In</a>·<a class="toolbar" href="http://www.codeproject.com/Articles/8058/Applying-Robustness-Analysis-on-the-Model-View-Con?fid=94922&amp;tid=2005953" title="View&nbsp;Thread">View&nbsp;Thread</a>·<a class="toolbar" href="http://www.codeproject.com/Messages/2749700/Re-why-we-use-controller-modified.aspx" title="Get permanent link">Permalink</a></td><td class="msg-footer" style="text-align: right;"><span id="MVF2749700" style="white-space:nowrap;">5.00/5 (1 vote) </span></td>
+											</tr>
+										</tbody></table></td>
+									</tr>
+								</tbody></table></td>
+							</tr>
+						</tbody></table></td>
+					</tr><tr class="quick">
+						<td class="root msg-divide"><img src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/t_002.gif" alt="" border="0" height="1px" width="1px"></td>
+					</tr><tr class="MsgHd LoVote Rt HdUnSel " id="F1941110_h0">
+						<td width="100%"><table class="quickHd" border="0" cellpadding="0" cellspacing="0" width="100%">
+							<tbody><tr class="hover-row">
+								<td class="Frm_MsgIndent" width="16px"><a name="xx1941110xx"></a><img src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/msg_question_002.gif" alt="Question" align="top" height="16px" width="16px"></td><td class="Frm_MsgSubject hover-container"><a class="message-link" name="1941110" parent="0" thread="1941110" href="http://www.codeproject.com/Messages/1941110/How-to-verify.aspx">How to verify............</a> <a onclick="return Pin(this);" href="#" title="Click to pin message"><img src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/pin.gif" alt="Pin" align="top" border="0" height="12px" width="13px"></a></td><td class="Frm_MsgIcon"><img src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/icn-member-16.gif" title="member" alt="member" border="0" height="16px"></td><td class="Frm_MsgAuthor"><a href="http://www.codeproject.com/script/Membership/View.aspx?mid=1847636">shanhongwu</a></td><td class="Frm_MsgDate" style="vertical-align: top; white-space: nowrap;">8:34 14 Mar '07 &nbsp;</td>
+							</tr>
+						</tbody></table></td>
+					</tr><tr id="F1941110_h1" style="display: none;">
+						<td width="100%"><table class="quickBd" border="0" cellpadding="0" cellspacing="0" width="100%">
+							<tbody><tr>
+								<td class="Frm_MsgIndent" style="width: 16px;"><img src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/t_002.gif" alt="" height="1px" width="16px"></td><td class="MsgBd BdSel "><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+									<tbody><tr>
+										<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+											<tbody><tr>
+												<td colspan="2">This is a great article. But in order to 
+practice the sample code, I  configured virtual directory(/WebApp) and 
+want to verify the virtual path in the file 
+“Shams.MVC.WebApp.csproj.webinfo” to be created in the IIS. however I 
+get the error like that "It is an error to use a section registered as 
+allowDefinition='MachineToApplication' beyond application level. This 
+error can be caused by a virtual directory bot being configured as an 
+application in IIS". I have tried a few solutions and they are not 
+working. Anybody, can you please tell how to do that?  Thanks in 
+advance.<br>
+&nbsp;<br>
+<br>
+Carol <br></td>
+											</tr><tr style="vertical-align: middle;">
+												<td class="msg-footer"><a class="toolbar" href="http://www.codeproject.com/script/Membership/LogOn.aspx?rp=%2fArticles%2f8058%2fApplying-Robustness-Analysis-on-the-Model-View-Con">Sign In</a>·<a class="toolbar" href="http://www.codeproject.com/Articles/8058/Applying-Robustness-Analysis-on-the-Model-View-Con?fid=94922&amp;tid=1941110" title="View&nbsp;Thread">View&nbsp;Thread</a>·<a class="toolbar" href="http://www.codeproject.com/Messages/1941110/How-to-verify.aspx" title="Get permanent link">Permalink</a></td><td class="msg-footer" style="text-align: right;"><span id="MVF1941110" style="white-space:nowrap;">1.50/5 (2 votes) </span></td>
+											</tr>
+										</tbody></table></td>
+									</tr>
+								</tbody></table></td>
+							</tr>
+						</tbody></table></td>
+					</tr><tr class="quick">
+						<td class="msg-divide"><img src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/t_002.gif" alt="" border="0" height="1px" width="1px"></td>
+					</tr><tr class="MsgHd HdUnSel " id="F3274532_h0">
+						<td width="100%"><table class="quickHd" border="0" cellpadding="0" cellspacing="0" width="100%">
+							<tbody><tr class="hover-row">
+								<td class="Frm_MsgIndent" width="34px"><a name="xx3274532xx"></a><img src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/msg_answer.gif" alt="Answer" align="top" height="16px" width="16px"></td><td class="Frm_MsgSubject hover-container"><a class="message-link" name="3274532" parent="1941110" thread="1941110" href="http://www.codeproject.com/Messages/3274532/Re-How-to-verify.aspx">Re: How to verify............</a> <a onclick="return Pin(this);" href="#" title="Click to pin message"><img src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/pin.gif" alt="Pin" align="top" border="0" height="12px" width="13px"></a></td><td class="Frm_MsgIcon"><img src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/icn-member-16.gif" title="member" alt="member" border="0" height="16px"></td><td class="Frm_MsgAuthor"><a href="http://www.codeproject.com/script/Membership/View.aspx?mid=3772450">Member 3772450</a></td><td class="Frm_MsgDate" style="vertical-align: top; white-space: nowrap;">19:24 16 Nov '09 &nbsp;</td>
+							</tr>
+						</tbody></table></td>
+					</tr><tr id="F3274532_h1" style="display: none;">
+						<td width="100%"><table class="quickBd" border="0" cellpadding="0" cellspacing="0" width="100%">
+							<tbody><tr>
+								<td class="Frm_MsgIndent" style="width: 34px;"><img src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/t_002.gif" alt="" height="1px" width="34px"></td><td class="MsgBd BdSel "><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+									<tbody><tr>
+										<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+											<tbody><tr>
+												<td colspan="2">i am facing same Error while accessing the Site <br>
+Need Help for this  <img src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/smiley_frown.gif" alt="Frown | :(" align="top"> <br>
+&nbsp;<br>
+<div class="ForumSig">Praveen Jain</div><br></td>
+											</tr><tr style="vertical-align: middle;">
+												<td class="msg-footer"><a class="toolbar" href="http://www.codeproject.com/script/Membership/LogOn.aspx?rp=%2fArticles%2f8058%2fApplying-Robustness-Analysis-on-the-Model-View-Con">Sign In</a>·<a class="toolbar" href="http://www.codeproject.com/Articles/8058/Applying-Robustness-Analysis-on-the-Model-View-Con?fid=94922&amp;tid=1941110" title="View&nbsp;Thread">View&nbsp;Thread</a>·<a class="toolbar" href="http://www.codeproject.com/Messages/3274532/Re-How-to-verify.aspx" title="Get permanent link">Permalink</a></td><td class="msg-footer" style="text-align: right;"><span id="MVF3274532" style="white-space:nowrap;"></span></td>
+											</tr>
+										</tbody></table></td>
+									</tr>
+								</tbody></table></td>
+							</tr>
+						</tbody></table></td>
+					</tr><tr class="quick">
+						<td class="msg-divide"><img src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/t_002.gif" alt="" border="0" height="1px" width="1px"></td>
+					</tr><tr class="MsgHd HdUnSel " id="F3274533_h0">
+						<td width="100%"><table class="quickHd" border="0" cellpadding="0" cellspacing="0" width="100%">
+							<tbody><tr class="hover-row">
+								<td class="Frm_MsgIndent" width="34px"><a name="xx3274533xx"></a><img src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/msg_answer.gif" alt="Answer" align="top" height="16px" width="16px"></td><td class="Frm_MsgSubject hover-container"><a class="message-link" name="3274533" parent="1941110" thread="1941110" href="http://www.codeproject.com/Messages/3274533/Re-How-to-verify.aspx">Re: How to verify............</a> <a onclick="return Pin(this);" href="#" title="Click to pin message"><img src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/pin.gif" alt="Pin" align="top" border="0" height="12px" width="13px"></a></td><td class="Frm_MsgIcon"><img src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/icn-member-16.gif" title="member" alt="member" border="0" height="16px"></td><td class="Frm_MsgAuthor"><a href="http://www.codeproject.com/script/Membership/View.aspx?mid=3772450">Member 3772450</a></td><td class="Frm_MsgDate" style="vertical-align: top; white-space: nowrap;">19:25 16 Nov '09 &nbsp;</td>
+							</tr>
+						</tbody></table></td>
+					</tr><tr id="F3274533_h1" style="display: none;">
+						<td width="100%"><table class="quickBd" border="0" cellpadding="0" cellspacing="0" width="100%">
+							<tbody><tr>
+								<td class="Frm_MsgIndent" style="width: 34px;"><img src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/t_002.gif" alt="" height="1px" width="34px"></td><td class="MsgBd BdSel "><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+									<tbody><tr>
+										<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+											<tbody><tr>
+												<td colspan="2">i ma facing same Error while accessing the Site <br>
+Need Help for this <br>
+&nbsp;<br>
+<div class="ForumSig">Praveen Jain</div><br></td>
+											</tr><tr style="vertical-align: middle;">
+												<td class="msg-footer"><a class="toolbar" href="http://www.codeproject.com/script/Membership/LogOn.aspx?rp=%2fArticles%2f8058%2fApplying-Robustness-Analysis-on-the-Model-View-Con">Sign In</a>·<a class="toolbar" href="http://www.codeproject.com/Articles/8058/Applying-Robustness-Analysis-on-the-Model-View-Con?fid=94922&amp;tid=1941110" title="View&nbsp;Thread">View&nbsp;Thread</a>·<a class="toolbar" href="http://www.codeproject.com/Messages/3274533/Re-How-to-verify.aspx" title="Get permanent link">Permalink</a></td><td class="msg-footer" style="text-align: right;"><span id="MVF3274533" style="white-space:nowrap;"></span></td>
+											</tr>
+										</tbody></table></td>
+									</tr>
+								</tbody></table></td>
+							</tr>
+						</tbody></table></td>
+					</tr><tr class="quick">
+						<td class="root msg-divide"><img src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/t_002.gif" alt="" border="0" height="1px" width="1px"></td>
+					</tr><tr class="MsgHd LoVote Rt HdUnSel " id="F1852207_h0">
+						<td width="100%"><table class="quickHd" border="0" cellpadding="0" cellspacing="0" width="100%">
+							<tbody><tr class="hover-row">
+								<td class="Frm_MsgIndent" width="16px"><a name="xx1852207xx"></a><img src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/msg_general.gif" alt="General" align="top" height="16px" width="16px"></td><td class="Frm_MsgSubject hover-container"><a class="message-link" name="1852207" parent="0" thread="1852207" href="http://www.codeproject.com/Messages/1852207/MVC-design.aspx">MVC design</a> <a onclick="return Pin(this);" href="#" title="Click to pin message"><img src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/pin.gif" alt="Pin" align="top" border="0" height="12px" width="13px"></a></td><td class="Frm_MsgIcon"><img src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/icn-member-16.gif" title="member" alt="member" border="0" height="16px"></td><td class="Frm_MsgAuthor"><a href="http://www.codeproject.com/script/Membership/View.aspx?mid=1740504">Mickey Perlstein</a></td><td class="Frm_MsgDate" style="vertical-align: top; white-space: nowrap;">3:47 19 Jan '07 &nbsp;</td>
+							</tr>
+						</tbody></table></td>
+					</tr><tr id="F1852207_h1" style="display: none;">
+						<td width="100%"><table class="quickBd" border="0" cellpadding="0" cellspacing="0" width="100%">
+							<tbody><tr>
+								<td class="Frm_MsgIndent" style="width: 16px;"><img src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/t_002.gif" alt="" height="1px" width="16px"></td><td class="MsgBd BdSel "><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+									<tbody><tr>
+										<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+											<tbody><tr>
+												<td colspan="2">Our implementation system is similar.<br>
+&nbsp;<br>
+Our system has a tree which decides what type of View will be seen by the user (it's an E-Learning prog).<br>
+&nbsp;<br>
+The System is based on 3 views.<br>
+Each View has a Controller on 3 levels.<br>
+1. Js Controller.<br>
+3. Ajax WebService controller<br>
+2. cs codeBehind Controller<br>
+&nbsp;<br>
+There is One singleton called UiController which is basicaly the MODEL, 
+it decides were to route requests from one view to another.<br>
+&nbsp;<br>
+Views do not contain coupling to other views and only speak with thier own controllers.<br>
+&nbsp;<br>
+<br>
+An Example Request:<br>
+&nbsp;<br>
+The Tree view wishes to open a flash animation on the Central Viewer.<br>
+The Tree does not know it's a flash animation, all it knows is the id number.<br>
+&nbsp;<br>
+the tree creates a request object (js) and sends it through it's controller to the uiController (MODEL).<br>
+&nbsp;<br>
+This is the Sequesnce diagram.<br>
+&nbsp;<br>
+View (tree) -[request]--&gt; Border (Controller (js) ) -[pass request]--
+ UiController (Model (js), Ajax) -[pass request]-&gt; (ws, ajax) 
+Security Border Layer --&gt; (Allowed to ask)--&gt; UiController [reads 
+and decipers request] --[routed to corret View Border (read paragraph)] 
+--&gt; sends Request to recipient]--&gt; Central Controller (cs) [reads 
+request]---&gt; Security (singleton) --&gt; ParagraphWF --&gt; 
+ParagraphBL --&gt; PatragraphDL--&gt;[returns the data about the swf 
+location and security hash]--&gt; ..back back to the WF, to the Central 
+Controller --&gt; to the (Central)View installs a SWF Viewer--&gt; run 
+movie.<br>
+&nbsp;<br>
+<br>
+This is how our system runs:<br>
+www.interlect.co.il <br>
+&nbsp;<br>
+Some men are dogs, some women are bitches.<br></td>
+											</tr><tr style="vertical-align: middle;">
+												<td class="msg-footer"><a class="toolbar" href="http://www.codeproject.com/script/Membership/LogOn.aspx?rp=%2fArticles%2f8058%2fApplying-Robustness-Analysis-on-the-Model-View-Con">Sign In</a>·<a class="toolbar" href="http://www.codeproject.com/Articles/8058/Applying-Robustness-Analysis-on-the-Model-View-Con?fid=94922&amp;tid=1852207" title="View&nbsp;Thread">View&nbsp;Thread</a>·<a class="toolbar" href="http://www.codeproject.com/Messages/1852207/MVC-design.aspx" title="Get permanent link">Permalink</a></td><td class="msg-footer" style="text-align: right;"><span id="MVF1852207" style="white-space:nowrap;">2.00/5 (1 vote) </span></td>
+											</tr>
+										</tbody></table></td>
+									</tr>
+								</tbody></table></td>
+							</tr>
+						</tbody></table></td>
+					</tr><tr class="quick">
+						<td class="root msg-divide"><img src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/t_002.gif" alt="" border="0" height="1px" width="1px"></td>
+					</tr><tr class="MsgHd LoVote Rt HdUnSel " id="F1852010_h0">
+						<td width="100%"><table class="quickHd" border="0" cellpadding="0" cellspacing="0" width="100%">
+							<tbody><tr class="hover-row">
+								<td class="Frm_MsgIndent" width="16px"><a name="xx1852010xx"></a><img src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/msg_general.gif" alt="General" align="top" height="16px" width="16px"></td><td class="Frm_MsgSubject hover-container"><a class="message-link" name="1852010" parent="0" thread="1852010" href="http://www.codeproject.com/Messages/1852010/Asp-Net-2-0.aspx">Asp.Net 2.0</a> <a onclick="return Pin(this);" href="#" title="Click to pin message"><img src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/pin.gif" alt="Pin" align="top" border="0" height="12px" width="13px"></a></td><td class="Frm_MsgIcon"><img src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/icn-member-16.gif" title="member" alt="member" border="0" height="16px"></td><td class="Frm_MsgAuthor"><a href="http://www.codeproject.com/script/Membership/View.aspx?mid=2761791">hlebc</a></td><td class="Frm_MsgDate" style="vertical-align: top; white-space: nowrap;">1:54 19 Jan '07 &nbsp;</td>
+							</tr>
+						</tbody></table></td>
+					</tr><tr id="F1852010_h1" style="display: none;">
+						<td width="100%"><table class="quickBd" border="0" cellpadding="0" cellspacing="0" width="100%">
+							<tbody><tr>
+								<td class="Frm_MsgIndent" style="width: 16px;"><img src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/t_002.gif" alt="" height="1px" width="16px"></td><td class="MsgBd BdSel "><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+									<tbody><tr>
+										<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+											<tbody><tr>
+												<td colspan="2">Hi, Shams!<br>
+&nbsp;<br>
+Thanks for your article, its great! I have one question about it..<br>
+&nbsp;<br>
+In asp.net 2.0 we have a BindingSource object in the midlle of View and 
+Model (dataSource) which is responsible for data synchronization between
+ view and datasource. If we design a solution as shown in this article, 
+how is it then with BindingSource? Do we use our Control class for 
+databinding?<br>
+&nbsp;<br>
+Thans for answer,<br>
+Aljaz <br></td>
+											</tr><tr style="vertical-align: middle;">
+												<td class="msg-footer"><a class="toolbar" href="http://www.codeproject.com/script/Membership/LogOn.aspx?rp=%2fArticles%2f8058%2fApplying-Robustness-Analysis-on-the-Model-View-Con">Sign In</a>·<a class="toolbar" href="http://www.codeproject.com/Articles/8058/Applying-Robustness-Analysis-on-the-Model-View-Con?fid=94922&amp;tid=1852010" title="View&nbsp;Thread">View&nbsp;Thread</a>·<a class="toolbar" href="http://www.codeproject.com/Messages/1852010/Asp-Net-2-0.aspx" title="Get permanent link">Permalink</a></td><td class="msg-footer" style="text-align: right;"><span id="MVF1852010" style="white-space:nowrap;">2.00/5 (5 votes) </span></td>
+											</tr>
+										</tbody></table></td>
+									</tr>
+								</tbody></table></td>
+							</tr>
+						</tbody></table></td>
+					</tr><tr>
+						<td><img src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/t_002.gif" alt="" border="0" height="5px" width="1px"></td>
+					</tr>
+				</tbody></table></td>
+			</tr><tr>
+				<td><table cellpadding="2px" cellspacing="0" width="100%">
+					<tbody><tr class="forum-footer">
+						<td>Last Visit: 18:00 31 Dec '99  &nbsp; &nbsp; Last Update: 1:33 6 Jun '12 </td><td class="nav-link" style="text-align: right; white-space: nowrap;"><input id="_mbnUrl" value="/Articles/8058/Applying-Robustness-Analysis-on-the-Model-View-Con?fid=94922&amp;fr=11" type="hidden"><b>1</b><a class="toolbar" name="Frm_HoverNL" href="http://www.codeproject.com/Articles/8058/Applying-Robustness-Analysis-on-the-Model-View-Con?fid=94922&amp;fr=11#xx0xx">2</a><a class="toolbar" name="Frm_HoverNL" href="http://www.codeproject.com/Articles/8058/Applying-Robustness-Analysis-on-the-Model-View-Con?fid=94922&amp;fr=21#xx0xx">3</a><a class="toolbar" name="Frm_HoverNL" href="http://www.codeproject.com/Articles/8058/Applying-Robustness-Analysis-on-the-Model-View-Con?fid=94922&amp;fr=31#xx0xx">4</a><a class="toolbar" name="Frm_HoverNL" href="http://www.codeproject.com/Articles/8058/Applying-Robustness-Analysis-on-the-Model-View-Con?fid=94922&amp;fr=41#xx0xx">5</a><a class="toolbar" name="Frm_HoverNL" href="http://www.codeproject.com/Articles/8058/Applying-Robustness-Analysis-on-the-Model-View-Con?fid=94922&amp;fr=51#xx0xx">6</a><a class="toolbar" name="Frm_HoverNL" href="http://www.codeproject.com/Articles/8058/Applying-Robustness-Analysis-on-the-Model-View-Con?fid=94922&amp;fr=61#xx0xx">7</a><a class="toolbar" name="Frm_HoverNL" href="http://www.codeproject.com/Articles/8058/Applying-Robustness-Analysis-on-the-Model-View-Con?fid=94922&amp;fr=71#xx0xx">8</a><a class="toolbar" name="Frm_HoverNL" href="http://www.codeproject.com/Articles/8058/Applying-Robustness-Analysis-on-the-Model-View-Con?fid=94922&amp;fr=81#xx0xx">9</a><a class="toolbar" name="Frm_HoverNL" href="http://www.codeproject.com/Articles/8058/Applying-Robustness-Analysis-on-the-Model-View-Con?fid=94922&amp;fr=91#xx0xx">10</a><a class="toolbar" name="Frm_HoverNL" href="http://www.codeproject.com/Articles/8058/Applying-Robustness-Analysis-on-the-Model-View-Con?fid=94922&amp;fr=101#xx0xx">11</a> <a class="toolbar" name="Frm_HoverNL" href="http://www.codeproject.com/Articles/8058/Applying-Robustness-Analysis-on-the-Model-View-Con?fid=94922&amp;fr=11#xx0xx">Next »</a></td>
+					</tr>
+				</tbody></table></td>
+			</tr>
+		
+	</tbody></table><p class="small-text"><img src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/msg_general.gif" alt="General" align="top" height="16px" width="16px"> General &nbsp;&nbsp; <img src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/msg_news.gif" alt="News" align="top" height="16px" width="16px"> News &nbsp;&nbsp; <img src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/msg_idea.gif" alt="Suggestion" align="top" height="16px" width="16px"> Suggestion &nbsp;&nbsp; <img src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/msg_question_002.gif" alt="Question" align="top" height="16px" width="16px"> Question &nbsp;&nbsp; <img src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/msg_bug.gif" alt="Bug" align="top" height="16px" width="16px"> Bug &nbsp;&nbsp; <img src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/msg_answer.gif" alt="Answer" align="top" height="16px" width="16px"> Answer &nbsp;&nbsp; <img src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/msg_joke.gif" alt="Joke" align="top" height="16px" width="16px"> Joke &nbsp;&nbsp; <img src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/msg_rant.gif" alt="Rant" align="top" height="16px" width="16px"> Rant &nbsp;&nbsp; <img src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/msg_admin.gif" alt="Admin" align="top" height="16px" width="16px"> Admin &nbsp;&nbsp; </p><p class="small-text">Use Ctrl+Left/Right to switch messages, Ctrl+Up/Down to switch threads, Ctrl+Shift+Left/Right to switch pages.</p>
+
+					
+					<div class="theme1-background" style="height:2px"></div>
+
+					<div class="extended tiny-text">
+						<div class="row">
+							<div class="float-left">
+								<a id="ctl00_PermaLink" href="http://www.codeproject.com/Articles/8058/Applying-Robustness-Analysis-on-the-Model-View-Con">Permalink</a> | 
+								<a id="ctl00_AdvertiseLink" href="http://lakequincy.com/">Advertise </a> |
+								<a id="ctl00_PrivacyLink" href="http://www.codeproject.com/info/privacy.aspx">Privacy</a> |
+								<a id="ctl00_Mobile" rel="nofollow" href="http://www.codeproject.com/Articles/8058/Applying-Robustness-Analysis-on-the-Model-View-Con?display=Mobile">Mobile</a>
+								<br>
+								
+								Web02 |
+								2.5.120604.1 |
+								Last Updated 23 Aug 2004								
+							</div>
+							<div class="float-right align-right">
+								Article Copyright 2004 by Shams Mukhtar<br>Everything else
+								Copyright © <a href="mailto:webmaster@codeproject.com">CodeProject</a>, 1999-2012 <br>
+								<a id="ctl00_TermsOfUseLink" href="http://www.codeproject.com/info/TermsOfUse.aspx">Terms of Use</a>
+							</div>
+
+							
+
+
+<div class="page-width">
+Layout: <a id="ctl00_PageWidth_FixedT" title="Fixed width layout" rel="nofollow" class=" active" href="http://www.codeproject.com/Articles/8058/Applying-Robustness-Analysis-on-the-Model-View-Con?PageFlow=FixedWidth">fixed</a>
+|
+<a id="ctl00_PageWidth_FluidT" title="Fluid layout" rel="nofollow" href="http://www.codeproject.com/Articles/8058/Applying-Robustness-Analysis-on-the-Model-View-Con?PageFlow=Fluid">fluid</a>
+</div>
+
+
+
+						</div>
+					</div>
+					
+
+				<br clear="all">
+		
+				
+				</div>
+
+				<div id="ctl00_ContentSide" class="text-sidebar">
+					
+
+					
+
+					
+
+					
+<div class="announce">
+
+<div class="announce-content">
+
+<div>Hot News: <a id="ctl00_News_News_ctl01_Link" href="http://www.neowin.net/news/windows-8-boots-too-quickly-first-world-os-problem">Windows 8 boots too quickly, first world OS problem</a></div>
+
+The Code Project Insider. <a id="ctl00_News_News_ctl02_Subscribe" href="http://www.codeproject.com/Feature/Insider/">Free each morning.</a>
+</div>
+</div>
+
+						
+					<div style="width:160px;margin: 10px 0;">
+						<div class="lqm_ad" lqm_publisher="lqm.codeproject.site" lqm_zone="ros" lqm_format="160x600" lqm_tags=".NET1.1, Win2K, WinXP, Win2003, SQL2000, IIS5.1, IIS6, VS.NET2003, C#, ASP.NET, SQL, CEO, Architect, DBA, Dev, ADO.NET, UML, Intermediate,rating4.5"><iframe id="lqmad4" marginwidth="0" marginheight="0" frameborder="0" height="600" scrolling="no" width="160"></iframe></div>
+					</div>
+
+					
+	<div class="announce">
+	<div id="ctl00_RelatedArticles_RelatedResults_ctl00_header" class="announce-header">Related Articles</div>
+	<div class="announce-content">	
+	
+	<div class="container-related-item">
+		<a id="ctl00_RelatedArticles_RelatedResults_ctl02_Link" class="title" href="http://www.codeproject.com/KB/architecture/MVC_MVP_MVVM_design.aspx">Model View Controller, Model View Presenter, and Model View ViewModel Design Patterns</a>
+		
+	</div>
+	
+	<div class="container-related-item">
+		<a id="ctl00_RelatedArticles_RelatedResults_ctl03_Link" class="title" href="http://www.codeproject.com/KB/aspnet/LearnMVC.aspx">Learn MVC (Model view controller) Step by Step in 7 days – Day 1</a>
+		
+	</div>
+	
+	<div class="container-related-item">
+		<a id="ctl00_RelatedArticles_RelatedResults_ctl04_Link" class="title" href="http://www.codeproject.com/KB/architecture/Arathi.aspx">Model View Controller Architecture</a>
+		
+	</div>
+	
+	<div class="container-related-item">
+		<a id="ctl00_RelatedArticles_RelatedResults_ctl05_Link" class="title" href="http://www.codeproject.com/KB/aspnet/HTTPHandler.aspx">The 3 Musketeers: Model, View and Controller using HTTPHandler – Part 1</a>
+		
+	</div>
+	
+	<div class="container-related-item">
+		<a id="ctl00_RelatedArticles_RelatedResults_ctl06_Link" class="title" href="http://www.codeproject.com/KB/dotnet/MVC_architecture.aspx">Understanding ASP.NET MVC (Model View Controller) Architecture for Beginners</a>
+		
+	</div>
+	
+	<div class="container-related-item">
+		<a id="ctl00_RelatedArticles_RelatedResults_ctl07_Link" class="title" href="http://www.codeproject.com/KB/silverlight/SimpleUploadVM.aspx">Silverlight Simple Drag And Drop / Or Browse View Model / MVVM File Upload Control</a>
+		
+	</div>
+	
+	<div class="container-related-item">
+		<a id="ctl00_RelatedArticles_RelatedResults_ctl08_Link" class="title" href="http://www.codeproject.com/KB/silverlight/ViewModelTree.aspx">Programmatic Silverlight Tree View Control Node Expansion using View Model (MVVM)</a>
+		
+	</div>
+	
+	<div class="container-related-item">
+		<a id="ctl00_RelatedArticles_RelatedResults_ctl09_Link" class="title" href="http://www.codeproject.com/KB/aspnet/375182.aspx">Learn MVC (Model view controller) Step by Step in 7days – Day 3</a>
+		
+	</div>
+	
+	<div class="container-related-item">
+		<a id="ctl00_RelatedArticles_RelatedResults_ctl10_Link" class="title" href="http://www.codeproject.com/KB/aspnet/ModelViewPresenter1.aspx">Model View Presenter</a>
+		
+	</div>
+	
+	<div class="container-related-item">
+		<a id="ctl00_RelatedArticles_RelatedResults_ctl11_Link" class="title" href="http://www.codeproject.com/KB/aspnet/MVC_ASP_NET.aspx">Learn MVC (Model view controller) Step by Step in 7 days – Day 2</a>
+		
+	</div>
+	
+	<div class="container-related-item">
+		<a id="ctl00_RelatedArticles_RelatedResults_ctl12_Link" class="title" href="http://www.codeproject.com/KB/architecture/ModelViewPresenter.aspx">Model View Presenter with ASP.NET</a>
+		
+	</div>
+	
+	<div class="container-related-item">
+		<a id="ctl00_RelatedArticles_RelatedResults_ctl13_Link" class="title" href="http://www.codeproject.com/KB/silverlight/VMCommunication.aspx">Silverlight View Model Communication</a>
+		
+	</div>
+	
+	<div class="container-related-item">
+		<a id="ctl00_RelatedArticles_RelatedResults_ctl14_Link" class="title" href="http://www.codeproject.com/KB/architecture/WinForms_MVP.aspx">WinForms Model View Presenter</a>
+		
+	</div>
+	
+	<div class="container-related-item">
+		<a id="ctl00_RelatedArticles_RelatedResults_ctl15_Link" class="title" href="http://www.codeproject.com/Tips/127275/View-View-Controller-Model-Controller-Model-VVCMCM.aspx">View, View Controller, Model Controller, Model (VVCMCM) Pattern</a>
+		
+	</div>
+	
+	<div class="container-related-item">
+		<a id="ctl00_RelatedArticles_RelatedResults_ctl16_Link" class="title" href="http://www.codeproject.com/KB/aspnet/3Musketeers.aspx">The 3 Musketeers: - Model, View and Controller using ASP.NET MVC – Part 2</a>
+		
+	</div>
+	
+	<div class="container-related-item">
+		<a id="ctl00_RelatedArticles_RelatedResults_ctl17_Link" class="title" href="http://www.codeproject.com/KB/WPF/MVVMCommands.aspx">Executing Command Logic in a View Model</a>
+		
+	</div>
+	
+	<div class="container-related-item">
+		<a id="ctl00_RelatedArticles_RelatedResults_ctl18_Link" class="title" href="http://www.codeproject.com/KB/silverlight/RIADataGrid.aspx">Using the Silverlight DataGrid with View Model / MVVM</a>
+		
+	</div>
+	
+	<div class="container-related-item">
+		<a id="ctl00_RelatedArticles_RelatedResults_ctl19_Link" class="title" href="http://www.codeproject.com/KB/aspnet/SoftArch6.aspx">Unified modeling language ( UML ) interview questions part 2</a>
+		
+	</div>
+	
+	<div class="container-related-item">
+		<a id="ctl00_RelatedArticles_RelatedResults_ctl20_Link" class="title" href="http://www.codeproject.com/KB/tips/ModelViewController.aspx">Simple Example of MVC (Model View Controller) Design Pattern for Abstraction</a>
+		
+	</div>
+	
+	<div class="container-related-item">
+		<a id="ctl00_RelatedArticles_RelatedResults_ctl21_Link" class="title" href="http://www.codeproject.com/KB/cpp/UML_StateChart_StatWizard.aspx">Visual Modeling of Complex Reactive Systems with Harel UML StateCharts</a>
+		
+	</div>
+	
+	</div>
+	</div>
+	
+
+
+					
+
+				</div>
+
+			</div>
+			
+
+		</div>
+		
+
+	</div>
+</div>
+
+
+<div style="display:none;" id="lqm_AdTable">
+	
+</div>
+
+<script type="text/javascript" language="Javascript" src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/jquery.js"></script><script type="text/javascript">//<![CDATA[
+if (typeof jQuery == 'undefined') {
+    document.write(unescape("%3Cscript src='/script/JS/jquery-1.6.2.min.js' type='text/javascript' %3E%3C/script%3E"));
+}//]]></script>
+<script type="text/javascript" language="Javascript" src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/article.js"></script>
+<script type="text/javascript" language="Javascript" src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/navbar.js"></script>
+<script type="text/javascript" language="Javascript" src="Applying-Robustness-Analysis-on-the-Model-View-Con_files/m.js"></script>
+<script type="text/javascript" language="Javascript">//<![CDATA[
+function markAllText(){
+ markTextInElement('Model','contentdiv');
+ markTextInElement('View','contentdiv');
+ markTextInElement('Controller','contentdiv');
+ markTextInElement('UML','contentdiv');
+}
+$(function(){markAllText()});
+var socialLinks = new social();
+socialLinks.PlaceholderId="ATD";socialLinks.ObjectId=8058;
+socialLinks.ObjectTypeId=2;
+socialLinks.addtoMethod=1;
+socialLinks.Horizontal=false;
+socialLinks.Showname=true;
+socialLinks.setupLinks("socialLinks", escape(document.location.href),escape(document.title), 100, 0, "small-text Bold", "AddTo");
+socialLinks.setupMenu();
+$(document).ready(function() {   $('.alert-bar').slideDown('fast');   $('.alert-bar a.close-notify').click(function() {      $('.alert-bar').slideUp('fast');        return false;    });});
+$(function ()
+                        {
+                        $('.oauth').click(function () {
+                            $this = $(this);
+                            href = $this.attr('href');
+                            var myWindow = window.open(href, 'popup',
+                                        'width=600,height=400,location=0,menubar=0,resizeable=0,scrollbars=0,toolbar=0');
+                            myWindow.focus();
+                            var timer = setInterval(function () {
+                                            if (myWindow.closed) {
+                                                clearInterval(timer);
+                                                // window.location.reload(); // May do a POST reload, shows a warning
+                                                window.location = window.location; // force a GET reload
+                                            }
+                                        }, 200);
+                            return false;
+                        });
+                    });
+if($.LqmAds)$.LqmAds();
+var oSrchFlt = false, oSrchBox=false,srchBoxFoc=false;
+$(document).ready(function() {
+ if(InitWatermark)InitWatermark('sb_tb', 'Search site');
+ var sbar = $('#sb_tb'); 
+ var sfilter = $('#SearchFilter');
+ if (sbar && sfilter) {
+  sfilter.removeClass('popup'); sfilter.hide();
+  sbar.blur(function() { if (!oSrchFlt)sfilter.hide();srchBoxFoc=false; });
+  sbar.focus(function() { oSrchFlt=false;srchBoxFoc=true;sfilter.show(); });
+  sbar.mouseleave(function() { oSrchBox=false; });
+  sbar.mouseover(function() { oSrchBox=true; });
+  sfilter.mouseleave(function() { oSrchFlt=false; if (!srchBoxFoc&&!oSrchBox)sfilter.hide();});
+  sfilter.mouseover(function() { oSrchFlt=true; });
+ }
+});
+$(document).ready(function() { anchorAnimate(); });
+$("#ctl00_RateArticle_RateItemWrapper").removeClass("container-rating");$('#clear-rate_ctl00_RateArticle_RCD').click(function () { $('#ctl00_RateArticle_RCD').hide(); return false;});
+function PostBack_ctl00_RateArticle_RateItemWrapper() {
+  return rateItem(8058,2,1,true,true,3);
+}
+function ChkRtctl00_RateArticle(val, objId) {if (val<=3||true) {
+$('div[name=RateItem_' + objId + '] .rating-comment').css("display","");}
+else $('div[name=RateItem_' + objId + '] .rating-comment').css("display","none");}
+
+
+//]]>
+</script>
+
+
+
+</div><canvas id="cv1" width="1px" height="1px" style="position: absolute; left: 0pt; top: 0pt; pointer-events: none;"></canvas><canvas id="cv2" width="1px" height="1px" style="position: absolute; left: 0pt; top: 0pt; pointer-events: none;"></canvas></body></html>

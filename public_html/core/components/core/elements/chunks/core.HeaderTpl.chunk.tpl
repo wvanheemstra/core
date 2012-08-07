@@ -20,6 +20,8 @@
 	<link rel="shortcut icon" href="assets/templates/[[++custom.domain_abbreviation]]/favicon.ico">
 	<!-- make sure the Theme style is always last in order, so as to overwrite others -->
 	<link rel="stylesheet" href="assets/templates/core/stylesheets/[[getResources? &resources=`[[++custom.site_settings]]` &tpl=`core.SiteThemeCSSTpl` &includeTVs=`1` &processTVs=`1` &parents=`-1` &limit=`1` &tvPrefix=``]]" />
+	<!-- page specific css -->
+	[[*CustomCSSTV]]
 
 </head>
 <body style="background-image:url('assets/templates/core/images/backgrounds/[[getResources? &resources=`[[++custom.site_settings]]` &tpl=`core.SiteBackgroundTpl` &includeTVs=`1` &processTVs=`1` &parents=`-1` &limit=`1` &tvPrefix=``]]')">

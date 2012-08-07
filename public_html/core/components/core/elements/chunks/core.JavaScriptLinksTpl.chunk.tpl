@@ -6,6 +6,8 @@
 <script type="text/javascript" src="assets/templates/core/javascripts/jquery.autoresize.js"></script>
 <script type="text/javascript" src="assets/templates/core/javascripts/jquery.media.js"></script>
 <!-- NOTE: jquery.reveal.js is already part of the foundation.customized.js -->
+<script type="text/javascript" src="assets/templates/core/javascripts/extjs/bootstrap.js"></script>
+[[*CustomJavaScriptTV]]
 <script type="text/javascript" src="assets/templates/core/javascripts/pdf.js"></script>
 <script type="text/javascript" src="assets/templates/core/javascripts/jquery.metadata.js"></script>
 <script type="text/javascript" src="assets/templates/core/javascripts/jquery.multiselect.js"></script>

@@ -20,10 +20,21 @@ Ext.onReady(function() {
 			{ name: 'kp_PersonID', type: 'int'}, 
 			{ name: 'PersonFirstName', type: 'string'}, 
 			{ name: 'PersonLastName', type: 'string'},
-			{ name: 'kf_GenderID', type: 'int', defaultValue: '0'},
+			{ name: 'kf_GenderID', type: 'int', defaultValue: '0' },
 			{ name: 'kf_SalutationID', type: 'int', defaultValue: '0' }
 		],
 		idProperty: 'kp_PersonID'
+    });
+	
+	// Create a 'Gender' model.
+    Ext.define('core.model.Gender', {
+		extend: 'Ext.data.Model',
+        fields: [
+			{ name: 'kp_GenderID', type: 'int'}, 
+			{ name: 'GenderName', type: 'string'}
+		],
+		idProperty: 'kp_GenderID',
+		belongsTo: 'core.model.Person'
     });
 
     // The JSON Reader is used by a Proxy to read a server response 
@@ -36,7 +47,7 @@ Ext.onReady(function() {
 		proxy: {
 			type: 'ajax',
 			api: {
-				read: 'index.php?id=20&query={"query":{"type": "/core/person","kp_PersonID": null,"PersonFirstName": null,"PersonLastName": null,"kf_GenderID": null}}',
+				read: 'index.php?id=20&query={"query":{"type": "/core/person","kp_PersonID": null,"PersonFirstName": null,"PersonLastName": null,"kf_GenderID": null,"fk_person_gender":[{"kp_GenderID": null,"GenderName": null}]}}',
 				write: 'api/services/mqlread/?query={}'
 			},
 			reader: {
@@ -71,15 +82,21 @@ Ext.onReady(function() {
             },
             {
                 text     : 'Last Name',
-                width    : 200,
+                width    : 180,
                 sortable : true,
                 dataIndex: 'PersonLastName'
             },
 			{
                 text     : 'Gender ID',
-				width	 : 124,
+				width	 : 66,
                 sortable : true,
                 dataIndex: 'kf_GenderID'
+            },
+			{
+                text     : 'Gender',
+				width	 : 80,
+                sortable : true,
+                dataIndex: 'GenderName'
             },
 			{
                 text     : 'Salutation ID',

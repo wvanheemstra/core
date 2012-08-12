@@ -1,3 +1,5 @@
+<!-- page specific css -->
+[[*CustomCSSTV]]
 <link rel="stylesheet" href="assets/templates/core/stylesheets/reveal.css" type="text/css" media="screen,projection" />
 <link rel="stylesheet" href="assets/templates/core/stylesheets/foundation.css" />
 <link rel="stylesheet" href="assets/templates/core/stylesheets/foundation-icons-social.css" />

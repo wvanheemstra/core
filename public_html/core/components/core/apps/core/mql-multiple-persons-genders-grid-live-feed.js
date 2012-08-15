@@ -23,7 +23,10 @@ Ext.onReady(function() {
 			{ name: 'kf_GenderID', type: 'int', defaultValue: '0' },
 			{ name: 'kf_SalutationID', type: 'int', defaultValue: '0' }
 		],
-		idProperty: 'kp_PersonID'
+		idProperty: 'kp_PersonID',
+		associations: [
+			{ type: 'hasOne', model: 'core.model.Gender', primaryKey: 'kp_GenderID', foreignKey: 'kf_GenderID' }
+		]
     });
 	
 	// Create a 'Gender' model.
@@ -40,9 +43,7 @@ Ext.onReady(function() {
     // The JSON Reader is used by a Proxy to read a server response 
     // that is sent back in JSON format. 
     // This usually happens as a result of loading a Store
-    var store = new Ext.data.Store({
-	//Ext.define('core.store.Persons', {
-	//	extend: 'Ext.data.Store',
+    var storePerson = new Ext.data.Store({
         model: 'core.model.Person',
 		proxy: {
 			type: 'ajax',
@@ -57,15 +58,27 @@ Ext.onReady(function() {
 		},
 		autoLoad: true
     });
+	
+	var storeGender = new Ext.data.Store({
+        model: 'core.model.Gender',
+		proxy: {
+			type: 'ajax',
+			api: {
+				read: 'index.php?id=20&query={"query":{"type": "/core/gender","kp_GenderID": null,"GenderName": null}}',
+				write: 'api/services/mqlread/?query={}'
+			},
+			reader: {
+				type: 'json',
+				root: 'result'
+			}
+		},
+		autoLoad: true
+    }); 
 
     // create the Grid
     var grid = Ext.create('Ext.grid.Panel', {
-	//Ext.define('core.grid.panel', {
-		//extend: 'Ext.grid.Panel',
-        //store: 'core.store.Persons',
-		store: store,
+		store: storePerson,
         stateful: true,
-		//autoShow: true,
         stateId: 'stateGrid',
         columns: [
             {
@@ -87,16 +100,11 @@ Ext.onReady(function() {
                 dataIndex: 'PersonLastName'
             },
 			{
-                text     : 'Gender ID',
-				width	 : 66,
-                sortable : true,
-                dataIndex: 'kf_GenderID'
-            },
-			{
                 text     : 'Gender',
 				width	 : 80,
                 sortable : true,
-                dataIndex: 'GenderName'
+                dataIndex: 'kf_GenderID',
+				renderer : get_GenderName
             },
 			{
                 text     : 'Salutation ID',
@@ -113,4 +121,8 @@ Ext.onReady(function() {
             stripeRows: true
         }
     });
+	function get_GenderName(value){
+		genderName = storeGender.getById(value).get('GenderName');
+		return genderName; 
+	}
 }); // end of OnReady

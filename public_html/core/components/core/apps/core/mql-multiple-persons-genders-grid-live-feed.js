@@ -21,11 +21,14 @@ Ext.onReady(function() {
 			{ name: 'PersonFirstName', type: 'string'}, 
 			{ name: 'PersonLastName', type: 'string'},
 			{ name: 'kf_GenderID', type: 'int', defaultValue: '0' },
-			{ name: 'kf_SalutationID', type: 'int', defaultValue: '0' }
+			{ name: 'kf_SalutationID', type: 'int', defaultValue: '0' },
+			{ name: 'kf_NationalityID', type: 'int', defaultValue: '0' }
 		],
 		idProperty: 'kp_PersonID',
 		associations: [
-			{ type: 'hasOne', model: 'core.model.Gender', primaryKey: 'kp_GenderID', foreignKey: 'kf_GenderID' }
+			{ type: 'hasOne', model: 'core.model.Gender', primaryKey: 'kp_GenderID', foreignKey: 'kf_GenderID' },
+			{ type: 'hasOne', model: 'core.model.Salutation', primaryKey: 'kp_SalutationID', foreignKey: 'kf_SalutationID' },
+			{ type: 'hasOne', model: 'core.model.Nationality', primaryKey: 'kp_NationalityID', foreignKey: 'kf_NationalityID' }
 		]
     });
 	
@@ -39,7 +42,28 @@ Ext.onReady(function() {
 		idProperty: 'kp_GenderID',
 		belongsTo: 'core.model.Person'
     });
+	
+	// Create a 'Salutation' model.
+    Ext.define('core.model.Salutation', {
+		extend: 'Ext.data.Model',
+        fields: [
+			{ name: 'kp_SalutationID', type: 'int'}, 
+			{ name: 'SalutationAbbreviation', type: 'string'}
+		],
+		idProperty: 'kp_SalutationID',
+		belongsTo: 'core.model.Person'
+    });
 
+	// Create a 'Nationality' model.
+    Ext.define('core.model.Nationality', {
+		extend: 'Ext.data.Model',
+        fields: [
+			{ name: 'kp_NationalityID', type: 'int'}, 
+			{ name: 'NationalityName', type: 'string'}
+		],
+		idProperty: 'kp_NationalityID',
+		belongsTo: 'core.model.Person'
+    });
     // The JSON Reader is used by a Proxy to read a server response 
     // that is sent back in JSON format. 
     // This usually happens as a result of loading a Store
@@ -48,7 +72,7 @@ Ext.onReady(function() {
 		proxy: {
 			type: 'ajax',
 			api: {
-				read: 'index.php?id=20&query={"query":{"type": "/core/person","kp_PersonID": null,"PersonFirstName": null,"PersonLastName": null,"kf_GenderID": null,"fk_person_gender":[{"kp_GenderID": null,"GenderName": null}]}}',
+				read: 'index.php?id=20&query={"query":{"type": "/core/person","kp_PersonID": null,"PersonFirstName": null,"PersonLastName": null,"kf_GenderID": null,"fk_person_gender":[{"kp_GenderID": null,"GenderName": null}]},"kf_SalutationID":null,"kf_NationalityID":null}',
 				write: 'api/services/mqlread/?query={}'
 			},
 			reader: {
@@ -75,6 +99,38 @@ Ext.onReady(function() {
 		autoLoad: true
     }); 
 
+	var storeSalutation = new Ext.data.Store({
+        model: 'core.model.Salutation',
+		proxy: {
+			type: 'ajax',
+			api: {
+				read: 'index.php?id=20&query={"query":{"type": "/core/gender","kp_SalutationID": null,"SalutationAbbreviation": null}}',
+				write: 'api/services/mqlread/?query={}'
+			},
+			reader: {
+				type: 'json',
+				root: 'result'
+			}
+		},
+		autoLoad: true
+    }); 	
+	
+	var storeNationality = new Ext.data.Store({
+        model: 'core.model.Nationality',
+		proxy: {
+			type: 'ajax',
+			api: {
+				read: 'index.php?id=20&query={"query":{"type": "/core/nationality","kp_NationalityID": null,"NationalityName": null}}',
+				write: 'api/services/mqlread/?query={}'
+			},
+			reader: {
+				type: 'json',
+				root: 'result'
+			}
+		},
+		autoLoad: true
+    });	
+	
     // create the Grid
     var grid = Ext.create('Ext.grid.Panel', {
 		store: storePerson,
@@ -86,6 +142,13 @@ Ext.onReady(function() {
 				width	 : 24,
                 sortable : true,
                 dataIndex: 'kp_PersonID'
+            },
+			{
+                text     : 'Salutation',
+				width	 : 124,
+                sortable : true,
+                dataIndex: 'kf_SalutationID',
+				renderer : get_SalutationAbbreviation	
             },
             {
                 text     : 'First Name',
@@ -107,22 +170,46 @@ Ext.onReady(function() {
 				renderer : get_GenderName
             },
 			{
-                text     : 'Salutation ID',
+                text     : 'Nationality',
 				width	 : 124,
                 sortable : true,
-                dataIndex: 'kf_SalutationID'
+                dataIndex: 'kf_NationalityID',
+				renderer : get_NationalityName
             }
         ],
         height: 350,
-        width: 600,
-        title: 'Array Grid - Person',
+        width: 800,
+        title: 'Persons',
         renderTo: 'grid-example',
         viewConfig: {
             stripeRows: true
         }
     });
 	function get_GenderName(value){
-		genderName = storeGender.getById(value).get('GenderName');
-		return genderName; 
+		if(value) {
+			genderName = storeGender.getById(value).get('GenderName');
+			return genderName;
+		}
+		else {
+			return 'undefined';
+		}
+	};
+	function get_SalutationAbbreviation(value){
+		if(value){
+			salutationAbbreviation = storeSalutation.getById(value).get('SalutationAbbreviation');
+			return salutationAbbreviation;
+		}
+		else{
+			return 'undefined';
+		}
+	};
+	function get_NationalityName(value){
+		if(value){
+			nationalityName = storeNationality.getById(value).get('NationalityName');
+			return nationalityName;
+		}
+		else{
+			return 'undefined';
+		}
 	}
 }); // end of OnReady

@@ -13,7 +13,7 @@ Ext.onReady(function() {
 
     // See also: http://all-docs.info/extjs4/docs/api/Ext.data.JsonReader.html
 
-    // Create a 'Person' model.
+    // Define a 'Person' model.
     Ext.define('core.model.Person', {
 		extend: 'Ext.data.Model',
         fields: [
@@ -33,7 +33,7 @@ Ext.onReady(function() {
 		]
     });
 	
-	// Create a 'Gender' model.
+	// Define a 'Gender' model.
     Ext.define('core.model.Gender', {
 		extend: 'Ext.data.Model',
         fields: [
@@ -44,7 +44,7 @@ Ext.onReady(function() {
 		belongsTo: 'core.model.Person'
     });
 	
-	// Create a 'Salutation' model.
+	// Define a 'Salutation' model.
     Ext.define('core.model.Salutation', {
 		extend: 'Ext.data.Model',
         fields: [
@@ -55,7 +55,7 @@ Ext.onReady(function() {
 		belongsTo: 'core.model.Person'
     });
 
-	// Create a 'Nationality' model.
+	// Define a 'Nationality' model.
     Ext.define('core.model.Nationality', {
 		extend: 'Ext.data.Model',
         fields: [
@@ -177,7 +177,7 @@ Ext.onReady(function() {
         columns: [
             {
                 text     : 'ID',
-				width	 : 24,
+				width	 : 82,
                 sortable : true,
                 dataIndex: 'kp_PersonID'
             },
@@ -190,7 +190,7 @@ Ext.onReady(function() {
             },
             {
                 text     : 'First Name',
-                flex     : 1,
+                width     : 120,
                 sortable : true,
                 dataIndex: 'PersonFirstName'
             },
@@ -213,10 +213,20 @@ Ext.onReady(function() {
                 sortable : true,
                 dataIndex: 'kf_NationalityID',
 				renderer : get_NationalityName
-            }
+            },
+			{
+                text     : '',
+				flex	 : 1,
+                sortable : false
+			},
+			{
+                text     : '',
+				width	 : 0,
+                sortable : false
+			}
         ],
         height: 350,
-        width: 800,
+        width: 1080,
         title: 'Persons',
         renderTo: 'grid-example',
         viewConfig: {

@@ -25,6 +25,7 @@ Ext.onReady(function() {
 			{ name: 'kf_NationalityID', type: 'int', defaultValue: '0' }
 		],
 		idProperty: 'kp_PersonID',
+		//requires: 	'core.model.Gender',
 		associations: [
 			{ type: 'hasOne', model: 'core.model.Gender', primaryKey: 'kp_GenderID', foreignKey: 'kf_GenderID' },
 			{ type: 'hasOne', model: 'core.model.Salutation', primaryKey: 'kp_SalutationID', foreignKey: 'kf_SalutationID' },
@@ -64,15 +65,19 @@ Ext.onReady(function() {
 		idProperty: 'kp_NationalityID',
 		belongsTo: 'core.model.Person'
     });
+	
     // The JSON Reader is used by a Proxy to read a server response 
     // that is sent back in JSON format. 
     // This usually happens as a result of loading a Store
+	
+	// storePerson and associated functions
     var storePerson = new Ext.data.Store({
+		requires: ['core.model.Person'],
         model: 'core.model.Person',
 		proxy: {
 			type: 'ajax',
 			api: {
-				read: 'index.php?id=20&query={"query":{"type": "/core/person","kp_PersonID": null,"PersonFirstName": null,"PersonLastName": null,"kf_GenderID": null,"fk_person_gender":[{"kp_GenderID": null,"GenderName": null}]},"kf_SalutationID":null,"kf_NationalityID":null}',
+				read: 'index.php?id=20&query={"query":{"type": "/core/person","kp_PersonID": null,"PersonFirstName": null,"PersonLastName": null,"kf_GenderID": null,"fk_person_gender":[{"kp_GenderID": null,"GenderName": null}],"kf_SalutationID":null,"kf_NationalityID":null}}',
 				write: 'api/services/mqlread/?query={}'
 			},
 			reader: {
@@ -83,7 +88,9 @@ Ext.onReady(function() {
 		autoLoad: true
     });
 	
+	// storeGender and associated functions
 	var storeGender = new Ext.data.Store({
+		requires: ['core.model.Gender'],
         model: 'core.model.Gender',
 		proxy: {
 			type: 'ajax',
@@ -97,14 +104,25 @@ Ext.onReady(function() {
 			}
 		},
 		autoLoad: true
-    }); 
-
+    });
+	function get_GenderName(value){
+		if(value) {
+			genderName = storeGender.getById(value).get('GenderName');
+			return genderName;
+		}
+		else {
+			return 'undefined';
+		}
+	};	
+	
+	// storeSalutation and associated functions
 	var storeSalutation = new Ext.data.Store({
+		requires: ['core.model.Salutation'],
         model: 'core.model.Salutation',
 		proxy: {
 			type: 'ajax',
 			api: {
-				read: 'index.php?id=20&query={"query":{"type": "/core/gender","kp_SalutationID": null,"SalutationAbbreviation": null}}',
+				read: 'index.php?id=20&query={"query":{"type": "/core/salutation","kp_SalutationID": null,"SalutationAbbreviation": null}}',
 				write: 'api/services/mqlread/?query={}'
 			},
 			reader: {
@@ -113,9 +131,20 @@ Ext.onReady(function() {
 			}
 		},
 		autoLoad: true
-    }); 	
+    });
+	function get_SalutationAbbreviation(value){
+		if(value){
+			salutationAbbreviation = storeSalutation.getById(value).get('SalutationAbbreviation');
+			return salutationAbbreviation;
+		}
+		else{
+			return 'undefined';
+		}
+	};
 	
+	// storeNationality and associated functions
 	var storeNationality = new Ext.data.Store({
+		requires: ['core.model.Nationality'],
         model: 'core.model.Nationality',
 		proxy: {
 			type: 'ajax',
@@ -130,6 +159,15 @@ Ext.onReady(function() {
 		},
 		autoLoad: true
     });	
+	function get_NationalityName(value){
+		if(value){
+			nationalityName = storeNationality.getById(value).get('NationalityName');
+			return nationalityName;
+		}
+		else{
+			return 'undefined';
+		}
+	};
 	
     // create the Grid
     var grid = Ext.create('Ext.grid.Panel', {
@@ -185,31 +223,4 @@ Ext.onReady(function() {
             stripeRows: true
         }
     });
-	function get_GenderName(value){
-		if(value) {
-			genderName = storeGender.getById(value).get('GenderName');
-			return genderName;
-		}
-		else {
-			return 'undefined';
-		}
-	};
-	function get_SalutationAbbreviation(value){
-		if(value){
-			salutationAbbreviation = storeSalutation.getById(value).get('SalutationAbbreviation');
-			return salutationAbbreviation;
-		}
-		else{
-			return 'undefined';
-		}
-	};
-	function get_NationalityName(value){
-		if(value){
-			nationalityName = storeNationality.getById(value).get('NationalityName');
-			return nationalityName;
-		}
-		else{
-			return 'undefined';
-		}
-	}
 }); // end of OnReady

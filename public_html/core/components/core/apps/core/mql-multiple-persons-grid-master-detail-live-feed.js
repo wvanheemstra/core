@@ -5,7 +5,10 @@ Ext.require([
     'Ext.layout.container.Border'
 ]);
 
-Ext.Loader.onReady(function() {			
+Ext.Loader.onReady(function() {		
+
+	// **************************************** START OF MODELS ***************************************************** //
+	
 	/**
      * core.model.Person
      * @extends Ext.data.Model
@@ -70,6 +73,10 @@ Ext.Loader.onReady(function() {
 		idProperty: 'kp_NationalityID',
 		belongsTo: 'core.model.Person'
     });			
+
+	// **************************************** END OF MODELS ***************************************************** //
+	
+	// **************************************** START OF STORES ***************************************************** //
 	
 	/**
      * core.store.Person
@@ -96,6 +103,62 @@ Ext.Loader.onReady(function() {
 		}
 	});		
 
+	// storeSalutation and associated functions
+	var storeSalutation = new Ext.data.Store({
+		requires: ['core.model.Salutation'],
+        model: 'core.model.Salutation',
+		proxy: {
+			type: 'ajax',
+			api: {
+				read: 'index.php?id=20&query={"query":{"type": "/core/salutation","kp_SalutationID": null,"SalutationAbbreviation": null}}',
+				write: 'api/services/mqlread/?query={}'
+			},
+			reader: {
+				type: 'json',
+				root: 'result'
+			}
+		},
+		autoLoad: true
+    });
+	function get_SalutationAbbreviation(value){
+		if(value){
+			salutationAbbreviation = storeSalutation.getById(value).get('SalutationAbbreviation');
+			return salutationAbbreviation;
+		}
+		else{
+			return 'undefined';
+		}
+	};
+	
+	// storeNationality and associated functions
+	var storeNationality = new Ext.data.Store({
+		requires: ['core.model.Nationality'],
+        model: 'core.model.Nationality',
+		proxy: {
+			type: 'ajax',
+			api: {
+				read: 'index.php?id=20&query={"query":{"type": "/core/nationality","kp_NationalityID": null,"NationalityName": null}}',
+				write: 'api/services/mqlread/?query={}'
+			},
+			reader: {
+				type: 'json',
+				root: 'result'
+			}
+		},
+		autoLoad: true
+    });	
+	function get_NationalityName(value){
+		if(value){
+			nationalityName = storeNationality.getById(value).get('NationalityName');
+			return nationalityName;
+		}
+		else{
+			return 'undefined';
+		}
+	};
+	
+	// **************************************** END OF STORES ***************************************************** //
+	
 	/**
      * core.grid.Person
      * @extends Ext.grid.Panel
@@ -112,7 +175,7 @@ Ext.Loader.onReady(function() {
             // Note that the DetailPageURL was defined in the record definition but is not used
             // here. That is okay.
 			this.columns = [
-				{text: "Salutation", width: 60, dataIndex: 'kf_SalutationID', sortable: true},
+				{text: "Salutation", width: 60, dataIndex: 'kf_SalutationID', sortable: true, renderer: get_SalutationAbbreviation},
                 {text: "First Name", width: 120, dataIndex: 'PersonFirstName', sortable: true},
 				{text: "Last Name", width: 120, dataIndex: 'PersonLastName', sortable: true},
 				{text: "", flex: 1, dataIndex: '', sortable: false}

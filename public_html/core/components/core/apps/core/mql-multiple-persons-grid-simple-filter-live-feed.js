@@ -10,6 +10,8 @@ Ext.require([
     'Ext.ux.ajax.SimManager'
 ]);
 
+	// **************************************** START OF MODELS ***************************************************** //
+
 /**  REMOVE
 	Ext.define('Product', {
 		extend: 'Ext.data.Model',
@@ -40,32 +42,45 @@ Ext.require([
 	 */
 	Ext.define('core.model.Person', {
 		extend: 'Ext.data.Model',
-		fields: [{
-			name: 'id',
-			type: 'int'
-		}, {
-			name: 'kf_SalutationID'
-		}, {
-			name: 'PersonFirstName'
-		}, {
-			name: 'PersonLastName'
-		}, {
-			name: 'company'
-		}, {
-			name: 'price',
-			type: 'float'
-		}, {
-			name: 'date',
-			type: 'date',
-			dateFormat: 'Y-m-d'
-		}, {
-			name: 'visible',
-			type: 'boolean'
-		}, {
-			name: 'size'
-		}]
+		fields: [
+			{name: 'id', type: 'int'}, 
+			{name: 'kp_PersonID', type: 'int'}, 
+			{name: 'PersonFirstName', type: 'string'}, 
+			{name: 'PersonLastName', type: 'string'}, 
+			{name: 'kf_GenderID', type: 'int', defaultValue: '0' },
+			{name: 'kf_SalutationID', type: 'int', defaultValue: '0' },
+			{name: 'kf_NationalityID', type: 'int', defaultValue: '0' },
+			{name: 'company'}, 
+			{name: 'price', type: 'float'}, 
+			{name: 'date', type: 'date', dateFormat: 'Y-m-d'}, 
+			{name: 'visible', type: 'boolean'}, 
+			{name: 'size'}
+		],
+		idProperty: 'kp_PersonID',
+		//requires: 	'core.model.Gender',
+		associations: [
+			{ type: 'hasOne', model: 'core.model.Gender', primaryKey: 'kp_GenderID', foreignKey: 'kf_GenderID' },
+			{ type: 'hasOne', model: 'core.model.Salutation', primaryKey: 'kp_SalutationID', foreignKey: 'kf_SalutationID' },
+			{ type: 'hasOne', model: 'core.model.Nationality', primaryKey: 'kp_NationalityID', foreignKey: 'kf_NationalityID' }
+		]
 	});
 
+	/**
+     * core.model.Salutation
+     * @extends Ext.data.Model
+	 */
+    Ext.define('core.model.Salutation', {
+		extend: 'Ext.data.Model',
+        fields: [
+			{ name: 'kp_SalutationID', type: 'int'}, 
+			{ name: 'SalutationAbbreviation', type: 'string'}
+		],
+		idProperty: 'kp_SalutationID',
+		belongsTo: 'core.model.Person'
+    });	
+	
+	// **************************************** END OF MODELS ***************************************************** //	
+	
 Ext.onReady(function(){
 
     Ext.ux.ajax.SimManager.init({
@@ -74,10 +89,10 @@ Ext.onReady(function(){
     }).register({
         'myData': {
             data: [
-                ['small', 'small'],
-                ['medium', 'medium'],
-                ['large', 'large'],
-                ['extra large', 'extra large']
+                ['small', 'Small'],
+                ['medium', 'Medium'],
+                ['large', 'Large'],
+                ['extra large', 'Extra Large']
             ],
             stype: 'json'
         }
@@ -116,7 +131,7 @@ Ext.onReady(function(){
             reader: {
                 type: 'json',
                 root: 'result',
-                idProperty: 'id',
+                idProperty: 'kp_PersonID',
                 totalProperty: 'total'
             }
         },
@@ -147,7 +162,9 @@ Ext.onReady(function(){
     // the filter types (the filters may be specified on the column model
     var createColumns = function (finish, start) {
 
-        var columns = [{
+        var columns = [
+/**		
+		{
             dataIndex: 'id',
             text: 'Id',
             // instead of specifying filter config just specify filterable=true
@@ -157,6 +174,18 @@ Ext.onReady(function(){
             filterable: true,
             width: 30
             //,filter: {type: 'numeric'}
+		}, 
+*/		
+		{
+            dataIndex: 'kp_PersonID',
+            text: 'ID',
+            id: 'kp_PersonID',
+            width: 30,
+            filter: {
+                type: 'numeric'
+                // specify disabled to disable the filter menu
+                //, disabled: true
+			}
 		}, {
             dataIndex: 'kf_SalutationID',
             text: 'Salutation',

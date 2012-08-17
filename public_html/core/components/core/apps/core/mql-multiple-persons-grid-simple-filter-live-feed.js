@@ -50,11 +50,14 @@ Ext.require([
 			{name: 'kf_GenderID', type: 'int', defaultValue: '0' },
 			{name: 'kf_SalutationID', type: 'int', defaultValue: '0' },
 			{name: 'kf_NationalityID', type: 'int', defaultValue: '0' },
-			{name: 'company'}, 
+/**			{name: 'company'}, 
 			{name: 'price', type: 'float'}, 
 			{name: 'date', type: 'date', dateFormat: 'Y-m-d'}, 
-			{name: 'visible', type: 'boolean'}, 
-			{name: 'size'}
+*/			
+			{name: 'visible', type: 'boolean'}
+/**			, 
+			{name: 'size'}	
+*/			
 		],
 		idProperty: 'kp_PersonID',
 		//requires: 	'core.model.Gender',
@@ -111,7 +114,8 @@ Ext.onReady(function(){
 
     // for this demo configure local and remote urls for demo purposes
     var url = {
-        local:  'core/components/core/apps/core/data/persons-grid-filter.json',  // static data file
+		local: 'index.php?id=20&query={"query":{"type": "/core/person","kp_PersonID": null,"PersonFirstName": null,"PersonLastName": null,"kf_GenderID": null,"fk_person_gender":[{"kp_GenderID": null,"GenderName": null}],"kf_SalutationID":null,"kf_NationalityID":null}}',
+        // local:  'core/components/core/apps/core/data/persons-grid-filter.json',  // static data file
         remote: 'core/components/core/apps/core/data/persons-grid-filter.json'
     };
 
@@ -137,7 +141,7 @@ Ext.onReady(function(){
         },
         remoteSort: false,
         sorters: [{
-            property: 'company',
+            property: 'PersonLastName',  // was company
             direction: 'ASC'
         }],
         pageSize: 10 // was 50
@@ -180,7 +184,7 @@ Ext.onReady(function(){
             dataIndex: 'kp_PersonID',
             text: 'ID',
             id: 'kp_PersonID',
-            width: 30,
+            width: 40,
             filter: {
                 type: 'numeric'
                 // specify disabled to disable the filter menu
@@ -216,7 +220,9 @@ Ext.onReady(function(){
                 // specify disabled to disable the filter menu
                 //, disabled: true
 			}
-        }, {
+        }, 
+/**		
+			{
             dataIndex: 'company',
             text: 'Company',
             id: 'company',
@@ -246,7 +252,9 @@ Ext.onReady(function(){
             text: 'Date',
             filter: true,
             renderer: Ext.util.Format.dateRenderer('m/d/Y')
-        }, {
+        },
+*/		
+		{
             dataIndex: 'visible',
             text: 'Visible'
             // this column's filter is defined in the filters feature config

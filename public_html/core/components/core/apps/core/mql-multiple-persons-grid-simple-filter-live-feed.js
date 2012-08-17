@@ -10,27 +10,29 @@ Ext.require([
     'Ext.ux.ajax.SimManager'
 ]);
 
-Ext.define('Product', {
-    extend: 'Ext.data.Model',
-    fields: [{
-        name: 'id',
-        type: 'int'
-    }, {
-        name: 'company'
-    }, {
-        name: 'price',
-        type: 'float'
-    }, {
-        name: 'date',
-        type: 'date',
-        dateFormat: 'Y-m-d'
-    }, {
-        name: 'visible',
-        type: 'boolean'
-    }, {
-        name: 'size'
-    }]
-});
+/**  REMOVE
+	Ext.define('Product', {
+		extend: 'Ext.data.Model',
+		fields: [{
+			name: 'id',
+			type: 'int'
+		}, {
+			name: 'company'
+		}, {
+			name: 'price',
+			type: 'float'
+		}, {
+			name: 'date',
+			type: 'date',
+			dateFormat: 'Y-m-d'
+		}, {
+			name: 'visible',
+			type: 'boolean'
+		}, {
+			name: 'size'
+		}]
+	});
+*/
 
 	/**
      * core.model.Person
@@ -41,6 +43,12 @@ Ext.define('Product', {
 		fields: [{
 			name: 'id',
 			type: 'int'
+		}, {
+			name: 'kf_SalutationID'
+		}, {
+			name: 'PersonFirstName'
+		}, {
+			name: 'PersonLastName'
 		}, {
 			name: 'company'
 		}, {
@@ -88,8 +96,8 @@ Ext.onReady(function(){
 
     // for this demo configure local and remote urls for demo purposes
     var url = {
-        local:  'core/components/core/apps/core/data/grid-filter.json',  // static data file
-        remote: 'core/components/core/apps/core/data/grid-filter.json'
+        local:  'core/components/core/apps/core/data/persons-grid-filter.json',  // static data file
+        remote: 'core/components/core/apps/core/data/persons-grid-filter.json'
     };
 
     // configure whether filter query is encoded or not (initially)
@@ -101,13 +109,13 @@ Ext.onReady(function(){
     var store = Ext.create('Ext.data.JsonStore', {
         // store configs
         autoDestroy: true,
-        model: 'Product',
+        model: 'core.model.Person', // was Product
         proxy: {
             type: 'ajax',
             url: (local ? url.local : url.remote),
             reader: {
                 type: 'json',
-                root: 'data',
+                root: 'result',
                 idProperty: 'id',
                 totalProperty: 'total'
             }
@@ -117,7 +125,7 @@ Ext.onReady(function(){
             property: 'company',
             direction: 'ASC'
         }],
-        pageSize: 50
+        pageSize: 10 // was 50
     });
 
     var filters = {
@@ -149,11 +157,41 @@ Ext.onReady(function(){
             filterable: true,
             width: 30
             //,filter: {type: 'numeric'}
+		}, {
+            dataIndex: 'kf_SalutationID',
+            text: 'Salutation',
+            id: 'kf_SalutationID',
+            width: 80,
+            filter: {
+                type: 'string'
+                // specify disabled to disable the filter menu
+                //, disabled: true
+			}
+		}, {
+            dataIndex: 'PersonFirstName',
+            text: 'First Name',
+            id: 'PersonFirstName',
+            width: 80,
+            filter: {
+                type: 'string'
+                // specify disabled to disable the filter menu
+                //, disabled: true
+			}
+		}, {
+            dataIndex: 'PersonLastName',
+            text: 'Last Name',
+            id: 'PersonLastName',
+            width: 80,
+            filter: {
+                type: 'string'
+                // specify disabled to disable the filter menu
+                //, disabled: true
+			}
         }, {
             dataIndex: 'company',
             text: 'Company',
             id: 'company',
-            flex: 1,
+            width: 100,
             filter: {
                 type: 'string'
                 // specify disabled to disable the filter menu
@@ -262,7 +300,7 @@ Ext.onReady(function(){
     ]);
 
     var win = Ext.create('Ext.Window', {
-        title: 'Grid Filters Example',
+        title: 'Persons - Grid Filters',
         height: 400,
         width: 700,
         layout: 'fit',

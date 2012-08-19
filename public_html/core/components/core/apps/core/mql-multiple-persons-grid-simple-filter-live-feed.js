@@ -1,88 +1,49 @@
 // source: http://dev.sencha.com/deploy/ext-4.1.0-gpl/examples/grid-filtering/grid-filter-local.html
 Ext.Loader.setConfig({enabled: true});
-Ext.Loader.setPath('Ext.ux', 'assets/templates/core/javascripts/extjs/examples/ux');
+Ext.Loader.setPath({
+	'Ext.ux': 'assets/templates/core/javascripts/extjs/examples/ux',
+	'core': 'core/components/core/apps/core/app'
+	});
 Ext.require([
     'Ext.grid.*',
     'Ext.data.*',
     'Ext.ux.grid.FiltersFeature',
     'Ext.toolbar.Paging',
     'Ext.ux.ajax.JsonSimlet',
-    'Ext.ux.ajax.SimManager'
+    'Ext.ux.ajax.SimManager',
+	'core.store.Salutations',
+	'core.store.Genders',
+	'core.store.Nationalities'
 ]);
 
-	// **************************************** START OF MODELS ***************************************************** //
+// **************************************** START OF MODELS ***************************************************** //
 
-/**  REMOVE
-	Ext.define('Product', {
-		extend: 'Ext.data.Model',
-		fields: [{
-			name: 'id',
-			type: 'int'
-		}, {
-			name: 'company'
-		}, {
-			name: 'price',
-			type: 'float'
-		}, {
-			name: 'date',
-			type: 'date',
-			dateFormat: 'Y-m-d'
-		}, {
-			name: 'visible',
-			type: 'boolean'
-		}, {
-			name: 'size'
-		}]
-	});
-*/
+/**
+ * core.model.Person
+ * @extends Ext.data.Model
+ */ 
+Ext.define('core.model.Person', {
+	extend: 'Ext.data.Model',
+	fields: [
+		{name: 'id', type: 'int'}, 
+		{name: 'kp_PersonID', type: 'int'}, 
+		{name: 'PersonFirstName', type: 'string'}, 
+		{name: 'PersonLastName', type: 'string'}, 
+		{name: 'kf_GenderID', type: 'int', defaultValue: '0' },
+		{name: 'kf_SalutationID', type: 'int', defaultValue: '0' },
+		{name: 'kf_NationalityID', type: 'int', defaultValue: '0' }			
+		//,{name: 'visible', type: 'boolean'}
+	],
+	idProperty: 'kp_PersonID',
+	requires: 	['core.model.Gender','core.model.Salutation','core.model.Nationality'],
+	associations: [
+		{ type: 'hasOne', model: 'core.model.Gender', primaryKey: 'kp_GenderID', foreignKey: 'kf_GenderID' },
+		{ type: 'hasOne', model: 'core.model.Salutation', primaryKey: 'kp_SalutationID', foreignKey: 'kf_SalutationID' },
+		{ type: 'hasOne', model: 'core.model.Nationality', primaryKey: 'kp_NationalityID', foreignKey: 'kf_NationalityID' }
+	]
+});
 
-	/**
-     * core.model.Person
-     * @extends Ext.data.Model
-	 */
-	Ext.define('core.model.Person', {
-		extend: 'Ext.data.Model',
-		fields: [
-			{name: 'id', type: 'int'}, 
-			{name: 'kp_PersonID', type: 'int'}, 
-			{name: 'PersonFirstName', type: 'string'}, 
-			{name: 'PersonLastName', type: 'string'}, 
-			{name: 'kf_GenderID', type: 'int', defaultValue: '0' },
-			{name: 'kf_SalutationID', type: 'int', defaultValue: '0' },
-			{name: 'kf_NationalityID', type: 'int', defaultValue: '0' },
-/**			{name: 'company'}, 
-			{name: 'price', type: 'float'}, 
-			{name: 'date', type: 'date', dateFormat: 'Y-m-d'}, 
-*/			
-			{name: 'visible', type: 'boolean'}
-/**			, 
-			{name: 'size'}	
-*/			
-		],
-		idProperty: 'kp_PersonID',
-		//requires: 	'core.model.Gender',
-		associations: [
-			{ type: 'hasOne', model: 'core.model.Gender', primaryKey: 'kp_GenderID', foreignKey: 'kf_GenderID' },
-			{ type: 'hasOne', model: 'core.model.Salutation', primaryKey: 'kp_SalutationID', foreignKey: 'kf_SalutationID' },
-			{ type: 'hasOne', model: 'core.model.Nationality', primaryKey: 'kp_NationalityID', foreignKey: 'kf_NationalityID' }
-		]
-	});
-
-	/**
-     * core.model.Salutation
-     * @extends Ext.data.Model
-	 */
-    Ext.define('core.model.Salutation', {
-		extend: 'Ext.data.Model',
-        fields: [
-			{ name: 'kp_SalutationID', type: 'int'}, 
-			{ name: 'SalutationAbbreviation', type: 'string'}
-		],
-		idProperty: 'kp_SalutationID',
-		belongsTo: 'core.model.Person'
-    });	
-	
-	// **************************************** END OF MODELS ***************************************************** //	
+// **************************************** END OF MODELS ***************************************************** //	
 	
 Ext.onReady(function(){
 
@@ -109,15 +70,20 @@ Ext.onReady(function(){
             reader: 'array'
         }
     });
-
+	
     Ext.QuickTips.init();
 
-    // for this demo configure local and remote urls for demo purposes
-    var url = {
+    // configure local urls
+    var urlRead = {
 		local: 'index.php?id=20&query={"query":{"type": "/core/person","kp_PersonID": null,"PersonFirstName": null,"PersonLastName": null,"kf_GenderID": null,"fk_person_gender":[{"kp_GenderID": null,"GenderName": null}],"kf_SalutationID":null,"kf_NationalityID":null}}',
-        // local:  'core/components/core/apps/core/data/persons-grid-filter.json',  // static data file
         remote: 'core/components/core/apps/core/data/persons-grid-filter.json'
     };
+	
+    // configure remote urls
+    var urlWrite = {
+		local: 'core/components/core/apps/core/data/xxx.json',
+        remote: 'index.php?id=20&query={"query":{}}'
+    };	
 
     // configure whether filter query is encoded or not (initially)
     var encode = false;
@@ -125,13 +91,41 @@ Ext.onReady(function(){
     // configure whether filtering is performed locally or remotely (initially)
     var local = true;
 
-    var store = Ext.create('Ext.data.JsonStore', {
+	// **************************************** START OF STORES ***************************************************** //
+	
+    var storePerson = Ext.create('Ext.data.JsonStore', {
         // store configs
         autoDestroy: true,
-        model: 'core.model.Person', // was Product
+		requires: 'core.model.Person',
+        model: 'core.model.Person',
         proxy: {
             type: 'ajax',
-            url: (local ? url.local : url.remote),
+			api: {
+					read: (local ? urlRead.local : urlRead.remote),
+					write: (local ? urlWrite.local : urlWrite.remote)
+			},
+			/**
+			 * Customized to send ../?prop=val&prop2=val2 urls.
+			 */
+//			buildUrl: function(request) {
+			//	var url = this.url;
+//				var read = this.read;
+			//	var filters = eval(request.params['filter']);
+			//	if (filters) {
+			//		delete request.params['filter'];
+			//		url += '?'
+			//		for (var i = 0; i < filters.length; i++) {
+			//			var filterString = filters[i].property + "=" + filters[i].value;
+			//			if (url.slice(url.length-1) === '?') {
+			//				url += filterString;
+			//			} else {
+			//				url += '&' + filterstring;
+			//			} 
+			//		}
+			//	};
+//				return read;
+			//	return url;
+//			},
             reader: {
                 type: 'json',
                 root: 'result',
@@ -141,12 +135,50 @@ Ext.onReady(function(){
         },
         remoteSort: false,
         sorters: [{
-            property: 'PersonLastName',  // was company
+            property: 'PersonLastName',
             direction: 'ASC'
         }],
         pageSize: 10 // was 50
     });
 
+	// storeSalutation and associated functions
+	var storeSalutation = new core.store.Salutations();	
+	function get_SalutationAbbreviation(value){
+		if(value){
+			salutationAbbreviation = storeSalutation.getById(value).get('SalutationAbbreviation');
+			return salutationAbbreviation;
+		}
+		else{
+			return 'undefined';
+		}
+	};
+
+	// storeGender and associated functions
+	var storeGender = new core.store.Genders();	
+	function get_GenderName(value){
+		if(value){
+			genderName = storeGender.getById(value).get('GenderName');
+			return genderName;
+		}
+		else{
+			return 'undefined';
+		}
+	};
+
+	// storeNationality and associated functions
+	var storeNationality = new core.store.Nationalities();
+	function get_NationalityName(value){
+		if(value){
+			nationalityName = storeNationality.getById(value).get('NationalityName');
+			return nationalityName;
+		}
+		else{
+			return 'undefined';
+		}
+	};
+	
+	// **************************************** END OF STORES ***************************************************** //	
+	
     var filters = {
         ftype: 'filters',
         // encode and local configuration options defined previously for easier reuse
@@ -180,98 +212,27 @@ Ext.onReady(function(){
             //,filter: {type: 'numeric'}
 		}, 
 */		
-		{
-            dataIndex: 'kp_PersonID',
-            text: 'ID',
-            id: 'kp_PersonID',
-            width: 40,
-            filter: {
-                type: 'numeric'
-                // specify disabled to disable the filter menu
-                //, disabled: true
-			}
-		}, {
-            dataIndex: 'kf_SalutationID',
-            text: 'Salutation',
-            id: 'kf_SalutationID',
-            width: 80,
-            filter: {
-                type: 'string'
-                // specify disabled to disable the filter menu
-                //, disabled: true
-			}
-		}, {
-            dataIndex: 'PersonFirstName',
-            text: 'First Name',
-            id: 'PersonFirstName',
-            width: 80,
-            filter: {
-                type: 'string'
-                // specify disabled to disable the filter menu
-                //, disabled: true
-			}
-		}, {
-            dataIndex: 'PersonLastName',
-            text: 'Last Name',
-            id: 'PersonLastName',
-            width: 80,
-            filter: {
-                type: 'string'
-                // specify disabled to disable the filter menu
-                //, disabled: true
-			}
-        }, 
-/**		
-			{
-            dataIndex: 'company',
-            text: 'Company',
-            id: 'company',
-            width: 100,
-            filter: {
-                type: 'string'
-                // specify disabled to disable the filter menu
-                //, disabled: true
-            }
-        }, {
-            dataIndex: 'price',
-            text: 'Price',
-            filter: {
-                //type: 'numeric'  // specify type here or in store fields config
-            },
-            width: 70
-        }, {
-            dataIndex: 'size',
-            text: 'Size',
-            filter: {
-                type: 'list',
-                store: optionsStore
-                //,phpMode: true
-            }
-        }, {
-            dataIndex: 'date',
-            text: 'Date',
-            filter: true,
-            renderer: Ext.util.Format.dateRenderer('m/d/Y')
-        },
-*/		
-		{
-            dataIndex: 'visible',
-            text: 'Visible'
-            // this column's filter is defined in the filters feature config
-        }];
+		{dataIndex: 'kp_PersonID', text: 'ID', id: 'kp_PersonID', width: 40, filter: {type: 'numeric', disabled: false}}, 
+		{dataIndex: 'kf_SalutationID', text: 'Salutation', id: 'kf_SalutationID', width: 80, filter: {type: 'numeric', disabled: false}, renderer: get_SalutationAbbreviation},
+		{dataIndex: 'PersonFirstName', text: 'First Name', id: 'PersonFirstName', width: 80, filter: {type: 'string', disabled: false}}, 
+		{dataIndex: 'PersonLastName', text: 'Last Name', id: 'PersonLastName', width: 80, filter: {type: 'string', disabled: false}},
+		{dataIndex: 'kf_GenderID', text: 'Gender', id: 'kf_GenderID', width: 80, filter: {type: 'numeric', disabled: false}, renderer: get_GenderName},
+		{dataIndex: 'kf_NationalityID', text: 'Nationality', id: 'kf_NationalityID', width: 80, filter: {type: 'numeric', disabled: false}, renderer: get_NationalityName}
+//		,{dataIndex: 'visible', text: 'Visible'} // this column's filter is defined in the filters feature config	
+		];
 
         return columns.slice(start || 0, finish);
     };
     
     var grid = Ext.create('Ext.grid.Panel', {
         border: false,
-        store: store,
-        columns: createColumns(4),
+        store: storePerson,
+        columns: createColumns(6), // number of columns
         loadMask: true,
         features: [filters],
         dockedItems: [Ext.create('Ext.toolbar.Paging', {
             dock: 'bottom',
-            store: store
+            store: storePerson
         })],
         emptyText: 'No Matching Records'
     });
@@ -298,18 +259,18 @@ Ext.onReady(function(){
             handler: function (button, state) {
                 var local = (grid.filters.local !== true),
                     text = 'Local Filtering: ' + (local ? 'On' : 'Off'),
-                    newUrl = local ? url.local : url.remote,
+                    newUrl = local ? urlRead.local : urlRead.remote,
                     store = grid.view.getStore();
                  
                 // update the GridFilter setting
                 grid.filters.local = local;
                 // bind the store again so GridFilters is listening to appropriate store event
-                grid.filters.bindStore(store);
+                grid.filters.bindStore(storePerson);
                 // update the url for the proxy
-                store.proxy.url = newUrl;
+                storePerson.proxy.url = newUrl;
 
                 button.setText(text);
-                store.load();
+                storePerson.load();
             } 
         },
         {
@@ -327,8 +288,8 @@ Ext.onReady(function(){
         },{
             text: 'Add Columns',
             handler: function () {
-                if (grid.headerCt.items.length < 6) {
-                    grid.headerCt.add(createColumns(6, 4));
+                if (grid.headerCt.items.length < 8) {
+                    grid.headerCt.add(createColumns(8, 6));
                     grid.view.refresh();
                     this.disable();
                 }
@@ -344,5 +305,5 @@ Ext.onReady(function(){
         items: grid
     }).show();
 
-    store.load();
+    storePerson.load();
 });

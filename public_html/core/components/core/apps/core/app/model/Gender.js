@@ -1,3 +1,7 @@
+/**
+ * core.model.Gender
+ * @extends Ext.data.Model
+ */
 Ext.define('core.model.Gender', {
 	extend: 'Ext.data.Model',
 	fields: [

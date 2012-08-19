@@ -1,3 +1,7 @@
+/**
+ * core.model.Salutation
+ * @extends Ext.data.Model
+ */
 Ext.define('core.model.Salutation', {
 	extend: 'Ext.data.Model',
 	fields: [

@@ -1,3 +1,7 @@
+/**
+ * core.model.Person
+ * @extends Ext.data.Model
+ */
 Ext.define('core.model.Person', {
 	extend: 'Ext.data.Model',
 	fields: [
@@ -9,6 +13,9 @@ Ext.define('core.model.Person', {
 		{ name: 'kf_NationalityID', type: 'int', defaultValue: '0' }
 	],
 	idProperty: 'kp_PersonID',
+	requires: [
+		'core.model.Gender','core.model.Salutation','core.model.Nationality'
+	],
 	associations: [
 		{ type: 'hasOne', model: 'core.model.Gender', primaryKey: 'kp_GenderID', foreignKey: 'kf_GenderID' },
 		{ type: 'hasOne', model: 'core.model.Salutation', primaryKey: 'kp_SalutationID', foreignKey: 'kf_SalutationID' },

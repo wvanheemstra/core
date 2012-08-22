@@ -9,13 +9,23 @@ Ext.require([
 
 Ext.onReady(function () {
 
+	var personColumns = [
+		{ dataIndex: 'kp_PersonID', header: 'ID', width: 50 },
+		{ dataIndex: 'kf_SalutationID', header: 'Salutation', width: 60 },
+		{ dataIndex: 'PersonFirstName', header: 'First Name', width: 75 },
+		{ dataIndex: 'PersonLastName', header: 'Last Name', width: 125 },
+		{ dataIndex: 'kf_GenderID', header: 'Gender', width: 60 },
+		{ dataIndex: 'kf_NationalityID', header: 'Nationality', width: 60 },
+		{ dataIndex: 'dummy', header: '', flex: 1 }
+	];
+
     var grid = Ext.create('Ext.grid.Panel', {
-	    title: 'Products Grid',
+	    title: 'Person Grid',
 	    itemId: 'gridpanel',
     	height: 400,
     	columnWidth: 0.60,
-	    columns: colProducts,
-        store: storeProducts,
+	    columns: personColumns,
+        store: storePersons,
         dockedItems: [
             toolbar
         ]        
@@ -23,7 +33,7 @@ Ext.onReady(function () {
 
 	var gridForm = Ext.create('Ext.form.Panel', {
 	    frame: true,
-	    title: 'Product Data',
+	    title: 'Person Data',
 	    bodyPadding: 5,
 	    width: 750,
 	    layout: 'column',    // Specifies that the items will now be arranged in columns
@@ -37,7 +47,7 @@ Ext.onReady(function () {
 	        columnWidth: 0.4,
 	        margin: '0 0 0 10',
 	        xtype: 'fieldset',
-	        title:'Product Info',
+	        title:'Person Info',
 	        defaults: {
 	            width: 240,
 	            labelWidth: 60
@@ -45,12 +55,12 @@ Ext.onReady(function () {
 	        defaultType: 'textfield',
 	        items: [
 	        {
-                 xtype:'hidden', // autoinc field, need presence for update 
-                 name:'idProduct'	        	
+                 xtype:'hidden', // autoinc field, need presence for update  
+                 name:'kp_PersonID'				 
 	        },
 	        {
 	        	xtype: 'button',
-	        	text: 'Add Product',
+	        	text: 'Add Person',
 	        	handler: function(){
 	        		var form = gridForm.getForm();
 
@@ -69,38 +79,45 @@ Ext.onReady(function () {
                     });
 
                     // focus the desired field
-                    var field = gridForm.down('#fieldProductName');
+                    var field = gridForm.down('#fieldPersonFirstName');					
                     field.focus('',10);
 	        	}
 	        },
+			{
+	            name: 'kf_SalutationID',
+	            xtype: 'numberfield',
+	            fieldLabel: 'Salutation',
+	            width: 125
+	        },
 	        {
 	            xtype: 'textfield',
-	            itemId: 'fieldProductName',
-	            fieldLabel: 'Name',
+	            itemId: 'fieldPersonFirstName',
+	            fieldLabel: 'First Name',
 	            allowBlank: false,
-	            name: 'productName'
+	            name: 'PersonFirstName'
 	        },
 	        {
-	            name: 'qty',
+	            xtype: 'textfield',
+	            itemId: 'fieldPersonLastName',
+	            fieldLabel: 'Last Name',
+	            allowBlank: false,
+	            name: 'PersonLastName'
+	        },			
+			{
+	            name: 'kf_GenderID',
 	            xtype: 'numberfield',
-	            fieldLabel: 'Qty',
+	            fieldLabel: 'Gender',
 	            width: 125
 	        },
-	        {
-	            name: 'rate',
+			{
+	            name: 'kf_NationalityID',
 	            xtype: 'numberfield',
-	            fieldLabel: 'Rate',
-	            width: 125
-	        },
-	        {
-	            name: 'total',
-	            xtype: 'numberfield',
-	            fieldLabel: 'Total',
+	            fieldLabel: 'Nationality',
 	            width: 125
 	        },
 	        {
 	        	xtype: 'button',
-	        	text: 'Save Product',
+	        	text: 'Save Person',
 	        	handler: function(){
 	        		var form = gridForm.getForm();
                     if (form.isValid()) {
@@ -113,7 +130,7 @@ Ext.onReady(function () {
 		                        params: { },
 		                        success: function(record, operation) {
 		                            if (operation.action === 'create'){
-		                            	alert('You have added a '+record.data.productName)
+		                            	alert('You have added '+record.data.PersonFirstName+' '+record.data.PersonLastName)
 		                            }
 		                            grid.store.load(); // reload the store so insert is displays in correct order and latest records are available
 		                        },
@@ -124,11 +141,11 @@ Ext.onReady(function () {
 		                    rec.endEdit();
 		                    rec.commit(); // removes the dirty marker in grid if used
 	                    } else {
-	                    	alert('Please select a record to edit, or select Add Product');
+	                    	alert('Please select a record to edit, or select Add Person');
 	                    }
 	                } else {
 	                    // focus the desired field
-	                    var field = gridForm.down('#fieldProductName');
+	                    var field = gridForm.down('#fieldPersonFirstName');
 	                    field.focus('',10);
 	                }    
 	        	}
@@ -144,7 +161,7 @@ Ext.onReady(function () {
         form.loadRecord(model); // from record, no call to server
     }, this);
 
-    storeProducts.on('load', function(store, model) {
+    storePersons.on('load', function(store, model) {
  		grid.getSelectionModel().select(0);    	
     }, this);
 

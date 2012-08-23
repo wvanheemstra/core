@@ -86,9 +86,10 @@ Ext.Loader.onReady(function() {
 			});
 			this.LoadMask = true;
 			this.features = [filters];
-			this.dockedItems = [
-				toolbar
-			];
+			this.dockedItems = [Ext.create('Ext.toolbar.Paging', {
+				dock: 'bottom',
+				store: 'gridStorePersons'
+			})];
 			// finally call the superclasses implementation
             core.grid.Person.superclass.initComponent.call(this);
 		}      

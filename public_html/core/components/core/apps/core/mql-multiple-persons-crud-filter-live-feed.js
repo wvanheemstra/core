@@ -51,7 +51,7 @@ Ext.Loader.onReady(function() {
 	var personColumns = function (finish, start) {
 		var columns = [
 			{ dataIndex: 'kp_PersonID', id: 'kp_PersonID', header: 'ID', width: 50, filter: {type: 'numeric', disabled: false} },
-			{ dataIndex: 'kf_SalutationID', id: 'kf_SalutationID', header: 'Salutation', width: 60, filter: {type: 'numeric', disabled: false} },
+			{ dataIndex: 'kf_SalutationID', id: 'kf_SalutationID', header: 'Salutation', width: 60, filter: {type: 'numeric', disabled: false}, renderer: get_SalutationAbbreviation },
 			{ dataIndex: 'PersonFirstName', id: 'PersonFirstName', header: 'First Name', width: 75, filter: {type: 'string', disabled: false} },
 			{ dataIndex: 'PersonLastName', id: 'PersonLastName', header: 'Last Name', width: 125, filter: {type: 'string', disabled: false} },
 			{ dataIndex: 'kf_GenderID', id: 'kf_GenderID', header: 'Gender', width: 60, filter: {type: 'numeric', disabled: false} },
@@ -125,6 +125,18 @@ Ext.Loader.onReady(function() {
             core.store.Persons.superclass.constructor.call(this, config);			
 		}
 	});		
+
+	var storeSalutations = new core.store.Salutations();	
+	function get_SalutationAbbreviation(value){
+		if(value){
+			//salutationAbbreviation = storeSalutations.getById(value).get('SalutationAbbreviation');
+			//return salutationAbbreviation;
+			return 'Mr';
+		}
+		else{
+			return 'undefined';
+		}
+	};
 	
 	// **************************************** END OF STORES ***************************************************** //	
 
@@ -197,6 +209,7 @@ Ext.Loader.onReady(function() {
 					name: 'kf_SalutationID',
 					xtype: 'numberfield',
 					fieldLabel: 'Salutation',
+					//renderer: get_SalutationAbbreviation,
 					width: 125
 				},
 				{
@@ -231,7 +244,28 @@ Ext.Loader.onReady(function() {
 					handler: function(){
 						var form = this.ownerCt.getForm('formPerson');
 						if (form.isValid()) {
-
+							// using record instead of submit; sending as object instead of url params
+							var rec = form.getRecord();
+							if (rec){ // only if there is a valid record defined; must add or select to edit
+								rec.beginEdit();
+								form.updateRecord(rec); // update record, next we need to commit changes!
+								rec.save({ 
+									params: { },
+									success: function(record, operation) {
+										if (operation.action === 'create'){
+											alert('You have added '+record.data.PersonFirstName+' '+record.data.PersonLastName)
+										}
+										gridPerson.store.load(); // reload the store so insert is displays in correct order and latest records are available
+									},
+									failure: function(record, operation) {
+										alert('ERROR: Unable to save record!');
+									}
+								});
+								rec.endEdit();
+								rec.commit(); // removes the dirty marker in grid if used
+							} else {
+								alert('Please select a record to edit, or select Add Person');
+							}
 						}
 						else {
 							var field = this.ownerCt.down('#fieldPersonFirstName');

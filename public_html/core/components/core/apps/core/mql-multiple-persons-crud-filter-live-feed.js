@@ -58,7 +58,7 @@ Ext.Loader.onReady(function() {
 		// override
 		initComponent: function() {			
 			this.title = 'Person Grid';
-			this.itemId = 'gridpanel';
+			this.itemId = 'gridPerson';
 			this.height=  400;
 			this.columnWidth = 0.60;
 			this.columns = personColumns;
@@ -82,15 +82,77 @@ Ext.Loader.onReady(function() {
 		initComponent: function() {
 	        this.columnWidth = 0.4;
 	        this.margin = '0 0 0 10';
+			this.bodyPadding = '0 0 0 4';
 	        this.xtype = 'fieldset';
 	        this.title = 'Person Info';
+			this.itemId = 'infoPerson';
 	        this.defaults = {
 	            width: 240,
-	            labelWidth: 60
+	            labelWidth: 80
 	        };
 	        this.defaultType = 'textfield';
 	        this.items = [
+				{
+					xtype:'hidden', // auto-increment field, need presence for update  
+					name:'kp_PersonID'				 
+				},
+				{
+					xtype: 'button',
+					text: 'Add Person',
+		        	handler: function(){
+						var form = this.ownerCt.getForm('formPerson');
+						form.reset();
+						var grid = this.ownerCt.getComponent('gridPerson');
+						//grid.getSelectionModel().clearSelections();
+						// etc.
+					}
+				},
+				{
+					name: 'kf_SalutationID',
+					xtype: 'numberfield',
+					fieldLabel: 'Salutation',
+					width: 125
+				},
+				{
+					xtype: 'textfield',
+					itemId: 'fieldPersonFirstName',
+					fieldLabel: 'First Name',
+					allowBlank: false,
+					name: 'PersonFirstName'
+				},
+				{
+					xtype: 'textfield',
+					itemId: 'fieldPersonLastName',
+					fieldLabel: 'Last Name',
+					allowBlank: false,
+					name: 'PersonLastName'
+				},			
+				{
+					name: 'kf_GenderID',
+					xtype: 'numberfield',
+					fieldLabel: 'Gender',
+					width: 125
+				},
+				{
+					name: 'kf_NationalityID',
+					xtype: 'numberfield',
+					fieldLabel: 'Nationality',
+					width: 125
+				},
+				{
+					xtype: 'button',
+					text: 'Save Person',
+					handler: function(){
+						var form = this.ownerCt.getForm('formPerson');
+						if (form.isValid()) {
 
+						}
+						else {
+							var field = this.ownerCt.down('#fieldPersonFirstName');
+							field.focus('',10);
+						}
+					}
+				}
 	        ];	
 			// finally call the superclasses implementation
             core.info.Person.superclass.initComponent.call(this);
@@ -108,6 +170,7 @@ Ext.Loader.onReady(function() {
 		initComponent: function() {		
 			this.frame = true;
 			this.title = 'Person Data';
+			this.formId = 'formPerson'; // new
 			this.bodyPadding = 5;
 			this.width = 750;
 			this.layout = 'column';    // Specifies that the items will now be arranged in columns

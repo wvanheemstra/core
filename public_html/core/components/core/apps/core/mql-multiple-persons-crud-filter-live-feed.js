@@ -31,10 +31,10 @@ Ext.Loader.onReady(function() {
 	var personColumns = function (finish, start) {
 		var columns = [
 			{ dataIndex: 'kp_PersonID', id: 'kp_PersonID', header: 'ID', width: 50, filter: {type: 'numeric', disabled: false} },
-			{ dataIndex: 'kf_SalutationID', id: 'kf_SalutationID', header: 'Salutation', width: 60, filter: {type: 'numeric', disabled: false}, renderer: get_SalutationAbbreviation },
+			{ dataIndex: 'kf_SalutationID', id: 'kf_SalutationID', header: 'Salutation', width: 60, filter: {type: 'numeric', disabled: false} },
 			{ dataIndex: 'PersonFirstName', id: 'PersonFirstName', header: 'First Name', width: 75, filter: {type: 'string', disabled: false} },
 			{ dataIndex: 'PersonLastName', id: 'PersonLastName', header: 'Last Name', width: 125, filter: {type: 'string', disabled: false} },
-			{ dataIndex: 'kf_GenderID', id: 'kf_GenderID', header: 'Gender', width: 60, filter: {type: 'numeric', disabled: false} },
+			{ dataIndex: 'kf_GenderID', id: 'kf_GenderID', header: 'Gender', width: 60, filter: {type: 'numeric', disabled: false}, renderer: get_GenderName },
 			{ dataIndex: 'kf_NationalityID', id: 'kf_NationalityID', header: 'Nationality', flex: 1, filter: {type: 'numeric', disabled: false} }
 			//,{ dataIndex: 'dummy', id: 'dummy', header: '', flex: 1 }		
 		];
@@ -54,14 +54,35 @@ Ext.Loader.onReady(function() {
 	var storeSalutations = new core.store.Salutations();
 	function get_SalutationAbbreviation(value){
 		if(value){
-			salutationAbbreviation = storeSalutations.getById(value).get('SalutationAbbreviation');
+			//if(storeSalutations == null){ // Only load data when not already loaded
+			//storeSalutations.load();
+			//}
+			//salutationAbbreviation = storeSalutations.getById(value).get('SalutationAbbreviation');
 			return salutationAbbreviation;
 		}
 		else{
 			return 'undefined';
 		}
 	};
-	storeSalutations.load();
+	
+	var storeGenders = new core.store.Genders();
+	storeGenders.on('load', function(){
+		this.loaded = true;
+	});
+	function get_GenderName(value){
+		if(value){
+			//if(storeGenders.loaded=false){
+			//	storeGenders.load();
+			//	storeGenders.loaded=true;
+			//}
+			genderName = storeGenders.getById(value).get('GenderName');
+			return genderName;
+		}
+		else{
+			return 'undefined';
+		}
+	};
+	storeGenders.load();
 	
 	// **************************************** END OF STORES ***************************************************** //	
 

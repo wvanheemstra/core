@@ -17,5 +17,6 @@ Ext.define('core.store.Genders', {
 			root: 'result'
 		}
 	},
-	autoLoad: true
+	loaded: false,
+	autoLoad: false
 });

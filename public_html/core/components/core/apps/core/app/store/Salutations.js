@@ -17,5 +17,5 @@ Ext.define('core.store.Salutations', {
 			root: 'result'
 		}
 	},
-	autoLoad: true
+	autoLoad: false
 });

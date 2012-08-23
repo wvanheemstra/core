@@ -21,9 +21,38 @@ Ext.Loader.onReady(function() {
 	Ext.QuickTips.init();
 
 	// **************************************** START OF VARIABLES ************************************************ //
+
+    // configure whether filtering is performed locally or remotely (initially)
+    var local = true;
+	
+    // configure local urls
+    var urlRead = {
+		local: 'index.php?id=20&query={"query":{"type": "/core/person","kp_PersonID": null,"PersonFirstName": null,"PersonLastName": null,"kf_GenderID": null,"fk_person_gender":[{"kp_GenderID": null,"GenderName": null}],"kf_SalutationID":null,"kf_NationalityID":null}}',
+        remote: 'core/components/core/apps/core/data/persons-grid-filter.json'
+    };
+	
+    // configure remote urls
+    var urlWrite = {
+		local: 'core/components/core/apps/core/data/xxx.json',
+        remote: 'index.php?id=20&query={"query":{}}'
+    };	
 	
     var filters = {
-        ftype: 'filters'
+        ftype: 'filters',
+		local: local   // defaults to false (remote filtering)
+	};
+	
+	var personColumns = function (finish, start) {
+		var columns = [
+			{ dataIndex: 'kp_PersonID', id: 'kp_PersonID', header: 'ID', width: 50, filter: {type: 'numeric', disabled: false} },
+			{ dataIndex: 'kf_SalutationID', id: 'kf_SalutationID', header: 'Salutation', width: 60, filter: {type: 'numeric', disabled: false} },
+			{ dataIndex: 'PersonFirstName', id: 'PersonFirstName', header: 'First Name', width: 75, filter: {type: 'string', disabled: false} },
+			{ dataIndex: 'PersonLastName', id: 'PersonLastName', header: 'Last Name', width: 125, filter: {type: 'string', disabled: false} },
+			{ dataIndex: 'kf_GenderID', id: 'kf_GenderID', header: 'Gender', width: 60, filter: {type: 'numeric', disabled: false} },
+			{ dataIndex: 'kf_NationalityID', id: 'kf_NationalityID', header: 'Nationality', flex: 1, filter: {type: 'numeric', disabled: false} }
+			//,{ dataIndex: 'dummy', id: 'dummy', header: '', flex: 1 }		
+		];
+		return columns.slice(start || 0, finish);
 	};
 	
 	// **************************************** END OF VARIABLES **************************************************** //
@@ -34,19 +63,42 @@ Ext.Loader.onReady(function() {
 
 	// **************************************** START OF STORES ***************************************************** //
 
+	/**
+     * core.store.Persons
+     * @extends Ext.data.Store
+	 */
+	Ext.define('core.store.Persons', {
+        extend: 'Ext.data.Store',
+		constructor: function(config) {
+			config = config || {};
+			config.autoDestroy = true;
+			config.requires = 'core.model.Person';
+            config.model = 'core.model.Person';
+			config.proxy = {
+				type: 'ajax',
+				api: {
+					read: (local ? urlRead.local : urlRead.remote),
+					write: (local ? urlWrite.local : urlWrite.remote)
+				},
+				reader: {
+					type: 'json',
+					root: 'result'
+				}
+			};
+			config.remoteSort = false;
+			config.sorters = [{
+				property: 'PersonLastName',
+				direction: 'ASC'
+			}];
+			config.pageSize = 10; // was 50
+            // call the superclass's constructor
+            core.store.Persons.superclass.constructor.call(this, config);			
+		}
+	});		
+	
 	// **************************************** END OF STORES ***************************************************** //	
 
 	// **************************************** START OF VIEWS ************************************************** //
-
-	var personColumns = [
-		{ dataIndex: 'kp_PersonID', header: 'ID', width: 50 },
-		{ dataIndex: 'kf_SalutationID', header: 'Salutation', width: 60 },
-		{ dataIndex: 'PersonFirstName', header: 'First Name', width: 75 },
-		{ dataIndex: 'PersonLastName', header: 'Last Name', width: 125 },
-		{ dataIndex: 'kf_GenderID', header: 'Gender', width: 60 },
-		{ dataIndex: 'kf_NationalityID', header: 'Nationality', width: 60 },
-		{ dataIndex: 'dummy', header: '', flex: 1 }
-	];
 	
 	/**
 	 * core.grid.Person
@@ -61,8 +113,12 @@ Ext.Loader.onReady(function() {
 			this.itemId = 'gridPerson';
 			this.height=  400;
 			this.columnWidth = 0.60;
-			this.columns = personColumns;
-//			store: storePersons,
+			this.columns = personColumns(6);
+			this.store = new core.store.Persons({
+				storeId: 'gridStorePersons'
+			});
+			this.LoadMask = true;
+			this.features = [filters];
 			this.dockedItems = [
 				toolbar
 			];

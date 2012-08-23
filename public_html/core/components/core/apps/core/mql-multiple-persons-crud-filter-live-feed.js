@@ -90,6 +90,16 @@ Ext.Loader.onReady(function() {
 				dock: 'bottom',
 				store: 'gridStorePersons'
 			})];
+			this.emptyText = 'No Matching Records';
+//			this.child('pagingtoolbar').add([
+//				'->',  
+//				{
+//					text: 'Clear Filter Data',
+//					handler: function () {
+//						this.filters.clearFilters();
+//					} 
+//				}  
+//			]);
 			// finally call the superclasses implementation
             core.grid.Person.superclass.initComponent.call(this);
 		}      

@@ -51,17 +51,17 @@ Ext.Loader.onReady(function() {
 
 	// **************************************** START OF STORES ***************************************************** //
 
-	var storeSalutations = new core.store.Salutations();	
+	var storeSalutations = new core.store.Salutations();
 	function get_SalutationAbbreviation(value){
 		if(value){
-			//salutationAbbreviation = storeSalutations.getById(value).get('SalutationAbbreviation');
-			//return salutationAbbreviation;
-			return 'Mr';
+			salutationAbbreviation = storeSalutations.getById(value).get('SalutationAbbreviation');
+			return salutationAbbreviation;
 		}
 		else{
 			return 'undefined';
 		}
 	};
+	storeSalutations.load();
 	
 	// **************************************** END OF STORES ***************************************************** //	
 
@@ -249,12 +249,14 @@ Ext.Loader.onReady(function() {
 }, false); // End of Ext.Loader.onReady
 
 Ext.onReady(function() {
+	
 	var personApp = new core.form.Person({
 			renderTo: 'grid-example'
 		});
 	personApp.show();
 	
 	var storePersons = Ext.data.StoreManager.get('gridStorePersons');
+
 	var gridPerson = personApp.getComponent('gridPerson');
 	var formPerson = personApp.getForm('formPerson');
 	

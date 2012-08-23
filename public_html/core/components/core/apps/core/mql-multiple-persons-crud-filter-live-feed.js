@@ -25,17 +25,23 @@ Ext.Loader.onReady(function() {
     // configure whether filtering is performed locally or remotely (initially)
     var local = true;
 	
-    // configure local urls
-    var urlRead = {
-		local: 'index.php?id=20&query={"query":{"type": "/core/person","kp_PersonID": null,"PersonFirstName": null,"PersonLastName": null,"kf_GenderID": null,"fk_person_gender":[{"kp_GenderID": null,"GenderName": null}],"kf_SalutationID":null,"kf_NationalityID":null}}',
-        remote: 'core/components/core/apps/core/data/persons-grid-filter.json'
+    // configure CRUD urls
+    var urlCreate = {
+		local: 'http://localhost/core/components/core/apps/core/data/create_person.php',
+        remote: 'http://localhost/core/components/core/apps/core/data/create_person.php'
     };
-	
-    // configure remote urls
-    var urlWrite = {
-		local: 'core/components/core/apps/core/data/xxx.json',
-        remote: 'index.php?id=20&query={"query":{}}'
+    var urlRead = {
+		local: 'http://localhost/core/components/core/apps/core/data/read_person.php',
+        remote: 'http://localhost/core/components/core/apps/core/data/read_person.php'
     };	
+    var urlUpdate = {
+		local: 'http://localhost/core/components/core/apps/core/data/update_person.php',
+        remote: 'http://localhost/core/components/core/apps/core/data/update_person.php'
+    };
+    var urlDestroy = {
+		local: 'http://localhost/core/components/core/apps/core/data/destroy_person.php',
+        remote: 'http://localhost/core/components/core/apps/core/data/destroy_person.php'
+    };
 	
     var filters = {
         ftype: 'filters',
@@ -59,6 +65,8 @@ Ext.Loader.onReady(function() {
 
 	// **************************************** START OF MODELS ***************************************************** //
 
+		// Person model is dynamically loaded.
+	
 	// **************************************** END OF MODELS ***************************************************** //	
 
 	// **************************************** START OF STORES ***************************************************** //
@@ -76,13 +84,35 @@ Ext.Loader.onReady(function() {
             config.model = 'core.model.Person';
 			config.proxy = {
 				type: 'ajax',
+				actionMethods: 'POST', // wvh: Do we need this to be defined??
 				api: {
+					create: (local ? urlCreate.local : urlCreate.remote),				
 					read: (local ? urlRead.local : urlRead.remote),
-					write: (local ? urlWrite.local : urlWrite.remote)
+					update: (local ? urlUpdate.local : urlUpdate.remote),					
+					destroy: (local ? urlDestroy.local : urlDestroy.remote)
 				},
 				reader: {
 					type: 'json',
-					root: 'result'
+					root: 'data', // change to 'result' when used with MQL
+					totalProperty: 'total',
+					successProperty: 'success',
+					messageProperty: 'message'
+				},
+				writer: {
+					type: 'json',
+					writeAllFields: true,
+					allowSingle: false,
+					root: 'data'
+				},
+				listeners: {
+				//	exception: function(proxy, response, operation){
+				//		Ext.MessageBox.show({
+				//			title: 'REMOTE EXCEPTION',
+				//			msg: operation.getError(),
+				//			icon: Ext.MessageBox.ERROR,
+				//			buttons: Ext.Msg.OK
+				//		});
+				//	}				
 				}
 			};
 			config.remoteSort = false;
@@ -193,7 +223,7 @@ Ext.Loader.onReady(function() {
 					name: 'kf_NationalityID',
 					xtype: 'numberfield',
 					fieldLabel: 'Nationality',
-					width: 125
+					width: 145
 				},
 				{
 					xtype: 'button',
@@ -245,10 +275,7 @@ Ext.Loader.onReady(function() {
             core.form.Person.superclass.initComponent.call(this);
 		}
 	});
-	
 	// **************************************** END OF VIEWS ************************************************** //
-
-
 }, false); // End of Ext.Loader.onReady
 
 Ext.onReady(function() {
@@ -256,4 +283,19 @@ Ext.onReady(function() {
 			renderTo: 'grid-example'
 		});
 	personApp.show();
+	
+	var storePersons = Ext.data.StoreManager.get('gridStorePersons');
+	var gridPerson = personApp.getComponent('gridPerson');
+	var formPerson = personApp.getForm('formPerson');
+	
+    gridPerson.getSelectionModel().on('select', function(selModel, model, idx) {
+    	//var form = gridForm.getForm();
+        formPerson.loadRecord(model); // from record, no call to server
+    }, this);	
+	
+	storePersons.on('load', function(store, model) {
+ 		gridPerson.getSelectionModel().select(0);    	
+    }, this);
+	storePersons.load();
+	
 }); // End of Ext.onReady

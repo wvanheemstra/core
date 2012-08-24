@@ -13,7 +13,12 @@ Ext.define('core.store.Persons', {
 		config.model = 'core.model.Person';
 		config.proxy = {
 			type: 'ajax',
-			actionMethods: 'POST', // wvh: Do we need this to be defined??
+			extraParams: {
+				start: 0,
+				limit: 100
+			},
+			//actionMethods: 'POST', // wvh: Do we need this to be defined??
+			method: 'POST',
 			api: {
 				create: (localFilteringPerson ? urlPersonCreate.local : urlPersonCreate.remote),				
 				read: (localFilteringPerson ? urlPersonRead.local : urlPersonRead.remote),

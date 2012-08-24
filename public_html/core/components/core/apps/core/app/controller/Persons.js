@@ -28,5 +28,20 @@ Ext.define('core.controller.Persons', {
         });
 		//Ext.create('core.view.PersonInfo').show();
         //Ext.create('core.view.PersonGrid').show();
-    }
+		Ext.getStore('core.store.Persons').addListener('load', this.onStorePersonsLoad, this);
+		Ext.getStore('core.store.Persons').addListener('datachanged', this.onStorePersonsDataChanged, this);		
+    },
+	onStorePersonsLoad: function() {
+			//alert('Store Persons: Loaded');
+			console.info('Store Persons: Loaded');
+	},
+	onStorePersonsDataChanged: function() {
+			//alert('Store Persons: Data Changed');
+			console.info('Store Persons: Data Changed');
+	}	
 });
+
+//var storePersons = Ext.data.StoreManager.lookup('storePersons');
+//storePersons.on('load', function() {
+//	alert('StorePersons loaded !');
+//}, this);

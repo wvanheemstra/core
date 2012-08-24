@@ -25,17 +25,17 @@ Ext.Loader.onReady(function() {
 	
     var filters = {
         ftype: 'filters',
-		local: local   // defaults to false (remote filtering)
+		local: localFilteringPerson   // defaults to false (remote filtering)
 	};
 	
 	var personColumns = function (finish, start) {
 		var columns = [
 			{ dataIndex: 'kp_PersonID', id: 'kp_PersonID', header: 'ID', width: 50, filter: {type: 'numeric', disabled: false} },
-			{ dataIndex: 'kf_SalutationID', id: 'kf_SalutationID', header: 'Salutation', width: 60, filter: {type: 'numeric', disabled: false} },
+			{ dataIndex: 'kf_SalutationID', id: 'kf_SalutationID', header: 'Salutation', width: 60, filter: {type: 'numeric', disabled: false}, renderer: get_SalutationAbbreviation },
 			{ dataIndex: 'PersonFirstName', id: 'PersonFirstName', header: 'First Name', width: 75, filter: {type: 'string', disabled: false} },
 			{ dataIndex: 'PersonLastName', id: 'PersonLastName', header: 'Last Name', width: 125, filter: {type: 'string', disabled: false} },
 			{ dataIndex: 'kf_GenderID', id: 'kf_GenderID', header: 'Gender', width: 60, filter: {type: 'numeric', disabled: false}, renderer: get_GenderName },
-			{ dataIndex: 'kf_NationalityID', id: 'kf_NationalityID', header: 'Nationality', flex: 1, filter: {type: 'numeric', disabled: false} }
+			{ dataIndex: 'kf_NationalityID', id: 'kf_NationalityID', header: 'Nationality', flex: 1, filter: {type: 'numeric', disabled: false}, renderer: get_NationalityName }
 			//,{ dataIndex: 'dummy', id: 'dummy', header: '', flex: 1 }		
 		];
 		return columns.slice(start || 0, finish);
@@ -51,13 +51,17 @@ Ext.Loader.onReady(function() {
 
 	// **************************************** START OF STORES ***************************************************** //
 
-	var storeSalutations = new core.store.Salutations();
+	var storeSalutations = new core.store.Salutations({
+		storeId: 'storeSalutations'
+	});
+	// Make sure the store is loaded only once
+	storeSalutations.on('load', function(){
+		storeSalutations.loaded = true;
+	});
+
 	function get_SalutationAbbreviation(value){
 		if(value){
-			//if(storeSalutations == null){ // Only load data when not already loaded
-			//storeSalutations.load();
-			//}
-			//salutationAbbreviation = storeSalutations.getById(value).get('SalutationAbbreviation');
+			salutationAbbreviation = storeSalutations.getById(value).get('SalutationAbbreviation');
 			return salutationAbbreviation;
 		}
 		else{
@@ -65,16 +69,16 @@ Ext.Loader.onReady(function() {
 		}
 	};
 	
-	var storeGenders = new core.store.Genders();
-	storeGenders.on('load', function(){
-		this.loaded = true;
+	var storeGenders = new core.store.Genders({
+		storeId: 'storeGenders'
 	});
+	// Make sure the store is loaded only once
+	storeGenders.on('load', function(){
+		storeGenders.loaded = true;
+	});
+
 	function get_GenderName(value){
 		if(value){
-			//if(storeGenders.loaded=false){
-			//	storeGenders.load();
-			//	storeGenders.loaded=true;
-			//}
 			genderName = storeGenders.getById(value).get('GenderName');
 			return genderName;
 		}
@@ -82,7 +86,24 @@ Ext.Loader.onReady(function() {
 			return 'undefined';
 		}
 	};
-	storeGenders.load();
+	
+	var storeNationalities = new core.store.Nationalities({
+		storeId: 'storeNationalities'
+	});
+	// Make sure the store is loaded only once
+	storeNationalities.on('load', function(){
+		storeNationalities.loaded = true;
+	});
+
+	function get_NationalityName(value){
+		if(value){
+			nationalityName = storeNationalities.getById(value).get('NationalityName');
+			return nationalityName;
+		}
+		else{
+			return 'undefined';
+		}
+	};	
 	
 	// **************************************** END OF STORES ***************************************************** //	
 
@@ -98,18 +119,18 @@ Ext.Loader.onReady(function() {
 		// override
 		initComponent: function() {			
 			this.title = 'Person Grid';
-			this.itemId = 'gridPerson';
-			this.height=  400;
+			this.gridId = 'gridPerson';
+			this.height =  400;
 			this.columnWidth = 0.60;
 			this.columns = personColumns(6);
 			this.store = new core.store.Persons({
-				storeId: 'gridStorePersons'
+				storeId: 'storePersons'
 			});
 			this.LoadMask = true;
 			this.features = [filters];
 			this.dockedItems = [Ext.create('Ext.toolbar.Paging', {
 				dock: 'bottom',
-				store: 'gridStorePersons'
+				store: 'storePersons'
 			})];
 			this.emptyText = 'No Matching Records';
 //			this.child('pagingtoolbar').add([
@@ -140,7 +161,7 @@ Ext.Loader.onReady(function() {
 			this.bodyPadding = '0 0 0 4';
 	        this.xtype = 'fieldset';
 	        this.title = 'Person Info';
-			this.itemId = 'infoPerson';
+			this.formId = 'infoPerson';
 	        this.defaults = {
 	            width: 240,
 	            labelWidth: 80
@@ -155,11 +176,22 @@ Ext.Loader.onReady(function() {
 					xtype: 'button',
 					text: 'Add Person',
 		        	handler: function(){
-						var form = this.ownerCt.getForm('formPerson');
-						form.reset();
-						var grid = this.ownerCt.getComponent('gridPerson');
-						//grid.getSelectionModel().clearSelections();
-						// etc.
+						var infoPerson = this.ownerCt.getForm('infoPerson');
+						infoPerson.reset();
+						var gridPerson = this.ownerCt.getComponent('gridPerson');
+						//var gridPerson = Ext.ComponentMgr.get('gridPerson');
+						//gridPerson.getSelectionModel().clearSelections();	//FIX THIS	
+						var newPersonModel = Ext.ModelManager.create({},'core.model.Person');
+						infoPerson.loadRecord(newPersonModel);
+						// update fields with new default values
+						infoPerson.setValues({
+							kf_SalutationID: 0,
+							kf_GenderID: 0,
+							kf_NationalityID: 0
+						});
+						// focus the desired field
+						//var fieldPersonFirstName = infoPerson.down('#fieldPersonFirstName');	//FIX THIS				
+						//fieldPersonFirstName.focus('',10);
 					}
 				},
 				{
@@ -199,13 +231,15 @@ Ext.Loader.onReady(function() {
 					xtype: 'button',
 					text: 'Save Person',
 					handler: function(){
-						var form = this.ownerCt.getForm('formPerson');
-						if (form.isValid()) {
+						//var dataPerson = this.ownerCt.getForm('dataPerson');
+						var dataPerson = this.ownerCt.getForm('formPerson');
+						if (dataPerson.isValid()) {
 							// using record instead of submit; sending as object instead of url params
-							var rec = form.getRecord();
+							var rec = dataPerson.getRecord();
+							alert(rec); // Says 'undefined' because no record has yet been loaded into the form
 							if (rec){ // only if there is a valid record defined; must add or select to edit
 								rec.beginEdit();
-								form.updateRecord(rec); // update record, next we need to commit changes!
+								dataPerson.updateRecord(rec); // update record, next we need to commit changes!
 								rec.save({ 
 									params: { },
 									success: function(record, operation) {
@@ -242,12 +276,12 @@ Ext.Loader.onReady(function() {
 	 */
 	Ext.define('core.form.Person', {
 		extend: 'Ext.form.Panel',
-		alias: 'widget.formperson',
+		alias: 'widget.dataperson',
 		// override
 		initComponent: function() {		
 			this.frame = true;
 			this.title = 'Person Data';
-			this.formId = 'formPerson'; // new
+			this.formId = 'dataPerson';
 			this.bodyPadding = 5;
 			this.width = 750;
 			this.layout = 'column';    // Specifies that the items will now be arranged in columns
@@ -256,10 +290,10 @@ Ext.Loader.onReady(function() {
 			};
 			this.items = [
 				new core.grid.Person({
-					gridId: 'gridPerson'
+					itemId: 'gridPerson'
 				}),
 				new core.info.Person({
-					formId: 'infoPerson'
+					itemId: 'infoPerson'
 				})
 			];
 			// finally call the superclasses implementation
@@ -270,25 +304,47 @@ Ext.Loader.onReady(function() {
 }, false); // End of Ext.Loader.onReady
 
 Ext.onReady(function() {
+
+	var debug = true; // change for production
 	
 	var personApp = new core.form.Person({
 			renderTo: 'grid-example'
 		});
 	personApp.show();
-	
-	var storePersons = Ext.data.StoreManager.get('gridStorePersons');
 
+	var storeGenders = Ext.data.StoreManager.get('storeGenders');
+	if(storeGenders.loaded===false){
+		storeGenders.load();
+	};
+	
+	var storeSalutations = Ext.data.StoreManager.get('storeSalutations');
+	if(storeSalutations.loaded===false){
+		storeSalutations.load();
+	};
+
+	var storeNationalities = Ext.data.StoreManager.get('storeNationalities');
+	if(storeNationalities.loaded===false){
+		storeNationalities.load();
+	};
+	
+	var storePersons = Ext.data.StoreManager.get('storePersons');
 	var gridPerson = personApp.getComponent('gridPerson');
-	var formPerson = personApp.getForm('formPerson');
-	
-    gridPerson.getSelectionModel().on('select', function(selModel, model, idx) {
-    	//var form = gridForm.getForm();
-        formPerson.loadRecord(model); // from record, no call to server
-    }, this);	
-	
-	storePersons.on('load', function(store, model) {
- 		gridPerson.getSelectionModel().select(0);    	
+	var dataPerson = personApp.getForm('dataPerson');
+	gridPerson.getSelectionModel().on('select', function(selModel, model, idx) {
+        dataPerson.loadRecord(model); // from record, no call to server
     }, this);
-	storePersons.load();
+		
+	storePersons.on('load', function(store, model) {
+ 		gridPerson.getSelectionModel().select(0);    
+		if (debug) {
+			console.info('Persons: '+storePersons.getCount()+' rows loaded.');
+			console.info('Genders: '+storeGenders.getCount()+' rows loaded.');
+			console.info('Salutations: '+storeSalutations.getCount()+' rows loaded.');
+			console.info('Nationalities: '+storeNationalities.getCount()+' rows loaded.');
+		};
+    }, this);
+	if(storePersons.loaded===false){
+		storePersons.load();
+	};
 	
 }); // End of Ext.onReady

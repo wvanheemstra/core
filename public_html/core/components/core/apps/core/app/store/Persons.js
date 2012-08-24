@@ -7,16 +7,18 @@ Ext.define('core.store.Persons', {
 	constructor: function(config) {
 		config = config || {};
 		config.autoDestroy = true;
+		config.autoLoad = true;
+		config.loaded = true;
 		config.requires = 'core.model.Person';
 		config.model = 'core.model.Person';
 		config.proxy = {
 			type: 'ajax',
 			actionMethods: 'POST', // wvh: Do we need this to be defined??
 			api: {
-				create: (local ? urlCreate.local : urlCreate.remote),				
-				read: (local ? urlRead.local : urlRead.remote),
-				update: (local ? urlUpdate.local : urlUpdate.remote),					
-				destroy: (local ? urlDestroy.local : urlDestroy.remote)
+				create: (localFilteringPerson ? urlPersonCreate.local : urlPersonCreate.remote),				
+				read: (localFilteringPerson ? urlPersonRead.local : urlPersonRead.remote),
+				update: (localFilteringPerson ? urlPersonUpdate.local : urlPersonUpdate.remote),					
+				destroy: (localFilteringPerson ? urlPersonDestroy.local : urlPersonDestroy.remote)
 			},
 			reader: {
 				type: 'json',
@@ -54,22 +56,22 @@ Ext.define('core.store.Persons', {
 });	
 
 // configure whether filtering is performed locally or remotely (initially)
-var local = true;
+var localFilteringPerson = true;
 
 // configure CRUD urls
-var urlCreate = {
+var urlPersonCreate = {
 	local: 'http://localhost/core/components/core/apps/core/data/create_person.php',
 	remote: 'http://localhost/core/components/core/apps/core/data/create_person.php'
 };
-var urlRead = {
+var urlPersonRead = {
 	local: 'http://localhost/core/components/core/apps/core/data/read_person.php',
 	remote: 'http://localhost/core/components/core/apps/core/data/read_person.php'
 };	
-var urlUpdate = {
+var urlPersonUpdate = {
 	local: 'http://localhost/core/components/core/apps/core/data/update_person.php',
 	remote: 'http://localhost/core/components/core/apps/core/data/update_person.php'
 };
-var urlDestroy = {
+var urlPersonDestroy = {
 	local: 'http://localhost/core/components/core/apps/core/data/destroy_person.php',
 	remote: 'http://localhost/core/components/core/apps/core/data/destroy_person.php'
 };

@@ -7,6 +7,16 @@ Ext.define('core.controller.Persons', {
     models: ['core.model.Person'],
     stores: ['core.store.Persons'],
     views: ['core.view.PersonPanel', 'core.view.PersonInfo', 'core.view.PersonGrid'],
+	refs: [
+	   {
+		   ref: 'PersonGrid',
+		   selector: 'persongrid' // widget name
+	   },
+	   {
+		   ref: 'PersonInfo',
+		   selector: 'personinfo' // widget name
+	   }
+	],
  
     init: function() {
         Ext.create('core.view.PersonPanel', {
@@ -17,11 +27,13 @@ Ext.define('core.controller.Persons', {
 			bodyPadding: 5,
             items: [{
 					xtype: 'persongrid',
+					itemId: 'PersonGrid',
 					columnWidth : 0.60,
 					height : 400
 				},
 				{
 					xtype: 'personinfo',
+					itemId: 'PersonInfo',
 					columnWidth : 0.40				
 			}],
             renderTo: 'extjs-app'
@@ -34,14 +46,10 @@ Ext.define('core.controller.Persons', {
 	onStorePersonsLoad: function() {
 			//alert('Store Persons: Loaded');
 			console.info('Store Persons: Loaded');
+			this.getPersonGrid().getSelectionModel().select(0);
 	},
 	onStorePersonsDataChanged: function() {
 			//alert('Store Persons: Data Changed');
 			console.info('Store Persons: Data Changed');
 	}	
 });
-
-//var storePersons = Ext.data.StoreManager.lookup('storePersons');
-//storePersons.on('load', function() {
-//	alert('StorePersons loaded !');
-//}, this);

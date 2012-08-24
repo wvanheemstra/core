@@ -55,6 +55,6 @@ Ext.define('core.controller.Persons', {
 	},
 	onViewPersonGridSelect: function(selModel, model, idx) {
 		if(debug){console.info('View PersonGrid: Select')};
-		//this.loadRecord(model);
+		this.getPersonInfo().loadRecord(model);
 	}
 });

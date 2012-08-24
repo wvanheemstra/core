@@ -2,6 +2,8 @@
  * core.controller.Persons
  * @extends Ext.app.Controller
  */
+var debug = true; // change for production 
+ 
 Ext.define('core.controller.Persons', {
     extend: 'Ext.app.Controller',
     models: ['core.model.Person'],
@@ -41,15 +43,18 @@ Ext.define('core.controller.Persons', {
 		//Ext.create('core.view.PersonInfo').show();
         //Ext.create('core.view.PersonGrid').show();
 		Ext.getStore('core.store.Persons').addListener('load', this.onStorePersonsLoad, this);
-		Ext.getStore('core.store.Persons').addListener('datachanged', this.onStorePersonsDataChanged, this);		
+		Ext.getStore('core.store.Persons').addListener('datachanged', this.onStorePersonsDataChanged, this);
+		this.getPersonGrid().getSelectionModel().addListener('select', this.onViewPersonGridSelect, this);
     },
-	onStorePersonsLoad: function() {
-			//alert('Store Persons: Loaded');
-			console.info('Store Persons: Loaded');
-			this.getPersonGrid().getSelectionModel().select(0);
+	onStorePersonsLoad: function(store, model) {
+		if(debug){console.info('Store Persons: Loaded')};
+		this.getPersonGrid().getSelectionModel().select(0);
 	},
 	onStorePersonsDataChanged: function() {
-			//alert('Store Persons: Data Changed');
-			console.info('Store Persons: Data Changed');
-	}	
+		if(debug){console.info('Store Persons: Data Changed')};
+	},
+	onViewPersonGridSelect: function(selModel, model, idx) {
+		if(debug){console.info('View PersonGrid: Select')};
+		//this.loadRecord(model);
+	}
 });

@@ -73,12 +73,15 @@ Ext.define('core.view.PersonInfo', {
 				text: 'Save Person',
 				listeners: {
 					click: function() {
+					
 						var personInfoForm = this.ownerCt.getForm('personInfoForm');
 						if(personInfoForm.isValid()) {
 							var rec = personInfoForm.getRecord();
 							if (rec){
 								rec.beginEdit();
 								personInfoForm.updateRecord(rec);
+								var proxyPersons = Ext.getStore('core.store.Persons').getProxy();
+								rec.setProxy(proxyPersons); // assign the store's proxy to the record
 								rec.save({ 
 									params: { },
 									success: function(record, operation) {

@@ -71,8 +71,37 @@ Ext.define('core.view.PersonInfo', {
 			{
 				xtype: 'button',
 				text: 'Save Person',
-				handler: function(){
-					
+				listeners: {
+					click: function() {
+						var personInfoForm = this.ownerCt.getForm('personInfoForm');
+						if(personInfoForm.isValid()) {
+							var rec = personInfoForm.getRecord();
+							if (rec){
+								rec.beginEdit();
+								personInfoForm.updateRecord(rec);
+								rec.save({ 
+									params: { },
+									success: function(record, operation) {
+										if (operation.action === 'create'){
+											alert('You have added '+record.data.PersonFirstName+' '+record.data.PersonLastName)
+										}
+										personInfoForm.fireEvent('savepersonbuttonclick');
+									},
+									failure: function(record, operation) {
+										alert('ERROR: Unable to save record!');
+									}
+								});
+								rec.endEdit();
+								rec.commit(); // removes the dirty marker in grid if used
+							} else {
+								alert('Please select a record to edit, or select Add Person');
+							}
+						}
+						else {
+							var field = this.ownerCt.down('#fieldPersonFirstName');
+							field.focus('',10);							
+						}
+					}
 				}
 			}
 		];				

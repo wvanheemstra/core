@@ -17,8 +17,12 @@ Ext.define('core.store.Persons', {
 				start: 0,
 				limit: 100
 			},
-			//actionMethods: 'POST', // wvh: Do we need this to be defined??
-			method: 'POST',
+			actionMethods: {
+				create: 'POST',
+				read: 'GET',
+				update: 'PUT',
+				destroy: 'DELETE'
+			},
 			api: {
 				create: (localFilteringPerson ? urlPersonCreate.local : urlPersonCreate.remote),				
 				read: (localFilteringPerson ? urlPersonRead.local : urlPersonRead.remote),

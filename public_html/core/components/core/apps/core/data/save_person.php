@@ -10,11 +10,7 @@ function getInputParms()
     return $result;
 }
 
-//database parameters
-$host='localhost';
-$user='root'; 
-$pw='';
-$db='core';
+include 'dbparams.php';
 $table='person';
    
 //make database connection

@@ -1,11 +1,6 @@
 <?php   
 
-//database parameters
-$host='localhost';
-$port='3306';
-$user='root'; 
-$pw='';
-$db='core';
+include 'dbparams.php';
 $table='gender';
    
 //make database connection

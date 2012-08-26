@@ -3,7 +3,7 @@
  * @extends Ext.grid.Panel
  */
 Ext.require ([
-    'Ext.ux.grid.FiltersFeature',
+    'Ext.ux.grid.FiltersFeature'
 ]);
  
 Ext.define('core.view.PersonGrid' , {
@@ -13,6 +13,7 @@ Ext.define('core.view.PersonGrid' , {
 	initComponent: function() {
 		this.title = 'Person Grid';
 		this.store = 'core.store.Persons';
+		this.gridId = 'personGrid';
 		this.columns = personColumns(6);
 		this.features = [{
 			ftype: 'filters',
@@ -26,14 +27,44 @@ Ext.define('core.view.PersonGrid' , {
 var personColumns = function (finish, start) {
 	var columns = [
 		{ dataIndex: 'kp_PersonID', header: 'ID', width: 50, filter: {type: 'numeric', disabled: false} },
-		{ dataIndex: 'kf_SalutationID', header: 'Salutation', width: 60, filter: {type: 'numeric', disabled: false} },
+		{ dataIndex: 'kf_SalutationID', header: 'Salutation', width: 60, filter: {type: 'numeric', disabled: false}, renderer: get_SalutationAbbreviation  },
 		{ dataIndex: 'PersonFirstName', header: 'First Name', width: 75, filter: {type: 'string', disabled: false} },
 		{ dataIndex: 'PersonLastName', header: 'Last Name', width: 125, filter: {type: 'string', disabled: false} },
-		{ dataIndex: 'kf_GenderID', header: 'Gender', width: 60, filter: {type: 'numeric', disabled: false} },
-		{ dataIndex: 'kf_NationalityID', header: 'Nationality', flex: 1, filter: {type: 'numeric', disabled: false} }
+		{ dataIndex: 'kf_GenderID', header: 'Gender', width: 60, filter: {type: 'numeric', disabled: false}, renderer: get_GenderName },
+		{ dataIndex: 'kf_NationalityID', header: 'Nationality', flex: 1, filter: {type: 'numeric', disabled: false}, renderer: get_NationalityName }
 		//,{ dataIndex: 'dummy', header: '', flex: 1 }		
 	];
 	return columns.slice(start || 0, finish);
+};
+
+function get_SalutationAbbreviation(value){
+	if(value){
+		salutationAbbreviation = Ext.getStore('core.store.Salutations').getById(value).get('SalutationAbbreviation');
+		return salutationAbbreviation;
+	}
+	else{
+		return 'undefined';
+	}
+};
+
+function get_GenderName(value){
+	if(value){
+		genderName = Ext.getStore('core.store.Genders').getById(value).get('GenderName');
+		return genderName;
+	}
+	else{
+		return 'undefined';
+	}
+};
+
+function get_NationalityName(value){
+	if(value){
+		nationalityName = Ext.getStore('core.store.Nationalities').getById(value).get('NationalityName');
+		return nationalityName;
+	}
+	else{
+		return 'undefined';
+	}
 };
 
 /** OLD

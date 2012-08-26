@@ -11,13 +11,14 @@ function getInputParms()
 }
 
 //database parameters
+$host='localhost';
 $user='root'; 
 $pw='';
 $db='core';
 $table='person';
    
 //make database connection
-$connection = mysql_connect("localhost", $user, $pw) or
+$connection = mysql_connect($host, $user, $pw) or
    die("Could not connect: " . mysql_error());
 mysql_set_charset("UTF8", $connection);     
 mysql_select_db($db) or die("Could not select database");

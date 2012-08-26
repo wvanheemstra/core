@@ -58,20 +58,23 @@ Ext.define('core.store.Nationalities', {
 // configure whether filtering is performed locally or remotely (initially)
 var localFilteringNationality = true;
 
+var localHost = 'http://localhost';
+var remoteHost = 'http://localhost';
+
 // configure CRUD urls
 var urlNationalityCreate = {
-	local: 'http://localhost/core/components/core/apps/core/data/create_nationality.php',
-	remote: 'http://localhost/core/components/core/apps/core/data/create_nationality.php'
+	local: localHost+'/core/components/core/apps/core/data/create_nationality.php',
+	remote: remoteHost+'/core/components/core/apps/core/data/create_nationality.php'
 };
 var urlNationalityRead = {
-	local: 'http://localhost/core/components/core/apps/core/data/read_nationality.php',
-	remote: 'http://localhost/core/components/core/apps/core/data/read_nationality.php'
+	local: localHost+'/core/components/core/apps/core/data/read_nationality.php',
+	remote: remoteHost+'/core/components/core/apps/core/data/read_nationality.php'
 };	
 var urlNationalityUpdate = {
-	local: 'http://localhost/core/components/core/apps/core/data/update_nationality.php',
-	remote: 'http://localhost/core/components/core/apps/core/data/update_nationality.php'
+	local: localHost+'/core/components/core/apps/core/data/update_nationality.php',
+	remote: remoteHost+'/core/components/core/apps/core/data/update_nationality.php'
 };
 var urlNationalityDestroy = {
-	local: 'http://localhost/core/components/core/apps/core/data/destroy_nationality.php',
-	remote: 'http://localhost/core/components/core/apps/core/data/destroy_nationality.php'
+	local: localHost+'/core/components/core/apps/core/data/destroy_nationality.php',
+	remote: remoteHost+'/core/components/core/apps/core/data/destroy_nationality.php'
 };

@@ -67,20 +67,23 @@ Ext.define('core.store.Persons', {
 // configure whether filtering is performed locally or remotely (initially)
 var localFilteringPerson = true;
 
+var localHost = 'http://localhost';
+var remoteHost = 'http://localhost';
+
 // configure CRUD urls
 var urlPersonCreate = {
-	local: 'http://localhost/core/components/core/apps/core/data/create_person.php',
-	remote: 'http://localhost/core/components/core/apps/core/data/create_person.php'
+	local: localHost+'/core/components/core/apps/core/data/create_person.php',
+	remote: remoteHost+'/core/components/core/apps/core/data/create_person.php'
 };
 var urlPersonRead = {
-	local: 'http://localhost/core/components/core/apps/core/data/read_person.php',
-	remote: 'http://localhost/core/components/core/apps/core/data/read_person.php'
+	local: localHost+'/core/components/core/apps/core/data/read_person.php',
+	remote: remoteHost+'/core/components/core/apps/core/data/read_person.php'
 };	
 var urlPersonUpdate = {
-	local: 'http://localhost/core/components/core/apps/core/data/update_person.php',
-	remote: 'http://localhost/core/components/core/apps/core/data/update_person.php'
+	local: localHost+'/core/components/core/apps/core/data/update_person.php',
+	remote: remoteHost+'/core/components/core/apps/core/data/update_person.php'
 };
 var urlPersonDestroy = {
-	local: 'http://localhost/core/components/core/apps/core/data/destroy_person.php',
-	remote: 'http://localhost/core/components/core/apps/core/data/destroy_person.php'
+	local: localHost+'/core/components/core/apps/core/data/destroy_person.php',
+	remote: remoteHost+'/core/components/core/apps/core/data/destroy_person.php'
 };

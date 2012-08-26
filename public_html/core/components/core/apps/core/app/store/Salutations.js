@@ -58,20 +58,23 @@ Ext.define('core.store.Salutations', {
 // configure whether filtering is performed locally or remotely (initially)
 var localFilteringSalutation = true;
 
+var localHost = 'http://localhost';
+var remoteHost = 'http://localhost';
+
 // configure CRUD urls
 var urlSalutationCreate = {
-	local: 'http://localhost/core/components/core/apps/core/data/create_salutation.php',
-	remote: 'http://localhost/core/components/core/apps/core/data/create_salutation.php'
+	local: localHost+'/core/components/core/apps/core/data/create_salutation.php',
+	remote: remoteHost+'/core/components/core/apps/core/data/create_salutation.php'
 };
 var urlSalutationRead = {
-	local: 'http://localhost/core/components/core/apps/core/data/read_salutation.php',
-	remote: 'http://localhost/core/components/core/apps/core/data/read_salutation.php'
+	local: localHost+'/core/components/core/apps/core/data/read_salutation.php',
+	remote: remoteHost+'/core/components/core/apps/core/data/read_salutation.php'
 };	
 var urlSalutationUpdate = {
-	local: 'http://localhost/core/components/core/apps/core/data/update_salutation.php',
-	remote: 'http://localhost/core/components/core/apps/core/data/update_salutation.php'
+	local: localHost+'/core/components/core/apps/core/data/update_salutation.php',
+	remote: remoteHost+'/core/components/core/apps/core/data/update_salutation.php'
 };
 var urlSalutationDestroy = {
-	local: 'http://localhost/core/components/core/apps/core/data/destroy_salutation.php',
-	remote: 'http://localhost/core/components/core/apps/core/data/destroy_salutation.php'
+	local: localHost+'/core/components/core/apps/core/data/destroy_salutation.php',
+	remote: remoteHost+'/core/components/core/apps/core/data/destroy_salutation.php'
 };

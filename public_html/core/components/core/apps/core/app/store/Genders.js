@@ -58,20 +58,23 @@ Ext.define('core.store.Genders', {
 // configure whether filtering is performed locally or remotely (initially)
 var localFilteringGender = true;
 
+var localHost = 'http://localhost';
+var remoteHost = 'http://localhost';
+
 // configure CRUD urls
 var urlGenderCreate = {
-	local: 'http://localhost/core/components/core/apps/core/data/create_gender.php',
-	remote: 'http://localhost/core/components/core/apps/core/data/create_gender.php'
+	local: localHost+'/core/components/core/apps/core/data/create_gender.php',
+	remote: remoteHost+'/core/components/core/apps/core/data/create_gender.php'
 };
 var urlGenderRead = {
-	local: 'http://localhost/core/components/core/apps/core/data/read_gender.php',
-	remote: 'http://localhost/core/components/core/apps/core/data/read_gender.php'
+	local: localHost+'/core/components/core/apps/core/data/read_gender.php',
+	remote: remoteHost+'/core/components/core/apps/core/data/read_gender.php'
 };	
 var urlGenderUpdate = {
-	local: 'http://localhost/core/components/core/apps/core/data/update_gender.php',
-	remote: 'http://localhost/core/components/core/apps/core/data/update_gender.php'
+	local: localHost+'/core/components/core/apps/core/data/update_gender.php',
+	remote: remoteHost+'/core/components/core/apps/core/data/update_gender.php'
 };
 var urlGenderDestroy = {
-	local: 'http://localhost/core/components/core/apps/core/data/destroy_gender.php',
-	remote: 'http://localhost/core/components/core/apps/core/data/destroy_gender.php'
+	local: localHost+'/core/components/core/apps/core/data/destroy_gender.php',
+	remote: remoteHost+'/core/components/core/apps/core/data/destroy_gender.php'
 };

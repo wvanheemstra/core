@@ -7,7 +7,7 @@ Ext.define('core.view.PersonPanel', {
 	alias : 'widget.personpanel',
 	// override
 	initComponent: function() {
-		
+		this.title = 'Person Panel';
 	
 		// finally call the superclasses implementation
 		core.view.PersonPanel.superclass.initComponent.call(this);	

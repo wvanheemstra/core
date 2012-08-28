@@ -55,12 +55,18 @@ Ext.define('core.view.PersonInfo', {
 				fieldLabel: 'Last Name',
 				allowBlank: false,
 				name: 'PersonLastName'
-			},			
+			},
 			{
-				name: 'kf_GenderID',
-				xtype: 'numberfield',
+				xtype: 'radiogroup',
 				fieldLabel: 'Gender',
-				width: 125
+				defaults: {xtype: 'radio', name: 'kf_GenderID'},
+				items: [{
+					boxLabel: 'Male',
+					inputValue: '1'
+				},{
+					boxLabel: 'Female',
+					inputValue: '2'
+				}]
 			},
 			{
 				name: 'kf_NationalityID',

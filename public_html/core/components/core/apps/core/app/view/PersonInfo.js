@@ -43,6 +43,7 @@ Ext.define('core.view.PersonInfo', {
 				valueField: 'kp_SalutationID',
 				store: 'core.store.Salutations',
 				queryMode: 'local',
+				typeAhead: true,
 				forceSelection: true
 			},
 			{
@@ -79,6 +80,7 @@ Ext.define('core.view.PersonInfo', {
 				valueField: 'kp_NationalityID',
 				store: 'core.store.Nationalities',
 				queryMode: 'local',
+				typeAhead: true,
 				forceSelection: true
 			},
 			{

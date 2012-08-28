@@ -37,10 +37,13 @@ Ext.define('core.view.PersonInfo', {
 			},
 			{
 				name: 'kf_SalutationID',
-				xtype: 'numberfield',
+				xtype: 'combobox',
 				fieldLabel: 'Salutation',
-				//renderer: get_SalutationAbbreviation,
-				width: 125
+				displayField: 'SalutationAbbreviation',
+				valueField: 'kp_SalutationID',
+				store: 'core.store.Salutations',
+				queryMode: 'local',
+				forceSelection: true
 			},
 			{
 				xtype: 'textfield',
@@ -55,18 +58,28 @@ Ext.define('core.view.PersonInfo', {
 				fieldLabel: 'Last Name',
 				allowBlank: false,
 				name: 'PersonLastName'
-			},			
+			},
 			{
-				name: 'kf_GenderID',
-				xtype: 'numberfield',
+				xtype: 'radiogroup',
 				fieldLabel: 'Gender',
-				width: 125
+				defaults: {xtype: 'radio', name: 'kf_GenderID'},
+				items: [{
+					boxLabel: 'Male',
+					inputValue: '1'
+				},{
+					boxLabel: 'Female',
+					inputValue: '2'
+				}]
 			},
 			{
 				name: 'kf_NationalityID',
-				xtype: 'numberfield',
+				xtype: 'combobox',
 				fieldLabel: 'Nationality',
-				width: 145
+				displayField: 'NationalityName',
+				valueField: 'kp_NationalityID',
+				store: 'core.store.Nationalities',
+				queryMode: 'local',
+				forceSelection: true
 			},
 			{
 				xtype: 'button',

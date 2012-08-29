@@ -15,7 +15,7 @@ Ext.define('core.store.Nationalities', {
 			type: 'ajax',			
 			extraParams: {
 				start: 0,
-				limit: 100,
+				limit: 9999,
 				table: 'nationality',
 				idField: 'kp_NationalityID'
 			},

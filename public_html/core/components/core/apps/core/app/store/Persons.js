@@ -15,7 +15,9 @@ Ext.define('core.store.Persons', {
 			type: 'ajax',
 			extraParams: {
 				start: 0,
-				limit: 100
+				limit: 100,
+				table: 'person',
+				idField: 'kp_PersonID'
 			},
 			actionMethods: {
 				create: 'POST',
@@ -58,7 +60,7 @@ Ext.define('core.store.Persons', {
 			property: 'PersonLastName',
 			direction: 'ASC'
 		}];
-		config.pageSize = 10; // was 50
+		config.pageSize = 100; // was 50
 		// call the superclass's constructor
 		core.store.Persons.superclass.constructor.call(this, config);			
 	}
@@ -67,8 +69,8 @@ Ext.define('core.store.Persons', {
 // configure whether filtering is performed locally or remotely (initially)
 var localFilteringPerson = true;
 
-var localHost = 'http://localhost';
-var remoteHost = 'http://localhost';
+var localHost = 'http://caledonialanguages.local';
+var remoteHost = 'http://caledonialanguages.local';
 
 // configure CRUD urls
 var urlPersonCreate = {

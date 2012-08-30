@@ -62,7 +62,7 @@ addLoadEvent(function() {
 	captionAnimation: 'none', 	// fade, slideOpen, none
 	captionAnimationSpeed: 4000, 	// if so how quickly should they animate in
 	bullets: true,			// true or false to activate the bullet navigation
-	bulletThumbs: false,		// thumbnails for the bullets
+	bulletThumbs: false		// thumbnails for the bullets
 	});
 });
 

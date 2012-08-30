@@ -14,6 +14,12 @@ Ext.define('core.view.PersonGrid' , {
 		this.title = 'Person Grid';
 		this.store = 'core.store.Persons';
 		this.gridId = 'personGrid';
+		this.bbar = Ext.create('Ext.PagingToolbar', {
+			store: 'core.store.Persons',
+			displayInfo: true,
+			displayMsg: 'Displaying Persons {0} - {1} of {2}',
+			emptyMsg: "No Persons to display"
+		});
 		this.columns = personColumns(6);
 		this.features = [{
 			ftype: 'filters',

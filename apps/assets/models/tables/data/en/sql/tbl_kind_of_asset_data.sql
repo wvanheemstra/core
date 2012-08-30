@@ -16,14 +16,14 @@ SET NAMES utf8;
 SET FOREIGN_KEY_CHECKS = 0;
 
 -- ----------------------------
---  Table structure for `tbl_kind_of_account_data`
+--  Table structure for `tbl_kind_of_asset_data`
 -- ----------------------------
-DROP TABLE IF EXISTS `tbl_kind_of_account_data`;
-CREATE TABLE `tbl_kind_of_account_data` (
-  `kp_KindOfAccountID` int(11) NOT NULL AUTO_INCREMENT,
-  `KindOfAccountName` varchar(255) CHARACTER SET utf8 NOT NULL,
-  `KindOfAccountCode` varchar(255) COLLATE utf8_bin NOT NULL,
-  PRIMARY KEY (`kp_KindOfAccountID`)
+DROP TABLE IF EXISTS `tbl_kind_of_asset_data`;
+CREATE TABLE `tbl_kind_of_asset_data` (
+  `kp_KindOfAssetID` int(11) NOT NULL AUTO_INCREMENT,
+  `KindOfAssetName` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `KindOfAssetCode` varchar(255) COLLATE utf8_bin NOT NULL,
+  PRIMARY KEY (`kp_KindOfAssetID`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 SET FOREIGN_KEY_CHECKS = 1;

@@ -26,12 +26,12 @@ Ext.define('core.controller.Persons', {
             height: 500,
             width: 800,
 			layout: 'column',
-			bodyPadding: 5,
+			bodyPadding: 0,
             items: [{
 					xtype: 'persongrid',
 					itemId: 'PersonGrid',
 					columnWidth : 0.60,
-					height : 400
+					height : 473
 				},
 				{
 					xtype: 'personinfo',

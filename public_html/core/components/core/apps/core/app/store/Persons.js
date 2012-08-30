@@ -69,8 +69,8 @@ Ext.define('core.store.Persons', {
 // configure whether filtering is performed locally or remotely (initially)
 var localFilteringPerson = true;
 
-var localHost = 'http://caledonialanguages.local';
-var remoteHost = 'http://caledonialanguages.local';
+var localHost = 'http://localhost';
+var remoteHost = 'http://localhost';
 
 // configure CRUD urls
 var urlPersonCreate = {

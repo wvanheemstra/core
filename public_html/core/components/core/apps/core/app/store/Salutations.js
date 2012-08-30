@@ -13,7 +13,18 @@ Ext.define('core.store.Salutations', {
 		config.model = 'core.model.Salutation';
 		config.proxy = {
 			type: 'ajax',
-			actionMethods: 'POST', // wvh: Do we need this to be defined??
+			extraParams: {
+				start: 0,
+				limit: 100,
+				table: 'salutation',
+				idField: 'kp_SalutationID'
+			},
+			actionMethods: {
+				create: 'POST',
+				read: 'GET',
+				update: 'PUT',
+				destroy: 'DELETE'
+			},
 			api: {
 				create: (localFilteringSalutation ? urlSalutationCreate.local : urlSalutationCreate.remote),				
 				read: (localFilteringSalutation ? urlSalutationRead.local : urlSalutationRead.remote),
@@ -58,8 +69,8 @@ Ext.define('core.store.Salutations', {
 // configure whether filtering is performed locally or remotely (initially)
 var localFilteringSalutation = true;
 
-var localHost = 'http://localhost';
-var remoteHost = 'http://localhost';
+var localHost = 'http://caledonialanguages.local';
+var remoteHost = 'http://caledonialanguages.local';
 
 // configure CRUD urls
 var urlSalutationCreate = {

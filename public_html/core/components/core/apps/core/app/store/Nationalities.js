@@ -12,8 +12,19 @@ Ext.define('core.store.Nationalities', {
 		config.requires = 'core.model.Nationality';
 		config.model = 'core.model.Nationality';
 		config.proxy = {
-			type: 'ajax',
-			actionMethods: 'POST', // wvh: Do we need this to be defined??
+			type: 'ajax',			
+			extraParams: {
+				start: 0,
+				limit: 9999,
+				table: 'nationality',
+				idField: 'kp_NationalityID'
+			},
+			actionMethods: {
+				create: 'POST',
+				read: 'GET',
+				update: 'PUT',
+				destroy: 'DELETE'
+			},
 			api: {
 				create: (localFilteringNationality ? urlNationalityCreate.local : urlNationalityCreate.remote),				
 				read: (localFilteringNationality ? urlNationalityRead.local : urlNationalityRead.remote),
@@ -58,8 +69,8 @@ Ext.define('core.store.Nationalities', {
 // configure whether filtering is performed locally or remotely (initially)
 var localFilteringNationality = true;
 
-var localHost = 'http://localhost';
-var remoteHost = 'http://localhost';
+var localHost = 'http://caledonialanguages.local';
+var remoteHost = 'http://caledonialanguages.local';
 
 // configure CRUD urls
 var urlNationalityCreate = {

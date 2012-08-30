@@ -13,7 +13,18 @@ Ext.define('core.store.Genders', {
 		config.model = 'core.model.Gender';
 		config.proxy = {
 			type: 'ajax',
-			actionMethods: 'POST', // wvh: Do we need this to be defined??
+			extraParams: {
+				start: 0,
+				limit: 100,
+				table: 'gender',
+				idField: 'kp_GenderID'
+			},
+			actionMethods: {
+				create: 'POST',
+				read: 'GET',
+				update: 'PUT',
+				destroy: 'DELETE'
+			},
 			api: {
 				create: (localFilteringGender ? urlGenderCreate.local : urlGenderCreate.remote),				
 				read: (localFilteringGender ? urlGenderRead.local : urlGenderRead.remote),
@@ -58,8 +69,8 @@ Ext.define('core.store.Genders', {
 // configure whether filtering is performed locally or remotely (initially)
 var localFilteringGender = true;
 
-var localHost = 'http://localhost';
-var remoteHost = 'http://localhost';
+var localHost = 'http://caledonialanguages.local';
+var remoteHost = 'http://caledonialanguages.local';
 
 // configure CRUD urls
 var urlGenderCreate = {

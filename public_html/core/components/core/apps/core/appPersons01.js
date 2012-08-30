@@ -7,7 +7,7 @@ Ext.Loader.setConfig({
 });
 
 Ext.Loader.setPath({
-	'Ext.ux': 'assets/templates/core/javascripts/extjs/examples/ux',
+	'Ext.ux': 'assets/templates/core/javascripts/extjs/examples/ux'//,
 //	'core': 'core/components/core/apps/core/app'
 	});
 	

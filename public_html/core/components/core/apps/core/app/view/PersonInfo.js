@@ -9,7 +9,7 @@ Ext.define('core.view.PersonInfo', {
 	initComponent: function() {
 	    this.xtype = 'fieldset';
 	    this.title = 'Person Info';	
-		this.margin = '0 0 0 10';
+		this.margin = '0 0 0 0';
 		this.formId = 'personInfoForm';
 		this.bodyPadding = '0 0 0 4';
 		this.defaults = {

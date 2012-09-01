@@ -32,6 +32,10 @@ Ext.define('core.view.PersonInfo', {
 						personInfoForm.reset();
 						var newPersonModel = Ext.ModelManager.create({},'core.model.Person');
 						personInfoForm.loadRecord(newPersonModel);
+						personInfoForm.setValues({
+							kf_SalutationID: 1,
+							kf_GenderID: 1
+						});
 					}
 				}
 			},

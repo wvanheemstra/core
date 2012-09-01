@@ -3,6 +3,7 @@
  * @extends Ext.app.Controller
  */
 var debug = true; // change for production 
+if (!window.console) console = {log: function() {}}; // avoids the error in IE
  
 Ext.define('core.controller.Persons', {
     extend: 'Ext.app.Controller',

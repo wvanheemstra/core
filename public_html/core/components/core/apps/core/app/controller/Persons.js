@@ -22,7 +22,7 @@ Ext.define('core.controller.Persons', {
 	],
  
     init: function() {
-        Ext.create('core.view.PersonPanel', {
+        Ext.create('Ext.LoadMask','core.view.PersonPanel', {
             layout: 'fit',
             height: 500,
             width: 800,
@@ -40,9 +40,9 @@ Ext.define('core.controller.Persons', {
 					columnWidth : 0.40				
 			}],
             renderTo: 'extjs-app'
-        });
-		//Ext.create('core.view.PersonInfo').show();
-        //Ext.create('core.view.PersonGrid').show();
+        }).show();
+		//});
+		
 		Ext.getStore('core.store.Persons').addListener('load', this.onStorePersonsLoad, this);
 		Ext.getStore('core.store.Persons').addListener('datachanged', this.onStorePersonsDataChanged, this);
 		Ext.getStore('core.store.Salutations').addListener('load', this.onStoreSalutationsLoad, this);
@@ -50,13 +50,17 @@ Ext.define('core.controller.Persons', {
 		Ext.getStore('core.store.Genders').addListener('load', this.onStoreGendersLoad, this);
 		Ext.getStore('core.store.Genders').addListener('datachanged', this.onStoreGendersDataChanged, this);		
 		Ext.getStore('core.store.Nationalities').addListener('load', this.onStoreNationalitiesLoad, this);
-		Ext.getStore('core.store.Nationalities').addListener('datachanged', this.onStoreNationalitiesDataChanged, this);		
+		Ext.getStore('core.store.Nationalities').addListener('datachanged', this.onStoreNationalitiesDataChanged, this);
+		
+		//Ext.create('core.view.PersonInfo').show();
+        //Ext.create('core.view.PersonGrid').show();	
+		
 		this.getPersonGrid().getSelectionModel().addListener('select', this.onViewPersonGridSelect, this);
 		this.getPersonInfo().getForm().addListener('addpersonbuttonclick', this.onViewPersonInfoAddPersonButtonClick, this);
-		this.getPersonInfo().getForm().addListener('savepersonbuttonclick', this.onViewPersonInfoSavePersonButtonClick, this);		
+		this.getPersonInfo().getForm().addListener('savepersonbuttonclick', this.onViewPersonInfoSavePersonButtonClick, this);
     },
 	onStorePersonsLoad: function(store, model) {
-		if(debug){console.info('Store Persons: '+Ext.getStore('core.store.Persons').getCount()+' records loaded.')};		
+		if(debug){console.info('Store Persons: '+Ext.getStore('core.store.Persons').getCount()+' records loaded.')};
 		this.getPersonGrid().getSelectionModel().select(0);
 	},
 	onStorePersonsDataChanged: function() {
@@ -91,5 +95,5 @@ Ext.define('core.controller.Persons', {
 	onViewPersonInfoSavePersonButtonClick: function() {
 		this.getPersonGrid().store.load();
 		if(debug){console.info('View PersonInfo: Save Person Button | Click')};
-	}	
+	}
 });

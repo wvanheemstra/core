@@ -1,7 +1,16 @@
 <!-- ALWAYS keep the reference to the jQuery library above all other references -->
 <script type="text/javascript" src="assets/templates/core/javascripts/jquery.min.js"></script>
-<script type="text/javascript" src="assets/templates/core/javascripts/app.customized.js"></script>
-<script type="text/javascript" src="assets/templates/core/javascripts/foundation.customized.js"></script>
+<script type="text/javascript" src="assets/templates/core/javascripts/foundation.min.js"></script>
+<script type="text/javascript" src="assets/templates/core/javascripts/jquery.foundation.accordion.js"></script>
+<script type="text/javascript" src="assets/templates/core/javascripts/jquery.foundation.alerts.js"></script>
+<script type="text/javascript" src="assets/templates/core/javascripts/jquery.foundation.buttons.js"></script>
+<script type="text/javascript" src="assets/templates/core/javascripts/jquery.foundation.forms.js"></script>
+<script type="text/javascript" src="assets/templates/core/javascripts/jquery.foundation.mediaQueryToggle.js"></script>
+<script type="text/javascript" src="assets/templates/core/javascripts/jquery.foundation.navigation.js"></script>
+<script type="text/javascript" src="assets/templates/core/javascripts/jquery.foundation.orbit.js"></script>
+<script type="text/javascript" src="assets/templates/core/javascripts/jquery.foundation.reveal.js"></script>
+<script type="text/javascript" src="assets/templates/core/javascripts/jquery.foundation.tabs.js"></script>
+<script type="text/javascript" src="assets/templates/core/javascripts/jquery.foundation.tooltips.js"></script>
 <script type="text/javascript" src="assets/templates/core/javascripts/imgSizer.js"></script>
 <script type="text/javascript" src="assets/templates/core/javascripts/jquery.autoresize.js"></script>
 <script type="text/javascript" src="assets/templates/core/javascripts/jquery.media.js"></script>

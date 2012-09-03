@@ -25,6 +25,19 @@ Ext.define('core.view.PersonGrid' , {
 			ftype: 'filters',
 			local: true   // defaults to false (remote filtering)
 		}];
+		this.listeners = {
+			render : function(){      
+				//this.body.mask('Loading...');
+				//var store = this.getStore();
+				//store.load.defer(100, store);
+				this.store.load(); // requires that store's autoLoad is false
+				this.store.loaded = true;
+			},
+			delay: 200,
+			load: function(){
+				//this.body.unmask();
+			}
+		};
 		// finally call the superclasses implementation
 		core.view.PersonGrid.superclass.initComponent.call(this);	
 	} 	
@@ -45,7 +58,9 @@ var personColumns = function (finish, start) {
 
 function get_SalutationAbbreviation(value){
 	if(value){
+		if(debug){console.info('PersonGrid - mapping to SalutationAbbreviation')};
 		salutationAbbreviation = Ext.getStore('core.store.Salutations').getById(value).get('SalutationAbbreviation');
+		if(debug){console.info('PersonGrid - SalutationAbbreviation mapped')};
 		return salutationAbbreviation;
 	}
 	else{
@@ -55,7 +70,9 @@ function get_SalutationAbbreviation(value){
 
 function get_GenderName(value){
 	if(value){
+		if(debug){console.info('PersonGrid - mapping to GenderName')};
 		genderName = Ext.getStore('core.store.Genders').getById(value).get('GenderName');
+		if(debug){console.info('PersonGrid - GenderName mapped')};
 		return genderName;
 	}
 	else{
@@ -65,13 +82,16 @@ function get_GenderName(value){
 
 function get_NationalityName(value){
 	if(value){
+		if(debug){console.info('PersonGrid - mapping to NationalityName')};
 		nationalityName = Ext.getStore('core.store.Nationalities').getById(value).get('NationalityName');
+		if(debug){console.info('PersonGrid - NationalityName mapped')};
 		return nationalityName;
 	}
 	else{
 		return 'undefined';
 	}
 };
+
 
 /** OLD
 Ext.define('core.grid.Person', {

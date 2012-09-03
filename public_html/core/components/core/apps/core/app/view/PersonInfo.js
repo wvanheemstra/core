@@ -155,6 +155,7 @@ Ext.define('core.view.PersonInfo', {
 												alert('You have deleted '+record.data.PersonFirstName+' '+record.data.PersonLastName);
 											}
 											personInfoForm.fireEvent('deletepersonbuttonclick');
+											personInfoForm.reset();
 										},
 										failure: function(record, operation) {
 											alert('ERROR: Unable to delete record!');

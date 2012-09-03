@@ -4,6 +4,8 @@
  */
 var debug = true; // change for production 
 if (!window.console) console = {log: function() {}}; // avoids the error in IE
+
+var selection = null; // default if no row is or was previously selected
  
 Ext.define('core.controller.Persons', {
     extend: 'Ext.app.Controller',
@@ -62,7 +64,10 @@ Ext.define('core.controller.Persons', {
     },
 	onStorePersonsLoad: function(store, model) {
 		if(debug){console.info('Store Persons: '+Ext.getStore('core.store.Persons').getCount()+' records loaded.')};
-		this.getPersonGrid().getSelectionModel().select(0);
+		if(selection){
+			this.getPersonGrid().getSelectionModel().select(selection[0].index);
+		} // previous selection
+		else {this.getPersonGrid().getSelectionModel().select(0)}; // no previous selection
 	},
 	onStorePersonsDataChanged: function() {
 		if(debug){console.info('Store Persons: Data Changed')};
@@ -94,6 +99,7 @@ Ext.define('core.controller.Persons', {
 		if(debug){console.info('View PersonInfo: Add Person Button | Click')};
 	},
 	onViewPersonInfoSavePersonButtonClick: function() {
+		selection = this.getPersonGrid().getSelectionModel().getSelection(); // set global value of selection
 		this.getPersonGrid().store.load();
 		if(debug){console.info('View PersonInfo: Save Person Button | Click')};
 	},

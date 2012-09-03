@@ -34,7 +34,8 @@ Ext.define('core.view.PersonInfo', {
 						personInfoForm.loadRecord(newPersonModel);
 						personInfoForm.setValues({
 							kf_SalutationID: 1,
-							kf_GenderID: 1
+							kf_GenderID: 1,
+							kf_NationalityID: 1
 						});
 					}
 				}
@@ -139,10 +140,12 @@ Ext.define('core.view.PersonInfo', {
 						personInfoForm.updateRecord(rec);
 						var proxyPersons = Ext.getStore('core.store.Persons').getProxy();
 						rec.setProxy(proxyPersons); // assign the store's proxy to the record
+						Ext.Msg.defaultButton = 2; // cancel TODO: make this work
 						Ext.Msg.prompt({
 						   title:'Delete Person',
 						   msg: 'Are you sure you want to delete '+rec.data.PersonFirstName+' ' +rec.data.PersonLastName+'?',
 						   buttons: Ext.Msg.OKCANCEL,
+						   icon: Ext.Msg.WARNING,
 						   fn: function(btn) {
 								if(btn == 'ok') {
 									rec.destroy({
@@ -159,7 +162,7 @@ Ext.define('core.view.PersonInfo', {
 									});
 								}
 							}
-						});						
+						});							
 						rec.endEdit();
 						rec.commit(); // removes the dirty marker in grid if used
 						} else {

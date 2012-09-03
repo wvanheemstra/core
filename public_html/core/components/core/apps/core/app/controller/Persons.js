@@ -39,7 +39,8 @@ Ext.define('core.controller.Persons', {
 				{
 					xtype: 'personinfo',
 					itemId: 'PersonInfo',
-					columnWidth : 0.40				
+					columnWidth : 0.40,
+					height : 473
 			}],
             renderTo: 'extjs-app'
         }).show();

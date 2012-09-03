@@ -11,23 +11,23 @@ Ext.define('core.view.PersonInfo', {
 	    this.title = 'Person Info';	
 		this.margin = '0 0 0 0';
 		this.formId = 'personInfoForm';
+		this.buttonAlign = 'left';
 		this.bodyPadding = '0 0 0 4';
 		this.defaults = {
 			width: 240,
 			labelWidth: 80
 		};
 		this.defaultType = 'textfield';
-	    this.items = [
-			{
-				xtype:'hidden', // auto-increment field, need presence for update  
-				name:'kp_PersonID'				 
-			},
+		this.tbar = [
 			{
 				xtype: 'button',
+				formBind: false,
+				cls: 'x-btn-text-icon',
+				icon: 'images/addPerson.png',
 				text: 'Add Person',
 				listeners: {
 					click: function() {
-						var personInfoForm = this.ownerCt.getForm('personInfoForm');
+						var personInfoForm = this.ownerCt.ownerCt.getForm('personInfoForm');
 						personInfoForm.fireEvent('addpersonbuttonclick');					
 						personInfoForm.reset();
 						var newPersonModel = Ext.ModelManager.create({},'core.model.Person');
@@ -39,6 +39,12 @@ Ext.define('core.view.PersonInfo', {
 						});
 					}
 				}
+			}
+		];
+	    this.items = [
+			{
+				xtype: 'hidden', // auto-increment field, need presence for update  
+				name: 'kp_PersonID'				 
 			},
 			{
 				name: 'kf_SalutationID',
@@ -89,51 +95,18 @@ Ext.define('core.view.PersonInfo', {
 				allowBlank: false,
 				typeAhead: true,
 				forceSelection: true
-			},
+			}
+		];
+		this.bbar = [
 			{
 				xtype: 'button',
-				text: 'Save Person',
-				listeners: {
-					click: function() {
-						var personInfoForm = this.ownerCt.getForm('personInfoForm');
-						if(personInfoForm.isValid()) {
-							var rec = personInfoForm.getRecord();
-							if (rec){
-								rec.beginEdit();
-								personInfoForm.updateRecord(rec);
-								var proxyPersons = Ext.getStore('core.store.Persons').getProxy();
-								rec.setProxy(proxyPersons); // assign the store's proxy to the record
-								rec.save({ 
-									params: { },
-									success: function(record, operation) {
-										if (operation.action === 'create'){
-											alert('You have added '+record.data.PersonFirstName+' '+record.data.PersonLastName);
-										}
-										personInfoForm.fireEvent('savepersonbuttonclick');
-									},
-									failure: function(record, operation) {
-										alert('ERROR: Unable to save record!');
-									}
-								});
-								rec.endEdit();
-								rec.commit(); // removes the dirty marker in grid if used
-							} else {
-								alert('Please select a record to edit, or select Add Person');
-							}
-						}
-						else {
-							var field = this.ownerCt.down('#fieldPersonFirstName');
-							field.focus('',10);							
-						}
-					}
-				}
-			},
-			{
-				xtype: 'button',
+				cls: 'x-btn-text-icon',
+				icon: 'images/deletePerson.png',
 				text: 'Delete Person',
+				formBind: true,
 				listeners: {
 					click: function() {
-						var personInfoForm = this.ownerCt.getForm('personInfoForm');
+						var personInfoForm = this.ownerCt.ownerCt.getForm('personInfoForm');
 						var rec = personInfoForm.getRecord();
 						if (rec){
 						rec.beginEdit();
@@ -170,9 +143,54 @@ Ext.define('core.view.PersonInfo', {
 								alert('Please select a record to delete');
 						}
 					}
-				}	
-			}	
-		];				
+				}
+			},
+			{
+				xtype: 'tbfill'
+			},
+			{
+				xtype: 'button',
+				cls: 'x-btn-text-icon',
+				icon: 'images/savePerson.png',
+				text: 'Save Person',
+				margin: '0 0 0 10',
+				formBind: true,
+				listeners: {
+					click: function() {
+						var personInfoForm = this.ownerCt.ownerCt.getForm('personInfoForm');
+						if(personInfoForm.isValid()) {
+							var rec = personInfoForm.getRecord();
+							if (rec){
+								rec.beginEdit();
+								personInfoForm.updateRecord(rec);
+								var proxyPersons = Ext.getStore('core.store.Persons').getProxy();
+								rec.setProxy(proxyPersons); // assign the store's proxy to the record
+								rec.save({ 
+									params: { },
+									success: function(record, operation) {
+										if (operation.action === 'create'){
+											alert('You have added '+record.data.PersonFirstName+' '+record.data.PersonLastName);
+										}
+										personInfoForm.fireEvent('savepersonbuttonclick');
+									},
+									failure: function(record, operation) {
+										alert('ERROR: Unable to save record!');
+									}
+								});
+								rec.endEdit();
+								rec.commit(); // removes the dirty marker in grid if used
+							} else {
+								alert('Please select a record to edit, or select Add Person');
+							}
+						}
+						else {
+							var field = this.ownerCt.down('#fieldPersonFirstName');
+							field.focus('',10);							
+						}
+					}
+				}
+			}
+		];
 		// finally call the superclasses implementation
 		core.view.PersonInfo.superclass.initComponent.call(this);
 	}

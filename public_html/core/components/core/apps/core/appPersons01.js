@@ -17,5 +17,8 @@ Ext.create('Ext.app.Application', {
     autoCreateViewport: false,
     controllers: ['Persons'],
     launch: function() {
+		if (Ext.get('loading')) {
+			Ext.get('loading').remove();
+		}
     }
 });

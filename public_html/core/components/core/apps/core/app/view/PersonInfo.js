@@ -144,7 +144,6 @@ Ext.define('core.view.PersonInfo', {
 						   msg: 'Are you sure you want to delete '+rec.data.PersonFirstName+' ' +rec.data.PersonLastName+'?',
 						   buttons: Ext.Msg.OKCANCEL,
 						   fn: function(btn) {
-								alert(btn);
 								if(btn == 'ok') {
 									rec.destroy({
 										params: {},

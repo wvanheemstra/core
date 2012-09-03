@@ -94,7 +94,6 @@ Ext.define('core.view.PersonInfo', {
 				text: 'Save Person',
 				listeners: {
 					click: function() {
-					
 						var personInfoForm = this.ownerCt.getForm('personInfoForm');
 						if(personInfoForm.isValid()) {
 							var rec = personInfoForm.getRecord();
@@ -107,7 +106,7 @@ Ext.define('core.view.PersonInfo', {
 									params: { },
 									success: function(record, operation) {
 										if (operation.action === 'create'){
-											alert('You have added '+record.data.PersonFirstName+' '+record.data.PersonLastName)
+											alert('You have added '+record.data.PersonFirstName+' '+record.data.PersonLastName);
 										}
 										personInfoForm.fireEvent('savepersonbuttonclick');
 									},
@@ -127,7 +126,49 @@ Ext.define('core.view.PersonInfo', {
 						}
 					}
 				}
-			}
+			},
+			{
+				xtype: 'button',
+				text: 'Delete Person',
+				listeners: {
+					click: function() {
+						var personInfoForm = this.ownerCt.getForm('personInfoForm');
+						var rec = personInfoForm.getRecord();
+						if (rec){
+						rec.beginEdit();
+						personInfoForm.updateRecord(rec);
+						var proxyPersons = Ext.getStore('core.store.Persons').getProxy();
+						rec.setProxy(proxyPersons); // assign the store's proxy to the record
+						Ext.Msg.prompt({
+						   title:'Delete Person',
+						   msg: 'Are you sure you want to delete '+rec.data.PersonFirstName+' ' +rec.data.PersonLastName+'?',
+						   buttons: Ext.Msg.OKCANCEL,
+						   fn: function(btn) {
+								alert(btn);
+								if(btn == 'ok') {
+									rec.destroy({
+										params: {},
+										success: function(record, operation) {
+											if(operation.action === 'destroy') {
+												alert('You have deleted '+record.data.PersonFirstName+' '+record.data.PersonLastName);
+											}
+											personInfoForm.fireEvent('deletepersonbuttonclick');
+										},
+										failure: function(record, operation) {
+											alert('ERROR: Unable to delete record!');
+										}
+									});
+								}
+							}
+						});						
+						rec.endEdit();
+						rec.commit(); // removes the dirty marker in grid if used
+						} else {
+								alert('Please select a record to delete');
+						}
+					}
+				}	
+			}	
 		];				
 		// finally call the superclasses implementation
 		core.view.PersonInfo.superclass.initComponent.call(this);

@@ -22,7 +22,7 @@ Ext.define('core.controller.Persons', {
 	],
  
     init: function() {
-        Ext.create('Ext.LoadMask','core.view.PersonPanel', {
+        Ext.create('core.view.PersonPanel', {
             layout: 'fit',
             height: 500,
             width: 800,
@@ -58,6 +58,7 @@ Ext.define('core.controller.Persons', {
 		this.getPersonGrid().getSelectionModel().addListener('select', this.onViewPersonGridSelect, this);
 		this.getPersonInfo().getForm().addListener('addpersonbuttonclick', this.onViewPersonInfoAddPersonButtonClick, this);
 		this.getPersonInfo().getForm().addListener('savepersonbuttonclick', this.onViewPersonInfoSavePersonButtonClick, this);
+		this.getPersonInfo().getForm().addListener('deletepersonbuttonclick', this.onViewPersonInfoDeletePersonButtonClick, this);
     },
 	onStorePersonsLoad: function(store, model) {
 		if(debug){console.info('Store Persons: '+Ext.getStore('core.store.Persons').getCount()+' records loaded.')};
@@ -95,5 +96,9 @@ Ext.define('core.controller.Persons', {
 	onViewPersonInfoSavePersonButtonClick: function() {
 		this.getPersonGrid().store.load();
 		if(debug){console.info('View PersonInfo: Save Person Button | Click')};
+	},
+	onViewPersonInfoDeletePersonButtonClick: function() {
+		this.getPersonGrid().store.load();
+		if(debug){console.info('View PersonInfo: Delete Person Button | Click')};
 	}
 });

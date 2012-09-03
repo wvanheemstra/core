@@ -7,8 +7,8 @@ Ext.define('core.store.Persons', {
 	constructor: function(config) {
 		config = config || {};
 		config.autoDestroy = true;
-		config.autoLoad = true;
-		config.loaded = true;
+		config.autoLoad = false; // load this store inside the view's render function
+		config.loaded = false;
 		config.requires = 'core.model.Person';
 		config.model = 'core.model.Person';
 		config.proxy = {

@@ -23,7 +23,7 @@ Ext.define('core.view.PersonInfo', {
 				xtype: 'button',
 				formBind: false,
 				cls: 'x-btn-text-icon',
-				icon: 'images/addPerson.png',
+				icon: 'assets/templates/core/icons/user_add.png',
 				text: 'Add Person',
 				listeners: {
 					click: function() {
@@ -101,7 +101,7 @@ Ext.define('core.view.PersonInfo', {
 			{
 				xtype: 'button',
 				cls: 'x-btn-text-icon',
-				icon: 'images/deletePerson.png',
+				icon: 'assets/templates/core/icons/user_delete.png',
 				text: 'Delete Person',
 				formBind: true,
 				listeners: {
@@ -151,7 +151,7 @@ Ext.define('core.view.PersonInfo', {
 			{
 				xtype: 'button',
 				cls: 'x-btn-text-icon',
-				icon: 'images/savePerson.png',
+				icon: 'assets/templates/core/icons/user_go.png',
 				text: 'Save Person',
 				margin: '0 0 0 10',
 				formBind: true,

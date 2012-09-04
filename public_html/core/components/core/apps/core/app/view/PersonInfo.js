@@ -116,7 +116,7 @@ Ext.define('core.view.PersonInfo', {
 						Ext.Msg.defaultButton = 2; // cancel TODO: make this work
 						Ext.Msg.prompt({
 						   title:'Delete Person',
-						   msg: 'Are you sure you want to delete '+rec.data.PersonFirstName+' ' +rec.data.PersonLastName+'?',
+						   msg: 'Are you sure you want to delete <span style="font-weight:bold;">'+rec.data.PersonFirstName+' ' +rec.data.PersonLastName+'</span>?',
 						   buttons: Ext.Msg.OKCANCEL,
 						   icon: Ext.Msg.WARNING,
 						   fn: function(btn) {
@@ -125,13 +125,23 @@ Ext.define('core.view.PersonInfo', {
 										params: {},
 										success: function(record, operation) {
 											if(operation.action === 'destroy') {
-												alert('You have deleted '+record.data.PersonFirstName+' '+record.data.PersonLastName);
+												Ext.Msg.prompt({
+													title:'Person Deleted',
+													msg: 'You have deleted <span style="font-weight:bold;">'+record.data.PersonFirstName+' '+record.data.PersonLastName+'</span>.',
+													buttons: Ext.Msg.OK,
+													icon: Ext.Msg.INFO
+												});
 											}
 											personInfoForm.fireEvent('deletepersonbuttonclick');
 											personInfoForm.reset();
 										},
 										failure: function(record, operation) {
-											alert('ERROR: Unable to delete record!');
+											Ext.Msg.prompt({
+												title:'Delete Person',
+												msg: 'Unable to delete person.',
+												buttons: Ext.Msg.OK,
+												icon: Ext.Msg.ERROR
+											});
 										}
 									});
 								}
@@ -140,7 +150,12 @@ Ext.define('core.view.PersonInfo', {
 						rec.endEdit();
 						rec.commit(); // removes the dirty marker in grid if used
 						} else {
-								alert('Please select a record to delete');
+							Ext.Msg.prompt({
+								title:'Delete Person',
+								msg: 'Please select a person to delete',
+								buttons: Ext.Msg.OK,
+								icon: Ext.Msg.INFO
+							});
 						}
 					}
 				}
@@ -169,7 +184,12 @@ Ext.define('core.view.PersonInfo', {
 									params: { },
 									success: function(record, operation) {
 										if (operation.action === 'create'){
-											alert('You have added '+record.data.PersonFirstName+' '+record.data.PersonLastName);
+											Ext.Msg.prompt({
+												title:'Person Added',
+												msg: 'You have added <span style="font-weight:bold;">'+record.data.PersonFirstName+' '+record.data.PersonLastName+'</span>',
+												buttons: Ext.Msg.OK,
+												icon: Ext.Msg.INFO
+											});
 										}
 										personInfoForm.fireEvent('savepersonbuttonclick');
 									},
@@ -180,7 +200,12 @@ Ext.define('core.view.PersonInfo', {
 								rec.endEdit();
 								rec.commit(); // removes the dirty marker in grid if used
 							} else {
-								alert('Please select a record to edit, or select Add Person');
+								Ext.Msg.prompt({
+									title:'Save Person',
+									msg: 'Please select a person to save, or select Add Person',
+									buttons: Ext.Msg.OK,
+									icon: Ext.Msg.INFO
+								});
 							}
 						}
 						else {

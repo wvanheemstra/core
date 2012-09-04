@@ -11,7 +11,7 @@ Ext.define('core.controller.Persons', {
     extend: 'Ext.app.Controller',
     models: ['core.model.Person', 'core.model.Salutation', 'core.model.Gender', 'core.model.Nationality'],
     stores: ['core.store.Persons', 'core.store.Salutations', 'core.store.Genders', 'core.store.Nationalities'],
-    views: ['core.view.PersonPanel', 'core.view.PersonInfo', 'core.view.PersonGrid'],
+    views: ['core.view.PersonPanel','core.view.GroupGrid', 'core.view.PersonInfo', 'core.view.PersonGrid'],
 	refs: [
 	   {
 		   ref: 'PersonGrid',
@@ -27,24 +27,37 @@ Ext.define('core.controller.Persons', {
         Ext.create('core.view.PersonPanel', {
             layout: 'fit',
             height: 500,
-            width: 800,
+            width: 'fit',
 			layout: 'column',
 			bodyPadding: 0,
-            items: [{
+            items: [
+				{
+					xtype: 'groupgrid',
+					region: 'east',
+					itemId: 'GroupGrid',
+					columnWidth: 0.15,
+					height: 473,
+					collapsible: true,
+					collapseDirection: 'left'
+				},
+				{
 					xtype: 'persongrid',
+					region: 'center',
 					itemId: 'PersonGrid',
-					columnWidth : 0.65,
-					height : 473
+					columnWidth: 0.60,
+					height: 473
 				},
 				{
 					xtype: 'personinfo',
+					region: 'west',
 					itemId: 'PersonInfo',
-					columnWidth : 0.35,
-					height : 473
+					columnWidth: 0.25,
+					height: 473,
+					collapsible: true,
+					collapseDirection: 'right'
 			}],
             renderTo: 'extjs-app'
         }).show();
-		//});
 		
 		Ext.getStore('core.store.Persons').addListener('load', this.onStorePersonsLoad, this);
 		Ext.getStore('core.store.Persons').addListener('datachanged', this.onStorePersonsDataChanged, this);

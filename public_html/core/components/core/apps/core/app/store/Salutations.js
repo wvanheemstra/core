@@ -8,7 +8,7 @@ Ext.define('core.store.Salutations', {
 		config = config || {};
 		config.autoDestroy = true;
 		config.autoLoad = true;
-		config.loaded = true;
+		config.loaded = false; // false initially
 		config.requires = 'core.model.Salutation';
 		config.model = 'core.model.Salutation';
 		config.proxy = {
@@ -45,14 +45,18 @@ Ext.define('core.store.Salutations', {
 				root: 'data'
 			},
 			listeners: {
-			//	exception: function(proxy, response, operation){
-			//		Ext.MessageBox.show({
-			//			title: 'REMOTE EXCEPTION',
-			//			msg: operation.getError(),
-			//			icon: Ext.MessageBox.ERROR,
-			//			buttons: Ext.Msg.OK
-			//		});
-			//	}				
+				load: function(){
+					this.loaded = true;
+					alert('Salutations - Loaded!!');
+				},			
+				exception: function(proxy, response, operation){
+					Ext.MessageBox.show({
+						title: 'REMOTE EXCEPTION',
+						msg: operation.getError(),
+						icon: Ext.MessageBox.ERROR,
+						buttons: Ext.Msg.OK
+					});
+				}				
 			}
 		};
 		config.remoteSort = false;

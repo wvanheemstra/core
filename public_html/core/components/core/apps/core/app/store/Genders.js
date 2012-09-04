@@ -8,7 +8,7 @@ Ext.define('core.store.Genders', {
 		config = config || {};
 		config.autoDestroy = true;
 		config.autoLoad = true;
-		config.loaded = true;
+		config.loaded = false; // false initially
 		config.requires = 'core.model.Gender';
 		config.model = 'core.model.Gender';
 		config.proxy = {
@@ -45,14 +45,18 @@ Ext.define('core.store.Genders', {
 				root: 'data'
 			},
 			listeners: {
-			//	exception: function(proxy, response, operation){
-			//		Ext.MessageBox.show({
-			//			title: 'REMOTE EXCEPTION',
-			//			msg: operation.getError(),
-			//			icon: Ext.MessageBox.ERROR,
-			//			buttons: Ext.Msg.OK
-			//		});
-			//	}				
+				load: function(){
+					this.loaded = true;
+					alert('Genders - Loaded!!');
+				},			
+				exception: function(proxy, response, operation){
+					Ext.MessageBox.show({
+						title: 'REMOTE EXCEPTION',
+						msg: operation.getError(),
+						icon: Ext.MessageBox.ERROR,
+						buttons: Ext.Msg.OK
+					});
+				}				
 			}
 		};
 		config.remoteSort = false;

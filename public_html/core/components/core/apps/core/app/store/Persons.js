@@ -8,7 +8,7 @@ Ext.define('core.store.Persons', {
 		config = config || {};
 		config.autoDestroy = true;
 		config.autoLoad = false; // load this store inside the view's render function
-		config.loaded = false;
+		config.loaded = false; // false initially
 		config.requires = 'core.model.Person';
 		config.model = 'core.model.Person';
 		config.proxy = {
@@ -45,14 +45,18 @@ Ext.define('core.store.Persons', {
 				root: 'data'
 			},
 			listeners: {
-			//	exception: function(proxy, response, operation){
-			//		Ext.MessageBox.show({
-			//			title: 'REMOTE EXCEPTION',
-			//			msg: operation.getError(),
-			//			icon: Ext.MessageBox.ERROR,
-			//			buttons: Ext.Msg.OK
-			//		});
-			//	}				
+				load: function(){
+					this.loaded = true;
+					alert('Persons - Loaded!!');
+				},			
+				exception: function(proxy, response, operation){
+					Ext.MessageBox.show({
+						title: 'REMOTE EXCEPTION',
+						msg: operation.getError(),
+						icon: Ext.MessageBox.ERROR,
+						buttons: Ext.Msg.OK
+					});
+				}				
 			}
 		};
 		config.remoteSort = false;

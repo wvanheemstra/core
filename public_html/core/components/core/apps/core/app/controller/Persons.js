@@ -33,13 +33,13 @@ Ext.define('core.controller.Persons', {
             items: [{
 					xtype: 'persongrid',
 					itemId: 'PersonGrid',
-					columnWidth : 0.60,
+					columnWidth : 0.65,
 					height : 473
 				},
 				{
 					xtype: 'personinfo',
 					itemId: 'PersonInfo',
-					columnWidth : 0.40,
+					columnWidth : 0.35,
 					height : 473
 			}],
             renderTo: 'extjs-app'
@@ -65,6 +65,7 @@ Ext.define('core.controller.Persons', {
     },
 	onStorePersonsLoad: function(store, model) {
 		if(debug){console.info('Store Persons: '+Ext.getStore('core.store.Persons').getCount()+' records loaded.')};
+		Ext.getStore('core.store.Persons').loaded = true;
 		if(selection){
 			this.getPersonGrid().getSelectionModel().select(selection[0].index);
 		} // previous selection
@@ -75,18 +76,21 @@ Ext.define('core.controller.Persons', {
 	},
 	onStoreSalutationsLoad: function(store, model) {
 		if(debug){console.info('Store Salutations: '+Ext.getStore('core.store.Salutations').getCount()+' records loaded.')};
+		Ext.getStore('core.store.Salutations').loaded = true;
 	},
 	onStoreSalutationsDataChanged: function() {
 		if(debug){console.info('Store Salutations: Data Changed')};
 	},
 	onStoreGendersLoad: function(store, model) {
 		if(debug){console.info('Store Genders: '+Ext.getStore('core.store.Genders').getCount()+' records loaded.')};
+		Ext.getStore('core.store.Genders').loaded = true;
 	},
 	onStoreGendersDataChanged: function() {
 		if(debug){console.info('Store Genders: Data Changed')};
 	},
 	onStoreNationalitiesLoad: function(store, model) {
 		if(debug){console.info('Store Nationalities: '+Ext.getStore('core.store.Nationalities').getCount()+' records loaded.')};
+		Ext.getStore('core.store.Nationalities').loaded = true;
 	},
 	onStoreNationalitiesDataChanged: function() {
 		if(debug){console.info('Store Nationalities: Data Changed')};

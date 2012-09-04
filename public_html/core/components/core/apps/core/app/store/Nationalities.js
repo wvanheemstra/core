@@ -8,14 +8,14 @@ Ext.define('core.store.Nationalities', {
 		config = config || {};
 		config.autoDestroy = true;
 		config.autoLoad = true;
-		config.loaded = true;
+		config.loaded = false; // false initially
 		config.requires = 'core.model.Nationality';
 		config.model = 'core.model.Nationality';
 		config.proxy = {
 			type: 'ajax',			
 			extraParams: {
 				start: 0,
-				limit: 9999,
+				limit: 200, // set close tot total number of records
 				table: 'nationality',
 				idField: 'kp_NationalityID'
 			},
@@ -45,14 +45,18 @@ Ext.define('core.store.Nationalities', {
 				root: 'data'
 			},
 			listeners: {
-			//	exception: function(proxy, response, operation){
-			//		Ext.MessageBox.show({
-			//			title: 'REMOTE EXCEPTION',
-			//			msg: operation.getError(),
-			//			icon: Ext.MessageBox.ERROR,
-			//			buttons: Ext.Msg.OK
-			//		});
-			//	}				
+				load: function(){
+					this.loaded = true;
+					alert('Nationalities - Loaded!!');
+				},
+				exception: function(proxy, response, operation){
+					Ext.MessageBox.show({
+						title: 'REMOTE EXCEPTION',
+						msg: operation.getError(),
+						icon: Ext.MessageBox.ERROR,
+						buttons: Ext.Msg.OK
+					});
+				}				
 			}
 		};
 		config.remoteSort = false;

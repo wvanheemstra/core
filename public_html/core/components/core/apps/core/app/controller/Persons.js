@@ -25,37 +25,52 @@ Ext.define('core.controller.Persons', {
  
     init: function() {
         Ext.create('core.view.PersonPanel', {
-            layout: 'fit',
+			layout: {
+                type: 'border',
+                padding: 5
+            },
             height: 500,
             width: 'fit',
-			layout: 'column',
 			bodyPadding: 0,
             items: [
 				{
-					xtype: 'groupgrid',
-					region: 'east',
-					itemId: 'GroupGrid',
-					columnWidth: 0.15,
-					height: 473,
-					collapsible: true,
-					collapseDirection: 'left'
-				},
-				{
-					xtype: 'persongrid',
-					region: 'center',
-					itemId: 'PersonGrid',
-					columnWidth: 0.60,
-					height: 473
-				},
-				{
-					xtype: 'personinfo',
 					region: 'west',
-					itemId: 'PersonInfo',
-					columnWidth: 0.25,
-					height: 473,
-					collapsible: true,
-					collapseDirection: 'right'
-			}],
+					items: [{
+						xtype: 'groupgrid',
+						itemId: 'GroupGrid',
+						width: 200,
+						height: 461,
+						border: 0,
+						split: true,
+						collapsible: true,
+						collapseDirection: 'left'
+					}]
+				},
+				{
+					region: 'center',
+					items: [{
+						xtype: 'persongrid',
+						itemId: 'PersonGrid',
+						width: 'fit',
+						border: 0,
+						split: true,
+						height: 461 // limit for a scroll bar
+					}]
+				},
+				{
+					region: 'east',
+					items: [{
+						xtype: 'personinfo',
+						itemId: 'PersonInfo',
+						width: 300,
+						border: 0,
+						split: true,
+						height: 461,
+						collapsible: true,
+						collapseDirection: 'right'
+					}]
+				}
+			],
             renderTo: 'extjs-app'
         }).show();
 		

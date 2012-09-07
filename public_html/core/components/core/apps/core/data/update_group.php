@@ -11,7 +11,7 @@ function getInputParms()
 }
 
 include 'dbparams.php';
-$table='person';
+$table='group';
    
 //make database connection
 $connection = mysql_connect($host, $user, $pw) or
@@ -19,9 +19,9 @@ $connection = mysql_connect($host, $user, $pw) or
 mysql_set_charset("UTF8", $connection);     
 mysql_select_db($db) or die("Could not select database");
 
-savePerson();
+saveGroup();
     
-function savePerson() 
+function saveGroup() 
 {
     $jsonData = getInputParms();
 
@@ -29,20 +29,20 @@ function savePerson()
 
     if (is_array($jsonData)) {
 
-        if ($jsonData['kp_PersonID'] > 0) {
-            $id = $jsonData['kp_PersonID'];
+        if ($jsonData['kp_GroupID'] > 0) {
+            $id = $jsonData['kp_GroupID'];
 
-            $sql  = 'UPDATE person SET kf_SalutationID = '.$jsonData['kf_SalutationID'].',PersonFirstName = "'.$jsonData['PersonFirstName'].'",PersonLastName = "'.$jsonData['PersonLastName'].'",kf_GenderID = '.$jsonData['kf_GenderID'].',kf_NationalityID = '.$jsonData['kf_NationalityID'];
-            $sql .= ' WHERE kp_PersonID = '.$jsonData['kp_PersonID'];
+            $sql  = 'UPDATE group SET GroupName = "'.$jsonData['GroupName'].'",kf_KindOfGroupID = '.$jsonData['kf_KindOfGroupID'].'];
+            $sql .= ' WHERE kp_GroupID = '.$jsonData['kp_GroupID'];
             $result = mysql_query($sql); // result set
         } else {
-            $sql  = 'INSERT INTO person (kf_SalutationID,PersonFirstName,PersonLastName,kf_GenderID,kf_NationalityID) VALUES ('.$jsonData['kf_SalutationID'].',"'.$jsonData['PersonFirstName'].'","'.$jsonData['PersonLastName'].'",'.$jsonData['kf_GenderID'].','.$jsonData['kf_NationalityID'].')';
+            $sql  = 'INSERT INTO group (GroupName,kf_KindOfGroupID) VALUES ("'.$jsonData['GroupName'].'",'.$jsonData['kf_KindOfGroupID'].')';
             $result = mysql_query($sql); // result set
             $id = mysql_insert_id();
         }
     }    
 
-    $data = getPerson($id); // already encoded
+    $data = getGroup($id); // already encoded
 
     $return = array(
         'success' => TRUE,
@@ -54,9 +54,9 @@ function savePerson()
 }
 
 
-function getPerson($kp_PersonID)
+function getGroup($kp_GroupID)
 {
-    $sql = 'SELECT * FROM person WHERE kp_PersonID = '.$kp_PersonID;
+    $sql = 'SELECT * FROM group WHERE kp_GroupID = '.$kp_GroupID;
     
     $result = mysql_query($sql); // result set
     

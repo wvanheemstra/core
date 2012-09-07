@@ -5,7 +5,7 @@
 Ext.define('core.model.Group', {
 	extend: 'Ext.data.Model',
 	fields: [
-		{ name: 'kp_GroupID', type: 'int'}, 
+		{ name: 'kp_GroupID', type: 'int', defaultValue: '0'}, 
 		{ name: 'GroupName', type: 'string'}, 
 		{ name: 'kf_KindOfGroupID', type: 'int', defaultValue: '0' }
 	],

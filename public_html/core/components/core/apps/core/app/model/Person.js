@@ -5,7 +5,7 @@
 Ext.define('core.model.Person', {
 	extend: 'Ext.data.Model',
 	fields: [
-		{ name: 'kp_PersonID', type: 'int'}, 
+		{ name: 'kp_PersonID', type: 'int', defaultValue: '0'},
 		{ name: 'PersonFirstName', type: 'string'}, 
 		{ name: 'PersonLastName', type: 'string'},
 		{ name: 'kf_GenderID', type: 'int', defaultValue: '0' },

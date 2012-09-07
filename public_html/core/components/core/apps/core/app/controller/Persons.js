@@ -5,22 +5,29 @@
 var debug = true; // change for production 
 if (!window.console) console = {log: function() {}}; // avoids the error in IE
 
+var localHost = 'http://localhost';
+var remoteHost = 'http://localhost';
+
 var selection = null; // default if no row is or was previously selected
  
 Ext.define('core.controller.Persons', {
     extend: 'Ext.app.Controller',
-    models: ['core.model.Person', 'core.model.Salutation', 'core.model.Gender', 'core.model.Nationality'],
-    stores: ['core.store.Persons', 'core.store.Salutations', 'core.store.Genders', 'core.store.Nationalities'],
-    views: ['core.view.PersonPanel','core.view.GroupGrid', 'core.view.PersonInfo', 'core.view.PersonGrid'],
+    models: ['core.model.Group', 'core.model.Person', 'core.model.Salutation', 'core.model.Gender', 'core.model.Nationality'],
+    stores: ['core.store.Groups', 'core.store.Persons', 'core.store.Salutations', 'core.store.Genders', 'core.store.Nationalities'],
+    views: ['core.view.PersonPanel', 'core.view.GroupGrid', 'core.view.PersonInfo', 'core.view.PersonGrid'],
 	refs: [
-	   {
+		{
+		   ref: 'GroupGrid',
+		   selector: 'groupgrid' // widget name
+		},
+		{
 		   ref: 'PersonGrid',
 		   selector: 'persongrid' // widget name
-	   },
-	   {
+		},
+		{
 		   ref: 'PersonInfo',
 		   selector: 'personinfo' // widget name
-	   }
+		}
 	],
  
     init: function() {
@@ -38,7 +45,7 @@ Ext.define('core.controller.Persons', {
 					items: [{
 						xtype: 'groupgrid',
 						itemId: 'GroupGrid',
-						width: 200,
+						width: 210,
 						height: 461,
 						border: 0,
 						split: true,
@@ -62,7 +69,7 @@ Ext.define('core.controller.Persons', {
 					items: [{
 						xtype: 'personinfo',
 						itemId: 'PersonInfo',
-						width: 300,
+						width: 250,
 						border: 0,
 						split: true,
 						height: 461,
@@ -74,6 +81,8 @@ Ext.define('core.controller.Persons', {
             renderTo: 'extjs-app'
         }).show();
 		
+		Ext.getStore('core.store.Groups').addListener('load', this.onStoreGroupsLoad, this);
+		Ext.getStore('core.store.Groups').addListener('datachanged', this.onStoreGroupsDataChanged, this);	
 		Ext.getStore('core.store.Persons').addListener('load', this.onStorePersonsLoad, this);
 		Ext.getStore('core.store.Persons').addListener('datachanged', this.onStorePersonsDataChanged, this);
 		Ext.getStore('core.store.Salutations').addListener('load', this.onStoreSalutationsLoad, this);
@@ -82,15 +91,29 @@ Ext.define('core.controller.Persons', {
 		Ext.getStore('core.store.Genders').addListener('datachanged', this.onStoreGendersDataChanged, this);		
 		Ext.getStore('core.store.Nationalities').addListener('load', this.onStoreNationalitiesLoad, this);
 		Ext.getStore('core.store.Nationalities').addListener('datachanged', this.onStoreNationalitiesDataChanged, this);
-		
+
+        //Ext.create('core.view.GroupGrid').show();		
 		//Ext.create('core.view.PersonInfo').show();
         //Ext.create('core.view.PersonGrid').show();	
 		
+//		this.getGroupGrid().getSelectionModel().addListener('select', this.onViewGroupGridSelect, this);
 		this.getPersonGrid().getSelectionModel().addListener('select', this.onViewPersonGridSelect, this);
 		this.getPersonInfo().getForm().addListener('addpersonbuttonclick', this.onViewPersonInfoAddPersonButtonClick, this);
 		this.getPersonInfo().getForm().addListener('savepersonbuttonclick', this.onViewPersonInfoSavePersonButtonClick, this);
 		this.getPersonInfo().getForm().addListener('deletepersonbuttonclick', this.onViewPersonInfoDeletePersonButtonClick, this);
     },
+	
+	onStoreGroupsLoad: function(store, model) {
+		if(debug){console.info('Store Groups: '+Ext.getStore('core.store.Groups').getCount()+' records loaded.')};
+		Ext.getStore('core.store.Groups').loaded = true;
+		if(selection){
+			this.getGroupGrid().getSelectionModel().select(selection[0].index);
+		} // previous selection
+		else {this.getGroupGrid().getSelectionModel().select(0)}; // no previous selection
+	},
+	onStoreGroupsDataChanged: function() {
+		if(debug){console.info('Store Groups: Data Changed')};
+	},
 	onStorePersonsLoad: function(store, model) {
 		if(debug){console.info('Store Persons: '+Ext.getStore('core.store.Persons').getCount()+' records loaded.')};
 		Ext.getStore('core.store.Persons').loaded = true;

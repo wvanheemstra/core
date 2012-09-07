@@ -9,5 +9,6 @@ Ext.define('core.model.Gender', {
 		{ name: 'GenderName', type: 'string'}
 	],
 	idProperty: 'kp_GenderID',
+	loaded: false,
 	belongsTo: 'core.model.Person'
 });

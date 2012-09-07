@@ -66,15 +66,13 @@ Ext.define('core.store.Salutations', {
 		}];
 		config.pageSize = 10; // was 50
 		// call the superclass's constructor
-		core.store.Salutations.superclass.constructor.call(this, config);			
+		//core.store.Salutations.superclass.constructor.call(this, config);
+		this.superclass.constructor.call(this, config);		
 	}
 });	
 
 // configure whether filtering is performed locally or remotely (initially)
 var localFilteringSalutation = true;
-
-var localHost = 'http://localhost';
-var remoteHost = 'http://localhost';
 
 // configure CRUD urls
 var urlSalutationCreate = {

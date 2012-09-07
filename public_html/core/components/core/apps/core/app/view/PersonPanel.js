@@ -6,10 +6,11 @@ Ext.define('core.view.PersonPanel', {
     extend: 'Ext.panel.Panel',
 	alias : 'widget.personpanel',
 	// override
-	initComponent: function() {
-		this.title = 'Person Panel';
+	constructor: function(config) {
+		config = config || {};
+		config.title = 'Person Panel';
 	
-		// finally call the superclasses implementation
-		core.view.PersonPanel.superclass.initComponent.call(this);	
+		// finally call the superclasses implementation	
+		this.superclass.constructor.call(this, config);
 	}
 });

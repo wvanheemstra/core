@@ -6,19 +6,20 @@ Ext.define('core.view.PersonInfo', {
 	extend: 'Ext.form.Panel',
 	alias: 'widget.personinfo',
 	// override
-	initComponent: function() {
-	    this.xtype = 'fieldset';
-	    this.title = 'Person Info';	
-		this.margin = '0 0 0 0';
-		this.formId = 'personInfoForm';
-		this.buttonAlign = 'left';
-		this.bodyPadding = '0 0 0 4';
-		this.defaults = {
+	constructor: function(config) {
+		config = config || {};
+	    config.xtype = 'fieldset';
+	    config.title = 'Person Info';	
+		config.margin = '0 0 0 0';
+		config.formId = 'personInfoForm';
+		config.buttonAlign = 'left';
+		config.bodyPadding = '0 0 0 4';
+		config.defaults = {
 			width: 240,
 			labelWidth: 80
 		};
-		this.defaultType = 'textfield';
-		this.tbar = [
+		config.defaultType = 'textfield';
+		config.tbar = [
 			{
 				xtype: 'button',
 				formBind: false,
@@ -41,7 +42,7 @@ Ext.define('core.view.PersonInfo', {
 				}
 			}
 		];
-	    this.items = [
+	    config.items = [
 			{
 				xtype: 'hidden', // auto-increment field, need presence for update  
 				name: 'kp_PersonID'				 
@@ -97,7 +98,7 @@ Ext.define('core.view.PersonInfo', {
 				forceSelection: true
 			}
 		];
-		this.bbar = [
+		config.bbar = [
 			{
 				xtype: 'button',
 				cls: 'x-btn-text-icon',
@@ -217,6 +218,6 @@ Ext.define('core.view.PersonInfo', {
 			}
 		];
 		// finally call the superclasses implementation
-		core.view.PersonInfo.superclass.initComponent.call(this);
+		this.superclass.constructor.call(this, config);
 	}
 });

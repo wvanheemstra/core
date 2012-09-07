@@ -1,23 +1,23 @@
 /**
- * core.store.Persons
+ * core.store.Groups
  * @extends Ext.data.Store
  */
-Ext.define('core.store.Persons', {
+Ext.define('core.store.Groups', {
 	extend: 'Ext.data.Store',
 	constructor: function(config) {
 		config = config || {};
 		config.autoDestroy = true;
 		config.autoLoad = false; // load this store inside the view's render function
 		config.loaded = false; // false initially
-		config.requires = 'core.model.Person';
-		config.model = 'core.model.Person';
+		config.requires = 'core.model.Group';
+		config.model = 'core.model.Group';
 		config.proxy = {
 			type: 'ajax',
 			extraParams: {
 				start: 0,
 				limit: 100,
-				table: 'person',
-				idField: 'kp_PersonID'
+				table: 'group',
+				idField: 'kp_GroupID'
 			},
 			actionMethods: {
 				create: 'POST',
@@ -26,10 +26,10 @@ Ext.define('core.store.Persons', {
 				destroy: 'DELETE'
 			},
 			api: {
-				create: (localFilteringPerson ? urlPersonCreate.local : urlPersonCreate.remote),				
-				read: (localFilteringPerson ? urlPersonRead.local : urlPersonRead.remote),
-				update: (localFilteringPerson ? urlPersonUpdate.local : urlPersonUpdate.remote),					
-				destroy: (localFilteringPerson ? urlPersonDestroy.local : urlPersonDestroy.remote)
+				create: (localFilteringGroup ? urlGroupCreate.local : urlGroupCreate.remote),				
+				read: (localFilteringGroup ? urlGroupRead.local : urlGroupRead.remote),
+				update: (localFilteringGroup ? urlGroupUpdate.local : urlGroupUpdate.remote),					
+				destroy: (localFilteringGroup ? urlGroupDestroy.local : urlGroupDestroy.remote)
 			},
 			reader: {
 				type: 'json',
@@ -47,7 +47,7 @@ Ext.define('core.store.Persons', {
 			listeners: {
 				load: function(){
 					this.loaded = true;
-					alert('Persons - Loaded!!');
+					alert('Groups - Loaded!!');
 				},			
 				exception: function(proxy, response, operation){
 					Ext.MessageBox.show({
@@ -61,33 +61,32 @@ Ext.define('core.store.Persons', {
 		};
 		config.remoteSort = false;
 		config.sorters = [{
-			property: 'PersonLastName',
+			property: 'GroupName',
 			direction: 'ASC'
 		}];
 		config.pageSize = 100; // was 50
 		// call the superclass's constructor
-		//core.store.Persons.superclass.constructor.call(this, config);
 		this.superclass.constructor.call(this, config);	
 	}
 });	
 
 // configure whether filtering is performed locally or remotely (initially)
-var localFilteringPerson = true;
+var localFilteringGroup = true;
 
 // configure CRUD urls
-var urlPersonCreate = {
-	local: localHost+'/core/components/core/apps/core/data/create_person.php',
-	remote: remoteHost+'/core/components/core/apps/core/data/create_person.php'
+var urlGroupCreate = {
+	local: localHost+'/core/components/core/apps/core/data/create_group.php',
+	remote: remoteHost+'/core/components/core/apps/core/data/create_group.php'
 };
-var urlPersonRead = {
-	local: localHost+'/core/components/core/apps/core/data/read_person.php',
-	remote: remoteHost+'/core/components/core/apps/core/data/read_person.php'
+var urlGroupRead = {
+	local: localHost+'/core/components/core/apps/core/data/read_group.php',
+	remote: remoteHost+'/core/components/core/apps/core/data/read_group.php'
 };	
-var urlPersonUpdate = {
-	local: localHost+'/core/components/core/apps/core/data/update_person.php',
-	remote: remoteHost+'/core/components/core/apps/core/data/update_person.php'
+var urlGroupUpdate = {
+	local: localHost+'/core/components/core/apps/core/data/update_group.php',
+	remote: remoteHost+'/core/components/core/apps/core/data/update_group.php'
 };
-var urlPersonDestroy = {
-	local: localHost+'/core/components/core/apps/core/data/destroy_person.php',
-	remote: remoteHost+'/core/components/core/apps/core/data/destroy_person.php'
+var urlGroupDestroy = {
+	local: localHost+'/core/components/core/apps/core/data/destroy_group.php',
+	remote: remoteHost+'/core/components/core/apps/core/data/destroy_group.php'
 };

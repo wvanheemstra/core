@@ -66,15 +66,13 @@ Ext.define('core.store.Nationalities', {
 		}];
 		config.pageSize = 10; // was 50
 		// call the superclass's constructor
-		core.store.Nationalities.superclass.constructor.call(this, config);			
+		//core.store.Nationalities.superclass.constructor.call(this, config);	
+		this.superclass.constructor.call(this, config);		
 	}
 });	
 
 // configure whether filtering is performed locally or remotely (initially)
 var localFilteringNationality = true;
-
-var localHost = 'http://localhost';
-var remoteHost = 'http://localhost';
 
 // configure CRUD urls
 var urlNationalityCreate = {

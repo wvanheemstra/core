@@ -10,19 +10,20 @@ Ext.define('core.view.PersonGrid' , {
     extend: 'Ext.grid.Panel',
     alias : 'widget.persongrid',
 	// override
-	initComponent: function() {
-		this.title = 'Person Grid';
-		this.store = 'core.store.Persons';
-		this.gridId = 'personGrid';
-		this.stateful = true;
-		this.stateId = 'personGrid';
-		this.bbar = Ext.create('Ext.PagingToolbar', {
+	constructor: function(config) {
+		config = config || {};
+		config.title = 'Person Grid';
+		config.store = 'core.store.Persons';
+		config.gridId = 'personGrid';
+		config.stateful = true;
+		config.stateId = 'personGrid';
+		config.bbar = Ext.create('Ext.PagingToolbar', {
 			store: 'core.store.Persons',
 			displayInfo: true,
 			displayMsg: 'Displaying Persons {0} - {1} of {2}',
 			emptyMsg: "No Persons to display"
 		});
-		this.bbar.add([  
+		config.bbar.add([  
 			{
 				text: 'Clear Filters',
 				handler: function () {
@@ -30,9 +31,9 @@ Ext.define('core.view.PersonGrid' , {
 				} 
 			}  
 		]);
-		this.columns = personColumns(6);
-		this.features = [filters];
-		this.listeners = {
+		config.columns = personColumns(6);
+		config.features = [filters];
+		config.listeners = {
 			render : function(){      
 				//this.body.mask('Loading...');
 				//var store = this.getStore();
@@ -46,7 +47,7 @@ Ext.define('core.view.PersonGrid' , {
 			}
 		};
 		// finally call the superclasses implementation
-		core.view.PersonGrid.superclass.initComponent.call(this);	
+		this.superclass.constructor.call(this, config);
 	} 	
 });
 

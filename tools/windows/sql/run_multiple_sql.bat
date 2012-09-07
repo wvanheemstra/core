@@ -18,6 +18,8 @@ mysql --host=127.0.0.1 --port=3306 --user=root --database=core < "c:\sql\core\ta
 mysql --host=127.0.0.1 --port=3306 --user=root --database=core < "c:\sql\core\tables\tbl_kind_of_event.sql"
 mysql --host=127.0.0.1 --port=3306 --user=root --database=core < "c:\sql\core\tables\tbl_gender.sql"
 mysql --host=127.0.0.1 --port=3306 --user=root --database=core < "c:\sql\core\tables\tbl_global.sql"
+mysql --host=127.0.0.1 --port=3306 --user=root --database=core < "c:\sql\core\tables\tbl_group.sql"
+mysql --host=127.0.0.1 --port=3306 --user=root --database=core < "c:\sql\core\tables\tbl_kind_of_group.sql"
 mysql --host=127.0.0.1 --port=3306 --user=root --database=core < "c:\sql\core\tables\tbl_hospitality.sql"
 mysql --host=127.0.0.1 --port=3306 --user=root --database=core < "c:\sql\core\tables\tbl_identity.sql"
 mysql --host=127.0.0.1 --port=3306 --user=root --database=core < "c:\sql\core\tables\tbl_journal.sql"
@@ -70,6 +72,8 @@ mysql --host=127.0.0.1 --port=3306 --user=root --database=core < "c:\sql\core\vi
 mysql --host=127.0.0.1 --port=3306 --user=root --database=core < "c:\sql\core\views\kind_of_event.sql"
 mysql --host=127.0.0.1 --port=3306 --user=root --database=core < "c:\sql\core\views\gender.sql"
 mysql --host=127.0.0.1 --port=3306 --user=root --database=core < "c:\sql\core\views\global.sql"
+mysql --host=127.0.0.1 --port=3306 --user=root --database=core < "c:\sql\core\views\group.sql"
+mysql --host=127.0.0.1 --port=3306 --user=root --database=core < "c:\sql\core\views\kind_of_group.sql"
 mysql --host=127.0.0.1 --port=3306 --user=root --database=core < "c:\sql\core\views\hospitality.sql"
 mysql --host=127.0.0.1 --port=3306 --user=root --database=core < "c:\sql\core\views\identity.sql"
 mysql --host=127.0.0.1 --port=3306 --user=root --database=core < "c:\sql\core\views\journal.sql"
@@ -111,6 +115,7 @@ REM Be aware that keys will be assigned to the next increment (hence ids may cha
 
 mysql --host=127.0.0.1 --port=3306 --user=root --database=core < "c:\sql\core\tables\data\tbl_country_data.sql"
 mysql --host=127.0.0.1 --port=3306 --user=root --database=core < "c:\sql\core\tables\data\tbl_gender_data.sql"
+mysql --host=127.0.0.1 --port=3306 --user=root --database=core < "c:\sql\core\tables\data\tbl_group_data.sql"
 mysql --host=127.0.0.1 --port=3306 --user=root --database=core < "c:\sql\core\tables\data\tbl_nationality_data.sql"
 mysql --host=127.0.0.1 --port=3306 --user=root --database=core < "c:\sql\core\tables\data\tbl_salutation_data.sql"
 

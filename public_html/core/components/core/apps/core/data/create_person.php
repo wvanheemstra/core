@@ -1,5 +1,4 @@
 <?php   
-
 function getInputParms()
 {
     $result = NULL;
@@ -9,62 +8,54 @@ function getInputParms()
     }
     return $result;
 }
-
 include 'dbparams.php';
-$table='person';
-   
-//make database connection
+
 $connection = mysql_connect($host, $user, $pw) or
    die("Could not connect: " . mysql_error());
 mysql_set_charset("UTF8", $connection);     
 mysql_select_db($db) or die("Could not select database");
 
-savePerson();
-    
-function savePerson() 
+createRecords();
+
+function createRecords() 
 {
+	$num_rows = 1;  // We insert 1 record at a time
     $jsonData = getInputParms();
-
-//print_r($jsonData);
-
+	if (isset($_GET['table'])) {
+		$table = $_GET['table'];
+	};
+	if (isset($_GET['idField'])) {
+		$idField = $_GET['idField'];
+	};
     if (is_array($jsonData)) {
-
-        if ($jsonData['kp_PersonID'] > 0) {
-            $id = $jsonData['kp_PersonID'];
-
-            $sql  = 'UPDATE person SET kf_SalutationID = '.$jsonData['kf_SalutationID'].',PersonFirstName = "'.$jsonData['PersonFirstName'].'",PersonLastName = "'.$jsonData['PersonLastName'].'",kf_GenderID = '.$jsonData['kf_GenderID'].',kf_NationalityID = '.$jsonData['kf_NationalityID'];
-            $sql .= ' WHERE kp_PersonID = '.$jsonData['kp_PersonID'];
-            $result = mysql_query($sql); // result set
-        } else {
-            $sql  = 'INSERT INTO person (kf_SalutationID,PersonFirstName,PersonLastName,kf_GenderID,kf_NationalityID) VALUES ('.$jsonData['kf_SalutationID'].',"'.$jsonData['PersonFirstName'].'","'.$jsonData['PersonLastName'].'",'.$jsonData['kf_GenderID'].','.$jsonData['kf_NationalityID'].')';
-            $result = mysql_query($sql); // result set
-            $id = mysql_insert_id();
-        }
+		$sql  = "INSERT INTO `".$table."` (kf_SalutationID,PersonFirstName,PersonLastName,kf_GenderID,kf_NationalityID) VALUES (".$jsonData['kf_SalutationID'].",'".$jsonData['PersonFirstName']."','".$jsonData['PersonLastName']."',".$jsonData['kf_GenderID'].",".$jsonData['kf_NationalityID'].")";
+		$result = mysql_query($sql);
+		$id = mysql_insert_id();
     }    
-
-    $data = getPerson($id); // already encoded
-
+    $data = readRecords($id);
     $return = array(
+		'total' => $num_rows,
         'success' => TRUE,
         'data' => $data // this should be the data returned from new/updated record in table
     );
-      
+	header('Content-type: application/json'); 	
     $return = json_encode($return);
-    echo $return;  
+    echo $return;
 }
 
-
-function getPerson($kp_PersonID)
-{
-    $sql = 'SELECT * FROM person WHERE kp_PersonID = '.$kp_PersonID;
-    
-    $result = mysql_query($sql); // result set
-    
+function readRecords($id)
+{	
+	if (isset($_GET['table'])) {
+		$table = $_GET['table'];
+	};
+	if (isset($_GET['idField'])) {
+		$idField = $_GET['idField'];
+	};
+    $sql = "SELECT * FROM `".$table."` WHERE ".$idField." = ".$id;
+    $result = mysql_query($sql);
     while($rec = mysql_fetch_array($result, MYSQL_ASSOC)){
         $arr[] = $rec;
     };
-
-    return $arr;  //encode the data in json format
+    return $arr;
 }
-
 ?>

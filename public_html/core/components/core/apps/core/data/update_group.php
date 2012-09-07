@@ -1,5 +1,4 @@
 <?php   
-
 function getInputParms()
 {
     $result = NULL;
@@ -9,62 +8,55 @@ function getInputParms()
     }
     return $result;
 }
-
 include 'dbparams.php';
-$table='group';
-   
-//make database connection
+
 $connection = mysql_connect($host, $user, $pw) or
    die("Could not connect: " . mysql_error());
 mysql_set_charset("UTF8", $connection);     
 mysql_select_db($db) or die("Could not select database");
 
-saveGroup();
-    
-function saveGroup() 
+updateRecords();
+
+function updateRecords() 
 {
+	$num_rows = 1;  // We insert 1 record at a time
     $jsonData = getInputParms();
-
-//print_r($jsonData);
-
+	if (isset($_GET['table'])) {
+		$table = $_GET['table'];
+	};
+	if (isset($_GET['idField'])) {
+		$idField = $_GET['idField'];
+	};
     if (is_array($jsonData)) {
-
-        if ($jsonData['kp_GroupID'] > 0) {
-            $id = $jsonData['kp_GroupID'];
-
-            $sql  = 'UPDATE group SET GroupName = "'.$jsonData['GroupName'].'",kf_KindOfGroupID = '.$jsonData['kf_KindOfGroupID'].'];
-            $sql .= ' WHERE kp_GroupID = '.$jsonData['kp_GroupID'];
-            $result = mysql_query($sql); // result set
-        } else {
-            $sql  = 'INSERT INTO group (GroupName,kf_KindOfGroupID) VALUES ("'.$jsonData['GroupName'].'",'.$jsonData['kf_KindOfGroupID'].')';
-            $result = mysql_query($sql); // result set
-            $id = mysql_insert_id();
-        }
+		$id = $jsonData[$idField];
+		$sql  = "UPDATE `".$table."` SET GroupName = '".$jsonData['GroupName']."',kf_KindOfGroupID = ".$jsonData['kf_KindOfGroupID'];
+		$sql .= " WHERE ".$idField." = ".$id;
+		$result = mysql_query($sql);
     }    
-
-    $data = getGroup($id); // already encoded
-
+    $data = readRecords($id);
     $return = array(
+		'total' => $num_rows,
         'success' => TRUE,
         'data' => $data // this should be the data returned from new/updated record in table
     );
-      
+	header('Content-type: application/json'); 	
     $return = json_encode($return);
-    echo $return;  
+    echo $return;
 }
 
-
-function getGroup($kp_GroupID)
-{
-    $sql = 'SELECT * FROM group WHERE kp_GroupID = '.$kp_GroupID;
-    
-    $result = mysql_query($sql); // result set
-    
+function readRecords($id)
+{	
+	if (isset($_GET['table'])) {
+		$table = $_GET['table'];
+	};
+	if (isset($_GET['idField'])) {
+		$idField = $_GET['idField'];
+	};
+    $sql = "SELECT * FROM `".$table."` WHERE ".$idField." = ".$id;
+    $result = mysql_query($sql);
     while($rec = mysql_fetch_array($result, MYSQL_ASSOC)){
         $arr[] = $rec;
     };
-
-    return $arr;  //encode the data in json format
+    return $arr;
 }
-
 ?>

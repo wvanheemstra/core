@@ -9,20 +9,21 @@
  Target Server Version : 50509
  File Encoding         : utf-8
 
- Date: 06/23/2012 10:25:10 AM
 */
 
 SET NAMES utf8;
 SET FOREIGN_KEY_CHECKS = 0;
 
 -- ----------------------------
---  Table structure for `tbl_kind_of_group_data`
+--  Delete all records of `tbl_kind_of_group_data`
 -- ----------------------------
-DROP TABLE IF EXISTS `tbl_kind_of_group_data`;
-CREATE TABLE `tbl_kind_of_group_data` (
-  `kp_KindOfGroupID` int(11) NOT NULL AUTO_INCREMENT,
-  `KindOfGroupName` varchar(255) CHARACTER SET utf8 NOT NULL,
-  PRIMARY KEY (`kp_KindOfGroupID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+DELETE FROM `tbl_kind_of_group_data`;
+
+-- ----------------------------
+--  Records of `tbl_kind_of_group_data`
+-- ----------------------------
+BEGIN;
+INSERT INTO `tbl_kind_of_group_data` VALUES ('1', 'My Kind Of Group', null, '0000-00-00 00:00:00');
+COMMIT;
 
 SET FOREIGN_KEY_CHECKS = 1;

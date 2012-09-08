@@ -19,7 +19,7 @@ SET FOREIGN_KEY_CHECKS = 0;
 --  Table structure for `tbl_person_group`
 -- ----------------------------
 DROP TABLE IF EXISTS `tbl_person_group`;
-CREATE TABLE `tbl_person` (
+CREATE TABLE `tbl_person_group` (
   `kf_PersonID` int(11) NOT NULL,
   `kf_GroupID` int(11) NOT NULL,
   `ts_Created` datetime DEFAULT NULL,

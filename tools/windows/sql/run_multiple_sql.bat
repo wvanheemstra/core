@@ -40,6 +40,7 @@ mysql --host=127.0.0.1 --port=3306 --user=root --database=core < "c:\sql\core\ta
 mysql --host=127.0.0.1 --port=3306 --user=root --database=core < "c:\sql\core\tables\tbl_kind_of_period.sql"
 mysql --host=127.0.0.1 --port=3306 --user=root --database=core < "c:\sql\core\tables\tbl_person.sql"
 mysql --host=127.0.0.1 --port=3306 --user=root --database=core < "c:\sql\core\tables\tbl_kind_of_person.sql"
+mysql --host=127.0.0.1 --port=3306 --user=root --database=core < "c:\sql\core\tables\tbl_person_group.sql"
 mysql --host=127.0.0.1 --port=3306 --user=root --database=core < "c:\sql\core\tables\tbl_photo.sql"
 mysql --host=127.0.0.1 --port=3306 --user=root --database=core < "c:\sql\core\tables\tbl_programme.sql"
 mysql --host=127.0.0.1 --port=3306 --user=root --database=core < "c:\sql\core\tables\tbl_kind_of_programme.sql"
@@ -93,6 +94,7 @@ mysql --host=127.0.0.1 --port=3306 --user=root --database=core < "c:\sql\core\vi
 mysql --host=127.0.0.1 --port=3306 --user=root --database=core < "c:\sql\core\views\period.sql"
 mysql --host=127.0.0.1 --port=3306 --user=root --database=core < "c:\sql\core\views\kind_of_period.sql"
 mysql --host=127.0.0.1 --port=3306 --user=root --database=core < "c:\sql\core\views\person.sql"
+mysql --host=127.0.0.1 --port=3306 --user=root --database=core < "c:\sql\core\views\person_group.sql"
 mysql --host=127.0.0.1 --port=3306 --user=root --database=core < "c:\sql\core\views\kind_of_person.sql"
 mysql --host=127.0.0.1 --port=3306 --user=root --database=core < "c:\sql\core\views\photo.sql"
 mysql --host=127.0.0.1 --port=3306 --user=root --database=core < "c:\sql\core\views\programme.sql"
@@ -121,3 +123,4 @@ mysql --host=127.0.0.1 --port=3306 --user=root --database=core < "c:\sql\core\ta
 
 REM Data: Samples !!! .... do not use in a production database
 mysql --host=127.0.0.1 --port=3306 --user=root --database=core < "c:\sql\core\tables\data\tbl_person_data.sql"
+mysql --host=127.0.0.1 --port=3306 --user=root --database=core < "c:\sql\core\tables\data\tbl_person_group_data.sql"

@@ -2,6 +2,10 @@
  * core.view.PersonInfo
  * @extends Ext.form.Panel
  */
+Ext.require ([
+	'Ext.ux.form.ItemSelector'
+]);
+ 
 Ext.define('core.view.PersonInfo', { 
 	extend: 'Ext.form.Panel',
 	alias: 'widget.personinfo',
@@ -96,6 +100,27 @@ Ext.define('core.view.PersonInfo', {
 				allowBlank: false,
 				typeAhead: true,
 				forceSelection: true
+			}, /*
+			{
+				name: 'kf_GroupID',
+				xtype: 'combobox',
+				fieldLabel: 'Groups',
+				displayField: 'kf_GroupID',
+				valueField: 'kp_PersonID',
+				store: 'core.store.PersonsGroups',
+				queryMode: 'local',
+				allowBlank: false,
+				typeAhead: true,
+				forceSelection: true
+			}, */
+			{
+				name: 'kf_GroupID',
+				xtype: 'itemselector',
+				fieldLabel: 'Groups',
+				displayField: 'GroupName',
+				valueField: 'kp_GroupID',
+				store: 'core.store.Groups',
+				allowBlank: true
 			}
 		];
 		config.bbar = [

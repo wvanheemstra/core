@@ -31,7 +31,7 @@ Ext.define('core.view.PersonGrid' , {
 				} 
 			}  
 		]);
-		config.columns = personColumns(6);
+		config.columns = personColumns(7);
 		config.features = [filters];
 		config.listeners = {
 			render : function(){      
@@ -69,7 +69,8 @@ var personColumns = function (finish, start) {
 		{ dataIndex: 'PersonFirstName', header: 'First Name', width: 75, filter: {type: 'string', disabled: false} },
 		{ dataIndex: 'PersonLastName', header: 'Last Name', width: 125, filter: {type: 'string', disabled: false} },
 		{ dataIndex: 'kf_GenderID', header: 'Gender', width: 60, filter: {type: 'numeric', disabled: false}, renderer: get_GenderName },
-		{ dataIndex: 'kf_NationalityID', header: 'Nationality', flex: 1, filter: {type: 'numeric', disabled: false}, renderer: get_NationalityName }	
+		{ dataIndex: 'kf_NationalityID', header: 'Nationality', width: 75, filter: {type: 'numeric', disabled: false}, renderer: get_NationalityName },
+		{ dataIndex: 'kp_PersonID', header: 'Groups', flex: 1, filter: {type: 'numeric', disabled: false}, renderer: get_GroupNames }		
 	];
 	return columns.slice(start || 0, finish);
 };
@@ -120,6 +121,32 @@ function get_NationalityName(value){
 		}
 		else {
 			if(debug){console.info('PersonGrid - Nationalities not yet loaded')};
+			return 'Unknown';
+		}
+	}
+	else{
+		return 'Undefined';
+	}
+};
+
+function get_GroupNames(value){
+	if(value){
+		if(Ext.getStore('core.store.PersonsGroups').loaded) {
+			if(debug){console.info('PersonGrid - mapping to GroupNames')};
+			try {
+				groupIDs = Ext.getStore('core.store.PersonsGroups').getById(value).get('kf_GroupID');
+				groupNames = Ext.getStore('core.store.Groups').getById(groupIDs).get('GroupName');
+				return groupNames;
+			}
+			catch (exception) {
+				return 'None';
+			}
+			finally {
+				if(debug){console.info('PersonGrid - GroupNames mapped')};
+			}
+		}
+		else {
+			if(debug){console.info('PersonGrid - PersonsGroups not yet loaded')};
 			return 'Unknown';
 		}
 	}

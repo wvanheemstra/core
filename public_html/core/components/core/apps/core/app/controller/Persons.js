@@ -12,8 +12,8 @@ var selection = null; // default if no row is or was previously selected
  
 Ext.define('core.controller.Persons', {
     extend: 'Ext.app.Controller',
-    models: ['core.model.Group', 'core.model.Person', 'core.model.Salutation', 'core.model.Gender', 'core.model.Nationality'],
-    stores: ['core.store.Groups', 'core.store.Persons', 'core.store.Salutations', 'core.store.Genders', 'core.store.Nationalities'],
+    models: ['core.model.Group', 'core.model.PersonGroup', 'core.model.Person', 'core.model.Salutation', 'core.model.Gender', 'core.model.Nationality'],
+    stores: ['core.store.Groups', 'core.store.PersonsGroups', 'core.store.Persons', 'core.store.Salutations', 'core.store.Genders', 'core.store.Nationalities'],
     views: ['core.view.PersonPanel', 'core.view.GroupGrid', 'core.view.PersonInfo', 'core.view.PersonGrid'],
 	refs: [
 		{
@@ -82,7 +82,9 @@ Ext.define('core.controller.Persons', {
         }).show();
 		
 		Ext.getStore('core.store.Groups').addListener('load', this.onStoreGroupsLoad, this);
-		Ext.getStore('core.store.Groups').addListener('datachanged', this.onStoreGroupsDataChanged, this);	
+		Ext.getStore('core.store.Groups').addListener('datachanged', this.onStoreGroupsDataChanged, this);
+		Ext.getStore('core.store.PersonsGroups').addListener('load', this.onStorePersonsGroupsLoad, this);
+		Ext.getStore('core.store.PersonsGroups').addListener('datachanged', this.onStorePersonsGroupsDataChanged, this);	
 		Ext.getStore('core.store.Persons').addListener('load', this.onStorePersonsLoad, this);
 		Ext.getStore('core.store.Persons').addListener('datachanged', this.onStorePersonsDataChanged, this);
 		Ext.getStore('core.store.Salutations').addListener('load', this.onStoreSalutationsLoad, this);
@@ -113,6 +115,13 @@ Ext.define('core.controller.Persons', {
 	},
 	onStoreGroupsDataChanged: function() {
 		if(debug){console.info('Store Groups: Data Changed')};
+	},
+	onStorePersonsGroupsLoad: function(store, model) {
+		if(debug){console.info('Store PersonsGroups: '+Ext.getStore('core.store.PersonsGroups').getCount()+' records loaded.')};
+		Ext.getStore('core.store.PersonsGroups').loaded = true;
+	},
+	onStorePersonsGroupsDataChanged: function() {
+		if(debug){console.info('Store PersonsGroups: Data Changed')};
 	},
 	onStorePersonsLoad: function(store, model) {
 		if(debug){console.info('Store Persons: '+Ext.getStore('core.store.Persons').getCount()+' records loaded.')};

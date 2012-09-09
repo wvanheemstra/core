@@ -29,7 +29,7 @@ function createRecords()
 	};
     if (is_array($jsonData)) {
 		$sql  = "INSERT INTO `".$table."` (GroupName,kf_KindOfGroupID) VALUES ('".$jsonData['GroupName']."',".$jsonData['kf_KindOfGroupID'].")";
-		$result = mysql_query($sql);
+		$result = mysql_query($sql) or die(mysql_error());
 		$id = mysql_insert_id();
     }    
     $data = readRecords($id);
@@ -52,7 +52,7 @@ function readRecords($id)
 		$idField = $_GET['idField'];
 	};
     $sql = "SELECT * FROM `".$table."` WHERE ".$idField." = ".$id;
-    $result = mysql_query($sql);
+    $result = mysql_query($sql) or die(mysql_error());
     while($rec = mysql_fetch_array($result, MYSQL_ASSOC)){
         $arr[] = $rec;
     };

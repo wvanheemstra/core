@@ -31,12 +31,13 @@ function updateRecords()
 		$id = $jsonData[$idField];
 		$sql  = "UPDATE `".$table."` SET kf_SalutationID = ".$jsonData['kf_SalutationID'].",PersonFirstName = '".$jsonData['PersonFirstName']."',PersonLastName = '".$jsonData['PersonLastName']."',kf_GenderID = ".$jsonData['kf_GenderID'].",kf_NationalityID = ".$jsonData['kf_NationalityID'];
 		$sql .= " WHERE ".$idField." = ".$id;
-		$result = mysql_query($sql);
+		$result = mysql_query($sql) or die(mysql_error());
     }    
     $data = readRecords($id);
     $return = array(
 		'total' => $num_rows,
         'success' => TRUE,
+		'sql' => $sql,
         'data' => $data // this should be the data returned from new/updated record in table
     );
 	header('Content-type: application/json'); 	
@@ -53,7 +54,7 @@ function readRecords($id)
 		$idField = $_GET['idField'];
 	};
     $sql = "SELECT * FROM `".$table."` WHERE ".$idField." = ".$id;
-    $result = mysql_query($sql);
+    $result = mysql_query($sql) or die(mysql_error());
     while($rec = mysql_fetch_array($result, MYSQL_ASSOC)){
         $arr[] = $rec;
     };

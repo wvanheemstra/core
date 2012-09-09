@@ -31,7 +31,7 @@ function updateRecords()
 		$id = $jsonData[$idField];
 		$sql  = "UPDATE `".$table."` SET GroupName = '".$jsonData['GroupName']."',kf_KindOfGroupID = ".$jsonData['kf_KindOfGroupID'];
 		$sql .= " WHERE ".$idField." = ".$id;
-		$result = mysql_query($sql);
+		$result = mysql_query($sql) or die(mysql_error());
     }    
     $data = readRecords($id);
     $return = array(
@@ -53,7 +53,7 @@ function readRecords($id)
 		$idField = $_GET['idField'];
 	};
     $sql = "SELECT * FROM `".$table."` WHERE ".$idField." = ".$id;
-    $result = mysql_query($sql);
+    $result = mysql_query($sql) or die(mysql_error());
     while($rec = mysql_fetch_array($result, MYSQL_ASSOC)){
         $arr[] = $rec;
     };

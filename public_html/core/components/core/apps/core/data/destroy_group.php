@@ -34,7 +34,7 @@ function destroyGroup()
 
             $sql  = 'DELETE FROM group';
             $sql .= ' WHERE kp_GroupID = '.$jsonData['kp_GroupID'];
-            $result = mysql_query($sql); // result set
+            $result = mysql_query($sql) or die(mysql_error()); // result set
         }
     }    
 
@@ -53,7 +53,7 @@ function getGroup($kp_GroupID)
 {
     $sql = 'SELECT * FROM group WHERE kp_GroupID = '.$kp_GroupID;
     
-    $result = mysql_query($sql); // result set
+    $result = mysql_query($sql) or die(mysql_error()); // result set
     
     while($rec = mysql_fetch_array($result, MYSQL_ASSOC)){
         $arr[] = $rec;

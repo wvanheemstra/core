@@ -34,7 +34,7 @@ function destroyPerson()
 
             $sql  = 'DELETE FROM person';
             $sql .= ' WHERE kp_PersonID = '.$jsonData['kp_PersonID'];
-            $result = mysql_query($sql); // result set
+            $result = mysql_query($sql) or die(mysql_error()); // result set
         }
     }    
 
@@ -53,7 +53,7 @@ function getPerson($kp_PersonID)
 {
     $sql = 'SELECT * FROM person WHERE kp_PersonID = '.$kp_PersonID;
     
-    $result = mysql_query($sql); // result set
+    $result = mysql_query($sql) or die(mysql_error()); // result set
     
     while($rec = mysql_fetch_array($result, MYSQL_ASSOC)){
         $arr[] = $rec;

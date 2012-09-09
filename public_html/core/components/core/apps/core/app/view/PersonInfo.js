@@ -119,6 +119,7 @@ Ext.define('core.view.PersonInfo', {
 				fieldLabel: 'Groups',
 				displayField: 'GroupName',
 				valueField: 'kp_GroupID',
+				value: ['1'], //get_GroupIDs,
 				store: 'core.store.Groups',
 				allowBlank: true
 			}
@@ -246,3 +247,7 @@ Ext.define('core.view.PersonInfo', {
 		this.superclass.constructor.call(this, config);
 	}
 });
+
+function get_GroupIDs(value){
+	return value;
+}

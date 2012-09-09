@@ -134,8 +134,16 @@ function get_GroupNames(value){
 		if(Ext.getStore('core.store.PersonsGroups').loaded) {
 			if(debug){console.info('PersonGrid - mapping to GroupNames')};
 			try {
-				groupIDs = Ext.getStore('core.store.PersonsGroups').getById(value).get('kf_GroupID');
-				groupNames = Ext.getStore('core.store.Groups').getById(groupIDs).get('GroupName');
+				var groupIDs = [];
+				groupIDs.push(Ext.getStore('core.store.PersonsGroups').getById(value).get('kf_GroupID'));
+				//groupIDs.push(Ext.getStore('core.store.PersonsGroups').find('kf_PersonID', value).get('kf_GroupID'));
+				alert(groupIDs[0]);
+				var groupNames = [];
+				for (var i = 0; i < groupIDs.length; i++) {
+					groupNames.push(Ext.getStore('core.store.Groups').getById(groupIDs[i]).get('GroupName'));
+				}
+				groupNames.push('More');
+				groupNames = groupNames.join(", ");
 				return groupNames;
 			}
 			catch (exception) {

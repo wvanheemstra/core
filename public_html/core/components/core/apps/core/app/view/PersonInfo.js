@@ -102,6 +102,18 @@ Ext.define('core.view.PersonInfo', {
 				forceSelection: true
 			},
 			{
+				name: 'kf_DateID',
+				xtype: 'datefield',
+				fieldLabel: 'Date of Birth',
+				displayField: 'DateStart',
+				valueField: 'kp_DateID',
+				store: 'core.store.Dates',
+				queryMode: 'local',
+				allowBlank: false,
+				typeAhead: true,
+				forceSelection: true
+			},
+			{
 				name: 'kf_GroupID',
 				xtype: 'itemselector',
 				fieldLabel: 'Groups',

@@ -12,8 +12,8 @@ var selection = null; // default if no row is or was previously selected
  
 Ext.define('core.controller.Persons', {
     extend: 'Ext.app.Controller',
-    models: ['core.model.Group', 'core.model.PersonGroup', 'core.model.Person', 'core.model.Salutation', 'core.model.Gender', 'core.model.Nationality'],
-    stores: ['core.store.Groups', 'core.store.PersonsGroups', 'core.store.Persons', 'core.store.Salutations', 'core.store.Genders', 'core.store.Nationalities'],
+    models: ['core.model.Group', 'core.model.PersonGroup', 'core.model.Person', 'core.model.Salutation', 'core.model.Gender', 'core.model.Nationality', 'core.model.Date'],
+    stores: ['core.store.Groups', 'core.store.PersonsGroups', 'core.store.Persons', 'core.store.Salutations', 'core.store.Genders', 'core.store.Nationalities', 'core.store.Dates'],
     views: ['core.view.PersonPanel', 'core.view.GroupGrid', 'core.view.PersonInfo', 'core.view.PersonGrid'],
 	refs: [
 		{
@@ -90,7 +90,9 @@ Ext.define('core.controller.Persons', {
 		Ext.getStore('core.store.Salutations').addListener('load', this.onStoreSalutationsLoad, this);
 		Ext.getStore('core.store.Salutations').addListener('datachanged', this.onStoreSalutationsDataChanged, this);		
 		Ext.getStore('core.store.Genders').addListener('load', this.onStoreGendersLoad, this);
-		Ext.getStore('core.store.Genders').addListener('datachanged', this.onStoreGendersDataChanged, this);		
+		Ext.getStore('core.store.Genders').addListener('datachanged', this.onStoreGendersDataChanged, this);
+		Ext.getStore('core.store.Dates').addListener('load', this.onStoreDatesLoad, this);
+		Ext.getStore('core.store.Dates').addListener('datachanged', this.onStoreDatesDataChanged, this);			
 		Ext.getStore('core.store.Nationalities').addListener('load', this.onStoreNationalitiesLoad, this);
 		Ext.getStore('core.store.Nationalities').addListener('datachanged', this.onStoreNationalitiesDataChanged, this);
 
@@ -147,6 +149,13 @@ Ext.define('core.controller.Persons', {
 	},
 	onStoreGendersDataChanged: function() {
 		if(debug){console.info('Store Genders: Data Changed')};
+	},
+	onStoreDatesLoad: function(store, model) {
+		if(debug){console.info('Store Dates: '+Ext.getStore('core.store.Dates').getCount()+' records loaded.')};
+		Ext.getStore('core.store.Dates').loaded = true;
+	},
+	onStoreDatesDataChanged: function() {
+		if(debug){console.info('Store Dates: Data Changed')};
 	},
 	onStoreNationalitiesLoad: function(store, model) {
 		if(debug){console.info('Store Nationalities: '+Ext.getStore('core.store.Nationalities').getCount()+' records loaded.')};

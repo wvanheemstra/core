@@ -33,6 +33,16 @@ function updateRecords()
 		$sql .= " WHERE ".$idField." = ".$id;
 		$result = mysql_query($sql) or die(mysql_error());
     };
+	
+	if($jsonData['DateStart'].length > 0) {
+		$dateStart = $jsonData['DateStart'];
+		$dateStart = date("Y-m-d",strtotime($dateStart));
+		$dateID = $jsonData['kf_DateID'];
+		// UPDATE date HERE for DateStart where person.kf_DateID = date.kp_DateID
+		$sqlDate  = "UPDATE `date` SET StartDate = ".$dateStart." WHERE kp_DateID = ".$dateID;
+		$result = mysql_query($sqlDate) or die(mysql_error());
+	};
+	
 	if($jsonData['kf_GroupID'].length > 0) {
 		$groupIDs = explode(",", $jsonData['kf_GroupID']);
 		$numOfGroupIDs = count($groupIDs);
@@ -49,6 +59,7 @@ function updateRecords()
     $data = readRecords($id);
     $return = array(
 		'total' => $num_rows,
+		'dateStart' => $dateStart,
 		'countedGroupIDs' => $countedGroupIDs,
 		'submittedGroupIDs' => $jsonData['kf_GroupID'],
 		'groupIDs' => $groupIDs,

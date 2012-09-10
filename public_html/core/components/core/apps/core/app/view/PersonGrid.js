@@ -69,7 +69,7 @@ Ext.define('core.view.PersonGrid' , {
 				} 
 			}  
 		]);
-		config.columns = personColumns(7);
+		config.columns = personColumns(8);
 		config.features = [filters];
 		config.listeners = {
 			render : function(){      
@@ -110,6 +110,7 @@ var personColumns = function (finish, start) {
 		{ dataIndex: 'PersonLastName', header: 'Last Name', width: 125, filter: {type: 'string', disabled: false} },
 		{ dataIndex: 'kf_GenderID', header: 'Gender', width: 60, filter: {type: 'numeric', disabled: false}, renderer: get_GenderName },
 		{ dataIndex: 'kf_NationalityID', header: 'Nationality', width: 75, filter: {type: 'numeric', disabled: false}, renderer: get_NationalityName },
+		{ dataIndex: 'kf_DateID', header: 'Date of Birth', width: 75, filter: {type: 'date', disabled: false}, renderer: get_DateStart },
 		{ dataIndex: 'kp_PersonID', header: 'Groups', flex: 1, filter: {type: 'numeric', disabled: false}, renderer: get_GroupNames }		
 	];
 	return columns.slice(start || 0, finish);
@@ -161,6 +162,24 @@ function get_NationalityName(value){
 		}
 		else {
 			if(debug){console.info('PersonGrid - Nationalities not yet loaded')};
+			return 'Unknown';
+		}
+	}
+	else{
+		return 'Undefined';
+	}
+};
+
+function get_DateStart(value){
+	if(value){
+		if(Ext.getStore('core.store.Dates').loaded) {
+			if(debug){console.info('PersonGrid - mapping to DateStart')};
+			dateStart = Ext.getStore('core.store.Dates').getById(value).get('DateStart');
+			if(debug){console.info('PersonGrid - DateStart mapped')};
+			return dateStart;
+		}
+		else {
+			if(debug){console.info('PersonGrid - Dates not yet loaded')};
 			return 'Unknown';
 		}
 	}

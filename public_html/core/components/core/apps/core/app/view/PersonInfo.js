@@ -100,28 +100,16 @@ Ext.define('core.view.PersonInfo', {
 				allowBlank: false,
 				typeAhead: true,
 				forceSelection: true
-			}, /*
-			{
-				name: 'kf_GroupID',
-				xtype: 'combobox',
-				fieldLabel: 'Groups',
-				displayField: 'kf_GroupID',
-				valueField: 'kp_PersonID',
-				store: 'core.store.PersonsGroups',
-				queryMode: 'local',
-				allowBlank: false,
-				typeAhead: true,
-				forceSelection: true
-			}, */
+			},
 			{
 				name: 'kf_GroupID',
 				xtype: 'itemselector',
 				fieldLabel: 'Groups',
 				displayField: 'GroupName',
 				valueField: 'kp_GroupID',
-				value: ['1'], //get_GroupIDs,
+				//value: ['1'], //get_GroupIDs,
 				store: 'core.store.Groups',
-				allowBlank: true
+				allowBlank: false
 			}
 		];
 		config.bbar = [

@@ -32,10 +32,26 @@ function updateRecords()
 		$sql  = "UPDATE `".$table."` SET kf_SalutationID = ".$jsonData['kf_SalutationID'].",PersonFirstName = '".$jsonData['PersonFirstName']."',PersonLastName = '".$jsonData['PersonLastName']."',kf_GenderID = ".$jsonData['kf_GenderID'].",kf_NationalityID = ".$jsonData['kf_NationalityID'];
 		$sql .= " WHERE ".$idField." = ".$id;
 		$result = mysql_query($sql) or die(mysql_error());
-    }    
+    };
+	if($jsonData['kf_GroupID'].length > 0) {
+		$groupIDs = explode(",", $jsonData['kf_GroupID']);
+		$numOfGroupIDs = count($groupIDs);
+		$countedGroupIDs = 0;
+		if($numOfGroupIDs > 0){
+			for ($i = 0; $i < $numOfGroupIDs; $i++) {
+				$countedGroupIDs = $countedGroupIDs + 1;
+				// echo($groupIDs[$i]);
+				// UPDATE person_group HERE for kf_PersonID and kf_GroupID
+			}
+		}
+	};
+
     $data = readRecords($id);
     $return = array(
 		'total' => $num_rows,
+		'countedGroupIDs' => $countedGroupIDs,
+		'submittedGroupIDs' => $jsonData['kf_GroupID'],
+		'groupIDs' => $groupIDs,
         'success' => TRUE,
 		'sql' => $sql,
         'data' => $data // this should be the data returned from new/updated record in table

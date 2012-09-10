@@ -9,7 +9,11 @@ Ext.define('core.model.Group', {
 		{ name: 'GroupName', type: 'string'}, 
 		{ name: 'kf_KindOfGroupID', type: 'int', defaultValue: '0' }
 	],
-	idProperty: 'kp_GroupID'//,
-	//requires: [],
-	//associations: []
+	idProperty: 'kp_GroupID',
+	requires: [
+		'core.model.PersonGroup'
+	],
+	associations: [
+		{ type: 'hasMany', model: 'core.model.PersonGroup', primaryKey: 'kp_GroupID', foreignKey: 'kf_GroupID' }
+	]
 });

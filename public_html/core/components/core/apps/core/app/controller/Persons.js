@@ -98,7 +98,7 @@ Ext.define('core.controller.Persons', {
 		//Ext.create('core.view.PersonInfo').show();
         //Ext.create('core.view.PersonGrid').show();	
 		
-//		this.getGroupGrid().getSelectionModel().addListener('select', this.onViewGroupGridSelect, this);
+		this.getGroupGrid().getSelectionModel().addListener('select', this.onViewGroupGridSelect, this);
 		this.getPersonGrid().getSelectionModel().addListener('select', this.onViewPersonGridSelect, this);
 		this.getPersonInfo().getForm().addListener('addpersonbuttonclick', this.onViewPersonInfoAddPersonButtonClick, this);
 		this.getPersonInfo().getForm().addListener('savepersonbuttonclick', this.onViewPersonInfoSavePersonButtonClick, this);
@@ -154,6 +154,10 @@ Ext.define('core.controller.Persons', {
 	},
 	onStoreNationalitiesDataChanged: function() {
 		if(debug){console.info('Store Nationalities: Data Changed')};
+	},
+	onViewGroupGridSelect: function(selModel, model, idx) {
+		if(debug){console.info('View GroupGrid: Select')};
+		//this.getPersonInfo().loadRecord(model);
 	},	
 	onViewPersonGridSelect: function(selModel, model, idx) {
 		if(debug){console.info('View PersonGrid: Select')};

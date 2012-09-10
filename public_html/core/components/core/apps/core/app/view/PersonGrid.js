@@ -130,23 +130,33 @@ function get_NationalityName(value){
 };
 
 function get_GroupNames(value){
+	var storePersonsGroups = Ext.getStore('core.store.PersonsGroups');
 	if(value){
-		if(Ext.getStore('core.store.PersonsGroups').loaded) {
+		if(storePersonsGroups.loaded) {
 			if(debug){console.info('PersonGrid - mapping to GroupNames')};
 			try {
 				var groupIDs = [];
-				groupIDs.push(Ext.getStore('core.store.PersonsGroups').getById(value).get('kf_GroupID'));
-				//groupIDs.push(Ext.getStore('core.store.PersonsGroups').find('kf_PersonID', value).get('kf_GroupID'));
-				alert(groupIDs[0]);
-				var groupNames = [];
-				for (var i = 0; i < groupIDs.length; i++) {
-					groupNames.push(Ext.getStore('core.store.Groups').getById(groupIDs[i]).get('GroupName'));
+				var groupIDsForThisPerson = storePersonsGroups.filterBy(
+					function(record, id){
+						if(record.get('kf_PersonID') == value){
+							groupIDs.push(record.get('kf_GroupID'));
+						}
+					}
+				);
+				if(groupIDs.length > 0) {
+					var groupNames = [];
+					for (var i = 0; i < groupIDs.length; i++) {
+						groupNames.push(Ext.getStore('core.store.Groups').getById(groupIDs[i]).get('GroupName'));
+					}
+					groupNames = groupNames.join(", ");
+					return groupNames;
 				}
-				groupNames.push('More');
-				groupNames = groupNames.join(", ");
-				return groupNames;
+				else {
+					return 'None';
+				}
 			}
 			catch (exception) {
+				if(debug){alert(exception)};
 				return 'None';
 			}
 			finally {

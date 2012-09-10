@@ -176,6 +176,7 @@ function get_DateStart(value){
 			if(debug){console.info('PersonGrid - mapping to DateStart')};
 			dateStart = Ext.getStore('core.store.Dates').getById(value).get('DateStart');
 			if(debug){console.info('PersonGrid - DateStart mapped')};
+			dateStart = Ext.util.Format.date(dateStart, 'Y-m-d');
 			return dateStart;
 		}
 		else {

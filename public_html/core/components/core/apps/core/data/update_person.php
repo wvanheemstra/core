@@ -27,33 +27,44 @@ function updateRecords()
 	if (isset($_GET['idField'])) {
 		$idField = $_GET['idField'];
 	};
+	
+	// PERSON
     if (is_array($jsonData)) {
 		$id = $jsonData[$idField];
-		$sql  = "UPDATE `".$table."` SET kf_SalutationID = ".$jsonData['kf_SalutationID'].",PersonFirstName = '".$jsonData['PersonFirstName']."',PersonLastName = '".$jsonData['PersonLastName']."',kf_GenderID = ".$jsonData['kf_GenderID'].",kf_NationalityID = ".$jsonData['kf_NationalityID'];
-		$sql .= " WHERE ".$idField." = ".$id;
-		$result = mysql_query($sql) or die(mysql_error());
+		$sqlPerson  = "UPDATE `".$table."` SET kf_SalutationID = ".$jsonData['kf_SalutationID'].",PersonFirstName = '".$jsonData['PersonFirstName']."',PersonLastName = '".$jsonData['PersonLastName']."',kf_GenderID = ".$jsonData['kf_GenderID'].",kf_NationalityID = ".$jsonData['kf_NationalityID'];
+		$sqlPerson .= " WHERE ".$idField." = ".$id;
+		$result = mysql_query($sqlPerson) or die(mysql_error());
     };
 	
+	// DATE
 	if($jsonData['DateStart'].length > 0) {
 		$dateStart = $jsonData['DateStart'];
 		$dateStart = date("Y-m-d",strtotime($dateStart));
 		$dateID = $jsonData['kf_DateID'];
-		// UPDATE date HERE for DateStart where person.kf_DateID = date.kp_DateID
-		$sqlDate  = "UPDATE `date` SET StartDate = ".$dateStart." WHERE kp_DateID = ".$dateID;
+		$sqlDate  = "UPDATE `date` SET DateStart = '".$dateStart."' WHERE kp_DateID = ".$dateID;
 		$result = mysql_query($sqlDate) or die(mysql_error());
 	};
 	
+	// PERSON_GROUP
+	$numOfGroupIDs = 0;
+	$countedGroupIDs = 0;
+	$sqlPersonGroup  = "DELETE FROM `person_group` WHERE kf_PersonID = ".$id.";";
 	if($jsonData['kf_GroupID'].length > 0) {
 		$groupIDs = explode(",", $jsonData['kf_GroupID']);
 		$numOfGroupIDs = count($groupIDs);
-		$countedGroupIDs = 0;
+
 		if($numOfGroupIDs > 0){
 			for ($i = 0; $i < $numOfGroupIDs; $i++) {
 				$countedGroupIDs = $countedGroupIDs + 1;
-				// echo($groupIDs[$i]);
-				// UPDATE person_group HERE for kf_PersonID and kf_GroupID
+				$sqlPersonGroup .= "INSERT INTO `person_group` (`kf_PersonID`, `kf_GroupID`) VALUES (".$id.", ".$groupIDs[$i].");";
 			}
 		}
+	};
+	$queries = preg_split("/;+(?=([^'|^\\\']*['|\\\'][^'|^\\\']*['|\\\'])*[^'|^\\\']*[^'|^\\\']$)/", $sqlPersonGroup); 
+	foreach ($queries as $query){ 
+	   if (strlen(trim($query)) > 0) {
+		$result = mysql_query($query) or die(mysql_error());
+	   }
 	};
 
     $data = readRecords($id);
@@ -64,7 +75,9 @@ function updateRecords()
 		'submittedGroupIDs' => $jsonData['kf_GroupID'],
 		'groupIDs' => $groupIDs,
         'success' => TRUE,
-		'sql' => $sql,
+		'sqlPerson' => $sqlPerson,
+		'sqlDate' => $sqlDate,
+		'sqlPersonGroup' => $sqlPersonGroup,
         'data' => $data // this should be the data returned from new/updated record in table
     );
 	header('Content-type: application/json'); 	
@@ -80,8 +93,8 @@ function readRecords($id)
 	if (isset($_GET['idField'])) {
 		$idField = $_GET['idField'];
 	};
-    $sql = "SELECT * FROM `".$table."` WHERE ".$idField." = ".$id;
-    $result = mysql_query($sql) or die(mysql_error());
+    $sqlPerson = "SELECT * FROM `".$table."` WHERE ".$idField." = ".$id;
+    $result = mysql_query($sqlPerson) or die(mysql_error());
     while($rec = mysql_fetch_array($result, MYSQL_ASSOC)){
         $arr[] = $rec;
     };

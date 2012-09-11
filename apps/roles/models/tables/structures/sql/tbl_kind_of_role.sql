@@ -26,7 +26,7 @@ CREATE TABLE `tbl_kind_of_role` (
   `ts_Updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`kp_KindOfRoleID`),
   UNIQUE KEY `kp_KindOfRoleID` (`kp_KindOfRoleID`) USING BTREE
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=Innodb DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 delimiter ;;
 CREATE TRIGGER `KindOfRole.ts_Created` BEFORE INSERT ON `tbl_kind_of_role` FOR EACH ROW BEGIN
 	SET NEW.ts_Created = CURRENT_TIMESTAMP();

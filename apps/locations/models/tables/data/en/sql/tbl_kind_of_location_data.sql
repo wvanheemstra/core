@@ -24,7 +24,7 @@ CREATE TABLE `tbl_kind_of_location_data` (
   `KindOfLocationName` varchar(255) COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`kp_KindOfLocationID`),
   UNIQUE KEY `kp_KindOfLocationID` (`kp_KindOfLocationID`) USING BTREE
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=Innodb AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- ----------------------------
 --  Records of `tbl_kind_of_location_data`

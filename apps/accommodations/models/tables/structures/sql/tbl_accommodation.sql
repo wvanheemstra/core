@@ -30,7 +30,7 @@ CREATE TABLE `tbl_accommodation` (
   UNIQUE KEY `kp_AccommodationID` (`kp_AccommodationID`) USING BTREE,
   KEY `kf_WhereaboutsID` (`kf_WhereaboutsID`) USING BTREE,
   KEY `kf_KindOfAccommodationID` (`kf_KindOfAccommodationID`) USING BTREE
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=Innodb AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 delimiter ;;
 CREATE TRIGGER `Accommodation.ts_Created` BEFORE INSERT ON `tbl_accommodation` FOR EACH ROW BEGIN
 	SET NEW.ts_Created = CURRENT_TIMESTAMP();

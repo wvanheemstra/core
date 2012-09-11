@@ -29,7 +29,7 @@ CREATE TABLE `tbl_period` (
   PRIMARY KEY (`kp_PeriodID`),
   KEY `kf_DateID` (`kf_DateID`),
   KEY `kf_KindOfPeriodID` (`kf_KindOfPeriodID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=Innodb DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 delimiter ;;
 CREATE TRIGGER `Period.ts_Created` BEFORE INSERT ON `tbl_period` FOR EACH ROW BEGIN
 	SET NEW.ts_Created = CURRENT_TIMESTAMP();

@@ -30,7 +30,7 @@ CREATE TABLE `tbl_date` (
   UNIQUE KEY `kp_DateID` (`kp_DateID`) USING BTREE,
   KEY `DateStart` (`DateStart`),
   KEY `DateFinish` (`DateFinish`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=Innodb DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 delimiter ;;
 CREATE TRIGGER `Date.ts_Created` BEFORE INSERT ON `tbl_date` FOR EACH ROW BEGIN
 	SET NEW.ts_Created = CURRENT_TIMESTAMP();

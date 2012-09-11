@@ -30,7 +30,7 @@ CREATE TABLE `tbl_contact` (
   UNIQUE KEY `kp_ContactID` (`kp_ContactID`) USING BTREE,
   KEY `kf_KindOfContactID` (`kf_KindOfContactID`) USING BTREE,
   KEY `kf_MembershipID` (`kf_MembershipID`) USING BTREE
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=Innodb DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 delimiter ;;
 CREATE TRIGGER `Contact.ts_Created` BEFORE INSERT ON `tbl_contact` FOR EACH ROW BEGIN
 	SET NEW.ts_Created = CURRENT_TIMESTAMP();

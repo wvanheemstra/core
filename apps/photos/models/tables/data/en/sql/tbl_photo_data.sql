@@ -26,6 +26,6 @@ CREATE TABLE `tbl_photo_data` (
   PRIMARY KEY (`kp_PhotoID`),
   UNIQUE KEY `kp_PhotoID` (`kp_PhotoID`) USING BTREE,
   KEY `kf_MultimediaID` (`kf_MultimediaID`) USING BTREE
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=Innodb DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 SET FOREIGN_KEY_CHECKS = 1;

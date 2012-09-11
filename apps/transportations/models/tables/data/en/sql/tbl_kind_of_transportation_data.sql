@@ -24,7 +24,7 @@ CREATE TABLE `tbl_kind_of_transportation_data` (
   `KindOfTransportationName` varchar(255) COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`kp_KindOfTransportationID`),
   UNIQUE KEY `kp_KindOfTransportationID` (`kp_KindOfTransportationID`) USING BTREE
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=Innodb AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- ----------------------------
 --  Records of `tbl_kind_of_transportation_data`

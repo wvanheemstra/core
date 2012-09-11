@@ -23,6 +23,6 @@ CREATE TABLE `tbl_kind_of_journal_data` (
   `kp_KindOfJournalID` int(11) NOT NULL AUTO_INCREMENT,
   `KindOfJournalName` varchar(255) CHARACTER SET utf8 NOT NULL,
   PRIMARY KEY (`kp_KindOfJournalID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=Innodb DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 SET FOREIGN_KEY_CHECKS = 1;

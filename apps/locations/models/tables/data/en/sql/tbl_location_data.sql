@@ -31,7 +31,7 @@ CREATE TABLE `tbl_location_data` (
   UNIQUE KEY `kp_LocationID` (`kp_LocationID`) USING BTREE,
   KEY `kf_CountryID` (`kf_CountryID`) USING BTREE,
   KEY `kf_KindOfLocationID` (`kf_KindOfLocationID`) USING BTREE
-) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=Innodb AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- ----------------------------
 --  Records of `tbl_location_data`

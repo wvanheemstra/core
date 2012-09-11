@@ -24,6 +24,6 @@ CREATE TABLE `tbl_account_data` (
   `kf_KindOfAccountID` int(11) NOT NULL,
   PRIMARY KEY (`kp_AccountID`),
   KEY `kf_KindOfAccountID` (`kf_KindOfAccountID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=Innodb DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 SET FOREIGN_KEY_CHECKS = 1;

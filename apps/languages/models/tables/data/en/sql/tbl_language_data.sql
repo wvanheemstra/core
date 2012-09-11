@@ -24,7 +24,7 @@ CREATE TABLE `tbl_language_data` (
   `LanguageName` varchar(255) COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`kp_LanguageID`),
   UNIQUE KEY `kp_LanguageID` (`kp_LanguageID`) USING BTREE
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=Innodb AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- ----------------------------
 --  Records of `tbl_language_data`

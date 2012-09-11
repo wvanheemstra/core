@@ -23,6 +23,6 @@ CREATE TABLE `tbl_kind_of_period_data` (
   `kp_KindOfPeriodID` int(11) NOT NULL AUTO_INCREMENT,
   `KindOfPeriodName` varchar(255) COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`kp_KindOfPeriodID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=Innodb DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 SET FOREIGN_KEY_CHECKS = 1;

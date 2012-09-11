@@ -27,7 +27,7 @@ CREATE TABLE `tbl_multimedia` (
   PRIMARY KEY (`kp_MultimediaID`),
   UNIQUE KEY `kp_MultimediaID` (`kp_MultimediaID`) USING BTREE,
   KEY `kf_KindOfMultimediaID` (`kf_KindOfMultimediaID`) USING BTREE
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=Innodb DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 delimiter ;;
 CREATE TRIGGER `Multimedia.ts_Created` BEFORE INSERT ON `tbl_multimedia` FOR EACH ROW BEGIN
 	SET NEW.ts_Created = CURRENT_TIMESTAMP();

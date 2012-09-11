@@ -24,7 +24,7 @@ CREATE TABLE `tbl_kind_of_role_data` (
   `KindOfRoleName` varchar(255) COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`kp_KindOfRoleID`),
   UNIQUE KEY `kp_KindOfRoleID` (`kp_KindOfRoleID`) USING BTREE
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=Innodb AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- ----------------------------
 --  Records of `tbl_kind_of_role_data`

@@ -28,6 +28,6 @@ CREATE TABLE `tbl_journal_data` (
   KEY `kf_KindOfJournalID` (`kf_KindOfJournalID`),
   KEY `kf_BatchID` (`kf_BatchID`),
   KEY `kf_DateID` (`kf_DateID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=Innodb DEFAULT CHARSET=utf8;
 
 SET FOREIGN_KEY_CHECKS = 1;

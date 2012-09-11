@@ -36,7 +36,7 @@ CREATE TABLE `tbl_membership` (
   KEY `kf_PersonID` (`kf_PersonID`) USING BTREE,
   KEY `kf_OrganisationID` (`kf_OrganisationID`) USING BTREE,
   KEY `kf_MultimediaID` (`kf_MultimediaID`) USING BTREE
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=Innodb DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 delimiter ;;
 CREATE TRIGGER `Membership.ts_Created` BEFORE INSERT ON `tbl_membership` FOR EACH ROW BEGIN
 	SET NEW.ts_Created = CURRENT_TIMESTAMP();

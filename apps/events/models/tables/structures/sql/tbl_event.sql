@@ -30,7 +30,7 @@ CREATE TABLE `tbl_event` (
   UNIQUE KEY `kp_EventID` (`kp_EventID`) USING BTREE,
   KEY `kf_WhereaboutsID` (`kf_WhereaboutsID`) USING BTREE,
   KEY `kf_KindOfEventID` (`kf_KindOfEventID`) USING BTREE
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=Innodb DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 delimiter ;;
 CREATE TRIGGER `Event.ts_Created` BEFORE INSERT ON `tbl_event` FOR EACH ROW BEGIN
 	SET NEW.ts_Created = CURRENT_TIMESTAMP();

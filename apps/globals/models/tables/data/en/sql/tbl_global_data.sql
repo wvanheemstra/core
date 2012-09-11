@@ -27,6 +27,6 @@ CREATE TABLE `tbl_global_data` (
   `KindOfContactID_mobile` int(11) NOT NULL,
   PRIMARY KEY (`kp_GlobalID`),
   UNIQUE KEY `kp_GlobalID` (`kp_GlobalID`) USING BTREE
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=Innodb DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 SET FOREIGN_KEY_CHECKS = 1;

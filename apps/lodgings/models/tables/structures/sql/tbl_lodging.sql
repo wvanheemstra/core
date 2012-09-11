@@ -35,7 +35,7 @@ CREATE TABLE `tbl_lodging` (
   KEY `kf_RoleID` (`kf_RoleID`) USING BTREE,
   KEY `kf_ContactID` (`kf_ContactID`) USING BTREE,
   KEY `kf_MultimediaID` (`kf_MultimediaID`) USING BTREE
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=Innodb DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 delimiter ;;
 CREATE TRIGGER `Lodging.ts_Created` BEFORE INSERT ON `tbl_lodging` FOR EACH ROW BEGIN
 	SET NEW.ts_Created = CURRENT_TIMESTAMP();

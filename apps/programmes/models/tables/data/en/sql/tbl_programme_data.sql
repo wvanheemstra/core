@@ -29,7 +29,7 @@ CREATE TABLE `tbl_programme_data` (
   KEY `kf_WhereaboutsID` (`kf_WhereaboutsID`) USING BTREE,
   KEY `kf_KindOfProgrammeID` (`kf_KindOfProgrammeID`) USING BTREE,
   KEY `kf_EventID` (`kf_EventID`) USING BTREE
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=Innodb AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- ----------------------------
 --  Records of `tbl_programme_data`

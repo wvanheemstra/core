@@ -29,7 +29,7 @@ CREATE TABLE `tbl_transportation` (
   PRIMARY KEY (`kp_TransportationID`),
   KEY `kf_LanguageID` (`kf_LanguageID`) USING BTREE,
   KEY `kf_KindOfTransportationID` (`kf_KindOfTransportationID`) USING BTREE
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=Innodb DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 delimiter ;;
 CREATE TRIGGER `Transportation.ts_Created` BEFORE INSERT ON `tbl_transportation` FOR EACH ROW BEGIN
 	SET NEW.ts_Created = CURRENT_TIMESTAMP();

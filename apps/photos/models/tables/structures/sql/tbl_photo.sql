@@ -28,7 +28,7 @@ CREATE TABLE `tbl_photo` (
   PRIMARY KEY (`kp_PhotoID`),
   UNIQUE KEY `kp_PhotoID` (`kp_PhotoID`) USING BTREE,
   KEY `kf_MultimediaID` (`kf_MultimediaID`) USING BTREE
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=Innodb DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 delimiter ;;
 CREATE TRIGGER `Photo.ts_Created` BEFORE INSERT ON `tbl_photo` FOR EACH ROW BEGIN
 	SET NEW.ts_Created = CURRENT_TIMESTAMP();

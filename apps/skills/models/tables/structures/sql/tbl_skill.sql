@@ -29,7 +29,7 @@ CREATE TABLE `tbl_skill` (
   PRIMARY KEY (`kp_SkillID`),
   KEY `kf_LanguageID` (`kf_LanguageID`) USING BTREE,
   KEY `kf_SkillLevelID` (`kf_SkillLevelID`) USING BTREE
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=Innodb DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 delimiter ;;
 CREATE TRIGGER `Skill.ts_Created` BEFORE INSERT ON `tbl_skill` FOR EACH ROW BEGIN
 	SET NEW.ts_Created = CURRENT_TIMESTAMP();

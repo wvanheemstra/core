@@ -27,7 +27,7 @@ CREATE TABLE `tbl_role_data` (
   PRIMARY KEY (`kp_RoleID`),
   KEY `kf_KindOfRoleID` (`kf_KindOfRoleID`) USING BTREE,
   KEY `kf_MembershipID` (`kf_MembershipID`) USING BTREE
-) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=Innodb AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- ----------------------------
 --  Records of `tbl_role_data`

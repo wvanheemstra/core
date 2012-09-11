@@ -27,6 +27,6 @@ CREATE TABLE `tbl_period_data` (
   PRIMARY KEY (`kp_PeriodID`),
   KEY `kf_DateID` (`kf_DateID`),
   KEY `kf_KindOfPeriodID` (`kf_KindOfPeriodID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=Innodb DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 SET FOREIGN_KEY_CHECKS = 1;

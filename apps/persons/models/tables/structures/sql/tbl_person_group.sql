@@ -26,7 +26,7 @@ CREATE TABLE `tbl_person_group` (
   `ts_Updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   KEY `kf_PersonID` (`kf_PersonID`) USING BTREE,
   KEY `kf_GroupID` (`kf_GroupID`) USING BTREE
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=Innodb DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 delimiter ;;
 CREATE TRIGGER `Person_Group.ts_Created` BEFORE INSERT ON `tbl_person_group` FOR EACH ROW BEGIN
 	SET NEW.ts_Created = CURRENT_TIMESTAMP();

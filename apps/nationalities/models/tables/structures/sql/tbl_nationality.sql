@@ -28,7 +28,7 @@ CREATE TABLE `tbl_nationality` (
   PRIMARY KEY (`kp_NationalityID`),
   UNIQUE KEY `kp_NationalityID` (`kp_NationalityID`) USING BTREE,
   KEY `kf_LanguageID` (`kf_LanguageID`) USING BTREE
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=Innodb DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 delimiter ;;
 CREATE TRIGGER `Nationality.ts_Created` BEFORE INSERT ON `tbl_nationality` FOR EACH ROW BEGIN
 	SET NEW.ts_Created = CURRENT_TIMESTAMP();

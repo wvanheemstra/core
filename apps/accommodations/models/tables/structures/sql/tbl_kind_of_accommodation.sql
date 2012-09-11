@@ -26,7 +26,7 @@ CREATE TABLE `tbl_kind_of_accommodation` (
   `ts_Updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`kp_KindOfAccommodationID`),
   UNIQUE KEY `kp_KindOfAccommodation` (`kp_KindOfAccommodationID`) USING BTREE
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=Innodb DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 delimiter ;;
 CREATE TRIGGER `KindOfAccommodation.ts_Created` BEFORE INSERT ON `tbl_kind_of_accommodation` FOR EACH ROW BEGIN
 	SET NEW.ts_Created = CURRENT_TIMESTAMP();

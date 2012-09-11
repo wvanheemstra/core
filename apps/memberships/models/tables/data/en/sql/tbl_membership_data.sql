@@ -34,7 +34,7 @@ CREATE TABLE `tbl_membership_data` (
   KEY `kf_PersonID` (`kf_PersonID`) USING BTREE,
   KEY `kf_OrganisationID` (`kf_OrganisationID`) USING BTREE,
   KEY `kf_MultimediaID` (`kf_MultimediaID`) USING BTREE
-) ENGINE=MyISAM AUTO_INCREMENT=31 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=Innodb AUTO_INCREMENT=31 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- ----------------------------
 --  Records of `tbl_membership_data`

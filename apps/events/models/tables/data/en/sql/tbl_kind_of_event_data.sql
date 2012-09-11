@@ -24,7 +24,7 @@ CREATE TABLE `tbl_kind_of_event_data` (
   `KindOfEventName` varchar(255) COLLATE utf8_bin DEFAULT NULL,
   PRIMARY KEY (`kp_KindOfEventID`),
   UNIQUE KEY `kp_KindOfEventID` (`kp_KindOfEventID`) USING BTREE
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=Innodb AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- ----------------------------
 --  Records of `tbl_kind_of_event_data`

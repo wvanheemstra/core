@@ -105,6 +105,7 @@ Ext.define('core.controller.Persons', {
 		this.getPersonInfo().getForm().addListener('addpersonbuttonclick', this.onViewPersonInfoAddPersonButtonClick, this);
 		this.getPersonInfo().getForm().addListener('savepersonbuttonclick', this.onViewPersonInfoSavePersonButtonClick, this);
 		this.getPersonInfo().getForm().addListener('deletepersonbuttonclick', this.onViewPersonInfoDeletePersonButtonClick, this);
+		this.getPersonInfo().getForm().addListener('loadrecord', this.onViewPersonInfoLoadRecord, this);
     },
 	
 	onStoreGroupsLoad: function(store, model) {
@@ -171,6 +172,7 @@ Ext.define('core.controller.Persons', {
 	onViewPersonGridSelect: function(selModel, model, idx) {
 		if(debug){console.info('View PersonGrid: Select')};
 		this.getPersonInfo().loadRecord(model);
+		this.getPersonInfo().getForm().fireEvent('loadrecord');
 	},
 	onViewPersonInfoAddPersonButtonClick: function() {
 		this.getPersonGrid().getSelectionModel().clearSelections();
@@ -184,5 +186,21 @@ Ext.define('core.controller.Persons', {
 	onViewPersonInfoDeletePersonButtonClick: function() {
 		this.getPersonGrid().store.load();
 		if(debug){console.info('View PersonInfo: Delete Person Button | Click')};
+	},
+	onViewPersonInfoLoadRecord: function() {
+		if(debug){console.info('View PersonInfo: Record | Load')};
+		selection = this.getPersonGrid().getSelectionModel().getSelection();
+		dateID = selection[0].get('kf_DateID');
+		if(debug){console.info('View PersonInfo: dateID | '+dateID)};
+		try {
+			dateStart = Ext.getStore('core.store.Dates').getById(dateID).get('DateStart');
+		}
+		catch(exception){
+			dateStart = '0000-01-01';
+		}
+		finally{
+			if(debug){console.info('View PersonInfo: dateStart | '+dateStart)};
+			this.getPersonInfo().getForm().setValues({DateStart: dateStart});
+		};
 	}
 });

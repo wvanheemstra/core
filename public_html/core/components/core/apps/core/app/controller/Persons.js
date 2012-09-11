@@ -189,7 +189,7 @@ Ext.define('core.controller.Persons', {
 	},
 	onViewPersonInfoLoadRecord: function() {
 		if(debug){console.info('View PersonInfo: Record | Load')};
-		selection = this.getPersonGrid().getSelectionModel().getSelection();
+		selection = this.getPersonGrid().getSelectionModel().getSelection();	
 		dateID = selection[0].get('kf_DateID');
 		if(debug){console.info('View PersonInfo: dateID | '+dateID)};
 		try {
@@ -201,6 +201,31 @@ Ext.define('core.controller.Persons', {
 		finally{
 			if(debug){console.info('View PersonInfo: dateStart | '+dateStart)};
 			this.getPersonInfo().getForm().setValues({DateStart: dateStart});
+		};
+		personID = selection[0].get('kp_PersonID');
+		if(debug){console.info('View PersonInfo: personID | '+personID)};		
+		try {
+			if(Ext.getStore('core.store.PersonsGroups').getCount() > 0) {
+				// continue
+			}
+			else {
+				Ext.getStore('core.store.PersonsGroups').load();
+			};
+			var groupIDs = [];
+			var i = 0;
+			var match = Ext.getStore('core.store.PersonsGroups').findBy(function (record, id) {
+				if(record.get('kf_PersonID') == personID) {
+					groupIDs[i] = record.get('kf_GroupID');
+					i = i + 1;
+				}
+			});
+			this.getPersonInfo().getForm().setValues({kf_GroupID: groupIDs});
+		}
+		catch(exception){
+			var groupIDs = [];
+		}
+		finally{
+			if(debug){console.info('View PersonInfo: groupIDs | '+groupIDs)};
 		};
 	}
 });

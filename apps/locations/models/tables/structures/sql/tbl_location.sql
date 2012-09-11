@@ -33,7 +33,7 @@ CREATE TABLE `tbl_location` (
   UNIQUE KEY `kp_LocationID` (`kp_LocationID`) USING BTREE,
   KEY `kf_CountryID` (`kf_CountryID`) USING BTREE,
   KEY `kf_KindOfLocationID` (`kf_KindOfLocationID`) USING BTREE
-) ENGINE=Innodb DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 delimiter ;;
 CREATE TRIGGER `Location.ts_Created` BEFORE INSERT ON `tbl_location` FOR EACH ROW BEGIN
 	SET NEW.ts_Created = CURRENT_TIMESTAMP();

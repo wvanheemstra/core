@@ -26,7 +26,7 @@ CREATE TABLE `tbl_registry_data` (
   `gPersonID_registrar` int(11) DEFAULT NULL,
   `gKindOfPersonID_registrar` int(11) DEFAULT NULL,
   PRIMARY KEY (`kp_RegistryID`)
-) ENGINE=Innodb AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- ----------------------------
 --  Records of `tbl_registry_data`

@@ -26,7 +26,7 @@ CREATE TABLE `tbl_kind_of_location` (
   `ts_Updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`kp_KindOfLocationID`),
   UNIQUE KEY `kp_KindOfLocationID` (`kp_KindOfLocationID`) USING BTREE
-) ENGINE=Innodb DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 delimiter ;;
 CREATE TRIGGER `KindOfLocation.ts_Created` BEFORE INSERT ON `tbl_kind_of_location` FOR EACH ROW BEGIN
 	SET NEW.ts_Created = CURRENT_TIMESTAMP();

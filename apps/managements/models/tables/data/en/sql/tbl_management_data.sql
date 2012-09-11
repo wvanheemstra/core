@@ -33,6 +33,6 @@ CREATE TABLE `tbl_management_data` (
   KEY `kf_RoleID` (`kf_RoleID`) USING BTREE,
   KEY `kf_ContactID` (`kf_ContactID`) USING BTREE,
   KEY `kf_MultimediaID` (`kf_MultimediaID`) USING BTREE
-) ENGINE=Innodb DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 SET FOREIGN_KEY_CHECKS = 1;

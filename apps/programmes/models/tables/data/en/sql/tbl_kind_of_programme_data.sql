@@ -24,7 +24,7 @@ CREATE TABLE `tbl_kind_of_programme_data` (
   `KindOfProgrammeName` varchar(255) COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`kp_KindOfProgrammeID`),
   UNIQUE KEY `kp_KindOfProgrammeID` (`kp_KindOfProgrammeID`) USING BTREE
-) ENGINE=Innodb AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- ----------------------------
 --  Records of `tbl_kind_of_programme_data`

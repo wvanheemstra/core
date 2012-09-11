@@ -26,7 +26,7 @@ CREATE TABLE `tbl_kind_of_event` (
   `ts_Updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`kp_KindOfEventID`),
   UNIQUE KEY `kp_KindOfEventID` (`kp_KindOfEventID`) USING BTREE
-) ENGINE=Innodb DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 delimiter ;;
 CREATE TRIGGER `KindOfEvent.ts_Created` BEFORE INSERT ON `tbl_kind_of_event` FOR EACH ROW BEGIN
 	SET NEW.ts_Created = CURRENT_TIMESTAMP();

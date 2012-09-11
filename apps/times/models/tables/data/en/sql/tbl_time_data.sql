@@ -24,7 +24,7 @@ CREATE TABLE `tbl_time_data` (
   `TimeStart` time NOT NULL,
   `TimeFinish` time NOT NULL,
   PRIMARY KEY (`kp_TimeID`)
-) ENGINE=Innodb AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- ----------------------------
 --  Records of `tbl_time_data`

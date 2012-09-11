@@ -39,7 +39,7 @@ CREATE TABLE `tbl_attendance` (
   KEY `kf_ContactID` (`kf_ContactID`) USING BTREE,
   KEY `kf_MultimediaID` (`kf_MultimediaID`) USING BTREE,
   KEY `kf_TransportationID` (`kf_TransportationID`) USING BTREE
-) ENGINE=Innodb DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 delimiter ;;
 CREATE TRIGGER `Attendance.ts_Created` BEFORE INSERT ON `tbl_attendance` FOR EACH ROW BEGIN
 	SET NEW.ts_Created = CURRENT_TIMESTAMP();

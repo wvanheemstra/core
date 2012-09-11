@@ -24,7 +24,7 @@ CREATE TABLE `tbl_kind_of_accommodation_data` (
   `KindOfAccommodationName` varchar(255) COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`kp_KindOfAccommodationID`),
   UNIQUE KEY `kp_KindOfAccommodationID` (`kp_KindOfAccommodationID`) USING BTREE
-) ENGINE=Innodb AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- ----------------------------
 --  Records of `tbl_kind_of_accommodation_data`

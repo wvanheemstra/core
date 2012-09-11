@@ -25,7 +25,7 @@ CREATE TABLE `tbl_skill_level_data` (
   `kf_LanguageID` int(11) NOT NULL,
   PRIMARY KEY (`kp_SkillLevelID`),
   KEY `kf_LanguageID` (`kf_LanguageID`) USING BTREE
-) ENGINE=Innodb AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- ----------------------------
 --  Records of `tbl_skill_level_data`

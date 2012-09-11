@@ -29,7 +29,7 @@ CREATE TABLE `tbl_gender` (
   PRIMARY KEY (`kp_GenderID`),
   UNIQUE KEY `kp_GenderID` (`kp_GenderID`) USING BTREE,
   KEY `kf_LanguageID` (`kf_LanguageID`) USING BTREE
-) ENGINE=Innodb DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 delimiter ;;
 CREATE TRIGGER `Gender.ts_Created` BEFORE INSERT ON `tbl_gender` FOR EACH ROW BEGIN
 	SET NEW.ts_Created = CURRENT_TIMESTAMP();

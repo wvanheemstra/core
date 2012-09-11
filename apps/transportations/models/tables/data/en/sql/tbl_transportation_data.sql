@@ -27,7 +27,7 @@ CREATE TABLE `tbl_transportation_data` (
   PRIMARY KEY (`kp_TransportationID`),
   KEY `kf_LanguageID` (`kf_LanguageID`) USING BTREE,
   KEY `kf_KindOfTransportationID` (`kf_KindOfTransportationID`) USING BTREE
-) ENGINE=Innodb AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- ----------------------------
 --  Records of `tbl_transportation_data`

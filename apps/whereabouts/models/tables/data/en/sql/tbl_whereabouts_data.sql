@@ -28,7 +28,7 @@ CREATE TABLE `tbl_whereabouts_data` (
   KEY `kf_TimeID` (`kf_TimeID`) USING BTREE,
   KEY `kf_LocationID` (`kf_LocationID`) USING BTREE,
   KEY `kf_DateID` (`kf_DateID`) USING BTREE
-) ENGINE=Innodb AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- ----------------------------
 --  Records of `tbl_whereabouts_data`

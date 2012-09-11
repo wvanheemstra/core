@@ -28,6 +28,6 @@ CREATE TABLE `tbl_accommodation_data` (
   UNIQUE KEY `kp_AccommodationID` (`kp_AccommodationID`) USING BTREE,
   KEY `kf_WhereaboutsID` (`kf_WhereaboutsID`) USING BTREE,
   KEY `kf_KindOfAccommodationID` (`kf_KindOfAccommodationID`) USING BTREE
-) ENGINE=Innodb DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 SET FOREIGN_KEY_CHECKS = 1;

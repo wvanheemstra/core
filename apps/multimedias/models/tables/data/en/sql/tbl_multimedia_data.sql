@@ -25,6 +25,6 @@ CREATE TABLE `tbl_multimedia_data` (
   PRIMARY KEY (`kp_MultimediaID`),
   UNIQUE KEY `kp_MultimediaID` (`kp_MultimediaID`) USING BTREE,
   KEY `kf_KindOfMultimediaID` (`kf_KindOfMultimediaID`) USING BTREE
-) ENGINE=Innodb DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 SET FOREIGN_KEY_CHECKS = 1;

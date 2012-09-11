@@ -24,7 +24,7 @@ CREATE TABLE `tbl_kind_of_person_data` (
   `KindOfPersonName` varchar(255) COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`kp_KindOfPersonID`),
   UNIQUE KEY `kp_KindOfPersonID` (`kp_KindOfPersonID`) USING BTREE
-) ENGINE=Innodb AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- ----------------------------
 --  Records of `tbl_kind_of_person_data`

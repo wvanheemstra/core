@@ -28,6 +28,6 @@ CREATE TABLE `tbl_contact_data` (
   UNIQUE KEY `kp_ContactID` (`kp_ContactID`) USING BTREE,
   KEY `kf_KindOfContactID` (`kf_KindOfContactID`) USING BTREE,
   KEY `kf_MembershipID` (`kf_MembershipID`) USING BTREE
-) ENGINE=Innodb DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 SET FOREIGN_KEY_CHECKS = 1;

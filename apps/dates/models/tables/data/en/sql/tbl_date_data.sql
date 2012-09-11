@@ -28,6 +28,6 @@ CREATE TABLE `tbl_date_data` (
   UNIQUE KEY `kp_DateID` (`kp_DateID`) USING BTREE,
   KEY `DateStart` (`DateStart`),
   KEY `DateFinish` (`DateFinish`)
-) ENGINE=Innodb DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 SET FOREIGN_KEY_CHECKS = 1;

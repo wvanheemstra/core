@@ -28,7 +28,7 @@ CREATE TABLE `tbl_organisation_data` (
   UNIQUE KEY `kp_OrganisationID` (`kp_OrganisationID`) USING BTREE,
   KEY `kf_WhereaboutsID` (`kf_WhereaboutsID`) USING BTREE,
   KEY `kf_PartyID` (`kf_PartyID`)
-) ENGINE=Innodb AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- ----------------------------
 --  Records of `tbl_organisation_data`

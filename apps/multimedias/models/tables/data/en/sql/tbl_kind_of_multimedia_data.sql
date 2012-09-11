@@ -24,7 +24,7 @@ CREATE TABLE `tbl_kind_of_multimedia_data` (
   `KindOfMultimediaName` varchar(255) COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`kp_KindOfMultimediaID`),
   UNIQUE KEY `kp_KindOfMultimediaID` (`kp_KindOfMultimediaID`) USING BTREE
-) ENGINE=Innodb AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- ----------------------------
 --  Records of `tbl_kind_of_multimedia_data`

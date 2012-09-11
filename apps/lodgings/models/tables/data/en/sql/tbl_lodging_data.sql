@@ -33,7 +33,7 @@ CREATE TABLE `tbl_lodging_data` (
   KEY `kf_RoleID` (`kf_RoleID`) USING BTREE,
   KEY `kf_ContactID` (`kf_ContactID`) USING BTREE,
   KEY `kf_MultimediaID` (`kf_MultimediaID`) USING BTREE
-) ENGINE=Innodb AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- ----------------------------
 --  Records of `tbl_lodging_data`

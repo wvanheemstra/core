@@ -24,7 +24,7 @@ CREATE TABLE `tbl_kind_of_contact_data` (
   `KindOfContactName` varchar(255) COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`kp_KindOfContactID`),
   UNIQUE KEY `kp_KindOfContactID` (`kp_KindOfContactID`) USING BTREE
-) ENGINE=Innodb AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- ----------------------------
 --  Records of `tbl_kind_of_contact_data`

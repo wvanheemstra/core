@@ -24,6 +24,6 @@ CREATE TABLE `tbl_kind_of_account_data` (
   `KindOfAccountName` varchar(255) CHARACTER SET utf8 NOT NULL,
   `KindOfAccountCode` varchar(255) COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`kp_KindOfAccountID`)
-) ENGINE=Innodb DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 SET FOREIGN_KEY_CHECKS = 1;

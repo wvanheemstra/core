@@ -37,7 +37,6 @@ CREATE TABLE `tbl_person` (
   `ts_Created` datetime DEFAULT NULL,
   `ts_Updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`kp_PersonID`),
-  UNIQUE KEY `kp_PersonID` (`kp_PersonID`) USING BTREE,
   KEY `kf_SalutationID` (`kf_SalutationID`) USING BTREE,
   KEY `kf_GenderID` (`kf_GenderID`) USING BTREE,
   KEY `kf_NationalityID` (`kf_NationalityID`) USING BTREE,
@@ -46,8 +45,8 @@ CREATE TABLE `tbl_person` (
   KEY `kf_RegistryID` (`kf_RegistryID`) USING BTREE,
   KEY `kf_RequirementID` (`kf_RequirementID`) USING BTREE,
   KEY `kf_SkillID` (`kf_SkillID`) USING BTREE,
-  KEY `kf_PartyID` (`kf_PartyID`),
-  KEY `kf_IdentityID` (`kf_IdentityID`)
+  KEY `kf_PartyID` (`kf_PartyID`) USING BTREE,
+  KEY `kf_IdentityID` (`kf_IdentityID`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 delimiter ;;
 CREATE TRIGGER `Person.ts_Created` BEFORE INSERT ON `tbl_person` FOR EACH ROW BEGIN

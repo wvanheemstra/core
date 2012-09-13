@@ -29,7 +29,8 @@ CREATE TABLE `tbl_date` (
   PRIMARY KEY (`kp_DateID`),
   UNIQUE KEY `kp_DateID` (`kp_DateID`) USING BTREE,
   KEY `DateStart` (`DateStart`),
-  KEY `DateFinish` (`DateFinish`)
+  KEY `DateFinish` (`DateFinish`),
+  FOREIGN KEY (`kp_DateID`) REFERENCES `tbl_person` (`kf_DateID`) ON UPDATE CASCADE ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 delimiter ;;
 CREATE TRIGGER `Date.ts_Created` BEFORE INSERT ON `tbl_date` FOR EACH ROW BEGIN

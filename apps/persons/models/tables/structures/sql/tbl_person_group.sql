@@ -24,8 +24,8 @@ CREATE TABLE `tbl_person_group` (
   `kf_GroupID` int(11) NOT NULL,
   `ts_Created` datetime DEFAULT NULL,
   `ts_Updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  KEY `kf_PersonID` (`kf_PersonID`) USING BTREE,
-  KEY `kf_GroupID` (`kf_GroupID`) USING BTREE
+  FOREIGN KEY (`kf_PersonID`) REFERENCES `tbl_person` (`kp_PersonID`) ON DELETE CASCADE,
+  FOREIGN KEY (`kf_GroupID`) REFERENCES `tbl_group` (`kp_GroupID`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 delimiter ;;
 CREATE TRIGGER `Person_Group.ts_Created` BEFORE INSERT ON `tbl_person_group` FOR EACH ROW BEGIN

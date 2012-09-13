@@ -121,7 +121,7 @@ Ext.define('core.view.PersonInfo', {
 				valueField: 'kp_GroupID',
 				//value: ['1'], //get_GroupIDs,
 				store: 'core.store.Groups',
-				allowBlank: false
+				allowBlank: true
 			}
 		];
 		config.bbar = [

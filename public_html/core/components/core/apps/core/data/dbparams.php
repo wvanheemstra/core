@@ -6,4 +6,7 @@ $user='root';
 $pw='';
 $db='core';
 
-date_default_timezone_set('Europe/London'); // TO DO: make dynamic
+if (isset($_GET['timezone'])) {
+	$timezone = $_GET['timezone'];
+	date_default_timezone_set($timezone);
+};

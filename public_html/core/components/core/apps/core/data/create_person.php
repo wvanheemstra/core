@@ -27,6 +27,9 @@ function createRecords()
 	if (isset($_GET['idField'])) {
 		$idField = $_GET['idField'];
 	};
+	if (isset($_GET['timezone'])) {
+		$timezone = $_GET['timezone'];
+	};
 	
 	// PERSON
     if (is_array($jsonData)) {
@@ -73,6 +76,7 @@ function createRecords()
     $return = array(
 		'total' => $num_rows,
 		'dateStart' => $dateStart,
+		'timezone' => $timezone,
 		'countedGroupIDs' => $countedGroupIDs,
 		'submittedGroupIDs' => $jsonData['GroupIDs'],
 		'groupIDs' => $groupIDs,

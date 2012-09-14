@@ -40,7 +40,8 @@ Ext.define('core.view.PersonInfo', {
 						personInfoForm.setValues({
 							kf_SalutationID: 1,
 							kf_GenderID: 1,
-							kf_NationalityID: 1
+							kf_NationalityID: 1,
+							DateStart: '0000-01-01'
 						});
 					}
 				}
@@ -102,7 +103,7 @@ Ext.define('core.view.PersonInfo', {
 				forceSelection: true
 			},
 			{
-				name: 'kf_DateID',
+				name: 'DateStart',
 				xtype: 'datefield',
 				fieldLabel: 'Date of Birth',
 				displayField: 'DateStart',
@@ -114,7 +115,7 @@ Ext.define('core.view.PersonInfo', {
 				forceSelection: true
 			},
 			{
-				name: 'kf_GroupID',
+				name: 'GroupIDs',
 				xtype: 'itemselector',
 				fieldLabel: 'Groups',
 				displayField: 'GroupName',

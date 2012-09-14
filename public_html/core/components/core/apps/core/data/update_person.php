@@ -37,7 +37,7 @@ function updateRecords()
     };
 	
 	// DATE
-	if($jsonData['DateStart'].length > 0) {
+	if(!is_null($jsonData['DateStart'])) {
 		$dateStart = $jsonData['DateStart'];
 		$dateStart = date("Y-m-d",strtotime($dateStart));
 		$dateID = $jsonData['kf_DateID'];
@@ -49,8 +49,8 @@ function updateRecords()
 	$numOfGroupIDs = 0;
 	$countedGroupIDs = 0;
 	$sqlPersonGroup  = "DELETE FROM `person_group` WHERE kf_PersonID = ".$id.";";
-	if($jsonData['kf_GroupID'].length > 0) {
-		$groupIDs = explode(",", $jsonData['kf_GroupID']);
+	if($jsonData['GroupIDs'].length > 0) {
+		$groupIDs = explode(",", $jsonData['GroupIDs']);
 		$numOfGroupIDs = count($groupIDs);
 
 		if($numOfGroupIDs > 0){
@@ -72,7 +72,7 @@ function updateRecords()
 		'total' => $num_rows,
 		'dateStart' => $dateStart,
 		'countedGroupIDs' => $countedGroupIDs,
-		'submittedGroupIDs' => $jsonData['kf_GroupID'],
+		'submittedGroupIDs' => $jsonData['GroupIDs'],
 		'groupIDs' => $groupIDs,
         'success' => TRUE,
 		'sqlPerson' => $sqlPerson,

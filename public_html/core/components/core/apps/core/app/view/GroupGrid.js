@@ -17,6 +17,30 @@ Ext.define('core.view.GroupGrid' , {
 		config.gridId = 'groupGrid';
 		config.stateful = true;
 		config.stateId = 'groupGrid';
+		config.tbar = [
+			{
+				xtype: 'button',
+				formBind: false,
+				cls: 'x-btn-text-icon',
+				icon: 'assets/templates/core/icons/group_add.png',
+				text: 'Add Group',
+				listeners: {
+					click: function() {
+					//	var personInfoForm = this.ownerCt.ownerCt.getForm('personInfoForm');
+					//	personInfoForm.fireEvent('addpersonbuttonclick');					
+					//	personInfoForm.reset();
+					//	var newPersonModel = Ext.ModelManager.create({},'core.model.Person');
+					//	personInfoForm.loadRecord(newPersonModel);
+					//	personInfoForm.setValues({
+					//		kf_SalutationID: 1,
+					//		kf_GenderID: 1,
+					//		kf_NationalityID: 1,
+					//		DateStart: '0000-01-01'
+					//	});
+					}
+				}
+			}
+		];
 		config.bbar = Ext.create('Ext.PagingToolbar', {
 			store: 'core.store.Groups',
 			displayInfo: true,

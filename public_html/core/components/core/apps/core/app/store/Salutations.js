@@ -16,6 +16,7 @@ Ext.define('core.store.Salutations', {
 			extraParams: {
 				start: 0,
 				limit: 100,
+				timezone: getTimezone();
 				table: 'salutation',
 				idField: 'kp_SalutationID'
 			},
@@ -70,6 +71,12 @@ Ext.define('core.store.Salutations', {
 		this.superclass.constructor.call(this, config);		
 	}
 });	
+
+// uses external javascript jstimezone.min.js
+function getTimezone() {
+	var timezone = jstz.determine();
+	return timezone.name();
+};
 
 // configure whether filtering is performed locally or remotely (initially)
 var localFilteringSalutation = true;

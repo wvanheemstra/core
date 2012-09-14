@@ -16,6 +16,7 @@ Ext.define('core.store.Persons', {
 			extraParams: {
 				start: 0,
 				limit: 100,
+				timezone: getTimezone(),
 				table: 'person',
 				idField: 'kp_PersonID'
 			},
@@ -70,6 +71,12 @@ Ext.define('core.store.Persons', {
 		this.superclass.constructor.call(this, config);	
 	}
 });	
+
+// uses external javascript jstimezone.min.js
+function getTimezone() {
+	var timezone = jstz.determine();
+	return timezone.name();
+};
 
 // configure whether filtering is performed locally or remotely (initially)
 var localFilteringPerson = true;

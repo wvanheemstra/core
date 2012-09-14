@@ -16,6 +16,7 @@ Ext.define('core.store.Nationalities', {
 			extraParams: {
 				start: 0,
 				limit: 200, // set close tot total number of records
+				timezone: getTimezone(),
 				table: 'nationality',
 				idField: 'kp_NationalityID'
 			},
@@ -70,6 +71,12 @@ Ext.define('core.store.Nationalities', {
 		this.superclass.constructor.call(this, config);		
 	}
 });	
+
+// uses external javascript jstimezone.min.js
+function getTimezone() {
+	var timezone = jstz.determine();
+	return timezone.name();
+}
 
 // configure whether filtering is performed locally or remotely (initially)
 var localFilteringNationality = true;

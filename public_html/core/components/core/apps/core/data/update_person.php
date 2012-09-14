@@ -10,14 +10,15 @@ function getInputParms()
 }
 include 'dbparams.php';
 
-$connection = mysql_connect($host, $user, $pw) or
+$con = mysqli_connect($host, $user, $pw) or
    die("Could not connect: " . mysql_error());
-mysql_set_charset("UTF8", $connection);     
-mysql_select_db($db) or die("Could not select database");
+mysqli_set_charset($con, "UTF8");   
+mysqli_select_db($con, $db) or die("Could not select database");
+mysqli_autocommit($con, FALSE);
 
-updateRecords();
+updateRecords($con);
 
-function updateRecords() 
+function updateRecords($con) 
 {
 	$num_rows = 1;  // We insert 1 record at a time
     $jsonData = getInputParms();
@@ -33,7 +34,7 @@ function updateRecords()
 		$id = $jsonData[$idField];
 		$sqlPerson  = "UPDATE `".$table."` SET kf_SalutationID = ".$jsonData['kf_SalutationID'].",PersonFirstName = '".$jsonData['PersonFirstName']."',PersonLastName = '".$jsonData['PersonLastName']."',kf_GenderID = ".$jsonData['kf_GenderID'].",kf_NationalityID = ".$jsonData['kf_NationalityID'];
 		$sqlPerson .= " WHERE ".$idField." = ".$id;
-		$result = mysql_query($sqlPerson) or die(mysql_error());
+		$results[] = mysqli_query($con, $sqlPerson);
     };
 	
 	// DATE
@@ -42,7 +43,7 @@ function updateRecords()
 		$dateStart = date("Y-m-d",strtotime($dateStart));
 		$dateID = $jsonData['kf_DateID'];
 		$sqlDate  = "UPDATE `date` SET DateStart = '".$dateStart."' WHERE kp_DateID = ".$dateID;
-		$result = mysql_query($sqlDate) or die(mysql_error());
+		$results[] = mysqli_query($con, $sqlDate);
 	};
 	
 	// PERSON_GROUP
@@ -52,7 +53,6 @@ function updateRecords()
 	if($jsonData['GroupIDs'].length > 0) {
 		$groupIDs = explode(",", $jsonData['GroupIDs']);
 		$numOfGroupIDs = count($groupIDs);
-
 		if($numOfGroupIDs > 0){
 			for ($i = 0; $i < $numOfGroupIDs; $i++) {
 				$countedGroupIDs = $countedGroupIDs + 1;
@@ -63,18 +63,34 @@ function updateRecords()
 	$queries = preg_split("/;+(?=([^'|^\\\']*['|\\\'][^'|^\\\']*['|\\\'])*[^'|^\\\']*[^'|^\\\']$)/", $sqlPersonGroup); 
 	foreach ($queries as $query){ 
 	   if (strlen(trim($query)) > 0) {
-		$result = mysql_query($query) or die(mysql_error());
+		$results[] = mysqli_query($con, $query);
 	   }
 	};
 
-    $data = readRecords($id);
+	// START TRANSACTION
+	$success = true;
+	foreach( $results as $result) {
+		if(!$result) {
+			$success = false;
+		}
+	};
+	if(!$success) {
+		mysqli_rollback($con);
+	} else {
+		mysqli_commit($con);
+	};
+	
+    $data = readRecords($id, $con);
+	
+	mysqli_close($con);
+	
     $return = array(
 		'total' => $num_rows,
 		'dateStart' => $dateStart,
 		'countedGroupIDs' => $countedGroupIDs,
 		'submittedGroupIDs' => $jsonData['GroupIDs'],
 		'groupIDs' => $groupIDs,
-        'success' => TRUE,
+        'success' => $success,
 		'sqlPerson' => $sqlPerson,
 		'sqlDate' => $sqlDate,
 		'sqlPersonGroup' => $sqlPersonGroup,
@@ -85,7 +101,7 @@ function updateRecords()
     echo $return;
 }
 
-function readRecords($id)
+function readRecords($id, $con)
 {	
 	if (isset($_GET['table'])) {
 		$table = $_GET['table'];
@@ -94,8 +110,8 @@ function readRecords($id)
 		$idField = $_GET['idField'];
 	};
     $sqlPerson = "SELECT * FROM `".$table."` WHERE ".$idField." = ".$id;
-    $result = mysql_query($sqlPerson) or die(mysql_error());
-    while($rec = mysql_fetch_array($result, MYSQL_ASSOC)){
+	$result = mysqli_query($con, $sqlPerson) or die(mysqli_error($con));
+    while($rec = mysqli_fetch_array($result, MYSQLI_ASSOC)){
         $arr[] = $rec;
     };
     return $arr;

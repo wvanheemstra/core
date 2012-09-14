@@ -26,8 +26,7 @@ CREATE TABLE `tbl_date` (
   `DurationInWeeks` float NOT NULL,
   `ts_Created` datetime DEFAULT NULL,
   `ts_Updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`kp_DateID`),
-  UNIQUE KEY `kp_DateID` (`kp_DateID`) USING BTREE,
+  FOREIGN KEY (`kp_DateID`) REFERENCES `tbl_person` (`kf_DateID`) ON DELETE CASCADE ON UPDATE CASCADE,
   KEY `DateStart` (`DateStart`),
   KEY `DateFinish` (`DateFinish`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;

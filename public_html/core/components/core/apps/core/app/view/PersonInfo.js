@@ -108,11 +108,11 @@ Ext.define('core.view.PersonInfo', {
 				fieldLabel: 'Date of Birth',
 				displayField: 'DateStart',
 				valueField: 'kp_DateID',
+				format: 'Y-m-d',
 				store: 'core.store.Dates',
 				queryMode: 'local',
 				allowBlank: false,
-				typeAhead: true,
-				forceSelection: true
+				listeners: {}
 			},
 			{
 				name: 'GroupIDs',
@@ -122,7 +122,7 @@ Ext.define('core.view.PersonInfo', {
 				valueField: 'kp_GroupID',
 				//value: ['1'], //get_GroupIDs,
 				store: 'core.store.Groups',
-				allowBlank: false
+				allowBlank: true
 			}
 		];
 		config.bbar = [
@@ -244,6 +244,7 @@ Ext.define('core.view.PersonInfo', {
 				}
 			}
 		];
+		config.listeners = {};
 		// finally call the superclasses implementation
 		this.superclass.constructor.call(this, config);
 	}
@@ -251,4 +252,4 @@ Ext.define('core.view.PersonInfo', {
 
 function get_GroupIDs(value){
 	return value;
-}
+};

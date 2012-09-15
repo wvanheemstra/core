@@ -2,11 +2,11 @@
  * core.controller.Persons
  * @extends Ext.app.Controller
  */
-var debug = true; // change for production 
+var debug = false; // change for production 
 if (!window.console) console = {log: function() {}}; // avoids the error in IE
 
-var localHost = 'http://localhost';
-var remoteHost = 'http://localhost';
+var localHost = 'http://randolphse.local';
+var remoteHost = 'http://randolphse.local';
 
 var selection = null; // default if no row is or was previously selected
  
@@ -29,7 +29,6 @@ Ext.define('core.controller.Persons', {
 		   selector: 'personinfo' // widget name
 		}
 	],
- 
     init: function() {
         Ext.create('core.view.PersonPanel', {
 			layout: {

@@ -22,6 +22,7 @@ Ext.define('core.view.PersonInfo', {
 			width: 240,
 			labelWidth: 80
 		};
+		config.requires = ['core.store.Persons','core.store.Dates','core.store.PersonsGroups','core.store.Groups'];
 		config.defaultType = 'textfield';
 		config.tbar = [
 			{
@@ -41,6 +42,7 @@ Ext.define('core.view.PersonInfo', {
 							kf_SalutationID: 1,
 							kf_GenderID: 1,
 							kf_NationalityID: 1,
+							GroupIDs: 1, //Set to a fixed number temporarily
 							DateStart: '0000-01-01'
 						});
 					}
@@ -120,7 +122,7 @@ Ext.define('core.view.PersonInfo', {
 				fieldLabel: 'Groups',
 				displayField: 'GroupName',
 				valueField: 'kp_GroupID',
-				//value: ['1'], //get_GroupIDs,
+				value: ['1'], //Set to a fixed number temporarily; get_GroupIDs,
 				store: 'core.store.Groups',
 				allowBlank: true
 			}

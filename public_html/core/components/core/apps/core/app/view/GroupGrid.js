@@ -13,6 +13,7 @@ Ext.define('core.view.GroupGrid' , {
 	constructor: function(config) {
 		config = config || {};
 		config.title = 'Group Grid';
+		config.requires = 'core.store.Groups';
 		config.store = 'core.store.Groups';
 		config.gridId = 'groupGrid';
 		config.stateful = true;

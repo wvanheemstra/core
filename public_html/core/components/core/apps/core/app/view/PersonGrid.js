@@ -9,10 +9,25 @@ Ext.require ([
 Ext.define('core.view.PersonGrid' , {
     extend: 'Ext.grid.Panel',
     alias : 'widget.persongrid',
+	
+	refs: [{
+         ref: 'storeDates',
+         store: 'core.store.Dates'
+    }],
+	
+	//this.getList().store   uses this -> ref 'list' -> store
+	//this.store uses this -> store
+	
 	// override
 	constructor: function(config) {
 		config = config || {};
 		config.title = 'Person Grid';
+		config.requires = [ 'core.store.Dates',
+							'core.store.Genders',
+							'core.store.Nationalities',
+							'core.store.Salutations',
+							'core.store.Groups',
+							'core.store.PersonsGroups'];
 		config.store = 'core.store.Persons';
 		config.gridId = 'personGrid';
 		config.stateful = true;
@@ -105,15 +120,43 @@ var filters = {
 var personColumns = function (finish, start) {
 	var columns = [
 		{ dataIndex: 'kp_PersonID', header: 'ID', width: 50, filter: {type: 'numeric', disabled: false} },
+	//	{ dataIndex: 'kf_GroupID', header: 'Group ID', width: 50, filter: {type: 'numeric', disabled: false}, renderer: get_GroupID }, // NEW
 		{ dataIndex: 'kf_SalutationID', header: 'Salutation', width: 60, filter: {type: 'numeric', disabled: false}, renderer: get_SalutationAbbreviation  },
 		{ dataIndex: 'PersonFirstName', header: 'First Name', width: 75, filter: {type: 'string', disabled: false} },
 		{ dataIndex: 'PersonLastName', header: 'Last Name', width: 125, filter: {type: 'string', disabled: false} },
 		{ dataIndex: 'kf_GenderID', header: 'Gender', width: 60, filter: {type: 'numeric', disabled: false}, renderer: get_GenderName },
 		{ dataIndex: 'kf_NationalityID', header: 'Nationality', width: 75, filter: {type: 'numeric', disabled: false}, renderer: get_NationalityName },
-		{ dataIndex: 'kf_DateID', header: 'Date of Birth', width: 75, filter: {type: 'date', disabled: false}, renderer: get_DateStart },
+		{ dataIndex: 'kf_DateID', header: 'Date of Birth', width: 75, filter: {type: 'int', disabled: false}, renderer: get_DateStart },
 		{ dataIndex: 'kp_PersonID', header: 'Groups', flex: 1, filter: {type: 'numeric', disabled: false}, renderer: get_GroupNames }		
 	];
 	return columns.slice(start || 0, finish);
+};
+
+function get_GroupID(value, cell, doc, idx) {
+	// code inspired by http://www.fusioncube.net/index.php/extjs-4-render-association-values-in-a-grid-panel
+
+      var personsgroupsStore;
+	  //alert(doc.hasOwnProperty("personsgroups"));
+	  //alert(doc.id);
+	  var ownProperties=[];
+		for (var i in doc ) { ownProperties.push(i); }
+		//alert('ownProperties: '+ownProperties);
+		//var personsgroups = doc.hasOwnProperty('personsgroups');
+	//	alert('personsgroups' in doc);  // RETURNS true
+	//	alert(doc.prototype.personsgroups);
+		//alert(doc.personsgroups.length);
+      if (doc.hasOwnProperty("personsgroups")) {
+         personsgroupsStore = doc.personsgroups.getStore();
+         if (personsgroupsStore.findExact("id", "Title") !== -1) {
+            return 1;
+         }
+		 else {
+			return 0;
+		 }
+      }
+	  else {
+		return 99;
+	  }
 };
 
 function get_SalutationAbbreviation(value){
@@ -171,12 +214,37 @@ function get_NationalityName(value){
 };
 
 function get_DateStart(value){
+	if(debug){console.info('PersonGrid - mapping to DateStart')};
+	dateStart = 'Unknown';
+	if(value){
+		try {
+			//alert(this.title); // TEST
+			dateStart = Ext.getStore('core.store.Dates').getById(value).get('DateStart');
+			dateStart = Ext.util.Format.date(dateStart, 'Y-m-d');
+		}
+		catch(exception) {
+			dateStart = value;
+		};
+	};
+	if(debug){console.info('PersonGrid - DateStart: '+dateStart)};
+	if(debug){console.info('PersonGrid - DateStart mapped')};
+	return dateStart;
+};
+
+/*
+function OLD-get_DateStart(value){
 	if(value){
 		if(Ext.getStore('core.store.Dates').loaded) {
 			if(debug){console.info('PersonGrid - mapping to DateStart')};
-			dateStart = Ext.getStore('core.store.Dates').getById(value).get('DateStart');
+				try {
+					dateStart = Ext.getStore('core.store.Dates').getById(value).get('DateStart');
+					dateStart = Ext.util.Format.date(dateStart, 'Y-m-d');
+				}
+				catch(exception){
+					dateStart = '0000-01-01';
+				}
+			if(debug){console.info('PersonGrid - DateStart: '+dateStart)};	
 			if(debug){console.info('PersonGrid - DateStart mapped')};
-			dateStart = Ext.util.Format.date(dateStart, 'Y-m-d');
 			return dateStart;
 		}
 		else {
@@ -188,6 +256,7 @@ function get_DateStart(value){
 		return 'Undefined';
 	}
 };
+*/
 
 function get_GroupNames(value){
 	var storePersonsGroups = Ext.getStore('core.store.PersonsGroups');

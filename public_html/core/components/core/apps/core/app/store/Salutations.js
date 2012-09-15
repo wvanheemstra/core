@@ -16,7 +16,7 @@ Ext.define('core.store.Salutations', {
 			extraParams: {
 				start: 0,
 				limit: 100,
-				timezone: getTimezone();
+				timezone: getTimezone(),
 				table: 'salutation',
 				idField: 'kp_SalutationID'
 			},

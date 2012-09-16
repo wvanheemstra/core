@@ -2,7 +2,7 @@
  * core.controller.Persons
  * @extends Ext.app.Controller
  */
-var debug = false; // change for production 
+var debug = true; // change for production 
 if (!window.console) console = {log: function() {}}; // avoids the error in IE
 
 var localHost = 'http://localhost';
@@ -14,11 +14,15 @@ Ext.define('core.controller.Persons', {
     extend: 'Ext.app.Controller',
     models: ['core.model.Group', 'core.model.PersonGroup', 'core.model.Person', 'core.model.Salutation', 'core.model.Gender', 'core.model.Nationality', 'core.model.Date'],
     stores: ['core.store.Groups', 'core.store.PersonsGroups', 'core.store.Persons', 'core.store.Salutations', 'core.store.Genders', 'core.store.Nationalities', 'core.store.Dates'],
-    views: ['core.view.PersonPanel', 'core.view.GroupGrid', 'core.view.PersonInfo', 'core.view.PersonGrid'],
+    views: ['core.view.PersonPanel', 'core.view.GroupGrid', 'core.view.GroupInfo', 'core.view.PersonInfo', 'core.view.PersonGrid'],
 	refs: [
 		{
 		   ref: 'GroupGrid',
 		   selector: 'groupgrid' // widget name
+		},
+		{
+		   ref: 'GroupInfo',
+		   selector: 'groupinfo' // widget name
 		},
 		{
 		   ref: 'PersonGrid',
@@ -41,16 +45,28 @@ Ext.define('core.controller.Persons', {
             items: [
 				{
 					region: 'west',
-					items: [{
-						xtype: 'groupgrid',
-						itemId: 'GroupGrid',
-						width: 210,
-						height: 461,
-						border: 0,
-						split: true,
-						collapsible: true,
-						collapseDirection: 'left'
-					}]
+					layout: {
+						type: 'vbox',
+						align : 'stretch',
+						pack  : 'start',
+					},
+					width: 210,
+					split: true,
+					items: [
+						{
+							xtype: 'groupgrid',
+							itemId: 'GroupGrid',
+							flex: 1,
+							border: 0
+						},
+						{
+							xtype: 'groupinfo',
+							itemId: 'GroupInfo',
+							width: 250,
+							border: 0,
+							height: 150
+						}
+					]
 				},
 				{
 					region: 'center',
@@ -59,21 +75,19 @@ Ext.define('core.controller.Persons', {
 						itemId: 'PersonGrid',
 						width: 'fit',
 						border: 0,
-						split: true,
+						//split: true,
 						height: 461 // limit for a scroll bar
 					}]
 				},
 				{
 					region: 'east',
+					split: true,
 					items: [{
 						xtype: 'personinfo',
 						itemId: 'PersonInfo',
 						width: 250,
 						border: 0,
-						split: true,
-						height: 461,
-						collapsible: true,
-						collapseDirection: 'right'
+						height: 461
 					}]
 				}
 			],

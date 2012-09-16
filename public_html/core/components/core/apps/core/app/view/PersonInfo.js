@@ -168,7 +168,7 @@ Ext.define('core.view.PersonInfo', {
 										failure: function(record, operation) {
 											Ext.Msg.prompt({
 												title:'Delete Person',
-												msg: 'Unable to delete person.',
+												msg: 'Unable to delete <span style="font-weight:bold;">'+record.data.PersonFirstName+' '+record.data.PersonLastName+'</span>.',
 												buttons: Ext.Msg.OK,
 												icon: Ext.Msg.ERROR
 											});

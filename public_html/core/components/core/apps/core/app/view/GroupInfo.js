@@ -64,57 +64,57 @@ Ext.define('core.view.GroupInfo', {
 				formBind: true,
 				listeners: {
 					click: function() {
-				//		var personInfoForm = this.ownerCt.ownerCt.getForm('personInfoForm');
-				//		var rec = personInfoForm.getRecord();
-				//		if (rec){
-				//		rec.beginEdit();
-				//		personInfoForm.updateRecord(rec);
-				//		var proxyPersons = Ext.getStore('core.store.Persons').getProxy();
-				//		rec.setProxy(proxyPersons); // assign the store's proxy to the record
-				//		Ext.Msg.defaultButton = 2; // cancel TODO: make this work
-				//		Ext.Msg.prompt({
-				//		   title:'Delete Person',
-				//		   msg: 'Are you sure you want to delete <span style="font-weight:bold;">'+rec.data.PersonFirstName+' ' +rec.data.PersonLastName+'</span>?',
-				//		   buttons: Ext.Msg.OKCANCEL,
-				//		   icon: Ext.Msg.WARNING,
-				//		   fn: function(btn) {
-				//				if(btn == 'ok') {
-				//					rec.destroy({
-				//						params: {},
-				//						success: function(record, operation) {
-				//							if(operation.action === 'destroy') {
-				//								Ext.Msg.prompt({
-				//									title:'Person Deleted',
-				//									msg: 'You have deleted <span style="font-weight:bold;">'+record.data.PersonFirstName+' '+record.data.PersonLastName+'</span>.',
-				//									buttons: Ext.Msg.OK,
-				//									icon: Ext.Msg.INFO
-				//								});
-				//							}
-				//							personInfoForm.fireEvent('deletepersonbuttonclick');
-				//							personInfoForm.reset();
-				//						},
-				//						failure: function(record, operation) {
-				//							Ext.Msg.prompt({
-				//								title:'Delete Person',
-				//								msg: 'Unable to delete person.',
-				//								buttons: Ext.Msg.OK,
-				//								icon: Ext.Msg.ERROR
-				//							});
-				//						}
-				//					});
-				//				}
-				//			}
-				//		});							
-				//		rec.endEdit();
-				//		rec.commit(); // removes the dirty marker in grid if used
-				//		} else {
-				//			Ext.Msg.prompt({
-				//				title:'Delete Person',
-				//				msg: 'Please select a person to delete',
-				//				buttons: Ext.Msg.OK,
-				//				icon: Ext.Msg.INFO
-				//			});
-				//		}
+						var groupInfoForm = this.ownerCt.ownerCt.getForm('groupInfoForm');
+						var rec = groupInfoForm.getRecord();
+						if (rec){
+						rec.beginEdit();
+						groupInfoForm.updateRecord(rec);
+						var proxyGroups = Ext.getStore('core.store.Groups').getProxy();
+						rec.setProxy(proxyGroups); // assign the store's proxy to the record
+						Ext.Msg.defaultButton = 2; // cancel TODO: make this work
+						Ext.Msg.prompt({
+						   title:'Delete Group',
+						   msg: 'Are you sure you want to delete <span style="font-weight:bold;">'+rec.data.GroupName+'</span>?',
+						   buttons: Ext.Msg.OKCANCEL,
+						   icon: Ext.Msg.WARNING,
+						   fn: function(btn) {
+								if(btn == 'ok') {
+									rec.destroy({
+										params: {},
+										success: function(record, operation) {
+											if(operation.action === 'destroy') {
+												Ext.Msg.prompt({
+													title:'Group Deleted',
+													msg: 'You have deleted <span style="font-weight:bold;">'+record.data.GroupName+'</span>.',
+													buttons: Ext.Msg.OK,
+													icon: Ext.Msg.INFO
+												});
+											}
+											groupInfoForm.fireEvent('deletegroupbuttonclick');
+											groupInfoForm.reset();
+										},
+										failure: function(record, operation) {
+											Ext.Msg.prompt({
+												title:'Delete Group',
+												msg: 'Unable to delete <span style="font-weight:bold;">'+record.data.GroupName+'</span>.',
+												buttons: Ext.Msg.OK,
+												icon: Ext.Msg.ERROR
+											});
+										}
+									});
+								}
+							}
+						});							
+						rec.endEdit();
+						rec.commit(); // removes the dirty marker in grid if used
+						} else {
+							Ext.Msg.prompt({
+								title:'Delete Person',
+								msg: 'Please select a person to delete',
+								buttons: Ext.Msg.OK,
+								icon: Ext.Msg.INFO
+							});
+						}
 					}
 				}
 			},

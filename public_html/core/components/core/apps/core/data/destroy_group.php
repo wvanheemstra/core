@@ -31,16 +31,16 @@ function destroyGroup()
 
         if ($jsonData['kp_GroupID'] > 0) {
             $id = $jsonData['kp_GroupID'];
-
-            $sql  = 'DELETE FROM group';
-            $sql .= ' WHERE kp_GroupID = '.$jsonData['kp_GroupID'];
-            $result = mysql_query($sql) or die(mysql_error()); // result set
+            $sqlGroup  = "DELETE FROM `group`";
+            $sqlGroup .= " WHERE kp_GroupID = ".$id;
+            $result = mysql_query($sqlGroup) or die(mysql_error()); // result set
         }
     }    
 
     $data = getGroup($id); // already encoded
 
     $return = array(
+		'sqlGroup' => $sqlGroup,
         'success' => TRUE,
         'data' => $data // this should be the data returned from deleted record in table, hence no rows at all
     );
@@ -51,7 +51,7 @@ function destroyGroup()
 
 function getGroup($kp_GroupID)
 {
-    $sql = 'SELECT * FROM group WHERE kp_GroupID = '.$kp_GroupID;
+    $sql = 'SELECT * FROM `group` WHERE kp_GroupID = '.$kp_GroupID;
     
     $result = mysql_query($sql) or die(mysql_error()); // result set
     

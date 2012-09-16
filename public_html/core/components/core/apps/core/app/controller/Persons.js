@@ -5,8 +5,8 @@
 var debug = true; // change for production 
 if (!window.console) console = {log: function() {}}; // avoids the error in IE
 
-var localHost = 'http://localhost';
-var remoteHost = 'http://localhost';
+var localHost = 'http://caledonialanguages.local';
+var remoteHost = 'http://caledonialanguages.local';
 
 var selection = null; // default if no row is or was previously selected
  
@@ -192,10 +192,12 @@ Ext.define('core.controller.Persons', {
 	onViewGroupInfoSaveGroupButtonClick: function() {
 		selection = this.getGroupGrid().getSelectionModel().getSelection(); // set global value of selection
 		this.getGroupGrid().store.load();
+		this.getPersonGrid().store.load();
 		if(debug){console.info('View GroupInfo: Save Group Button | Click')};
 	},
 	onViewGroupInfoDeleteGroupButtonClick: function() {
 		this.getGroupGrid().store.load();
+		this.getPersonGrid().store.load();
 		if(debug){console.info('View GroupInfo: Delete Group Button | Click')};
 	},
 	onViewPersonGridSelect: function(selModel, model, idx) {

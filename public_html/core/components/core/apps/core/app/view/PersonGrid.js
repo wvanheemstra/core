@@ -222,7 +222,7 @@ function get_DateStart(value){
 			dateStart = Ext.util.Format.date(dateStart, 'Y-m-d');
 		}
 		catch(exception) {
-			dateStart = value;
+			dateStart = 'Unknown';
 		};
 	};
 	if(debug){console.info('PersonGrid - DateStart: '+dateStart)};
@@ -257,7 +257,7 @@ function get_GroupNames(value){
 				}
 			}
 			catch (exception) {
-				if(debug){alert(exception)};
+				if(debug){console.info('PersonGrid - '+exception)};
 				return 'None';
 			}
 			finally {

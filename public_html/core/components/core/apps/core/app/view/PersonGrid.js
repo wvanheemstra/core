@@ -120,7 +120,6 @@ var filters = {
 var personColumns = function (finish, start) {
 	var columns = [
 		{ dataIndex: 'kp_PersonID', header: 'ID', width: 50, filter: {type: 'numeric', disabled: false} },
-	//	{ dataIndex: 'kf_GroupID', header: 'Group ID', width: 50, filter: {type: 'numeric', disabled: false}, renderer: get_GroupID }, // NEW
 		{ dataIndex: 'kf_SalutationID', header: 'Salutation', width: 60, filter: {type: 'numeric', disabled: false}, renderer: get_SalutationAbbreviation  },
 		{ dataIndex: 'PersonFirstName', header: 'First Name', width: 75, filter: {type: 'string', disabled: false} },
 		{ dataIndex: 'PersonLastName', header: 'Last Name', width: 125, filter: {type: 'string', disabled: false} },
@@ -230,33 +229,6 @@ function get_DateStart(value){
 	if(debug){console.info('PersonGrid - DateStart mapped')};
 	return dateStart;
 };
-
-/*
-function OLD-get_DateStart(value){
-	if(value){
-		if(Ext.getStore('core.store.Dates').loaded) {
-			if(debug){console.info('PersonGrid - mapping to DateStart')};
-				try {
-					dateStart = Ext.getStore('core.store.Dates').getById(value).get('DateStart');
-					dateStart = Ext.util.Format.date(dateStart, 'Y-m-d');
-				}
-				catch(exception){
-					dateStart = '0000-01-01';
-				}
-			if(debug){console.info('PersonGrid - DateStart: '+dateStart)};	
-			if(debug){console.info('PersonGrid - DateStart mapped')};
-			return dateStart;
-		}
-		else {
-			if(debug){console.info('PersonGrid - Dates not yet loaded')};
-			return 'Unknown';
-		}
-	}
-	else{
-		return 'Undefined';
-	}
-};
-*/
 
 function get_GroupNames(value){
 	var storePersonsGroups = Ext.getStore('core.store.PersonsGroups');

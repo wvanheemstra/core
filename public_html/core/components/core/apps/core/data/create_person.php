@@ -43,9 +43,13 @@ function createRecords()
 		$dateStart = $jsonData['DateStart'];
 		$dateStart = date("Y-m-d",strtotime($dateStart));
 		//$dateID = $jsonData['kf_DateID'];
-		$sqlDate  = "INSERT INTO `date` (DateStart) VALUES('".$dateStart."')";
+		$sqlDate = "SET FOREIGN_KEY_CHECKS = 0;";
+		$result = mysql_query($sqlDate) or die(mysql_error());	
+		$sqlDate = "INSERT INTO `date` (DateStart) VALUES('".$dateStart."');";
 		$result = mysql_query($sqlDate) or die(mysql_error());
 		$idDate = mysql_insert_id();
+		$sqlDate = "SET FOREIGN_KEY_CHECKS = 1;";	
+		$result = mysql_query($sqlDate) or die(mysql_error());	
 		$sqlPerson  = "UPDATE `person` SET kf_DateID = ".$idDate." WHERE kp_PersonID = ".$idPerson;
 		$result = mysql_query($sqlPerson) or die(mysql_error());
 	};

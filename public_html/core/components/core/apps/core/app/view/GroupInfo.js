@@ -30,18 +30,14 @@ Ext.define('core.view.GroupInfo', {
 				text: 'Add Group',
 				listeners: {
 					click: function() {
-			//			var personInfoForm = this.ownerCt.ownerCt.getForm('personInfoForm');
-			//			personInfoForm.fireEvent('addpersonbuttonclick');					
-			//			personInfoForm.reset();
-			//			var newPersonModel = Ext.ModelManager.create({},'core.model.Person');
-			//			personInfoForm.loadRecord(newPersonModel);
-			//			personInfoForm.setValues({
-			//				kf_SalutationID: 1,
-			//				kf_GenderID: 1,
-			//				kf_NationalityID: 1,
-			//				//GroupIDs: 1, //Set to a fixed number temporarily
-			//				DateStart: '0000-01-01'
-			//			});
+						var groupInfoForm = this.ownerCt.ownerCt.getForm('groupInfoForm');
+						groupInfoForm.fireEvent('addgroupbuttonclick');					
+						groupInfoForm.reset();
+						var newGroupModel = Ext.ModelManager.create({},'core.model.Group');
+						groupInfoForm.loadRecord(newGroupModel);
+						groupInfoForm.setValues({
+							GroupName: 'Type name here ...'
+						});
 					}
 				}
 			}
@@ -134,46 +130,51 @@ Ext.define('core.view.GroupInfo', {
 				formBind: true,
 				listeners: {
 					click: function() {
-				//		var personInfoForm = this.ownerCt.ownerCt.getForm('personInfoForm');
-				//		if(personInfoForm.isValid()) {
-				//			var rec = personInfoForm.getRecord();
-				//			if (rec){
-				//				rec.beginEdit();
-				//				personInfoForm.updateRecord(rec);
-				//				var proxyPersons = Ext.getStore('core.store.Persons').getProxy();
-				//				rec.setProxy(proxyPersons); // assign the store's proxy to the record
-				//				rec.save({ 
-				//					params: { },
-				//					success: function(record, operation) {
-				//						if (operation.action === 'create'){
-				//							Ext.Msg.prompt({
-				//								title:'Person Added',
-				//								msg: 'You have added <span style="font-weight:bold;">'+record.data.PersonFirstName+' '+record.data.PersonLastName+'</span>',
-				//								buttons: Ext.Msg.OK,
-				//								icon: Ext.Msg.INFO
-				//							});
-				//						}
-				//						personInfoForm.fireEvent('savepersonbuttonclick');
-				//					},
-				//					failure: function(record, operation) {
-				//						alert('ERROR: Unable to save record!');
-				//					}
-				//				});
-				//				rec.endEdit();
-				//				rec.commit(); // removes the dirty marker in grid if used
-				//			} else {
-				//				Ext.Msg.prompt({
-				//					title:'Save Person',
-				//					msg: 'Please select a person to save, or select Add Person',
-				//					buttons: Ext.Msg.OK,
-				//					icon: Ext.Msg.INFO
-				//				});
-				//			}
-				//		}
-				//		else {
-				//			var field = this.ownerCt.down('#fieldPersonFirstName');
-				//			field.focus('',10);							
-				//		}
+						var groupInfoForm = this.ownerCt.ownerCt.getForm('groupInfoForm');
+						if(groupInfoForm.isValid()) {
+							var rec = groupInfoForm.getRecord();
+							if (rec){
+								rec.beginEdit();
+								groupInfoForm.updateRecord(rec);
+								var proxyGroups = Ext.getStore('core.store.Groups').getProxy();
+								rec.setProxy(proxyGroups); // assign the store's proxy to the record
+								rec.save({ 
+									params: { },
+									success: function(record, operation) {
+										if (operation.action === 'create'){
+											Ext.Msg.prompt({
+												title:'Group Added',
+												msg: 'You have added <span style="font-weight:bold;">'+record.data.GroupName+'</span>',
+												buttons: Ext.Msg.OK,
+												icon: Ext.Msg.INFO
+											});
+										}
+										groupInfoForm.fireEvent('savegroupbuttonclick');
+									},
+									failure: function(record, operation) {
+										Ext.Msg.prompt({
+											title:'Save Group',
+											msg: 'Unable to save <span style="font-weight:bold;">'+record.data.GroupName+'</span>',
+											buttons: Ext.Msg.OK,
+											icon: Ext.Msg.ERROR
+										});										
+									}
+								});
+								rec.endEdit();
+								rec.commit(); // removes the dirty marker in grid if used
+							} else {
+								Ext.Msg.prompt({
+									title:'Save Group',
+									msg: 'Please select a group to save, or select Add Group',
+									buttons: Ext.Msg.OK,
+									icon: Ext.Msg.INFO
+								});
+							}
+						}
+						else {
+							var field = this.ownerCt.down('#fieldGroupName');
+							field.focus('',10);							
+						}
 					}
 				}
 			}

@@ -42,7 +42,7 @@ Ext.define('core.view.PersonInfo', {
 							kf_SalutationID: 1,
 							kf_GenderID: 1,
 							kf_NationalityID: 1,
-							GroupIDs: 1, //Set to a fixed number temporarily
+							//GroupIDs: 1, //Set to a fixed number temporarily
 							DateStart: '0000-01-01'
 						});
 					}
@@ -122,7 +122,7 @@ Ext.define('core.view.PersonInfo', {
 				fieldLabel: 'Groups',
 				displayField: 'GroupName',
 				valueField: 'kp_GroupID',
-				value: ['1'], //Set to a fixed number temporarily; get_GroupIDs,
+				//value: ['1'], //Set to a fixed number temporarily; get_GroupIDs,
 				store: 'core.store.Groups',
 				allowBlank: true
 			}
@@ -224,7 +224,12 @@ Ext.define('core.view.PersonInfo', {
 										personInfoForm.fireEvent('savepersonbuttonclick');
 									},
 									failure: function(record, operation) {
-										alert('ERROR: Unable to save record!');
+										Ext.Msg.prompt({
+											title:'Save Person',
+											msg: 'Unable to save <span style="font-weight:bold;">'+record.data.PersonFirstName+' '+record.data.PersonLastName+'</span>',
+											buttons: Ext.Msg.OK,
+											icon: Ext.Msg.ERROR
+										});	
 									}
 								});
 								rec.endEdit();

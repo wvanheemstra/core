@@ -43,7 +43,10 @@ function updateRecords($con)
 	// DATE
 	if(!is_null($jsonData['DateStart'])) {
 		$dateStart = $jsonData['DateStart'];
-		$dateStart = date("Y-m-d",strtotime($dateStart));
+		$dateStart = explode(" ", $dateStart); // is like ["Wed","Sep","26","2012","00:00:00","GMT+0100","(GMT","Daylight","Time)"]
+		$dateStart = $dateStart[3].'-'.$dateStart[1].'-'.$dateStart[2];
+		$dateStart = strtotime($dateStart);
+		$dateStart = date('Y-m-d',$dateStart);
 		$dateID = $jsonData['kf_DateID'];
 		$sqlDate  = "UPDATE `date` SET DateStart = '".$dateStart."' WHERE kp_DateID = ".$dateID;
 		$results[] = mysqli_query($con, $sqlDate);
@@ -90,6 +93,7 @@ function updateRecords($con)
     $return = array(
 		'total' => $num_rows,
 		'dateStart' => $dateStart,
+		'submittedDateStart' => $jsonData['DateStart'],
 		'timezone' => $timezone,
 		'countedGroupIDs' => $countedGroupIDs,
 		'submittedGroupIDs' => $jsonData['GroupIDs'],

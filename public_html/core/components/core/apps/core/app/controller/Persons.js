@@ -115,6 +115,9 @@ Ext.define('core.controller.Persons', {
 		
 		this.getGroupGrid().getSelectionModel().addListener('select', this.onViewGroupGridSelect, this);
 		this.getPersonGrid().getSelectionModel().addListener('select', this.onViewPersonGridSelect, this);
+		this.getGroupInfo().getForm().addListener('addgroupbuttonclick', this.onViewGroupInfoAddGroupButtonClick, this);
+		this.getGroupInfo().getForm().addListener('savegroupbuttonclick', this.onViewGroupInfoSaveGroupButtonClick, this);
+		this.getGroupInfo().getForm().addListener('deletegroupbuttonclick', this.onViewGroupInfoDeleteGroupButtonClick, this);
 		this.getPersonInfo().getForm().addListener('addpersonbuttonclick', this.onViewPersonInfoAddPersonButtonClick, this);
 		this.getPersonInfo().getForm().addListener('savepersonbuttonclick', this.onViewPersonInfoSavePersonButtonClick, this);
 		this.getPersonInfo().getForm().addListener('deletepersonbuttonclick', this.onViewPersonInfoDeletePersonButtonClick, this);
@@ -180,12 +183,25 @@ Ext.define('core.controller.Persons', {
 	},
 	onViewGroupGridSelect: function(selModel, model, idx) {
 		if(debug){console.info('View GroupGrid: Select')};
-		//this.getPersonInfo().loadRecord(model);
+		this.getGroupInfo().loadRecord(model);
 	},	
+	onViewGroupInfoAddGroupButtonClick: function() {
+		this.getGroupGrid().getSelectionModel().clearSelections();
+		if(debug){console.info('View GroupInfo: Add Group Button | Click')};
+	},
+	onViewGroupInfoSaveGroupButtonClick: function() {
+		selection = this.getGroupGrid().getSelectionModel().getSelection(); // set global value of selection
+		this.getGroupGrid().store.load();
+		if(debug){console.info('View GroupInfo: Save Group Button | Click')};
+	},
+	onViewGroupInfoDeleteGroupButtonClick: function() {
+		this.getGroupGrid().store.load();
+		if(debug){console.info('View GroupInfo: Delete Group Button | Click')};
+	},
 	onViewPersonGridSelect: function(selModel, model, idx) {
 		if(debug){console.info('View PersonGrid: Select')};
 		this.getPersonInfo().loadRecord(model);
-		this.getPersonInfo().getForm().fireEvent('loadrecord');
+	//	this.getPersonInfo().getForm().fireEvent('loadrecord');
 	},
 	onViewPersonInfoAddPersonButtonClick: function() {
 		this.getPersonGrid().getSelectionModel().clearSelections();

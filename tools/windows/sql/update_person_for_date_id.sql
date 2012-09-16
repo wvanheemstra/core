@@ -1,3 +1,3 @@
 SET FOREIGN_KEY_CHECKS = 0;
-INSERT INTO `date` (DateStart) VALUES('1000-01-01');
+UPDATE `person` SET `kf_DateID`=`kp_PersonID`;
 SET FOREIGN_KEY_CHECKS = 1;

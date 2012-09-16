@@ -252,7 +252,7 @@ Ext.define('core.controller.Persons', {
 					i = i + 1;
 				}
 			});
-			this.getPersonInfo().getForm().setValues({kf_GroupID: groupIDs});
+			this.getPersonInfo().getForm().setValues({GroupIDs: groupIDs});
 		}
 		catch(exception){
 			var groupIDs = [];

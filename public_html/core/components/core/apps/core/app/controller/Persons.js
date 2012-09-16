@@ -201,7 +201,7 @@ Ext.define('core.controller.Persons', {
 	onViewPersonGridSelect: function(selModel, model, idx) {
 		if(debug){console.info('View PersonGrid: Select')};
 		this.getPersonInfo().loadRecord(model);
-	//	this.getPersonInfo().getForm().fireEvent('loadrecord');
+		this.getPersonInfo().getForm().fireEvent('loadrecord');
 	},
 	onViewPersonInfoAddPersonButtonClick: function() {
 		this.getPersonGrid().getSelectionModel().clearSelections();
@@ -209,6 +209,8 @@ Ext.define('core.controller.Persons', {
 	},
 	onViewPersonInfoSavePersonButtonClick: function() {
 		selection = this.getPersonGrid().getSelectionModel().getSelection(); // set global value of selection
+		Ext.getStore('core.store.Dates').load(); // Force a reload
+		Ext.getStore('core.store.PersonsGroups').load(); // Force a reload
 		this.getPersonGrid().store.load();
 		if(debug){console.info('View PersonInfo: Save Person Button | Click')};
 	},

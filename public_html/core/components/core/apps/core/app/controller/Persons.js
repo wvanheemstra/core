@@ -5,8 +5,8 @@
 var debug = true; // change for production 
 if (!window.console) console = {log: function() {}}; // avoids the error in IE
 
-var localHost = 'http://caledonialanguages.local';
-var remoteHost = 'http://caledonialanguages.local';
+var localHost = 'http://localhost';
+var remoteHost = 'http://localhost';
 
 var selection = null; // default if no row is or was previously selected
  

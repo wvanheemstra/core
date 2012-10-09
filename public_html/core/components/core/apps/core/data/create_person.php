@@ -66,7 +66,9 @@ function createRecords()
 			for ($i = 0; $i < $numOfGroupIDs; $i++) {
 				$countedGroupIDs = $countedGroupIDs + 1;
 				$sqlPersonGroup .= "INSERT INTO `person_group` (`kf_PersonID`, `kf_GroupID`) VALUES (".$idPerson.", ".$groupIDs[$i].");";
+				$group[$i] = array("GroupID"=>$groupIDs[$i]);				
 			}
+			$groups = array("groups" => $group);			
 		}
 	};
 	$queries = preg_split("/;+(?=([^'|^\\\']*['|\\\'][^'|^\\\']*['|\\\'])*[^'|^\\\']*[^'|^\\\']$)/", $sqlPersonGroup); 
@@ -76,7 +78,7 @@ function createRecords()
 	   }
 	};
 	
-    $data = readRecords($idPerson);
+    $data = readRecords($idPerson, $groups);
     $return = array(
 		'total' => $num_rows,
 		'dateStart' => $dateStart,
@@ -108,6 +110,7 @@ function readRecords($id)
     while($rec = mysql_fetch_array($result, MYSQL_ASSOC)){
         $arr[] = $rec;
     };
+	$arr[0] = array_replace($arr[0], $groups); // Add groups to arr
     return $arr;
 }
 ?>

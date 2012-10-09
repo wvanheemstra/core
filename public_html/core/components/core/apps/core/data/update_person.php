@@ -124,7 +124,9 @@ function readRecords($id, $con, $groups)
     while($rec = mysqli_fetch_array($result, MYSQLI_ASSOC)){
         $arr[] = $rec;
     };
-	$arr[0] = array_replace($arr[0], $groups); // Add groups to arr
+	if($groups) {
+		$arr[0] = array_replace($arr[0], $groups); // Add groups to arr
+	}
     return $arr;
 }
 ?>

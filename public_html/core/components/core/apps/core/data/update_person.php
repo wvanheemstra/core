@@ -63,7 +63,9 @@ function updateRecords($con)
 			for ($i = 0; $i < $numOfGroupIDs; $i++) {
 				$countedGroupIDs = $countedGroupIDs + 1;
 				$sqlPersonGroup .= "INSERT INTO `person_group` (`kf_PersonID`, `kf_GroupID`) VALUES (".$id.", ".$groupIDs[$i].");";
+				$group[$i] = array("GroupID"=>$groupIDs[$i]);
 			}
+			$groups = array("groups" => $group);
 		}
 	};
 	$queries = preg_split("/;+(?=([^'|^\\\']*['|\\\'][^'|^\\\']*['|\\\'])*[^'|^\\\']*[^'|^\\\']$)/", $sqlPersonGroup); 
@@ -109,7 +111,7 @@ function updateRecords($con)
     echo $return;
 }
 
-function readRecords($id, $con)
+function readRecords($id, $con, $groups)
 {	
 	if (isset($_GET['table'])) {
 		$table = $_GET['table'];
@@ -122,6 +124,7 @@ function readRecords($id, $con)
     while($rec = mysqli_fetch_array($result, MYSQLI_ASSOC)){
         $arr[] = $rec;
     };
+	$arr[0] = array_replace($arr[0], $groups); // Add groups to arr
     return $arr;
 }
 ?>

@@ -52,6 +52,8 @@ function createRecords()
 		$result = mysql_query($sqlDate) or die(mysql_error());	
 		$sqlPerson  = "UPDATE `person` SET kf_DateID = ".$idDate." WHERE kp_PersonID = ".$idPerson;
 		$result = mysql_query($sqlPerson) or die(mysql_error());
+		$date[0] = array("DateStart"=>$dateStart);
+		$dates = array("dates" => $date);
 	};
 	
 	// PERSON_GROUP
@@ -78,7 +80,7 @@ function createRecords()
 	   }
 	};
 	
-    $data = readRecords($idPerson, $groups);
+    $data = readRecords($idPerson, $groups, $dates);
     $return = array(
 		'total' => $num_rows,
 		'dateStart' => $dateStart,
@@ -97,7 +99,7 @@ function createRecords()
     echo $return;
 }
 
-function readRecords($id)
+function readRecords($id, $groups, $dates)
 {	
 	if (isset($_GET['table'])) {
 		$table = $_GET['table'];
@@ -110,7 +112,12 @@ function readRecords($id)
     while($rec = mysql_fetch_array($result, MYSQL_ASSOC)){
         $arr[] = $rec;
     };
-	$arr[0] = array_replace($arr[0], $groups); // Add groups to arr
+	if($groups) {
+		$arr[0] = array_replace($arr[0], $groups); // Add groups to arr
+	}
+	if($dates) {
+		$arr[0] = array_replace($arr[0], $dates); // Add dates to arr
+	}
     return $arr;
 }
 ?>

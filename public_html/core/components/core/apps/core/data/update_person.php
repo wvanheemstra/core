@@ -50,6 +50,8 @@ function updateRecords($con)
 		$dateID = $jsonData['kf_DateID'];
 		$sqlDate  = "UPDATE `date` SET DateStart = '".$dateStart."' WHERE kp_DateID = ".$dateID;
 		$results[] = mysqli_query($con, $sqlDate);
+		$date[0] = array("DateStart"=>$dateStart);
+		$dates = array("dates" => $date);
 	};
 	
 	// PERSON_GROUP
@@ -88,7 +90,7 @@ function updateRecords($con)
 		mysqli_commit($con);
 	};
 	
-    $data = readRecords($id, $con);
+    $data = readRecords($id, $con, $groups, $dates);
 	
 	mysqli_close($con);
 	
@@ -111,7 +113,7 @@ function updateRecords($con)
     echo $return;
 }
 
-function readRecords($id, $con, $groups)
+function readRecords($id, $con, $groups, $dates)
 {	
 	if (isset($_GET['table'])) {
 		$table = $_GET['table'];
@@ -126,6 +128,9 @@ function readRecords($id, $con, $groups)
     };
 	if($groups) {
 		$arr[0] = array_replace($arr[0], $groups); // Add groups to arr
+	}
+	if($dates) {
+		$arr[0] = array_replace($arr[0], $dates); // Add dates to arr
 	}
     return $arr;
 }

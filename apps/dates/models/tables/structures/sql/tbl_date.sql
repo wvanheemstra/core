@@ -26,9 +26,10 @@ CREATE TABLE `tbl_date` (
   `DurationInWeeks` float NOT NULL,
   `ts_Created` datetime DEFAULT NULL,
   `ts_Updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  FOREIGN KEY (`kp_DateID`) REFERENCES `tbl_person` (`kf_DateID`) ON DELETE CASCADE,
+  PRIMARY KEY (`kp_DateID`),
   KEY `DateStart` (`DateStart`),
-  KEY `DateFinish` (`DateFinish`)
+  KEY `DateFinish` (`DateFinish`),
+  CONSTRAINT `tbl_date_ibfk_1` FOREIGN KEY (`kp_DateID`) REFERENCES `tbl_person` (`kf_DateID`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 delimiter ;;
 CREATE TRIGGER `Date.ts_Created` BEFORE INSERT ON `tbl_date` FOR EACH ROW BEGIN

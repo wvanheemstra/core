@@ -48,12 +48,39 @@ function listRecords()
     $result = mysql_query($sql) or die(mysql_error());
     while($rec = mysql_fetch_array($result, MYSQL_ASSOC)){
         $arr[] = $rec;
+		// DATE
+		$dateStart = null;
+		$arrDate = null;		
+		foreach($rec as $key => $value) {
+			if($key == 'kf_DateID') {
+				$idDate = $value;
+			}
+		}
+		$sqlDate = "SELECT `DateStart` FROM `date` WHERE `kp_DateID` = " .$idDate;
+		$resultDate = mysql_query($sqlDate) or die(mysql_error());
+		while($recDate = mysql_fetch_array($resultDate, MYSQL_ASSOC)){
+	        $arrDate[] = $recDate;
+	    };
+		$dateStart = implode(',',array_values($arrDate[0]));
+		$dateStart = date("Y-m-d",strtotime($dateStart));
+		$date[0] = array("DateStart"=>$dateStart);
+		$dates = array("dates" => $date);
+		if($dates) {
+			$arr[0] = array_replace($arr[0], $dates); // Add dates to arr
+		}
+		// GROUPS
+		$group = null; // Fill with group id's
+		$groups = array("groups" => $group);
+		if($groups) {
+			$arr[0] = array_replace($arr[0], $groups); // Add groups to arr
+		}
     };
 	$data = $arr;
 	
 	$return = array(
 	'total' => $num_rows,
 	'success' => TRUE,
+	'sqlDate' => $sqlDate, // for testing only
 	'sql' => $sql,
 	'data' => $data
 	);

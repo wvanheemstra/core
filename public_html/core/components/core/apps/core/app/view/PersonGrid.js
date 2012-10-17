@@ -163,6 +163,7 @@ function get_SalutationAbbreviation(value){
 		if(Ext.getStore('core.store.Salutations').loaded) {
 			if(debug){console.info('PersonGrid - mapping to SalutationAbbreviation')};
 			salutationAbbreviation = Ext.getStore('core.store.Salutations').getById(value).get('SalutationAbbreviation');
+			if(debug){console.info('PersonGrid - SalutationAbbreviation:' +salutationAbbreviation)};
 			if(debug){console.info('PersonGrid - SalutationAbbreviation mapped')};
 			return salutationAbbreviation;
 		}
@@ -181,6 +182,7 @@ function get_GenderName(value){
 		if(Ext.getStore('core.store.Genders').loaded) {
 			if(debug){console.info('PersonGrid - mapping to GenderName')};
 			genderName = Ext.getStore('core.store.Genders').getById(value).get('GenderName');
+			if(debug){console.info('PersonGrid - GenderName: '+genderName)};			
 			if(debug){console.info('PersonGrid - GenderName mapped')};
 			return genderName;
 		}
@@ -199,6 +201,7 @@ function get_NationalityName(value){
 		if(Ext.getStore('core.store.Nationalities').loaded) {
 			if(debug){console.info('PersonGrid - mapping to NationalityName')};
 			nationalityName = Ext.getStore('core.store.Nationalities').getById(value).get('NationalityName');
+			if(debug){console.info('PersonGrid - NationailityName: '+nationalityName)};			
 			if(debug){console.info('PersonGrid - NationalityName mapped')};
 			return nationalityName;
 		}
@@ -261,6 +264,7 @@ function get_GroupNames(value){
 				return 'None';
 			}
 			finally {
+				if(debug){console.info('PersonGrid - GroupNames:' +groupNames)};
 				if(debug){console.info('PersonGrid - GroupNames mapped')};
 			}
 		}

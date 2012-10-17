@@ -33,7 +33,7 @@ function destroyPerson()
             $id = $jsonData['kp_PersonID'];
 
             $sql  = 'DELETE FROM person';
-            $sql .= ' WHERE kp_PersonID = '.$jsonData['kp_PersonID'];
+            $sql .= ' WHERE `kp_PersonID` = '.$jsonData['kp_PersonID'];
             $result = mysql_query($sql) or die(mysql_error()); // result set
         }
     }    

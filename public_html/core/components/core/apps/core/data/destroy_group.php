@@ -32,7 +32,7 @@ function destroyGroup()
         if ($jsonData['kp_GroupID'] > 0) {
             $id = $jsonData['kp_GroupID'];
             $sqlGroup  = "DELETE FROM `group`";
-            $sqlGroup .= " WHERE kp_GroupID = ".$id;
+            $sqlGroup .= " WHERE `kp_GroupID` = ".$id;
             $result = mysql_query($sqlGroup) or die(mysql_error()); // result set
         }
     }    

@@ -1,8 +1,8 @@
 /**
- * core.model.Person
+ * core.model.PersonModel
  * @extends Ext.data.Model
  */
-Ext.define('core.model.Person', {
+Ext.define('core.model.PersonModel', {
 	extend: 'Ext.data.Model',
 	fields: [
 		{ name: 'kp_PersonID', type: 'int', defaultValue: '0'},
@@ -17,13 +17,13 @@ Ext.define('core.model.Person', {
 	],
 	idProperty: 'kp_PersonID',
 	requires: [
-		'core.model.Gender','core.model.Salutation','core.model.Nationality','core.model.Date','core.model.PersonGroup'
+		'core.model.GenderModel','core.model.SalutationModel','core.model.NationalityModel','core.model.DateModel','core.model.PersonGroupModel'
 	],
 	associations: [
-		{ name: 'gender', type: 'hasOne', model: 'core.model.Gender', primaryKey: 'kp_GenderID', foreignKey: 'kf_GenderID' },
-		{ name: 'salutation', type: 'hasOne', model: 'core.model.Salutation', primaryKey: 'kp_SalutationID', foreignKey: 'kf_SalutationID' },
-		{ name: 'nationality', type: 'hasOne', model: 'core.model.Nationality', primaryKey: 'kp_NationalityID', foreignKey: 'kf_NationalityID' },
-		{ name: 'date', type: 'hasOne', model: 'core.model.Date', primaryKey: 'kp_DateID', foreignKey: 'kf_DateID' },
-		{ name: 'personsgroups', type: 'hasMany', model: 'core.model.PersonGroup', primaryKey: 'kf_PersonID', foreignKey: 'kp_PersonID' } // NOTE: the primary key in PersonGroup is kf_PersonID (!), the foreign key in Person is kp_PersonID (!)
+		{ name: 'gender', type: 'hasOne', model: 'core.model.GenderModel', primaryKey: 'kp_GenderID', foreignKey: 'kf_GenderID' },
+		{ name: 'salutation', type: 'hasOne', model: 'core.model.SalutationModel', primaryKey: 'kp_SalutationID', foreignKey: 'kf_SalutationID' },
+		{ name: 'nationality', type: 'hasOne', model: 'core.model.NationalityModel', primaryKey: 'kp_NationalityID', foreignKey: 'kf_NationalityID' },
+		{ name: 'date', type: 'hasOne', model: 'core.model.DateModel', primaryKey: 'kp_DateID', foreignKey: 'kf_DateID' },
+		{ name: 'personsgroups', type: 'hasMany', model: 'core.model.PersonGroupModel', primaryKey: 'kf_PersonID', foreignKey: 'kp_PersonID' } // NOTE: the primary key in PersonGroup is kf_PersonID (!), the foreign key in Person is kp_PersonID (!)
 	]
 });

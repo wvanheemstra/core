@@ -1,8 +1,8 @@
 /**
- * core.model.Gender
+ * core.model.GenderModel
  * @extends Ext.data.Model
  */
-Ext.define('core.model.Gender', {
+Ext.define('core.model.GenderModel', {
 	extend: 'Ext.data.Model',
 	fields: [
 		{ name: 'kp_GenderID', type: 'int', defaultValue: '0'}, 
@@ -10,5 +10,5 @@ Ext.define('core.model.Gender', {
 	],
 	idProperty: 'kp_GenderID',
 	loaded: false,
-	belongsTo: 'core.model.Person'
+	belongsTo: 'core.model.PersonModel'
 });

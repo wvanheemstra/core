@@ -33,7 +33,7 @@ Ext.define('core.view.GroupInfo', {
 						var groupInfoForm = this.ownerCt.ownerCt.getForm('groupInfoForm');
 						groupInfoForm.fireEvent('addgroupbuttonclick');					
 						groupInfoForm.reset();
-						var newGroupModel = Ext.ModelManager.create({},'core.model.Group');
+						var newGroupModel = Ext.ModelManager.create({},'core.model.GroupModel');
 						groupInfoForm.loadRecord(newGroupModel);
 						groupInfoForm.setValues({
 							GroupName: 'Type name here ...'

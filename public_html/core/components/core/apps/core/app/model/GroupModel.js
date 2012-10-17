@@ -1,8 +1,8 @@
 /**
- * core.model.Group
+ * core.model.GroupModel
  * @extends Ext.data.Model
  */
-Ext.define('core.model.Group', {
+Ext.define('core.model.GroupModel', {
 	extend: 'Ext.data.Model',
 	fields: [
 		{ name: 'kp_GroupID', type: 'int', defaultValue: '0'}, 
@@ -11,9 +11,9 @@ Ext.define('core.model.Group', {
 	],
 	idProperty: 'kp_GroupID',
 	requires: [
-		'core.model.PersonGroup'
+		'core.model.PersonGroupModel'
 	],
 	associations: [
-		{ type: 'hasMany', model: 'core.model.PersonGroup', primaryKey: 'kp_GroupID', foreignKey: 'kf_GroupID' }
+		{ name: 'personsgroups', type: 'hasMany', model: 'core.model.PersonGroupModel', primaryKey: 'kp_GroupID', foreignKey: 'kf_GroupID' }
 	]
 });

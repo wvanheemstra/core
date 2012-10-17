@@ -36,7 +36,7 @@ Ext.define('core.view.PersonInfo', {
 						var personInfoForm = this.ownerCt.ownerCt.getForm('personInfoForm');
 						personInfoForm.fireEvent('addpersonbuttonclick');					
 						personInfoForm.reset();
-						var newPersonModel = Ext.ModelManager.create({},'core.model.Person');
+						var newPersonModel = Ext.ModelManager.create({},'core.model.PersonModel');
 						personInfoForm.loadRecord(newPersonModel);
 						personInfoForm.setValues({
 							kf_SalutationID: 1,

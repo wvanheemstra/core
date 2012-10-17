@@ -1,8 +1,8 @@
 /**
- * core.model.PersonGroup
+ * core.model.PersonGroupModel
  * @extends Ext.data.Model
  */
-Ext.define('core.model.PersonGroup', {
+Ext.define('core.model.PersonGroupModel', {
 	extend: 'Ext.data.Model',
 	fields: [
 		{ name: 'kf_PersonID', type: 'int', defaultValue: '0'}, 
@@ -10,10 +10,10 @@ Ext.define('core.model.PersonGroup', {
 	] ,
 	//idProperty: 'kf_PersonID', // SET NO UNIQUE ID FOR THIS MODEL, OTHERWISE THE STORE WOULD FILTER OUT THE DUPLICATE OCCURENCES
 	requires: [
-//		'core.model.Person', 'core.model.Group'
+//		'core.model.PersonModel', 'core.model.GroupModel'
 	],
 	associations: [
-//		{ type: 'hasMany', model: 'core.model.Person', primaryKey: 'kf_PersonID', foreignKey: 'kp_PersonID' },
-//		{ type: 'hasMany', model: 'core.model.Group', primaryKey: 'kf_GroupID', foreignKey: 'kp_GroupID' }
+//		{ name: 'persons', type: 'hasMany', model: 'core.model.PersonModel', primaryKey: 'kf_PersonID', foreignKey: 'kp_PersonID' },
+//		{ name: 'groups', type: 'hasMany', model: 'core.model.GroupModel', primaryKey: 'kf_GroupID', foreignKey: 'kp_GroupID' }
 	]
 });

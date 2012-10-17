@@ -12,7 +12,7 @@ var selection = null; // default if no row is or was previously selected
  
 Ext.define('core.controller.Persons', {
     extend: 'Ext.app.Controller',
-    models: ['core.model.Group', 'core.model.PersonGroup', 'core.model.Person', 'core.model.Salutation', 'core.model.Gender', 'core.model.Nationality', 'core.model.Date'],
+    models: ['core.model.GroupModel', 'core.model.PersonGroupModel', 'core.model.PersonModel', 'core.model.SalutationModel', 'core.model.GenderModel', 'core.model.NationalityModel', 'core.model.DateModel'],
     stores: ['core.store.Groups', 'core.store.PersonsGroups', 'core.store.Persons', 'core.store.Salutations', 'core.store.Genders', 'core.store.Nationalities', 'core.store.Dates'],
     views: ['core.view.PersonPanel', 'core.view.GroupGrid', 'core.view.GroupInfo', 'core.view.PersonInfo', 'core.view.PersonGrid'],
 	refs: [

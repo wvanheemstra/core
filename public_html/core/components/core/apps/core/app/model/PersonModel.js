@@ -20,10 +20,10 @@ Ext.define('core.model.Person', {
 		'core.model.Gender','core.model.Salutation','core.model.Nationality','core.model.Date','core.model.PersonGroup'
 	],
 	associations: [
-		{ name: 'genders', type: 'hasOne', model: 'core.model.Gender', primaryKey: 'kp_GenderID', foreignKey: 'kf_GenderID' },
-		{ name: 'salutations', type: 'hasOne', model: 'core.model.Salutation', primaryKey: 'kp_SalutationID', foreignKey: 'kf_SalutationID' },
-		{ name: 'nationalities', type: 'hasOne', model: 'core.model.Nationality', primaryKey: 'kp_NationalityID', foreignKey: 'kf_NationalityID' },
-		{ name: 'dates', type: 'hasOne', model: 'core.model.Date', primaryKey: 'kp_DateID', foreignKey: 'kf_DateID' },
+		{ name: 'gender', type: 'hasOne', model: 'core.model.Gender', primaryKey: 'kp_GenderID', foreignKey: 'kf_GenderID' },
+		{ name: 'salutation', type: 'hasOne', model: 'core.model.Salutation', primaryKey: 'kp_SalutationID', foreignKey: 'kf_SalutationID' },
+		{ name: 'nationality', type: 'hasOne', model: 'core.model.Nationality', primaryKey: 'kp_NationalityID', foreignKey: 'kf_NationalityID' },
+		{ name: 'date', type: 'hasOne', model: 'core.model.Date', primaryKey: 'kp_DateID', foreignKey: 'kf_DateID' },
 		{ name: 'personsgroups', type: 'hasMany', model: 'core.model.PersonGroup', primaryKey: 'kf_PersonID', foreignKey: 'kp_PersonID' } // NOTE: the primary key in PersonGroup is kf_PersonID (!), the foreign key in Person is kp_PersonID (!)
 	]
 });

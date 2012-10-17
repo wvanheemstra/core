@@ -1,6 +1,6 @@
 Ext.define('core.store.Organisations', {
     extend: 'Ext.data.Store',
-	model: 'core.model.Organisation',
+	model: 'core.model.OrganisationModel',
 	autoLoad: true,
 
     proxy: {

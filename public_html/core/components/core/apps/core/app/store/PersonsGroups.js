@@ -9,8 +9,8 @@ Ext.define('core.store.PersonsGroups', {
 		config.autoDestroy = true;
 		config.autoLoad = true;
 		config.loaded = false; // false initially
-		config.requires = 'core.model.PersonGroup';
-		config.model = 'core.model.PersonGroup';
+		config.requires = 'core.model.PersonGroupModel';
+		config.model = 'core.model.PersonGroupModel';
 		config.proxy = {
 			type: 'ajax',
 			extraParams: {

@@ -9,8 +9,8 @@ Ext.define('core.store.Groups', {
 		config.autoDestroy = true;
 		config.autoLoad = false; // load this store inside the view's render function
 		config.loaded = false; // false initially
-		config.requires = 'core.model.Group';
-		config.model = 'core.model.Group';
+		config.requires = 'core.model.GroupModel';
+		config.model = 'core.model.GroupModel';
 		config.proxy = {
 			type: 'ajax',
 			extraParams: {

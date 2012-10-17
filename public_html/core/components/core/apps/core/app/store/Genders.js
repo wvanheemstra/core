@@ -9,8 +9,8 @@ Ext.define('core.store.Genders', {
 		config.autoDestroy = true;
 		config.autoLoad = true;
 		config.loaded = false; // false initially
-		config.requires = 'core.model.Gender';
-		config.model = 'core.model.Gender';
+		config.requires = 'core.model.GenderModel';
+		config.model = 'core.model.GenderModel';
 		config.proxy = {
 			type: 'ajax',
 			extraParams: {

@@ -1,6 +1,6 @@
 Ext.define('core.store.Parties', {
     extend: 'Ext.data.Store',
-	model: 'core.model.Party',
+	model: 'core.model.PartyModel',
 	autoLoad: true,
 
     proxy: {

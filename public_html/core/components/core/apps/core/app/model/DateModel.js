@@ -1,13 +1,13 @@
 /**
- * core.model.Date
+ * core.model.DateModel
  * @extends Ext.data.Model
  */
-Ext.define('core.model.Date', {
+Ext.define('core.model.DateModel', {
 	extend: 'Ext.data.Model',
 	fields: [
 		{ name: 'kp_DateID', type: 'int', defaultValue: '0'},
-		{ name: 'DateStart', type: 'string'}, // Use string instead of date !!
-		{ name: 'DateFinish', type: 'string'} // Use string instead of date !!
+		{ name: 'DateStart', type: 'date', dateFormat: 'Y-m-d'},
+		{ name: 'DateFinish', type: 'date', dateFormat: 'Y-m-d'}
 	],
 	idProperty: 'kp_DateID',
 	requires: [

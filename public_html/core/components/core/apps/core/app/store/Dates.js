@@ -9,8 +9,8 @@ Ext.define('core.store.Dates', {
 		config.autoDestroy = true;
 		config.autoLoad = true;
 		config.loaded = false; // false initially
-		config.requires = 'core.model.Date';
-		config.model = 'core.model.Date';
+		config.requires = 'core.model.DateModel';
+		config.model = 'core.model.DateModel';
 		config.proxy = {
 			type: 'ajax',
 			extraParams: {

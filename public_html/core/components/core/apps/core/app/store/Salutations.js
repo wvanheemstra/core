@@ -9,8 +9,8 @@ Ext.define('core.store.Salutations', {
 		config.autoDestroy = true;
 		config.autoLoad = true;
 		config.loaded = false; // false initially
-		config.requires = 'core.model.Salutation';
-		config.model = 'core.model.Salutation';
+		config.requires = 'core.model.SalutationModel';
+		config.model = 'core.model.SalutationModel';
 		config.proxy = {
 			type: 'ajax',
 			extraParams: {

@@ -9,8 +9,8 @@ Ext.define('core.store.Nationalities', {
 		config.autoDestroy = true;
 		config.autoLoad = true;
 		config.loaded = false; // false initially
-		config.requires = 'core.model.Nationality';
-		config.model = 'core.model.Nationality';
+		config.requires = 'core.model.NationalityModel';
+		config.model = 'core.model.NationalityModel';
 		config.proxy = {
 			type: 'ajax',			
 			extraParams: {

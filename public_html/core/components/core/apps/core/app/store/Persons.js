@@ -9,8 +9,8 @@ Ext.define('core.store.Persons', {
 		config.autoDestroy = true;
 		config.autoLoad = false; // load this store inside the view's render function
 		config.loaded = false; // false initially
-		config.requires = 'core.model.Person';
-		config.model = 'core.model.Person';
+		config.requires = 'core.model.PersonModel';
+		config.model = 'core.model.PersonModel';
 		config.proxy = {
 			type: 'ajax',
 			extraParams: {

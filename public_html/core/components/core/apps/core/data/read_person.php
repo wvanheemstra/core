@@ -46,6 +46,7 @@ function listRecords()
 	
     $sql = "SELECT * FROM `".$table."` LIMIT ".$offset.", ".$limit;
     $result = mysql_query($sql) or die(mysql_error());
+	$i = 0;
     while($rec = mysql_fetch_array($result, MYSQL_ASSOC)){
         $arr[] = $rec;
 		// DATE
@@ -66,14 +67,15 @@ function listRecords()
 		$date[0] = array("DateStart"=>$dateStart);
 		$dates = array("dates" => $date);
 		if($dates) {
-			$arr[0] = array_replace($arr[0], $dates); // Add dates to arr
+			$arr[$i] = array_replace($arr[$i], $dates); // Add dates to arr
 		}
 		// GROUPS
 		$group = null; // Fill with group id's
 		$groups = array("groups" => $group);
 		if($groups) {
-			$arr[0] = array_replace($arr[0], $groups); // Add groups to arr
+			$arr[$i] = array_replace($arr[$i], $groups); // Add groups to arr
 		}
+		$i = $i + 1;
     };
 	$data = $arr;
 	

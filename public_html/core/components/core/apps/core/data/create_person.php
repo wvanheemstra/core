@@ -52,7 +52,7 @@ function createRecords()
 		$result = mysql_query($sqlDate) or die(mysql_error());
 		$sqlPerson  = "UPDATE `person` SET kf_DateID = ".$idDate." WHERE kp_PersonID = ".$idPerson;
 		$result = mysql_query($sqlPerson) or die(mysql_error());
-		$date[0] = array("DateStart"=>$dateStart);
+		$date[0] = array("kp_DateID"=>$idDate, "DateStart"=>$dateStart);
 		$dates = array("date" => $date);
 	};
 	

@@ -203,6 +203,8 @@ Ext.define('core.controller.Persons', {
 	onViewPersonGridSelect: function(selModel, model, idx) {
 		if(debug){console.info('View PersonGrid: Select')};
 		this.getPersonInfo().loadRecord(model);
+		console.log("Model:"); // FOR TESTING ONLY
+		console.log(model); // FOR TESTING ONLY
 		this.getPersonInfo().getForm().fireEvent('loadrecord');
 	},
 	onViewPersonInfoAddPersonButtonClick: function() {
@@ -222,14 +224,13 @@ Ext.define('core.controller.Persons', {
 	},
 	onViewPersonInfoLoadRecord: function() {
 		if(debug){console.info('View PersonInfo: Record | Load')};
-		selection = this.getPersonGrid().getSelectionModel().getSelection();	
-		dateID = selection[0].get('kf_DateID');
-		if(debug){console.info('View PersonInfo: dateID | '+dateID)};
+		selection = this.getPersonGrid().getSelectionModel().getSelection();
+		dateStart = '1000-01-01';
 		try {
-			dateStart = Ext.getStore('core.store.Dates').getById(dateID).get('DateStart');
+			dateStart = selection[0].getDateModel().get('DateStart');
 		}
 		catch(exception){
-			dateStart = '0000-01-01';
+			if(debug){console.info('View PersonInfo: exception | '+exception)};
 		}
 		finally{
 			if(debug){console.info('View PersonInfo: dateStart | '+dateStart)};

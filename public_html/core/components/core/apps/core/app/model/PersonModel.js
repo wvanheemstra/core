@@ -12,6 +12,7 @@ Ext.define('core.model.PersonModel', {
 		{ name: 'kf_SalutationID', type: 'int', defaultValue: '0' },
 		{ name: 'kf_NationalityID', type: 'int', defaultValue: '0' },
 		{ name: 'kf_DateID', type: 'int', defaultValue: '0' },
+		{ name: 'DateStart', type: 'string'}, // Extended for storing DateStart
 		{ name: 'GroupIDs', type: 'string'} // Extended for storing GroupIDs
 	],
 	idProperty: 'kp_PersonID',

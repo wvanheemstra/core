@@ -109,12 +109,8 @@ Ext.define('core.view.PersonInfo', {
 				xtype: 'datefield',
 				fieldLabel: 'Date of Birth',
 				displayField: 'DateStart',
-				valueField: 'kp_DateID',
 				format: 'Y-m-d',
-				store: 'core.store.Dates',
-				queryMode: 'local',
-				allowBlank: false,
-				listeners: {}
+				allowBlank: false
 			},
 			{
 				name: 'GroupIDs',
@@ -256,6 +252,12 @@ Ext.define('core.view.PersonInfo', {
 		this.superclass.constructor.call(this, config);
 	}
 });
+
+function get_DateStart(value){
+	value = '2013-04-04'; // make Dynamic
+	console.log("View PersonInfo - DateStart: "+value);
+	return value;	
+};
 
 function get_GroupIDs(value){
 	return value;

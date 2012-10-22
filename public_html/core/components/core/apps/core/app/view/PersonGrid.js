@@ -201,7 +201,7 @@ function get_NationalityName(value){
 		if(Ext.getStore('core.store.Nationalities').loaded) {
 			if(debug){console.info('PersonGrid - mapping to NationalityName')};
 			nationalityName = Ext.getStore('core.store.Nationalities').getById(value).get('NationalityName');
-			if(debug){console.info('PersonGrid - NationailityName: '+nationalityName)};			
+			if(debug){console.info('PersonGrid - NationalityName: '+nationalityName)};			
 			if(debug){console.info('PersonGrid - NationalityName mapped')};
 			return nationalityName;
 		}
@@ -215,14 +215,15 @@ function get_NationalityName(value){
 	}
 };
 
-function get_DateStart(value){
+function get_DateStart(value, metaData, record, rowIndex, colIndex, store){
 	if(debug){console.info('PersonGrid - mapping to DateStart')};
 	dateStart = 'Unknown';
 	if(value){
 		try {
-			//alert(this.title); // TEST
-			dateStart = Ext.getStore('core.store.Dates').getById(value).get('DateStart');
-			dateStart = Ext.util.Format.date(dateStart, 'Y-m-d');
+			record.getDateModel(function(date, operation){
+				dateStart = date.data.DateStart;
+				dateStart = Ext.util.Format.date(dateStart, 'Y-m-d');
+			});
 		}
 		catch(exception) {
 			dateStart = 'Unknown';

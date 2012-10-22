@@ -33,7 +33,7 @@ function createRecords()
 	
 	// PERSON
     if (is_array($jsonData)) {
-		$sqlPerson  = "INSERT INTO `".$table."` (kf_SalutationID,PersonFirstName,PersonLastName,kf_GenderID,kf_NationalityID) VALUES (".$jsonData['kf_SalutationID'].",'".$jsonData['PersonFirstName']."','".$jsonData['PersonLastName']."',".$jsonData['kf_GenderID'].",".$jsonData['kf_NationalityID'].")";
+		$sqlPerson  = "INSERT INTO `".$table."` (`kf_SalutationID`,`PersonFirstName`,`PersonLastName`,`kf_GenderID`,`kf_NationalityID`) VALUES (".$jsonData['kf_SalutationID'].",'".$jsonData['PersonFirstName']."','".$jsonData['PersonLastName']."',".$jsonData['kf_GenderID'].",".$jsonData['kf_NationalityID'].")";
 		$result = mysql_query($sqlPerson) or die(mysql_error());
 		$idPerson = mysql_insert_id();
     } 
@@ -45,12 +45,12 @@ function createRecords()
 		//$dateID = $jsonData['kf_DateID'];
 		$sqlDate = "SET FOREIGN_KEY_CHECKS = 0;";
 		$result = mysql_query($sqlDate) or die(mysql_error());
-		$sqlDate  = "INSERT INTO `date` (DateStart) VALUES('".$dateStart."')";
+		$sqlDate  = "INSERT INTO `date` (`DateStart`) VALUES('".$dateStart."')";
 		$result = mysql_query($sqlDate) or die(mysql_error());
 		$idDate = mysql_insert_id();
 		$sqlDate = "SET FOREIGN_KEY_CHECKS = 1;";
 		$result = mysql_query($sqlDate) or die(mysql_error());
-		$sqlPerson  = "UPDATE `person` SET kf_DateID = ".$idDate." WHERE kp_PersonID = ".$idPerson;
+		$sqlPerson  = "UPDATE `person` SET `kf_DateID` = ".$idDate." WHERE `kp_PersonID` = ".$idPerson;
 		$result = mysql_query($sqlPerson) or die(mysql_error());
 		$date = array("kp_DateID"=>$idDate, "DateStart"=>$dateStart);
 		$dates = array("date" => $date);
@@ -59,7 +59,7 @@ function createRecords()
 	// PERSON_GROUP - hasMany
 	$numOfGroupIDs = 0;
 	$countedGroupIDs = 0;
-	$sqlPersonGroup  = "DELETE FROM `person_group` WHERE kf_PersonID = ".$idPerson.";";
+	$sqlPersonGroup  = "DELETE FROM `person_group` WHERE `kf_PersonID` = ".$idPerson.";";
 	if($jsonData['GroupIDs'].length > 0) {
 		$groupIDs = explode(",", $jsonData['GroupIDs']);
 		$numOfGroupIDs = count($groupIDs);
@@ -108,7 +108,7 @@ function readRecords($id, $groups, $dates)
 	if (isset($_GET['idField'])) {
 		$idField = $_GET['idField'];
 	};
-    $sql = "SELECT * FROM `".$table."` WHERE ".$idField." = ".$id;
+    $sql = "SELECT * FROM `".$table."` WHERE `".$idField."` = ".$id;
     $result = mysql_query($sql) or die(mysql_error());
     while($rec = mysql_fetch_array($result, MYSQL_ASSOC)){
         $arr[] = $rec;

@@ -49,7 +49,7 @@ function listRecords()
 	$i = 0;
     while($rec = mysql_fetch_array($result, MYSQL_ASSOC)){
         $arr[] = $rec;
-		// DATE
+		// DATE - hasOne
 		$dateStart = null;
 		$arrDate = null;		
 		foreach($rec as $key => $value) {
@@ -57,19 +57,23 @@ function listRecords()
 				$idDate = $value;
 			}
 		}
-		$sqlDate = "SELECT `DateStart` FROM `date` WHERE `kp_DateID` = " .$idDate;
+		$sqlDate = "SELECT `kp_DateID`, `DateStart`, `DateFinish` FROM `date` WHERE `kp_DateID` = " .$idDate;
 		$resultDate = mysql_query($sqlDate) or die(mysql_error());
 		while($recDate = mysql_fetch_array($resultDate, MYSQL_ASSOC)){
 	        $arrDate[] = $recDate;
 	    };
-		$dateStart = implode(',',array_values($arrDate[0]));
+		$dateRecord = array_values($arrDate[0]);
+		$dateID = $dateRecord[0];	
+		$dateStart = $dateRecord[1];
 		$dateStart = date("Y-m-d",strtotime($dateStart));
-		$date[0] = array("DateStart"=>$dateStart);
-		$dates = array("dates" => $date);
+		$dateFinish = $dateRecord[2];
+		$dateFinish = date("Y-m-d",strtotime($dateFinish));
+		$date = array("kp_DateID"=>$dateID, "DateStart"=>$dateStart, "DateFinish"=>$dateFinish);
+		$dates = array("date" => $date);
 		if($dates) {
 			$arr[$i] = array_replace($arr[$i], $dates); // Add dates to arr
 		}
-		// GROUPS
+		// GROUPS - hasMany
 		$group = null; // Fill with group id's
 		$groups = array("groups" => $group);
 		if($groups) {

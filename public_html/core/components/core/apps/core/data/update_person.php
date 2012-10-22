@@ -40,7 +40,7 @@ function updateRecords($con)
 		$results[] = mysqli_query($con, $sqlPerson);
     };
 	
-	// DATE
+	// DATE - hasOne
 	if(!is_null($jsonData['DateStart'])) {
 		$dateStart = $jsonData['DateStart'];
 		$dateStart = explode(" ", $dateStart); // is like ["Wed","Sep","26","2012","00:00:00","GMT+0100","(GMT","Daylight","Time)"]
@@ -51,10 +51,10 @@ function updateRecords($con)
 		$sqlDate  = "UPDATE `date` SET DateStart = '".$dateStart."' WHERE kp_DateID = ".$dateID;
 		$results[] = mysqli_query($con, $sqlDate);
 		$date[0] = array("DateStart"=>$dateStart);
-		$dates = array("dates" => $date);
+		$dates = array("date" => $date);
 	};
 	
-	// PERSON_GROUP
+	// PERSON_GROUP - hasMany
 	$numOfGroupIDs = 0;
 	$countedGroupIDs = 0;
 	$sqlPersonGroup  = "DELETE FROM `person_group` WHERE kf_PersonID = ".$id.";";

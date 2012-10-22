@@ -38,25 +38,25 @@ function createRecords()
 		$idPerson = mysql_insert_id();
     } 
 
-	// DATE
+	// DATE - hasOne
 	if(!is_null($jsonData['DateStart'])) {
 		$dateStart = $jsonData['DateStart'];
 		$dateStart = date("Y-m-d",strtotime($dateStart));
 		//$dateID = $jsonData['kf_DateID'];
 		$sqlDate = "SET FOREIGN_KEY_CHECKS = 0;";
-		$result = mysql_query($sqlDate) or die(mysql_error());	
-		$sqlDate = "INSERT INTO `date` (DateStart) VALUES('".$dateStart."');";
+		$result = mysql_query($sqlDate) or die(mysql_error());
+		$sqlDate  = "INSERT INTO `date` (DateStart) VALUES('".$dateStart."')";
 		$result = mysql_query($sqlDate) or die(mysql_error());
 		$idDate = mysql_insert_id();
-		$sqlDate = "SET FOREIGN_KEY_CHECKS = 1;";	
-		$result = mysql_query($sqlDate) or die(mysql_error());	
+		$sqlDate = "SET FOREIGN_KEY_CHECKS = 1;";
+		$result = mysql_query($sqlDate) or die(mysql_error());
 		$sqlPerson  = "UPDATE `person` SET kf_DateID = ".$idDate." WHERE kp_PersonID = ".$idPerson;
 		$result = mysql_query($sqlPerson) or die(mysql_error());
 		$date[0] = array("DateStart"=>$dateStart);
-		$dates = array("dates" => $date);
+		$dates = array("date" => $date);
 	};
 	
-	// PERSON_GROUP
+	// PERSON_GROUP - hasMany
 	$numOfGroupIDs = 0;
 	$countedGroupIDs = 0;
 	$sqlPersonGroup  = "DELETE FROM `person_group` WHERE kf_PersonID = ".$idPerson.";";
@@ -68,9 +68,9 @@ function createRecords()
 			for ($i = 0; $i < $numOfGroupIDs; $i++) {
 				$countedGroupIDs = $countedGroupIDs + 1;
 				$sqlPersonGroup .= "INSERT INTO `person_group` (`kf_PersonID`, `kf_GroupID`) VALUES (".$idPerson.", ".$groupIDs[$i].");";
-				$group[$i] = array("GroupID"=>$groupIDs[$i]);				
+				$group[$i] = array("GroupID"=>$groupIDs[$i]);
 			}
-			$groups = array("groups" => $group);			
+			$groups = array("groups" => $group);
 		}
 	};
 	$queries = preg_split("/;+(?=([^'|^\\\']*['|\\\'][^'|^\\\']*['|\\\'])*[^'|^\\\']*[^'|^\\\']$)/", $sqlPersonGroup); 
@@ -83,6 +83,7 @@ function createRecords()
     $data = readRecords($idPerson, $groups, $dates);
     $return = array(
 		'total' => $num_rows,
+		'submittedDateStart' => $jsonData['DateStart'],
 		'dateStart' => $dateStart,
 		'timezone' => $timezone,
 		'countedGroupIDs' => $countedGroupIDs,

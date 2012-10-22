@@ -126,7 +126,7 @@ var personColumns = function (finish, start) {
 		{ dataIndex: 'kf_GenderID', header: 'Gender', width: 60, filter: {type: 'numeric', disabled: false}, renderer: get_GenderName },
 		{ dataIndex: 'kf_NationalityID', header: 'Nationality', width: 75, filter: {type: 'numeric', disabled: false}, renderer: get_NationalityName },
 		{ dataIndex: 'kf_DateID', header: 'Date of Birth', width: 75, filter: {type: 'int', disabled: false}, renderer: get_DateStart },
-		{ dataIndex: 'kf_DateID', header: 'Age', width: 25, filter: {type: 'int', disabled: false}, renderer: get_Age },		
+		{ dataIndex: 'kf_DateID', header: 'Age', width: 30, filter: {type: 'int', disabled: false}, renderer: get_Age },		
 		{ dataIndex: 'kp_PersonID', header: 'Groups', flex: 1, filter: {type: 'numeric', disabled: false}, renderer: get_GroupNames }		
 	];
 	return columns.slice(start || 0, finish);

@@ -3,7 +3,8 @@
  * @extends Ext.grid.Panel
  */
 Ext.require ([
-    'Ext.ux.grid.FiltersFeature'
+    'Ext.ux.grid.FiltersFeature',
+    'Ext.ux.CheckColumn'
 ]);
  
 Ext.define('core.view.GroupGrid' , {
@@ -66,10 +67,15 @@ var filters = {
 var groupColumns = function (finish, start) {
 	var columns = [
 		{ dataIndex: 'kp_GroupID', header: 'ID', width: 50, filter: {type: 'numeric', disabled: false} },
+		{ dataIndex: 'isSelected', header: 'Check', width: 40, filter: {type: 'bool', disabled: true}, xtype: 'checkcolumn', renderer: get_IsSelected },
 		{ dataIndex: 'GroupName', header: 'Group', width: 68, filter: {type: 'string', disabled: false} },
 		{ dataIndex: 'kf_KindOfGroupID', header: 'Kind Of Group', flex: '1', filter: {type: 'numeric', disabled: false}, renderer: get_KindOfGroupName }	
 	];
 	return columns.slice(start || 0, finish);
+};
+
+function get_IsSelected(value){
+	return "<input type='checkbox'" + (value ? "checked='checked'" : "") + ">";
 };
 
 function get_KindOfGroupName(value){

@@ -46,8 +46,16 @@ function listRecords()
 	
     $sql = "SELECT * FROM `".$table."` LIMIT ".$offset.", ".$limit;
     $result = mysql_query($sql) or die(mysql_error());
+    $i = 0;
     while($rec = mysql_fetch_array($result, MYSQL_ASSOC)){
         $arr[] = $rec;
+		// isSelected
+		$bool = "false";
+		$isSelected = array("isSelected" => $bool);
+		if($isSelected) {
+			$arr[$i] = array_replace($arr[$i], $isSelected); // Add isSelected to arr
+		}
+        $i = $i + 1;
     };
 	$data = $arr;
 	

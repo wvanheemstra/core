@@ -17,7 +17,7 @@ Ext.define('core.view.PersonInfo', {
 		config.margin = '0 0 0 0';
 		config.formId = 'personInfoForm';
 		config.buttonAlign = 'left';
-		config.bodyPadding = '0 0 0 4';
+		config.bodyPadding = '0 0 0 0';
 		config.defaults = {
 			width: 240,
 			labelWidth: 80
@@ -51,78 +51,111 @@ Ext.define('core.view.PersonInfo', {
 		];
 	    config.items = [
 			{
-				xtype: 'hidden', // auto-increment field, need presence for update  
-				name: 'kp_PersonID'				 
-			},
-			{
-				name: 'kf_SalutationID',
-				xtype: 'combobox',
-				fieldLabel: 'Salutation',
-				displayField: 'SalutationAbbreviation',
-				valueField: 'kp_SalutationID',
-				store: 'core.store.Salutations',
-				queryMode: 'local',
-				allowBlank: false,
-				typeAhead: true,
-				forceSelection: true
-			},
-			{
-				xtype: 'textfield',
-				itemId: 'fieldPersonFirstName',
-				fieldLabel: 'First Name',
-				allowBlank: false,
-				name: 'PersonFirstName'
-			},
-			{
-				xtype: 'textfield',
-				itemId: 'fieldPersonLastName',
-				fieldLabel: 'Last Name',
-				allowBlank: false,
-				name: 'PersonLastName'
-			},
-			{
-				xtype: 'radiogroup',
-				fieldLabel: 'Gender',
-				defaults: {xtype: 'radio', name: 'kf_GenderID'},
-				items: [{
-					boxLabel: 'Male',
-					inputValue: '1'
-				},{
-					boxLabel: 'Female',
-					inputValue: '2'
+				xtype: 'tabpanel',
+				activeItem: 0,
+				border: false,
+				// this line is necessary for anchoring to work at lower level containers
+				// and for full height of tabs
+				anchor: '100% 100%',
+				// only fields from an active tab are submitted
+				// if the following line is not present
+				deferredRender: false,
+				// tabs
+				defaults: {
+					layout: 'form',
+					labelWidth:80,
+					defaultType:'textfield',
+					bodyStyle:'padding:5px',
+					// as we use deferredRender: false
+					// we mustn't render tabs into display:none containers
+					hideMode: 'offsets'
+				},
+				items:[{
+					title:'Bio',
+					autoScroll: true,
+					defaults: {anchor:'-20'},
+					// fields
+					items: [{
+						xtype: 'hidden', // auto-increment field, need presence for update  
+						name: 'kp_PersonID'				 
+					},
+					{
+						name: 'kf_SalutationID',
+						xtype: 'combobox',
+						fieldLabel: 'Salutation',
+						displayField: 'SalutationAbbreviation',
+						valueField: 'kp_SalutationID',
+						store: 'core.store.Salutations',
+						queryMode: 'local',
+						allowBlank: false,
+						typeAhead: true,
+						forceSelection: true
+					},
+					{
+						xtype: 'textfield',
+						itemId: 'fieldPersonFirstName',
+						fieldLabel: 'First Name',
+						allowBlank: false,
+						name: 'PersonFirstName'
+					},
+					{
+						xtype: 'textfield',
+						itemId: 'fieldPersonLastName',
+						fieldLabel: 'Last Name',
+						allowBlank: false,
+						name: 'PersonLastName'
+					},
+					{
+						xtype: 'radiogroup',
+						fieldLabel: 'Gender',
+						defaults: {xtype: 'radio', name: 'kf_GenderID'},
+						items: [{
+							boxLabel: 'Male',
+							inputValue: '1'
+						},{
+							boxLabel: 'Female',
+							inputValue: '2'
+						}]
+					},
+					{
+						name: 'kf_NationalityID',
+						xtype: 'combobox',
+						fieldLabel: 'Nationality',
+						displayField: 'NationalityName',
+						valueField: 'kp_NationalityID',
+						store: 'core.store.Nationalities',
+						queryMode: 'local',
+						allowBlank: false,
+						typeAhead: true,
+						forceSelection: true
+					},
+					{
+						name: 'DateStart',
+						xtype: 'datefield',
+						fieldLabel: 'Date of Birth',
+						displayField: 'DateStart',
+						format: 'Y-m-d',
+						allowBlank: false
+					}
+					]
+				},
+				{
+					title:'Groups',
+					// fields
+					items: [{
+						name: 'GroupIDs',
+						xtype: 'itemselector',
+						fieldLabel: 'Groups',
+						displayField: 'GroupName',
+						valueField: 'kp_GroupID',
+						//value: ['1'], //Set to a fixed number temporarily; get_GroupIDs,
+						store: 'core.store.Groups',
+						allowBlank: true
+					}
+					]
 				}]
-			},
-			{
-				name: 'kf_NationalityID',
-				xtype: 'combobox',
-				fieldLabel: 'Nationality',
-				displayField: 'NationalityName',
-				valueField: 'kp_NationalityID',
-				store: 'core.store.Nationalities',
-				queryMode: 'local',
-				allowBlank: false,
-				typeAhead: true,
-				forceSelection: true
-			},
-			{
-				name: 'DateStart',
-				xtype: 'datefield',
-				fieldLabel: 'Date of Birth',
-				displayField: 'DateStart',
-				format: 'Y-m-d',
-				allowBlank: false
-			},
-			{
-				name: 'GroupIDs',
-				xtype: 'itemselector',
-				fieldLabel: 'Groups',
-				displayField: 'GroupName',
-				valueField: 'kp_GroupID',
-				//value: ['1'], //Set to a fixed number temporarily; get_GroupIDs,
-				store: 'core.store.Groups',
-				allowBlank: true
-			}
-		];
+			}	
+		]; // eof config.items
 		config.bbar = [
 			{
 				xtype: 'button',

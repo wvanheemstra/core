@@ -81,11 +81,18 @@ Ext.define('core.controller.Persons', {
 				},
 				{
 					region: 'east',
+					layout: {
+						type: 'vbox',
+						align : 'stretch',
+						pack  : 'start',
+					},
+					width: 250,					
 					split: true,
+					//bodyStyle: 'background-color: red;', // NEW for testing only
 					items: [{
 						xtype: 'personinfo',
 						itemId: 'PersonInfo',
-						width: 250,
+						flex: 1,
 						border: 0,
 						height: 461
 					}]

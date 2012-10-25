@@ -19,7 +19,6 @@ Ext.define('core.view.PersonInfo', {
 		config.buttonAlign = 'left';
 		config.bodyPadding = '0 0 0 0';
 		config.defaults = {
-			width: 240,
 			labelWidth: 80
 		};
 		config.requires = ['core.store.Persons','core.store.Dates','core.store.PersonsGroups','core.store.Groups'];
@@ -285,13 +284,3 @@ Ext.define('core.view.PersonInfo', {
 		this.superclass.constructor.call(this, config);
 	}
 });
-
-function get_DateStart(value){
-	value = '2013-04-04'; // make Dynamic
-	console.log("View PersonInfo - DateStart: "+value);
-	return value;	
-};
-
-function get_GroupIDs(value){
-	return value;
-};

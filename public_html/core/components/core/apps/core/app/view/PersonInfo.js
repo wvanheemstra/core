@@ -18,6 +18,7 @@ Ext.define('core.view.PersonInfo', {
 		config.formId = 'personInfoForm';
 		config.buttonAlign = 'left';
 		config.bodyPadding = '0 0 0 0';
+		config.border = false;
 		config.defaults = {
 			labelWidth: 80
 		};
@@ -72,6 +73,7 @@ Ext.define('core.view.PersonInfo', {
 				items:[{
 					title:'Bio',
 					autoScroll: true,
+					border: false,
 					defaults: {anchor:'-20'},
 					// fields
 					items: [{
@@ -140,6 +142,8 @@ Ext.define('core.view.PersonInfo', {
 				},
 				{
 					title:'Groups',
+					autoScroll: true,
+					border: false,
 					// fields
 					items: [{
 						name: 'GroupIDs',

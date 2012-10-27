@@ -46,58 +46,92 @@ Ext.define('core.controller.Persons', {
             height: 500,
             width: 'fit',
 			bodyPadding: 0,
-            items: [
+            items: [				
 				{
 					region: 'west',
 					layout: {
 						type: 'vbox',
-						align : 'stretch',
-						pack  : 'start',
+						align: 'stretch',
+						pack: 'start'
 					},
 					width: 210,
 					split: true,
 					items: [
 						{
-							xtype: 'groupgrid',
-							itemId: 'GroupGrid',
-							width: 'fit',
-							height: 311,
-							border: 0
-						},
-						{
-							xtype: 'groupinfo',
-							itemId: 'GroupInfo',
-							width: 'fit',
+							layout: {
+				                type: 'border',
+				                padding: 0
+				            },
+							height: 461,
+							bodyPadding: 0,
 							border: 0,
-							height: 150
-						}
+							width: 'fit',
+							split: true,
+							items: [
+								{
+									region: 'center',
+									xtype: 'groupgrid',
+									itemId: 'GroupGrid',
+									width: 'fit',
+									border: 0,
+									split: true,
+									height: 301 // limit for a scroll bar							
+								},
+								{
+									region: 'south',
+									xtype: 'groupinfo',
+									itemId: 'GroupInfo',
+									width: 'fit',
+									border: 0,
+									split: true,
+									height: 120							
+								}
+							]
+						}	
 					]
 				},
 				{
 					region: 'center',
-					layout: { // NEW
+					layout: {
 						type: 'vbox',
-						align : 'stretch',
-						pack  : 'start'
+						align: 'stretch',
+						pack: 'start'
 					},
-					width: 'fit', // NEW
+					width: 'fit',
 					items: [
 						{
-							xtype: 'persongrid',
-							itemId: 'PersonGrid',
-							width: 'fit',
+							layout: {
+				                type: 'border',
+				                padding: 0
+				            },
+							height: 461,
+							bodyPadding: 0,
 							border: 0,
-							height: 311 // limit for a scroll bar
-						},
-						{
-							xtype: 'personsearch',
-							itemId: 'PersonSearch',
 							width: 'fit',
-							border: 0,
-							height: 150
-						}
+							split: true,
+							items: [
+								{
+									region: 'center',
+									xtype: 'persongrid',
+									itemId: 'PersonGrid',
+									width: 'fit',
+									border: 0,
+									split: true,
+									height: 301 // limit for a scroll bar							
+								},
+								{
+									region: 'south',
+									xtype: 'personsearch',
+									itemId: 'PersonSearch',
+									width: 'fit',
+									border: 0,
+									split: true,
+									height: 120							
+								}
+							]
+						}	
 					]
-				},
+				},				
 				{
 					region: 'east',
 					layout: {

@@ -13,7 +13,7 @@ Ext.define('core.view.PersonInfo', {
 	constructor: function(config) {
 		config = config || {};
 	    config.xtype = 'fieldset';
-	    config.title = 'Person Info';	
+	    config.title = '';  //Person Info	
 		config.margin = '0 0 0 0';
 		config.formId = 'personInfoForm';
 		config.buttonAlign = 'left';

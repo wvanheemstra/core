@@ -49,11 +49,13 @@ Ext.define('core.controller.Persons', {
             items: [				
 				{
 					region: 'west',
+					title: 'Group Grid',
 					layout: {
 						type: 'vbox',
 						align: 'stretch',
 						pack: 'start'
 					},
+					collapsible: true,
 					width: 210,
 					split: true,
 					items: [
@@ -81,10 +83,11 @@ Ext.define('core.controller.Persons', {
 									region: 'south',
 									xtype: 'groupinfo',
 									itemId: 'GroupInfo',
+									collapsible: true,
 									width: 'fit',
 									border: 0,
 									split: true,
-									height: 120							
+									height: 120						
 								}
 							]
 						}	
@@ -123,6 +126,7 @@ Ext.define('core.controller.Persons', {
 									region: 'south',
 									xtype: 'personsearch',
 									itemId: 'PersonSearch',
+									collapsible: true,
 									width: 'fit',
 									border: 0,
 									split: true,
@@ -141,6 +145,8 @@ Ext.define('core.controller.Persons', {
 					},
 					width: 250,					
 					split: true,
+					title: 'Person Info', // NEW
+					collapsible: true,
 					//bodyStyle: 'background-color: red;', // NEW for testing only
 					items: [{
 						xtype: 'personinfo',

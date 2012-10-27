@@ -14,7 +14,7 @@ Ext.define('core.controller.Persons', {
     extend: 'Ext.app.Controller',
     models: ['core.model.GroupModel', 'core.model.PersonGroupModel', 'core.model.PersonModel', 'core.model.SalutationModel', 'core.model.GenderModel', 'core.model.NationalityModel', 'core.model.DateModel'],
     stores: ['core.store.Groups', 'core.store.PersonsGroups', 'core.store.Persons', 'core.store.Salutations', 'core.store.Genders', 'core.store.Nationalities', 'core.store.Dates'],
-    views: ['core.view.PersonPanel', 'core.view.GroupGrid', 'core.view.GroupInfo', 'core.view.PersonInfo', 'core.view.PersonGrid'],
+    views: ['core.view.PersonPanel', 'core.view.GroupGrid', 'core.view.GroupInfo', 'core.view.PersonInfo', 'core.view.PersonGrid', 'core.view.PersonSearch'],
 	refs: [
 		{
 		   ref: 'GroupGrid',
@@ -27,6 +27,10 @@ Ext.define('core.controller.Persons', {
 		{
 		   ref: 'PersonGrid',
 		   selector: 'persongrid' // widget name
+		},
+		{
+			ref: 'PersonSearch',
+			selector: 'personsearch' // widget name
 		},
 		{
 		   ref: 'PersonInfo',
@@ -56,13 +60,14 @@ Ext.define('core.controller.Persons', {
 						{
 							xtype: 'groupgrid',
 							itemId: 'GroupGrid',
-							flex: 1,
+							width: 'fit',
+							height: 311,
 							border: 0
 						},
 						{
 							xtype: 'groupinfo',
 							itemId: 'GroupInfo',
-							width: 250,
+							width: 'fit',
 							border: 0,
 							height: 150
 						}
@@ -70,14 +75,28 @@ Ext.define('core.controller.Persons', {
 				},
 				{
 					region: 'center',
-					items: [{
-						xtype: 'persongrid',
-						itemId: 'PersonGrid',
-						width: 'fit',
-						border: 0,
-						//split: true,
-						height: 461 // limit for a scroll bar
-					}]
+					layout: { // NEW
+						type: 'vbox',
+						align : 'stretch',
+						pack  : 'start'
+					},
+					width: 'fit', // NEW
+					items: [
+						{
+							xtype: 'persongrid',
+							itemId: 'PersonGrid',
+							width: 'fit',
+							border: 0,
+							height: 311 // limit for a scroll bar
+						},
+						{
+							xtype: 'personsearch',
+							itemId: 'PersonSearch',
+							width: 'fit',
+							border: 0,
+							height: 150
+						}
+					]
 				},
 				{
 					region: 'east',

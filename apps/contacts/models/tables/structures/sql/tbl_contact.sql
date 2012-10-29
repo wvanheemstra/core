@@ -20,7 +20,7 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP TABLE IF EXISTS `tbl_contact`;
 CREATE TABLE `tbl_contact` (
-  `kp_ContactID` int(11) NOT NULL,
+  `kp_ContactID` int(11) NOT NULL AUTO_INCREMENT,
   `kf_KindOfContactID` int(11) NOT NULL,
   `ContactValue` varchar(255) COLLATE utf8_bin NOT NULL,
   `kf_MembershipID` int(11) NOT NULL,

@@ -12,10 +12,10 @@ Ext.define('core.model.MembershipModel', {
 	],
 	idProperty: 'kp_MembershipID',
 	requires: [
-		'core.model.PersonModel', 'core.model.Organisation'
+//		'core.model.PersonModel', 'core.model.OrganisationModel'
 	],
 	associations: [
-		{ name: 'persons', type: 'hasMany', model: 'core.model.PersonModel', primaryKey: 'kp_PersonID', foreignKey: 'kf_PersonID' },
-		{ name: 'organisations', type: 'hasMany', model: 'core.model.OrganisationModel', primaryKey: 'kp_OrganisationID', foreignKey: 'kf_OrganisationID' }
+//		{ name: 'persons', type: 'hasMany', model: 'core.model.PersonModel', primaryKey: 'kp_PersonID', foreignKey: 'kf_PersonID' },
+//		{ name: 'organisations', type: 'hasMany', model: 'core.model.OrganisationModel', primaryKey: 'kp_OrganisationID', foreignKey: 'kf_OrganisationID' }
 	]
 });

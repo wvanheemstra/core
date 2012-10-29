@@ -17,13 +17,14 @@ Ext.define('core.model.PersonModel', {
 	],
 	idProperty: 'kp_PersonID',
 	requires: [
-		'core.model.GenderModel','core.model.SalutationModel','core.model.NationalityModel','core.model.DateModel','core.model.PersonGroupModel'
+		'core.model.GenderModel','core.model.SalutationModel','core.model.NationalityModel','core.model.DateModel','core.model.PersonGroupModel', 'core.model.MembershipModel'
 	],
 	associations: [
 		{ name: 'gender', type: 'hasOne', model: 'core.model.GenderModel', primaryKey: 'kp_GenderID', foreignKey: 'kf_GenderID', associationKey: 'gender', getterName: 'getGenderModel', setterName: 'setGenderModel', autoLoad: true },
 		{ name: 'salutation', type: 'hasOne', model: 'core.model.SalutationModel', primaryKey: 'kp_SalutationID', foreignKey: 'kf_SalutationID', associationKey: 'salutation', getterName: 'getSalutationModel', setterName: 'setSalutationModel', autoLoad: true },
 		{ name: 'nationality', type: 'hasOne', model: 'core.model.NationalityModel', primaryKey: 'kp_NationalityID', foreignKey: 'kf_NationalityID', associationKey: 'nationality', getterName: 'getNationalityModel', setterName: 'setNationalityModel', autoLoad: true },
 		{ name: 'date', type: 'hasOne', model: 'core.model.DateModel', primaryKey: 'kp_DateID', foreignKey: 'kf_DateID', associationKey: 'date', getterName: 'getDateModel', setterName: 'setDateModel', autoLoad: true },
-		{ name: 'personsgroups', type: 'hasMany', model: 'core.model.PersonGroupModel', primaryKey: 'kf_PersonID', foreignKey: 'kp_PersonID', associationKey: 'personsgroups', getterName: 'getPersonGroupModel', setterName: 'setPersonGroupModel', autoLoad: true } // NOTE: the primary key in PersonGroup is kf_PersonID (!), the foreign key in Person is kp_PersonID (!)
+		{ name: 'personsgroups', type: 'hasMany', model: 'core.model.PersonGroupModel', primaryKey: 'kf_PersonID', foreignKey: 'kp_PersonID', associationKey: 'personsgroups', getterName: 'getPersonGroupModel', setterName: 'setPersonGroupModel', autoLoad: true }, // NOTE: the primary key in PersonGroup is kf_PersonID (!), the foreign key in Person is kp_PersonID (!)
+		{ name: 'memberships', type: 'hasMany', model: 'core.model.MembershipModel', primaryKey: 'kf_PersonID', foreignKey: 'kp_PersonID', associationKey: 'memberships', getterName: 'getMembershipModel', setterName: 'setMembershipModel', autoLoad: true } // NOTE: the primary key in Membership is kf_PersonID (!), the foreign key in Person is kp_PersonID (!)
 	]
 });

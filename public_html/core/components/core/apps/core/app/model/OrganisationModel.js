@@ -1,3 +1,7 @@
+/**
+ * core.model.OrganisationModel
+ * @extends Ext.data.Model
+ */
 Ext.define('core.model.OrganisationModel', {
     extend: 'Ext.data.Model',
 	fields: [

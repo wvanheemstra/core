@@ -309,6 +309,10 @@ Ext.define('core.controller.Persons', {
 	onViewPersonInfoAddPersonButtonClick: function() {
 		this.getPersonGrid().getSelectionModel().clearSelections();
 		if(debug){console.info('View PersonInfo: Add Person Button | Click')};
+		personInfoTitle = 'Person Info - New Person';
+		this.getPersonPanel().getComponent('personinfoitem').title = personInfoTitle;
+		if(debug){console.info('View PersonInfo: title | '+this.getPersonPanel().getComponent('personinfoitem').title)};
+		Ext.getDom('personinfoitem_header_hd-textEl').innerHTML = personInfoTitle;
 	},
 	onViewPersonInfoSavePersonButtonClick: function() {
 		selection = this.getPersonGrid().getSelectionModel().getSelection(); // set global value of selection
@@ -324,15 +328,13 @@ Ext.define('core.controller.Persons', {
 	onViewPersonInfoLoadRecord: function() {
 		if(debug){console.info('View PersonInfo: Record | Load')};
 		selection = this.getPersonGrid().getSelectionModel().getSelection();
-		
-		personFullName = 'Person Info - ' +''; //selection[0].get('Salutation'); // TO DO: Fill with salutationabbreviation
-		personFullName = personFullName + " " +selection[0].get('PersonFirstName');
-		personFullName = personFullName + " " +selection[0].get('PersonLastName');
-		this.getPersonPanel().getComponent('personinfoitem').title = personFullName;
+		personInfoTitle = 'Person Info - ' +''; //selection[0].get('Salutation'); // TO DO: Fill with salutationabbreviation
+		personInfoTitle = personInfoTitle + " " +selection[0].get('PersonFirstName');
+		personInfoTitle = personInfoTitle + " " +selection[0].get('PersonLastName');
+		this.getPersonPanel().getComponent('personinfoitem').title = personInfoTitle;
 		if(debug){console.info('View PersonInfo: title | '+this.getPersonPanel().getComponent('personinfoitem').title)};
-		Ext.getDom('personinfoitem_header_hd-textEl').innerHTML = personFullName;
-		if(debug){console.info('View PersonInfo: personFullName | '+personFullName)};
-	
+		Ext.getDom('personinfoitem_header_hd-textEl').innerHTML = personInfoTitle;
+		if(debug){console.info('View PersonInfo: personFullName | '+personInfoTitle)};
 		dateStart = '1000-01-01';
 		try {
 			dateStart = selection[0].getDateModel().get('DateStart');

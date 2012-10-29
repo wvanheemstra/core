@@ -12,8 +12,8 @@ var selection = null; // default if no row is or was previously selected
  
 Ext.define('core.controller.Persons', {
     extend: 'Ext.app.Controller',
-    models: ['core.model.GroupModel', 'core.model.PersonGroupModel', 'core.model.PersonModel', 'core.model.SalutationModel', 'core.model.GenderModel', 'core.model.NationalityModel', 'core.model.DateModel'],
-    stores: ['core.store.Groups', 'core.store.PersonsGroups', 'core.store.Persons', 'core.store.Salutations', 'core.store.Genders', 'core.store.Nationalities', 'core.store.Dates'],
+    models: ['core.model.GroupModel', 'core.model.PersonGroupModel', 'core.model.PersonModel', 'core.model.SalutationModel', 'core.model.GenderModel', 'core.model.NationalityModel', 'core.model.DateModel', 'core.model.MembershipModel'],
+    stores: ['core.store.Groups', 'core.store.PersonsGroups', 'core.store.Persons', 'core.store.Salutations', 'core.store.Genders', 'core.store.Nationalities', 'core.store.Dates', 'core.store.Memberships'],
     views: ['core.view.PersonPanel', 'core.view.GroupGrid', 'core.view.GroupInfo', 'core.view.PersonInfo', 'core.view.PersonGrid', 'core.view.PersonSearch'],
 	refs: [
 		{
@@ -174,6 +174,8 @@ Ext.define('core.controller.Persons', {
 		Ext.getStore('core.store.Dates').addListener('datachanged', this.onStoreDatesDataChanged, this);			
 		Ext.getStore('core.store.Nationalities').addListener('load', this.onStoreNationalitiesLoad, this);
 		Ext.getStore('core.store.Nationalities').addListener('datachanged', this.onStoreNationalitiesDataChanged, this);
+		Ext.getStore('core.store.Memberships').addListener('load', this.onStoreMembershipsLoad, this);
+		Ext.getStore('core.store.Memberships').addListener('datachanged', this.onStoreMembershipsDataChanged, this);		
 
         //Ext.create('core.view.GroupGrid').show();		
 		//Ext.create('core.view.PersonInfo').show();
@@ -246,6 +248,13 @@ Ext.define('core.controller.Persons', {
 	},
 	onStoreNationalitiesDataChanged: function() {
 		if(debug){console.info('Store Nationalities: Data Changed')};
+	},
+	onStoreMembershipsLoad: function(store, model) {
+		if(debug){console.info('Store Memberships: '+Ext.getStore('core.store.Memberships').getCount()+' records loaded.')};
+		Ext.getStore('core.store.Memberships').loaded = true;
+	},
+	onStoreMembershipsDataChanged: function() {
+		if(debug){console.info('Store Memberships: Data Changed')};
 	},
 	onViewGroupGridSelect: function(selModel, model, idx) {
 		if(debug){console.info('View GroupGrid: Select')};

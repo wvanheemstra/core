@@ -1,0 +1,257 @@
+Changelog for Smurf.
+
+Smurf 2.3.2
+======================================
+- [#8367] Better respecting of Context Settings in setting references
+- [#8368] Enable usage of MODX tags in email tpls
+- [#8127] Fix latest comments bug due to fix in [#7660] (gh#64)
+
+Smurf 2.3.1
+======================================
+- Added Japanese translation
+- Added Czech translation
+- Added Dutch translation
+- [#7298] Fix bug where backtick is not escaped in comments
+- [#7372] Fix bug in unsubscribe notifications
+- [#7660] Fix E_NOTICE error in SmurfLatestComments snippet
+- [#3520] Fix issue with parents property in Smurf snippet
+
+Smurf 2.3.0
+======================================
+- [#6997] Add ability for all users (authed or not) to unsubscribe from the thread via email link
+- [#6961] Add ability to manage subscriptions to a thread from the manager
+- [#7208] Fix warning of zero division in pagination
+
+Smurf 2.2.0
+======================================
+- MODX Revo 2.2 support
+- [#6035] Fix issues with disabling automatic link parsing
+- [#5364] Fix insert issue for sqlsrv installations
+- [#6064] Fix issues with unapproved comments displaying on complex threads
+- [#6468] Fix issues with bulk actions on grids
+- Fix issue with removing a thread directly
+- Add search to Smurf threads grid
+- Better handling of other context comments
+- [#6086] Fix issue where remove thread was not available
+- [#6249] Fix issue with moderation of comments always moderated on FE
+
+Smurf 2.1.2
+======================================
+- [#4395] Fix issue with improper name in mail_sender for emails
+- [#4346] Fix issues with loading reCaptcha when not logged in
+
+Smurf 2.1.1
+======================================
+- [#5650] Fix issue with moderated comments in certain edge situations
+
+Smurf 2.1.0
+======================================
+- [#4356] Add &redirectTo and &redirectToUrl parameters to SmurfReply for custom redirection after posting
+- [#5644] Fix issue with 2.1.0-rc1 that prevented new threads from being created
+- Refactor Smurf to be OOP, implement 'controller' classes, request handler
+- Add over 30 unit tests and 85 test assertions to Smurf
+- Add generated API docs to build
+- [#5608] Fix issue where QuipLatestComments was not respecting approved status when &family was used
+
+Smurf 2.0.4
+======================================
+- [#4998] Fix bug with SmurfLatestComments and family filter type
+- [#5032] Fix issue with permissions on comments and removal
+- [#5033] Ensure author is set on new comments
+- [#5143] Ensure autoConvertLinks is respected in a post
+- [#5144] Fix issue with double quotes in a tags in the comment body
+- [#4805] Fix issue with depth_margin in default comment tpl
+- Abstract resolver SQL
+- [#4878] Fix issue with sqlsrv ints and bits in schema
+
+Smurf 2.0.3
+======================================
+- [#4823] Fix issue with sqlsrv schema and installs
+
+Smurf 2.0.2
+======================================
+- [#4673], [#4596] Fix issue of 2.1 compatibility due to nested placeholder issue
+- [#4492] Add sanity check for contexts without load permission
+
+Smurf 2.0.1
+======================================
+- [#4063] Add unsubscribe option for logged-in users who have subscribed to a thread
+
+Smurf 2.0.0
+======================================
+- Add extraAutoLinksAttributes property for specifying attributes to add to auto-converted links
+- Add rel-nofollow to any links parsed in comments
+- Add sqlsrv support for Revolution 2.1+ installs
+- [#4124] Add fix for threads that have complex names
+- [#3519] Add pre and post Hooks to Smurf
+- [#3523] Add field-specific error messages, ensure validation of those fields happens on first submit
+- [#3518] Enable one-click post options bypassing preview, and added requirePreview property to force preview if wanted
+- Fix bug with replyUrl in threaded comments and requireAuth
+
+Smurf 1.2.5
+======================================
+- Fix issue where remove comment link was visible for non-authed users
+- [#3521] Ensure dateFormat is respected in comment preview
+
+Smurf 1.2.4
+======================================
+- [#46] Add check for proper access when deleting/reporting comments via FE
+- [#44] Prevent HTML tags in non-body fields in comment reply form
+- [#47] Clean up default HTML in tpls
+
+Smurf 1.2.3
+======================================
+- Fixed bug in SmurfRSS when using type of thread or family
+- Added Multi language support for SmurfRSS
+- Added parameter &pagetitle to SmurfRSS snippet to override the smurf.latest.pagetitle placeholder which is empty when a thread has no comments.
+- [#40] Added &authorTpl to allow for a Chunk to change the display of the Author name
+- Do not send thread notification email to poster of comment
+- Allow ability to change email from name via smurf.emails_from_name setting
+- [#39] Fixed issue with removeThreshold not working, as well as isModerator always failing
+- [#38] Added &requireUsergroups to restrict commenting to specific usergroups
+- Added semicolon to htmlentity right-bracket replace in replies
+
+Smurf 1.2.2
+======================================
+- Fixed security vulnerability
+
+Smurf 1.2.1
+======================================
+- Updated for Revolution 2.0.5 Access Policy changes
+
+Smurf 1.2.0
+======================================
+- [#30] Added interoperability support for getPage
+- [#33] Added setting to set emails from name
+- [#34] Fixed bug with sorting and pagination
+- [#35] Added contexts property to SmurfLatestComments to allow filtering by context
+- [#28] Updated recaptcha server URLs to new Google URLs
+- [#3] Added SmurfRss snippet for easy RSS feeds from threads or users
+- Added ability to select multiple comments in mgr to approve/unapprove/delete/undelete/remove
+- Added ability to select multiple threads in mgr to truncate/remove
+- [#26] Fixed issue where manager url was sent from context when smurf was used in subcontexts
+- [#27] Added ability to completely remove threads in mgr
+
+Smurf 1.1.2
+======================================
+- Fixed issue where tpls for pagination were being ignored
+- Fixed issue with sorting of threads in mgr
+
+Smurf 1.1.1
+======================================
+- Fixed bug with smurfComment::makeUrl method and its callers
+
+Smurf 1.1.0
+======================================
+- Fixed bug with font-style in web css
+- Allow SmurfCount to take 'user,thread' to simultaneously find all comments by a user in a thread
+- Added "family" option to SmurfCount
+- Added theme ability to recaptcha with recaptchaTheme property on SmurfReply
+- Added "family" option to SmurfLatestComments
+- Added SmurfResourceCleaner plugin, which removes threads when their Resource has been removed
+
+Smurf 1.0.2
+======================================
+- Fixed bug with allowRemove parameter
+- Fixed bug with ago filter in SmurfLatestComments snippet
+- Fixed bug where request parameters werent persisting on links in smurf comments
+- Fixed issue where thread was not retrieved before form processing
+- Fixed issue with GET params in approved request
+- Restructured elements in package, cleaned up old files
+
+Smurf 1.0.1
+======================================
+- Properly redid ol/li support to properly nest tags
+- Removed form tag in comment tpl
+
+Smurf 1.0.0
+======================================
+- Added pagination support via the &limit property, as well as other templating options within pagination
+- Now no longer any need to mirror calls in SmurfReply in threaded comments; pulls from original SmurfReply call on source page
+- Added direct moderation links from emails
+- Fixed bug with batch deleting in comments grid
+- Added dontModerateManagerUsers property to SmurfReply that defaults to true which skips moderation for users logged into mgr
+- Added disableRecaptchaWhenLoggedIn property to SmurfReply that defaults to true which skips recaptcha for logged in users
+- Comments are now threaded properly with ol/li tags
+
+Smurf 0.5.2
+======================================
+- Added placeholderPrefix property to Smurf, SmurfLatestComments
+- Added toPlaceholder property to Smurf, SmurfLatestComments, SmurfCount
+- Added smurfRssComment, smurfRssContainer chunk for RSS comment feed
+- Added pagetitle placeholder to Smurf, SmurfLatestComments iterative tpls that displays thread's resource pagetitle
+- Added search to comments grid
+- Made snippet properties i18n
+
+Smurf 0.5.1
+======================================
+- Added Russian translation
+- Added "Latest Comments" tab to mgr ui
+- [#ADDON-153] Replace MODx tags with entities in comments
+- Properly format improper website fields
+
+Smurf 0.5.0
+======================================
+- Added gravatar support, fixed bug with IP setting, gravatar settings
+- Fixed bug with migration and moderator group
+- Fixed final bugs with lexicons, thread syncing, prepared for 0.5.0-rc2 release
+- Adjusted build script, prepared release, fixed bugs with moderator names
+- Fixed bugs with multiple Smurf instances, allow for batch perm removes in UI, add copyright info
+- Automatically convert URLs to hyperlinks. Toggleable, defaults to on.
+- Added &closeAfter property to Smurf/SmurfReply snippets, allowing for auto-closing after X days (defaults to 14)
+- Added emails for notifications, refactored workflow to ensure new post notifications only are sent post-approval
+- Added rich UI for managing comments, batch actions on comments
+- Added a SmurfModerationPolicy Access Policy for adding a security layer to comment editing
+- Added smurfThread object to better handle thread-wide properties
+- Added moderation support to comments
+- Optimized build script for Revo RC-2
+- Added showAnonymousName and anonymousName properties for customization of how to handle anon postings
+- Refactored comment display to default to username, fallback to name, for comment author names; also specifiable via the nameField property
+- Refactored comment options, also now allow to toggle report as spam link with allowReportAsSpam property
+- Added allowRemove property (defaults to false) that toggles the ability to remove own comments
+- Fixed incorrect if statement that prevented commenting when requireAuth was set to true
+- Added missing auth line that prevented requireAuth parameter from working in SmurfReply snippet
+
+Smurf 0.4
+======================================
+- Updated readme for 0.4pl release
+- Added nested threading support
+- Extrapolated the reply form into a new snippet, smurfReply, and adjusted properties accordingly
+- Adjusted CSS styles to be more muted
+- Fixed incorrect default property for SmurfLatestComments snippet
+- Fixed bugs with redirects and url mapping
+- Added SmurfLatestComments snippet
+- Added resource mapping for comments so that they can have URLs generated for them for linking purposes
+- Fixed bug with notification username not being sent
+- Fixed formatting on notification email
+- Fixed bug with notification emails that prevented correct data to be emailed
+- Added anchor tag to preview post so that it scrolls correctly on preview
+- Added missing recaptcha property info to smurf snippet properties
+- Added reCaptcha support, settings
+- Cleaned up processors for mgr ui
+- Added notifications ability to comments, allowing commentors to subscribe to the thread
+- Tweaked default css, markup
+- Added notifyEmails property, which sends notification email for new posts to emails specified in property
+- Added nl2br to comments
+
+Smurf 0.3
+======================================
+- Fixed issues where Smurf could only be run once on a page, now can be run multiple times
+- Fixed bugs where smurf wasn't prefilling fields for logged in users
+- Fixed bug in build script setup options handler
+- Fixed typo in model that was causing install errors
+- Fixed placeholders in smurfComments chunk
+- Added in fields to mgr ui for editing name,website,email in comments
+- Fixed connector for mgr ui
+- Fixing build script
+- Added in spam filtering via StopForumSpam
+- Added name, email, website fields
+- Changed default behavior to not require authorization unless &requireAuth=`1`
+- Added in missing lexicon entry
+- Fixed bugs in build script
+- Refactored build script
+- Added SmurfCount snippet, an assistance snippet for counting comments in threads or by user
+- Added tag stripping support with setting to set which tags to strip
+- Added many, many options to the Smurf snippet
+- Refactored to not use Javascript
+- Created changelog

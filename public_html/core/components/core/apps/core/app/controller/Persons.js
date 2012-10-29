@@ -12,8 +12,8 @@ var selection = null; // default if no row is or was previously selected
  
 Ext.define('core.controller.Persons', {
     extend: 'Ext.app.Controller',
-    models: ['core.model.GroupModel', 'core.model.PersonGroupModel', 'core.model.PersonModel', 'core.model.SalutationModel', 'core.model.GenderModel', 'core.model.NationalityModel', 'core.model.DateModel', 'core.model.MembershipModel'],
-    stores: ['core.store.Groups', 'core.store.PersonsGroups', 'core.store.Persons', 'core.store.Salutations', 'core.store.Genders', 'core.store.Nationalities', 'core.store.Dates', 'core.store.Memberships'],
+    models: ['core.model.GroupModel', 'core.model.PersonGroupModel', 'core.model.PersonModel', 'core.model.SalutationModel', 'core.model.GenderModel', 'core.model.NationalityModel', 'core.model.DateModel', 'core.model.MembershipModel', 'core.model.OrganisationModel'],
+    stores: ['core.store.Groups', 'core.store.PersonsGroups', 'core.store.Persons', 'core.store.Salutations', 'core.store.Genders', 'core.store.Nationalities', 'core.store.Dates', 'core.store.Memberships', 'core.store.Organisations'],
     views: ['core.view.PersonPanel', 'core.view.GroupGrid', 'core.view.GroupInfo', 'core.view.PersonInfo', 'core.view.PersonGrid', 'core.view.PersonSearch'],
 	refs: [
 		{
@@ -176,6 +176,8 @@ Ext.define('core.controller.Persons', {
 		Ext.getStore('core.store.Nationalities').addListener('datachanged', this.onStoreNationalitiesDataChanged, this);
 		Ext.getStore('core.store.Memberships').addListener('load', this.onStoreMembershipsLoad, this);
 		Ext.getStore('core.store.Memberships').addListener('datachanged', this.onStoreMembershipsDataChanged, this);		
+		Ext.getStore('core.store.Organisations').addListener('load', this.onStoreOrganisationsLoad, this);
+		Ext.getStore('core.store.Organisations').addListener('datachanged', this.onStoreOrganisationsDataChanged, this);
 
         //Ext.create('core.view.GroupGrid').show();		
 		//Ext.create('core.view.PersonInfo').show();
@@ -255,6 +257,13 @@ Ext.define('core.controller.Persons', {
 	},
 	onStoreMembershipsDataChanged: function() {
 		if(debug){console.info('Store Memberships: Data Changed')};
+	},
+	onStoreOrganisationsLoad: function(store, model) {
+		if(debug){console.info('Store Organisations: '+Ext.getStore('core.store.Organisations').getCount()+' records loaded.')};
+		Ext.getStore('core.store.Organisations').loaded = true;
+	},
+	onStoreOrganisationsDataChanged: function() {
+		if(debug){console.info('Store Organisations: Data Changed')};
 	},
 	onViewGroupGridSelect: function(selModel, model, idx) {
 		if(debug){console.info('View GroupGrid: Select')};

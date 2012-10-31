@@ -3,7 +3,14 @@
  * @extends Ext.grid.Panel
  */
 Ext.require ([
-    'Ext.ux.grid.FiltersFeature'
+    'Ext.ux.grid.FiltersFeature',
+    //'Ext.ux.grid.GridFilters',
+    'Ext.ux.grid.filter.Filter',
+    'Ext.ux.grid.filter.StringFilter',
+    'Ext.ux.grid.filter.DateFilter',
+    'Ext.ux.grid.filter.ListFilter',
+    'Ext.ux.grid.filter.NumericFilter',
+	'Ext.ux.grid.filter.BooleanFilter'
 ]);
  
 Ext.define('core.view.PersonGrid' , {
@@ -107,7 +114,7 @@ Ext.define('core.view.PersonGrid' , {
 	} 	
 });
 
-/* OLD
+
 var filters = {
 	ftype: 'filters',
 	local: true,   // local filtering
@@ -118,8 +125,8 @@ var filters = {
 		dataIndex: 'visible'
 	}]
 };
-*/
 
+/* NEW TO DO
 var filters = new Ext.ux.grid.GridFilters({
 	ftype: 'filters',
 	local: true,   // local filtering
@@ -134,6 +141,7 @@ var filters = new Ext.ux.grid.GridFilters({
 		{dataIndex: 'visible', type: 'boolean', disabled: false}
 	]
 });
+*/
 
 
 var personColumns = function (finish, start) {

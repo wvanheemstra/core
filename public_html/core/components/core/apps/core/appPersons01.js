@@ -10,6 +10,9 @@ Ext.Loader.setPath({
 	'Ext.ux': 'assets/templates/core/javascripts/extjs/examples/ux'//,
 //	'core': 'core/components/core/apps/core/app'
 	});
+
+var localHost = 'http://localhost';
+var remoteHost = 'http://localhost';
 	
 Ext.create('Ext.app.Application', {
     name: 'core',

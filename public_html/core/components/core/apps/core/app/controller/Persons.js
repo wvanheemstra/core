@@ -5,8 +5,8 @@
 var debug = true; // change for production 
 if (!window.console) console = {log: function() {}}; // avoids the error in IE
 
-var localHost = 'http://localhost';
-var remoteHost = 'http://localhost';
+// var localHost = 'http://example.com'; // Now defined inside web page
+// var remoteHost = 'http://example.com'; // Now defined inside web page
 
 var selection = null; // default if no row is or was previously selected
  
@@ -196,6 +196,16 @@ Ext.define('core.controller.Persons', {
 		this.getGroupInfo().getForm().addListener('addgroupbuttonclick', this.onViewGroupInfoAddGroupButtonClick, this);
 		this.getGroupInfo().getForm().addListener('savegroupbuttonclick', this.onViewGroupInfoSaveGroupButtonClick, this);
 		this.getGroupInfo().getForm().addListener('deletegroupbuttonclick', this.onViewGroupInfoDeleteGroupButtonClick, this);
+		
+		
+		
+		
+		this.getPersonSearch().getForm().addListener('findpersonbuttonclick', this.onViewPersonSearchFindPersonButtonClick, this);
+		
+		
+		
+		
+		
 		this.getPersonInfo().getForm().addListener('addpersonbuttonclick', this.onViewPersonInfoAddPersonButtonClick, this);
 		this.getPersonInfo().getForm().addListener('savepersonbuttonclick', this.onViewPersonInfoSavePersonButtonClick, this);
 		this.getPersonInfo().getForm().addListener('deletepersonbuttonclick', this.onViewPersonInfoDeletePersonButtonClick, this);
@@ -302,10 +312,25 @@ Ext.define('core.controller.Persons', {
 	onViewPersonGridSelect: function(selModel, model, idx) {
 		if(debug){console.info('View PersonGrid: Select')};
 		this.getPersonInfo().loadRecord(model);
-		console.log("Model:"); // FOR TESTING ONLY
-		console.log(model); // FOR TESTING ONLY
+		//console.log("Model:"); // FOR TESTING ONLY
+		//console.log(model); // FOR TESTING ONLY
 		this.getPersonInfo().getForm().fireEvent('loadrecord');
 	},
+	
+	
+	
+	
+	
+	onViewPersonSearchFindPersonButtonClick: function() {
+
+		if(debug){console.info('View PersonSearch: Find Person Button | Click')};
+
+	},
+	
+	
+	
+	
+	
 	onViewPersonInfoAddPersonButtonClick: function() {
 		this.getPersonGrid().getSelectionModel().clearSelections();
 		if(debug){console.info('View PersonInfo: Add Person Button | Click')};

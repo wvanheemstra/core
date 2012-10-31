@@ -135,4 +135,15 @@ Ext.define('core.view.PersonSearch', {
 		// finally call the superclasses implementation
 		this.superclass.constructor.call(this, config);
 	}
+}););							
+						}
+					}
+				*/
+				}
+			}
+		];
+		config.listeners = {};
+		// finally call the superclasses implementation
+		this.superclass.constructor.call(this, config);
+	}
 });

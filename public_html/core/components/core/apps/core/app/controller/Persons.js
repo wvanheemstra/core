@@ -196,16 +196,7 @@ Ext.define('core.controller.Persons', {
 		this.getGroupInfo().getForm().addListener('addgroupbuttonclick', this.onViewGroupInfoAddGroupButtonClick, this);
 		this.getGroupInfo().getForm().addListener('savegroupbuttonclick', this.onViewGroupInfoSaveGroupButtonClick, this);
 		this.getGroupInfo().getForm().addListener('deletegroupbuttonclick', this.onViewGroupInfoDeleteGroupButtonClick, this);
-		
-		
-		
-		
 		this.getPersonSearch().getForm().addListener('findpersonbuttonclick', this.onViewPersonSearchFindPersonButtonClick, this);
-		
-		
-		
-		
-		
 		this.getPersonInfo().getForm().addListener('addpersonbuttonclick', this.onViewPersonInfoAddPersonButtonClick, this);
 		this.getPersonInfo().getForm().addListener('savepersonbuttonclick', this.onViewPersonInfoSavePersonButtonClick, this);
 		this.getPersonInfo().getForm().addListener('deletepersonbuttonclick', this.onViewPersonInfoDeletePersonButtonClick, this);
@@ -324,6 +315,20 @@ Ext.define('core.controller.Persons', {
 	onViewPersonSearchFindPersonButtonClick: function() {
 
 		if(debug){console.info('View PersonSearch: Find Person Button | Click')};
+		
+		console.log(this.getPersonGrid().store);
+		
+		//this.getPersonGrid().store.load({start:0,limit:3000});  
+
+		this.getPersonGrid().store.getProxy().extraParams.start = 0;
+		this.getPersonGrid().store.getProxy().extraParams.limit = 3000;
+		//this.getPersonGrid().setLoading = true;
+		this.getPersonGrid().store.load();
+		//this.getCmp('personGridPagingToolbar').MoveFirst();
+		//this.getPersonGrid().store.loadPage(1);
+		//this.getPersonGrid().setLoading = false;
+		//this.getPersonGrid().store.loadPage(1);
+
 
 	},
 	

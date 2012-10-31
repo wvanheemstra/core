@@ -34,6 +34,7 @@ Ext.define('core.view.PersonGrid' , {
 		config.stateId = 'personGrid';
 		config.bbar = Ext.create('Ext.PagingToolbar', {
 			store: 'core.store.Persons',
+			id: 'personGridPagingToolbar',
 			xtype: 'pagingtoolbar',
 			displayInfo: true,
 			displayMsg: 'Displaying Persons {0} - {1} of {2}',
@@ -106,6 +107,7 @@ Ext.define('core.view.PersonGrid' , {
 	} 	
 });
 
+/* OLD
 var filters = {
 	ftype: 'filters',
 	local: true,   // local filtering
@@ -116,10 +118,27 @@ var filters = {
 		dataIndex: 'visible'
 	}]
 };
+*/
+
+var filters = new Ext.ux.grid.GridFilters({
+	ftype: 'filters',
+	local: true,   // local filtering
+	// Filters are most naturally placed in the column definition, but can also be
+	// added here.	
+	filters:[
+		{dataIndex: 'kp_PersonID', type: 'numeric', disabled: false},
+		{dataIndex: 'PersonFirstName', type: 'string', disabled: false},
+		{dataIndex: 'PersonLastName', type: 'string', disabled: false},		
+		{dataIndex: 'kf_DateID', type: 'date', disabled: false},
+		{dataIndex: 'kf_GenderID', type: 'list', options: ['Male', 'Female'], phpMode: true, disabled: false},
+		{dataIndex: 'visible', type: 'boolean', disabled: false}
+	]
+});
+
 
 var personColumns = function (finish, start) {
 	var columns = [
-		{ dataIndex: 'kp_PersonID', header: 'ID', width: 50, filter: {type: 'numeric', disabled: false} },
+		{ dataIndex: 'kp_PersonID', header: 'ID', width: 50 },
 		{ dataIndex: 'kf_SalutationID', header: 'Salutation', width: 60, filter: {type: 'numeric', disabled: false}, renderer: get_SalutationAbbreviation  },
 		{ dataIndex: 'PersonFirstName', header: 'First Name', width: 75, filter: {type: 'string', disabled: false} },
 		{ dataIndex: 'PersonLastName', header: 'Last Name', width: 125, filter: {type: 'string', disabled: false} },

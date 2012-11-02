@@ -21,7 +21,6 @@ Ext.define('core.view.PersonGrid' , {
          ref: 'storeDates',
          store: 'core.store.Dates'
     }],
-	
 	//this.getList().store   uses this -> ref 'list' -> store
 	//this.store uses this -> store
 	

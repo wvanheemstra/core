@@ -1,7 +1,8 @@
 /**
  * core.controller.Persons
  * @extends Ext.app.Controller
- */
+ */ 
+ 
 var debug = true; // change for production 
 if (!window.console) console = {log: function() {}}; // avoids the error in IE
 
@@ -9,7 +10,16 @@ if (!window.console) console = {log: function() {}}; // avoids the error in IE
 // var remoteHost = 'http://example.com'; // Now defined inside web page
 
 var selection = null; // default if no row is or was previously selected
- 
+
+function showLoadingMask(loadingMessage) {
+	if (Ext.isEmpty(loadingMessage))
+	loadText = 'Loading... please wait';
+	//Use the mask function on the Ext.getBody() element to mask the body element during Ajax calls
+	Ext.Ajax.on('beforerequest',function(){Ext.getBody().mask(loadText, 'loading') }, Ext.getBody());
+	Ext.Ajax.on('requestcomplete',Ext.getBody().unmask ,Ext.getBody());
+	Ext.Ajax.on('requestexception', Ext.getBody().unmask , Ext.getBody());
+};
+
 Ext.define('core.controller.Persons', {
     extend: 'Ext.app.Controller',
     models: ['core.model.GroupModel', 'core.model.PersonGroupModel', 'core.model.PersonModel', 'core.model.SalutationModel', 'core.model.GenderModel', 'core.model.NationalityModel', 'core.model.DateModel', 'core.model.MembershipModel', 'core.model.OrganisationModel', 'core.model.ContactModel'],
@@ -222,6 +232,7 @@ Ext.define('core.controller.Persons', {
 		if(debug){console.info('Store PersonsGroups: Data Changed')};
 	},
 	onStorePersonsLoad: function(store, model) {
+		showLoadingMask();
 		if(debug){console.info('Store Persons: '+Ext.getStore('core.store.Persons').getCount()+' records loaded.')};
 		Ext.getStore('core.store.Persons').loaded = true;
 		if(selection){
@@ -316,7 +327,7 @@ Ext.define('core.controller.Persons', {
 
 		if(debug){console.info('View PersonSearch: Find Person Button | Click')};
 		
-		console.log(this.getPersonGrid().store);
+		// console.log(this.getPersonGrid().store);
 		
 		//this.getPersonGrid().store.load({start:0,limit:3000});  
 
@@ -324,8 +335,13 @@ Ext.define('core.controller.Persons', {
 		this.getPersonGrid().store.getProxy().extraParams.limit = 3000;
 		//this.getPersonGrid().setLoading = true;
 		this.getPersonGrid().store.load();
+		
+		
+		this.getPersonGrid().store.filter("PersonFirstName", "Lara"); // Make Dynamic
+
+		
 		//this.getCmp('personGridPagingToolbar').MoveFirst();
-		//this.getPersonGrid().store.loadPage(1);
+		this.getPersonGrid().store.loadPage(1);
 		//this.getPersonGrid().setLoading = false;
 		//this.getPersonGrid().store.loadPage(1);
 

@@ -48,7 +48,6 @@ Ext.define('core.store.Persons', {
 			listeners: {
 				load: function(){
 					this.loaded = true;
-					alert('Persons - Loaded!!');
 				},			
 				exception: function(proxy, response, operation){
 					Ext.MessageBox.show({

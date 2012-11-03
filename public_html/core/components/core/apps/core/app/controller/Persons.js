@@ -1,13 +1,17 @@
 /**
  * core.controller.Persons
  * @extends Ext.app.Controller
- */ 
+ */
  
 var debug = true; // change for production 
 if (!window.console) console = {log: function() {}}; // avoids the error in IE
 
 // var localHost = 'http://example.com'; // Now defined inside web page
 // var remoteHost = 'http://example.com'; // Now defined inside web page
+
+Ext.require ([
+	'Ext.ux.Printer'
+]);
 
 var selection = null; // default if no row is or was previously selected
 
@@ -203,6 +207,22 @@ Ext.define('core.controller.Persons', {
 		
 		this.getGroupGrid().getSelectionModel().addListener('select', this.onViewGroupGridSelect, this);
 		this.getPersonGrid().getSelectionModel().addListener('select', this.onViewPersonGridSelect, this);
+		
+		//this.getPersonGrid().ownerCt.getItem('printbutton').addListener('printbuttonclick', this.onViewPersonGridPrintButtonClick, this); // NEW
+		//console.log(this.getPersonGrid().query('#personGridPrintButton button'));
+		var personGridButtons = this.getPersonGrid().query('button');
+		//using each to detect buttons:
+		Ext.each(personGridButtons, function(button, index) {
+			console.log(personGridButtons[index]);
+			if(personGridButtons[index].itemId == 'printbutton') {
+				console.log(personGridButtons[index].itemId);
+				personGridButtons[index].addListener('printbuttonclick', this.onViewPersonGridPrintButtonClick, this);
+			}
+		});
+		//console.log(personGridButtons);
+		//console.log(personGridButtons.get('personGridPrintButton')); // printbutton
+		//console.log(this.getPersonGrid().ownerCt);
+		
 		this.getGroupInfo().getForm().addListener('addgroupbuttonclick', this.onViewGroupInfoAddGroupButtonClick, this);
 		this.getGroupInfo().getForm().addListener('savegroupbuttonclick', this.onViewGroupInfoSaveGroupButtonClick, this);
 		this.getGroupInfo().getForm().addListener('deletegroupbuttonclick', this.onViewGroupInfoDeleteGroupButtonClick, this);
@@ -318,17 +338,15 @@ Ext.define('core.controller.Persons', {
 		//console.log(model); // FOR TESTING ONLY
 		this.getPersonInfo().getForm().fireEvent('loadrecord');
 	},
-	
-	
-	
-	
-	
+	onViewPersonGridPrintButtonClick: function() {
+		if(debug){console.info('View PersonGrid: Print Button | Click')};
+		Ext.ux.Printer.print(this.getPersonGrid());
+	},	
 	onViewPersonSearchFindPersonButtonClick: function() {
 
 		if(debug){console.info('View PersonSearch: Find Person Button | Click')};
 		
 		// console.log(this.getPersonGrid().store);
-		
 		//this.getPersonGrid().store.load({start:0,limit:3000});  
 
 		this.getPersonGrid().store.getProxy().extraParams.start = 0;
@@ -336,22 +354,14 @@ Ext.define('core.controller.Persons', {
 		//this.getPersonGrid().setLoading = true;
 		this.getPersonGrid().store.load();
 		
-		
 		this.getPersonGrid().store.filter("PersonFirstName", "Lara"); // Make Dynamic
 
-		
 		//this.getCmp('personGridPagingToolbar').MoveFirst();
 		this.getPersonGrid().store.loadPage(1);
 		//this.getPersonGrid().setLoading = false;
 		//this.getPersonGrid().store.loadPage(1);
 
-
 	},
-	
-	
-	
-	
-	
 	onViewPersonInfoAddPersonButtonClick: function() {
 		this.getPersonGrid().getSelectionModel().clearSelections();
 		if(debug){console.info('View PersonInfo: Add Person Button | Click')};

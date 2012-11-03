@@ -38,6 +38,27 @@ Ext.define('core.view.PersonGrid' , {
 		config.gridId = 'personGrid';
 		config.stateful = true;
 		config.stateId = 'personGrid';
+		config.tbar = [
+			{
+				xtype: 'button',
+				id: 'personGridPrintButton',
+				itemId: 'printbutton',
+				formBind: false,
+				cls: 'x-btn-text-icon',
+				icon: 'assets/templates/core/icons/printer.png',
+				text: 'Print',
+				listeners: {
+					click: function() {
+						//console.log(this.ownerCt.ownerCt);
+						this.fireEvent('printbuttonclick');
+						console.log('View PersonGrid: Print');
+						//Ext.ux.Printer.print(this.ownerCt.ownerCt.getComponent('persongrid'));
+						//Ext.ux.Printer.print(Ext.ComponentQuery.query('gridpanel'));
+						//Ext.ux.Printer.print(Ext.ComponentQuery.query('#personGrid > gridpanel'));
+					}
+				}
+			}
+		];
 		config.bbar = Ext.create('Ext.PagingToolbar', {
 			store: 'core.store.Persons',
 			id: 'personGridPagingToolbar',

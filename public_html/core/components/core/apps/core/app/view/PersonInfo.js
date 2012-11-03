@@ -13,7 +13,7 @@ Ext.define('core.view.PersonInfo', {
 	constructor: function(config) {
 		config = config || {};
 	    config.xtype = 'fieldset';
-	    config.title = '';  //Person Info	
+	    config.title = ''; // Person Info
 		config.margin = '0 0 0 0';
 		config.formId = 'personInfoForm';
 		config.buttonAlign = 'left';
@@ -139,6 +139,63 @@ Ext.define('core.view.PersonInfo', {
 						allowBlank: false
 					}
 					]
+				},
+				{
+					title:'Contacts',
+					autoScroll: true,
+					border: false,
+					// fields
+					items: [{
+						xtype: 'textfield', // auto-increment field, need presence for update  
+						fieldLabel: 'Landline Phone',
+						allowBlank: true,
+					},
+					{
+						xtype: 'textfield', // auto-increment field, need presence for update  
+						fieldLabel: 'Mobile Phone',
+						allowBlank: true,
+					},
+					{
+						xtype: 'textfield', // auto-increment field, need presence for update  
+						fieldLabel: 'Fax',
+						allowBlank: true,
+					},
+					{
+						xtype: 'textfield', // auto-increment field, need presence for update  
+						fieldLabel: 'E-mail',
+						allowBlank: true,
+					}]
+				},
+				{
+					title:'Addresses',
+					autoScroll: true,
+					border: false,
+					// fields
+					items: [{
+						xtype: 'textarea', // auto-increment field, need presence for update  
+						fieldLabel: 'Address',
+						allowBlank: true,
+					},
+					{
+						xtype: 'textfield', // auto-increment field, need presence for update  
+						fieldLabel: 'Place',
+						allowBlank: true,
+					},
+					{
+						xtype: 'textfield', // auto-increment field, need presence for update  
+						fieldLabel: 'Postal Code',
+						allowBlank: true,
+					},
+					{
+						xtype: 'textfield', // auto-increment field, need presence for update  
+						fieldLabel: 'Region',
+						allowBlank: true,
+					},
+					{
+						xtype: 'textfield', // auto-increment field, need presence for update  
+						fieldLabel: 'Country',
+						allowBlank: true,								 
+					}]
 				},
 				{
 					title:'Groups',

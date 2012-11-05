@@ -21,8 +21,8 @@ SET FOREIGN_KEY_CHECKS = 0;
 DROP TABLE IF EXISTS `tbl_date`;
 CREATE TABLE `tbl_date` (
   `kp_DateID` int(11) NOT NULL AUTO_INCREMENT,
-  `DateStart` date NOT NULL,
-  `DateFinish` date NOT NULL,
+  `DateStart` date DEFAULT NULL,
+  `DateFinish` date DEFAULT NULL,
   `DurationInWeeks` float NOT NULL,
   `ts_Created` datetime DEFAULT NULL,
   `ts_Updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,

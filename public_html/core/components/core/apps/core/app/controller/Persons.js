@@ -320,7 +320,7 @@ Ext.define('core.controller.Persons', {
 		//this.getPersonGrid().store.load({start:0,limit:3000});  
 
 		this.getPersonGrid().store.getProxy().extraParams.start = 0;
-		this.getPersonGrid().store.getProxy().extraParams.limit = 3000;
+		this.getPersonGrid().store.getProxy().extraParams.limit = 9999; // Set as high as possible
 		//this.getPersonGrid().setLoading = true;
 		this.getPersonGrid().store.load();
 		

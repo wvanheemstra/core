@@ -66,8 +66,7 @@ Ext.define('core.controller.Persons', {
 					title: 'Group Grid',
 					layout: {
 						type: 'vbox',
-						align: 'stretch',
-						pack: 'start'
+						align: 'stretch'
 					},
 					collapsible: true,
 					width: 210,
@@ -78,7 +77,8 @@ Ext.define('core.controller.Persons', {
 				                type: 'border',
 				                padding: 0
 				            },
-							height: 461,
+							//height: 461,
+							flex: 1,
 							bodyPadding: 0,
 							border: 0,
 							width: 'fit',
@@ -87,20 +87,15 @@ Ext.define('core.controller.Persons', {
 								{
 									region: 'center',
 									xtype: 'groupgrid',
-									itemId: 'GroupGrid',
-									width: 'fit',
-									border: 0,
-									split: true,
-									height: 301 // limit for a scroll bar							
+									itemId: 'GroupGrid'//,
+									//flex: 1
+									//height: 301							
 								},
 								{
 									region: 'south',
 									xtype: 'groupinfo',
 									itemId: 'GroupInfo',
 									collapsible: true,
-									width: 'fit',
-									border: 0,
-									split: true,
 									height: 120						
 								}
 							]
@@ -111,8 +106,7 @@ Ext.define('core.controller.Persons', {
 					region: 'center',
 					layout: {
 						type: 'vbox',
-						align: 'stretch',
-						pack: 'start'
+						align: 'stretch'
 					},
 					width: 'fit',
 					items: [
@@ -134,7 +128,7 @@ Ext.define('core.controller.Persons', {
 									width: 'fit',
 									border: 0,
 									split: true,
-									height: 301 // limit for a scroll bar							
+									height: 301							
 								},
 								{
 									region: 'south',
@@ -152,8 +146,8 @@ Ext.define('core.controller.Persons', {
 				},				
 				{
 					region: 'east',
-					itemId: 'personinfoitem', // NEW
-					id: 'personinfoitem', // NEW
+					itemId: 'personinfoitem',
+					id: 'personinfoitem',
 					layout: {
 						type: 'vbox',
 						align : 'stretch',
@@ -161,7 +155,7 @@ Ext.define('core.controller.Persons', {
 					},
 					width: 250,					
 					split: true,
-					title: 'Person Info', // NEW
+					title: 'Person Info',
 					collapsible: true,
 					//bodyStyle: 'background-color: red;', // NEW for testing only
 					items: [{

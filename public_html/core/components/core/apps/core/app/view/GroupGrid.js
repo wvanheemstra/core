@@ -4,7 +4,8 @@
  */
 Ext.require ([
     'Ext.ux.grid.FiltersFeature',
-    'Ext.ux.CheckColumn'
+    'Ext.ux.CheckColumn',
+	'Ext.ux.grid.Printer'
 ]);
  
 Ext.define('core.view.GroupGrid' , {
@@ -19,6 +20,23 @@ Ext.define('core.view.GroupGrid' , {
 		config.gridId = 'groupGrid';
 		config.stateful = true;
 		config.stateId = 'groupGrid';
+		config.tbar = [
+			{
+				xtype: 'button',
+				id: 'groupGridPrintButton',
+				itemId: 'printbutton',
+				formBind: false,
+				cls: 'x-btn-text-icon',
+				icon: 'assets/templates/core/icons/printer.png',
+				text: 'Print',
+				listeners: {
+					click: function() {
+						console.log('View GroupGrid: Print | Click');					
+						Ext.ux.grid.Printer.print(this.ownerCt.ownerCt);
+					}
+				}
+			}
+		];
 		config.bbar = Ext.create('Ext.PagingToolbar', {
 			store: 'core.store.Groups',
 			displayInfo: true,

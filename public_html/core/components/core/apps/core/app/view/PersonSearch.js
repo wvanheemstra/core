@@ -4,8 +4,8 @@
  */
 
 Ext.require([
-    'Ext.ux.form.field.BoxSelect'
-    ]);
+	'Ext.ux.form.ItemSelector'
+]);
  
 Ext.define('core.view.PersonSearch', { 
 	extend: 'Ext.form.Panel',
@@ -24,7 +24,7 @@ Ext.define('core.view.PersonSearch', {
 		config.defaults = {
 			labelWidth: 80
 		};
-		config.requires = ['core.store.Persons'];
+		config.requires = ['core.store.Persons','core.store.Nationalities'];
 		config.defaultType = 'textfield';		
 	    config.items = [
 			{
@@ -55,19 +55,14 @@ Ext.define('core.view.PersonSearch', {
 	            ]
 			},			
 			{
-				name: 'kf_NationalityID',
-				xtype: 'boxselect',
-				width: 300,
-				fieldLabel: 'Nationality',
+				name: 'NationalityIDs',
+				xtype: 'itemselector',
+				fieldLabel: 'Nationalities',
 				displayField: 'NationalityName',
 				valueField: 'kp_NationalityID',
 				store: 'core.store.Nationalities',
-				queryMode: 'local',				
 				allowBlank: true,
-				stacked: true,
-				pinList: false,
-				triggerOnClick: false,
-				filterPickList: true				
+				height: 200
 			}
 		];
 		config.bbar = [	
@@ -79,6 +74,11 @@ Ext.define('core.view.PersonSearch', {
 				margin: '0 0 0 10',
 				formBind: true,
 				listeners: {
+					click: function() {
+							var personSearchForm = this.ownerCt.ownerCt.getForm('personSearchForm');
+							personSearchForm.fireEvent('findpersonbuttonclick');
+						}
+					
 					/*
 					click: function() {
 						var groupInfoForm = this.ownerCt.ownerCt.getForm('groupInfoForm');
@@ -125,17 +125,6 @@ Ext.define('core.view.PersonSearch', {
 						else {
 							var field = this.ownerCt.down('#fieldGroupName');
 							field.focus('',10);							
-						}
-					}
-				*/
-				}
-			}
-		];
-		config.listeners = {};
-		// finally call the superclasses implementation
-		this.superclass.constructor.call(this, config);
-	}
-}););							
 						}
 					}
 				*/

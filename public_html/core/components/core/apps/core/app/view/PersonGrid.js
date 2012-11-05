@@ -64,44 +64,7 @@ Ext.define('core.view.PersonGrid' , {
 			displayMsg: 'Displaying Persons {0} - {1} of {2}',
 			emptyMsg: "No Persons to display"
 		});
-		config.bbar.add([
-/*		
-			{
-				xtype: "radiogroup",
-				horizontal: true,
-				id: "paginggroup",
-				defaults: {xtype: "radio", name: "paging"},
-				items: [
-					{
-						boxLabel: "Paging",
-						inputValue: "true",
-						checked: true,
-						listeners: {
-							change: function() {
-								if(this.checked) {
-									this.ownerCt.ownerCt.store.load({
-										params: {limit:100, pageSize: 100}
-									});
-								}
-							}
-						}
-					},
-					{
-						boxLabel: "No Paging",
-						inputValue: "false",
-						listeners: {
-							change: function() {
-								if(this.checked) {
-									this.ownerCt.ownerCt.store.load({
-										params: {page:1, limit:9999, pageSize: 9999}
-									});
-								}
-							}
-						}
-					}
-				]
-			},
-*/			
+		config.bbar.add([	
 			{
 				text: 'Clear Filters',
 				handler: function () {

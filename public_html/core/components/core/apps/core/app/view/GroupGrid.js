@@ -39,6 +39,8 @@ Ext.define('core.view.GroupGrid' , {
 		];
 		config.bbar = Ext.create('Ext.PagingToolbar', {
 			store: 'core.store.Groups',
+			id: 'groupGridPagingToolbar',
+			xtype: 'pagingtoolbar',
 			displayInfo: true,
 			displayMsg: 'Displaying Groups {0} - {1} of {2}',
 			emptyMsg: "No Groups to display"

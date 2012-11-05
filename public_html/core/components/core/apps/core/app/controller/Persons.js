@@ -9,10 +9,6 @@ if (!window.console) console = {log: function() {}}; // avoids the error in IE
 // var localHost = 'http://example.com'; // Now defined inside web page
 // var remoteHost = 'http://example.com'; // Now defined inside web page
 
-Ext.require ([
-	'Ext.ux.Printer'
-]);
-
 var selection = null; // default if no row is or was previously selected
 
 function showLoadingMask(loadingMessage) {
@@ -206,23 +202,7 @@ Ext.define('core.controller.Persons', {
         //Ext.create('core.view.PersonGrid').show();	
 		
 		this.getGroupGrid().getSelectionModel().addListener('select', this.onViewGroupGridSelect, this);
-		this.getPersonGrid().getSelectionModel().addListener('select', this.onViewPersonGridSelect, this);
-		
-		//this.getPersonGrid().ownerCt.getItem('printbutton').addListener('printbuttonclick', this.onViewPersonGridPrintButtonClick, this); // NEW
-		//console.log(this.getPersonGrid().query('#personGridPrintButton button'));
-		var personGridButtons = this.getPersonGrid().query('button');
-		//using each to detect buttons:
-		Ext.each(personGridButtons, function(button, index) {
-			console.log(personGridButtons[index]);
-			if(personGridButtons[index].itemId == 'printbutton') {
-				console.log(personGridButtons[index].itemId);
-				personGridButtons[index].addListener('printbuttonclick', this.onViewPersonGridPrintButtonClick, this);
-			}
-		});
-		//console.log(personGridButtons);
-		//console.log(personGridButtons.get('personGridPrintButton')); // printbutton
-		//console.log(this.getPersonGrid().ownerCt);
-		
+		this.getPersonGrid().getSelectionModel().addListener('select', this.onViewPersonGridSelect, this);	
 		this.getGroupInfo().getForm().addListener('addgroupbuttonclick', this.onViewGroupInfoAddGroupButtonClick, this);
 		this.getGroupInfo().getForm().addListener('savegroupbuttonclick', this.onViewGroupInfoSaveGroupButtonClick, this);
 		this.getGroupInfo().getForm().addListener('deletegroupbuttonclick', this.onViewGroupInfoDeleteGroupButtonClick, this);
@@ -337,10 +317,6 @@ Ext.define('core.controller.Persons', {
 		//console.log("Model:"); // FOR TESTING ONLY
 		//console.log(model); // FOR TESTING ONLY
 		this.getPersonInfo().getForm().fireEvent('loadrecord');
-	},
-	onViewPersonGridPrintButtonClick: function() {
-		if(debug){console.info('View PersonGrid: Print Button | Click')};
-		Ext.ux.Printer.print(this.getPersonGrid());
 	},	
 	onViewPersonSearchFindPersonButtonClick: function() {
 

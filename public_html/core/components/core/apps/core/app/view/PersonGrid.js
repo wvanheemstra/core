@@ -10,7 +10,8 @@ Ext.require ([
     'Ext.ux.grid.filter.DateFilter',
     'Ext.ux.grid.filter.ListFilter',
     'Ext.ux.grid.filter.NumericFilter',
-	'Ext.ux.grid.filter.BooleanFilter'
+	'Ext.ux.grid.filter.BooleanFilter',
+	'Ext.ux.grid.Printer'
 ]);
  
 Ext.define('core.view.PersonGrid' , {
@@ -49,12 +50,8 @@ Ext.define('core.view.PersonGrid' , {
 				text: 'Print',
 				listeners: {
 					click: function() {
-						//console.log(this.ownerCt.ownerCt);
-						this.fireEvent('printbuttonclick');
-						console.log('View PersonGrid: Print');
-						//Ext.ux.Printer.print(this.ownerCt.ownerCt.getComponent('persongrid'));
-						//Ext.ux.Printer.print(Ext.ComponentQuery.query('gridpanel'));
-						//Ext.ux.Printer.print(Ext.ComponentQuery.query('#personGrid > gridpanel'));
+						console.log('View PersonGrid: Print | Click');					
+						Ext.ux.grid.Printer.print(this.ownerCt.ownerCt);
 					}
 				}
 			}

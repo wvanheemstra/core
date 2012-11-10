@@ -18,7 +18,7 @@ Ext.define('core.view.PersonInfo', {
 		config.formId = 'personInfoForm';
 		config.buttonAlign = 'left';
 		config.bodyPadding = '0 0 0 0';
-		config.border = false;
+		config.border = 0;
 		config.defaults = {
 			labelWidth: 80
 		};
@@ -53,7 +53,7 @@ Ext.define('core.view.PersonInfo', {
 			{
 				xtype: 'tabpanel',
 				activeItem: 0,
-				border: false,
+				border: 0,
 				// this line is necessary for anchoring to work at lower level containers
 				// and for full height of tabs
 				anchor: '100% 100%',
@@ -63,7 +63,8 @@ Ext.define('core.view.PersonInfo', {
 				// tabs
 				defaults: {
 					layout: 'form',
-					labelWidth:80,
+					labelWidth: 80,
+					border: 0,
 					defaultType:'textfield',
 					bodyStyle:'padding:5px',
 					// as we use deferredRender: false
@@ -73,7 +74,7 @@ Ext.define('core.view.PersonInfo', {
 				items:[{
 					title:'Bio',
 					autoScroll: true,
-					border: false,
+					border: 0,
 					defaults: {anchor:'-20'},
 					// fields
 					items: [{
@@ -87,7 +88,7 @@ Ext.define('core.view.PersonInfo', {
 						displayField: 'SalutationAbbreviation',
 						valueField: 'kp_SalutationID',
 						store: 'core.store.Salutations',
-						queryMode: 'remote', // set to remote when using AJAX proxy
+						queryMode: 'local',
 						allowBlank: false,
 						typeAhead: true,
 						forceSelection: true
@@ -143,7 +144,7 @@ Ext.define('core.view.PersonInfo', {
 				{
 					title:'Contacts',
 					autoScroll: true,
-					border: false,
+					border: 0,
 					// fields
 					items: [{
 						xtype: 'textfield', // auto-increment field, need presence for update  
@@ -169,7 +170,7 @@ Ext.define('core.view.PersonInfo', {
 				{
 					title:'Addresses',
 					autoScroll: true,
-					border: false,
+					border: 0,
 					// fields
 					items: [{
 						xtype: 'textarea', // auto-increment field, need presence for update  
@@ -200,7 +201,7 @@ Ext.define('core.view.PersonInfo', {
 				{
 					title:'Groups',
 					autoScroll: true,
-					border: false,
+					border: 0,
 					// fields
 					items: [{
 						name: 'GroupIDs',

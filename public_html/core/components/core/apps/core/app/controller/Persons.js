@@ -3,7 +3,7 @@
  * @extends Ext.app.Controller
  */
  
-var debug = true; // change for production 
+var debug = false; // change for production 
 if (!window.console) console = {log: function() {}}; // avoids the error in IE
 
 // var localHost = 'http://example.com'; // Now defined inside web page
@@ -88,7 +88,12 @@ Ext.define('core.controller.Persons', {
 								{
 									region: 'center',
 									xtype: 'groupgrid',
-									itemId: 'GroupGrid'//,
+									itemId: 'GroupGrid',
+									// config options for stateful behavior
+							        stateful: true,
+							        stateId: 'groupgridstate',
+									split: true,
+									border: 0//,
 									//flex: 1
 									//height: 301							
 								},
@@ -96,6 +101,11 @@ Ext.define('core.controller.Persons', {
 									region: 'south',
 									xtype: 'groupinfo',
 									itemId: 'GroupInfo',
+									// config options for stateful behavior
+							        stateful: true,
+							        stateId: 'groupinfostate',
+									split: true,
+									border: 0,
 									collapsible: true,
 									height: 120						
 								}
@@ -126,6 +136,9 @@ Ext.define('core.controller.Persons', {
 									region: 'center',
 									xtype: 'persongrid',
 									itemId: 'PersonGrid',
+									// config options for stateful behavior
+							        stateful: true,
+							        stateId: 'persongridstate',
 									width: 'fit',
 									border: 0,
 									split: true,
@@ -135,6 +148,9 @@ Ext.define('core.controller.Persons', {
 									region: 'south',
 									xtype: 'personsearch',
 									itemId: 'PersonSearch',
+									// config options for stateful behavior
+							        stateful: true,
+							        stateId: 'personsearchstate',
 									collapsible: true,
 									width: 'fit',
 									border: 0,
@@ -157,6 +173,9 @@ Ext.define('core.controller.Persons', {
 					width: 250,					
 					split: true,
 					title: 'Person Info',
+					// config options for stateful behavior
+			        stateful: true,
+			        stateId: 'personinfostate',
 					collapsible: true,
 					//bodyStyle: 'background-color: red;', // NEW for testing only
 					items: [{
@@ -170,6 +189,12 @@ Ext.define('core.controller.Persons', {
 			],
             renderTo: 'extjs-app'
         }).show();
+		
+		if(!debug) {
+			var thirtyDays = new Date(new Date().getTime()+(1000*60*60*24*30));
+			//Ext.state.Manager.setProvider(new Ext.state.CookieProvider({expires: thirtyDays}));
+			Ext.state.Manager.setProvider(new Ext.state.CookieProvider()); // never expires
+		}; // Do not keep state in debug
 		
 		Ext.getStore('core.store.Groups').addListener('load', this.onStoreGroupsLoad, this);
 		Ext.getStore('core.store.Groups').addListener('datachanged', this.onStoreGroupsDataChanged, this);

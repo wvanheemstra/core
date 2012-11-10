@@ -22,7 +22,7 @@ Ext.define('core.view.PersonInfo', {
 		config.defaults = {
 			labelWidth: 80
 		};
-		config.requires = ['core.store.Persons','core.store.Dates','core.store.PersonsGroups','core.store.Groups'];
+		config.requires = ['core.store.Persons','core.store.Dates','core.store.PersonsGroups','core.store.Groups','core.store.Nationalities'];
 		config.defaultType = 'textfield';
 		config.tbar = [
 			{
@@ -43,7 +43,7 @@ Ext.define('core.view.PersonInfo', {
 							kf_GenderID: 1,
 							kf_NationalityID: 1,
 							//GroupIDs: 1, //Set to a fixed number temporarily
-							DateStart: '0000-01-01'
+							DateStart: '2000-01-01'
 						});
 					}
 				}
@@ -87,7 +87,7 @@ Ext.define('core.view.PersonInfo', {
 						displayField: 'SalutationAbbreviation',
 						valueField: 'kp_SalutationID',
 						store: 'core.store.Salutations',
-						queryMode: 'local',
+						queryMode: 'remote', // set to remote when using AJAX proxy
 						allowBlank: false,
 						typeAhead: true,
 						forceSelection: true
@@ -125,7 +125,7 @@ Ext.define('core.view.PersonInfo', {
 						displayField: 'NationalityName',
 						valueField: 'kp_NationalityID',
 						store: 'core.store.Nationalities',
-						queryMode: 'local',
+						queryMode: 'remote', // set to remote when using AJAX proxy
 						allowBlank: false,
 						typeAhead: true,
 						forceSelection: true

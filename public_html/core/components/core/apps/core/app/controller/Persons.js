@@ -13,7 +13,7 @@ var selection = null; // default if no row is or was previously selected
 
 function showLoadingMask(loadingMessage) {
 	if (Ext.isEmpty(loadingMessage))
-	loadText = 'Loading... please wait';
+	loadText = 'Loading';
 	//Use the mask function on the Ext.getBody() element to mask the body element during Ajax calls
 	Ext.Ajax.on('beforerequest',function(){Ext.getBody().mask(loadText, 'loading') }, Ext.getBody());
 	Ext.Ajax.on('requestcomplete',Ext.getBody().unmask ,Ext.getBody());

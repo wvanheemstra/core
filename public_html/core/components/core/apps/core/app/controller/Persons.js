@@ -10,6 +10,7 @@ if (!window.console) console = {log: function() {}}; // avoids the error in IE
 // var remoteHost = 'http://example.com'; // Now defined inside web page
 
 var selection = null; // default if no row is or was previously selected
+var savedNewPerson = false;  // default if no new person has been saved
 
 function showLoadingMask(loadingMessage) {
 	if (Ext.isEmpty(loadingMessage))
@@ -233,19 +234,43 @@ Ext.define('core.controller.Persons', {
 			if(debug){console.info('Store Persons: inside task.')};
 			myPersonGridFoundSet = Ext.ComponentQuery.query("grid[gridId='personGrid']");
 			myPersonGrid = myPersonGridFoundSet[0]; // first item in found set
-			myStore = Ext.getStore('core.store.Persons');
-			if (myStore.getCount() > 0)
-			{
-			  var maxId = myStore.getAt(0).get('kp_PersonID'); // initialise to the first record's id value.
-			  myStore.each(function(rec)
-			  {
-			    maxId = Math.max(maxId, rec.get('kp_PersonID'));
-				if(debug){console.info('Store Persons: Max ID is '+maxId)};
-			  });
+			
+			if(debug){console.info('Store Persons: saved New Person is '+savedNewPerson)};
+			
+			if(savedNewPerson) { // for NEW saved person
+				myStore = Ext.getStore('core.store.Persons');
+				if (myStore.getCount() > 0)
+				{
+				  var maxId = myStore.getAt(0).get('kp_PersonID'); // initialise to the first record's id value.
+				  myStore.each(function(rec)
+				  {
+				    maxId = Math.max(maxId, rec.get('kp_PersonID'));
+					if(debug){console.info('Store Persons: Max ID is '+maxId)};
+				  });
+				}
+				var myIndex = myStore.find('kp_PersonID',maxId);
+				if(debug){console.info('Store Persons: index is '+myIndex)};
+				delete myStore;
+				myPersonGrid.getSelectionModel().select(myIndex);
+				selection = myPersonGrid.getSelectionModel().getSelection(); // set global value of selection
+				if(debug){console.info('Store Persons: set to index '+myIndex)};
+				savedNewPerson = false; //reset				
 			}
-			var myIndex = myStore.find('kp_PersonID',maxId);
-			if(debug){console.info('Store Persons: index is '+myIndex)};
-			myPersonGrid.getSelectionModel().select(myIndex);
+			else { // for EXISTING (saved) person
+				if (selection != "undefined") {
+					if(debug){console.info('Store Persons: selection not undefined')};
+					myPersonGrid.getSelectionModel().select(0); // Is this the right solution???					
+					selection = myPersonGrid.getSelectionModel().getSelection(); // set global value of selection
+					if(debug){console.info('Store Persons: set to selection '+selection[0].index)};
+				}
+				else {
+					if(debug){console.info('Store Persons: selection undefined')};
+					myPersonGrid.getSelectionModel().select(0);
+					selection = myPersonGrid.getSelectionModel().getSelection(); // set global value of selection
+					if(debug){console.info('Store Persons: set to selection 0')};
+				};
+			};
+			delete myPersonGrid;
 		});
 		if(selection) { // previous selection
 			if(this.getPersonGrid().getSelectionModel().selected.items.length == 0) {
@@ -255,10 +280,12 @@ Ext.define('core.controller.Persons', {
 			else {
 				if(debug){console.info('Store Persons: no delay.')};
 				this.getPersonGrid().getSelectionModel().select(selection[0].index);
+				selection = this.getPersonGrid().getSelectionModel().getSelection(); // set global value of selection
 			};
 		}
 		else { // no previous selection
-			this.getPersonGrid().getSelectionModel().select(0)
+			this.getPersonGrid().getSelectionModel().select(0);
+			selection = this.getPersonGrid().getSelectionModel().getSelection(); // set global value of selection
 		};
 	},
 	onStorePersonsDataChanged: function() {
@@ -351,7 +378,7 @@ Ext.define('core.controller.Persons', {
 		//this.getPersonGrid().setLoading = true;
 		this.getPersonGrid().store.load();
 		
-		this.getPersonGrid().store.filter("PersonFirstName", "Lara"); // Make Dynamic
+		//this.getPersonGrid().store.filter("PersonFirstName", "Lara"); // Make Dynamic
 
 		//this.getCmp('personGridPagingToolbar').MoveFirst();
 		this.getPersonGrid().store.loadPage(1);
@@ -369,6 +396,15 @@ Ext.define('core.controller.Persons', {
 	},
 	onViewPersonInfoSavePersonButtonClick: function() {
 		selection = this.getPersonGrid().getSelectionModel().getSelection(); // set global value of selection
+		if(selection) {
+			if(debug){console.info('View PersonInfo: Saved Existing Person')};
+			savedNewPerson = false;
+		}
+		else
+		{
+			if(debug){console.info('View PersonInfo: Saved New Person')};
+			savedNewPerson = true;
+		};
 		Ext.getStore('core.store.Dates').load(); // Force a reload
 		Ext.getStore('core.store.PersonsGroups').load(); // Force a reload
 		this.getPersonGrid().store.load();

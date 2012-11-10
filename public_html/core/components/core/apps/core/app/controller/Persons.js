@@ -229,10 +229,37 @@ Ext.define('core.controller.Persons', {
 		showLoadingMask();
 		if(debug){console.info('Store Persons: '+Ext.getStore('core.store.Persons').getCount()+' records loaded.')};
 		Ext.getStore('core.store.Persons').loaded = true;
-		if(selection){
-			this.getPersonGrid().getSelectionModel().select(selection[0].index);
-		} // previous selection
-		else {this.getPersonGrid().getSelectionModel().select(0)}; // no previous selection
+		var task = new Ext.util.DelayedTask(function(){
+			if(debug){console.info('Store Persons: inside task.')};
+			myPersonGridFoundSet = Ext.ComponentQuery.query("grid[gridId='personGrid']");
+			myPersonGrid = myPersonGridFoundSet[0]; // first item in found set
+			myStore = Ext.getStore('core.store.Persons');
+			if (myStore.getCount() > 0)
+			{
+			  var maxId = myStore.getAt(0).get('kp_PersonID'); // initialise to the first record's id value.
+			  myStore.each(function(rec)
+			  {
+			    maxId = Math.max(maxId, rec.get('kp_PersonID'));
+				if(debug){console.info('Store Persons: Max ID is '+maxId)};
+			  });
+			}
+			var myIndex = myStore.find('kp_PersonID',maxId);
+			if(debug){console.info('Store Persons: index is '+myIndex)};
+			myPersonGrid.getSelectionModel().select(myIndex);
+		});
+		if(selection) { // previous selection
+			if(this.getPersonGrid().getSelectionModel().selected.items.length == 0) {
+				if(debug){console.info('Store Persons: delaying task by 500 ms.')};	
+			    task.delay(500);
+			}
+			else {
+				if(debug){console.info('Store Persons: no delay.')};
+				this.getPersonGrid().getSelectionModel().select(selection[0].index);
+			};
+		}
+		else { // no previous selection
+			this.getPersonGrid().getSelectionModel().select(0)
+		};
 	},
 	onStorePersonsDataChanged: function() {
 		if(debug){console.info('Store Persons: Data Changed')};

@@ -2,7 +2,7 @@
  * core.controller.Persons
  * @extends Ext.app.Controller
  */
- 
+
 var debug = false; // change for production 
 if (!window.console) console = {log: function() {}}; // avoids the error in IE
 
@@ -53,149 +53,160 @@ Ext.define('core.controller.Persons', {
 		}
 	],
     init: function() {
-        Ext.create('core.view.PersonPanel', {
-			layout: {
-                type: 'border',
-                padding: 5
-            },
-            height: 500,
-            width: 'fit',
-			bodyPadding: 0,
-            items: [				
-				{
-					region: 'west',
-					title: 'Group Grid',
+		Ext.create('Ext.window.Window', {
+		    title: 'Administration',
+			maximized: true,
+		    layout: 'auto',
+			closable: false,
+			border: 0,
+		    items: [
+				Ext.create('core.view.PersonPanel', {
 					layout: {
-						type: 'vbox',
-						align: 'stretch'
-					},
-					collapsible: true,
-					width: 210,
-					split: true,
-					items: [
+		                type: 'border',
+		                padding: 0,
+						border: 0
+		            },
+					height: 570,
+		            width: 'fit',
+					border: 0,
+		            items: [				
 						{
+							region: 'west',
+							title: 'Group Grid',
 							layout: {
-				                type: 'border',
-				                padding: 0
-				            },
-							//height: 461,
-							flex: 1,
-							bodyPadding: 0,
-							border: 0,
-							width: 'fit',
+								type: 'vbox',
+								align: 'stretch',
+								border: 0
+							},
+							collapsible: true,
+							width: 210,
 							split: true,
 							items: [
 								{
-									region: 'center',
-									xtype: 'groupgrid',
-									itemId: 'GroupGrid',
-									// config options for stateful behavior
-							        stateful: true,
-							        stateId: 'groupgridstate',
-									split: true,
-									border: 0//,
-									//flex: 1
-									//height: 301							
-								},
-								{
-									region: 'south',
-									xtype: 'groupinfo',
-									itemId: 'GroupInfo',
-									// config options for stateful behavior
-							        stateful: true,
-							        stateId: 'groupinfostate',
-									split: true,
+									layout: {
+						                type: 'border',
+						                padding: 0,
+										border: 0
+						            },
+									flex: 1,
+									bodyPadding: 0,
 									border: 0,
-									collapsible: true,
-									height: 120						
-								}
+									width: 'fit',
+									split: true,
+									items: [
+										{
+											region: 'center',
+											xtype: 'groupgrid',
+											itemId: 'GroupGrid',
+											// config options for stateful behavior
+									        stateful: true,
+									        stateId: 'groupgridstate',
+											split: true,
+											border: 0							
+										},
+										{
+											region: 'south',
+											xtype: 'groupinfo',
+											itemId: 'GroupInfo',
+											// config options for stateful behavior
+									        stateful: true,
+									        stateId: 'groupinfostate',
+											split: true,
+											border: 0,
+											collapsible: true,
+											height: 112					
+										}
+									]
+								}	
 							]
-						}	
-					]
-				},
-				{
-					region: 'center',
-					layout: {
-						type: 'vbox',
-						align: 'stretch'
-					},
-					width: 'fit',
-					items: [
+						},
 						{
+							region: 'center',
 							layout: {
-				                type: 'border',
-				                padding: 0
-				            },
-							height: 461,
-							bodyPadding: 0,
-							border: 0,
+								type: 'vbox',
+								align: 'stretch',
+								border: 0
+							},
 							width: 'fit',
-							split: true,
 							items: [
 								{
-									region: 'center',
-									xtype: 'persongrid',
-									itemId: 'PersonGrid',
-									// config options for stateful behavior
-							        stateful: true,
-							        stateId: 'persongridstate',
-									width: 'fit',
+									layout: {
+						                type: 'border',
+						                padding: 0
+						            },
+									height: 543,
+									bodyPadding: 0,
 									border: 0,
-									split: true,
-									height: 301							
-								},
-								{
-									region: 'south',
-									xtype: 'personsearch',
-									itemId: 'PersonSearch',
-									// config options for stateful behavior
-							        stateful: true,
-							        stateId: 'personsearchstate',
-									collapsible: true,
 									width: 'fit',
-									border: 0,
 									split: true,
-									height: 120							
-								}
+									items: [
+										{
+											region: 'center',
+											xtype: 'persongrid',
+											itemId: 'PersonGrid',
+											// config options for stateful behavior
+									        stateful: true,
+									        stateId: 'persongridstate',
+											width: 'fit',
+											border: 0,
+											split: true,
+											flex: 1						
+										},
+										{
+											region: 'south',
+											xtype: 'personsearch',
+											itemId: 'PersonSearch',
+											// config options for stateful behavior
+									        stateful: true,
+									        stateId: 'personsearchstate',
+											collapsible: true,
+											width: 'fit',
+											border: 0,
+											split: true,
+											height: 112						
+										}
+									]
+								}	
 							]
-						}	
+						},				
+						{
+							region: 'east',
+							itemId: 'personinfoitem',
+							id: 'personinfoitem',
+							layout: {
+								type: 'vbox',
+								align : 'stretch',
+								pack  : 'start',
+								border: 0
+							},
+							width: 250,					
+							split: true,
+							title: 'Person Info',
+							// config options for stateful behavior
+					        stateful: true,
+					        stateId: 'personinfostate',
+							collapsible: true,
+							//bodyStyle: 'background-color: red;', // NEW for testing only
+							items: [{
+								xtype: 'personinfo',
+								itemId: 'PersonInfo',
+								flex: 1,
+								border: 0
+							}]
+						}
 					]
-				},				
-				{
-					region: 'east',
-					itemId: 'personinfoitem',
-					id: 'personinfoitem',
-					layout: {
-						type: 'vbox',
-						align : 'stretch',
-						pack  : 'start',
-					},
-					width: 250,					
-					split: true,
-					title: 'Person Info',
-					// config options for stateful behavior
-			        stateful: true,
-			        stateId: 'personinfostate',
-					collapsible: true,
-					//bodyStyle: 'background-color: red;', // NEW for testing only
-					items: [{
-						xtype: 'personinfo',
-						itemId: 'PersonInfo',
-						flex: 1,
-						border: 0,
-						height: 461
-					}]
-				}
-			],
-            renderTo: 'extjs-app'
-        }).show();
-		
+		        }).show() // eof Ext.create PersonPanel
+		    ],
+			renderTo: Ext.getBody()
+		}).show(); // eof Ext.create Window
+
 		if(!debug) {
 			var thirtyDays = new Date(new Date().getTime()+(1000*60*60*24*30));
 			//Ext.state.Manager.setProvider(new Ext.state.CookieProvider({expires: thirtyDays}));
 			Ext.state.Manager.setProvider(new Ext.state.CookieProvider()); // never expires
 		}; // Do not keep state in debug
-		
+		// LISTENERS
+		// Stores
 		Ext.getStore('core.store.Groups').addListener('load', this.onStoreGroupsLoad, this);
 		Ext.getStore('core.store.Groups').addListener('datachanged', this.onStoreGroupsDataChanged, this);
 		Ext.getStore('core.store.PersonsGroups').addListener('load', this.onStorePersonsGroupsLoad, this);
@@ -215,25 +226,25 @@ Ext.define('core.controller.Persons', {
 		Ext.getStore('core.store.Organisations').addListener('load', this.onStoreOrganisationsLoad, this);
 		Ext.getStore('core.store.Organisations').addListener('datachanged', this.onStoreOrganisationsDataChanged, this);
 		Ext.getStore('core.store.Contacts').addListener('load', this.onStoreContactsLoad, this);
-		Ext.getStore('core.store.Contacts').addListener('datachanged', this.onStoreContactsDataChanged, this);		
-
-        //Ext.create('core.view.GroupGrid').show();		
-		//Ext.create('core.view.PersonInfo').show();
-        //Ext.create('core.view.PersonGrid').show();	
-		
+		Ext.getStore('core.store.Contacts').addListener('datachanged', this.onStoreContactsDataChanged, this);
+		// Views: GroupGrid
 		this.getGroupGrid().getSelectionModel().addListener('select', this.onViewGroupGridSelect, this);
+		// Views: PersonGrid
 		this.getPersonGrid().getSelectionModel().addListener('select', this.onViewPersonGridSelect, this);	
+		// Views: GroupInfo
 		this.getGroupInfo().getForm().addListener('addgroupbuttonclick', this.onViewGroupInfoAddGroupButtonClick, this);
 		this.getGroupInfo().getForm().addListener('savegroupbuttonclick', this.onViewGroupInfoSaveGroupButtonClick, this);
 		this.getGroupInfo().getForm().addListener('deletegroupbuttonclick', this.onViewGroupInfoDeleteGroupButtonClick, this);
+		// Views: PersonSearch
 		this.getPersonSearch().getForm().addListener('findpersonbuttonclick', this.onViewPersonSearchFindPersonButtonClick, this);
 		this.getPersonSearch().getForm().addListener('undofindpersonbuttonclick', this.onViewPersonSearchUndoFindPersonButtonClick, this);
+		// Views: PersonInfo
 		this.getPersonInfo().getForm().addListener('addpersonbuttonclick', this.onViewPersonInfoAddPersonButtonClick, this);
 		this.getPersonInfo().getForm().addListener('savepersonbuttonclick', this.onViewPersonInfoSavePersonButtonClick, this);
 		this.getPersonInfo().getForm().addListener('deletepersonbuttonclick', this.onViewPersonInfoDeletePersonButtonClick, this);
 		this.getPersonInfo().getForm().addListener('loadrecord', this.onViewPersonInfoLoadRecord, this);
-    },
-	
+    }, // eof init
+	// FUNCTIONS
 	onStoreGroupsLoad: function(store, model) {
 		if(debug){console.info('Store Groups: '+Ext.getStore('core.store.Groups').getCount()+' records loaded.')};
 		Ext.getStore('core.store.Groups').loaded = true;
@@ -260,9 +271,9 @@ Ext.define('core.controller.Persons', {
 			if(debug){console.info('Store Persons: inside task.')};
 			myPersonGridFoundSet = Ext.ComponentQuery.query("grid[gridId='personGrid']");
 			myPersonGrid = myPersonGridFoundSet[0]; // first item in found set
-			
+
 			if(debug){console.info('Store Persons: saved New Person is '+savedNewPerson)};
-			
+
 			if(savedNewPerson) { // for NEW saved person
 				myStore = Ext.getStore('core.store.Persons');
 				if (myStore.getCount() > 0)
@@ -398,7 +409,7 @@ Ext.define('core.controller.Persons', {
 
 		this.getPersonGrid().store.getProxy().extraParams.start = 0;
 		this.getPersonGrid().store.getProxy().extraParams.limit = 9999; // Set as high as possible
-		
+
 		//console.log(this.getPersonSearch().getComponent('groupGenderID').getComponent('male').value);
 
 		var personFirstName = this.getPersonSearch().getComponent('fieldPersonFirstName').value;
@@ -408,7 +419,7 @@ Ext.define('core.controller.Persons', {
 
 		myGrid = this.getPersonGrid();
 		myFilters = [];
-		
+
 		if(personFirstName) {
 			personFirstNameFilter = [{
 			    field: 'PersonFirstName',
@@ -429,7 +440,7 @@ Ext.define('core.controller.Persons', {
 			}];
 			myFilters.push(personLastNameFilter[0]);
 		};
-		
+
 /*		
 		myFilters = [
 			{
@@ -596,4 +607,6 @@ Ext.define('core.controller.Persons', {
 	        }
 	    });
 	} // eof doGridFilter
-});
+}); // oef Ext.define
+
+

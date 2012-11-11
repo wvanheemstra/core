@@ -11,10 +11,22 @@ Ext.require ([
     'Ext.ux.grid.filter.ListFilter',
     'Ext.ux.grid.filter.NumericFilter',
 	'Ext.ux.grid.filter.BooleanFilter',
-	'Ext.ux.grid.Printer'
+	'Ext.ux.grid.Printer'//,
+	//'Ext.ux.Exporter.Exporter',
+	//'Ext.ux.Exporter.Button',
+	//'Ext.ux.Exporter.Base64',
+	//'Ext.ux.Exporter.Formatter',
+	//'assets.templates.core.javascripts.downloadify.Downloadify'
 ]);
- 
-Ext.define('core.view.PersonGrid' , {
+
+/* 
+Ext.define('exportbutton', {
+	 extend: 'Ext.ux.Exporter.Button',
+	 alias: 'widget.exportbutton'
+});
+*/
+
+Ext.define('core.view.PersonGrid', {
     extend: 'Ext.grid.Panel',
     alias : 'widget.persongrid',
 	
@@ -54,7 +66,23 @@ Ext.define('core.view.PersonGrid' , {
 						Ext.ux.grid.Printer.print(this.ownerCt.ownerCt);
 					}
 				}
-			}
+			},
+			{
+      			//xtype: 'exportbutton',
+      			xtype: 'button',
+      			id: 'personGridExportButton',
+      			itemId: 'exportbutton',
+      			cls: 'x-btn-text-icon',
+      			icon: 'assets/templates/core/icons/page_excel.png',
+      			text: 'Download as .xls',
+      			store: 'core.store.Persons',
+      			//component: 'persongrid',
+      			listeners: {
+					click: function() {
+						if(debug){console.log('View PersonGrid: Export | Click')};
+					}
+				}
+    		}
 		];
 		config.bbar = Ext.create('Ext.PagingToolbar', {
 			store: 'core.store.Persons',

@@ -58,6 +58,7 @@ Ext.define('core.controller.Persons', {
 			maximized: true,
 		    layout: 'auto',
 			closable: false,
+			draggable: false,
 			border: 0,
 		    items: [
 				Ext.create('core.view.PersonPanel', {

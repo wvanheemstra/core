@@ -50,7 +50,7 @@ Ext.define('core.view.PersonGrid' , {
 				text: 'Print',
 				listeners: {
 					click: function() {
-						console.log('View PersonGrid: Print | Click');					
+						if(debug){console.log('View PersonGrid: Print | Click')};					
 						Ext.ux.grid.Printer.print(this.ownerCt.ownerCt);
 					}
 				}
@@ -76,18 +76,15 @@ Ext.define('core.view.PersonGrid' , {
 		config.features = [filters];
 		config.listeners = {
 			render : function(){      
-				//this.body.mask('Loading...');
-				//this.setLoading(true);
-				//var store = this.getStore();
-				//store.load.defer(100, store);
 				this.store.load(); // requires that store's autoLoad is false
 			},
 			delay: 200,
 			load: function(){
-				this.store.loaded = true;			
-				//this.body.unmask();
-				//this.setLoading(false);
-			}
+				this.store.loaded = true;
+			},
+		    afterrender: function(grid) { // must create the filters after grid is rendered
+		        grid.filters.createFilters();
+		    }
 		};
 		// finally call the superclasses implementation
 		this.superclass.constructor.call(this, config);
@@ -122,7 +119,6 @@ var filters = new Ext.ux.grid.GridFilters({
 	]
 });
 */
-
 
 var personColumns = function (finish, start) {
 	var columns = [

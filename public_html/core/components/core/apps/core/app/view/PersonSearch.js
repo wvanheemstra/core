@@ -44,13 +44,16 @@ Ext.define('core.view.PersonSearch', {
 			{
 				xtype: 'checkboxgroup',
 				fieldLabel: 'Gender',
+				itemId: 'groupGenderID',
 	            columns: 2,
 	            items: [
 	                {
-	                    boxLabel : 'Male'
+	                    boxLabel : 'Male',
+						itemId: 'male'
 	                },
 	                {
-	                    boxLabel : 'Female'
+	                    boxLabel : 'Female',
+						itemId: 'female'
 	                }
 	            ]
 			},			
@@ -128,6 +131,20 @@ Ext.define('core.view.PersonSearch', {
 						}
 					}
 				*/
+				}
+			},
+			{
+				xtype: 'button',
+				cls: 'x-btn-text-icon',
+				icon: 'assets/templates/core/icons/cross_user_find.png',
+				text: 'Undo Find Person',
+				margin: '0 0 0 10',
+				formBind: true,
+				listeners: {
+					click: function() {
+							var personSearchForm = this.ownerCt.ownerCt.getForm('personSearchForm');
+							personSearchForm.fireEvent('undofindpersonbuttonclick');
+						}
 				}
 			}
 		];

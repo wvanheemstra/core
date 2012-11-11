@@ -227,6 +227,7 @@ Ext.define('core.controller.Persons', {
 		this.getGroupInfo().getForm().addListener('savegroupbuttonclick', this.onViewGroupInfoSaveGroupButtonClick, this);
 		this.getGroupInfo().getForm().addListener('deletegroupbuttonclick', this.onViewGroupInfoDeleteGroupButtonClick, this);
 		this.getPersonSearch().getForm().addListener('findpersonbuttonclick', this.onViewPersonSearchFindPersonButtonClick, this);
+		this.getPersonSearch().getForm().addListener('undofindpersonbuttonclick', this.onViewPersonSearchUndoFindPersonButtonClick, this);
 		this.getPersonInfo().getForm().addListener('addpersonbuttonclick', this.onViewPersonInfoAddPersonButtonClick, this);
 		this.getPersonInfo().getForm().addListener('savepersonbuttonclick', this.onViewPersonInfoSavePersonButtonClick, this);
 		this.getPersonInfo().getForm().addListener('deletepersonbuttonclick', this.onViewPersonInfoDeletePersonButtonClick, this);
@@ -394,22 +395,67 @@ Ext.define('core.controller.Persons', {
 	onViewPersonSearchFindPersonButtonClick: function() {
 
 		if(debug){console.info('View PersonSearch: Find Person Button | Click')};
-		
-		// console.log(this.getPersonGrid().store);
-		//this.getPersonGrid().store.load({start:0,limit:3000});  
 
 		this.getPersonGrid().store.getProxy().extraParams.start = 0;
 		this.getPersonGrid().store.getProxy().extraParams.limit = 9999; // Set as high as possible
-		//this.getPersonGrid().setLoading = true;
-		this.getPersonGrid().store.load();
 		
-		//this.getPersonGrid().store.filter("PersonFirstName", "Lara"); // Make Dynamic
+		//console.log(this.getPersonSearch().getComponent('groupGenderID').getComponent('male').value);
 
-		//this.getCmp('personGridPagingToolbar').MoveFirst();
-		this.getPersonGrid().store.loadPage(1);
-		//this.getPersonGrid().setLoading = false;
-		//this.getPersonGrid().store.loadPage(1);
+		var personFirstName = this.getPersonSearch().getComponent('fieldPersonFirstName').value;
+		var personLastName = this.getPersonSearch().getComponent('fieldPersonLastName').value;
+		var genderIDMale = this.getPersonSearch().getComponent('groupGenderID').getComponent('male').value;
+		var genderIDFemale = this.getPersonSearch().getComponent('groupGenderID').getComponent('female').value;		
 
+		myGrid = this.getPersonGrid();
+		myFilters = [];
+		
+		if(personFirstName) {
+			personFirstNameFilter = [{
+			    field: 'PersonFirstName',
+			    data: {
+			        type: 'string',
+			        value: personFirstName
+			    }
+			}];
+			myFilters.push(personFirstNameFilter[0]);
+		};		
+		if(personLastName) {
+			personLastNameFilter = [{
+			    field: 'PersonLastName',
+			    data: {
+			        type: 'string',
+			        value: personLastName
+			    }
+			}];
+			myFilters.push(personLastNameFilter[0]);
+		};
+		
+/*		
+		myFilters = [
+			{
+			    field: 'some_list_column_data_index',
+			    data: {
+			        type: 'list',
+			        value: 'item1,item2,item3,item4,item5,item6,item7'
+			    }
+			}, 
+			{
+			    field: 'some_date_column_data_index',
+			    data: {
+			        type: 'date',
+			        comparison: 'gt',
+			        value: '07/07/2007'
+			    }
+			}		
+		];
+*/
+		this.doGridFilter(myGrid, myFilters);
+	},
+	onViewPersonSearchUndoFindPersonButtonClick: function() {
+		this.getPersonGrid().store.getProxy().extraParams.start = 0;
+		this.getPersonGrid().store.getProxy().extraParams.limit = 100;
+		this.getPersonGrid().store.clearFilter();
+		this.getPersonGrid().filters.clearFilters();
 	},
 	onViewPersonInfoAddPersonButtonClick: function() {
 		this.getPersonGrid().getSelectionModel().clearSelections();
@@ -485,5 +531,69 @@ Ext.define('core.controller.Persons', {
 		finally{
 			if(debug){console.info('View PersonInfo: groupIDs | '+groupIDs)};
 		};
-	}
+	},
+	doGridFilter: function(grid, filters) {
+		//source: http://stackoverflow.com/questions/9629531/apply-grid-filter-programmatically-from-function
+		console.info('Constructor Persons: doGridFilter()');
+	    // for each filter object in the array
+	    Ext.each(filters, function(filter) {
+	        var gridFilter = grid.filters.getFilter(filter.field);
+
+	        gridFilter.setActive(true);
+	        switch(filter.data.type) {
+
+	            case 'date':
+	                var dateValue = Ext.Date.parse(filter.data.value, 'm/d/Y'),
+	                    value;
+
+	                switch (filter.data.comparison) {
+
+	                    case 'gt' :
+	                        value = {after: dateValue};
+	                        break;
+	                    case 'lt' :
+	                        value = {before: dateValue};
+	                        break;
+	                    case 'eq' :
+	                        value = {on: dateValue};
+	                        break;
+	                }
+					gridFilter = grid.filters.getFilter(filter.field); // was gridFilter = log.filters.getFilter(filter.field);
+	                gridFilter.setValue(value);
+	                gridFilter.setActive(true);
+	                break;
+
+	            case 'numeric':
+	                var value;
+
+	                switch (filter.data.comparison) {
+
+	                    case 'gt' :
+	                        value = {gt: filter.data.value};
+	                        break;
+	                    case 'lt' :
+	                        value = {lt: filter.data.value};
+	                        break;
+	                    case 'eq' :
+	                        value = {eq: filter.data.value};
+	                        break;
+	                }
+	                gridFilter = grid.filters.getFilter(filter.field); // was gridFilter = log.filters.getFilter(filter.field);
+	                gridFilter.setValue(value);
+	                gridFilter.setActive(true);
+	                break;
+
+	            case 'list':
+	                gridFilter = grid.filters.getFilter(filter.field); // was gridFilter = log.filters.getFilter(filter.field);
+	                gridFilter.menu.setSelected(gridFilter.menu.selected, false);
+	                gridFilter.menu.setSelected(filter.data.value.split(','), true);
+	                break;
+
+	            default :
+	                gridFilter = grid.filters.getFilter(filter.field); // was gridFilter = log.filters.getFilter(filter.field);
+	                gridFilter.setValue(filter.data.value);
+	                break;
+	        }
+	    });
+	} // eof doGridFilter
 });

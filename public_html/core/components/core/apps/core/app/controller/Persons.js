@@ -3,7 +3,7 @@
  * @extends Ext.app.Controller
  */
 
-var debug = false; // change for production 
+var debug = true; // change for production 
 if (!window.console) console = {log: function() {}}; // avoids the error in IE
 
 // var localHost = 'http://example.com'; // Now defined inside web page

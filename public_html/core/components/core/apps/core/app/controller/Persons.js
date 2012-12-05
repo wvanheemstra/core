@@ -608,6 +608,117 @@ Ext.define('core.controller.Persons', {
 	        }
 	    });
 	} // eof doGridFilter
-}); // oef Ext.define
+}); // oef Ext.define 'core.controller.Persons'
 
-
+Ext.define('HtmlEditorSpecialCharacters', {
+    extend: 'Ext.util.Observable',
+    constructor: function(config){
+	    this.init = function(cmp) {
+			//console.log(cmp);
+	        this.cmp = cmp;
+	        this.cmp.on('render', this.onRender, this);
+	    };
+	    this.onRender = function(){
+			//console.info("HTMLEditor: I'm being rendered!"); // for testing only
+	        var cmp = this.cmp;	
+	        var btn = this.cmp.getToolbar().add({
+				id: 'btnInsertSpecialCharacter',
+			    // SpecialCharacters language text
+			    langTitle: 'Insert Special Character',
+			    langInsert: 'Insert',
+			    langCancel: 'Cancel',
+				/**
+			     * @cfg {Array} specialChars
+			     * An array of additional characters to display for user selection.  
+				 * Uses numeric portion of the ASCII HTML Character Code only. 
+				 * For example, to use the Copyright symbol, which is &#169; 
+				 * we would just specify <tt>169</tt> (ie: <tt>specialChars:[169]</tt>).
+			     */
+			    specialChars : [153],
+			    /**
+			     * @cfg {Array} charRange
+			     * Two numbers specifying a range of ASCII HTML Characters to display for user selection. 
+				 * Defaults to <tt>[160, 256]</tt>.
+			     */
+			    charRange : [160, 256],
+				chars: [],
+				iconCls: 'x-edit-char',
+	            handler: function() {
+					if(!this.chars.length) {
+						// If no chars were set first time !this.chars.length = true, 
+						// however if chars were set !this.chars.length = false
+						// console.log('need for adding chars');
+	                    if (!this[this.specialChars]) {
+	                        Ext.each(this.specialChars, function(c, i){
+	                            this.chars[i] = ['&#' + c + ';'];
+	                        }, this);
+	                    }
+	                    for (i = this.charRange[0]; i < this.charRange[1]; i++) {
+	                        this.chars.push(['&#' + i + ';']);
+	                    }
+	                };
+	                var charStore = new Ext.data.ArrayStore({
+	                    fields: ['char'],
+	                    data: this.chars
+	                });
+                	this.charWindow = new Ext.Window({
+	                    title: this.langTitle,
+	                    width: 436,
+	                    autoHeight: true,
+	                    layout: 'fit',
+						items: [{
+							xtype: 'dataview',
+	                        store: charStore,
+	                        ref: 'charView',
+	                        autoHeight: true,
+	                        multiSelect: true,
+	                        tpl: new Ext.XTemplate('<tpl for="."><div class="char-item">{char}</div></tpl><div class="x-clear"></div>'),
+	                        overClass: 'char-over',
+	                        itemSelector: 'div.char-item',
+	                        listeners: {
+	                            dblclick: function(t, i, n, e) {
+									// t=charWindow, i=rowIndex, n=columnIndex, e=?
+									cmp.insertAtCursor(i.innerHTML);
+	                                this.charWindow.close();
+	                            },
+								click: function(t, i, n, e) {
+									// t=charWindow, i=rowIndex, n=columnIndex, e=?
+									cmp.insertAtCursor(i.innerHTML);
+	                                this.charWindow.close();
+	                            },
+								element: 'el',
+	                            scope: this
+	                        }
+						}]
+						/*,
+						buttons: [{
+							text: this.langInsert,
+							handler: function() {
+								console.log('Insert button clicked.');
+								console.log(this.ownerCt);
+	                            Ext.each(this.charWindow.charView.getSelectedRecords(), function(rec) {
+									console.log('inside insert button clicked.');
+	                                var c = rec.get('char');
+	                                this.insertChar(c);
+	                            }, this);
+	                            this.charWindow.close();
+	                        },
+	                        scope: this
+						},
+						{
+							text: this.langCancel,
+	                        handler: function() {
+	                            this.charWindow.close();
+	                        },
+	                        scope: this
+						}]*/
+	                });
+	                this.charWindow.show();
+				},
+	            scope: btn
+		    }); // eof btn
+	    };
+		// Call our superclass constructor to complete construction process.
+        this.callParent(arguments);
+    }
+}); // eof Ext.define 'HtmlEditorSpecialCharacters'

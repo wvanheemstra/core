@@ -56,40 +56,6 @@ Ext.define('core.view.GroupInfo', {
 				fieldLabel: 'Group',
 				allowBlank: false,
 				name: 'GroupName'
-			},
-			{
-				xtype: 'htmleditor',
-				itemId: 'fieldEditable',
-				fielLabel: 'Editable',
-				allowBlank: true,
-				name: 'Editable',
-				enableSourceEdit: false,
-				enableColors: false,
-				enableLinks: false,
-				enableAlignments: false,
-				enableFormat: false,
-				enableFont: false,
-				enableFontSize: false,
-				enableLists: false,
-				plugins: [
-					new HtmlEditorSpecialCharacters() // THIS WORKS, perhaps replace new with Ext.create()
-				]
-				
-				//plugins: Ext.form.field.HtmlEditor.plugins()
-				
-				/*
-				plugins: [
-					Ext.create('Ext.form.field.HtmlEditor.Word',{})
-
-        	    //	Ext.form.field.HtmlEditor.Word(),  
-        	    //	Ext.form.field.HtmlEditor.Divider(),  
-        	    //	Ext.form.field.HtmlEditor.Table(),  
-        	    //	Ext.form.field.HtmlEditor.HR(),  
-        	    //	Ext.form.field.HtmlEditor.IndentOutdent(),  
-        	    //	Ext.form.field.HtmlEditor.SubSuperScript(),  
-        	    //	Ext.form.field.HtmlEditor.RemoveFormat()
-        		]
-				*/
 			}
 		];
 		config.bbar = [

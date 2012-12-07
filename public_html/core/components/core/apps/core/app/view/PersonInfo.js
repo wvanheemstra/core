@@ -94,18 +94,82 @@ Ext.define('core.view.PersonInfo', {
 						forceSelection: true
 					},
 					{
-						xtype: 'textfield',
-						itemId: 'fieldPersonFirstName',
-						fieldLabel: 'First Name',
-						allowBlank: false,
-						name: 'PersonFirstName'
+						xtype: 'container',
+						layout:'column',
+						items: [{
+						    columnWidth: 80,
+						    html: 'First Name:',
+							border: 0
+						},{
+							columnWidth: 80,
+							border: 0,
+							xtype: 'htmleditor',
+							itemId: 'fieldPersonFirstName',
+							fielLabel: 'First Name',
+							allowBlank: true,
+							name: 'PersonFirstName',
+							enableSourceEdit: false,
+							enableColors: false,
+							enableLinks: false,
+							enableAlignments: false,
+							enableFormat: false,
+							enableFont: false,
+							enableFontSize: false,
+							enableLists: false,
+							plugins: [
+								new HtmlEditorSpecialCharacters() // THIS WORKS, perhaps replace new with Ext.create()
+							]
+							/*
+							plugins: [
+			        	    //	Ext.form.field.HtmlEditor.Word(),  
+			        	    //	Ext.form.field.HtmlEditor.Divider(),  
+			        	    //	Ext.form.field.HtmlEditor.Table(),  
+			        	    //	Ext.form.field.HtmlEditor.HR(),  
+			        	    //	Ext.form.field.HtmlEditor.IndentOutdent(),  
+			        	    //	Ext.form.field.HtmlEditor.SubSuperScript(),  
+			        	    //	Ext.form.field.HtmlEditor.RemoveFormat()
+			        		]
+							*/
+						}]
 					},
 					{
-						xtype: 'textfield',
-						itemId: 'fieldPersonLastName',
-						fieldLabel: 'Last Name',
-						allowBlank: false,
-						name: 'PersonLastName'
+						xtype: 'container',
+						layout:'column',
+						items: [{
+						    columnWidth: 80,
+						    html: 'Last Name:',
+							border: 0
+						},{
+							columnWidth: 80,
+							border: 0,
+							xtype: 'htmleditor',
+							itemId: 'fieldPersonLastName',
+							fielLabel: 'Last Name',
+							allowBlank: true,
+							name: 'PersonLastName',
+							enableSourceEdit: false,
+							enableColors: false,
+							enableLinks: false,
+							enableAlignments: false,
+							enableFormat: false,
+							enableFont: false,
+							enableFontSize: false,
+							enableLists: false,
+							plugins: [
+								new HtmlEditorSpecialCharacters() // THIS WORKS, perhaps replace new with Ext.create()
+							]
+							/*
+							plugins: [
+			        	    //	Ext.form.field.HtmlEditor.Word(),  
+			        	    //	Ext.form.field.HtmlEditor.Divider(),  
+			        	    //	Ext.form.field.HtmlEditor.Table(),  
+			        	    //	Ext.form.field.HtmlEditor.HR(),  
+			        	    //	Ext.form.field.HtmlEditor.IndentOutdent(),  
+			        	    //	Ext.form.field.HtmlEditor.SubSuperScript(),  
+			        	    //	Ext.form.field.HtmlEditor.RemoveFormat()
+			        		]
+							*/
+						}]
 					},
 					{
 						xtype: 'radiogroup',
@@ -345,4 +409,4 @@ Ext.define('core.view.PersonInfo', {
 		// finally call the superclasses implementation
 		this.superclass.constructor.call(this, config);
 	}
-});
+}); //eof Ext.define 'core.view.PersonInfo'

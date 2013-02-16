@@ -35,11 +35,17 @@ exports.read = function(req, res) {
 	
 	// Static for the time being, make this dynamic	
 	var persons = [
+    	{
+     		"type": "/core/person",
+     		"kp_PersonID": 1,
+     		"PersonFirstName": "Zenaida",
+     		"PersonLastName": "Rodarte"
+    	},
 	    {
-	     "type": "/core/person",
-	     "kp_PersonID": 2,
-	     "PersonFirstName": "Giuseppe",
-	     "PersonLastName": "Cerda"
+	     	"type": "/core/person",
+	     	"kp_PersonID": 2,
+	     	"PersonFirstName": "Giuseppe",
+	     	"PersonLastName": "Cerda"
 	    }
 	 ];
 

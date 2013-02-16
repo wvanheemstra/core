@@ -114,24 +114,24 @@ Harness.start(
                     {
                         group               : 'Sanity',
                         items               : [
-                            'test/sanity.t.js' // was '025-extjs-mvc/tests/010_sanity.t.js'
+                            'tests/sanity.t.js' // was '025-extjs-mvc/tests/010_sanity.t.js'
                         ]
                     },
                     {
                         group               : 'Model',
                         items               : [
-							'test/model/ContactModel.t.js',
-							'test/model/DateModel.t.js',
-							'test/model/GenderModel.t.js',							
-							'test/model/GroupModel.t.js',
-							'test/model/MembershipModel.t.js',
-							'test/model/NationalityModel.t.js',
-							'test/model/OrganisationModel.t.js',
-							'test/model/PartyModel.t.js',
-							'test/model/PersonGroupModel.t.js',
-                            'test/model/PersonModel.t.js',
-							'test/model/SalutationModel.t.js',
-							'test/model/SomeModel.t.js' // for testing only
+							'tests/model/ContactModel.t.js',
+							'tests/model/DateModel.t.js',
+							'tests/model/GenderModel.t.js',							
+							'tests/model/GroupModel.t.js',
+							'tests/model/MembershipModel.t.js',
+							'tests/model/NationalityModel.t.js',
+							'tests/model/OrganisationModel.t.js',
+							'tests/model/PartyModel.t.js',
+							'tests/model/PersonGroupModel.t.js',
+                            'tests/model/PersonModel.t.js',
+							'tests/model/SalutationModel.t.js',
+							'tests/model/SomeModel.t.js' // for testing only
                         ]
                     },
                     {

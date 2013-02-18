@@ -1,0 +1,35 @@
+{
+  "code": "/api/status/ok",
+  "result": [
+    {
+      "type": "/core/person",
+      "kp_PersonID": 1,
+      "PersonFirstName": "Zenaida",
+      "PersonLastName": "Rodarte"
+    }
+  ],
+  "sql": [
+    {
+      "statement": "SELECT  T1.PersonFirstName AS T1C1\n, T1.PersonLastName AS T1C2\nFROM core.person T1\nWHERE T1.kp_PersonID = :P1",
+      "params": [
+        {
+          "name": "P1",
+          "value": 1,
+          "type": 1
+        }
+      ]
+    }
+  ],
+  "timing": [
+    {
+      "name": "begin query #0",
+      "microtime": "0.97851400 1345456623"
+    },
+    {
+      "name": "end query #0",
+      "microtime": "0.99005200 1345456623"
+    }
+  ],
+  "status": "200 OK",
+  "transaction_id": "not implemented"
+}

@@ -62,15 +62,18 @@ exports.read = function(req, res) {
 	output["transaction_id"] = transaction_id;
 
 	res.header("Access-Control-Allow-Origin", "*"); // to allow cross-domain, replace * with a list of domains is desired.
-	res.header("Access-Control-Allow-Headers", "X-Requested-With");
+	res.header("Access-Control-Allow-Headers", "X-Requested-With, Content-Type");
+	res.header('Access-Control-Allow-Credentials', true);
+	res.header('Access-Control-Allow-Methods', 'POST, GET, PUT, DELETE, OPTIONS'); // ExtJS will sent out OPTIONS
 	res.send(output);
 };
 
 exports.write = function(req, res) {
 	
-	
 	res.header("Access-Control-Allow-Origin", "*"); // to allow cross-domain, replace * with a list of domains is desired.
-	res.header("Access-Control-Allow-Headers", "X-Requested-With");	
+	res.header("Access-Control-Allow-Headers", "X-Requested-With, Content-Type");
+	res.header('Access-Control-Allow-Credentials', true);
+	res.header('Access-Control-Allow-Methods', 'POST, GET, PUT, DELETE, OPTIONS'); // ExtJS will sent out OPTIONS
 	res.send({ service : "mql.write", url 
 	: "/services/mql/write", info: "mql.write not implemented" });
 };

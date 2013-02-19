@@ -6,6 +6,16 @@
 var debug = true; // change for production 
 if (!window.console) console = {log: function() {}}; // avoids the error in IE
 
+if(localHost==null || localHost==undefined || localHost=='')
+{ 
+	var localHost = 'http://vanheemstrapictures.com';
+} // backup in case no value is provided
+
+if(remoteHost==null || remoteHost==undefined || remoteHost=='')
+{ 
+	var remoteHost = 'http://vanheemstrapictures.com';
+} // backup in case no value is provided
+
 // var localHost = 'http://example.com'; // Now defined inside web page
 // var remoteHost = 'http://example.com'; // Now defined inside web page
 
@@ -161,7 +171,8 @@ Ext.define('core.controller.Persons', {
 									        stateful: true,
 									        stateId: 'personsearchstate',
 											collapsible: true,
-											width: 'fit',
+											//width: 'fit', // use anchor instead of width
+											anchor: '100%', // new
 											border: 0,
 											split: true,
 											height: 112						
@@ -180,7 +191,8 @@ Ext.define('core.controller.Persons', {
 								pack  : 'start',
 								border: 0
 							},
-							width: 250,					
+							width: 250,
+							anchor: '100%', // new					
 							split: true,
 							title: 'Person Info',
 							// config options for stateful behavior
@@ -413,8 +425,8 @@ Ext.define('core.controller.Persons', {
 
 		//console.log(this.getPersonSearch().getComponent('groupGenderID').getComponent('male').value);
 
-		var personFirstName = this.getPersonSearch().getComponent('fieldPersonFirstName').value;
-		var personLastName = this.getPersonSearch().getComponent('fieldPersonLastName').value;
+		var personFirstName = this.getPersonSearch().getComponent('containerPersonFirstName').getComponent('fieldPersonFirstName').value;
+		var personLastName = this.getPersonSearch().getComponent('containerPersonLastName').getComponent('fieldPersonLastName').value;
 		var genderIDMale = this.getPersonSearch().getComponent('groupGenderID').getComponent('male').value;
 		var genderIDFemale = this.getPersonSearch().getComponent('groupGenderID').getComponent('female').value;		
 

@@ -84,6 +84,7 @@ Ext.define('core.view.PersonInfo', {
 					{
 						name: 'kf_SalutationID',
 						xtype: 'combobox',
+						anchor: '100%', // new
 						fieldLabel: 'Salutation',
 						displayField: 'SalutationAbbreviation',
 						valueField: 'kp_SalutationID',
@@ -97,13 +98,17 @@ Ext.define('core.view.PersonInfo', {
 						xtype: 'container',
 						layout:'column',
 						items: [{
-						    columnWidth: 80,
+						    //columnWidth: 80,
+							anchor: '100%', // new
 						    html: 'First Name:',
 							border: 0
 						},{
-							columnWidth: 80,
+							//columnWidth: 80,
+							columnHeight: 20,
 							border: 0,
 							xtype: 'htmleditor',
+							height: 60, // new
+							width:'100%', // htmleditors should use width 100% instead of anchor 100%
 							itemId: 'fieldPersonFirstName',
 							fielLabel: 'First Name',
 							allowBlank: true,
@@ -136,13 +141,16 @@ Ext.define('core.view.PersonInfo', {
 						xtype: 'container',
 						layout:'column',
 						items: [{
-						    columnWidth: 80,
+						    //columnWidth: 80,
+							anchor: '100%', // new
 						    html: 'Last Name:',
 							border: 0
 						},{
-							columnWidth: 80,
+							//columnWidth: 80,
 							border: 0,
 							xtype: 'htmleditor',
+							height: 60, // new
+							width:'100%', // htmleditors should use width 100% instead of anchor 100%
 							itemId: 'fieldPersonLastName',
 							fielLabel: 'Last Name',
 							allowBlank: true,
@@ -174,6 +182,7 @@ Ext.define('core.view.PersonInfo', {
 					{
 						xtype: 'radiogroup',
 						fieldLabel: 'Gender',
+						anchor: '100%', // new
 						defaults: {xtype: 'radio', name: 'kf_GenderID'},
 						items: [{
 							boxLabel: 'Male',
@@ -186,6 +195,7 @@ Ext.define('core.view.PersonInfo', {
 					{
 						name: 'kf_NationalityID',
 						xtype: 'combobox',
+						anchor: '100%', // new
 						fieldLabel: 'Nationality',
 						displayField: 'NationalityName',
 						valueField: 'kp_NationalityID',
@@ -198,6 +208,7 @@ Ext.define('core.view.PersonInfo', {
 					{
 						name: 'DateStart',
 						xtype: 'datefield',
+						anchor: '100%', // new
 						fieldLabel: 'Date of Birth',
 						displayField: 'DateStart',
 						format: 'Y-m-d',
@@ -211,22 +222,26 @@ Ext.define('core.view.PersonInfo', {
 					border: 0,
 					// fields
 					items: [{
-						xtype: 'textfield', // auto-increment field, need presence for update  
+						xtype: 'textfield', // auto-increment field, need presence for update 
+						anchor:'100%', // new 
 						fieldLabel: 'Landline Phone',
 						allowBlank: true,
 					},
 					{
-						xtype: 'textfield', // auto-increment field, need presence for update  
+						xtype: 'textfield', // auto-increment field, need presence for update 
+						anchor:'100%', // new  
 						fieldLabel: 'Mobile Phone',
 						allowBlank: true,
 					},
 					{
-						xtype: 'textfield', // auto-increment field, need presence for update  
+						xtype: 'textfield', // auto-increment field, need presence for update
+						anchor:'100%', // new   
 						fieldLabel: 'Fax',
 						allowBlank: true,
 					},
 					{
-						xtype: 'textfield', // auto-increment field, need presence for update  
+						xtype: 'textfield', // auto-increment field, need presence for update 
+						anchor:'100%', // new  
 						fieldLabel: 'E-mail',
 						allowBlank: true,
 					}]
@@ -237,27 +252,32 @@ Ext.define('core.view.PersonInfo', {
 					border: 0,
 					// fields
 					items: [{
-						xtype: 'textarea', // auto-increment field, need presence for update  
+						xtype: 'textarea', // auto-increment field, need presence for update
+						anchor:'100%', // new   
 						fieldLabel: 'Address',
 						allowBlank: true,
 					},
 					{
-						xtype: 'textfield', // auto-increment field, need presence for update  
+						xtype: 'textfield', // auto-increment field, need presence for update
+						anchor:'100%', // new   
 						fieldLabel: 'Place',
 						allowBlank: true,
 					},
 					{
-						xtype: 'textfield', // auto-increment field, need presence for update  
+						xtype: 'textfield', // auto-increment field, need presence for update 
+						anchor:'100%', // new  
 						fieldLabel: 'Postal Code',
 						allowBlank: true,
 					},
 					{
-						xtype: 'textfield', // auto-increment field, need presence for update  
+						xtype: 'textfield', // auto-increment field, need presence for update
+						anchor:'100%', // new   
 						fieldLabel: 'Region',
 						allowBlank: true,
 					},
 					{
-						xtype: 'textfield', // auto-increment field, need presence for update  
+						xtype: 'textfield', // auto-increment field, need presence for update
+						anchor:'100%', // new   
 						fieldLabel: 'Country',
 						allowBlank: true,								 
 					}]
@@ -270,6 +290,7 @@ Ext.define('core.view.PersonInfo', {
 					items: [{
 						name: 'GroupIDs',
 						xtype: 'itemselector',
+						anchor:'100%', // new 
 						fieldLabel: 'Groups',
 						displayField: 'GroupName',
 						valueField: 'kp_GroupID',

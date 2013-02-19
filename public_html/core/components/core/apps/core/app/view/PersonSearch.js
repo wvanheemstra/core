@@ -29,15 +29,19 @@ Ext.define('core.view.PersonSearch', {
 	    config.items = [
 			{
 				xtype: 'container',
+				itemId: 'containerPersonFirstName',
 				layout:'column',
 				items: [{
-				    columnWidth: 80,
+				    //columnWidth: 80,
 				    html: 'First Name:',
+					anchor:'100%', // new 
 					border: 0
 				},{
-					columnWidth: 80,
+					//columnWidth: 80,
 					border: 0,
 					xtype: 'htmleditor',
+					height: 60, // new
+					width:'100%', // use width 100% with htmleditors, not anchor 100%
 					itemId: 'fieldPersonFirstName',
 					fielLabel: 'First Name',
 					allowBlank: true,
@@ -51,7 +55,9 @@ Ext.define('core.view.PersonSearch', {
 					enableFontSize: false,
 					enableLists: false,
 					plugins: [
-						new HtmlEditorSpecialCharacters() // THIS WORKS, perhaps replace new with Ext.create()
+						new HtmlEditorSpecialCharacters({
+							itemId:'htmleditorPersonFirstName'
+							}) // THIS WORKS, perhaps replace new with Ext.create()
 					]
 					/*
 					plugins: [
@@ -68,15 +74,19 @@ Ext.define('core.view.PersonSearch', {
 			},
 			{
 				xtype: 'container',
+				itemId: 'containerPersonLastName',
 				layout:'column',
 				items: [{
-				    columnWidth: 80,
+				    //columnWidth: 80,
 				    html: 'Last Name:',
+					anchor:'100%', // new 
 					border: 0
 				},{
-					columnWidth: 80,
+					//columnWidth: 80,
 					border: 0,
 					xtype: 'htmleditor',
+					height: 60, // new
+					width:'100%', // use width 100% with htmleditors, not anchor 100%
 					itemId: 'fieldPersonLastName',
 					fielLabel: 'Last Name',
 					allowBlank: true,
@@ -90,7 +100,9 @@ Ext.define('core.view.PersonSearch', {
 					enableFontSize: false,
 					enableLists: false,
 					plugins: [
-						new HtmlEditorSpecialCharacters() // THIS WORKS, perhaps replace new with Ext.create()
+						new HtmlEditorSpecialCharacters({
+							itemId:'htmleditorPersonLastName'
+							}) // THIS WORKS, perhaps replace new with Ext.create()
 					]
 					/*
 					plugins: [
@@ -108,6 +120,7 @@ Ext.define('core.view.PersonSearch', {
 			{
 				xtype: 'checkboxgroup',
 				fieldLabel: 'Gender',
+				anchor:'100%', // new
 				itemId: 'groupGenderID',
 	            columns: 2,
 	            items: [
@@ -124,6 +137,7 @@ Ext.define('core.view.PersonSearch', {
 			{
 				name: 'NationalityIDs',
 				xtype: 'itemselector',
+				anchor:'100%', // new
 				fieldLabel: 'Nationalities',
 				displayField: 'NationalityName',
 				valueField: 'kp_NationalityID',

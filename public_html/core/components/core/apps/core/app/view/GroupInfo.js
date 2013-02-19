@@ -53,6 +53,7 @@ Ext.define('core.view.GroupInfo', {
 			{
 				xtype: 'textfield',
 				itemId: 'fieldGroupName',
+				anchor:'100%',
 				fieldLabel: 'Group',
 				allowBlank: false,
 				name: 'GroupName'

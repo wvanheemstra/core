@@ -31,6 +31,7 @@ CREATE TABLE `tbl_membership` (
   `gKindOfRoleID_occupation` int(11) NOT NULL,
   `ts_Created` datetime DEFAULT NULL,
   `ts_Updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  FOREIGN KEY (`kf_PersonID`) REFERENCES `tbl_person` (`kp_PersonID`) ON DELETE CASCADE,
   PRIMARY KEY (`kp_MembershipID`),
   UNIQUE KEY `kp_MembershipID` (`kp_MembershipID`) USING BTREE,
   KEY `kf_PersonID` (`kf_PersonID`) USING BTREE,

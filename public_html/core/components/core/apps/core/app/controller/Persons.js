@@ -37,6 +37,7 @@ Ext.define('core.controller.Persons', {
     stores: ['core.store.Groups', 'core.store.PersonsGroups', 'core.store.Persons', 'core.store.Salutations', 'core.store.Genders', 'core.store.Nationalities', 'core.store.Dates', 'core.store.Memberships', 'core.store.Organisations', 'core.store.Contacts'],
     views: ['core.view.PersonPanel', 'core.view.GroupGrid', 'core.view.GroupInfo', 'core.view.PersonInfo', 'core.view.PersonGrid', 'core.view.PersonSearch'],
 	refs: [
+		// Views
 		{
 		   ref: 'GroupGrid',
 		   selector: 'groupgrid' // widget name
@@ -62,6 +63,38 @@ Ext.define('core.controller.Persons', {
 		   selector: 'personpanel' // widget name
 		}
 	],
+	// GETTERS
+	// Stores
+	getStoreGroups : function() {
+		return this.getStore('core.store.Groups');
+	},
+	getStorePersonsGroups : function() {
+		return this.getStore('core.store.PersonsGroups');
+	},
+	getStorePersons : function() {
+		return this.getStore('core.store.Persons');
+	},
+	getStoreSalutations : function() {
+		return this.getStore('core.store.Salutations');
+	},	
+	getStoreGenders : function() {
+		return this.getStore('core.store.Genders');
+	},	
+	getStoreDates : function() {
+		return this.getStore('core.store.Dates');
+	},	
+	getStoreNationalities : function() {
+		return this.getStore('core.store.Nationalities');
+	},	
+	getStoreMemberships : function() {
+		return this.getStore('core.store.Memberships');
+	},	
+	getStoreOrganisations : function() {
+		return this.getStore('core.store.Organisations');
+	},	
+	getStoreContacts : function() {
+		return this.getStore('core.store.Contacts');
+	},
     init: function() {
 		Ext.create('Ext.window.Window', {
 		    title: 'Administration',
@@ -218,28 +251,37 @@ Ext.define('core.controller.Persons', {
 			//Ext.state.Manager.setProvider(new Ext.state.CookieProvider({expires: thirtyDays}));
 			Ext.state.Manager.setProvider(new Ext.state.CookieProvider()); // never expires
 		}; // Do not keep state in debug
-		// LISTENERS
-		// Stores
-		Ext.getStore('core.store.Groups').addListener('load', this.onStoreGroupsLoad, this);
-		Ext.getStore('core.store.Groups').addListener('datachanged', this.onStoreGroupsDataChanged, this);
-		Ext.getStore('core.store.PersonsGroups').addListener('load', this.onStorePersonsGroupsLoad, this);
-		Ext.getStore('core.store.PersonsGroups').addListener('datachanged', this.onStorePersonsGroupsDataChanged, this);	
-		Ext.getStore('core.store.Persons').addListener('load', this.onStorePersonsLoad, this);
-		Ext.getStore('core.store.Persons').addListener('datachanged', this.onStorePersonsDataChanged, this);
-		Ext.getStore('core.store.Salutations').addListener('load', this.onStoreSalutationsLoad, this);
-		Ext.getStore('core.store.Salutations').addListener('datachanged', this.onStoreSalutationsDataChanged, this);		
-		Ext.getStore('core.store.Genders').addListener('load', this.onStoreGendersLoad, this);
-		Ext.getStore('core.store.Genders').addListener('datachanged', this.onStoreGendersDataChanged, this);
-		Ext.getStore('core.store.Dates').addListener('load', this.onStoreDatesLoad, this);
-		Ext.getStore('core.store.Dates').addListener('datachanged', this.onStoreDatesDataChanged, this);			
-		Ext.getStore('core.store.Nationalities').addListener('load', this.onStoreNationalitiesLoad, this);
-		Ext.getStore('core.store.Nationalities').addListener('datachanged', this.onStoreNationalitiesDataChanged, this);
-		Ext.getStore('core.store.Memberships').addListener('load', this.onStoreMembershipsLoad, this);
-		Ext.getStore('core.store.Memberships').addListener('datachanged', this.onStoreMembershipsDataChanged, this);		
-		Ext.getStore('core.store.Organisations').addListener('load', this.onStoreOrganisationsLoad, this);
-		Ext.getStore('core.store.Organisations').addListener('datachanged', this.onStoreOrganisationsDataChanged, this);
-		Ext.getStore('core.store.Contacts').addListener('load', this.onStoreContactsLoad, this);
-		Ext.getStore('core.store.Contacts').addListener('datachanged', this.onStoreContactsDataChanged, this);
+		// LISTENERS, uses our Getter functions
+		// Stores: Groups
+		this.getStoreGroups().addListener('load', this.onStoreGroupsLoad, this);
+		this.getStoreGroups().addListener('datachanged', this.onStoreGroupsDataChanged, this);
+		// Stores: PersonsGroups		
+		this.getStorePersonsGroups().addListener('load', this.onStorePersonsGroupsLoad, this);
+		this.getStorePersonsGroups().addListener('datachanged', this.onStorePersonsGroupsDataChanged, this);
+		// Stores: Persons		
+		this.getStorePersons().addListener('load', this.onStorePersonsLoad, this);
+		this.getStorePersons().addListener('datachanged', this.onStorePersonsDataChanged, this);
+		// Stores: Salutations		
+		this.getStoreSalutations().addListener('load', this.onStoreSalutationsLoad, this);
+		this.getStoreSalutations().addListener('datachanged', this.onStoreSalutationsDataChanged, this);
+		// Stores: Genders			
+		this.getStoreGenders().addListener('load', this.onStoreGendersLoad, this);
+		this.getStoreGenders().addListener('datachanged', this.onStoreGendersDataChanged, this);
+		// Stores: Dates		
+		this.getStoreDates().addListener('load', this.onStoreDatesLoad, this);
+		this.getStoreDates().addListener('datachanged', this.onStoreDatesDataChanged, this);
+		// Stores: Nationalities		
+		this.getStoreNationalities().addListener('load', this.onStoreNationalitiesLoad, this);			
+		this.getStoreNationalities().addListener('datachanged', this.onStoreNationalitiesDataChanged, this);
+		// Stores: Memberships		
+		this.getStoreMemberships().addListener('load', this.onStoreMembershipsLoad, this);
+		this.getStoreMemberships().addListener('datachanged', this.onStoreMembershipsDataChanged, this);
+		// Stores: Organisations		
+		this.getStoreOrganisations().addListener('load', this.onStoreOrganisationsLoad, this);			
+		this.getStoreOrganisations().addListener('datachanged', this.onStoreOrganisationsDataChanged, this);
+		// Stores: Contacts
+		this.getStoreContacts().addListener('load', this.onStoreContactsLoad, this);		
+		this.getStoreContacts().addListener('datachanged', this.onStoreContactsDataChanged, this);
 		// Views: GroupGrid
 		this.getGroupGrid().getSelectionModel().addListener('select', this.onViewGroupGridSelect, this);
 		// Views: PersonGrid
@@ -258,9 +300,10 @@ Ext.define('core.controller.Persons', {
 		this.getPersonInfo().getForm().addListener('loadrecord', this.onViewPersonInfoLoadRecord, this);
     }, // eof init
 	// FUNCTIONS
+	// EventListeners
 	onStoreGroupsLoad: function(store, model) {
-		if(debug){console.info('Store Groups: '+Ext.getStore('core.store.Groups').getCount()+' records loaded.')};
-		Ext.getStore('core.store.Groups').loaded = true;
+		if(debug){console.info('Store Groups: '+this.getStoreGroups().getCount()+' records loaded.')};
+		this.getStoreGroups().loaded = true;
 		if(selection){
 			this.getGroupGrid().getSelectionModel().select(selection[0].index);
 		} // previous selection
@@ -270,16 +313,16 @@ Ext.define('core.controller.Persons', {
 		if(debug){console.info('Store Groups: Data Changed')};
 	},
 	onStorePersonsGroupsLoad: function(store, model) {
-		if(debug){console.info('Store PersonsGroups: '+Ext.getStore('core.store.PersonsGroups').getCount()+' records loaded.')};
-		Ext.getStore('core.store.PersonsGroups').loaded = true;
+		if(debug){console.info('Store PersonsGroups: '+this.getStorePersonsGroups().getCount()+' records loaded.')};
+		this.getStorePersonsGroups().loaded = true;
 	},
 	onStorePersonsGroupsDataChanged: function() {
 		if(debug){console.info('Store PersonsGroups: Data Changed')};
 	},
 	onStorePersonsLoad: function(store, model) {
 		showLoadingMask();
-		if(debug){console.info('Store Persons: '+Ext.getStore('core.store.Persons').getCount()+' records loaded.')};
-		Ext.getStore('core.store.Persons').loaded = true;
+		if(debug){console.info('Store Persons: '+this.getStorePersons().getCount()+' records loaded.')};
+		this.getStorePersons().loaded = true;
 		var task = new Ext.util.DelayedTask(function(){
 			if(debug){console.info('Store Persons: inside task.')};
 			myPersonGridFoundSet = Ext.ComponentQuery.query("grid[gridId='personGrid']");
@@ -288,7 +331,7 @@ Ext.define('core.controller.Persons', {
 			if(debug){console.info('Store Persons: saved New Person is '+savedNewPerson)};
 
 			if(savedNewPerson) { // for NEW saved person
-				myStore = Ext.getStore('core.store.Persons');
+				myStore = this.getStorePersons();
 				if (myStore.getCount() > 0)
 				{
 				  var maxId = myStore.getAt(0).get('kp_PersonID'); // initialise to the first record's id value.
@@ -342,50 +385,50 @@ Ext.define('core.controller.Persons', {
 		if(debug){console.info('Store Persons: Data Changed')};
 	},
 	onStoreSalutationsLoad: function(store, model) {
-		if(debug){console.info('Store Salutations: '+Ext.getStore('core.store.Salutations').getCount()+' records loaded.')};
-		Ext.getStore('core.store.Salutations').loaded = true;
+		if(debug){console.info('Store Salutations: '+this.getStoreSalutations().getCount()+' records loaded.')};
+		this.getStoreSalutations().loaded = true;
 	},
 	onStoreSalutationsDataChanged: function() {
 		if(debug){console.info('Store Salutations: Data Changed')};
 	},
 	onStoreGendersLoad: function(store, model) {
-		if(debug){console.info('Store Genders: '+Ext.getStore('core.store.Genders').getCount()+' records loaded.')};
-		Ext.getStore('core.store.Genders').loaded = true;
+		if(debug){console.info('Store Genders: '+this.getStoreGenders().getCount()+' records loaded.')};
+		this.getStoreGenders().loaded = true;
 	},
 	onStoreGendersDataChanged: function() {
 		if(debug){console.info('Store Genders: Data Changed')};
 	},
 	onStoreDatesLoad: function(store, model) {
-		if(debug){console.info('Store Dates: '+Ext.getStore('core.store.Dates').getCount()+' records loaded.')};
-		Ext.getStore('core.store.Dates').loaded = true;
+		if(debug){console.info('Store Dates: '+this.getStoreDates().getCount()+' records loaded.')};
+		this.getStoreDates().loaded = true;
 	},
 	onStoreDatesDataChanged: function() {
 		if(debug){console.info('Store Dates: Data Changed')};
 	},
 	onStoreNationalitiesLoad: function(store, model) {
-		if(debug){console.info('Store Nationalities: '+Ext.getStore('core.store.Nationalities').getCount()+' records loaded.')};
-		Ext.getStore('core.store.Nationalities').loaded = true;
+		if(debug){console.info('Store Nationalities: '+this.getStoreNationalities().getCount()+' records loaded.')};
+		this.getStoreNationalities().loaded = true;
 	},
 	onStoreNationalitiesDataChanged: function() {
 		if(debug){console.info('Store Nationalities: Data Changed')};
 	},
 	onStoreMembershipsLoad: function(store, model) {
-		if(debug){console.info('Store Memberships: '+Ext.getStore('core.store.Memberships').getCount()+' records loaded.')};
-		Ext.getStore('core.store.Memberships').loaded = true;
+		if(debug){console.info('Store Memberships: '+this.getStoreMemberships().getCount()+' records loaded.')};
+		this.getStoreMemberships().loaded = true;
 	},
 	onStoreMembershipsDataChanged: function() {
 		if(debug){console.info('Store Memberships: Data Changed')};
 	},
 	onStoreOrganisationsLoad: function(store, model) {
-		if(debug){console.info('Store Organisations: '+Ext.getStore('core.store.Organisations').getCount()+' records loaded.')};
-		Ext.getStore('core.store.Organisations').loaded = true;
+		if(debug){console.info('Store Organisations: '+this.getStoreOrganisations().getCount()+' records loaded.')};
+		this.getStoreOrganisations().loaded = true;
 	},
 	onStoreOrganisationsDataChanged: function() {
 		if(debug){console.info('Store Organisations: Data Changed')};
 	},
 	onStoreContactsLoad: function(store, model) {
-		if(debug){console.info('Store Contacts: '+Ext.getStore('core.store.Contacts').getCount()+' records loaded.')};
-		Ext.getStore('core.store.Contacts').loaded = true;
+		if(debug){console.info('Store Contacts: '+this.getStoreContacts().getCount()+' records loaded.')};
+		this.getStoreContacts().loaded = true;
 	},
 	onStoreContactsDataChanged: function() {
 		if(debug){console.info('Store Contacts: Data Changed')};
@@ -487,7 +530,7 @@ Ext.define('core.controller.Persons', {
 		personInfoTitle = 'Person Info - New Person';
 		this.getPersonPanel().getComponent('personinfoitem').title = personInfoTitle;
 		if(debug){console.info('View PersonInfo: title | '+this.getPersonPanel().getComponent('personinfoitem').title)};
-		Ext.getDom('personinfoitem_header_hd-textEl').innerHTML = personInfoTitle;
+		//Ext.getDom('personinfoitem_header_hd-textEl').innerHTML = personInfoTitle; // OLD
 	},
 	onViewPersonInfoSavePersonButtonClick: function() {
 		selection = this.getPersonGrid().getSelectionModel().getSelection(); // set global value of selection
@@ -500,8 +543,8 @@ Ext.define('core.controller.Persons', {
 			if(debug){console.info('View PersonInfo: Saved New Person')};
 			savedNewPerson = true;
 		};
-		Ext.getStore('core.store.Dates').load(); // Force a reload
-		Ext.getStore('core.store.PersonsGroups').load(); // Force a reload
+		this.getStoreDates().load(); // Force a reload
+		this.getStorePersonsGroups().load(); // Force a reload
 		this.getPersonGrid().store.load();
 		if(debug){console.info('View PersonInfo: Save Person Button | Click')};
 	},
@@ -533,15 +576,15 @@ Ext.define('core.controller.Persons', {
 		personID = selection[0].get('kp_PersonID');
 		if(debug){console.info('View PersonInfo: personID | '+personID)};		
 		try {
-			if(Ext.getStore('core.store.PersonsGroups').getCount() > 0) {
+			if(this.getStorePersonsGroups().getCount() > 0) {
 				// continue
 			}
 			else {
-				Ext.getStore('core.store.PersonsGroups').load();
+				this.getStorePersonsGroups().load();
 			};
 			var groupIDs = [];
 			var i = 0;
-			var match = Ext.getStore('core.store.PersonsGroups').findBy(function (record, id) {
+			var match = this.getStorePersonsGroups().findBy(function (record, id) {
 				if(record.get('kf_PersonID') == personID) {
 					groupIDs[i] = record.get('kf_GroupID');
 					i = i + 1;
@@ -562,10 +605,8 @@ Ext.define('core.controller.Persons', {
 	    // for each filter object in the array
 	    Ext.each(filters, function(filter) {
 	        var gridFilter = grid.filters.getFilter(filter.field);
-
 	        gridFilter.setActive(true);
 	        switch(filter.data.type) {
-
 	            case 'date':
 	                var dateValue = Ext.Date.parse(filter.data.value, 'm/d/Y'),
 	                    value;
@@ -586,7 +627,6 @@ Ext.define('core.controller.Persons', {
 	                gridFilter.setValue(value);
 	                gridFilter.setActive(true);
 	                break;
-
 	            case 'numeric':
 	                var value;
 
@@ -606,13 +646,11 @@ Ext.define('core.controller.Persons', {
 	                gridFilter.setValue(value);
 	                gridFilter.setActive(true);
 	                break;
-
 	            case 'list':
 	                gridFilter = grid.filters.getFilter(filter.field); // was gridFilter = log.filters.getFilter(filter.field);
 	                gridFilter.menu.setSelected(gridFilter.menu.selected, false);
 	                gridFilter.menu.setSelected(filter.data.value.split(','), true);
 	                break;
-
 	            default :
 	                gridFilter = grid.filters.getFilter(filter.field); // was gridFilter = log.filters.getFilter(filter.field);
 	                gridFilter.setValue(filter.data.value);

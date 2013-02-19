@@ -26,6 +26,7 @@ CREATE TABLE `tbl_contact` (
   `kf_MembershipID` int(11) NOT NULL,
   `ts_Created` datetime DEFAULT NULL,
   `ts_Updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  FOREIGN KEY (`kf_MembershipID`) REFERENCES `tbl_membership` (`kp_MembershipID`) ON DELETE CASCADE,
   PRIMARY KEY (`kp_ContactID`),
   UNIQUE KEY `kp_ContactID` (`kp_ContactID`) USING BTREE,
   KEY `kf_KindOfContactID` (`kf_KindOfContactID`) USING BTREE,

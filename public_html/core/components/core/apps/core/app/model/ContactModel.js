@@ -11,10 +11,15 @@ Ext.define('core.model.ContactModel', {
 		{ name: 'kf_MembershipID', type: 'int', defaultValue: '0'}
 	],
 	idProperty: 'kp_ContactID',
+
+// belongsTo
+// 'core.model.membership'	
+	
 	requires: [
-//		'core.model.MembershipModel'
+// THESE SHOULD NOT BE HERE ->		'core.model.MembershipModel'
+// INSTEAD CONTACTMODEL IS REQUIRED BY MEMBERSHIP
 	],
 	associations: [
-//		{ name: 'memberships', type: 'hasMany', model: 'core.model.MembershipModel', primaryKey: 'kp_MembershipID', foreignKey: 'kf_MembershipID' }
+//	THESE SHOULD NOT BE HERE ->	{ name: 'memberships', type: 'hasMany', model: 'core.model.MembershipModel', primaryKey: 'kp_MembershipID', foreignKey: 'kf_MembershipID' }
 	]
 });

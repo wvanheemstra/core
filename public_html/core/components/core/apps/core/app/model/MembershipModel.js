@@ -11,11 +11,17 @@ Ext.define('core.model.MembershipModel', {
 		{ name: 'kf_MultimediaID', type: 'int', defaultValue: '0'}
 	],
 	idProperty: 'kp_MembershipID',
+	
+// belongsTo
+//'core.model.person'	
+//'core.model.organisation'	
+	
 	requires: [
-//		'core.model.PersonModel', 'core.model.OrganisationModel'
+		'core.model.ContactModel'
+// THESE SHOULD NOT BE HERE ->		'core.model.PersonModel', 'core.model.OrganisationModel'
+// INSTEAD MEMBERSHIPMODEL IS REQUIRED BY BOTH PERSON AND ORGANISATION
 	],
 	associations: [
-//		{ name: 'persons', type: 'hasMany', model: 'core.model.PersonModel', primaryKey: 'kp_PersonID', foreignKey: 'kf_PersonID' },
-//		{ name: 'organisations', type: 'hasMany', model: 'core.model.OrganisationModel', primaryKey: 'kp_OrganisationID', foreignKey: 'kf_OrganisationID' }
+		{ name: 'contacts', type: 'hasMany', model: 'core.model.ContactModel', primaryKey: 'kp_ContactID', foreignKey: 'kf_ContactID', associationKey: 'contacts', getterName: 'getContactModel', setterName: 'setContactModel', autoLoad: true }
 	]
 });

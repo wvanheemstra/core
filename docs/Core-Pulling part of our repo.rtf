@@ -1,0 +1,211 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf340
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fswiss\fcharset0 ArialMT;\f2\fnil\fcharset0 Verdana;
+}
+{\colortbl;\red255\green255\blue255;\red255\green255\blue255;\red229\green232\blue241;\red0\green0\blue0;
+\red195\green211\blue231;\red251\green0\blue7;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww19340\viewh13200\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+
+\f0\fs24 \cf0 Creating a Git repository for pulling partial content from Github:\
+\
+(see {\field{\*\fldinst{HYPERLINK "http://stackoverflow.com/questions/600079/is-there-any-way-to-clone-a-git-repositorys-sub-directory-only"}}{\fldrslt http://stackoverflow.com/questions/600079/is-there-any-way-to-clone-a-git-repositorys-sub-directory-only}} \
+and {\field{\*\fldinst{HYPERLINK "http://jasonkarns.com/blog/subdirectory-checkouts-with-git-sparse-checkout/"}}{\fldrslt http://jasonkarns.com/blog/subdirectory-checkouts-with-git-sparse-checkout/}} )\
+\
+This example is for Randolph School of English (rse) and the starting point is inside of the vanheems/public_html/ directory.\
+It will create a subfolder 'rse' as a repository and 'pull' only the sub content from the core repository of wvanheemstra on Github called 'public_html':\
+\
+In the terminal:\
+\
+vanheems@vanheemstrapictures.com [~/public_html]# git init rse\
+Initialized empty Git repository in /home2/vanheems/public_html/rse/.git/\
+vanheems@vanheemstrapictures.com [~/public_html]# cd rse\
+\
+\pard\pardeftab720\sl360
+
+\f1\fs28 \cf0 We are now inside the newly created folder 'rse'.
+\f0\fs24 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+\cf0 \
+vanheems@vanheemstrapictures.com [~/public_html/rse]# git remote add -f origin https://github.com/wvanheemstra/core.git\
+\
+\pard\pardeftab720\sl360
+
+\f1\fs28 \cf0 \cb2 This creates an empty repository with your remote.
+\f0\fs24 \cb1 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+\cf0 \
+Updating origin\
+remote: Counting objects: 16217, done.\
+remote: Compressing objects: 100% (9924/9924), done.\
+remote: Total 16217 (delta 5909), reused 16203 (delta 5895)\
+Receiving objects: 100% (16217/16217), 59.54 MiB | 1.62 MiB/s, done.\
+Resolving deltas: 100% (5909/5909), done.\
+From https://github.com/wvanheemstra/core\
+ * [new branch]      master     -> origin/master\
+\
+\pard\pardeftab720\sl360
+
+\f1\fs28 \cf0 Then do:
+\f0\fs24 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+\cf0 \
+vanheems@vanheemstrapictures.com [~/public_html/rse]# git config core.sparsecheckout true\
+\
+\pard\pardeftab720\sl360
+
+\f1\fs28 \cf0 \cb2 Now you need to define which files/folders you want to actually check out. \
+This is done by listing them in .git/info/sparse-checkout, eg:\
+\
+
+\f0\fs24 vanheems@vanheemstrapictures.com [~/public_html/rse]# echo public_html/assets/ >> .git/info/sparse-checkout\
+vanheems@vanheemstrapictures.com [~/public_html/rse]# echo public_html/core/ >> .git/info/sparse-checkout\
+
+\f1\fs28 \
+A file called sparse-checkout with the above selections inside will have been created inside the folder ./git/info/\
+\
+Without changing directory (so still in 'rse') continue as follows.\
+Last but not least, update your empty repo with the state from the remote:\
+\
+
+\f0\fs24 vanheems@vanheemstrapictures.com [~/public_html/rse]# git pull origin master\
+From https://github.com/wvanheemstra/core\
+ * branch            master     -> FETCH_HEAD\
+vanheems@vanheemstrapictures.com [~/public_html/rse]#\
+\
+\pard\pardeftab720\sl360
+
+\f1\fs28 \cf0 \cb1 Inside the 'rse' folder  are now the following folders:\
+\
+public_html \
+\
+	/ assets\
+\cb2 	/ core\
+\
+In conclusion, by running the following command from \cb1 inside the folder 'rse'\cb2 :\
+\
+	git read-tree -mu HEAD\
+\
+we will get the latest updates from Git of the 'public_html' sub-repository.\
+\
+If you later decide to change which directories you would like checked out, simply edit the sparse-checkout file and run git read-tree again as above.\
+\
+Be sure to read the documentation on read-tree/sparse-checkout. The sparse-tree file accepts file patterns similar to .gitignore. It also accepts negations\'97enabling you to specify certain directories or files to not checkout.\
+\
+\
+We can also direct  automatically to this 'public_html' folder by setting up a re-direct on our host e.g. 'rse.vanheemstrapictures.com'\
+\
+Now a url like 'http://rse.vanheemstrapictures.com' will point straight to ~/public_html/rse/public_html/\
+\
+Hooray!\
+\
+Now when one would look at http://rse.vanheemstrapictures.com/rse/ they would see all files listed, which is a breach of security.\
+So we have to place a file '.htaccess' inside the rse folder following these instructions:\
+\
+\
+\pard\pardeftab720
+
+\f2\fs24 \cf0 \cb3 If you have no index or default page in a specific directory, a visitor may be served with a full list of files that the directory contains. \
+This is usually not a good idea as it could pose a security risk. \
+To counter this effect, add this to the htaccess file. \cb1 \
+\
+
+\itap1\trowd \taflags0 \trgaph108\trleft-108 \trcbpat5 \trbrdrt\brdrs\brdrw20\brdrcf4 \trbrdrl\brdrs\brdrw20\brdrcf4 \trbrdrb\brdrs\brdrw20\brdrcf4 \trbrdrr\brdrs\brdrw20\brdrcf4 \tapadt80 \trpadl80 \tapadb80 \trpadr80 
+\clvertalc \clshdrawnil \clwWidth17480\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720
+\cf0 Options \cf6 -Indexes\cf0 \cell \lastrow\row
+\pard\pardeftab720
+\cf0 \
+\pard\pardeftab720
+\cf0 \cb3 Another way to turn off an index listing is : \cb1 \
+\
+
+\itap1\trowd \taflags0 \trgaph108\trleft-108 \trcbpat5 \trbrdrt\brdrs\brdrw20\brdrcf4 \trbrdrl\brdrs\brdrw20\brdrcf4 \trbrdrb\brdrs\brdrw20\brdrcf4 \trbrdrr\brdrs\brdrw20\brdrcf4 \tapadt80 \trpadl80 \tapadb80 \trpadr80 
+\clvertalc \clshdrawnil \clwWidth17480\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720
+\cf0 IndexIgnore \cf6 *\cf0 \cell \lastrow\row
+\pard\pardeftab720
+\cf0 \
+\pard\pardeftab720
+\cf0 \cb3 That states the directory should not list "all" files. The star symbolizes all files. \cb1 \
+\cb3 Just the opposite situation may arise too. If you really do want directory listing to happen but the main server settings have it turned off, you may turn it on like this : \cb1 \
+\
+
+\itap1\trowd \taflags0 \trgaph108\trleft-108 \trcbpat5 \trbrdrt\brdrs\brdrw20\brdrcf4 \trbrdrl\brdrs\brdrw20\brdrcf4 \trbrdrb\brdrs\brdrw20\brdrcf4 \trbrdrr\brdrs\brdrw20\brdrcf4 \tapadt80 \trpadl80 \tapadb80 \trpadr80 
+\clvertalc \clshdrawnil \clwWidth17480\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720
+\cf0 Options \cf6 +Indexes\cf0 \cell \lastrow\row
+\pard\pardeftab720
+\cf0 \
+\pard\pardeftab720
+\cf0 \cb3 To have a directory listing turned on BUT have no image files showing : \cb1 \
+\
+
+\itap1\trowd \taflags0 \trgaph108\trleft-108 \trcbpat5 \trbrdrt\brdrs\brdrw20\brdrcf4 \trbrdrl\brdrs\brdrw20\brdrcf4 \trbrdrb\brdrs\brdrw20\brdrcf4 \trbrdrr\brdrs\brdrw20\brdrcf4 \tapadt80 \trpadl80 \tapadb80 \trpadr80 
+\clvertalc \clshdrawnil \clwWidth17480\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720
+\cf0 IndexIgnore \cf6 *.gif *.jpg\cf0 \cell \lastrow\row
+\pard\pardeftab720
+\cf0 \
+\pard\pardeftab720
+\cf0 \cb3 So any files that do not have a GIF or JPG extension on them would be allowed to be listed.
+\f1\fs28 \cb2  
+\f0\fs24 \
+\pard\pardeftab720\sl360
+
+\f1\fs28 \cf0 \
+\
+\
+Pulling Subfolders from our Repository on the client's host.\
+\
+When on the client's host, we won't be using the subdirectory (like '~/public_html/rse/public_html/' for Randolph School of English) as it is considered the client already have their dedicated '~/public_html' folder where all files should go.\
+\
+Hence we go into ~/ and from there repeat the same steps we have outlined at the beginning of this document but starting from when we would be inside the client's directory. For this example we are on the client 'Landgoed Verwolde' (abbreviated as landgoed).\
+\
+
+\f0\fs24 landgoed@landgoedverwolde.nl [~]# mkdir downloads\
+landgoed@landgoedverwolde.nl [~]# cd downloads\
+landgoed@landgoedverwolde.nl [~/downloads]# mkdir git\
+landgoed@landgoedverwolde.nl [~/downloads]# ls\
+./  ../  git/\
+landgoed@landgoedverwolde.nl [~/downloads]# cd git\
+landgoed@landgoedverwolde.nl [~/downloads/git]# git init core\
+Initialized empty Git repository in /home3/landgoed/downloads/git/core/.git/\
+landgoed@landgoedverwolde.nl [~/downloads/git]# cd core\
+landgoed@landgoedverwolde.nl [~/downloads/git/core]# git remote add -f origin https://github.com/wvanheemstra/core.git\
+Updating origin\
+remote: Counting objects: 16217, done.\
+remote: Compressing objects: 100% (9924/9924), done.\
+remote: Total 16217 (delta 5909), reused 16203 (delta 5895)\
+Receiving objects: 100% (16217/16217), 59.54 MiB | 1.58 MiB/s, done.\
+Resolving deltas: 100% (5909/5909), done.\
+From https://github.com/wvanheemstra/core\
+ * [new branch]      master     -> origin/master\
+landgoed@landgoedverwolde.nl [~/downloads/git/core]# git config core.sparsecheckout true\
+landgoed@landgoedverwolde.nl [~/downloads/git/core]# echo public_html/assets >> .git/info/sparse-checkout\
+landgoed@landgoedverwolde.nl [~/downloads/git/core]# echo public_html/core >> .git/info/sparse-checkout\
+landgoed@landgoedverwolde.nl [~/downloads/git/core]# git pull origin master\
+From https://github.com/wvanheemstra/core\
+ * branch            master     -> FETCH_HEAD\
+landgoed@landgoedverwolde.nl [~/downloads/git/core]#
+\f1\fs28 \
+
+\f0\fs24 \
+Now we should have a folder 'core' with all subdirectories of our repro inside.\
+\
+Next we need to synchronise these subdirectories with their destinations in the ~/public/ directory, like so:\
+\
+rsync -au ./public_html/core/ ~/public_html/core/\
+rsync -au ./public_html/assets/ ~/public_html/assets/\
+\
+Note the dot notation of our source path!\
+Note the / on the source side: without it rsync would create ~/public_html/core/core so you end up with twice the folder.\
+Use rsync, and pass 
+\b -u
+\b0  if you want to 
+\b only update files that are newer
+\b0  in the original directory, or --ignore-existing to skip all files that already exist in the destination.\
+\
+
+\b\fs28 Sweet\'85 it works without deleting or overwriting any existing files or directories that are different or newer than the ones we have pulled.
+\b0\fs24 \
+}

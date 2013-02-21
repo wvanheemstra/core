@@ -672,7 +672,7 @@ Ext.define('HtmlEditorSpecialCharacters', {
 			//console.info("HTMLEditor: I'm being rendered!"); // for testing only
 	        var cmp = this.cmp;	
 	        var btn = this.cmp.getToolbar().add({
-				id: 'btnInsertSpecialCharacter',
+				itemId: 'btnInsertSpecialCharacter',
 			    // SpecialCharacters language text
 			    langTitle: 'Insert Special Character',
 			    langInsert: 'Insert',

@@ -1,5 +1,5 @@
 [[$core.HeaderTpl]]
-   <div id="page">
+   <div id="page" style="margin-left:10px;margin-right:10px;">
                 <!-- START menubar for resource -->
 		<div id="menubar" class="row">
 			[[$core.ResourceMenuBarTpl]]

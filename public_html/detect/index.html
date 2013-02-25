@@ -18,22 +18,22 @@ function init()
 	var clientWidth = document.body.clientWidth;
 	if (clientWidth < 768) {
 		console.log('Loading small.');
-   		mvcLoaderScript.setAttribute('src', 'assets/templates/core/javascripts/mvcLoaderSmall.js');
+   		mvcLoaderScript.setAttribute('src', 'assets/templates/core/javascripts/core/core.mvc.loader.small.js');
 		window.globalClientWidth = 'small'; // set the value globally
 	} 
 	else if (clientWidth < 1280) {
 		console.log('Loading medium.');
-		mvcLoaderScript.setAttribute('src', 'assets/templates/core/javascripts/mvcLoaderMedium.js');
+		mvcLoaderScript.setAttribute('src', 'assets/templates/core/javascripts/core/core.mvc.loader.medium.js');
 		window.globalClientWidth = 'medium'; // set the value globally
 	}
 	else if (clientWidth < 1441) {
 		console.log('Loading large.');
-		mvcLoaderScript.setAttribute('src', 'assets/templates/core/javascripts/mvcLoaderLarge.js');
+		mvcLoaderScript.setAttribute('src', 'assets/templates/core/javascripts/core/core.mvc.loader.large.js');
 		window.globalClientWidth = 'large'; // set the value globally
 	}
 	else {
 		console.log('Loading very large.');	
-		mvcLoaderScript.setAttribute('src', 'assets/templates/core/javascripts/mvcLoaderVeryLarge.js');
+		mvcLoaderScript.setAttribute('src', 'assets/templates/core/javascripts/core/core.mvc.loader.veryLarge.js');
 		window.globalClientWidth = 'very large'; // set the value globally
     }
 }
@@ -43,28 +43,28 @@ function resize()
 		//alert('Change to small!');
 		housekeeping();
 		var mvcLoaderScript= document.getElementById('core.mvcLoaderScript');
-		mvcLoaderScript.src='assets/templates/core/javascripts/mvcLoaderSmall.js';		
+		mvcLoaderScript.src='assets/templates/core/javascripts/core/core.mvc.loader.small.js';		
 		window.globalClientWidth = 'small';
 	}
 	if(document.body.clientWidth<1280 && document.body.clientWidth>767 && window.globalClientWidth != 'medium') {
 		//alert('Change to medium!');
 		housekeeping();
 		var mvcLoaderScript= document.getElementById('core.mvcLoaderScript');
-		mvcLoaderScript.src='assets/templates/core/javascripts/mvcLoaderMedium.js';
+		mvcLoaderScript.src='assets/templates/core/javascripts/core/core.mvc.loader.medium.js';
 		window.globalClientWidth = 'medium';
 	}
 	if(document.body.clientWidth<1441 && document.body.clientWidth>1279 && window.globalClientWidth != 'large') {
 		//alert('Change to large!');
 		housekeeping();
 		var mvcLoaderScript= document.getElementById('core.mvcLoaderScript');
-		mvcLoaderScript.src='assets/templates/core/javascripts/mvcLoaderLarge.js';
+		mvcLoaderScript.src='assets/templates/core/javascripts/core/core.mvc.loader.large.js';
 		window.globalClientWidth = 'large';
 	}
 	if(document.body.clientWidth>1440 && window.globalClientWidth != 'very large') {
 		//alert('Change to very large!');
 		housekeeping();
 		var mvcLoaderScript= document.getElementById('core.mvcLoaderScript');
-		mvcLoaderScript.src='assets/templates/core/javascripts/mvcLoaderVeryLarge.js';
+		mvcLoaderScript.src='assets/templates/core/javascripts/core/core.mvc.loader.veryLarge.js';
 		window.globalClientWidth = 'very large';
 	}
 }
@@ -241,6 +241,9 @@ function appendToHead(el){
     </div>
   </footer>
   <!-- Included JS Files -->
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js"></script>
+  <script src="assets/templates/core/javascripts/can/can.jquery.min.js"></script>
+  <script src="assets/templates/core/javascripts/can/can.fixture.js"></script>
 </page>
 </body>
 </html>

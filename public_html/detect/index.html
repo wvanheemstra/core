@@ -9,6 +9,14 @@
 <!-- Set the viewport width to device width for mobile -->
 <meta name="viewport" content="width=device-width" />
 <title>Detect</title>
+
+<!-- We need these first -->
+<!--script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js"></script-->
+<script src="assets/templates/core/javascripts/jquery/jquery-1.9.1.js"></script>
+<script src="assets/templates/core/javascripts/can/can.jquery.min.js"></script>
+<script src="assets/templates/core/javascripts/can/can.fixture.js"></script>
+<!--script src="assets/templates/core/javascripts/parseuri/parseuri.js"></script-->
+
 <script type='text/javascript'>
 function init()
 {
@@ -17,22 +25,18 @@ function init()
 	// determine client details and load suitable mvc
 	var clientWidth = document.body.clientWidth;
 	if (clientWidth < 768) {
-		console.log('Loading small.');
    		mvcLoaderScript.setAttribute('src', 'assets/templates/core/javascripts/core/core.mvc.loader.small.js');
 		window.globalClientWidth = 'small'; // set the value globally
 	} 
 	else if (clientWidth < 1280) {
-		console.log('Loading medium.');
 		mvcLoaderScript.setAttribute('src', 'assets/templates/core/javascripts/core/core.mvc.loader.medium.js');
 		window.globalClientWidth = 'medium'; // set the value globally
 	}
 	else if (clientWidth < 1441) {
-		console.log('Loading large.');
 		mvcLoaderScript.setAttribute('src', 'assets/templates/core/javascripts/core/core.mvc.loader.large.js');
 		window.globalClientWidth = 'large'; // set the value globally
 	}
 	else {
-		console.log('Loading very large.');	
 		mvcLoaderScript.setAttribute('src', 'assets/templates/core/javascripts/core/core.mvc.loader.veryLarge.js');
 		window.globalClientWidth = 'very large'; // set the value globally
     }
@@ -241,9 +245,10 @@ function appendToHead(el){
     </div>
   </footer>
   <!-- Included JS Files -->
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js"></script>
-  <script src="assets/templates/core/javascripts/can/can.jquery.min.js"></script>
-  <script src="assets/templates/core/javascripts/can/can.fixture.js"></script>
+
+  <!-- views are loaded through the controller -->
+  <!-- script src="models/pageModel.js"></script -->
+  <!-- script src="controllers/pageController.js"></script -->
 </page>
 </body>
 </html>

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+<meta charset="utf-8" />
+<!-- Set the viewport width to device width for mobile -->
+<meta name="viewport" content="width=device-width" />
+<title>Detect</title>
+<script type='text/javascript'>
+function init()
+{
+	housekeeping();
+	var mvcLoaderScript = document.getElementById('core.mvcLoaderScript');
+	// determine client details and load suitable mvc
+	var clientWidth = document.body.clientWidth;
+	if (clientWidth < 768) {
+		console.log('Loading small.');
+   		mvcLoaderScript.setAttribute('src', 'assets/templates/core/javascripts/mvcLoaderSmall.js');
+		window.globalClientWidth = 'small'; // set the value globally
+	} 
+	else if (clientWidth < 1280) {
+		console.log('Loading medium.');
+		mvcLoaderScript.setAttribute('src', 'assets/templates/core/javascripts/mvcLoaderMedium.js');
+		window.globalClientWidth = 'medium'; // set the value globally
+	}
+	else if (clientWidth < 1441) {
+		console.log('Loading large.');
+		mvcLoaderScript.setAttribute('src', 'assets/templates/core/javascripts/mvcLoaderLarge.js');
+		window.globalClientWidth = 'large'; // set the value globally
+	}
+	else {
+		console.log('Loading very large.');	
+		mvcLoaderScript.setAttribute('src', 'assets/templates/core/javascripts/mvcLoaderVeryLarge.js');
+		window.globalClientWidth = 'very large'; // set the value globally
+    }
+}
+function resize()
+{
+	if(document.body.clientWidth<768 && window.globalClientWidth != 'small') {
+		//alert('Change to small!');
+		housekeeping();
+		var mvcLoaderScript= document.getElementById('core.mvcLoaderScript');
+		mvcLoaderScript.src='assets/templates/core/javascripts/mvcLoaderSmall.js';		
+		window.globalClientWidth = 'small';
+	}
+	if(document.body.clientWidth<1280 && document.body.clientWidth>767 && window.globalClientWidth != 'medium') {
+		//alert('Change to medium!');
+		housekeeping();
+		var mvcLoaderScript= document.getElementById('core.mvcLoaderScript');
+		mvcLoaderScript.src='assets/templates/core/javascripts/mvcLoaderMedium.js';
+		window.globalClientWidth = 'medium';
+	}
+	if(document.body.clientWidth<1441 && document.body.clientWidth>1279 && window.globalClientWidth != 'large') {
+		//alert('Change to large!');
+		housekeeping();
+		var mvcLoaderScript= document.getElementById('core.mvcLoaderScript');
+		mvcLoaderScript.src='assets/templates/core/javascripts/mvcLoaderLarge.js';
+		window.globalClientWidth = 'large';
+	}
+	if(document.body.clientWidth>1440 && window.globalClientWidth != 'very large') {
+		//alert('Change to very large!');
+		housekeeping();
+		var mvcLoaderScript= document.getElementById('core.mvcLoaderScript');
+		mvcLoaderScript.src='assets/templates/core/javascripts/mvcLoaderVeryLarge.js';
+		window.globalClientWidth = 'very large';
+	}
+}
+function housekeeping() {
+	var headElement = document.getElementsByTagName('head')[0];
+	var bodyElement=document.getElementsByTagName('body')[0];
+	var mvcElements = document.getElementsByTagName('mvc');
+	for (var i = 0; i < mvcElements.length; i++) {
+		if(mvcElements[i]) { bodyElement.removeChild(mvcElements[i]) }; // remove every mvc element that exists
+	}
+	// As we are removing items from our collection, we have to do this twice
+	for (var i = 0; i < mvcElements.length; i++) {
+		if(mvcElements[i]) { bodyElement.removeChild(mvcElements[i]) }; // remove every mvc element that exists
+	}	
+	var mvcLoaderScript = document.getElementById('core.mvcLoaderScript');
+	var foundationStyle = document.getElementById('core.foundationStyle');
+	if(mvcLoaderScript) { headElement.removeChild(mvcLoaderScript) }; // remove mvc loader script if it exists
+	if(foundationStyle) { headElement.removeChild(foundationStyle) }; // remove foundation style if it exists
+	var mvcLoaderScript= document.createElement('script'); // recreate the mvc loader script
+	mvcLoaderScript.setAttribute('type', 'text/javascript');
+	mvcLoaderScript.setAttribute('id', 'core.mvcLoaderScript');
+	appendToHead(mvcLoaderScript);
+}
+function appendToHead(el){
+	var headElement = document.getElementsByTagName('head')[0];
+	headElement.appendChild(el);	
+}
+</script>
+<!--script type='text/javascript' src='assets/templates/core/javascripts/mvcLoader.js'></script-->
+</head>
+<body onload='init()' onresize='resize()' style='margin:0px;'>	
+<!--<input type="button" onclick="init()" value="Init">-->
+<page style='width:100%;margin:0px;'>
+	<!-- Header and Nav -->
+	<nav class="top-bar">
+	    <ul>
+	      <!-- Title Area -->
+	      <li class="name">
+	        <h1>
+	          <a href="#">
+	            Top Bar Title
+	          </a>
+	        </h1>
+	      </li>
+	      <li class="toggle-topbar"><a href="#"></a></li>
+	    </ul>
+	    <section>
+	      <!-- Left Nav Section -->
+	      <ul class="left">
+	        <li class="divider"></li>
+	        <li class="has-dropdown">
+	          <a class="active" href="#">Main Item 1</a>
+	          <ul class="dropdown">
+	            <li><label>Section Name</label></li>
+	            <li><a href="#" class="">Dropdown Level 1</a></li>
+	            <li><a href="#">Dropdown Option</a></li>
+	            <li><a href="#">Dropdown Option</a></li>
+	            <li class="divider"></li>
+	            <li><label>Section Name</label></li>
+	            <li><a href="#">Dropdown Option</a></li>
+	            <li><a href="#">Dropdown Option</a></li>
+	            <li><a href="#">Dropdown Option</a></li>
+	            <li class="divider"></li>
+	            <li><a href="#">See all &rarr;</a></li>
+	          </ul>
+	        </li>
+	        <li class="divider"></li>
+	        <li><a href="#">Main Item 2</a></li>
+	        <li class="divider"></li>
+	        <li class="has-dropdown">
+	          <a href="#">Main Item 3</a>
+	          <ul class="dropdown">
+	            <li><a href="#">Dropdown Option</a></li>
+	            <li><a href="#">Dropdown Option</a></li>
+	            <li><a href="#">Dropdown Option</a></li>
+	            <li class="divider"></li>
+	            <li><a href="#">See all &rarr;</a></li>
+	          </ul>
+	        </li>
+	        <li class="divider"></li>
+	      </ul>
+	      <!-- Right Nav Section -->
+	      <ul class="right">
+	        <li class="divider"></li>
+	        <li class="has-dropdown">
+	          <a href="#">Main Item 4</a>
+	          <ul class="dropdown">
+	            <li><label>Section Name</label></li>
+	            <li class="has-dropdown">
+	              <a href="#" class="">Has Dropdown, Level 1</a>
+	              <ul class="dropdown">
+	                <li><a href="#">Dropdown Options</a></li>
+	                <li><a href="#">Dropdown Options</a></li>
+	                <li class="has-dropdown">
+	                  <a href="#">Has Dropdown, Level 2</a>
+	                  <ul class="dropdown test">
+	                    <li><a href="#">Subdropdown Option</a></li>
+	                    <li><a href="#">Subdropdown Option</a></li>
+	                    <li><a href="#">Subdropdown Option</a></li>
+	                  </ul>
+	                </li>
+	                <li><a href="#">Subdropdown Option</a></li>
+	                <li><a href="#">Subdropdown Option</a></li>
+	                <li><a href="#">Subdropdown Option</a></li>
+	              </ul>
+	            </li>
+	            <li><a href="#">Dropdown Option</a></li>
+	            <li><a href="#">Dropdown Option</a></li>
+	            <li class="divider"></li>
+	            <li><label>Section Name</label></li>
+	            <li><a href="#">Dropdown Option</a></li>
+	            <li><a href="#">Dropdown Option</a></li>
+	            <li><a href="#">Dropdown Option</a></li>
+	            <li class="divider"></li>
+	            <li><a href="#">See all &rarr;</a></li>
+	          </ul>
+	        </li>
+	        <li class="divider"></li>
+	        <li><a href="#">Main Item 5</a></li>
+	        <li class="divider"></li>
+	        <li class="has-dropdown">
+	          <a href="#">Main Item 6</a>
+	          <ul class="dropdown">
+	            <li><a href="#">Dropdown Option</a></li>
+	            <li><a href="#">Dropdown Option</a></li>
+	            <li><a href="#">Dropdown Option</a></li>
+	            <li class="divider"></li>
+	            <li><a href="#">See all &rarr;</a></li>
+	          </ul>
+	        </li>
+	      </ul>
+	    </section>
+	</nav>
+	<!-- End Header and Nav -->
+	<!-- Main Grid Section -->
+	<div class="row" style="border:1px;">
+		<div class="three columns">
+	      <div class="panel">
+	        <h5>Panel Title</h5>
+	        <p>This is a three columns grid panel with an arbitrary height.</p>
+	      </div>
+	    </div>
+	    <div class="six columns">
+	      <div class="panel">
+	        <h5>Panel Title</h5>
+	        <p>This is a six columns grid panel with an arbitrary height. Bacon ipsum dolor sit amet salami ham hock biltong ball tip drumstick sirloin pancetta meatball short loin.</p>
+	      </div>
+	    </div>
+	    <div class="three columns">
+	      <div class="panel">
+	        <h5>Panel Title</h5>
+	        <p>This is a three columns grid panel with an arbitrary height.</p>
+	      </div>
+	    </div>
+	</div>
+	<!-- End Main Grid Section -->
+	<!-- Footer -->
+  <footer class="row">
+    <div class="twelve columns">
+      <hr />
+      <div class="row">
+        <div class="six columns">
+          <p>&copy; Copyright no one at all. Go to town.</p>
+        </div>
+        <div class="six columns">
+          <ul class="link-list right">
+            <li><a href="#">Section 1</a></li>
+            <li><a href="#">Section 2</a></li>
+            <li><a href="#">Section 3</a></li>
+            <li><a href="#">Section 4</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- Included JS Files -->
+</page>
+</body>
+</html>

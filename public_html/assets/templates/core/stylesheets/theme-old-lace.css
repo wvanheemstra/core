@@ -1,6 +1,49 @@
-#page{border:5px solid #fdf5e6;background-color:rgba(255, 255, 255, 0.5);}
-#menubar{background-color:#fdf5e6;}
-header nav#main_nav ul li.active{background:#f9e2b7;background-image:-moz-linear-gradient(#f9e2b7, #ffffff);background-image:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#f9e2b7), to(#ffffff));filter:progid:dximagetransform.microsoft.gradient(enabled='true', startColorstr=#f9e2b7, endColorstr=#ffffff, GradientType=0);background-color:#f9e2b7;}
-dl.sub-nav dd.active a{background:#fdf5e6;color:#fff;}
-.sisea-highlight{background-color:#e6fdf5;}
-.sisea-result a{color:#fdf5e6;}
+/* core stylesheet */
+/* theme - old lace */
+/* Page */
+#page {
+  border: 5px solid #fdf5e6;
+  /* the base color */
+
+  background-color: rgba(255, 255, 255, 0.5);
+  /* to make it bright (90%) and readable, yet a bit transparent (50%) */
+
+}
+/* Menubar */
+#menubar {
+  background-color: #fdf5e6;
+  /* same as page border color */
+
+}
+/* Header Nav */
+header nav#main_nav ul li.active {
+  background: #f9e2b7;
+  background-image: -moz-linear-gradient(#f9e2b7, #ffffff);
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#f9e2b7), to(#ffffff));
+  filter: progid:dximagetransform.microsoft.gradient(enabled='true', startColorstr=#f9e2b7, endColorstr=#ffffff, GradientType=0);
+  /* fall back colour for other browsers */
+
+  background-color: #f9e2b7;
+}
+/* Sub-nav */
+dl.sub-nav dd.active a {
+  background: #fdf5e6;
+  color: #fff;
+}
+/* Simple Search (sisea) */
+.sisea-highlight {
+  background-color: #e6fdf5;
+}
+.sisea-result a {
+  color: #fdf5e6;
+}
+/* Normal Buttons ---------------------- */
+.button {
+  background: #fdf5e6;
+  /* the base color */
+
+  border: 1px solid #ffffff;
+}
+.button:hover {
+  background-color: #ffffff;
+}

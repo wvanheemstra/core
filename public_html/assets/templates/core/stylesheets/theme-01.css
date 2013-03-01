@@ -37,3 +37,13 @@ dl.sub-nav dd.active a {
 .sisea-result a {
   color: #ff0000;
 }
+/* Normal Buttons ---------------------- */
+.button {
+  background: #ff0000;
+  /* the base color */
+
+  border: 1px solid #ff3333;
+}
+.button:hover {
+  background-color: #ff3333;
+}

@@ -1,6 +1,49 @@
-#page{border:5px solid #ffdab9;background-color:rgba(255, 255, 255, 0.5);}
-#menubar{background-color:#ffdab9;}
-header nav#main_nav ul li.active{background:#ffbf86;background-image:-moz-linear-gradient(#ffbf86, #fff5ec);background-image:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#ffbf86), to(#fff5ec));filter:progid:dximagetransform.microsoft.gradient(enabled='true', startColorstr=#ffbf86, endColorstr=#fff5ec, GradientType=0);background-color:#ffbf86;}
-dl.sub-nav dd.active a{background:#ffdab9;color:#fff;}
-.sisea-highlight{background-color:#b9ffda;}
-.sisea-result a{color:#ffdab9;}
+/* core stylesheet */
+/* theme - peach puff */
+/* Page */
+#page {
+  border: 5px solid #ffdab9;
+  /* the base color */
+
+  background-color: rgba(255, 255, 255, 0.5);
+  /* to make it bright (90%) and readable, yet a bit transparent (50%) */
+
+}
+/* Menubar */
+#menubar {
+  background-color: #ffdab9;
+  /* same as page border color */
+
+}
+/* Header Nav */
+header nav#main_nav ul li.active {
+  background: #ffbf86;
+  background-image: -moz-linear-gradient(#ffbf86, #fff5ec);
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ffbf86), to(#fff5ec));
+  filter: progid:dximagetransform.microsoft.gradient(enabled='true', startColorstr=#ffbf86, endColorstr=#fff5ec, GradientType=0);
+  /* fall back colour for other browsers */
+
+  background-color: #ffbf86;
+}
+/* Sub-nav */
+dl.sub-nav dd.active a {
+  background: #ffdab9;
+  color: #fff;
+}
+/* Simple Search (sisea) */
+.sisea-highlight {
+  background-color: #b9ffda;
+}
+.sisea-result a {
+  color: #ffdab9;
+}
+/* Normal Buttons ---------------------- */
+.button {
+  background: #ffdab9;
+  /* the base color */
+
+  border: 1px solid #fff5ec;
+}
+.button:hover {
+  background-color: #fff5ec;
+}

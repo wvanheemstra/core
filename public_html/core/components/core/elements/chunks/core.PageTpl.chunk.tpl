@@ -47,21 +47,6 @@
 		`&default=``]]
 		<!-- END Optional slider -->
 
-		<!-- START Optional media -->
-		[[switch?
-		&get=`[[*MediaTV]]`
-		&c1=`yes`
-		&do1=`
-		<div class="row">
-			<div class="twelve columns">
-				<div id="media">
-				[[$core.MediaTpl]]
-				</div><!-- #media -->
-			</div>
-		</div>
-		`&default=``]]
-		<!-- END Optional media -->
-
 		<!-- START Optional polaroids -->
 		[[switch?
 		&get=`[[*PolaroidsTV]]`
@@ -126,7 +111,7 @@
 			<div id="left-of-sidebar" class="eight columns">`
 		&c2=`no`
 		&do2=`
-		<div class="row">
+		<div class="row" style="border:1px solid red;">
 			<div id="no-sidebar" class="twelve columns">
 		`]]
 
@@ -150,7 +135,7 @@
 		&c1=`yes`
 		&do1=`
 			</div><!-- #left-of-sidebar -->
-			<div id="sidebar" class="four columns">
+			<div id="sidebar" class="four columns" style="max-width:300px;margin-top:14px;padding:0px;">
 				[[If? &subject=`[[*ModalTV]]` &operator=`EQ` &operand=`yes` &then=`[[$core.ModalLinkTpl]]`]]
 				[[If? &subject=`[[*TwitterFeedTV]]` &operator=`EQ` &operand=`yes` &then=`[[$core.TwitterFeedTpl]]`]]
 				[[If? &subject=`[[*LatestPostsTV]]` &operator=`EQ` &operand=`yes` &then=`[[$core.LatestPostsTpl]]`]]
@@ -178,7 +163,7 @@
 		<div class="row">
                         <hr noshade="noshade"/>
 			<div id="subpages" class="twelve columns">
-                               [[$core.SubpagesTpl]]
+				[[$core.SubpagesTpl]]     
 			</div><!-- #subpages -->
 		</div>
 		`&default=``]]

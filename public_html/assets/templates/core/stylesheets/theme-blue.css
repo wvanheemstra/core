@@ -1,6 +1,49 @@
-#page{border:5px solid #0000ff;background-color:rgba(255, 255, 255, 0.5);}
-#menubar{background-color:#0000ff;}
-header nav#main_nav ul li.active{background:#0000cc;background-image:-moz-linear-gradient(#0000cc, #3333ff);background-image:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#0000cc), to(#3333ff));filter:progid:dximagetransform.microsoft.gradient(enabled='true', startColorstr=#0000cc, endColorstr=#3333ff, GradientType=0);background-color:#0000cc;}
-dl.sub-nav dd.active a{background:#0000ff;color:#fff;}
-.sisea-highlight{background-color:#ff0000;}
-.sisea-result a{color:#0000ff;}
+/* core stylesheet */
+/* theme - blue */
+/* Page */
+#page {
+  border: 5px solid #0000ff;
+  /* the base color */
+
+  background-color: rgba(255, 255, 255, 0.5);
+  /* to make it bright (90%) and readable, yet a bit transparent (50%) */
+
+}
+/* Menubar */
+#menubar {
+  background-color: #0000ff;
+  /* same as page border color */
+
+}
+/* Header Nav */
+header nav#main_nav ul li.active {
+  background: #0000cc;
+  background-image: -moz-linear-gradient(#0000cc, #3333ff);
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#0000cc), to(#3333ff));
+  filter: progid:dximagetransform.microsoft.gradient(enabled='true', startColorstr=#0000cc, endColorstr=#3333ff, GradientType=0);
+  /* fall back colour for other browsers */
+
+  background-color: #0000cc;
+}
+/* Sub-nav */
+dl.sub-nav dd.active a {
+  background: #0000ff;
+  color: #fff;
+}
+/* Simple Search (sisea) */
+.sisea-highlight {
+  background-color: #ff0000;
+}
+.sisea-result a {
+  color: #0000ff;
+}
+/* Normal Buttons ---------------------- */
+.button {
+  background: #0000ff;
+  /* the base color */
+
+  border: 1px solid #3333ff;
+}
+.button:hover {
+  background-color: #3333ff;
+}

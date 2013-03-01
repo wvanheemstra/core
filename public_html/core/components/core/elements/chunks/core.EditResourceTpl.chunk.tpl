@@ -63,7 +63,7 @@
 		<tr>
 		<td>
     <label for="BreadCrumbTV">
-        Toon een brood-kruimel menu bovenaan dit document: 
+        [[%custom.label_show_breadcrumb_menu? &namespace=`custom`]]: 
         <span class="alert-box error">[[!+fi.error.BreadCrumbTV]]</span>
     </label>
 		</td>

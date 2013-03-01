@@ -1,5 +1,5 @@
 [[$core.HeaderTpl]]
-   <div id="page">
+   <div id="page" style="margin-left:10px;margin-right:10px;">
                 <!-- START Optional toolbar -->
 		<div id="menubar" class="row">
 			<div class="five columns">

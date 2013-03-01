@@ -1,5 +1,5 @@
 [[$core.HeaderTpl]]
-<div id="page">
+<div id="page"  style="margin-left:10px;margin-right:10px;">
 		<!-- START menubar for resource -->
 		<div id="menubar" class="row">	
 			[[$core.ResourceMenuBarTpl]]
@@ -53,7 +53,7 @@
 		&c1=`yes`
 		&do1=`
 			</div><!-- #left-of-sidebar -->
-			<div id="sidebar" class="four columns">
+			<div id="sidebar" class="four columns" style="max-width:300px;margin-top:14px;padding:0px;">
 				[[If? &subject=`[[*TwitterFeedTV]]` &operator=`EQ` &operand=`yes` &then=`[[$core.TwitterFeedTpl]]`]]
 				[[If? &subject=`[[*LatestPostsTV]]` &operator=`EQ` &operand=`yes` &then=`[[$core.LatestPostsTpl]]`]]
 				[[If? &subject=`[[*LatestCommentsTV]]` &operator=`EQ` &operand=`yes` &then=`[[$core.LatestCommentsTpl]]`]]

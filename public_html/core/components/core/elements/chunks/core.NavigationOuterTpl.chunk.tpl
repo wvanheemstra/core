@@ -1,7 +1,7 @@
 <!-- core.NavigationOuterTpl -->
 <ul class="nav-bar [[+wf.classnames]]">
     [[+wf.wrapper]]
-  <li>
+  <li style="height:32px;">
     <form method="get" action="[[~[[++custom.search_results]]]]" id="search_form">
       <fieldset class="search">
         <input type="search" value="" name="core_search_field" class="box" id="searchField">

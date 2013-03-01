@@ -111,7 +111,7 @@
 			<div id="left-of-sidebar" class="eight columns">`
 		&c2=`no`
 		&do2=`
-		<div class="row" style="border:1px solid red;">
+		<div class="row">
 			<div id="no-sidebar" class="twelve columns">
 		`]]
 

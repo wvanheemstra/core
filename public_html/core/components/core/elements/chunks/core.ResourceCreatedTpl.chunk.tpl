@@ -46,19 +46,19 @@
   <tr>
     <td>
     <label for="BreadCrumbTV">
-        Toon een brood-kruimel menu bovenaan dit document:
+        [[%custom.label_show_breadcrumb_menu? &namespace=`custom`]]:
         <span class="alert-box error">[[+fi.error.BreadCrumbTV]]</span>
     </label>
     </td><td>
     <select id="BreadCrumbTV" name="BreadCrumbTV" disabled="disabled">
-      <option value="yes" selected>Ja</option>
-      <option value="no">Nee</option>
+      <option value="yes" selected>[[%custom.label_yes? &namespace=`custom`]]</option>
+      <option value="no">[[%custom.label_no? &namespace=`custom`]]</option>
     </select>
     </td>
   </tr><tr>
     <td>
     <label for="parent">
-        Bovenliggend document ID:
+        [[%custom.label_parent_document? &namespace=`custom`]]:
         <span class="alert-box error">[[+fi.error.parent]]</span>
     </label>
     </td><td>
@@ -67,7 +67,7 @@
   </tr><tr>
     <td>     
     <label for="pagetitle">
-        Pagina Titel:
+        [[%custom.label_page_title? &namespace=`custom`]]:
         <span class="alert-box error">[[+fi.error.pagetitle]]</span>
     </label>
     </td><td>
@@ -76,7 +76,7 @@
   </tr><tr>
     <td>     
     <label for="menutitle">
-        Menu Titel:
+        [[%custom.label_menu_title? &namespace=`custom`]]:
         <span class="alert-box error">[[+fi.error.menutitle]]</span>
     </label>
     </td><td>
@@ -85,7 +85,7 @@
   </tr><tr>
     <td>
     <label for="longtitle">
-        Lange Titel:
+        [[%custom.label_long_title? &namespace=`custom`]]:
         <span class="alert-box error">[[+fi.error.longtitle]]</span>
     </label>
     </td><td>
@@ -94,7 +94,7 @@
   </tr><tr>
     <td>
     <label for="description">
-        Beschrijving:
+        [[%custom.label_description? &namespace=`custom`]]:
         <span class="alert-box error">[[+fi.error.description]]</span>
     </label>
     </td><td>
@@ -103,7 +103,7 @@
   </tr><tr>
     <td>
     <label for="introtext">
-        Samenvatting:
+        [[%custom.label_introtext? &namespace=`custom`]]:
         <span class="alert-box error">[[+fi.error.introtext]]</span>
     </label>
     </td><td>
@@ -136,7 +136,7 @@
   </tr><tr>
     <td>     
     <label for="content">
-        Inhoud:
+        [[%custom.label_content? &namespace=`custom`]]:
         <span class="alert-box error">[[+fi.error.content]]</span>
     </label>
     </td><td>
@@ -145,19 +145,19 @@
   </tr><tr>
     <td>
     <label for="SideBarTV">
-        Toon een zijbalk:
+        [[%custom.label_show_sidebar? &namespace=`custom`]]:
         <span class="alert-box error">[[+fi.error.SideBarTV]]</span>
     </label>
     </td><td>
      <select id="SideBarTV" name="SideBarTV" disabled="disabled">
-      <option value="yes" [[!+fi.SideBarTV:FormItIsSelected=`yes`]]>Ja</option>
-      <option value="no" [[!+fi.SideBarTV:FormItIsSelected=`no`]]>Nee</option>
+      <option value="yes" [[!+fi.SideBarTV:FormItIsSelected=`yes`]]>[[%custom.label_yes? &namespace=`custom`]]</option>
+      <option value="no" [[!+fi.SideBarTV:FormItIsSelected=`no`]]>[[%custom.label_no? &namespace=`custom`]]</option>
      </select>
     </td>
   </tr><tr>
     <td>
     <label for="SideContentTV">
-        Inhoud van de zijbalk:
+        [[%custom.label_content_of_sidebar? &namespace=`custom`]]:
         <span class="alert-box error">[[!+fi.error.SideContentTV]]</span>
     </label>
     </td><td>
@@ -166,43 +166,43 @@
   </tr><tr>
     <td>
     <label for="TwitterFeedTV">
-        Toon Twitter berichten in zijbalk:
+        [[%custom.label_show_recent_tweets_in_sidebar? &namespace=`custom`]]:
         <span class="alert-box error">[[+fi.error.TwitterFeedTV]]</span>
     </label>
     </td><td>
      <select id="TwitterFeedTV" name="TwitterFeedTV" disabled="disabled">
-      <option value="yes" [[!+fi.TwitterFeedTV:FormItIsSelected=`yes`]]>Ja</option>
-      <option value="no" [[!+fi.TwitterFeedTV:FormItIsSelected=`no`]]>Nee</option>
+      <option value="yes" [[!+fi.TwitterFeedTV:FormItIsSelected=`yes`]]>[[%custom.label_yes? &namespace=`custom`]]</option>
+      <option value="no" [[!+fi.TwitterFeedTV:FormItIsSelected=`no`]]>[[%custom.label_no? &namespace=`custom`]]</option>
      </select>
     </td>
   </tr><tr>
     <td>
     <label for="LatestPostsTV">
-        Toon lijst van recente artikelen in zijbalk:
+        [[%custom.label_show_list_of_recent_articles_in_sidebar? &namespace=`custom`]]:
         <span class="alert-box error">[[+fi.error.LatestPostsTV]]</span>
     </label>
     </td><td>
      <select id="LatestPostsTV" name="LatestPostsTV" disabled="disabled">
-      <option value="yes" [[!+fi.LatestPostsTV:FormItIsSelected=`yes`]]>Ja</option>
-      <option value="no" [[!+fi.LatestPostsTV:FormItIsSelected=`no`]]>Nee</option>
+      <option value="yes" [[!+fi.LatestPostsTV:FormItIsSelected=`yes`]]>[[%custom.label_yes? &namespace=`custom`]]</option>
+      <option value="no" [[!+fi.LatestPostsTV:FormItIsSelected=`no`]]>[[%custom.label_no? &namespace=`custom`]]</option>
      </select>
     </td>
   </tr><tr>
     <td>
     <label for="LatestCommentsTV">
-        Toon lijst van recente reacties in zijbalk:
+        [[%custom.label_show_list_of_recent_comments_in_sidebar? &namespace=`custom`]]:
         <span class="alert-box error">[[+fi.error.LatestCommentsTV]]</span>
     </label>
     </td><td>
      <select id="LatestCommentsTV" name="LatestCommentsTV" disabled="disabled">
-      <option value="yes" [[!+fi.LatestCommentsTV:FormItIsSelected=`yes`]]>Ja</option>
-      <option value="no" [[!+fi.LatestCommentsTV:FormItIsSelected=`no`]]>Nee</option>
+      <option value="yes" [[!+fi.LatestCommentsTV:FormItIsSelected=`yes`]]>[[%custom.label_yes? &namespace=`custom`]]</option>
+      <option value="no" [[!+fi.LatestCommentsTV:FormItIsSelected=`no`]]>[[%custom.label_no? &namespace=`custom`]]</option>
      </select>
     </td>
   </tr><tr>
     <td>
     <label for="NumberOfPageBoxesTV">
-        Aantal onderliggende pagina kaders dat getoond moeten worden:
+        [[%custom.label_number_of_pageboxes_to_show? &namespace=`custom`]]:
         <span class="alert-box error">[[+fi.error.NumberOfPageBoxesTV]]</span>
     </label>
     </td><td>
@@ -216,7 +216,7 @@
   </tr><tr>
     <td>     
     <label for="PageBox01TV">
-        Onderliggend pagina kader 1:
+        [[%custom.label_pagebox_1? &namespace=`custom`]]:
         <span class="alert-box error">[[+fi.error.PageBox01TV]]</span>
     </label>
     </td><td>
@@ -225,7 +225,7 @@
   </tr><tr>
     <td>     
     <label for="PageBox02TV">
-        Onderliggend pagina kader 2:
+        [[%custom.label_pagebox_2? &namespace=`custom`]]:
         <span class="alert-box error">[[+fi.error.PageBox02TV]]</span>
     </label>
     </td><td>
@@ -234,7 +234,7 @@
   </tr><tr>
     <td>     
     <label for="PageBox03TV">
-        Onderliggend pagina kader 3:
+        [[%custom.label_pagebox_3? &namespace=`custom`]]:
         <span class="alert-box error">[[+fi.error.PageBox03TV]]</span>
     </label>
     </td><td>
@@ -243,7 +243,7 @@
   </tr><tr>
     <td>     
     <label for="PageBox04TV">
-        Onderliggend pagina kader 4:
+        [[%custom.label_pagebox_4? &namespace=`custom`]]:
         <span class="alert-box error">[[+fi.error.PageBox04TV]]</span>
     </label>
     </td><td>
@@ -252,13 +252,13 @@
   </tr><tr>
     <td>
     <label for="SubpagesTV">
-        Toon menu onderaan dit document:
+        [[%custom.label_show_subpages? &namespace=`custom`]]:
         <span class="alert-box error">[[+fi.error.SubpagesTV]]</span>
     </label>
     </td><td>
      <select id="SubpagesTV" name="SubpagesTV" disabled="disabled">
-      <option value="yes" [[!+fi.SubpagesTV:FormItIsSelected=`yes`]]>Ja</option>
-      <option value="no" [[!+fi.SubpagesTV:FormItIsSelected=`no`]]>Nee</option>
+      <option value="yes" [[!+fi.SubpagesTV:FormItIsSelected=`yes`]]>[[%custom.label_yes? &namespace=`custom`]]</option>
+      <option value="no" [[!+fi.SubpagesTV:FormItIsSelected=`no`]]>[[%custom.label_no? &namespace=`custom`]]</option>
      </select>
     </td>
   </tr>

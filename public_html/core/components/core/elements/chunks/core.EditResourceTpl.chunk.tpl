@@ -36,10 +36,10 @@
 		&preHooks=`resource2formit`
 		&redirectTo=`[[++custom.resource_edited]]`
 		&store=`1`
-		&validate=`colors:required,content:allowTags:escape,SideContentTV:allowTags:escape,PageBox01TV:allowTags:escape,PageBox02TV:allowTags:escape,PageBox03TV:allowTags:escape,PageBox04TV:allowTags:escape`
+		&validate=`content:allowTags:escape,SideContentTV:allowTags:escape,PageBox01TV:allowTags:escape,PageBox02TV:allowTags:escape,PageBox03TV:allowTags:escape,PageBox04TV:allowTags:escape`
 		&template=`[[++custom.page_template]]`
 		&clearFieldsOnSuccess=`0`
-		&resource2formitfields=`BreadCrumbTV,parent,page title,menutitle,longtitle,description,introtext,colors,content,SideBarTV,SideContentTV,TwitterFeedTV,LatestPostsTV,LatestCommentsTV,NumberOfPageBoxesTV,PageBox01TV,PageBox02TV,PageBox03TV,PageBox04TV,SubpagesTV,published,isfolder,deleted`
+		&resource2formitfields=`BreadCrumbTV,parent,page title,menutitle,longtitle,description,introtext,content,SideBarTV,SideContentTV,TwitterFeedTV,LatestPostsTV,LatestCommentsTV,NumberOfPageBoxesTV,PageBox01TV,PageBox02TV,PageBox03TV,PageBox04TV,SubpagesTV,published,isfolder,deleted`
 		&successMessage=`[[%custom.label_resource_edited? &namespace=`custom`]].`
 		&successMessagePlaceholder=`fi.successMessage`
 		]]

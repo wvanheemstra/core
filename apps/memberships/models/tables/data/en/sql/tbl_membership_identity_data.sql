@@ -9,26 +9,26 @@
  Target Server Version : 50509
  File Encoding         : utf-8
 
- Date: 07/05/2012 16:31:05 PM
+ Date: 07/05/2012 14:19:56 PM
 */
 
 SET NAMES utf8;
 SET FOREIGN_KEY_CHECKS = 0;
 
 -- ----------------------------
---  Table structure for `tbl_identity`
+--  Table structure for `tbl_membership_identity_data`
 -- ----------------------------
-DROP TABLE IF EXISTS `tbl_identity`;
-CREATE TABLE `tbl_identity` (
-  `kp_IdentityID` int(11) NOT NULL AUTO_INCREMENT,
-  `IdentityValue` varchar(255) COLLATE utf8_bin NOT NULL,
-  `kf_KindOfIdentity` int(11) COLLATE utf8_bin NOT NULL,
+DROP TABLE IF EXISTS `tbl_membership_identity_data`;
+CREATE TABLE `tbl_membership_identity_data` (
+  `kf_MembershipID` int(11) NOT NULL,
+  `kf_IdentityID` int(11) NOT NULL,
   `ts_Created` datetime DEFAULT NULL,
   `ts_Updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`kp_IdentityID`)
+  KEY `kf_MembershipID` (`kf_MembershipID`) USING BTREE,
+  KEY `kf_IdentityID` (`kf_IdentityID`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 delimiter ;;
-CREATE TRIGGER `Identity.ts_Created` BEFORE INSERT ON `tbl_identity` FOR EACH ROW BEGIN
+CREATE TRIGGER `Membership_Identity.ts_Created` BEFORE INSERT ON `tbl_membership_identity_data` FOR EACH ROW BEGIN
 	SET NEW.ts_Created = CURRENT_TIMESTAMP();
 END;
  ;;

@@ -9,26 +9,26 @@
  Target Server Version : 50509
  File Encoding         : utf-8
 
- Date: 07/05/2012 16:31:05 PM
+ Date: 06/29/2012 12:33:33 PM
 */
 
 SET NAMES utf8;
 SET FOREIGN_KEY_CHECKS = 0;
 
 -- ----------------------------
---  Table structure for `tbl_identity`
+--  Table structure for `tbl_kind_of_identity`
 -- ----------------------------
-DROP TABLE IF EXISTS `tbl_identity`;
-CREATE TABLE `tbl_identity` (
-  `kp_IdentityID` int(11) NOT NULL AUTO_INCREMENT,
-  `IdentityValue` varchar(255) COLLATE utf8_bin NOT NULL,
-  `kf_KindOfIdentity` int(11) COLLATE utf8_bin NOT NULL,
+DROP TABLE IF EXISTS `tbl_kind_of_identity`;
+CREATE TABLE `tbl_kind_of_identity` (
+  `kp_KindOfIdentityID` int(11) NOT NULL AUTO_INCREMENT,
+  `KindOfIdentityName` varchar(255) COLLATE utf8_bin NOT NULL,
   `ts_Created` datetime DEFAULT NULL,
   `ts_Updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`kp_IdentityID`)
+  PRIMARY KEY (`kp_KindOfIdentityID`),
+  KEY `kp_KindOfIdentityID` (`kp_KindOfIdentityID`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 delimiter ;;
-CREATE TRIGGER `Identity.ts_Created` BEFORE INSERT ON `tbl_identity` FOR EACH ROW BEGIN
+CREATE TRIGGER `KindOfIdentity.ts_Created` BEFORE INSERT ON `tbl_kind_of_identity` FOR EACH ROW BEGIN
 	SET NEW.ts_Created = CURRENT_TIMESTAMP();
 END;
  ;;

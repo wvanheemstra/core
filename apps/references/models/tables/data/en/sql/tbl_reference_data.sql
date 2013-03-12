@@ -15,16 +15,15 @@ SET NAMES utf8;
 SET FOREIGN_KEY_CHECKS = 0;
 
 -- ----------------------------
---  Delete all records of `tbl_identity`
+--  Delete all records of `tbl_reference`
 -- ----------------------------
-DELETE FROM `tbl_identity`;
+DELETE FROM `tbl_reference`;
 
 -- ----------------------------
---  Records of `tbl_identity`
+--  Records of `tbl_reference`
 -- ----------------------------
 BEGIN;
-INSERT INTO `tbl_identity` VALUES ('1', 'tiger', '1', null, '2012-07-05 14:14:14');
-INSERT INTO `tbl_identity` VALUES ('2', 'secret', '2', null, '2012-07-05 14:14:14');
+INSERT INTO `tbl_reference` VALUES ('1', '0123456789', 'Example Reference', null, '2012-07-05 14:14:14');
 COMMIT;
 
 SET FOREIGN_KEY_CHECKS = 1;

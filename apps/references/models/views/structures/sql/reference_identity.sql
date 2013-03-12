@@ -14,15 +14,14 @@ SET NAMES utf8;
 SET FOREIGN_KEY_CHECKS = 0;
 
 -- ----------------------------
---  View structure for `identity`
+--  View structure for `reference_identity`
 -- ----------------------------
-DROP VIEW IF EXISTS `identity`;
-CREATE VIEW `identity` AS 
-  SELECT `kp_IdentityID`,
-	`IdentityValue`,
-	`kf_KindOfIdentityID`,
+DROP VIEW IF EXISTS `reference_identity`;
+CREATE VIEW `reference_identity` AS 
+  SELECT `kf_ReferenceID`,
+	`kf_IdentityID`,
 	`ts_Created`,
 	`ts_Updated`
-FROM tbl_identity;
+FROM tbl_reference_identity;
 
 SET FOREIGN_KEY_CHECKS = 1;

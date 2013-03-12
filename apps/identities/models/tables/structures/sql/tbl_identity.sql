@@ -22,7 +22,7 @@ DROP TABLE IF EXISTS `tbl_identity`;
 CREATE TABLE `tbl_identity` (
   `kp_IdentityID` int(11) NOT NULL AUTO_INCREMENT,
   `IdentityValue` varchar(255) COLLATE utf8_bin NOT NULL,
-  `kf_KindOfIdentity` int(11) COLLATE utf8_bin NOT NULL,
+  `kf_KindOfIdentityID` int(11) COLLATE utf8_bin NOT NULL,
   `ts_Created` datetime DEFAULT NULL,
   `ts_Updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`kp_IdentityID`)

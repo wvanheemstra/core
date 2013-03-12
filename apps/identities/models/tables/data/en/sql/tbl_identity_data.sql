@@ -23,7 +23,7 @@ DELETE FROM `tbl_identity`;
 --  Records of `tbl_identity`
 -- ----------------------------
 BEGIN;
-INSERT INTO `tbl_identity` VALUES ('1', 'tiger', '1', null, '2012-07-05 14:14:14');
+INSERT INTO `tbl_identity` VALUES ('1', 'joe', '1', null, '2012-07-05 14:14:14');
 INSERT INTO `tbl_identity` VALUES ('2', 'secret', '2', null, '2012-07-05 14:14:14');
 COMMIT;
 

@@ -8,7 +8,7 @@
 <form action="[[~[[*id]]]]" method="post">
 <input type="hidden" name="nospam" value="" />
 <input type="hidden" name="id" id="id" value="[[++custom.site_settings]]" />
-<input type="hidden" name="url" id="url" value="[[~[[*id]]]]" />
+<input type="hidden" name="url" id="url" value="[[~[[++custom.site_start]]]]" />
 <input type="hidden" name="parent" id="parent" value="[[*parent]]" />
 <input type="hidden" name="SiteThemeCSSTV" id="SiteThemeCSSTV" value="[[*SiteThemeCSSTV]]" />
 <input type="hidden" name="SiteBackgroundTV" id="SiteBackgroundTV" value="[[*SiteBackgroundTV]]" />

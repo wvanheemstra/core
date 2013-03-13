@@ -6,7 +6,10 @@
                         [[$core.CreateResourceButtonTpl]]
 			</div>
 			<div class="two columns" style="color:#ffffff">[[$core.UserNameTpl]]</div>
-			<div class="two columns" style="text-align:right;">
+			<div class="one columns" style="text-align:right;">
+			[[$core.EditSiteSettingsButtonTpl]]
+			</div>
+			<div class="one columns" style="text-align:right;">
 			[[$core.LoginButtonTpl]]
 			</div>
 		</div>
@@ -33,10 +36,10 @@
 		&redirectToOnNotFound=`[[++custom.error]]`
 		]]
 <form class="custom nice" action="">
-<table style="width:96%;">
+<table style="width:100%;">
 <thead>
   <tr>
-<th><h5>[[%custom.label_site_settings_edited? &namespace=`custom`]]:</h5></th><th><h5>[[!getResources? &resources=`[[+fi.resource_id]]` &tpl=`core.SiteSettingsEditedRowTpl`]]</h5></th>
+<th><h5>[[%custom.label_site_settings_edited? &namespace=`custom`]]:</h5></th><th><h5>[[!getResources? &resources=`[[++custom.site_start]]` &tpl=`core.SiteSettingsEditedRowTpl`]]</h5></th>
   </tr>
 </thead>
 <tbody>

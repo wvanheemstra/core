@@ -145,903 +145,903 @@ function changeCheckedStatus(setUncheckedForName,setCheckedForValue){
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-aqua.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-aqua.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-aqua.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-aqua.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-aqua.css`]] style="display:none;" title="[[%custom.label_aqua? &namespace=`custom`]]" baseColor="#00ffff" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-aqua.css');"></span></td>
 			      <td>[[%custom.label_aqua? &namespace=`custom`]]</td>
 			      <td style="background-color:#00ffff;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-beige.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-beige.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-beige.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-beige.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-beige.css`]] style="display:none;" title="[[%custom.label_beige? &namespace=`custom`]]" baseColor="#f5f5dc" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-beige.css');"></span></td>
 			      <td>[[%custom.label_beige? &namespace=`custom`]]</td>
 			      <td style="background-color:#f5f5dc;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-blue-violet.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-blue-violet.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-blue-violet.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-blue-violet.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-blue-violet.css`]] style="display:none;" title="[[%custom.label_blue_violet? &namespace=`custom`]]" baseColor="#8a2be2" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-blue-violet.css');"></span></td>
 			      <td>[[%custom.label_blue_violet? &namespace=`custom`]]</td>
 			      <td style="background-color:#8a2be2;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-blue.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-blue.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-blue.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-blue.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-blue.css`]] style="display:none;" title="[[%custom.label_blue? &namespace=`custom`]]" baseColor="#0000ff" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-blue.css');"></span></td>
 			      <td>[[%custom.label_blue? &namespace=`custom`]]</td>
 			      <td style="background-color:#0000ff;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-brown.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-brown.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-brown.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-brown.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-brown.css`]] style="display:none;" title="[[%custom.label_brown? &namespace=`custom`]]" baseColor="#a52a2a" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-brown.css');"></span></td>
 			      <td>[[%custom.label_brown? &namespace=`custom`]]</td>
 			      <td style="background-color:#a52a2a;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-cadet-blue.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-cadet-blue.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-cadet-blue.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-cadet-blue.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-cadet-blue.css`]] style="display:none;" title="[[%custom.label_cadet_blue? &namespace=`custom`]]" baseColor="#5f9ea0" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-cadet-blue.css');"></span></td>
 			      <td>[[%custom.label_cadet_blue? &namespace=`custom`]]</td>
 			      <td style="background-color:#5f9ea0;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-chart-reuse.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-chart-reuse.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-chart-reuse.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-chart-reuse.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-chart-reuse.css`]] style="display:none;" title="[[%custom.label_chart_reuse? &namespace=`custom`]]" baseColor="#7fff00" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-chart-reuse.css');"></span></td>
 			      <td>[[%custom.label_chart_reuse? &namespace=`custom`]]</td>
 			      <td style="background-color:#7fff00;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-coral.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-coral.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-coral.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-coral.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-coral.css`]] style="display:none;" title="[[%custom.label_coral? &namespace=`custom`]]" baseColor="#ff7f50" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-coral.css');"></span></td>
 			      <td>[[%custom.label_coral? &namespace=`custom`]]</td>
 			      <td style="background-color:#ff7f50;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-corn-flower-blue.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-corn-flower-blue.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-corn-flower-blue.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-corn-flower-blue.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-corn-flower-blue.css`]] style="display:none;" title="[[%custom.label_corn_flower_blue? &namespace=`custom`]]" baseColor="#6495ed" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-corn-flower-blue.css');"></span></td>
 			      <td>[[%custom.label_corn_flower_blue? &namespace=`custom`]]</td>
 			      <td style="background-color:#6495ed;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-crimson.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-crimson.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-crimson.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-crimson.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-crimson.css`]] style="display:none;" title="[[%custom.label_crimson? &namespace=`custom`]]" baseColor="#dc143c" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-crimson.css');"></span></td>
 			      <td>[[%custom.label_crimson? &namespace=`custom`]]</td>
 			      <td style="background-color:#dc143c;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-cyan.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-cyan.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-cyan.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-cyan.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-cyan.css`]] style="display:none;" title="[[%custom.label_cyan? &namespace=`custom`]]" baseColor="#00ffff" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-cyan.css');"></span></td>
 			      <td>[[%custom.label_cyan? &namespace=`custom`]]</td>
 			      <td style="background-color:#00ffff;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-dark-blue.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-dark-blue.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-dark-blue.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-dark-blue.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-dark-blue.css`]] style="display:none;" title="[[%custom.label_dark_blue? &namespace=`custom`]]" baseColor="#00008b" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-dark-blue.css');"></span></td>
 			      <td>[[%custom.label_dark_blue? &namespace=`custom`]]</td>
 			      <td style="background-color:#00008b;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-dark-cyan.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-dark-cyan.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-dark-cyan.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-dark-cyan.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-dark-cyan.css`]] style="display:none;" title="[[%custom.label_dark_cyan? &namespace=`custom`]]" baseColor="#008b8b" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-dark-cyan.css');"></span></td>
 			      <td>[[%custom.label_dark_cyan? &namespace=`custom`]]</td>
 			      <td style="background-color:#008b8b;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-dark-golden-rod.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-dark-golden-rod.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-dark-golden-rod.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-dark-golden-rod.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-dark-golden-rod.css`]] style="display:none;" title="[[%custom.label_dark_golden_rod? &namespace=`custom`]]" baseColor="#b8860b" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-dark-golden-rod.css');"></span></td>
 			      <td>[[%custom.label_dark_golden_rod? &namespace=`custom`]]</td>
 			      <td style="background-color:#b8860b;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-dark-gray.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-dark-gray.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-dark-gray.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-dark-gray.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-dark-gray.css`]] style="display:none;" title="[[%custom.label_dark_gray? &namespace=`custom`]]" baseColor="#a9a9a9" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-dark-gray.css');"></span></td>
 			      <td>[[%custom.label_dark_gray? &namespace=`custom`]]</td>
 			      <td style="background-color:#a9a9a9;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-dark-green.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-dark-green.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-dark-green.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-dark-green.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-dark-green.css`]] style="display:none;" title="[[%custom.label_dark_green? &namespace=`custom`]]" baseColor="#006400" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-dark-green.css');"></span></td>
 			      <td>[[%custom.label_dark_green? &namespace=`custom`]]</td>
 			      <td style="background-color:#006400;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-dark-khaki.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-dark-khaki.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-dark-khaki.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-dark-khaki.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-dark-khaki.css`]] style="display:none;" title="[[%custom.label_dark_khaki? &namespace=`custom`]]" baseColor="#bdb76b" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-dark-khaki.css');"></span></td>
 			      <td>[[%custom.label_dark_khaki? &namespace=`custom`]]</td>
 			      <td style="background-color:#bdb76b;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-dark-magenta.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-dark-magenta.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-dark-magenta.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-dark-magenta.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-dark-magenta.css`]] style="display:none;" title="[[%custom.label_dark_magenta? &namespace=`custom`]]" baseColor="#8b008b" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-dark-magenta.css');"></span></td>
 			      <td>[[%custom.label_dark_magenta? &namespace=`custom`]]</td>
 			      <td style="background-color:#8b008b;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-dark-olive-green.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-dark-olive-green.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-dark-olive-green.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-dark-olive-green.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-dark-olive-green.css`]] style="display:none;" title="[[%custom.label_dark_olive_green? &namespace=`custom`]]" baseColor="#556b2f" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-dark-olive-green.css');"></span></td>
 			      <td>[[%custom.label_dark_olive_green? &namespace=`custom`]]</td>
 			      <td style="background-color:#556b2f;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-dark-orange.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-dark-orange.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-dark-orange.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-dark-orange.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-dark-orange.css`]] style="display:none;" title="[[%custom.label_dark_orange? &namespace=`custom`]]" baseColor="#ff8c00" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-dark-orange.css');"></span></td>
 			      <td>[[%custom.label_dark_orange? &namespace=`custom`]]</td>
 			      <td style="background-color:#ff8c00;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-dark-orchid.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-dark-orchid.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-dark-orchid.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-dark-orchid.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-dark-orchid.css`]] style="display:none;" title="[[%custom.label_dark_orchid? &namespace=`custom`]]" baseColor="#9932cc" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-dark-orchid.css');"></span></td>
 			      <td>[[%custom.label_dark_orchid? &namespace=`custom`]]</td>
 			      <td style="background-color:#9932cc;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-dark-red.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-dark-red.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-dark-red.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-dark-red.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-dark-red.css`]] style="display:none;" title="[[%custom.label_dark_red? &namespace=`custom`]]" baseColor="#8b0000" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-dark-red.css');"></span></td>
 			      <td>[[%custom.label_dark_red? &namespace=`custom`]]</td>
 			      <td style="background-color:#8b0000;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-dark-salmon.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-dark-salmon.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-dark-salmon.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-dark-salmon.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-dark-salmon.css`]] style="display:none;" title="[[%custom.label_dark_salmon? &namespace=`custom`]]" baseColor="#e9967a" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-dark-salmon.css');"></span></td>
 			      <td>[[%custom.label_dark_salmon? &namespace=`custom`]]</td>
 			      <td style="background-color:#e9967a;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-dark-sea-green.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-dark-sea-green.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-dark-sea-green.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-dark-sea-green.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-dark-sea-green.css`]] style="display:none;" title="[[%custom.label_dark_sea_green? &namespace=`custom`]]" baseColor="#8fbc8f" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-dark-sea-green.css');"></span></td>
 			      <td>[[%custom.label_dark_sea_green? &namespace=`custom`]]</td>
 			      <td style="background-color:#8fbc8f;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-dark-slate-blue.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-dark-slate-blue.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-dark-slate-blue.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-dark-slate-blue.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-dark-slate-blue.css`]] style="display:none;" title="[[%custom.label_dark_slate_blue? &namespace=`custom`]]" baseColor="#483d8b" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-dark-slate-blue.css');"></span></td>
 			      <td>[[%custom.label_dark_slate_blue? &namespace=`custom`]]</td>
 			      <td style="background-color:#483d8b;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-dark-slate-gray.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-dark-slate-gray.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-dark-slate-gray.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-dark-slate-gray.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-dark-slate-gray.css`]] style="display:none;" title="[[%custom.label_dark_slate_gray? &namespace=`custom`]]" baseColor="#2f4f4f" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-dark-slate-gray.css');"></span></td>
 			      <td>[[%custom.label_dark_slate_gray? &namespace=`custom`]]</td>
 			      <td style="background-color:#2f4f4f;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-dark-turquoise.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-dark-turquoise.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-dark-turquoise.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-dark-turquoise.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-dark-turquoise.css`]] style="display:none;" title="[[%custom.label_dark_turquoise? &namespace=`custom`]]" baseColor="#00ced1" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-dark-turquoise.css');"></span></td>
 			      <td>[[%custom.label_dark_turquoise? &namespace=`custom`]]</td>
 			      <td style="background-color:#00ced1;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-dark-violet.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-dark-violet.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-dark-violet.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-dark-violet.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-dark-violet.css`]] style="display:none;" title="[[%custom.label_dark_violet? &namespace=`custom`]]" baseColor="#9400d3" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-dark-violet.css');"></span></td>
 			      <td>[[%custom.label_dark_violet? &namespace=`custom`]]</td>
 			      <td style="background-color:#9400d3;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-deep-pink.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-deep-pink.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-deep-pink.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-deep-pink.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-deep-pink.css`]] style="display:none;" title="[[%custom.label_deep_pink? &namespace=`custom`]]" baseColor="#ff1493" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-deep-pink.css');"></span></td>
 			      <td>[[%custom.label_deep_pink? &namespace=`custom`]]</td>
 			      <td style="background-color:#ff1493;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-deep-sky-blue.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-deep-sky-blue.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-deep-sky-blue.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-deep-sky-blue.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-deep-sky-blue.css`]] style="display:none;" title="[[%custom.label_deep_sky_blue? &namespace=`custom`]]" baseColor="#00bfff" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-deep-sky-blue.css');"></span></td>
 			      <td>[[%custom.label_deep_sky_blue? &namespace=`custom`]]</td>
 			      <td style="background-color:#00bfff;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-dim-gray.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-dim-gray.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-dim-gray.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-dim-gray.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-dim-gray.css`]] style="display:none;" title="[[%custom.label_dim_gray? &namespace=`custom`]]" baseColor="#696969" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-dim-gray.css');"></span></td>
 			      <td>[[%custom.label_dim_gray? &namespace=`custom`]]</td>
 			      <td style="background-color:#696969;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-dodger-blue.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-dodger-blue.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-dodger-blue.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-dodger-blue.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-dodger-blue.css`]] style="display:none;" title="[[%custom.label_dodger_blue? &namespace=`custom`]]" baseColor="#1e90ff" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-dodger-blue.css');"></span></td>
 			      <td>[[%custom.label_dodger_blue? &namespace=`custom`]]</td>
 			      <td style="background-color:#1e90ff;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-firebrick.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-firebrick.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-firebrick.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-firebrick.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-firebrick.css`]] style="display:none;" title="[[%custom.label_firebrick? &namespace=`custom`]]" baseColor="#b22222" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-firebrick.css');"></span></td>
 			      <td>[[%custom.label_firebrick? &namespace=`custom`]]</td>
 			      <td style="background-color:#b22222;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-floral-white.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-floral-white.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-floral-white.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-floral-white.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-floral-white.css`]] style="display:none;" title="[[%custom.label_floral_white? &namespace=`custom`]]" baseColor="#fffaf0" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-floral-white.css');"></span></td>
 			      <td>[[%custom.label_floral_white? &namespace=`custom`]]</td>
 			      <td style="background-color:#fffaf0;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-forest-green.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-forest-green.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-forest-green.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-forest-green.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-forest-green.css`]] style="display:none;" title="[[%custom.label_forest_green? &namespace=`custom`]]" baseColor="#228b22" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-forest-green.css');"></span></td>
 			      <td>[[%custom.label_forest_green? &namespace=`custom`]]</td>
 			      <td style="background-color:#228b22;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-gainsboro.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-gainsboro.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-gainsboro.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-gainsboro.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-gainsboro.css`]] style="display:none;" title="[[%custom.label_gainsboro? &namespace=`custom`]]" baseColor="#dcdcdc" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-gainsboro.css');"></span></td>
 			      <td>[[%custom.label_gainsboro? &namespace=`custom`]]</td>
 			      <td style="background-color:#dcdcdc;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-ghost-white.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-ghost-white.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-ghost-white.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-ghost-white.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-ghost-white.css`]] style="display:none;" title="[[%custom.label_ghost_white? &namespace=`custom`]]" baseColor="#f8f8ff" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-ghost-white.css');"></span></td>
 			      <td>[[%custom.label_ghost_white? &namespace=`custom`]]</td>
 			      <td style="background-color:#f8f8ff;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-gold.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-gold.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-gold.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-gold.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-gold.css`]] style="display:none;" title="[[%custom.label_gold? &namespace=`custom`]]" baseColor="#ffd700" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-gold.css');"></span></td>
 			      <td>[[%custom.label_gold? &namespace=`custom`]]</td>
 			      <td style="background-color:#ffd700;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-golden-rod.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-golden-rod.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-golden-rod.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-golden-rod.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-golden-rod.css`]] style="display:none;" title="[[%custom.label_golden_rod? &namespace=`custom`]]" baseColor="#daa520" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-golden-rod.css');"></span></td>
 			      <td>[[%custom.label_golden_rod? &namespace=`custom`]]</td>
 			      <td style="background-color:#daa520;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-gray.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-gray.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-gray.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-gray.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-gray.css`]] style="display:none;" title="[[%custom.label_gray? &namespace=`custom`]]" baseColor="#808080" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-gray.css');"></span></td>
 			      <td>[[%custom.label_gray? &namespace=`custom`]]</td>
 			      <td style="background-color:#808080;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-green-yellow.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-green-yellow.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-green-yellow.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-green-yellow.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-green-yellow.css`]] style="display:none;" title="[[%custom.label_green_yellow? &namespace=`custom`]]" baseColor="#adff2f" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-green-yellow.css');"></span></td>
 			      <td>[[%custom.label_green_yellow? &namespace=`custom`]]</td>
 			      <td style="background-color:#adff2f;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-green.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-green.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-green.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-green.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-green.css`]] style="display:none;" title="[[%custom.label_green? &namespace=`custom`]]" baseColor="#008000" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-green.css');"></span></td>
 			      <td>[[%custom.label_green? &namespace=`custom`]]</td>
 			      <td style="background-color:#008000;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-honeydew.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-honeydew.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-honeydew.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-honeydew.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-honeydew.css`]] style="display:none;" title="[[%custom.label_honeydew? &namespace=`custom`]]" baseColor="#f0fff0" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-honeydew.css');"></span></td>
 			      <td>[[%custom.label_honeydew? &namespace=`custom`]]</td>
 			      <td style="background-color:#f0fff0;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-hot-pink.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-hot-pink.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-hot-pink.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-hot-pink.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-hot-pink.css`]] style="display:none;" title="[[%custom.label_hot_pink? &namespace=`custom`]]" baseColor="#ff69b4" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-hot-pink.css');"></span></td>
 			      <td>[[%custom.label_hot_pink? &namespace=`custom`]]</td>
 			      <td style="background-color:#ff69b4;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-indian-red.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-indian-red.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-indian-red.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-indian-red.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-indian-red.css`]] style="display:none;" title="[[%custom.label_indian_red? &namespace=`custom`]]" baseColor="#cd5c5c" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-indian-red.css');"></span></td>
 			      <td>[[%custom.label_indian_red? &namespace=`custom`]]</td>
 			      <td style="background-color:#cd5c5c;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-indigo.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-indigo.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-indigo.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-indigo.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-indigo.css`]] style="display:none;" title="[[%custom.label_indigo? &namespace=`custom`]]" baseColor="#4b0082" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-indigo.css');"></span></td>
 			      <td>[[%custom.label_indigo? &namespace=`custom`]]</td>
 			      <td style="background-color:#4b0082;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-ivory.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-ivory.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-ivory.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-ivory.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-ivory.css`]] style="display:none;" title="[[%custom.label_ivory? &namespace=`custom`]]" baseColor="#fffff0" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-ivory.css');"></span></td>
 			      <td>[[%custom.label_ivory? &namespace=`custom`]]</td>
 			      <td style="background-color:#fffff0;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-khaki.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-khaki.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-khaki.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-khaki.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-khaki.css`]] style="display:none;" title="[[%custom.label_khaki? &namespace=`custom`]]" baseColor="#f0e68c" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-khaki.css');"></span></td>
 			      <td>[[%custom.label_khaki? &namespace=`custom`]]</td>
 			      <td style="background-color:#f0e68c;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-lavender-blush.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-lavender-blush.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-lavender-blush.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-lavender-blush.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-lavender-blush.css`]] style="display:none;" title="[[%custom.label_lavender_blush? &namespace=`custom`]]" baseColor="#fff0f5" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-lavender-blush.css');"></span></td>
 			      <td>[[%custom.label_lavender_blush? &namespace=`custom`]]</td>
 			      <td style="background-color:#fff0f5;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-lavender.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-lavender.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-lavender.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-lavender.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-lavender.css`]] style="display:none;" title="[[%custom.label_lavender? &namespace=`custom`]]" baseColor="#e6e6fa" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-lavender.css');"></span></td>
 			      <td>[[%custom.label_lavender? &namespace=`custom`]]</td>
 			      <td style="background-color:#e6e6fa;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-lawn-green.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-lawn-green.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-lawn-green.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-lawn-green.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-lawn-green.css`]] style="display:none;" title="[[%custom.label_lawn_green? &namespace=`custom`]]" baseColor="#7cfc00" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-lawn-green.css');"></span></td>
 			      <td>[[%custom.label_lawn_green? &namespace=`custom`]]</td>
 			      <td style="background-color:#7cfc00;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-lemon-chiffon.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-lemon-chiffon.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-lemon-chiffon.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-lemon-chiffon.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-lemon-chiffon.css`]] style="display:none;" title="[[%custom.label_lemon_chiffon? &namespace=`custom`]]" baseColor="#fffacd" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-lemon-chiffon.css');"></span></td>
 			      <td>[[%custom.label_lemon_chiffon? &namespace=`custom`]]</td>
 			      <td style="background-color:#fffacd;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-light-blue.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-light-blue.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-light-blue.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-light-blue.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-light-blue.css`]] style="display:none;" title="[[%custom.label_light_blue? &namespace=`custom`]]" baseColor="#add8e6" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-light-blue.css');"></span></td>
 			      <td>[[%custom.label_light_blue? &namespace=`custom`]]</td>
 			      <td style="background-color:#add8e6;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-light-coral.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-light-coral.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-light-coral.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-light-coral.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-light-coral.css`]] style="display:none;" title="[[%custom.label_light_coral? &namespace=`custom`]]" baseColor="#f08080" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-light-coral.css');"></span></td>
 			      <td>[[%custom.label_light_coral? &namespace=`custom`]]</td>
 			      <td style="background-color:#f08080;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-light-cyan.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-light-cyan.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-light-cyan.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-light-cyan.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-light-cyan.css`]] style="display:none;" title="[[%custom.label_light_cyan? &namespace=`custom`]]" baseColor="#e0ffff" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-light-cyan.css');"></span></td>
 			      <td>[[%custom.label_light_cyan? &namespace=`custom`]]</td>
 			      <td style="background-color:#e0ffff;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-light-golden-rod-yellow.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-light-golden-rod-yellow.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-light-golden-rod-yellow.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-light-golden-rod-yellow.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-light-golden-rod-yellow.css`]] style="display:none;" title="[[%custom.label_light_golden_rod_yellow? &namespace=`custom`]]" baseColor="#fafad2" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-light-golden-rod-yellow.css');"></span></td>
 			      <td>[[%custom.label_light_golden_rod_yellow? &namespace=`custom`]]</td>
 			      <td style="background-color:#fafad2;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-light-gray.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-light-gray.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-light-gray.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-light-gray.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-light-gray.css`]] style="display:none;" title="[[%custom.label_light_gray? &namespace=`custom`]]" baseColor="#d3d3d3" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-light-gray.css');"></span></td>
 			      <td>[[%custom.label_light_gray? &namespace=`custom`]]</td>
 			      <td style="background-color:#d3d3d3;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-light-green.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-light-green.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-light-green.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-light-green.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-light-green.css`]] style="display:none;" title="[[%custom.label_light_green? &namespace=`custom`]]" baseColor="#90ee90" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-light-green.css');"></span></td>
 			      <td>[[%custom.label_light_green? &namespace=`custom`]]</td>
 			      <td style="background-color:#90ee90;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-light-pink.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-light-pink.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-light-pink.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-light-pink.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-light-pink.css`]] style="display:none;" title="[[%custom.label_light_pink? &namespace=`custom`]]" baseColor="#ffb6c1" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-light-pink.css');"></span></td>
 			      <td>[[%custom.label_light_pink? &namespace=`custom`]]</td>
 			      <td style="background-color:#ffb6c1;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-light-salmon.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-light-salmon.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-light-salmon.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-light-salmon.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-light-salmon.css`]] style="display:none;" title="[[%custom.label_light_salmon? &namespace=`custom`]]" baseColor="#ffa07a" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-light-salmon.css');"></span></td>
 			      <td>[[%custom.label_light_salmon? &namespace=`custom`]]</td>
 			      <td style="background-color:#ffa07a;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-light-sea-green.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-light-sea-green.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-light-sea-green.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-light-sea-green.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-light-sea-green.css`]] style="display:none;" title="[[%custom.label_light_sea_green? &namespace=`custom`]]" baseColor="#20b2aa" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-light-sea-green.css');"></span></td>
 			      <td>[[%custom.label_light_sea_green? &namespace=`custom`]]</td>
 			      <td style="background-color:#20b2aa;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-light-sky-blue.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-light-sky-blue.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-light-sky-blue.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-light-sky-blue.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-light-sky-blue.css`]] style="display:none;" title="[[%custom.label_light_sky_blue? &namespace=`custom`]]" baseColor="#87cefa" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-light-sky-blue.css');"></span></td>
 			      <td>[[%custom.label_light_sky_blue? &namespace=`custom`]]</td>
 			      <td style="background-color:#87cefa;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-light-slate-gray.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-light-slate-gray.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-light-slate-gray.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-light-slate-gray.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-light-slate-gray.css`]] style="display:none;" title="[[%custom.label_light_slate_gray? &namespace=`custom`]]" baseColor="#778899" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-light-slate-gray.css');"></span></td>
 			      <td>[[%custom.label_light_slate_gray? &namespace=`custom`]]</td>
 			      <td style="background-color:#778899;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-light-steel-blue.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-light-steel-blue.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-light-steel-blue.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-light-steel-blue.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-light-steel-blue.css`]] style="display:none;" title="[[%custom.label_light_steel_blue? &namespace=`custom`]]" baseColor="#b0c4de" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-light-steel-blue.css');"></span></td>
 			      <td>[[%custom.label_light_steel_blue? &namespace=`custom`]]</td>
 			      <td style="background-color:#b0c4de;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-light-yellow.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-light-yellow.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-light-yellow.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-light-yellow.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-light-yellow.css`]] style="display:none;" title="[[%custom.label_light_yellow? &namespace=`custom`]]" baseColor="#ffffe0" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-light-yellow.css');"></span></td>
 			      <td>[[%custom.label_light_yellow? &namespace=`custom`]]</td>
 			      <td style="background-color:#ffffe0;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-lime-green.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-lime-green.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-lime-green.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-lime-green.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-lime-green.css`]] style="display:none;" title="[[%custom.label_lime_green? &namespace=`custom`]]" baseColor="#32cd32" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-lime-green.css');"></span></td>
 			      <td>[[%custom.label_lime_green? &namespace=`custom`]]</td>
 			      <td style="background-color:#32cd32;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-lime.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-lime.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-lime.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-lime.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-lime.css`]] style="display:none;" title="[[%custom.label_lime? &namespace=`custom`]]" baseColor="#00ff00" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-lime.css');"></span></td>
 			      <td>[[%custom.label_lime? &namespace=`custom`]]</td>
 			      <td style="background-color:#00ff00;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-linen.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-linen.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-linen.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-linen.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-linen.css`]] style="display:none;" title="[[%custom.label_linen? &namespace=`custom`]]" baseColor="#faf0e6" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-linen.css');"></span></td>
 			      <td>[[%custom.label_linen? &namespace=`custom`]]</td>
 			      <td style="background-color:#faf0e6;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-magenta-fuchsia.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-magenta-fuchsia.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-magenta-fuchsia.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-magenta-fuchsia.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-magenta-fuchsia.css`]] style="display:none;" title="[[%custom.label_magenta_fuchsia? &namespace=`custom`]]" baseColor="#ff00ff" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-magenta-fuchsia.css');"></span></td>
 			      <td>[[%custom.label_magenta_fuchsia? &namespace=`custom`]]</td>
 			      <td style="background-color:#ff00ff;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-maroon.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-maroon.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-maroon.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-maroon.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-maroon.css`]] style="display:none;" title="[[%custom.label_maroon? &namespace=`custom`]]" baseColor="#800000" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-maroon.css');"></span></td>
 			      <td>[[%custom.label_maroon? &namespace=`custom`]]</td>
 			      <td style="background-color:#800000;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-medium-aqua-marine.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-medium-aqua-marine.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-medium-aqua-marine.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-medium-aqua-marine.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-medium-aqua-marine.css`]] style="display:none;" title="[[%custom.label_medium_aqua_marine? &namespace=`custom`]]" baseColor="#66cdaa" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-medium-aqua-marine.css');"></span></td>
 			      <td>[[%custom.label_medium_aqua_marine? &namespace=`custom`]]</td>
 			      <td style="background-color:#66cdaa;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-medium-blue.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-medium-blue.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-medium-blue.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-medium-blue.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-medium-blue.css`]] style="display:none;" title="[[%custom.label_medium_blue? &namespace=`custom`]]" baseColor="#0000cd" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-medium-blue.css');"></span></td>
 			      <td>[[%custom.label_medium_blue? &namespace=`custom`]]</td>
 			      <td style="background-color:#0000cd;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-medium-orchid.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-medium-orchid.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-medium-orchid.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-medium-orchid.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-medium-orchid.css`]] style="display:none;" title="[[%custom.label_medium_orchid? &namespace=`custom`]]" baseColor="#ba55d3" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-medium-orchid.css');"></span></td>
 			      <td>[[%custom.label_medium_orchid? &namespace=`custom`]]</td>
 			      <td style="background-color:#ba55d3;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-medium-purple.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-medium-purple.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-medium-purple.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-medium-purple.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-medium-purple.css`]] style="display:none;" title="[[%custom.label_medium_purple? &namespace=`custom`]]" baseColor="#9370db" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-medium-purple.css');"></span></td>
 			      <td>[[%custom.label_medium_purple? &namespace=`custom`]]</td>
 			      <td style="background-color:#9370db;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-medium-sea-green.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-medium-sea-green.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-medium-sea-green.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-medium-sea-green.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-medium-sea-green.css`]] style="display:none;" title="[[%custom.label_medium_sea_green? &namespace=`custom`]]" baseColor="#3cb371" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-medium-sea-green.css');"></span></td>
 			      <td>[[%custom.label_medium_sea_green? &namespace=`custom`]]</td>
 			      <td style="background-color:#3cb371;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-medium-slate-blue.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-medium-slate-blue.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-medium-slate-blue.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-medium-slate-blue.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-medium-slate-blue.css`]] style="display:none;" title="[[%custom.label_medium_slate_blue? &namespace=`custom`]]" baseColor="#7b68ee" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-medium-slate-blue.css');"></span></td>
 			      <td>[[%custom.label_medium_slate_blue? &namespace=`custom`]]</td>
 			      <td style="background-color:#7b68ee;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-medium-spring-green.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-medium-spring-green.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-medium-spring-green.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-medium-spring-green.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-medium-spring-green.css`]] style="display:none;" title="[[%custom.label_medium_spring_green? &namespace=`custom`]]" baseColor="#00fa9a" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-medium-spring-green.css');"></span></td>
 			      <td>[[%custom.label_medium_spring_green? &namespace=`custom`]]</td>
 			      <td style="background-color:#00fa9a;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-medium-turquoise.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-medium-turquoise.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-medium-turquoise.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-medium-turquoise.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-medium-turquoise.css`]] style="display:none;" title="[[%custom.label_medium_turquoise? &namespace=`custom`]]" baseColor="#48d1cc" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-medium-turquoise.css');"></span></td>
 			      <td>[[%custom.label_medium_turquoise? &namespace=`custom`]]</td>
 			      <td style="background-color:#48d1cc;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-medium-violet-red.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-medium-violet-red.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-medium-violet-red.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-medium-violet-red.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-medium-violet-red.css`]] style="display:none;" title="[[%custom.label_medium_violet_red? &namespace=`custom`]]" baseColor="#c71585" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-medium-violet-red.css');"></span></td>
 			      <td>[[%custom.label_medium_violet_red? &namespace=`custom`]]</td>
 			      <td style="background-color:#c71585;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-midnight-blue.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-midnight-blue.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-midnight-blue.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-midnight-blue.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-midnight-blue.css`]] style="display:none;" title="[[%custom.label_midnight_blue? &namespace=`custom`]]" baseColor="#191970" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-midnight-blue.css');"></span></td>
 			      <td>[[%custom.label_midnight_blue? &namespace=`custom`]]</td>
 			      <td style="background-color:#191970;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-mint-green.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-mint-green.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-mint-green.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-mint-green.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-mint-green.css`]] style="display:none;" title="[[%custom.label_mint_green? &namespace=`custom`]]" baseColor="#f5fffa" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-mint-green.css');"></span></td>
 			      <td>[[%custom.label_mint_green? &namespace=`custom`]]</td>
 			      <td style="background-color:#f5fffa;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-misty-rose.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-misty-rose.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-misty-rose.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-misty-rose.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-misty-rose.css`]] style="display:none;" title="[[%custom.label_misty_rose? &namespace=`custom`]]" baseColor="#ffe4e1" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-misty-rose.css');"></span></td>
 			      <td>[[%custom.label_misty_rose? &namespace=`custom`]]</td>
 			      <td style="background-color:#ffe4e1;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-moccasin.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-moccasin.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-moccasin.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-moccasin.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-moccasin.css`]] style="display:none;" title="[[%custom.label_moccasin? &namespace=`custom`]]" baseColor="#ffe4b5" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-moccasin.css');"></span></td>
 			      <td>[[%custom.label_moccasin? &namespace=`custom`]]</td>
 			      <td style="background-color:#ffe4b5;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-navajo-white.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-navajo-white.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-navajo-white.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-navajo-white.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-navajo-white.css`]] style="display:none;" title="[[%custom.label_navajo_white? &namespace=`custom`]]" baseColor="#ffdead" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-navajo-white.css');"></span></td>
 			      <td>[[%custom.label_navajo_white? &namespace=`custom`]]</td>
 			      <td style="background-color:#ffdead;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-navy.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-navy.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-navy.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-navy.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-navy.css`]] style="display:none;" title="[[%custom.label_navy? &namespace=`custom`]]" baseColor="#000080" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-navy.css');"></span></td>
 			      <td>[[%custom.label_navy? &namespace=`custom`]]</td>
 			      <td style="background-color:#000080;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-old-lace.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-old-lace.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-old-lace.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-old-lace.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-old-lace.css`]] style="display:none;" title="[[%custom.label_old_lace? &namespace=`custom`]]" baseColor="#fdf5e6" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-old-lace.css');"></span></td>
 			      <td>[[%custom.label_old_lace? &namespace=`custom`]]</td>
 			      <td style="background-color:#fdf5e6;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-olive-drab.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-olive-drab.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-olive-drab.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-olive-drab.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-olive-drab.css`]] style="display:none;" title="[[%custom.label_olive_drab? &namespace=`custom`]]" baseColor="#6b8e23" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-olive-drab.css');"></span></td>
 			      <td>[[%custom.label_olive_drab? &namespace=`custom`]]</td>
 			      <td style="background-color:#6b8e23;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-olive.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-olive.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-olive.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-olive.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-olive.css`]] style="display:none;" title="[[%custom.label_olive? &namespace=`custom`]]" baseColor="#808000" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-olive.css');"></span></td>
 			      <td>[[%custom.label_olive? &namespace=`custom`]]</td>
 			      <td style="background-color:#808000;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-orange-red.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-orange-red.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-orange-red.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-orange-red.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-orange-red.css`]] style="display:none;" title="[[%custom.label_orange_red? &namespace=`custom`]]" baseColor="#ff4500" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-orange-red.css');"></span></td>
 			      <td>[[%custom.label_orange_red? &namespace=`custom`]]</td>
 			      <td style="background-color:#ff4500;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-orange.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-orange.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-orange.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-orange.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-orange.css`]] style="display:none;" title="[[%custom.label_orange? &namespace=`custom`]]" baseColor="#ffa500" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-orange.css');"></span></td>
 			      <td>[[%custom.label_orange? &namespace=`custom`]]</td>
 			      <td style="background-color:#ffa500;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-orchid.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-orchid.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-orchid.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-orchid.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-orchid.css`]] style="display:none;" title="[[%custom.label_orchid? &namespace=`custom`]]" baseColor="#da70d6" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-orchid.css');"></span></td>
 			      <td>[[%custom.label_orchid? &namespace=`custom`]]</td>
 			      <td style="background-color:#da70d6;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-pale-golden-rod.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-pale-golden-rod.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-pale-golden-rod.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-pale-golden-rod.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-pale-golden-rod.css`]] style="display:none;" title="[[%custom.label_pale_golden_rod? &namespace=`custom`]]" baseColor="#eee8aa" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-pale-golden-rod.css');"></span></td>
 			      <td>[[%custom.label_pale_golden_rod? &namespace=`custom`]]</td>
 			      <td style="background-color:#eee8aa;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-pale-green.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-pale-green.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-pale-green.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-pale-green.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-pale-green.css`]] style="display:none;" title="[[%custom.label_pale_green? &namespace=`custom`]]" baseColor="#98fb98" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-pale-green.css');"></span></td>
 			      <td>[[%custom.label_pale_green? &namespace=`custom`]]</td>
 			      <td style="background-color:#98fb98;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-pale-turquoise.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-pale-turquoise.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-pale-turquoise.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-pale-turquoise.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-pale-turquoise.css`]] style="display:none;" title="[[%custom.label_pale_turquoise? &namespace=`custom`]]" baseColor="#afeeee" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-pale-turquoise.css');"></span></td>
 			      <td>[[%custom.label_pale_turquoise? &namespace=`custom`]]</td>
 			      <td style="background-color:#afeeee;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-pale-violet-red.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-pale-violet-red.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-pale-violet-red.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-pale-violet-red.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-pale-violet-red.css`]] style="display:none;" title="[[%custom.label_pale_violet_red? &namespace=`custom`]]" baseColor="#db7093" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-pale-violet-red.css');"></span></td>
 			      <td>[[%custom.label_pale_violet_red? &namespace=`custom`]]</td>
 			      <td style="background-color:#db7093;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-papaya-whip.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-papaya-whip.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-papaya-whip.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-papaya-whip.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-papaya-whip.css`]] style="display:none;" title="[[%custom.label_papaya_whip? &namespace=`custom`]]" baseColor="#ffefd5" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-papaya-whip.css');"></span></td>
 			      <td>[[%custom.label_papaya_whip? &namespace=`custom`]]</td>
 			      <td style="background-color:#ffefd5;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-peach-puff.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-peach-puff.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-peach-puff.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-peach-puff.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-peach-puff.css`]] style="display:none;" title="[[%custom.label_peach_puff? &namespace=`custom`]]" baseColor="#ffdab9" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-peach-puff.css');"></span></td>
 			      <td>[[%custom.label_peach_puff? &namespace=`custom`]]</td>
 			      <td style="background-color:#ffdab9;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-peru.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-peru.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-peru.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-peru.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-peru.css`]] style="display:none;" title="[[%custom.label_peru? &namespace=`custom`]]" baseColor="#cd853f" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-peru.css');"></span></td>
 			      <td>[[%custom.label_peru? &namespace=`custom`]]</td>
 			      <td style="background-color:#cd853f;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-pink.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-pink.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-pink.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-pink.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-pink.css`]] style="display:none;" title="[[%custom.label_pink? &namespace=`custom`]]" baseColor="#ffc0cb" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-pink.css');"></span></td>
 			      <td>[[%custom.label_pink? &namespace=`custom`]]</td>
 			      <td style="background-color:#ffc0cb;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-plum.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-plum.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-plum.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-plum.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-plum.css`]] style="display:none;" title="[[%custom.label_plum? &namespace=`custom`]]" baseColor="#dda0dd" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-plum.css');"></span></td>
 			      <td>[[%custom.label_plum? &namespace=`custom`]]</td>
 			      <td style="background-color:#dda0dd;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-powder-blue.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-powder-blue.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-powder-blue.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-powder-blue.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-powder-blue.css`]] style="display:none;" title="[[%custom.label_powder_blue? &namespace=`custom`]]" baseColor="#b0e0e6" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-powder-blue.css');"></span></td>
 			      <td>[[%custom.label_powder_blue? &namespace=`custom`]]</td>
 			      <td style="background-color:#b0e0e6;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-purple.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-purple.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-purple.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-purple.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-purple.css`]] style="display:none;" title="[[%custom.label_purple? &namespace=`custom`]]" baseColor="#800080" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-purple.css');"></span></td>
 			      <td>[[%custom.label_purple? &namespace=`custom`]]</td>
 			      <td style="background-color:#800080;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-red.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-red.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-red.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-red.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-red.css`]] style="display:none;" title="[[%custom.label_red? &namespace=`custom`]]" baseColor="#ff0000" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-red.css');"></span></td>
 			      <td>[[%custom.label_red? &namespace=`custom`]]</td>
 			      <td style="background-color:#ff0000;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-rosy-brown.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-rosy-brown.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-rosy-brown.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-rosy-brown.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-rosy-brown.css`]] style="display:none;" title="[[%custom.label_rosy_brown? &namespace=`custom`]]" baseColor="#bc8f8f" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-rosy-brown.css');"></span></td>
 			      <td>[[%custom.label_rosy_brown? &namespace=`custom`]]</td>
 			      <td style="background-color:#bc8f8f;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-royal-blue.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-royal-blue.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-royal-blue.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-royal-blue.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-royal-blue.css`]] style="display:none;" title="[[%custom.label_royal_blue? &namespace=`custom`]]" baseColor="#4169e1" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-royal-blue.css');"></span></td>
 			      <td>[[%custom.label_royal_blue? &namespace=`custom`]]</td>
 			      <td style="background-color:#4169e1;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-saddle-brown.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-saddle-brown.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-saddle-brown.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-saddle-brown.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-saddle-brown.css`]] style="display:none;" title="[[%custom.label_saddle_brown? &namespace=`custom`]]" baseColor="#8b4513" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-saddle-brown.css');"></span></td>
 			      <td>[[%custom.label_saddle_brown? &namespace=`custom`]]</td>
 			      <td style="background-color:#8b4513;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-salmon.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-salmon.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-salmon.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-salmon.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-salmon.css`]] style="display:none;" title="[[%custom.label_salmon? &namespace=`custom`]]" baseColor="#fa8072" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-salmon.css');"></span></td>
 			      <td>[[%custom.label_salmon? &namespace=`custom`]]</td>
 			      <td style="background-color:#fa8072;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-sandy-brown.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-sandy-brown.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-sandy-brown.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-sandy-brown.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-sandy-brown.css`]] style="display:none;" title="[[%custom.label_sandy_brown? &namespace=`custom`]]" baseColor="#f4a460" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-sandy-brown.css');"></span></td>
 			      <td>[[%custom.label_sandy_brown? &namespace=`custom`]]</td>
 			      <td style="background-color:#f4a460;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-sea-green.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-sea-green.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-sea-green.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-sea-green.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-sea-green.css`]] style="display:none;" title="[[%custom.label_sea_green? &namespace=`custom`]]" baseColor="#2e8b57" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-sea-green.css');"></span></td>
 			      <td>[[%custom.label_sea_green? &namespace=`custom`]]</td>
 			      <td style="background-color:#2e8b57;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-sea-shell.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-sea-shell.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-sea-shell.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-sea-shell.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-sea-shell.css`]] style="display:none;" title="[[%custom.label_sea_shell? &namespace=`custom`]]" baseColor="#fff5ee" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-sea-shell.css');"></span></td>
 			      <td>[[%custom.label_sea_shell? &namespace=`custom`]]</td>
 			      <td style="background-color:#fff5ee;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-sienna.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-sienna.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-sienna.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-sienna.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-sienna.css`]] style="display:none;" title="[[%custom.label_sienna? &namespace=`custom`]]" baseColor="#a0522d" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-sienna.css');"></span></td>
 			      <td>[[%custom.label_sienna? &namespace=`custom`]]</td>
 			      <td style="background-color:#a0522d;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-silver.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-silver.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-silver.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-silver.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-silver.css`]] style="display:none;" title="[[%custom.label_silver? &namespace=`custom`]]" baseColor="#c0c0c0" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-silver.css');"></span></td>
 			      <td>[[%custom.label_silver? &namespace=`custom`]]</td>
 			      <td style="background-color:#c0c0c0;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-sky-blue.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-sky-blue.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-sky-blue.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-sky-blue.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-sky-blue.css`]] style="display:none;" title="[[%custom.label_sky_blue? &namespace=`custom`]]" baseColor="#87ceeb" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-sky-blue.css');"></span></td>
 			      <td>[[%custom.label_sky_blue? &namespace=`custom`]]</td>
 			      <td style="background-color:#87ceeb;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-slate-blue.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-slate-blue.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-slate-blue.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-slate-blue.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-slate-blue.css`]] style="display:none;" title="[[%custom.label_slate_blue? &namespace=`custom`]]" baseColor="#6a5acd" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-slate-blue.css');"></span></td>
 			      <td>[[%custom.label_slate_blue? &namespace=`custom`]]</td>
 			      <td style="background-color:#6a5acd;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-slate-gray.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-slate-gray.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-slate-gray.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-slate-gray.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-slate-gray.css`]] style="display:none;" title="[[%custom.label_slate_gray? &namespace=`custom`]]" baseColor="#708090" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-slate-gray.css');"></span></td>
 			      <td>[[%custom.label_slate_gray? &namespace=`custom`]]</td>
 			      <td style="background-color:#708090;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-snow.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-snow.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-snow.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-snow.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-snow.css`]] style="display:none;" title="[[%custom.label_snow? &namespace=`custom`]]" baseColor="#fffafa" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-snow.css');"></span></td>
 			      <td>[[%custom.label_snow? &namespace=`custom`]]</td>
 			      <td style="background-color:#fffafa;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-spring-green.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-spring-green.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-spring-green.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-spring-green.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-spring-green.css`]] style="display:none;" title="[[%custom.label_spring_green? &namespace=`custom`]]" baseColor="#00ff7f" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-spring-green.css');"></span></td>
 			      <td>[[%custom.label_spring_green? &namespace=`custom`]]</td>
 			      <td style="background-color:#00ff7f;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-steel-blue.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-steel-blue.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-steel-blue.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-steel-blue.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-steel-blue.css`]] style="display:none;" title="[[%custom.label_steel_blue? &namespace=`custom`]]" baseColor="#4682b4" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-steel-blue.css');"></span></td>
 			      <td>[[%custom.label_steel_blue? &namespace=`custom`]]</td>
 			      <td style="background-color:#4682b4;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-tan.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-tan.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-tan.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-tan.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-tan.css`]] style="display:none;" title="[[%custom.label_tan? &namespace=`custom`]]" baseColor="#d2b48c" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-tan.css');"></span></td>
 			      <td>[[%custom.label_tan? &namespace=`custom`]]</td>
 			      <td style="background-color:#d2b48c;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-teal.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-teal.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-teal.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-teal.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-teal.css`]] style="display:none;" title="[[%custom.label_teal? &namespace=`custom`]]" baseColor="#008080" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-teal.css');"></span></td>
 			      <td>[[%custom.label_teal? &namespace=`custom`]]</td>
 			      <td style="background-color:#008080;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-thistle.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-thistle.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-thistle.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-thistle.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-thistle.css`]] style="display:none;" title="[[%custom.label_thistle? &namespace=`custom`]]" baseColor="#d8bfd8" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-thistle.css');"></span></td>
 			      <td>[[%custom.label_thistle? &namespace=`custom`]]</td>
 			      <td style="background-color:#d8bfd8;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-tomato.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-tomato.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-tomato.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-tomato.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-tomato.css`]] style="display:none;" title="[[%custom.label_tomato? &namespace=`custom`]]" baseColor="#ff6347" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-tomato.css');"></span></td>
 			      <td>[[%custom.label_tomato? &namespace=`custom`]]</td>
 			      <td style="background-color:#ff6347;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-turquoise.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-turquoise.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-turquoise.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-turquoise.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-turquoise.css`]] style="display:none;" title="[[%custom.label_turquoise? &namespace=`custom`]]" baseColor="#40e0d0" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-turquoise.css');"></span></td>
 			      <td>[[%custom.label_turquoise? &namespace=`custom`]]</td>
 			      <td style="background-color:#40e0d0;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-violet.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-violet.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-violet.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-violet.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-violet.css`]] style="display:none;" title="[[%custom.label_violet? &namespace=`custom`]]" baseColor="#ee82ee" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-violet.css');"></span></td>
 			      <td>[[%custom.label_violet? &namespace=`custom`]]</td>
 			      <td style="background-color:#ee82ee;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-wheat.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-wheat.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-wheat.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-wheat.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-wheat.css`]] style="display:none;" title="[[%custom.label_wheat? &namespace=`custom`]]" baseColor="#f5deb3" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-wheat.css');"></span></td>
 			      <td>[[%custom.label_wheat? &namespace=`custom`]]</td>
 			      <td style="background-color:#f5deb3;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-white-smoke.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-white-smoke.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-white-smoke.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-white-smoke.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-white-smoke.css`]] style="display:none;" title="[[%custom.label_white_smoke? &namespace=`custom`]]" baseColor="#f5f5f5" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-white-smoke.css');"></span></td>
 			      <td>[[%custom.label_white_smoke? &namespace=`custom`]]</td>
 			      <td style="background-color:#f5f5f5;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-white.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-white.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-white.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-white.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-white.css`]] style="display:none;" title="[[%custom.label_white? &namespace=`custom`]]" baseColor="#ffffff" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-white.css');"></span></td>
 			      <td>[[%custom.label_white? &namespace=`custom`]]</td>
 			      <td style="background-color:#ffffff;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-yellow-green.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-yellow-green.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-yellow-green.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-yellow-green.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-yellow-green.css`]] style="display:none;" title="[[%custom.label_yellow_green? &namespace=`custom`]]" baseColor="#9acd32" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-yellow-green.css');"></span></td>
 			      <td>[[%custom.label_yellow_green? &namespace=`custom`]]</td>
 			      <td style="background-color:#9acd32;"></td>
 			      <td style="background-color:;"></td>
 			      <td style="background-color:;"></td>
 			    </tr>
 			    <tr>
-			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-yellow.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-yellow.css`]] style="display:none;"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-yellow.css');"></span></td>
+			      <td><input type="radio" name="SiteThemeCSSTV[]" value="theme-yellow.css" [[!+fi.SiteThemeCSSTV:FormItIsChecked=`theme-yellow.css`]] style="display:none;" title="[[%custom.label_yellow? &namespace=`custom`]]" baseColor="#ffff00" complementaryColors="[#ffffff,#ffffff]"><span class="custom radio" onclick="changeCheckedStatus('SiteThemeCSSTV[]','theme-yellow.css');"></span></td>
 			      <td>[[%custom.label_yellow? &namespace=`custom`]]</td>
 			      <td style="background-color:#ffff00;"></td>
 			      <td style="background-color:;"></td>

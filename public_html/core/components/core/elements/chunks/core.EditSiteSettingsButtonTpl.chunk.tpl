@@ -10,7 +10,7 @@
 <input type="hidden" name="id" id="id" value="[[++custom.site_settings]]" />
 <input type="hidden" name="url" id="url" value="[[~[[++custom.site_start]]]]" />
 <input type="hidden" name="parent" id="parent" value="[[*parent]]" />
-<input type="hidden" name="SiteThemeCSSTV" id="SiteThemeCSSTV" value="[[*SiteThemeCSSTV]]" />
-<input type="hidden" name="SiteBackgroundTV" id="SiteBackgroundTV" value="[[*SiteBackgroundTV]]" />
+<input type="hidden" name="SiteThemeCSSTV" id="SiteThemeCSSTV" value="[[!getResources? &resources=`[[++custom.site_settings]]` &tpl=`core.SiteSettingsThemeCSSTpl` &includeTVs=`1` &processTVs=`1` &tvPrefix=``]]" />
+<input type="hidden" name="SiteBackgroundTV" id="SiteBackgroundTV" value="[[!getResources? &resources=`[[++custom.site_settings]]` &tpl=`core.SiteSettingsBackgroundTpl` &includeTVs=`1` &processTVs=`1` &tvPrefix=``]]" />
 <input type="submit" name="edit_site_settings" class="nice small radius [[++custom.theme_color]] button" style="font-weight:bold;" value="[[%custom.label_edit_site_settings? &namespace=`custom`]]" />
 </form>`]]

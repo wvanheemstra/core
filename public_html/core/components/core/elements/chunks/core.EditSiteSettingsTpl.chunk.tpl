@@ -1151,7 +1151,203 @@ function changeCheckedStatus(setUncheckedForName,setCheckedForValue){
 			      <td><input type="radio" name="SiteBackgroundTV[]" value="background_016.jpg" [[!+fi.SiteBackgroundTV:FormItIsChecked=`background_016.jpg`]] style="display:none;" title="016" fileName="background_016.jpg"><span class="custom radio" onclick="changeCheckedStatus('SiteBackgroundTV[]','background_016.jpg');"></span></td>
 				  <td>016</td>
 			      <td colspan="3" style="background-image:url('assets/templates/core/images/backgrounds/background_016.jpg');"></td>
+			    </tr>
+			    <tr>
+			      <td><input type="radio" name="SiteBackgroundTV[]" value="background_017.jpg" [[!+fi.SiteBackgroundTV:FormItIsChecked=`background_017.jpg`]] style="display:none;" title="017" fileName="background_017.jpg"><span class="custom radio" onclick="changeCheckedStatus('SiteBackgroundTV[]','background_017.jpg');"></span></td>
+				  <td>017</td>
+			      <td colspan="3" style="background-image:url('assets/templates/core/images/backgrounds/background_017.jpg');"></td>
+			    </tr>
+			    <tr>
+			      <td><input type="radio" name="SiteBackgroundTV[]" value="background_018.jpg" [[!+fi.SiteBackgroundTV:FormItIsChecked=`background_018.jpg`]] style="display:none;" title="018" fileName="background_018.jpg"><span class="custom radio" onclick="changeCheckedStatus('SiteBackgroundTV[]','background_018.jpg');"></span></td>
+				  <td>018</td>
+			      <td colspan="3" style="background-image:url('assets/templates/core/images/backgrounds/background_018.jpg');"></td>
+			    </tr>
+			    <tr>
+			      <td><input type="radio" name="SiteBackgroundTV[]" value="background_019.jpg" [[!+fi.SiteBackgroundTV:FormItIsChecked=`background_019.jpg`]] style="display:none;" title="019" fileName="background_019.jpg"><span class="custom radio" onclick="changeCheckedStatus('SiteBackgroundTV[]','background_019.jpg');"></span></td>
+				  <td>019</td>
+			      <td colspan="3" style="background-image:url('assets/templates/core/images/backgrounds/background_019.jpg');"></td>
+			    </tr>
+			    <tr>
+			      <td><input type="radio" name="SiteBackgroundTV[]" value="background_020.jpg" [[!+fi.SiteBackgroundTV:FormItIsChecked=`background_020.jpg`]] style="display:none;" title="020" fileName="background_020.jpg"><span class="custom radio" onclick="changeCheckedStatus('SiteBackgroundTV[]','background_020.jpg');"></span></td>
+				  <td>020</td>
+			      <td colspan="3" style="background-image:url('assets/templates/core/images/backgrounds/background_020.jpg');"></td>
+			    </tr>
+			    <tr>
+			      <td><input type="radio" name="SiteBackgroundTV[]" value="background_021.jpg" [[!+fi.SiteBackgroundTV:FormItIsChecked=`background_021.jpg`]] style="display:none;" title="021" fileName="background_021.jpg"><span class="custom radio" onclick="changeCheckedStatus('SiteBackgroundTV[]','background_021.jpg');"></span></td>
+				  <td>021</td>
+			      <td colspan="3" style="background-image:url('assets/templates/core/images/backgrounds/background_021.jpg');"></td>
+			    </tr>
+			    <tr>
+			      <td><input type="radio" name="SiteBackgroundTV[]" value="background_022.jpg" [[!+fi.SiteBackgroundTV:FormItIsChecked=`background_022.jpg`]] style="display:none;" title="022" fileName="background_022.jpg"><span class="custom radio" onclick="changeCheckedStatus('SiteBackgroundTV[]','background_022.jpg');"></span></td>
+				  <td>022</td>
+			      <td colspan="3" style="background-image:url('assets/templates/core/images/backgrounds/background_022.jpg');"></td>
+			    </tr>
+			    <tr>
+			      <td><input type="radio" name="SiteBackgroundTV[]" value="background_023.jpg" [[!+fi.SiteBackgroundTV:FormItIsChecked=`background_023.jpg`]] style="display:none;" title="023" fileName="background_023.jpg"><span class="custom radio" onclick="changeCheckedStatus('SiteBackgroundTV[]','background_023.jpg');"></span></td>
+				  <td>023</td>
+			      <td colspan="3" style="background-image:url('assets/templates/core/images/backgrounds/background_023.jpg');"></td>
+			    </tr>
+			    <tr>
+			      <td><input type="radio" name="SiteBackgroundTV[]" value="background_024.jpg" [[!+fi.SiteBackgroundTV:FormItIsChecked=`background_024.jpg`]] style="display:none;" title="024" fileName="background_024.jpg"><span class="custom radio" onclick="changeCheckedStatus('SiteBackgroundTV[]','background_024.jpg');"></span></td>
+				  <td>024</td>
+			      <td colspan="3" style="background-image:url('assets/templates/core/images/backgrounds/background_024.jpg');"></td>
+			    </tr>
+			    <tr>
+			      <td><input type="radio" name="SiteBackgroundTV[]" value="background_025.jpg" [[!+fi.SiteBackgroundTV:FormItIsChecked=`background_025.jpg`]] style="display:none;" title="025" fileName="background_025.jpg"><span class="custom radio" onclick="changeCheckedStatus('SiteBackgroundTV[]','background_025.jpg');"></span></td>
+				  <td>025</td>
+			      <td colspan="3" style="background-image:url('assets/templates/core/images/backgrounds/background_025.jpg');"></td>
 			    </tr>			
+			    <tr>
+			      <td><input type="radio" name="SiteBackgroundTV[]" value="background_026.jpg" [[!+fi.SiteBackgroundTV:FormItIsChecked=`background_026.jpg`]] style="display:none;" title="026" fileName="background_026.jpg"><span class="custom radio" onclick="changeCheckedStatus('SiteBackgroundTV[]','background_026.jpg');"></span></td>
+				  <td>026</td>
+			      <td colspan="3" style="background-image:url('assets/templates/core/images/backgrounds/background_026.jpg');"></td>
+			    </tr>
+			    <tr>
+			      <td><input type="radio" name="SiteBackgroundTV[]" value="background_027.jpg" [[!+fi.SiteBackgroundTV:FormItIsChecked=`background_027.jpg`]] style="display:none;" title="027" fileName="background_027.jpg"><span class="custom radio" onclick="changeCheckedStatus('SiteBackgroundTV[]','background_027.jpg');"></span></td>
+				  <td>027</td>
+			      <td colspan="3" style="background-image:url('assets/templates/core/images/backgrounds/background_027.jpg');"></td>
+			    </tr>
+			    <tr>
+			      <td><input type="radio" name="SiteBackgroundTV[]" value="background_028.jpg" [[!+fi.SiteBackgroundTV:FormItIsChecked=`background_028.jpg`]] style="display:none;" title="028" fileName="background_028.jpg"><span class="custom radio" onclick="changeCheckedStatus('SiteBackgroundTV[]','background_028.jpg');"></span></td>
+				  <td>028</td>
+			      <td colspan="3" style="background-image:url('assets/templates/core/images/backgrounds/background_028.jpg');"></td>
+			    </tr>
+			    <tr>
+			      <td><input type="radio" name="SiteBackgroundTV[]" value="background_029.jpg" [[!+fi.SiteBackgroundTV:FormItIsChecked=`background_029.jpg`]] style="display:none;" title="029" fileName="background_029.jpg"><span class="custom radio" onclick="changeCheckedStatus('SiteBackgroundTV[]','background_029.jpg');"></span></td>
+				  <td>029</td>
+			      <td colspan="3" style="background-image:url('assets/templates/core/images/backgrounds/background_029.jpg');"></td>
+			    </tr>
+			    <tr>
+			      <td><input type="radio" name="SiteBackgroundTV[]" value="background_030.jpg" [[!+fi.SiteBackgroundTV:FormItIsChecked=`background_030.jpg`]] style="display:none;" title="030" fileName="background_030.jpg"><span class="custom radio" onclick="changeCheckedStatus('SiteBackgroundTV[]','background_030.jpg');"></span></td>
+				  <td>030</td>
+			      <td colspan="3" style="background-image:url('assets/templates/core/images/backgrounds/background_030.jpg');"></td>
+			    </tr>
+			    <tr>
+			      <td><input type="radio" name="SiteBackgroundTV[]" value="background_031.jpg" [[!+fi.SiteBackgroundTV:FormItIsChecked=`background_031.jpg`]] style="display:none;" title="031" fileName="background_031.jpg"><span class="custom radio" onclick="changeCheckedStatus('SiteBackgroundTV[]','background_031.jpg');"></span></td>
+				  <td>031</td>
+			      <td colspan="3" style="background-image:url('assets/templates/core/images/backgrounds/background_031.jpg');"></td>
+			    </tr>
+			    <tr>
+			      <td><input type="radio" name="SiteBackgroundTV[]" value="background_032.jpg" [[!+fi.SiteBackgroundTV:FormItIsChecked=`background_032.jpg`]] style="display:none;" title="032" fileName="background_032.jpg"><span class="custom radio" onclick="changeCheckedStatus('SiteBackgroundTV[]','background_032.jpg');"></span></td>
+				  <td>032</td>
+			      <td colspan="3" style="background-image:url('assets/templates/core/images/backgrounds/background_032.jpg');"></td>
+			    </tr>
+			    <tr>
+			      <td><input type="radio" name="SiteBackgroundTV[]" value="background_033.jpg" [[!+fi.SiteBackgroundTV:FormItIsChecked=`background_033.jpg`]] style="display:none;" title="033" fileName="background_033.jpg"><span class="custom radio" onclick="changeCheckedStatus('SiteBackgroundTV[]','background_033.jpg');"></span></td>
+				  <td>033</td>
+			      <td colspan="3" style="background-image:url('assets/templates/core/images/backgrounds/background_033.jpg');"></td>
+			    </tr>
+			    <tr>
+			      <td><input type="radio" name="SiteBackgroundTV[]" value="background_034.jpg" [[!+fi.SiteBackgroundTV:FormItIsChecked=`background_034.jpg`]] style="display:none;" title="034" fileName="background_034.jpg"><span class="custom radio" onclick="changeCheckedStatus('SiteBackgroundTV[]','background_034.jpg');"></span></td>
+				  <td>034</td>
+			      <td colspan="3" style="background-image:url('assets/templates/core/images/backgrounds/background_034.jpg');"></td>
+			    </tr>
+			    <tr>
+			      <td><input type="radio" name="SiteBackgroundTV[]" value="background_035.jpg" [[!+fi.SiteBackgroundTV:FormItIsChecked=`background_035.jpg`]] style="display:none;" title="035" fileName="background_035.jpg"><span class="custom radio" onclick="changeCheckedStatus('SiteBackgroundTV[]','background_035.jpg');"></span></td>
+				  <td>035</td>
+			      <td colspan="3" style="background-image:url('assets/templates/core/images/backgrounds/background_035.jpg');"></td>
+			    </tr>
+			    <tr>
+			      <td><input type="radio" name="SiteBackgroundTV[]" value="background_036.jpg" [[!+fi.SiteBackgroundTV:FormItIsChecked=`background_036.jpg`]] style="display:none;" title="036" fileName="background_036.jpg"><span class="custom radio" onclick="changeCheckedStatus('SiteBackgroundTV[]','background_036.jpg');"></span></td>
+				  <td>036</td>
+			      <td colspan="3" style="background-image:url('assets/templates/core/images/backgrounds/background_036.jpg');"></td>
+			    </tr>
+			    <tr>
+			      <td><input type="radio" name="SiteBackgroundTV[]" value="background_037.jpg" [[!+fi.SiteBackgroundTV:FormItIsChecked=`background_037.jpg`]] style="display:none;" title="037" fileName="background_037.jpg"><span class="custom radio" onclick="changeCheckedStatus('SiteBackgroundTV[]','background_037.jpg');"></span></td>
+				  <td>037</td>
+			      <td colspan="3" style="background-image:url('assets/templates/core/images/backgrounds/background_037.jpg');"></td>
+			    </tr>
+			    <tr>
+			      <td><input type="radio" name="SiteBackgroundTV[]" value="background_038.jpg" [[!+fi.SiteBackgroundTV:FormItIsChecked=`background_038.jpg`]] style="display:none;" title="038" fileName="background_038.jpg"><span class="custom radio" onclick="changeCheckedStatus('SiteBackgroundTV[]','background_038.jpg');"></span></td>
+				  <td>038</td>
+			      <td colspan="3" style="background-image:url('assets/templates/core/images/backgrounds/background_038.jpg');"></td>
+			    </tr>
+			    <tr>
+			      <td><input type="radio" name="SiteBackgroundTV[]" value="background_039.jpg" [[!+fi.SiteBackgroundTV:FormItIsChecked=`background_039.jpg`]] style="display:none;" title="039" fileName="background_039.jpg"><span class="custom radio" onclick="changeCheckedStatus('SiteBackgroundTV[]','background_039.jpg');"></span></td>
+				  <td>039</td>
+			      <td colspan="3" style="background-image:url('assets/templates/core/images/backgrounds/background_039.jpg');"></td>
+			    </tr>
+			    <tr>
+			      <td><input type="radio" name="SiteBackgroundTV[]" value="background_040.jpg" [[!+fi.SiteBackgroundTV:FormItIsChecked=`background_040.jpg`]] style="display:none;" title="040" fileName="background_040.jpg"><span class="custom radio" onclick="changeCheckedStatus('SiteBackgroundTV[]','background_040.jpg');"></span></td>
+				  <td>040</td>
+			      <td colspan="3" style="background-image:url('assets/templates/core/images/backgrounds/background_040.jpg');"></td>
+			    </tr>
+			    <tr>
+			      <td><input type="radio" name="SiteBackgroundTV[]" value="background_041.jpg" [[!+fi.SiteBackgroundTV:FormItIsChecked=`background_041.jpg`]] style="display:none;" title="041" fileName="background_041.jpg"><span class="custom radio" onclick="changeCheckedStatus('SiteBackgroundTV[]','background_041.jpg');"></span></td>
+				  <td>041</td>
+			      <td colspan="3" style="background-image:url('assets/templates/core/images/backgrounds/background_041.jpg');"></td>
+			    </tr>
+			    <tr>
+			      <td><input type="radio" name="SiteBackgroundTV[]" value="background_042.jpg" [[!+fi.SiteBackgroundTV:FormItIsChecked=`background_042.jpg`]] style="display:none;" title="042" fileName="background_042.jpg"><span class="custom radio" onclick="changeCheckedStatus('SiteBackgroundTV[]','background_042.jpg');"></span></td>
+				  <td>042</td>
+			      <td colspan="3" style="background-image:url('assets/templates/core/images/backgrounds/background_042.jpg');"></td>
+			    </tr>
+			    <tr>
+			      <td><input type="radio" name="SiteBackgroundTV[]" value="background_043.jpg" [[!+fi.SiteBackgroundTV:FormItIsChecked=`background_043.jpg`]] style="display:none;" title="043" fileName="background_043.jpg"><span class="custom radio" onclick="changeCheckedStatus('SiteBackgroundTV[]','background_043.jpg');"></span></td>
+				  <td>043</td>
+			      <td colspan="3" style="background-image:url('assets/templates/core/images/backgrounds/background_043.jpg');"></td>
+			    </tr>
+			    <tr>
+			      <td><input type="radio" name="SiteBackgroundTV[]" value="background_044.jpg" [[!+fi.SiteBackgroundTV:FormItIsChecked=`background_044.jpg`]] style="display:none;" title="044" fileName="background_044.jpg"><span class="custom radio" onclick="changeCheckedStatus('SiteBackgroundTV[]','background_044.jpg');"></span></td>
+				  <td>044</td>
+			      <td colspan="3" style="background-image:url('assets/templates/core/images/backgrounds/background_044.jpg');"></td>
+			    </tr>
+			    <tr>
+			      <td><input type="radio" name="SiteBackgroundTV[]" value="background_045.jpg" [[!+fi.SiteBackgroundTV:FormItIsChecked=`background_045.jpg`]] style="display:none;" title="045" fileName="background_045.jpg"><span class="custom radio" onclick="changeCheckedStatus('SiteBackgroundTV[]','background_045.jpg');"></span></td>
+				  <td>045</td>
+			      <td colspan="3" style="background-image:url('assets/templates/core/images/backgrounds/background_045.jpg');"></td>
+			    </tr>
+			
+			    <tr>
+			      <td><input type="radio" name="SiteBackgroundTV[]" value="background_046.jpg" [[!+fi.SiteBackgroundTV:FormItIsChecked=`background_046.jpg`]] style="display:none;" title="046" fileName="background_046.jpg"><span class="custom radio" onclick="changeCheckedStatus('SiteBackgroundTV[]','background_046.jpg');"></span></td>
+				  <td>046</td>
+			      <td colspan="3" style="background-image:url('assets/templates/core/images/backgrounds/background_046.jpg');"></td>
+			    </tr>
+			    <tr>
+			      <td><input type="radio" name="SiteBackgroundTV[]" value="background_047.jpg" [[!+fi.SiteBackgroundTV:FormItIsChecked=`background_047.jpg`]] style="display:none;" title="047" fileName="background_047.jpg"><span class="custom radio" onclick="changeCheckedStatus('SiteBackgroundTV[]','background_047.jpg');"></span></td>
+				  <td>047</td>
+			      <td colspan="3" style="background-image:url('assets/templates/core/images/backgrounds/background_047.jpg');"></td>
+			    </tr>
+			    <tr>
+			      <td><input type="radio" name="SiteBackgroundTV[]" value="background_048.jpg" [[!+fi.SiteBackgroundTV:FormItIsChecked=`background_048.jpg`]] style="display:none;" title="048" fileName="background_048.jpg"><span class="custom radio" onclick="changeCheckedStatus('SiteBackgroundTV[]','background_048.jpg');"></span></td>
+				  <td>048</td>
+			      <td colspan="3" style="background-image:url('assets/templates/core/images/backgrounds/background_048.jpg');"></td>
+			    </tr>
+			    <tr>
+			      <td><input type="radio" name="SiteBackgroundTV[]" value="background_049.jpg" [[!+fi.SiteBackgroundTV:FormItIsChecked=`background_049.jpg`]] style="display:none;" title="049" fileName="background_049.jpg"><span class="custom radio" onclick="changeCheckedStatus('SiteBackgroundTV[]','background_049.jpg');"></span></td>
+				  <td>049</td>
+			      <td colspan="3" style="background-image:url('assets/templates/core/images/backgrounds/background_049.jpg');"></td>
+			    </tr>
+			    <tr>
+			      <td><input type="radio" name="SiteBackgroundTV[]" value="background_050.jpg" [[!+fi.SiteBackgroundTV:FormItIsChecked=`background_050.jpg`]] style="display:none;" title="050" fileName="background_050.jpg"><span class="custom radio" onclick="changeCheckedStatus('SiteBackgroundTV[]','background_050.jpg');"></span></td>
+				  <td>050</td>
+			      <td colspan="3" style="background-image:url('assets/templates/core/images/backgrounds/background_050.jpg');"></td>
+			    </tr>
+			    <tr>
+			      <td><input type="radio" name="SiteBackgroundTV[]" value="background_051.jpg" [[!+fi.SiteBackgroundTV:FormItIsChecked=`background_051.jpg`]] style="display:none;" title="051" fileName="background_051.jpg"><span class="custom radio" onclick="changeCheckedStatus('SiteBackgroundTV[]','background_051.jpg');"></span></td>
+				  <td>051</td>
+			      <td colspan="3" style="background-image:url('assets/templates/core/images/backgrounds/background_051.jpg');"></td>
+			    </tr>
+			    <tr>
+			      <td><input type="radio" name="SiteBackgroundTV[]" value="background_052.jpg" [[!+fi.SiteBackgroundTV:FormItIsChecked=`background_052.jpg`]] style="display:none;" title="052" fileName="background_052.jpg"><span class="custom radio" onclick="changeCheckedStatus('SiteBackgroundTV[]','background_052.jpg');"></span></td>
+				  <td>052</td>
+			      <td colspan="3" style="background-image:url('assets/templates/core/images/backgrounds/background_052.jpg');"></td>
+			    </tr>
+			    <tr>
+			      <td><input type="radio" name="SiteBackgroundTV[]" value="background_053.jpg" [[!+fi.SiteBackgroundTV:FormItIsChecked=`background_053.jpg`]] style="display:none;" title="053" fileName="background_053.jpg"><span class="custom radio" onclick="changeCheckedStatus('SiteBackgroundTV[]','background_053.jpg');"></span></td>
+				  <td>053</td>
+			      <td colspan="3" style="background-image:url('assets/templates/core/images/backgrounds/background_053.jpg');"></td>
+			    </tr>
+			    <tr>
+			      <td><input type="radio" name="SiteBackgroundTV[]" value="background_054.jpg" [[!+fi.SiteBackgroundTV:FormItIsChecked=`background_054.jpg`]] style="display:none;" title="054" fileName="background_054.jpg"><span class="custom radio" onclick="changeCheckedStatus('SiteBackgroundTV[]','background_054.jpg');"></span></td>
+				  <td>054</td>
+			      <td colspan="3" style="background-image:url('assets/templates/core/images/backgrounds/background_054.jpg');"></td>
+			    </tr>
+			    <tr>
+			      <td><input type="radio" name="SiteBackgroundTV[]" value="background_055.jpg" [[!+fi.SiteBackgroundTV:FormItIsChecked=`background_055.jpg`]] style="display:none;" title="055" fileName="background_055.jpg"><span class="custom radio" onclick="changeCheckedStatus('SiteBackgroundTV[]','background_055.jpg');"></span></td>
+				  <td>055</td>
+			      <td colspan="3" style="background-image:url('assets/templates/core/images/backgrounds/background_055.jpg');"></td>
+			    </tr>
 			</tbody>
 		</table>	
 		</td>

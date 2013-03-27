@@ -1348,6 +1348,11 @@ function changeCheckedStatus(setUncheckedForName,setCheckedForValue){
 				  <td>055</td>
 			      <td colspan="3" style="background-image:url('assets/templates/core/images/backgrounds/background_055.jpg');"></td>
 			    </tr>
+			    <tr>
+			      <td><input type="radio" name="SiteBackgroundTV[]" value="background_056.jpg" [[!+fi.SiteBackgroundTV:FormItIsChecked=`background_056.jpg`]] style="display:none;" title="056" fileName="background_056.jpg"><span class="custom radio" onclick="changeCheckedStatus('SiteBackgroundTV[]','background_056.jpg');"></span></td>
+				  <td>055</td>
+			      <td colspan="3" style="background-image:url('assets/templates/core/images/backgrounds/background_056.jpg');"></td>
+			    </tr>
 			</tbody>
 		</table>	
 		</td>

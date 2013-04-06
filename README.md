@@ -3,7 +3,7 @@ core
 
 Repository of my core files used with MODx
 
-##licence
+##Licence
 (The MIT License)
 
 Copyright (C) 2013 Willem van Heemstra willem@vanheemstrasystems.com

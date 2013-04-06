@@ -1,7 +1,7 @@
 core
 ====
 
-Repository of my core files used with MODx
+The business layer.
 
 ##Licence
 (The MIT License)

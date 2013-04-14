@@ -3,6 +3,9 @@ core
 
 The business layer.
 
+*See [core readme] [1] in the docs core docs subfolder.*
+[1]: ../../../docs/blob/master/core/README.md "core readme"
+
 ##Licence
 (The MIT License)
 

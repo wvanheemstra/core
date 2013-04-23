@@ -16,6 +16,7 @@
 	<meta name="keywords" content="" />
 
 	<!-- Included CSS Files -->
+	<style type="text/css">@import url("[[~46]]");</style>
 	[[$core.CSSLinksTpl]]
 	<link rel="shortcut icon" href="assets/templates/[[++custom.domain_abbreviation]]/favicon.ico">
 	<!-- make sure the Theme style is always last in order, so as to overwrite others -->
@@ -26,52 +27,53 @@
 </head>
 <body style="background-image:url('assets/templates/core/images/backgrounds/[[getResources? &resources=`[[++custom.site_settings]]` &tpl=`core.SiteBackgroundTpl` &includeTVs=`1` &processTVs=`1` &parents=`-1` &limit=`1` &tvPrefix=``]]')">
 	<!-- container -->
-		<div class="container">
-			<header class="row">
-				<div class="twelve columns centered">
-					<nav id="main_nav" class="hide-for-touch">
-					[[!If?
-					   &subject=`[[+modx.user.id]]`
-					   &operator=`empty`
-					   &then=`
-					<!-- we dont know who the user is, don't show profile link -->
-						[[!Wayfinder? 
-						  &startId=`[[++custom.site_start]]` 
-						  &outerTpl=`core.NavigationOuterTpl` 
-						  &rowTpl=`core.NavigationRowTpl` 
-						  &parentRowTpl=`core.NavigationParentRowTpl`
-						  &innerTpl=`core.NavigationInnerTpl`  
-						  &innerRowTpl=`core.NavigationInnerRowTpl`
-						  &excludeDocs=`[[++custom.profile]]`
-						]]
-					`&else=`<!-- show the known user the profile link -->
-						<!-- wayfinder's nesting order: outer(ul), if no children then row(li) else parentrow(li), inner(div), parentrow(li), inner(div), innerrow(div) -->
-						[[!Wayfinder? 
-						  &startId=`[[++custom.site_start]]` 
-						  &outerTpl=`core.NavigationOuterTpl` 
-						  &rowTpl=`core.NavigationRowTpl` 
-						  &parentRowTpl=`core.NavigationParentRowTpl`
-						  &innerTpl=`core.NavigationInnerTpl`  
-						  &innerRowTpl=`core.NavigationInnerRowTpl`
-						]]
-					`]]
-					</nav>
-					<nav id="main_nav" class="mobile_nav show-for-touch">
-					[[!If?
-					   &subject=`[[+modx.user.id]]`
-					   &operator=`empty`
-					   &then=`
-					<!-- we dont know who the user is, don't show profile link -->
-						[[!Wayfinder? &startId=`[[++custom.site_start]]` &rowTpl=`core.NavigationRowTpl` &innerTpl=`core.NavigationInnerTpl` &outerTpl=`core.NavigationOuterTpl` &excludeDocs=`[[++custom.profile]]`]]
-					`&else=`<!-- show the known user the profile link -->
-						[[!Wayfinder? &startId=`[[++custom.site_start]]` &rowTpl=`core.NavigationRowTpl` &innerTpl=`core.NavigationInnerTpl` &outerTpl=`core.NavigationOuterTpl`]]
-					`]]
-					</nav>
-				</div><!-- .twelve columns centered -->
-			</header>
-			<header class="row">
-				<div class="twelve columns centered hide-for-touch" style="background: url('assets/templates/[[++custom.domain_abbreviation]]/images/logo_banner_small.png') no-repeat;width:970px;height:250px;margin-top:6px;margin-bottom:8px;"><div style="float:right;color:#000000;margin-top:8px;margin-right:8px;">[[$core.CurrentDateTpl]]</div></div>
-				<div class="twelve columns show-for-touch" style="background: url('assets/templates/[[++custom.domain_abbreviation]]/images/logo_banner_small.png') no-repeat;width:278px;height:122px;margin-top:6px;margin-bottom:8px;"></div>
+	<div class="container">
+		<header class="row">
+			<div class="twelve columns centered hide-for-touch" style="background: url('assets/templates/[[++custom.domain_abbreviation]]/images/logo_banner_small.png') no-repeat;width:970px;height:160px;margin-top:6px;margin-bottom:8px;"><div style="float:right;color:#ffffff;margin-top:8px;margin-right:8px;">[[$core.CurrentDateTpl]]</div></div>
+			<div class="twelve columns show-for-touch" style="background: url('assets/templates/[[++custom.domain_abbreviation]]/images/logo_banner_small.png') no-repeat;width:278px;height:122px;margin-top:6px;margin-bottom:8px;"></div>
 
-				<div class="loginMessage">[[+errors]]</div>
-			</header>
+			<div class="loginMessage">[[+errors]]</div>
+		</header>
+		<header class="row">
+			<div class="twelve columns centered">
+				<nav id="main_nav" class="hide-for-touch">
+				[[!If?
+				   &subject=`[[+modx.user.id]]`
+				   &operator=`empty`
+				   &then=`
+				<!-- we dont know who the user is, don't show profile link -->
+					[[!Wayfinder? 
+					  &startId=`[[++custom.site_start]]` 
+					  &outerTpl=`core.NavigationOuterTpl` 
+					  &rowTpl=`core.NavigationRowTpl` 
+					  &parentRowTpl=`core.NavigationParentRowTpl`
+					  &innerTpl=`core.NavigationInnerTpl`  
+					  &innerRowTpl=`core.NavigationInnerRowTpl`
+					  &excludeDocs=`[[++custom.profile]]`
+					]]
+				`&else=`<!-- show the known user the profile link -->
+					<!-- wayfinder's nesting order: outer(ul), if no children then row(li) else parentrow(li), inner(div), parentrow(li), inner(div), innerrow(div) -->
+					[[Wayfinder?
+					 &startId=`[[++custom.site_start]]`
+					 &level=`3`
+					 &innerTpl=`core.NavigationInnerTpl`
+					 &innerRowTpl=`core.NavigationInnerRowTpl`
+					 &rowTpl=`core.NavigationRowTpl`
+					 &outerTpl=`core.NavigationOuterTpl`
+					 &parentRowTpl=`core.NavigationParentRowTpl`
+					]]
+				`]]
+				</nav>
+				<nav id="main_nav" class="mobile_nav show-for-touch">
+				[[!If?
+				   &subject=`[[+modx.user.id]]`
+				   &operator=`empty`
+				   &then=`
+				<!-- we dont know who the user is, don't show profile link -->
+					[[!Wayfinder? &startId=`[[++custom.site_start]]` &rowTpl=`core.NavigationRowTpl` &innerTpl=`core.NavigationInnerTpl` &outerTpl=`core.NavigationOuterTpl` &excludeDocs=`[[++custom.profile]]`]]
+				`&else=`<!-- show the known user the profile link -->
+					[[!Wayfinder? &startId=`[[++custom.site_start]]` &rowTpl=`core.NavigationRowTpl` &innerTpl=`core.NavigationInnerTpl` &outerTpl=`core.NavigationOuterTpl`]]
+				`]]
+				</nav>
+			</div><!-- .twelve columns centered -->
+		</header>

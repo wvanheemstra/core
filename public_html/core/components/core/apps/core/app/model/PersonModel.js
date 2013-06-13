@@ -5,13 +5,13 @@
 Ext.define('core.model.PersonModel', {
 	extend: 'Ext.data.Model',
 	fields: [
-		{ name: 'kp_PersonID', type: 'int', defaultValue: '0'},
-		{ name: 'PersonFirstName', type: 'string'}, 
-		{ name: 'PersonLastName', type: 'string'},
-		{ name: 'kf_GenderID', type: 'int', defaultValue: '0' },
-		{ name: 'kf_SalutationID', type: 'int', defaultValue: '0' },
-		{ name: 'kf_NationalityID', type: 'int', defaultValue: '0' },
-		{ name: 'kf_DateID', type: 'int', defaultValue: '0' },
+		{ name: 'kp_PersonID', type: 'int', defaultValue: '0', mapping: 'kp_PersonID'},
+		{ name: 'PersonFirstName', type: 'string', mapping: 'PersonFirstName'}, 
+		{ name: 'PersonLastName', type: 'string', mapping: 'PersonLastName'},
+		{ name: 'kf_GenderID', type: 'int', defaultValue: '0', mapping: 'kf_GenderID'},
+		{ name: 'kf_SalutationID', type: 'int', defaultValue: '0', mapping: 'kf_SalutationID'},
+		{ name: 'kf_NationalityID', type: 'int', defaultValue: '0', mapping: 'kf_NationalityID'},
+		{ name: 'kf_DateID', type: 'int', defaultValue: '0', mapping: 'kf_DateID'},
 		{ name: 'DateStart', type: 'string'}, // Extended for storing DateStart
 		{ name: 'GroupIDs', type: 'string'} // Extended for storing GroupIDs
 	],

@@ -6,12 +6,12 @@
 var debug = true; // change for production 
 if (!window.console) console = {log: function() {}}; // avoids the error in IE
 
-if(localHost==null || localHost==undefined || localHost=='')
+if(localHost===null || localHost===undefined || localHost==='')
 { 
 	var localHost = 'http://vanheemstrapictures.com';
 } // backup in case no value is provided
 
-if(remoteHost==null || remoteHost==undefined || remoteHost=='')
+if(remoteHost===null || remoteHost===undefined || remoteHost==='')
 { 
 	var remoteHost = 'http://vanheemstrapictures.com';
 } // backup in case no value is provided
@@ -26,7 +26,7 @@ function showLoadingMask(loadingMessage) {
 	if (Ext.isEmpty(loadingMessage))
 	loadText = 'Loading';
 	//Use the mask function on the Ext.getBody() element to mask the body element during Ajax calls
-	Ext.Ajax.on('beforerequest',function(){Ext.getBody().mask(loadText, 'loading') }, Ext.getBody());
+	Ext.Ajax.on('beforerequest',function(){Ext.getBody().mask(loadText, 'loading'); }, Ext.getBody());
 	Ext.Ajax.on('requestcomplete',Ext.getBody().unmask ,Ext.getBody());
 	Ext.Ajax.on('requestexception', Ext.getBody().unmask , Ext.getBody());
 };
@@ -300,35 +300,35 @@ Ext.define('core.controller.Persons', {
 		this.getPersonInfo().getForm().addListener('loadrecord', this.onViewPersonInfoLoadRecord, this);
     }, // eof init
 	// FUNCTIONS
-	// EventListeners
+	// EventListeners on Stores
 	onStoreGroupsLoad: function(store, model) {
-		if(debug){console.info('Store Groups: '+this.getStoreGroups().getCount()+' records loaded.')};
+		if(debug){console.info('Store Groups: '+this.getStoreGroups().getCount()+' records loaded.');};
 		this.getStoreGroups().loaded = true;
 		if(selection){
 			this.getGroupGrid().getSelectionModel().select(selection[0].index);
 		} // previous selection
-		else {this.getGroupGrid().getSelectionModel().select(0)}; // no previous selection
+		else {this.getGroupGrid().getSelectionModel().select(0);}; // no previous selection
 	},
 	onStoreGroupsDataChanged: function() {
-		if(debug){console.info('Store Groups: Data Changed')};
+		if(debug){console.info('Store Groups: Data Changed');};
 	},
 	onStorePersonsGroupsLoad: function(store, model) {
-		if(debug){console.info('Store PersonsGroups: '+this.getStorePersonsGroups().getCount()+' records loaded.')};
+		if(debug){console.info('Store PersonsGroups: '+this.getStorePersonsGroups().getCount()+' records loaded.');};
 		this.getStorePersonsGroups().loaded = true;
 	},
 	onStorePersonsGroupsDataChanged: function() {
-		if(debug){console.info('Store PersonsGroups: Data Changed')};
+		if(debug){console.info('Store PersonsGroups: Data Changed');};
 	},
 	onStorePersonsLoad: function(store, model) {
 		showLoadingMask();
-		if(debug){console.info('Store Persons: '+this.getStorePersons().getCount()+' records loaded.')};
+		if(debug){console.info('Store Persons: '+this.getStorePersons().getCount()+' records loaded.');};
 		this.getStorePersons().loaded = true;
 		var task = new Ext.util.DelayedTask(function(){
-			if(debug){console.info('Store Persons: inside task.')};
+			if(debug){console.info('Store Persons: inside task.');};
 			myPersonGridFoundSet = Ext.ComponentQuery.query("grid[gridId='personGrid']");
 			myPersonGrid = myPersonGridFoundSet[0]; // first item in found set
 
-			if(debug){console.info('Store Persons: saved New Person is '+savedNewPerson)};
+			if(debug){console.info('Store Persons: saved New Person is '+savedNewPerson);};
 
 			if(savedNewPerson) { // for NEW saved person
 				myStore = this.getStorePersons();
@@ -338,36 +338,36 @@ Ext.define('core.controller.Persons', {
 				  myStore.each(function(rec)
 				  {
 				    maxId = Math.max(maxId, rec.get('kp_PersonID'));
-					if(debug){console.info('Store Persons: Max ID is '+maxId)};
+					if(debug){console.info('Store Persons: Max ID is '+maxId);};
 				  });
 				}
 				var myIndex = myStore.find('kp_PersonID',maxId);
-				if(debug){console.info('Store Persons: index is '+myIndex)};
+				if(debug){console.info('Store Persons: index is '+myIndex);};
 				delete myStore;
 				myPersonGrid.getSelectionModel().select(myIndex);
 				selection = myPersonGrid.getSelectionModel().getSelection(); // set global value of selection
-				if(debug){console.info('Store Persons: set to index '+myIndex)};
+				if(debug){console.info('Store Persons: set to index '+myIndex);};
 				savedNewPerson = false; //reset				
 			}
 			else { // for EXISTING (saved) person
 				if (selection != "undefined") {
-					if(debug){console.info('Store Persons: selection not undefined')};
+					if(debug){console.info('Store Persons: selection not undefined');};
 					myPersonGrid.getSelectionModel().select(0); // Is this the right solution???					
 					selection = myPersonGrid.getSelectionModel().getSelection(); // set global value of selection
-					if(debug){console.info('Store Persons: set to selection '+selection[0].index)};
+					if(debug){console.info('Store Persons: set to selection '+selection[0].index);};
 				}
 				else {
-					if(debug){console.info('Store Persons: selection undefined')};
+					if(debug){console.info('Store Persons: selection undefined');};
 					myPersonGrid.getSelectionModel().select(0);
 					selection = myPersonGrid.getSelectionModel().getSelection(); // set global value of selection
-					if(debug){console.info('Store Persons: set to selection 0')};
+					if(debug){console.info('Store Persons: set to selection 0');};
 				};
 			};
 			delete myPersonGrid;
 		});
 		if(selection) { // previous selection
 			if(this.getPersonGrid().getSelectionModel().selected.items.length == 0) {
-				if(debug){console.info('Store Persons: delaying task by 500 ms.')};	
+				if(debug){console.info('Store Persons: delaying task by 500 ms.');};	
 			    task.delay(500);
 			}
 			else {
@@ -382,78 +382,79 @@ Ext.define('core.controller.Persons', {
 		};
 	},
 	onStorePersonsDataChanged: function() {
-		if(debug){console.info('Store Persons: Data Changed')};
+		if(debug){console.info('Store Persons: Data Changed');};
 	},
 	onStoreSalutationsLoad: function(store, model) {
-		if(debug){console.info('Store Salutations: '+this.getStoreSalutations().getCount()+' records loaded.')};
+		if(debug){console.info('Store Salutations: '+this.getStoreSalutations().getCount()+' records loaded.');};
 		this.getStoreSalutations().loaded = true;
 	},
 	onStoreSalutationsDataChanged: function() {
-		if(debug){console.info('Store Salutations: Data Changed')};
+		if(debug){console.info('Store Salutations: Data Changed');};
 	},
 	onStoreGendersLoad: function(store, model) {
-		if(debug){console.info('Store Genders: '+this.getStoreGenders().getCount()+' records loaded.')};
+		if(debug){console.info('Store Genders: '+this.getStoreGenders().getCount()+' records loaded.');};
 		this.getStoreGenders().loaded = true;
 	},
 	onStoreGendersDataChanged: function() {
 		if(debug){console.info('Store Genders: Data Changed')};
 	},
 	onStoreDatesLoad: function(store, model) {
-		if(debug){console.info('Store Dates: '+this.getStoreDates().getCount()+' records loaded.')};
+		if(debug){console.info('Store Dates: '+this.getStoreDates().getCount()+' records loaded.');};
 		this.getStoreDates().loaded = true;
 	},
 	onStoreDatesDataChanged: function() {
 		if(debug){console.info('Store Dates: Data Changed')};
 	},
 	onStoreNationalitiesLoad: function(store, model) {
-		if(debug){console.info('Store Nationalities: '+this.getStoreNationalities().getCount()+' records loaded.')};
+		if(debug){console.info('Store Nationalities: '+this.getStoreNationalities().getCount()+' records loaded.');};
 		this.getStoreNationalities().loaded = true;
 	},
 	onStoreNationalitiesDataChanged: function() {
 		if(debug){console.info('Store Nationalities: Data Changed')};
 	},
 	onStoreMembershipsLoad: function(store, model) {
-		if(debug){console.info('Store Memberships: '+this.getStoreMemberships().getCount()+' records loaded.')};
+		if(debug){console.info('Store Memberships: '+this.getStoreMemberships().getCount()+' records loaded.');};
 		this.getStoreMemberships().loaded = true;
 	},
 	onStoreMembershipsDataChanged: function() {
-		if(debug){console.info('Store Memberships: Data Changed')};
+		if(debug){console.info('Store Memberships: Data Changed');};
 	},
 	onStoreOrganisationsLoad: function(store, model) {
-		if(debug){console.info('Store Organisations: '+this.getStoreOrganisations().getCount()+' records loaded.')};
+		if(debug){console.info('Store Organisations: '+this.getStoreOrganisations().getCount()+' records loaded.');};
 		this.getStoreOrganisations().loaded = true;
 	},
 	onStoreOrganisationsDataChanged: function() {
-		if(debug){console.info('Store Organisations: Data Changed')};
+		if(debug){console.info('Store Organisations: Data Changed');};
 	},
 	onStoreContactsLoad: function(store, model) {
-		if(debug){console.info('Store Contacts: '+this.getStoreContacts().getCount()+' records loaded.')};
+		if(debug){console.info('Store Contacts: '+this.getStoreContacts().getCount()+' records loaded.');};
 		this.getStoreContacts().loaded = true;
 	},
 	onStoreContactsDataChanged: function() {
-		if(debug){console.info('Store Contacts: Data Changed')};
+		if(debug){console.info('Store Contacts: Data Changed');};
 	},
+	// EventListeners on Views
 	onViewGroupGridSelect: function(selModel, model, idx) {
-		if(debug){console.info('View GroupGrid: Select')};
+		if(debug){console.info('View GroupGrid: Select');};
 		this.getGroupInfo().loadRecord(model);
 	},	
 	onViewGroupInfoAddGroupButtonClick: function() {
 		this.getGroupGrid().getSelectionModel().clearSelections();
-		if(debug){console.info('View GroupInfo: Add Group Button | Click')};
+		if(debug){console.info('View GroupInfo: Add Group Button | Click');};
 	},
 	onViewGroupInfoSaveGroupButtonClick: function() {
 		selection = this.getGroupGrid().getSelectionModel().getSelection(); // set global value of selection
 		this.getGroupGrid().store.load();
 		this.getPersonGrid().store.load();
-		if(debug){console.info('View GroupInfo: Save Group Button | Click')};
+		if(debug){console.info('View GroupInfo: Save Group Button | Click');};
 	},
 	onViewGroupInfoDeleteGroupButtonClick: function() {
 		this.getGroupGrid().store.load();
 		this.getPersonGrid().store.load();
-		if(debug){console.info('View GroupInfo: Delete Group Button | Click')};
+		if(debug){console.info('View GroupInfo: Delete Group Button | Click');};
 	},
 	onViewPersonGridSelect: function(selModel, model, idx) {
-		if(debug){console.info('View PersonGrid: Select')};
+		if(debug){console.info('View PersonGrid: Select');};
 		this.getPersonInfo().loadRecord(model);
 		//console.log("Model:"); // FOR TESTING ONLY
 		//console.log(model); // FOR TESTING ONLY
@@ -461,7 +462,7 @@ Ext.define('core.controller.Persons', {
 	},	
 	onViewPersonSearchFindPersonButtonClick: function() {
 
-		if(debug){console.info('View PersonSearch: Find Person Button | Click')};
+		if(debug){console.info('View PersonSearch: Find Person Button | Click');};
 
 		this.getPersonGrid().store.getProxy().extraParams.start = 0;
 		this.getPersonGrid().store.getProxy().extraParams.limit = 9999; // Set as high as possible

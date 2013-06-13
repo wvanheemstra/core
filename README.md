@@ -1,7 +1,13 @@
-core
+Title: README  
+Author: Willem van Heemstra  
+Affiliation: van Heemstra Systems  
+Copyright: All rights reserved - van Heemstra Systems
+
+##core/README.md
 ====
 
-The business layer.
+##About core
+Core is the business layer.
 
 *See [core readme] [1] in the docs core docs subfolder.*
 [1]: ../../../docs/blob/master/core/README.md "core readme"

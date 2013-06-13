@@ -67,66 +67,76 @@ function createRecords()
 	$idMembership = mysql_insert_id();
 	$sqlMembership = "SET FOREIGN_KEY_CHECKS = 1;";
 	$result = mysql_query($sqlMembership) or die(mysql_error());
+	// TESTED: SUCCESSFUL
 	
 	// CONTACT - hasMany
 	$sqlContact  = "DELETE FROM `contact` WHERE `kf_MembershipID` = ".$idMembership.";";
 	$result = mysql_query($sqlContact) or die(mysql_error());
+	// TESTED: SUCCESSFUL
 	
-	// CONTACT - Telephone	
-	$sqlContactTelephone = "SELECT `kp_KindOfContactID` FROM `kind_of_contact` WHERE `KindOfContactName` = 'TelephoneLandlineNumber';"; 
-	$idKindOfContactTelephone = mysql_query($sqlContactTelephone) or die(mysql_error());
+	// CONTACT - Telephone
+	$kindOfContactName = "TelephoneLandlineNumber";	
+	$idKindOfContactTelephone = readKindOfContactID($kindOfContactName);
 	$sqlContactTelephone = "SET FOREIGN_KEY_CHECKS = 0;";
 	$result = mysql_query($sqlContactTelephone) or die(mysql_error());
-	// Despite the disabled foreign key restraint, we have to do the following in two steps instead on one 
+	// Despite the disabled foreign key restraint, we have to do the following in two steps instead of one 
 	$sqlContactTelephone  = "INSERT INTO `contact` (`kf_MembershipID`) VALUES('".$idMembership."');";
 	$result = mysql_query($sqlContactTelephone) or die(mysql_error());
+	// TESTED: SUCCESSFUL
 	$idContact = mysql_insert_id();
-	$sqlContactTelephone  = "UPDATE `contact` SET `kf_KindOfContactID` = '".$idKindOfContactTelephone."' WHERE `kp_ContactID` = '".$idContact."'"; // Here something fails to execute, to do with a constraint
-//	$result = mysql_query($sqlContactTelephone) or die(mysql_error());  // THIS IS TO PUT THE KIND OF CONTACT INTHE TABLE.. A REQUIREMENT
+	$sqlContactTelephone  = "UPDATE `contact` SET `kf_KindOfContactID` = '".$idKindOfContactTelephone."' WHERE `kp_ContactID` = ".$idContact.";";
+	$result = mysql_query($sqlContactTelephone) or die(mysql_error());  // THIS IS TO PUT THE KIND OF CONTACT IN THE TABLE.. A REQUIREMENT
 	$sqlContactTelephone = "SET FOREIGN_KEY_CHECKS = 1;";	
 	$result = mysql_query($sqlContactTelephone) or die(mysql_error());
+	// TESTED: SUCCESSFUL
 	
-	// CONTACT - Mobile
-	$sqlContactMobile = "SELECT `kp_KindOfContactID` FROM `kind_of_contact` WHERE `KindOfContactName` = 'TelephoneMobileNumber';"; // Make this less error prone
-	$idKindOfContactMobile = mysql_query($sqlContactMobile) or die(mysql_error());
+	// CONTACT - Mobile	
+	$kindOfContactName = "TelephoneMobileNumber";	
+	$idKindOfContactMobile = readKindOfContactID($kindOfContactName);
 	$sqlContactMobile = "SET FOREIGN_KEY_CHECKS = 0;";
 	$result = mysql_query($sqlContactMobile) or die(mysql_error());
-	// Despite the disabled foreign key restraint, we have to do the following in two steps instead on one	
+	// Despite the disabled foreign key restraint, we have to do the following in two steps instead of one	
 	$sqlContactMobile  = "INSERT INTO `contact` (`kf_MembershipID`) VALUES('".$idMembership."');";	
 	$result = mysql_query($sqlContactMobile) or die(mysql_error());
+	// TESTED: SUCCESSFUL
 	$idContact = mysql_insert_id();
-	$sqlContactMobile  = "UPDATE `contact` SET `kf_KindOfContactID` = '".$idKindOfContactMobile."' WHERE `kp_ContactID` = '".$idContact."'"; // Here something fails to execute, to do with a constraint
-//	$result = mysql_query($sqlContactMobile) or die(mysql_error());  // THIS IS TO PUT THE KIND OF CONTACT INTHE TABLE.. A REQUIREMENT
+	$sqlContactMobile  = "UPDATE `contact` SET `kf_KindOfContactID` = '".$idKindOfContactMobile."' WHERE `kp_ContactID` = ".$idContact.";";
+	$result = mysql_query($sqlContactMobile) or die(mysql_error());  // THIS IS TO PUT THE KIND OF CONTACT IN THE TABLE.. A REQUIREMENT
 	$sqlContactMobile = "SET FOREIGN_KEY_CHECKS = 1;";	
-	$result = mysql_query($sqlContactMobile) or die(mysql_error());	
+	$result = mysql_query($sqlContactMobile) or die(mysql_error());
+	// TESTED: SUCCESSFUL
 		
 	// CONTACT - Fax
-	$sqlContactFax = "SELECT `kp_KindOfContactID` FROM `kind_of_contact` WHERE `KindOfContactName` = 'FaxNumber';"; // Make this less error prone
-	$idKindOfContactFax = mysql_query($sqlContactFax) or die(mysql_error());
+	$kindOfContactName = "FaxNumber";	
+	$idKindOfContactFax = readKindOfContactID($kindOfContactName);
 	$sqlContactFax = "SET FOREIGN_KEY_CHECKS = 0;";
 	$result = mysql_query($sqlContactFax) or die(mysql_error());
-	// Despite the disabled foreign key restraint, we have to do the following in two steps instead on one	
+	// Despite the disabled foreign key restraint, we have to do the following in two steps instead of one	
 	$sqlContactFax  = "INSERT INTO `contact` (`kf_MembershipID`) VALUES('".$idMembership."');";	
 	$result = mysql_query($sqlContactFax) or die(mysql_error());
+	// TESTED: 
 	$idContact = mysql_insert_id();
-	$sqlContactFax  = "UPDATE `contact` SET `kf_KindOfContactID` = '".$idKindOfContactFax."' WHERE `kp_ContactID` = '".$idContact."'"; // Here something fails to execute, to do with a constraint
-//	$result = mysql_query($sqlContactFax) or die(mysql_error());  // THIS IS TO PUT THE KIND OF CONTACT INTHE TABLE.. A REQUIREMENT
+	$sqlContactFax  = "UPDATE `contact` SET `kf_KindOfContactID` = '".$idKindOfContactFax."' WHERE `kp_ContactID` = ".$idContact.";";
+	$result = mysql_query($sqlContactFax) or die(mysql_error());  // THIS IS TO PUT THE KIND OF CONTACT IN THE TABLE.. A REQUIREMENT
 	$sqlContactFax = "SET FOREIGN_KEY_CHECKS = 1;";	
 	$result = mysql_query($sqlContactFax) or die(mysql_error());
+	// TESTED: 
 	
 	// CONTACT - Email
-	$sqlContactEmail = "SELECT `kp_KindOfContactID` FROM `kind_of_contact` WHERE `KindOfContactName` = 'ElectronicMailAddress';"; // Make this less error prone
-	$idKindOfContactEmail = mysql_query($sqlContactEmail) or die(mysql_error());
+	$kindOfContactName = "ElectronicMailAddress";	
+	$idKindOfContactEmail = readKindOfContactID($kindOfContactName);
 	$sqlContactEmail = "SET FOREIGN_KEY_CHECKS = 0;";
 	$result = mysql_query($sqlContactEmail) or die(mysql_error());
-	// Despite the disabled foreign key restraint, we have to do the following in two steps instead on one	
+	// Despite the disabled foreign key restraint, we have to do the following in two steps instead of one	
 	$sqlContactEmail  = "INSERT INTO `contact` (`kf_MembershipID`) VALUES('".$idMembership."');";	
 	$result = mysql_query($sqlContactEmail) or die(mysql_error());
+	// TESTED: 
 	$idContact = mysql_insert_id();
-	$sqlContactEmail  = "UPDATE `contact` SET `kf_KindOfContactID` = '".$idKindOfContactEmail."' WHERE `kp_ContactID` = '".$idContact."'"; // Here something fails to execute, to do with a constraint
-//	$result = mysql_query($sqlContactEmail) or die(mysql_error());  // THIS IS TO PUT THE KIND OF CONTACT INTHE TABLE.. A REQUIREMENT
+	$sqlContactEmail  = "UPDATE `contact` SET `kf_KindOfContactID` = '".$idKindOfContactEmail."' WHERE `kp_ContactID` = ".$idContact.";";
+	$result = mysql_query($sqlContactEmail) or die(mysql_error());  // THIS IS TO PUT THE KIND OF CONTACT IN THE TABLE.. A REQUIREMENT
 	$sqlContactEmail = "SET FOREIGN_KEY_CHECKS = 1;";	
 	$result = mysql_query($sqlContactEmail) or die(mysql_error());
+	// TESTED: 
 	
 	// PERSON_GROUP - hasMany
 	$numOfGroupIDs = 0;
@@ -192,5 +202,16 @@ function readRecords($id, $groups, $dates)
 		$arr[0] = array_replace($arr[0], $dates); // Add dates to arr
 	}
     return $arr;
+}
+
+function readKindOfContactID($kindOfContactName)
+{
+	$sql = "SELECT `kp_KindOfContactID` FROM `kind_of_contact` WHERE `KindOfContactName` = '".$kindOfContactName."'";
+	$result = mysql_query($sql) or die(mysql_error());
+    while($rec = mysql_fetch_array($result, MYSQL_ASSOC)){
+        $arr[] = $rec;
+    };
+	$id = $arr[0]['kp_KindOfContactID']; // Only one record expected
+	return $id;
 }
 ?>

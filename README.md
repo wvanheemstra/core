@@ -7,7 +7,7 @@ Copyright: All rights reserved - van Heemstra Systems
 ====
 
 ##About core
-Core is the business layer.
+Core is the **business** layer.
 
 *See [core readme] [1] in the docs core docs subfolder.*
 [1]: ../../../docs/blob/master/core/README.md "core readme"

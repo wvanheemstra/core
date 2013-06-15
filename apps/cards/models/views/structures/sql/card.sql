@@ -19,6 +19,8 @@ SET FOREIGN_KEY_CHECKS = 0;
 DROP VIEW IF EXISTS `card`;
 CREATE VIEW `card` AS 
   SELECT `kp_CardID`,
+    `CardName`,
+    `CardDescription`,
 	`kf_KindOfCardID`,
 	`ts_Created`,
 	`ts_Updated`

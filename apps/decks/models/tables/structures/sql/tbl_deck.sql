@@ -21,6 +21,8 @@ SET FOREIGN_KEY_CHECKS = 0;
 DROP TABLE IF EXISTS `tbl_deck`;
 CREATE TABLE `tbl_deck` (
   `kp_DeckID` int(11) NOT NULL AUTO_INCREMENT,
+  `DeckName` varchar(255) COLLATE utf8_bin NOT NULL,
+  `DeckDescription` varchar(255) COLLATE utf8_bin NOT NULL,
   `kf_KindOfDeckID` int(11) NOT NULL,
   `ts_Created` datetime DEFAULT NULL,
   `ts_Updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,

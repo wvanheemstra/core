@@ -19,6 +19,8 @@ SET FOREIGN_KEY_CHECKS = 0;
 DROP VIEW IF EXISTS `deck`;
 CREATE VIEW `deck` AS 
   SELECT `kp_DeckID`,
+    `DeckName`,
+    `DeckDescription`,
 	`kf_KindOfDeckID`,
 	`ts_Created`,
 	`ts_Updated`

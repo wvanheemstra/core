@@ -16,19 +16,19 @@ SET NAMES utf8;
 SET FOREIGN_KEY_CHECKS = 0;
 
 -- ----------------------------
---  Table structure for `tbl_kind_of_party`
+--  Table structure for `tbl_kind_of_card`
 -- ----------------------------
-DROP TABLE IF EXISTS `tbl_kind_of_party`;
-CREATE TABLE `tbl_kind_of_party` (
-  `kp_KindOfPartyID` int(11) NOT NULL AUTO_INCREMENT,
-  `KindOfPartyName` varchar(255) COLLATE utf8_bin NOT NULL,
+DROP TABLE IF EXISTS `tbl_kind_of_card`;
+CREATE TABLE `tbl_kind_of_card` (
+  `kp_KindOfCardID` int(11) NOT NULL AUTO_INCREMENT,
+  `KindOfCardName` varchar(255) COLLATE utf8_bin NOT NULL,
   `ts_Created` datetime DEFAULT NULL,
   `ts_Updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`kp_KindOfPartyID`),
-  UNIQUE KEY `kp_KindOfPartyID` (`kp_KindOfPartyID`) USING BTREE
+  PRIMARY KEY (`kp_KindOfCardID`),
+  UNIQUE KEY `kp_KindOfCardID` (`kp_KindOfCardID`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 delimiter ;;
-CREATE TRIGGER `KindOfParty.ts_Created` BEFORE INSERT ON `tbl_kind_of_party` FOR EACH ROW BEGIN
+CREATE TRIGGER `KindOfCard.ts_Created` BEFORE INSERT ON `tbl_kind_of_card` FOR EACH ROW BEGIN
 	SET NEW.ts_Created = CURRENT_TIMESTAMP();
 END;
  ;;

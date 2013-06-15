@@ -16,14 +16,14 @@ SET NAMES utf8;
 SET FOREIGN_KEY_CHECKS = 0;
 
 -- ----------------------------
---  Table structure for `tbl_kind_of_party_data`
+--  Table structure for `tbl_kind_of_deck_data`
 -- ----------------------------
-DROP TABLE IF EXISTS `tbl_kind_of_party_data`;
-CREATE TABLE `tbl_kind_of_party_data` (
-  `kp_KindOfPartyID` int(11) NOT NULL AUTO_INCREMENT,
-  `KindOfPartyName` varchar(255) COLLATE utf8_bin NOT NULL,
-  PRIMARY KEY (`kp_KindOfPartyID`),
-  UNIQUE KEY `kp_KindOfPartyID` (`kp_KindOfPartyID`) USING BTREE
+DROP TABLE IF EXISTS `tbl_kind_of_deck_data`;
+CREATE TABLE `tbl_kind_of_deck_data` (
+  `kp_KindOfDeckID` int(11) NOT NULL AUTO_INCREMENT,
+  `KindOfDeckName` varchar(255) COLLATE utf8_bin NOT NULL,
+  PRIMARY KEY (`kp_KindOfDeckID`),
+  UNIQUE KEY `kp_KindOfDeckID` (`kp_KindOfDeckID`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 SET FOREIGN_KEY_CHECKS = 1;

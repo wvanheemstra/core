@@ -14,14 +14,14 @@ SET NAMES utf8;
 SET FOREIGN_KEY_CHECKS = 0;
 
 -- ----------------------------
---  View structure for `person_group_data`
+--  View structure for `kind_of_card`
 -- ----------------------------
-DROP VIEW IF EXISTS `person_group_data`;
-CREATE VIEW `person_group_data` AS 
-  SELECT `kf_PersonID`,
-	`kf_GroupID`,
+DROP VIEW IF EXISTS `kind_of_card`;
+CREATE VIEW `kind_of_card` AS 
+  SELECT `kp_KindOfCardID`,
+	`KindOfCardName`,
 	`ts_Created`,
 	`ts_Updated`
-FROM tbl_person_group_data;
+FROM tbl_kind_of_card;
 
 SET FOREIGN_KEY_CHECKS = 1;

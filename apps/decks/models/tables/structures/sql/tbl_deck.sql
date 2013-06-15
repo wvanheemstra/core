@@ -9,26 +9,26 @@
  Target Server Version : 50509
  File Encoding         : utf-8
 
- Date: 06/29/2012 12:35:15 PM
+ Date: 06/29/2012 12:40:04 PM
 */
 
 SET NAMES utf8;
 SET FOREIGN_KEY_CHECKS = 0;
 
 -- ----------------------------
---  Table structure for `tbl_kind_of_party`
+--  Table structure for `tbl_deck`
 -- ----------------------------
-DROP TABLE IF EXISTS `tbl_kind_of_party`;
-CREATE TABLE `tbl_kind_of_party` (
-  `kp_KindOfPartyID` int(11) NOT NULL AUTO_INCREMENT,
-  `KindOfPartyName` varchar(255) COLLATE utf8_bin NOT NULL,
+DROP TABLE IF EXISTS `tbl_deck`;
+CREATE TABLE `tbl_deck` (
+  `kp_DeckID` int(11) NOT NULL AUTO_INCREMENT,
+  `kf_KindOfDeckID` int(11) NOT NULL,
   `ts_Created` datetime DEFAULT NULL,
   `ts_Updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`kp_KindOfPartyID`),
-  UNIQUE KEY `kp_KindOfPartyID` (`kp_KindOfPartyID`) USING BTREE
+  PRIMARY KEY (`kp_DeckID`),
+  KEY `kf_KindOfDeckID` (`kf_KindOfDeckID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 delimiter ;;
-CREATE TRIGGER `KindOfParty.ts_Created` BEFORE INSERT ON `tbl_kind_of_party` FOR EACH ROW BEGIN
+CREATE TRIGGER `Deck.ts_Created` BEFORE INSERT ON `tbl_deck` FOR EACH ROW BEGIN
 	SET NEW.ts_Created = CURRENT_TIMESTAMP();
 END;
  ;;

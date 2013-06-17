@@ -21,6 +21,8 @@ CREATE VIEW `tag_data` AS
   SELECT `kp_TagID`,
 	`TagName`,
 	`TagDescription`,
+	`TagKey`,
+	`TagValue`,
 	`ts_Created`,
 	`ts_Updated`
 FROM tbl_tag_data;

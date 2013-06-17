@@ -23,7 +23,7 @@ DELETE FROM `tbl_tag_data`;
 --  Records of `tbl_tag_data`
 -- ----------------------------
 BEGIN;
-INSERT INTO `tbl_tag_data` VALUES ('1', 'My Tag', 'My Tag Description', null, '0000-00-00 00:00:00');
+INSERT INTO `tbl_tag_data` VALUES ('1', 'My Tag', 'My Tag Description', 'SomeKey', 'SomeValue', null, '0000-00-00 00:00:00');
 COMMIT;
 
 SET FOREIGN_KEY_CHECKS = 1;

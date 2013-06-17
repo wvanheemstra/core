@@ -14,17 +14,14 @@ SET NAMES utf8;
 SET FOREIGN_KEY_CHECKS = 0;
 
 -- ----------------------------
---  View structure for `tag`
+--  View structure for `tag_card`
 -- ----------------------------
-DROP VIEW IF EXISTS `tag`;
-CREATE VIEW `tag` AS 
-  SELECT `kp_TagID`,
-	`TagName`,
-	`TagDescription`,
-	`TagKey`,
-	`TagValue`,
+DROP VIEW IF EXISTS `tag_card`;
+CREATE VIEW `tag_card` AS 
+  SELECT `kf_TagID`,
+	`kf_CardID`,
 	`ts_Created`,
 	`ts_Updated`
-FROM tbl_tag;
+FROM tbl_tag_card;
 
 SET FOREIGN_KEY_CHECKS = 1;

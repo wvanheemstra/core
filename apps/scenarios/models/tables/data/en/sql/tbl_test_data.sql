@@ -8,16 +8,22 @@
 
  Target Server Version : 50509
  File Encoding         : utf-8
+
 */
 
 SET NAMES utf8;
 SET FOREIGN_KEY_CHECKS = 0;
 
 -- ----------------------------
---  View structure for `booking`
+--  Delete all records of `tbl_test_data`
 -- ----------------------------
-DROP VIEW IF EXISTS `booking`;
-CREATE VIEW `person` AS
-  SELECT * FROM `tbl_booking`;
+DELETE FROM `tbl_test_data`;
+
+-- ----------------------------
+--  Records of `tbl_test_data`
+-- ----------------------------
+BEGIN;
+INSERT INTO `tbl_test_data` VALUES ('1', 'My Test', 'My Test Description', null, '0000-00-00 00:00:00');
+COMMIT;
 
 SET FOREIGN_KEY_CHECKS = 1;

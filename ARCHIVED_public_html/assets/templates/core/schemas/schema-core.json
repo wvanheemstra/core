@@ -1,0 +1,127 @@
+{
+    "domains": {
+        "core": {
+            "types": {
+                "person": {
+                    "keys": {
+                        "PRIMARY": {
+                            "columns": [
+                                "kp_PersonID"
+                            ], 
+                            "type": "PRIMARY KEY"
+                        }
+                    }, 
+                    "properties": {
+                        "PersonFirstName": {
+                            "column_name": "PersonFirstName", 
+                            "nullable": false, 
+                            "type": "/type/text"
+                        }, 
+                        "PersonLastName": {
+                            "column_name": "PersonLastName", 
+                            "nullable": false, 
+                            "type": "/type/text"
+                        }, 
+                        "kp_PersonID": {
+                            "column_name": "kp_PersonID", 
+                            "nullable": false, 
+                            "type": "/type/int"
+                        },
+                        "kf_GenderID": {
+                            "column_name": "kf_GenderID",
+                            "nullable": false, 
+                            "type": "/type/int"
+                        },
+						"fk_person_gender": {
+                            "type": "/core/gender",
+                            "direction": "referencing->referenced",
+                            "join_condition": [
+                                {
+                                    "referencing_column": "kf_GenderID",
+                                    "referenced_column": "kp_GenderID"
+                                }
+                            ],
+                            "nullable": false
+                        },
+						"kf_SalutationID": {
+                            "column_name": "kf_SalutationID",
+                            "nullable": false, 
+                            "type": "/type/int"							
+						},
+						"kf_NationalityID": {
+                            "column_name": "kf_NationalityID",
+                            "nullable": false, 
+                            "type": "/type/int"							
+						}
+                    }
+                },
+                "gender": {
+                    "keys": {
+                        "PRIMARY": {
+                            "columns": [
+                                "kp_GenderID"
+                            ], 
+                            "type": "PRIMARY KEY"
+                        }
+                    }, 
+                    "properties": {
+                        "GenderName": {
+                            "column_name": "GenderName", 
+                            "nullable": false, 
+                            "type": "/type/text"
+                        }, 
+                        "kp_GenderID": {
+                            "column_name": "kp_GenderID", 
+                            "nullable": false, 
+                            "type": "/type/int"
+                        }
+                    }
+                },
+				"salutation": {
+                    "keys": {
+                        "PRIMARY": {
+                            "columns": [
+                                "kp_SalutationID"
+                            ], 
+                            "type": "PRIMARY KEY"
+                        }
+                    }, 
+                    "properties": {
+                        "SalutationAbbreviation": {
+                            "column_name": "SalutationAbbreviation", 
+                            "nullable": false, 
+                            "type": "/type/text"
+                        }, 
+                        "kp_SalutationID": {
+                            "column_name": "kp_SalutationID", 
+                            "nullable": false, 
+                            "type": "/type/int"
+                        }
+                    }
+                },
+				"nationality": {
+                    "keys": {
+                        "PRIMARY": {
+                            "columns": [
+                                "kp_NationalityID"
+                            ], 
+                            "type": "PRIMARY KEY"
+                        }
+                    }, 
+                    "properties": {
+                        "NationalityName": {
+                            "column_name": "NationalityName", 
+                            "nullable": false, 
+                            "type": "/type/text"
+                        }, 
+                        "kp_NationalityID": {
+                            "column_name": "kp_NationalityID", 
+                            "nullable": false, 
+                            "type": "/type/int"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

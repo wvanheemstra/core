@@ -1,0 +1,1 @@
+<link rel="stylesheet" href="assets/templates/core/stylesheets/vlightbox1.css" />

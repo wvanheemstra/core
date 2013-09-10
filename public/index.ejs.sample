@@ -1,0 +1,323 @@
+<!DOCTYPE HTML>
+<html manifest="" lang="en-GB">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title><%= title %></title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="humans.txt">
+	<meta http-equiv="Access-Control-Allow-Origin" content="*"><!-- TO DO: change the * for a restricted set of domains -->
+	<meta http-equiv="Access-Control-Allow-Methods" content="GET, POST, PUT">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.png" />
+	<link rel="icon" type="image/png" href="favicon.png" />
+	<!--[if IE]>
+		<link rel="shortcut icon" href="favicon.ico"/>
+	<![endif]-->
+
+    <!-- CSS -->
+    <% if (is_desktop) { %>
+    	<link rel="stylesheet" type="text/css" href="resources/js/ext/resources/css/ext-all.css" />
+		<link rel="stylesheet" type="text/css" href="resources/css/app.css" />
+    <% } %>
+    <% if (is_phone) { %>
+    	<link rel="stylesheet" type="text/css" href="resources/js/touch/resources/css/sencha-touch.css" />
+		<link rel="stylesheet" type="text/css" href="resources/css/app.css" />
+    <% } %>	
+    <% if (is_tablet) { %>
+    	<link rel="stylesheet" type="text/css" href="resources/js/touch/resources/css/sencha-touch.css" />
+		<link rel="stylesheet" type="text/css" href="resources/css/app.css" />
+    <% } %> 
+    <style type="text/css">
+         /**
+         * Example of an initial loading indicator.
+         * It is recommended to keep this as minimal as possible to provide instant feedback
+         * while other resources are still being loaded for the first time
+         */
+        html, body {
+            height: 100%;
+            background-image: url('resources/bg/noise.png') !important;
+            background-color: rgb(217, 219, 222);
+        }
+ 
+        #appLoadingIndicator {
+            position: absolute;
+            top: 50%;
+            margin-top: -15px;
+            text-align: center;
+            width: 100%;
+            height: 30px;
+        }
+        
+        #first {
+            -webkit-animation-name: first;
+            -webkit-animation-duration: 0.5s;
+            -webkit-animation-iteration-count: infinite;
+            -webkit-animation-direction: linear;            
+        }
+
+        #second {
+            -webkit-animation-name: second;
+            -webkit-animation-duration: 0.5s;
+            -webkit-animation-iteration-count: infinite;
+            -webkit-animation-direction: linear;            
+        }
+
+        #third {
+            -webkit-animation-name: third;
+            -webkit-animation-duration: 0.5s;
+            -webkit-animation-iteration-count: infinite;
+            -webkit-animation-direction: linear;            
+        }
+        
+        #appLoadingIndicator div {
+            background-color: #FFFFFF;
+            display: inline-block;
+            height: 30px;
+            -webkit-border-radius: 15px;
+            margin: 0 5px;
+            width: 30px;
+            opacity: 0.8;
+        }
+
+        #appLoadingIndicator p {
+            color: #FFFFFF;
+            text-align: center;
+            width: 100%;
+            margin-bottom: 20px;
+        }    
+        
+        @-webkit-keyframes first{
+            0% {
+                opacity: 0.8
+            }
+            33% {
+                opacity: 0.4
+            }
+            50% {
+                opacity: 0
+            }
+            66% {
+                opacity: 0.4
+            }
+            100% {
+                opacity: 0.8
+            }
+        }
+        
+        @-webkit-keyframes second{
+            0% {
+                opacity: 0.8
+            }
+            33% {
+                opacity: 0.8
+            }
+            50% {
+                opacity: 0.4
+            }
+            66% {
+                opacity: 0.0
+            }
+            100% {
+                opacity: 0.4
+            }
+        }
+
+        @-webkit-keyframes third{
+            0% {
+                opacity: 0.4
+            }
+            33% {
+                opacity: 0.8
+            }
+            50% {
+                opacity: 0.8
+            }
+            66% {
+                opacity: 0.4
+            }
+            100% {
+                opacity: 0.0
+            }
+        }
+<!--
+        /* THE STYLES BELOW SHOULD BE TRANSFERED TO app.css */
+    <% if (is_desktop) { %>
+        .desktop-header {
+            background-color: rgb(255, 255, 255) !important;
+            border-bottom-color: rgb(217, 219, 222);
+            border-bottom-style: solid;
+            border-bottom-width: 1px;
+        }
+        .desktop-header div {
+            background-color: rgb(255, 255, 255) !important;
+            color: rgb(151, 152, 152);
+            font-family: proxima-nova, Helvetica, sans-serif;
+            font-size: 14px;
+            font-style: normal;          
+            font-variant: normal;
+            font-weight: normal !important;
+            line-height: 18px  !important;            
+            overflow-x: hidden;
+            overflow-y: hidden;           
+            padding-bottom: 7px;               
+            padding-left: 5px;
+            padding-right: 5px;
+            padding-top: 1px;             
+            text-align: center;
+            z-index: auto;
+        }
+        .desktop-header div .x-button-label {
+        	font-weight: normal;
+        	line-height: 18px;
+        }
+        .desktop-main {
+            background-image: url('resources/bg/noise.png') !important;
+        }
+        .desktop-main div {
+            background: transparent !important;
+        }
+        .desktop-mainmenu {
+            background-image: url('resources/bg/noise.png') !important;
+        }
+        .desktop-mainmenu div {
+            background: transparent !important;
+        }
+    <% } %>
+    <% if (is_phone) { %>
+        .phone-header {
+            background-color: rgb(255, 255, 255) !important;
+            border-bottom-color: rgb(217, 219, 222);
+            border-bottom-style: solid;
+            border-bottom-width: 1px;
+        }
+        .phone-header div {
+            background-color: rgb(255, 255, 255) !important;
+            color: rgb(151, 152, 152);
+            font-family: proxima-nova, Helvetica, sans-serif;
+            font-size: 14px;
+            font-style: normal;          
+            font-variant: normal;
+            font-weight: normal;
+            line-height: 18px;            
+            overflow-x: hidden;
+            overflow-y: hidden;           
+            padding-bottom: 7px;               
+            padding-left: 5px;
+            padding-right: 5px;
+            padding-top: 1px;             
+            text-align: center;
+            z-index: auto; 
+        } 
+        .phone-main {
+            background-image: url('resources/bg/noise.png') !important;
+        }
+        .phone-main div {
+            background: transparent !important;
+        }
+        .phone-mainmenu {
+            background-image: url('resources/bg/noise.png') !important;
+        }
+        .phone-mainmenu div {
+            background: transparent !important;
+        }
+    <% } %>
+    <% if (is_tablet) { %>
+        .tablet-header {
+            background-color: rgb(255, 255, 255);
+            border-bottom-color: rgb(217, 219, 222) !important;
+            border-bottom-style: solid;
+            border-bottom-width: 1px;
+        }
+        .tablet-header div {
+            background-color: rgb(255, 255, 255) !important;
+            color: rgb(151, 152, 152);
+            font-family: proxima-nova, Helvetica, sans-serif;
+            font-size: 14px;
+            font-style: normal;          
+            font-variant: normal;
+            font-weight: normal;
+            line-height: 18px;            
+            overflow-x: hidden;
+            overflow-y: hidden;           
+            padding-bottom: 7px;               
+            padding-left: 5px;
+            padding-right: 5px;
+            padding-top: 1px;             
+            text-align: center;
+            z-index: auto;
+        }
+        .tablet-main {
+            background-image: url('resources/bg/noise.png') !important;
+        }
+        .tablet-main div {
+            background: transparent !important;
+        }
+        .tablet-mainmenu {
+            background-image: url('resources/bg/noise.png') !important;
+        }
+        .tablet-mainmenu div {
+            background: transparent !important;
+        }
+    <% } %>
+        .status > * {
+        	margin: 4px auto;
+        	width: 2px !important;
+        	height: 8px;
+        	border-radius: 50%;
+        	background-color: #A90 !important;
+        	box-shadow: rgba(129, 129, 129, 0.5) 0 -1px 4px 1px, inset #A90 0 -1px 6px, rgba(245, 255, 0, 0.5) 0 2px 2px;
+        } 
+        .status.online > * {
+    		background-color: #690 !important;
+    		box-shadow: rgba(129, 129, 129, 0.5) 0 -1px 4px 1px, inset #460 0 -1px 6px, rgba(119, 221, 0, 0.5) 0 2px 2px;
+		}
+		.status.offline > * {
+		    background-color: #940 !important;
+		    box-shadow: rgba(129, 129, 129, 0.5) 0 -1px 4px 1px, inset #600 0 -1px 6px, rgba(255, 0, 0, 0.5) 0 2px 2px;
+		}  
+-->    
+    </style> 
+
+    <!-- Libraries, Loader, Application -->
+    <% if (is_desktop) { %>
+    	<script type="text/javascript" src="resources/js/ext/ext-all.js"></script>
+    	<script type="text/javascript" src="app/app-loader-extjs.js"></script>
+		<script type="text/javascript" src="resources/js/deft/deft.js"></script>
+	    <script type="text/javascript" src="resources/js/flow-mvc/flowmvc.js"></script>
+    	<script type="text/javascript" src="app-extjs.js"></script>
+    <% } %>	
+    <% if (is_phone) { %>
+    	<script type="text/javascript" src="resources/js/touch/sencha-touch.js"></script>
+    	<script type="text/javascript" src="app/app-loader-touch.js"></script>
+		<script type="text/javascript" src="resources/js/deft/deft.js"></script>
+	    <script type="text/javascript" src="resources/js/flow-mvc/flowmvc.js"></script>
+    	<script type="text/javascript" src="app-touch.js"></script>
+    <% } %>
+    <% if (is_tablet) { %>
+    	<script type="text/javascript" src="resources/js/touch/sencha-touch.js"></script>
+    	<script type="text/javascript" src="app/app-loader-touch.js"></script>
+		<script type="text/javascript" src="resources/js/deft/deft.js"></script>
+	    <script type="text/javascript" src="resources/js/flow-mvc/flowmvc.js"></script>
+    	<script type="text/javascript" src="app-touch.js"></script>
+		<script type="text/javascript">
+			if (!Ext.browser.is.WebKit) {
+				alert("The current browser is unsupported.\n\nSupported browsers:\n" +
+					"Google Chrome\n" +
+					"Apple Safari\n" +
+					"Mobile Safari (iOS)\n" +
+					"Android Browser\n" +
+					"BlackBerry Browser"
+				);
+			}
+		</script>		
+    <% } %>
+</head>
+<body>
+    <div id="appLoadingIndicator">
+        <p>LOADING</p>
+        <div id="first"></div>
+        <div id="second"></div>
+        <div id="third"></div>
+    </div>
+</body>
+</html>

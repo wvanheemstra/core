@@ -1,0 +1,1 @@
+<a href="#" class="button" data-reveal-id="page_lightbox" data-animation="fade">Klik mij aan voor een lichtbak.</a>

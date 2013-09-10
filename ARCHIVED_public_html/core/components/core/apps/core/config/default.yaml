@@ -1,0 +1,7 @@
+Customer:
+  dbHost: localhost
+  dbPort: 3306
+  dbSchema: core
+  dbUser: root
+  dbPassword: null
+  dbLogging: console.log

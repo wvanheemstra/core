@@ -1,0 +1,49 @@
+/* core stylesheet */
+/* theme - light sea green */
+/* Page */
+#page {
+  border: 5px solid #20b2aa;
+  /* the base color */
+
+  background-color: rgba(255, 255, 255, 0.5);
+  /* to make it bright (90%) and readable, yet a bit transparent (50%) */
+
+}
+/* Menubar */
+#menubar {
+  background-color: #20b2aa;
+  /* same as page border color */
+
+}
+/* Header Nav */
+header nav#main_nav ul li.active {
+  background: #188781;
+  background-image: -moz-linear-gradient(#188781, #2cd9d0);
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#188781), to(#2cd9d0));
+  filter: progid:dximagetransform.microsoft.gradient(enabled='true', startColorstr=#188781, endColorstr=#2cd9d0, GradientType=0);
+  /* fall back colour for other browsers */
+
+  background-color: #188781;
+}
+/* Sub-nav */
+dl.sub-nav dd.active a {
+  background: #20b2aa;
+  color: #fff;
+}
+/* Simple Search (sisea) */
+.sisea-highlight {
+  background-color: #aa20b2;
+}
+.sisea-result a {
+  color: #20b2aa;
+}
+/* Normal Buttons ---------------------- */
+.button {
+  background: #20b2aa;
+  /* the base color */
+
+  border: 1px solid #2cd9d0;
+}
+.button:hover {
+  background-color: #2cd9d0;
+}

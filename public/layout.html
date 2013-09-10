@@ -1,0 +1,147 @@
+<!doctype html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if IE 9]>    <html class="no-js ie9" lang="en"> <![endif]-->
+<!-- Consider adding an manifest.appcache: h5bp.com/d/Offline -->
+<!--[if gt IE 9]><!--> <html class="no-js" lang="en" itemscope itemtype="http://schema.org/Product"> <!--<![endif]-->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <!-- Use the .htaccess and remove these lines to avoid edge case issues.
+                     More info: h5bp.com/b/378 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>Your Company</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="humans.txt">
+
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
+
+    <!-- Facebook Metadata /-->
+    <meta property="fb:page_id" content="" />
+    <meta property="og:image" content="" />
+    <meta property="og:description" content=""/>
+    <meta property="og:title" content=""/>
+
+    <!-- Google+ Metadata /-->
+    <meta itemprop="name" content="">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="">
+
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+
+    <!-- We highly recommend you use SASS and write your custom styles in sass/_custom.scss.
+                     However, there is a blank style.css in the css directory should you prefer -->
+    <link rel="stylesheet" href="resources/css/gumby.css">
+    <!-- <link rel="stylesheet" href="resources/css/style.css"> -->
+
+    <script src="resources/js/libs/modernizr-2.6.2.min.js"></script>
+    <script>
+      function BlockMove(event) {
+          // Tell Safari not to move the window.
+          event.preventDefault();
+      }
+    </script>
+</head>
+<body ontouchmove="BlockMove(event);">
+    <div class="container" id="meta-nav">
+    </div>
+
+    <header class="container fixed" id="main-nav" gumby-fixed="top">
+      <div class="sixteen colgrid">  
+          <div class="row">
+            <a href="/" class="four columns" id="logo">
+              Your Company
+            </a>
+            <nav class="twelve columns main">
+            </nav>
+            <nav class="twelve columns mobile">
+              <a href="#" class="toggle circle-link red large" gumby-trigger="#main-nav .mobile &gt; ul"><i class="icon-menu"></i></a>
+            </nav>
+          </div>
+      </div>    
+    </header>
+
+    <div id="hero">
+    </div>
+
+    <!-- start #panels -->	
+    <section id="panels">
+        <!-- start .first panel -->
+        <article class="first">
+          <div class="container">
+            <section class="row blocks">
+
+              <article class="first">
+                  <div class="sixteen colgrid">
+                    <div class="row">
+                      <div class="four columns">
+                        <p>4 columns</p>
+                      </div>
+                      <div class="twelve columns">
+                        <p>12 columns</p>
+                      </div>
+                    </div>
+                  </div>
+              </article>
+
+            </section>
+          </div>
+        </article>
+        <!-- end .first panel -->
+    </section>
+    <!-- end #panels -->
+
+    <nav class="container" id="foot-nav">
+    </nav>
+
+    <footer class="container">
+    </footer>
+
+  <!-- Grab Google CDN's jQuery, fall back to local if offline -->
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="resources/js/libs/jquery-1.9.1.min.js"><\/script>')</script>
+
+  <!--
+  Include gumby.js followed by UI modules.
+  Or concatenate and minify into a single file
+  <script src="resources/js/libs/gumby.js"></script>
+  <script src="resources/js/libs/ui/gumby.retina.js"></script>
+  <script src="resources/js/libs/ui/gumby.fixed.js"></script>
+  <script src="resources/js/libs/ui/gumby.skiplink.js"></script>
+  <script src="resources/js/libs/ui/gumby.toggleswitch.js"></script>
+  <script src="resources/js/libs/ui/gumby.checkbox.js"></script>
+  <script src="resources/js/libs/ui/gumby.radiobtn.js"></script>
+  <script src="resources/js/libs/ui/gumby.tabs.js"></script>
+  <script src="resources/js/libs/ui/gumby.navbar.js"></script>
+  <script src="resources/js/libs/ui/gumby.fittext.js"></script>
+  <script src="resources/js/libs/ui/jquery.validation.js"></script>
+  <script src="resources/js/libs/gumby.init.js"></script>-->
+  
+  <script src="resources/js/libs/gumby.min.js"></script>
+  <script src="resources/js/plugins.js"></script>
+  <script src="resources/js/main.js"></script>
+
+  <!-- Change UA-XXXXX-X to be your site's ID -->
+  <!--<script>
+    window._gaq = [['_setAccount','UAXXXXXXXX1'],['_trackPageview'],['_trackPageLoadTime']];
+    Modernizr.load({
+      load: ('https:' == location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js'
+    });
+  </script>-->
+
+  <!-- Prompt IE 6 users to install Chrome Frame. Remove this if you want to support IE 6.
+       chromium.org/developers/how-tos/chrome-frame-getting-started -->
+  <!--[if lt IE 7 ]>
+    <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+    <script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+  <![endif]-->
+
+  </body>
+</html>		

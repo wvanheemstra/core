@@ -1,0 +1,7 @@
+{
+    "success": true,
+    "sessionToken": "qwerty0987654321",	
+    "backgound": {
+        "background": "url('/bg/noise.png')"
+    }
+}

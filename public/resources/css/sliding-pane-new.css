@@ -1,0 +1,17 @@
+#my-div { /* Give your main div some style */
+  padding: 0px;
+  background-color: #808080;
+  height: 200px; /* WAS 200px */
+  text-align: center;
+}
+#my-div pre { /* Pre has a default margin? Didn't know that */
+  margin: 0px;
+}
+#my-div-to-hide { /* Give your settings pane some style */
+  background-color: #000;
+  /*background-image: url(../images/backgrounds/sliding_pane_bg.png);*/
+  background-image: url(../images/backgrounds/illusion_of_depth_bg.png);
+  color: #fff;
+  height: 100%;
+  padding: 30px 10px 10px 10px;
+}

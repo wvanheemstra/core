@@ -1,0 +1,49 @@
+/* core stylesheet */
+/* theme - cadet blue */
+/* Page */
+#page {
+  border: 5px solid #5f9ea0;
+  /* the base color */
+
+  background-color: rgba(255, 255, 255, 0.5);
+  /* to make it bright (90%) and readable, yet a bit transparent (50%) */
+
+}
+/* Menubar */
+#menubar {
+  background-color: #5f9ea0;
+  /* same as page border color */
+
+}
+/* Header Nav */
+header nav#main_nav ul li.active {
+  background: #4c7e80;
+  background-image: -moz-linear-gradient(#4c7e80, #7fb1b3);
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#4c7e80), to(#7fb1b3));
+  filter: progid:dximagetransform.microsoft.gradient(enabled='true', startColorstr=#4c7e80, endColorstr=#7fb1b3, GradientType=0);
+  /* fall back colour for other browsers */
+
+  background-color: #4c7e80;
+}
+/* Sub-nav */
+dl.sub-nav dd.active a {
+  background: #5f9ea0;
+  color: #fff;
+}
+/* Simple Search (sisea) */
+.sisea-highlight {
+  background-color: #a05f9e;
+}
+.sisea-result a {
+  color: #5f9ea0;
+}
+/* Normal Buttons ---------------------- */
+.button {
+  background: #5f9ea0;
+  /* the base color */
+
+  border: 1px solid #7fb1b3;
+}
+.button:hover {
+  background-color: #7fb1b3;
+}

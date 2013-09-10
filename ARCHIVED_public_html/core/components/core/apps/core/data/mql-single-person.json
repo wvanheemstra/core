@@ -1,0 +1,13 @@
+{
+ "code": "/api/status/ok",
+ "result": [
+    {
+     "type": "/core/person",
+     "kp_PersonID": 2,
+     "PersonFirstName": "Giuseppe",
+     "PersonLastName": "Cerda"
+    }
+ ],
+ "status": "200 OK",
+ "transaction_id": "not implemented"
+}

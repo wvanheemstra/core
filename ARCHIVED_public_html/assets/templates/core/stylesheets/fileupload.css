@@ -1,0 +1,25 @@
+/* core stylesheet */
+/* fileupload css file */
+div.fu-error-presubmit {
+  color: red;
+  text-align: left;
+  width: 50%;
+}
+div.fu-error {
+  font-size: 20;
+  color: red;
+  background-color: #dcdcdc;
+  text-align: left;
+  margin: 5,15,5,30;
+  padding: 5;
+  width: 50%;
+}
+div.fu-success {
+  font-size: 20;
+  color: black;
+  background-color: #dcdcdc;
+  text-align: left;
+  margin: 5,15,5,30;
+  padding: 5;
+  width: 50%;
+}

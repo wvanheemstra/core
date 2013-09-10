@@ -1,0 +1,1 @@
+[[Breadcrumb? &containerTpl=`core.BreadCrumbContainerTpl` &currentCrumbTpl =`core.BreadCrumbCurrentCrumbTpl` &linkCrumbTpl=`core.BreadCrumbLinkCrumbTpl` &maxCrumbTpl=`core.BreadCrumbMaxCrumbTpl` &respectHidemenu=`0` &homeId=`[[++custom.home]]` &showHomeCrumb=`1`]]

@@ -1,0 +1,1 @@
+<span class="orbit-caption" id="[[+image:substr=`-12`]]">[[+description]]</span>

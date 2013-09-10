@@ -1,0 +1,12 @@
+/* 
+    Document   : foundation.min.css
+    Created on : Jun 21, 2013, 11:41:38 AM
+    Author     : wvanheemstra
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+

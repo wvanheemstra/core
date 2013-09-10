@@ -1,0 +1,157 @@
+<!DOCTYPE HTML>
+<html manifest="" lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <title><%= title %></title>
+    <style type="text/css">
+        /**
+        * Example of an initial loading indicator.
+        * It is recommended to keep this as minimal as possible to provide instant feedback
+        * while other resources are still being loaded for the first time
+        */
+        html, body {
+            height: 100%;
+            background-image: url('resources/bg/noise.png') !important;
+            background-color: rgb(217, 219, 222);
+        }
+ 
+        #appLoadingIndicator {
+            position: absolute;
+            top: 50%;
+            margin-top: -15px;
+            text-align: center;
+            width: 100%;
+            height: 30px;
+        }
+        
+        #first {
+            -webkit-animation-name: first;
+            -webkit-animation-duration: 0.5s;
+            -webkit-animation-iteration-count: infinite;
+            -webkit-animation-direction: linear;            
+        }
+
+        #second {
+            -webkit-animation-name: second;
+            -webkit-animation-duration: 0.5s;
+            -webkit-animation-iteration-count: infinite;
+            -webkit-animation-direction: linear;            
+        }
+
+        #third {
+            -webkit-animation-name: third;
+            -webkit-animation-duration: 0.5s;
+            -webkit-animation-iteration-count: infinite;
+            -webkit-animation-direction: linear;            
+        }
+        
+        #appLoadingIndicator div {
+            background-color: #FFFFFF;
+            display: inline-block;
+            height: 30px;
+            -webkit-border-radius: 15px;
+            margin: 0 5px;
+            width: 30px;
+            opacity: 0.8;
+        }
+
+        #appLoadingIndicator p {
+            color: #FFFFFF;
+            text-align: center;
+            width: 100%;
+            margin-bottom: 20px;
+        }    
+        
+        @-webkit-keyframes first{
+            0% {
+                opacity: 0.8
+            }
+            33% {
+                opacity: 0.4
+            }
+            50% {
+                opacity: 0
+            }
+            66% {
+                opacity: 0.4
+            }
+            100% {
+                opacity: 0.8
+            }
+        }
+        
+        @-webkit-keyframes second{
+            0% {
+                opacity: 0.8
+            }
+            33% {
+                opacity: 0.8
+            }
+            50% {
+                opacity: 0.4
+            }
+            66% {
+                opacity: 0.0
+            }
+            100% {
+                opacity: 0.4
+            }
+        }
+
+        @-webkit-keyframes third{
+            0% {
+                opacity: 0.4
+            }
+            33% {
+                opacity: 0.8
+            }
+            50% {
+                opacity: 0.8
+            }
+            66% {
+                opacity: 0.4
+            }
+            100% {
+                opacity: 0.0
+            }
+        }
+    </style>
+
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="resources/css/app.css" />
+
+	<!-- FAVICON -->
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.png" />
+	<link rel="icon" type="image/png" href="favicon.png" />
+	<!--[if IE]>
+		<link rel="shortcut icon" href="favicon.ico"/>
+	<![endif]-->
+	
+    <!-- Libraries, Loader, Application -->
+    <script type="text/javascript" src="resources/js/touch/sencha-touch-debug.js"></script>
+    <!--<script type="text/javascript" src="resources/js/log4javascript/log4javascript.js"></script>-->
+    <script type="text/javascript" src="app/app-loader-touch.js"></script>
+	<script type="text/javascript" src="resources/js/deft/deft-debug.js"></script>
+	<script type="text/javascript" src="resources/js/flow-mvc/flowmvc-debug.js"></script>
+    <script type="text/javascript" src="app-touch.js"></script>
+	<script type="text/javascript">
+		if (!Ext.browser.is.WebKit) {
+	    	alert("The current browser is unsupported.\n\nSupported browsers:\n" +
+	        	"Google Chrome\n" +
+	        	"Apple Safari\n" +
+	        	"Mobile Safari (iOS)\n" +
+	        	"Android Browser\n" +
+	        	"BlackBerry Browser"
+	    	);
+		}
+	</script>
+</head>
+<body>
+<div id="appLoadingIndicator">
+    <p>LOADING</p>
+    <div id="first"></div>
+    <div id="second"></div>
+    <div id="third"></div>
+</div>
+</body>
+</html>

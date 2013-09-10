@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <title>Let's Render</title>
+    <!--script src="assets/templates/core/javascripts/jade.min.js"></script-->
+    <script src="assets/templates/core/javascripts/jade/jade.js"></script>
+    <script type='text/javascript'>
+    function renderPets(){
+    
+      //alert('rendering...');
+      
+      var html = document.getElementById('pet-template').innerHTML;
+      
+      //alert(html);
+      
+      var fn = jade.compile(html);
+      
+      //alert(fn);
+      
+      var locals = { pet: { name: 'Tobi', species: 'Ferret', age: 2, siblings: ['Loki', 'Jane'] }};
+      var html = fn(locals);
+      document.getElementById('pets').innerHTML = html;
+    };
+    </script>
+  </head>
+  <body onload='renderPets()'>
+    <p>My Pets</p>
+    <table id="pets" style="border:1px;">+++</table>
+
+    <script id="pet-template" type="text/template">
+tbody
+  tr.pet
+    td.name= pet.name
+    td.description is a #{pet.age} year old #{pet.species}
+    td.siblings and has sibling(s)
+      ul
+        each sibling in pet.siblings
+          li= sibling
+    </script>
+  </body>
+</html>

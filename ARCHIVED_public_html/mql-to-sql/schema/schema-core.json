@@ -1,0 +1,49 @@
+{
+    "domains": {
+        "core": {
+            "types": {
+                "person": {
+                    "properties": {
+                        "actor_id": {
+                            "column_name": "actor_id",
+                            "nullable": false,
+                            "type": "/type/int"
+                        },
+                        "first_name": {
+                            "column_name": "first_name",
+                            "nullable": false,
+                            "type": "/type/text"
+                        },
+                        "fk_film_actor_actor": {
+                            "type": "/sakila/film_actor",
+                            "direction": "referenced<-referencing",
+                            "join_condition": [
+                                {
+                                    "referencing_column": "actor_id",
+                                    "referenced_column": "actor_id"
+                                }
+                            ],
+                            "nullable": false
+                        },
+                        "last_name": {
+                            "column_name": "last_name",
+                            "nullable": false,
+                            "type": "/type/text"
+                        },
+                        "last_update": {
+                            "column_name": "last_update",
+                            "nullable": false,
+                            "type": "/type/datetime"
+                        }
+                    },
+                    "keys": {
+                        "PRIMARY": {
+                            "type": "PRIMARY KEY",
+                            "columns": ["actor_id"]
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

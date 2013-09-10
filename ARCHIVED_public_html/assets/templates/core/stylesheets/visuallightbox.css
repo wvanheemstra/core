@@ -1,0 +1,292 @@
+/* core stylesheet */
+#overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 90;
+  width: 100%;
+  height: auto;
+  background-color: #ffffff;
+}
+#lightbox {
+  position: absolute;
+  top: 20px;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  text-align: center;
+  color: #151410;
+  line-height: 0;
+}
+#lightbox a,
+#lightbox a:hover {
+  border-bottom: none;
+  color: #151410;
+  text-decoration: underline;
+}
+#lightbox a img {
+  border: none;
+}
+#outerImageContainer {
+  width: auto;
+  height: auto;
+  /* without this line error in IE8 detected */
+
+  margin: 0 auto;
+  position: relative;
+}
+#lightboxImage {
+  width: 100%;
+  height: 100%;
+}
+#imageContainerMain {
+  margin: 0 auto;
+  overflow: visible;
+  position: relative;
+  font-size: 0;
+  /* ie fix - big info bar*/
+
+}
+#imageContainer {
+  width: 10px;
+  height: 10px;
+  margin: 0 auto;
+  overflow: hidden;
+  background-color: #fff;
+  position: relative;
+  font-size: 0;
+  /* ie fix - big info bar*/
+
+}
+#loading {
+  position: absolute;
+  top: 40%;
+  left: 0%;
+  height: 25%;
+  width: 100%;
+  text-align: center;
+  font-size: 10px;
+  z-index: 1;
+}
+#loadingLink {
+  display: block;
+  margin: 0 auto;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  background: url(../images/visuallightbox/loading.gif) center center no-repeat;
+  text-indent: -9999px;
+}
+#hoverNav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+}
+#imageContainer > #hoverNav {
+  left: 0;
+}
+#prevLinkImg,
+#nextLinkImg {
+  top: 0;
+  width: 48px;
+  height: 100%;
+  position: absolute;
+  z-index: 20;
+  outline-style: none;
+  display: block;
+  text-indent: -9999px;
+}
+* html #prevLinkImg,
+* html #nextLinkImg {
+  background-image: url(data:image/gif;base64,AAAA);
+  /* Trick IE into showing hover */
+
+}
+#prevLinkImg {
+  left: 0;
+}
+#nextLinkImg {
+  right: 0;
+}
+#prevLinkImg:hover,
+#prevLinkImg.hover,
+#prevLinkImg:visited:hover {
+  background: url(../images/visuallightbox/prev.png) 5% center no-repeat;
+  _background-image: url(../images/visuallightbox/prev_ie6.gif);
+}
+#nextLinkImg:hover,
+#nextLinkImg.hover,
+#nextLinkImg:visited:hover {
+  background: url(../images/visuallightbox/next.png) 97% center no-repeat;
+  _background-image: url(../images/visuallightbox/next_ie6.gif);
+}
+#imageDataContainer {
+  font: 10px Verdana, Helvetica, sans-serif;
+  font-family: "Lucida Grande", "Lucida Sans Unicode", Arial, Verdana, sans-serif;
+  font-size: 12px;
+  background-color: #fff;
+  width: 100%;
+}
+#imageData {
+  overflow: hidden;
+  width: 100%;
+}
+#imageDetails {
+  width: 70%;
+  float: left;
+  text-align: left;
+  padding: 10px 10px 0 0;
+}
+#caption {
+  font-weight: bold;
+  display: block;
+}
+#numberDisplay {
+  display: block;
+  float: left;
+  padding: 3px 10px 0 0;
+}
+#detailsNav {
+  display: block;
+  float: left;
+  padding: 0;
+}
+#prevLinkDetails,
+#nextLinkDetails,
+#slideShowControl {
+  background-repeat: no-repeat;
+  outline-style: none;
+  display: block;
+  float: left;
+}
+#prevLinkDetails {
+  margin: 3px;
+  margin-top: 0px;
+  width: 24px;
+  height: 24px;
+  background: url(../images/visuallightbox/prevlabel.gif) left center;
+}
+#nextLinkDetails {
+  margin: 3px;
+  margin-top: 0px;
+  width: 24px;
+  height: 24px;
+  background: url(../images/visuallightbox/nextlabel.gif) right center;
+}
+#slideShowControl.started {
+  background-image: url(../images/visuallightbox/pause.gif);
+}
+#slideShowControl {
+  display: block;
+  width: 24px;
+  height: 24px;
+  float: left;
+  background: url(../images/visuallightbox/start.gif);
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+#close {
+  padding: 20px 0 0;
+  float: right;
+}
+#closeLink {
+  display: block;
+  outline-style: none;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  width: 32px;
+  height: 32px;
+  background: url(../images/visuallightbox/close.gif) no-repeat;
+}
+.clearfix:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+* html > body .clearfix {
+  display: inline-block;
+  width: 100%;
+}
+* html .clearfix {
+  /* Hides from IE-mac \*/
+
+  height: 1%;
+  /* End hide from IE-mac */
+
+}
+#outerImageFrame {
+  border: solid 1px red;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+#outerImageContainer {
+  overflow: visible;
+}
+#outerImageContainer td {
+  text-align: center;
+  padding: 0;
+}
+#lightboxFrameBody {
+  background-color: #fff;
+  border: solid 1px #fff;
+  /* hack for opera table small cell width */
+
+}
+#outerImageContainer td,
+#outerImageContainer tr {
+  font-size: 0;
+  border: 0 none;
+}
+/* frame style */
+#outerImageContainer td.tl,
+#outerImageContainer td.br {
+  height: 38px;
+  width: 38px;
+}
+#outerImageContainer td.tl {
+  background-image: url(../images/visuallightbox/borderTopLeft.png);
+  _background-image: none;
+  _filter: progid:dximagetransform.microsoft.alphaimageloader(src='assets/templates/core/images/visuallightbox/borderTopLeft.png', sizingMethod='scale');
+}
+#outerImageContainer td.tc {
+  background-image: url(../images/visuallightbox/borderTopCenter.png);
+  _background-image: none;
+  _filter: progid:dximagetransform.microsoft.alphaimageloader(src='assets/templates/core/images/visuallightbox/borderTopCenter.png', sizingMethod='scale');
+}
+#outerImageContainer td.tr {
+  background-image: url(../images/visuallightbox/borderTopRight.png);
+  _background-image: none;
+  _filter: progid:dximagetransform.microsoft.alphaimageloader(src='assets/templates/core/images/visuallightbox/borderTopRight.png', sizingMethod='scale');
+}
+#outerImageContainer td.ml {
+  background-image: url(../images/visuallightbox/borderMiddleLeft.png);
+  _background-image: none;
+  _filter: progid:dximagetransform.microsoft.alphaimageloader(src='assets/templates/core/images/visuallightbox/borderMiddleLeft.png', sizingMethod='scale');
+}
+#outerImageContainer td.mr {
+  background-image: url(../images/visuallightbox/borderMiddleRight.png);
+  _background-image: none;
+  _filter: progid:dximagetransform.microsoft.alphaimageloader(src='assets/templates/core/images/visuallightbox/borderMiddleRight.png', sizingMethod='scale');
+}
+#outerImageContainer td.bl {
+  background-image: url(../images/visuallightbox/borderBottomLeft.png);
+  _background-image: none;
+  _filter: progid:dximagetransform.microsoft.alphaimageloader(src='assets/templates/core/images/visuallightbox/borderBottomLeft.png', sizingMethod='scale');
+}
+#outerImageContainer td.bc {
+  background-image: url(../images/visuallightbox/borderBottomCenter.png);
+  _background-image: none;
+  _filter: progid:dximagetransform.microsoft.alphaimageloader(src='assets/templates/core/images/visuallightbox/borderBottomCenter.png', sizingMethod='scale');
+}
+#outerImageContainer td.br {
+  background-image: url(../images/visuallightbox/borderBottomRight.png);
+  _background-image: none;
+  _filter: progid:dximagetransform.microsoft.alphaimageloader(src='assets/templates/core/images/visuallightbox/borderBottomRight.png', sizingMethod='scale');
+}

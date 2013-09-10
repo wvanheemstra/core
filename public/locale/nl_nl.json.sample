@@ -1,0 +1,142 @@
+{
+    /////////////////////////////////////////////
+    // LOGIN
+    /////////////////////////////////////////////
+    "login": {
+        "title": "Login",
+        "username": "Gebruikersnaam",
+        "password": "Wachtwoord",
+        "passwordHint": "Hint: password",
+        "keepmeloggedin": "Houd me ingelogd",
+        "submit": "Log In",
+        "reset": "Wissen",
+        "loggingIn" : "Verifieren...",
+        "credentialsRequired": "Voer alsjeblieft gebruikersnaam en wachtwoord in.",
+        "loginFailed": "Login mislukt. Voer alsjeblieft de juiste gegevens in."
+    },
+
+    /////////////////////////////////////////////
+    // MAIN SLIDE
+    /////////////////////////////////////////////
+    "mainSlide": {
+        "title": "Mains",
+        "title1": "Mains1",	
+        "title2": "Mains2",
+        "title3": "Mains3",	
+        "title4": "Mains4",			
+        "logOut": "Log Uit",
+        "new": "Nieuw",
+        "search": "live zoeken",
+        "name": "Naam",
+        "loading": "Laad Mains...",
+        "noMains": "Geen Mains gevonden."
+    },	
+	
+    /////////////////////////////////////////////
+    // MAIN LIST
+    /////////////////////////////////////////////
+    "mainList": {
+        "title": "Mains",
+        "logOut": "Log Uit",
+        "new": "Nieuw",
+        "search": "live zoeken",
+        "name": "Naam",
+        "loading": "Laad Mains...",
+        "noMains": "Geen Mains gevonden."
+    },
+
+    /////////////////////////////////////////////
+    // MAIN TILE
+    /////////////////////////////////////////////
+    "mainTile": {
+        "title": "Mains",
+        "logOut": "Log Uit",
+        "new": "Nieuw",
+        "search": "live zoeken",
+        "name": "Naam",
+        "loading": "Laad Mains...",
+        "noMains": "Geen Mains gevonden."
+    },
+
+    /////////////////////////////////////////////
+    // MAIN ITEMS
+    /////////////////////////////////////////////
+    "mainItem1": {
+        "title": "Item 1",
+    },	
+    "mainItem2": {
+        "title": "Item 2",
+    },
+    "mainItem3": {
+        "title": "Item 3",
+    },		
+    "mainItem4": {
+        "title": "Item 4",
+    },	
+	
+    /////////////////////////////////////////////
+    // MAIN DETAIL
+    /////////////////////////////////////////////
+    "mainDetail": {
+        "title": "Main",
+        "back": "Terug",
+        "save": "Bewaar",
+        "name": "Naam",
+        "delete": "Verwijder",
+        "creatingMain": "Maak Main aan ...",
+        "updatingMain": "Werk Main bij ...",
+        "deletingMain": "Verwijder Main..."
+    },
+
+    /////////////////////////////////////////////
+    // MAIN MODAL
+    /////////////////////////////////////////////
+    "mainModal": {
+        "title": "Main",
+        "close": "Sluiten"
+    },	
+	
+    /////////////////////////////////////////////
+    // EMPLOYEE LIST
+    /////////////////////////////////////////////
+    "employeeList": {
+        "title": "Werknemers",
+        "logOut": "Log Uit",
+        "new": "Nieuw",
+        "search": "live zoeken",
+        "firstName": "Voornaam",
+        "lastName": "Achternaam",
+        "loading": "Laad Werknemers...",
+        "noEmployees": "Geen Werknemers gevonden."
+    },
+
+    /////////////////////////////////////////////
+    // EMPLOYEE TILE
+    /////////////////////////////////////////////
+    "employeeTile": {
+        "title": "Werknemers",
+        "logOut": "Log Uit",
+        "new": "Nieuw",
+        "search": "live zoeken",
+        "firstName": "Voornaam",
+        "lastName": "Achternaam",
+        "loading": "Laad Werknemers...",
+        "noEmployees": "Geen Werknemers gevonden."
+    },
+
+    /////////////////////////////////////////////
+    // EMPLOYEE DETAIL
+    /////////////////////////////////////////////
+    "employeeDetail": {
+        "title": "Werknemer",
+        "back": "Terug",
+        "save": "Bewaar",
+        "firstName": "Voornaam",
+        "lastName": "Achternaam",
+        "phoneNumber": "telefoonnummer",
+        "delete": "Verwijder",
+        "creatingEmployee": "Maak Werknemer aan...",
+        "updatingEmployee": "Werk Werknemer bij...",
+        "deletingEmployee": "Verwijder Werknemer..."
+    }
+}

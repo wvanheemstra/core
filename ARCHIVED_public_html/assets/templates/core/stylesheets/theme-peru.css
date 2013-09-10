@@ -1,0 +1,49 @@
+/* core stylesheet */
+/* theme - peru */
+/* Page */
+#page {
+  border: 5px solid #cd853f;
+  /* the base color */
+
+  background-color: rgba(255, 255, 255, 0.5);
+  /* to make it bright (90%) and readable, yet a bit transparent (50%) */
+
+}
+/* Menubar */
+#menubar {
+  background-color: #cd853f;
+  /* same as page border color */
+
+}
+/* Header Nav */
+header nav#main_nav ul li.active {
+  background: #ac6c2d;
+  background-image: -moz-linear-gradient(#ac6c2d, #d89f67);
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ac6c2d), to(#d89f67));
+  filter: progid:dximagetransform.microsoft.gradient(enabled='true', startColorstr=#ac6c2d, endColorstr=#d89f67, GradientType=0);
+  /* fall back colour for other browsers */
+
+  background-color: #ac6c2d;
+}
+/* Sub-nav */
+dl.sub-nav dd.active a {
+  background: #cd853f;
+  color: #fff;
+}
+/* Simple Search (sisea) */
+.sisea-highlight {
+  background-color: #3fcd85;
+}
+.sisea-result a {
+  color: #cd853f;
+}
+/* Normal Buttons ---------------------- */
+.button {
+  background: #cd853f;
+  /* the base color */
+
+  border: 1px solid #d89f67;
+}
+.button:hover {
+  background-color: #d89f67;
+}

@@ -1,0 +1,242 @@
+/* index.scss */
+* {
+  margin: 0;
+  padding: 0;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+/* type a - Smartphone */
+/* type b - iPhone 3 */
+/* type c - iPad */
+/* type d - Desktop or Laptop */
+/* type e - Large Screen */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  #wrap p:after {
+    content: "Smartphone (incl. iPhone 3) portrait and landscape"; } }
+@media only screen and (min-width: 321px) {
+  #wrap p:after {
+    content: "Smartphone (incl. iPhone 3) landscape"; } }
+@media only screen and (max-width: 320px) {
+  #wrap p:after {
+    content: "Smartphone (incl. iPhone 3) portrait"; } }
+@media only screen and (max-width: 480px) and (orientation: portrait) {
+  #wrap p:after {
+    content: "iPhone 3 portrait"; }
+  #wrap #header {
+    float: left;
+    width: 100%; }
+  #wrap #content {
+    float: left;
+    width: 100%;
+    position: relative;
+    left: 0px; }
+  #wrap #side {
+    float: left;
+    width: 300px;
+    position: relative;
+    right: 0px;
+    left: 10px;
+    padding-bottom: 20px; }
+  #wrap #main {
+    float: left;
+    width: 300px;
+    position: relative;
+    right: 0px;
+    left: 10px;
+    padding: 20px 0; }
+  #wrap #footer {
+    clear: both;
+    float: left;
+    width: 100%; } }
+@media only screen and (max-width: 480px) and (orientation: landscape) {
+  #wrap p:after {
+    content: "iPhone 3 landscape"; }
+  #wrap #header {
+    float: left;
+    width: 100%; }
+  #wrap #content {
+    float: left;
+    width: 100%;
+    position: relative;
+    left: 0px; }
+  #wrap #side {
+    float: left;
+    width: 460px;
+    position: relative;
+    right: 0px;
+    left: 10px;
+    padding-bottom: 20px; }
+  #wrap #main {
+    float: left;
+    width: 460px;
+    position: relative;
+    right: 0px;
+    left: 10px;
+    padding: 20px 0; }
+  #wrap #footer {
+    clear: both;
+    float: left;
+    width: 100%; } }
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  #wrap p:after {
+    content: "iPad portrait and landscape"; } }
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  #wrap {
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+    overflow: hidden; }
+    #wrap p:after {
+      content: "iPad landscape"; }
+    #wrap #header {
+      float: left;
+      width: 100%; }
+    #wrap #content {
+      float: left;
+      width: 100%;
+      position: relative;
+      left: 0px; }
+    #wrap #side {
+      float: right;
+      width: 216px;
+      position: relative;
+      right: 788px;
+      padding-bottom: 20px; }
+    #wrap #sidea,
+    #wrap #sideb,
+    #wrap #sidec {
+      clear: left;
+      float: left;
+      width: 216px; }
+    #wrap #main {
+      float: right;
+      width: 729px;
+      position: relative;
+      right: 0px;
+      left: 180px;
+      padding: 20px 0; }
+    #wrap #footer {
+      clear: both;
+      float: left;
+      width: 100%; } }
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+  #wrap {
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    text-align: left; }
+    #wrap p:after {
+      content: "iPad portrait"; }
+    #wrap #header {
+      float: left;
+      width: 100%; }
+    #wrap #content {
+      float: left;
+      width: 100%;
+      position: relative;
+      left: 0px; }
+    #wrap #side {
+      float: right;
+      width: 216px;
+      position: relative;
+      right: 530px;
+      padding-bottom: 20px; }
+    #wrap #sidea,
+    #wrap #sideb,
+    #wrap #sidec {
+      clear: left;
+      float: left;
+      width: 216px; }
+    #wrap #main {
+      float: right;
+      width: 473px;
+      position: relative;
+      right: 0px;
+      left: 183px;
+      padding: 20px 0; }
+    #wrap #footer {
+      clear: both;
+      float: left;
+      width: 100%; } }
+@media only screen and (min-width: 1224px) {
+  #wrap {
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    text-align: left; }
+    #wrap p:after {
+      content: "Desktop or Laptop"; }
+    #wrap #header {
+      float: left;
+      width: 100%; }
+    #wrap #content {
+      float: left;
+      width: 100%;
+      position: relative;
+      left: 0px; }
+    #wrap #main {
+      float: right;
+      width: 1200px;
+      position: relative;
+      right: 0px;
+      left: 0px;
+      padding: 20px 0; }
+    #wrap #side {
+      float: left;
+      width: 216px;
+      position: relative;
+      left: 10px;
+      padding-bottom: 20px; }
+    #wrap #sidea,
+    #wrap #sideb,
+    #wrap #sidec {
+      clear: left;
+      float: left;
+      width: 216px; }
+    #wrap #footer {
+      clear: both;
+      float: left;
+      width: 100%; } }
+@media only screen and (min-width: 1824px) {
+  #wrap {
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    text-align: left; }
+    #wrap p:after {
+      content: "Large Screens"; }
+    #wrap #header {
+      float: left;
+      width: 100%; }
+    #wrap #content {
+      float: left;
+      width: 100%;
+      position: relative;
+      left: 0px; }
+    #wrap #main {
+      float: right;
+      width: 1200px;
+      position: relative;
+      right: 0px;
+      left: 0px;
+      padding: 20px 0; }
+    #wrap #side {
+      float: left;
+      width: 216px;
+      position: relative;
+      left: 10px;
+      padding-bottom: 20px; }
+    #wrap #sidea,
+    #wrap #sideb,
+    #wrap #sidec {
+      clear: left;
+      float: left;
+      width: 216px; }
+    #wrap #footer {
+      clear: both;
+      float: left;
+      width: 100%; } }

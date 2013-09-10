@@ -1,0 +1,55 @@
+{
+ "code": "/api/status/ok",
+ "result": [
+    {
+     "type": "/core/person",
+     "kp_PersonID": 1,
+     "PersonFirstName": "Zenaida",
+     "PersonLastName": "Rodarte"
+    },
+    {
+     "type": "/core/person",
+     "kp_PersonID": 2,
+     "PersonFirstName": "Giuseppe",
+     "PersonLastName": "Cerda"
+    },
+    {
+     "type": "/core/person",
+     "kp_PersonID": 3,
+     "PersonFirstName": "Ettiene",
+     "PersonLastName": "Montero"
+    },
+    {
+     "type": "/core/person",
+     "kp_PersonID": 4,
+     "PersonFirstName": "Lilibet",
+     "PersonLastName": "Suárez"
+    },
+    {
+     "type": "/core/person",
+     "kp_PersonID": 5,
+     "PersonFirstName": "Encarnación",
+     "PersonLastName": "Correa"
+    },
+    {
+     "type": "/core/person",
+     "kp_PersonID": 6,
+     "PersonFirstName": "Cesáreo",
+     "PersonLastName": "Almonte"
+    },
+    {
+     "type": "/core/person",
+     "kp_PersonID": 7,
+     "PersonFirstName": "Wenzel",
+     "PersonLastName": "Solórzano"
+    },
+    {
+     "type": "/core/person",
+     "kp_PersonID": 8,
+     "PersonFirstName": "Nikita",
+     "PersonLastName": "Cardona"
+    }  
+ ],
+ "status": "200 OK",
+ "transaction_id": "not implemented"
+}

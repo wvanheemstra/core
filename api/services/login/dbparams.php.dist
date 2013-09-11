@@ -1,0 +1,12 @@
+<?php
+//database parameters
+$host='localhost';
+$port='<PORT HERE>';
+$user='<USERNAME HERE>'; 
+$pw='<PASSWORD HERE>';
+$db='<DATABASE NAME HERE>';
+
+if (isset($_GET['timezone'])) {
+  $timezone = $_GET['timezone'];
+  date_default_timezone_set($timezone);
+};

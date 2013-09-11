@@ -1,0 +1,671 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  "http://www.w3.org/TR/html4/loose.dtd">
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="ZyTrax">
+<link rel="SHORTCUT ICON" href="http://www.zytrax.com/favicon.ico">
+
+<meta name="keywords" content="W3C DOM, DOM-2, getElementById, hasChildNodes, getElementByTagName, , HTMLElement, createElement, HTMLSelectElement, HTMLOptionElement, createTextNode, nodeName">
+
+<title>Tech Stuff - W3C DOM</title>
+
+<!-- this page originated from http://www.zytrax.com/tech/dom/ -->
+<!-- HTTP_USER_AGENT=Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_2) AppleWebKit/536.26.17 (KHTML, like Gecko) Version/6.0.2 Safari/536.26.17 -->
+<style type="text/css">
+<!--
+/* ZYTRAX STYLE SHEET */
+/* google maps */
+v\:* {behavior:url(#default#VML);}
+a {text-decoration:none;}
+body {background-color:white;color:black;margin:0px;padding:0px;font:normal 10pt Verdana,Arial, Helvetica, sans-serif;}
+div.l-f table{width:100%;padding:4px;}
+h1 {font-size:14pt;background:#EEE;border-width:0 0 5px 0;border-style:solid;border-color:#9bf;padding:4px;color:#336}
+h2 {border-width:0 0 5px 0;border-color:#9bf;border-style:solid;font-size:12pt;font-weight:bold;padding:4px;color:#336}
+h3 {border-width:0 0 3px 0;border-color:#9BF;border-style:solid;font-size:12pt;padding:4px;color:#336;}
+h4 {border-width:0 0 2px 0;border-color:#9BF;border-style:solid;font-size:10pt;padding:2px;color:#336;}
+h5 {border-width:0 0 2px 0;border-color:silver;border-style:solid;font-size:10pt;font-weight:bold;padding:4px;}
+h6 {border-width:0 0 1px 0;border-color:silver;border-style:solid; font-size:10pt;color:silver;padding:4px;}
+form {border:1px solid #ccc;}
+input {border:1px solid #999;background:#acf;}
+textarea {border:1px solid #999;background:#acf;}
+/* Printer friendly */
+
+div.l-r #layout {visibility:visible;}
+div.l-l-fp #layout {visibility:visible;}
+.l-l {position:absolute;top:60px;left:6px;width:110px;font:10pt Verdana,Helvetica, Arial, sans-serif;z-index:1;}
+.l-c {margin:45px 170px 0px 125px;padding:4px 20px;font:1.0em Verdana,Helvetica, Arial, sans-serif;border-width:0 1px; border-style:solid; border-color:#336; z-index:5; line-height:1.3em;}
+.l-r {font:10pt Verdana,Arial, Helvetica, sans-serif;position:absolute;top:60px;right:6px;width:160px;background:#eee;z-index:2;}
+#popups {visibility:visible;}
+
+/* end printer friendly - begin divs - generic */
+.button {background:#ddd;border:3px outset black;}
+.l-f {margin:0 200px 0 125px;}
+.l-c-fp {margin:0 160px 0 125px;padding:4px;font:10pt Verdana,Helvetica, Arial, sans-serif;border-width:0 1px;border-style:solid;border-color:#336;z-index:5;}
+.l-p {margin:10px;padding:4px;font:10pt Verdana,Helvetica, Arial, sans-serif;}
+.l-100 {width:100%;margin:0;}
+/* end divs - nav pop-outs */
+.n-l1 {padding:0;margin:0;list-style:none;width:100px;}
+.n-l1-e {text-align:right;margin:0;padding:2px;position:relative;}
+.n-t1-e,.n-t2-e,.n-t3-e {text-align:left;margin:0;padding:2px 5px;border:1px solid blue;border-width:1px 1px 0 1px;position:relative;}
+.n-t1-es,.n-t2-es,.n-t3-es {text-align:left;margin:0;padding:2px 5px;border:1px solid blue;border-width:1px 1px 0 1px;position:relative;background:#ccf;}
+.n-t1-v {position:absolute;display:none;padding:0;margin:0;list-style:none;top:100%;right:0;width:100px;border-bottom:1px solid blue;background:#EEE;}
+.n-t1-vr {position:absolute;display:none;padding:0;margin:0;list-style:none; top:100%;right:0;width:100px;border-bottom:1px solid blue;background:#EEE;}
+.n-t2,.n-t3 {position:absolute;display:none;padding:0;margin:0;list-style:none;top:0;right:100%;width:120px;border-bottom:1px solid blue;background:#EEE;}
+/* end pop-up styles - nav effects */
+a:hover {text-decoration:underline;}
+a:hover.p-f-s {color:black}
+.g-c-n:hover {background:#eee;}
+.g-c-s:hover {background:#eee;}
+.g-t-n:hover {background:#acf;}
+div.n-l a:hover {color:#336;}
+div.g-sb a:hover {background-color:#DDD;}
+/* W3c pop-ups - ignored by MSIE 6- */
+div.n-t0:hover > ul {display:block;}
+li.n-t1-e:hover > ul {display:block;}
+li.n-t1-es:hover > ul {display:block;}
+li.n-t1-e:hover, li.n-t1-es:hover,li.n-t2-e:hover,li.n-t2-es:hover,li.n-t3-e:hover {background:#ccc;}
+li.n-t2-e:hover > ul {display:block;}
+li.n-t2-es:hover > ul {display:block;}
+.n-l1-e:hover > ul {display:block;}
+.n-l1-es:hover > ul {display:block;}
+.n-l2-e:hover > ul {display:block;}
+.n-l2-es:hover > ul {display:block;}
+.n-l3-e:hover > ul {display:block;}
+.n-l3-es:hover > ul {display:block;}
+li.n-l1-e:hover,li.n-l2-e:hover,li.n-l2-es:hover, li.n-l3-e:hover, li.n-l3-es:hover,li.n-l4-e:hover  {background:#ccc;}
+/* end pop-out effects - generic alpha */
+.adv {}
+.at {font-family:Verdana,sans-serif;font-size:9pt;margin:0px;text-indent:8px;}
+.b-1 {font-family:Verdana, sans-serif;}
+.b-r {border-width:0 0 0 1px;border-color:#336;border-style:solid;width:150px;}
+.b-l	{border-width:0 1px 0 0;border-color:#336;border-style:solid;width:110px;}
+.b-b {list-style:none;margin:2px;font: 9pt Verdana,Arial,sans-serif;padding:0 1.0em;}
+.b-b-s {border:1px solid black;}
+li.b-b-l {visibility:hidden;margin:10px 0;}
+.b-b-a {background:#336;color:white; text-decoration:none;border:1px solid black;padding:0 0.25em 0 0;}
+a.b-b-a span {color:#336;background:white;padding:0 0.25em 0 0.33em;text-decoration:none;}
+.d {font-family:Verdana,sans-serif;font-size:9pt;margin:0px;}
+.dd {position:absolute;left:0;top:0; font-family:Tahoma,sans-serif;font-size:9pt; visibility:hidden;background:cyan;color:black;margin:0px;border:black solid 1px;padding:2px;}
+.f-d {font-weight:bold;}
+.f-bd {font-weight:bold;font-size: 12pt;}
+.g-c-n {font:10pt "Courier New",monospace;border-style:solid;border-color:#ccc;border-width: 1px 1px 1px 5px;background-color:#acf;padding:5px; color:black;}
+.g-c-nm {font: 10pt "Courier New",monospace;border-style:solid;border-color:#ccc;border-width: 1px 1px 1px 5px;background-color:#ddd;padding:5px;color:black;margin:0 0 0 40px;}
+.g-c-s,.codegray {font: 8pt "Courier New",monospace;border-style:solid;border-color:#ccc;border-width: 1px 1px 1px 5px; background-color:#acf;padding:5px; color:black;width:inherit;}
+.g-e-t {font-weight:normal;}
+.g-e-d {font-weight:normal;}
+.g-f-n {font:10pt "Courier New", monospace;}
+.g-h-n {background:#336;color:white;padding:4px; font-size:10pt;font-weight:normal;}
+.g-h-ng,.section {background:#9bf;color:#336;font:bold Verdana,sans-serif;padding:4px; text-decoration:none;}
+.g-h-s {background:#336;color:white;padding:4px; font-size:8pt;font-weight:bold;}
+.g-n {text-decoration:none;color:white;}
+.g-i1-n {margin:5px 5px 5px 20px;}
+.g-i2-n {margin:5px 5px 5px 30px;}
+.g-i3-n {margin:5px 5px 5px 40px;}
+.g-l-n {list-style:none;}
+.g-s-b {border-width:1px 5px;	border-color:black;border-style:solid;background:#EEE;color:black; font-family:Verdana,sans-serif;font-size:14pt;font-weight:bold; text-decoration:none;}
+.g-sb-h1 {background:#336;color:white;padding:4px; font-size:14pt;font-weight:bold;}
+.g-sb-h2 {background:#336;color:white;font-size:10pt;font-weight:bold;padding:2px;}
+.g-sb-n {color:blue;font-size:8pt;line-height:150%;margin:2px;}
+.g-s-n {background-color:#EEEEEE;color:black;font-size:10pt; text-decoration:none;}
+.g-s-nr {font-family:Verdana,sans-serif;background-color:red;color:white;font-size:10pt;font-weight:bold; text-decoration:none;}
+.g-s-gn {font-family:Verdana,sans-serif;background-color:silver;color:black;font-size:10pt;font-weight:bold; text-decoration:none;}
+.g-t-n {font-size:9pt;border-style:solid;border-color:#bbb;border-width: 1px 1px 1px 5px;margin:7px;padding:3px;background-color:#eee; color:black;}
+.gs-h {font-family:Verdana,sans-serif;color:black;font-size:28pt;font-weight:bold;text-decoration:none;}
+.gs-m {font-family:Verdana,sans-serif;color:black;font-size:22pt;font-weight:bold;text-decoration:none; margin-left:100px;}
+.gs-f {font-family:Verdana,sans-serif;color:black;font-size:12pt; font-weight:normal;text-decoration:none;}
+.h-b {background:#ddd;color:black;font-weight:bold;}
+.i-2 {background: url(../../images/info.gif) no-repeat top left;}
+.i-3 {background: url(../../../images/info.gif) no-repeat top left;}
+.i-n {border-width: 3px 0 3px 0; border-style:solid;border-color:#bbb;font-size:10pt;margin:10px 10px 10px 60px;padding:10px;}
+.i-h {margin:5px 5px 10px 60px;padding:5px;}
+.i-m-s {padding:2px;margin:0;}
+.i-s {border-width: 3px 0 3px 0; border-style:solid;border-color:#bbb;font-size:8pt;margin:10px 10px 10px 60px;padding:10px;}
+.n-b-l {font:1pt Verdana, Arial, Helvetica, sans-serif;border-width:0 0 1px 0;border-style:solid;border-color:#CCF;margin:0px;padding:0px;}
+.n-l-s {font:8pt Verdana, Arial, Helvetica, sans-serif;visibility:hidden;}
+.n-t0 {float:right;position:relative;}
+.n-t-t {text-align:right;padding:1px 1px 8px 1px;margin:0;}
+.p-b {background:#eee;text-indent:3em;}
+.p-m-ni {font-family:Verdana,sans-serif;font-size:10pt;font-style:italic;}
+.navback {background:white;color:black;font-family:Verdana,sans-serif; text-decoration:none;font-weight:bold;font-size:10pt;}
+.nav-top {background:blue;color:white;font-family:Verdana,sans-serif; text-decoration:none;font-weight:bold;font-size:10pt;}
+.p-m-n,.norm {font-size: 100%;font-family: Verdana, Helvetica, Arial, sans-serif;}
+.p-m-s { font:80% Verdana,Helvetica, Arial, sans-serif;}
+.p-m-si {font:italic 8pt Verdana, Helvetica, Arial, sans-serif;}
+.p-m-sp { background:white;font:8pt Verdana,Helvetica, Arial, sans-serif;}
+.q-i-2 {background: url(../../images/quotes-open.gif) no-repeat top left;}
+.q-s {border-width: 0 0 0 6px;border-style:solid;border-color:#acf;font-size:8pt;margin:10px 10px 10px 60px;padding:10px;}
+.smallbold { font-family: Verdana, sans-serif; font-size: 8pt; font-weight:bold;}
+.t-b-s {font:8pt "Courier New",monospace;border-style:solid;border-color:#ccc;border-width: 1px;background-color:#acf;padding:5px; color:black;}
+.t-b-n {font:10pt "Courier New",monospace;border-style:solid;border-color:black;border-width: 1px;background-color:#acf;padding:5px; color:black;}
+/* link styles */
+.t-dd:hover {background:#ddd;}
+.t-ba {color:#aaa;font-weight:bold;}
+.t-gb {color:blue;background:#eee;}
+.t-dr {color:red;text-decoration:none;}
+.t-dw {color:#666;text-decoration:none;}
+.t-td1-l,.t-td1 {border-style:solid;border-width:5px 0 0 0;border-color:#ddd;padding:3px 3px 8px 5px;}
+.t-td2-l,.t-td2 {border-style:solid;border-width:5px 0 0 0;border-color:#acf;padding:3px 3px 8px 5px;}
+.t-m {background:#ccc;color:blue;text-decoration:none;}
+.vital {font-family:Tahoma,Arial, sans-serif;font-size:12pt;background-color:#ddd; color:black;border-color:red;}
+.w-2 {background: url(../../images/warning.gif) no-repeat top left;}
+.w-3 {background: url(../../../images/warning.gif) no-repeat top left;border-width: 3px 0 3px 0; border-style:solid;border-color:#bbb;}
+
+/* Gecko/W3C specific */
+abbr[title]:after {content:"";}
+abbr[title]:hover:after {content:" (" attr(title)")";}
+/* W3C pop-ups */
+.n-l2,.n-l3,.n-l4 {position:absolute;display:none;padding:0;margin:0;list-style:none;top:0;left:100%;width:120px;border-bottom:1px solid blue;background:#EEE;font:8pt Verdana,Helvetica, Arial, sans-serif}
+.n-l2-e,.n-l3-e,.n-l4-e {text-align:left;margin:0;padding:2px 5px;border:1px solid blue;border-width:1px 1px 0 1px;position:relative;}
+.n-l2-es,.n-l3-es,.n-l4-es {text-align:left;margin:0;padding:2px 5px;border:1px solid blue;border-width:1px 1px 0 1px;position:relative;background:#ccf;}
+/* end - start expand divs */
+.v-f {display:none;}
+.v-o {display:block;}
+/* end expand divs */
+.n-l-f a {color:#336;}
+#toplogo {float:left;vertical-align:bottom;}
+.g-b-n {font:10pt "Courier New",monospace;border-style:solid;border-color:#ccc;border-width: 1px 1px 1px 5px;padding:5px;background:#eee;}
+.g-b-s {font:8pt "Courier New",monospace;border-style:solid;border-color:#ccc;border-width: 1px 1px 1px 5px;padding:5px;background:#eee;}
+.g-ci-s {font:8pt "Courier New",monospace;border-style:solid;border-color:#ccc;border-width: 1px 1px 1px 5px; background-color:#acf;color:black;}
+.g-sb {font-family:Verdana, sans-serif;width:150px;}
+.jp-h-n {position:absolute;left:50%;top:50%;text-indent:4px;font-family:Verdana,sans-serif;font-size:10pt; visibility:hidden;background:#EEEEEE;color:blue;text-decoration:none;}
+.l-b {position:absolute;top:0px;left:0px;font:8pt Verdana, Arial, Helvetica, sans-serif;border:0;background:#336;color:white;height:44px;z-index:9;width:100%;}
+.l-b-s {position:absolute;top:0;left:0;font:8pt Verdana, Arial, Helvetica, sans-serif;border:0;background:white;color:#336;height:44px;z-index:9;width:100%;}
+.l-b-fp {font:8pt Verdana, Arial, Helvetica, sans-serif;background:white;color:#336;height:88px;padding:5px 5px 0 5%;margin:0 0 5px 0;z-index:2;}
+.l-c-i {padding:10px;}
+.l-l-fp {position:absolute;top:95px;left:6px;width:120px;z-index:10;text-align:right;}
+.l-r-fp {position:absolute;top:95px;right:6px;width:150px;z-index:2;}
+.n-l {font-family:Verdana,sans-serif;position:fixed;top:60px;left:6px;width:110px;background:white;}
+.n-l-u {font-family:Verdana,sans-serif;top:60px;left:6px;width:110px;background:#eee;}
+.n-l-l {font-size: 9pt;color:black;text-align:right;line-height:150%;}				
+.n-l-f {font-size: 9pt;text-align:right;line-height:1.2em;}
+.n-p-f {color:#336;font:9pt/16pt Verdana,sans-serif;text-decoration:none;text-indent:6px;}
+.n-p-n {background:#EEE;color:#336;font:9pt Verdana,sans-serif;text-indent:6px;}
+.n-p-n a {text-indent:6px;display:block;}
+.n-p-o {font:10pt Verdana,sans-serif; background:#DDD;color:blue;text-decoration:none;height:16pt;}
+.n-t-n {color:#336;font:10pt Verdana,sans-serif;text-decoration:none;margin:0;padding:0;}
+.n-t-s {color:white;font: 8pt Verdana,sans-serif;text-decoration:none;padding:0 3px 0 0}
+.n-t-sr {color:#336;font: 8pt Verdana,sans-serif;text-decoration:none;padding:0 3px 0 0}
+.p-b-h {visibility:hidden;}
+.p-n-h {position:absolute;left:0;top:0;text-indent:4px;font-family:Verdana,sans-serif;font-size:small; visibility:hidden;background:#EEE;color:blue;text-decoration:none;border:1px blue solid;width:110px;}
+.p-f-s {font-family: Verdana, sans-serif; font-size:8pt; color:silver; background:white;text-decoration:none;}
+.t-db,.t-dd,.t-dn,.w-db {color:blue;text-decoration:none;}
+
+-->
+</style>
+<style type="text/css" media="print">
+<!--
+/* ZYTRAX STYLE SHEET PRINT TEMPLATE */
+.l-l {display:none;}
+.l-r {display:none;}
+.l-c {width:600px;margin:0;padding:30px 10px 5px 10px; border-width:0;}
+.l-f {margin:5px;}
+.n-t-t {display:none;}
+.n-t0 {display:none;}
+.adv {display:none;}
+-->
+</style>
+
+<script language="JavaScript" type="text/javascript">
+<!--
+// copyright ZYTRAX, Inc. 1994 - 2003
+// you may use this javascript code at your own risk.
+// we would like you to keep the copyright statement intact but don't insist on it.
+// If you make improvements mail us a copy or make it available on your own web site.
+// global variables
+		var topall = new Array(2);
+		var lownav = new Array(2);
+		var lowpop = new Array(2);
+		var rightnav = new Array(2);
+		var rightpop = new Array(2);
+		var x = 0;	// global menu level
+		var way = 'h';
+		var menu = null;
+		var menus = null;
+		var pop1 = new Array(2);
+		var fs = 1.0;
+
+// -- W3C DOM specific code - first choice always
+function lock(num){
+  // lock relies on a style which end with -l
+	rollover = document.getElementById("l" + num);
+	if(rollover){
+  	cn = rollover.className
+  	if((pos = cn.lastIndexOf("-")) != -1){
+  		bcn = cn.substring(0,pos + 1);
+  		scn = cn.substring(pos +1);
+  		if(scn == "f" || scn == "o"){
+  			rollover.className = bcn + "l";
+  		}
+  	}
+	}
+}
+function fontchange(fix)
+{
+  x = document.getElementsByTagName("div");
+	for(i = 0; i < x.length; i++)
+  {
+	 if(x[i].className == "l-c"){
+	  if(x[i].style.fontSize == ""){
+		 fs = 1.0;
+		 x[i].style.fontSize = "1.0em";
+		}
+		if(fix == "d"){
+		 if(fs <= 0.8){
+		 	break;
+		 }else{
+		  fs = parseFloat(fs - 0.1);
+			x[i].style.fontSize = fs + "em";
+		 }
+		}else{
+		 if(fs >= 1.5){
+		 	break;
+		 }else{
+		  fs = parseFloat(fs + 0.1);
+			x[i].style.fontSize = fs + "em";
+		 }
+		}
+	 	break;
+	 }
+  }
+}
+
+function toggle(tid){
+  var dis;
+  var disa; 
+  if(document.getElementById){
+    dis = document.getElementById(tid);
+    disa = document.getElementById(tid + 'a');
+  }else{
+    dis = document.all.tid;
+    disa = document.all.tid + 'a';
+  }
+  if(dis.style.display == 'block'){
+    dis.style.display = 'none';
+    disa.style.display = 'block';
+  }else{
+    dis.style.display = 'block';
+    disa.style.display = 'none';
+  }
+}
+function gotourl($url)
+{
+	window.location = $url;
+}
+function mailus(mbox,stub,subject)
+{
+	mail = "mailto:"+mbox+"@"+stub;
+	if(subject != ""){
+		mail = mail+"?SUBJECT="+"A-Z: "+subject;
+	}
+	window.location = mail;
+	return;
+}
+
+// W3C compliant uses CSS popups not JS
+
+
+
+//-->
+</script>
+
+
+
+</head>
+<body>
+<!-- Page Header plus top nav bar -->
+
+
+<div class="l-b">
+<a href="http://www.zytrax.com"><img id="toplogo" src="http://www.zytrax.com/images/zytrax-info-dark.gif" border="0" alt="ZYTRAX Info Logo" /></a>
+
+<p class="n-t-t"><a href="http://www.zytrax.com/feedback.htm" class="n-t-s">mail us</a>
+&nbsp;&#124;&nbsp;
+		<a href="http://www.zytrax.com/run/mailpage.php" class="n-t-s">mail this page</a></p>
+		<div class="n-t0">
+    <a href="http://www.zytrax.com/Company/contacts.html" class="n-t-s">contact us</a>
+		</div>
+		<div class="n-t0">
+    <a href="http://www.zytrax.com/training/" class="n-t-s">training</a>
+		&nbsp;&#124;&nbsp;
+		</div>
+		<div class="n-t0">
+    <a id="p5" href="http://www.zytrax.com/Company/" class="n-t-s">company</a>
+		&nbsp;&#124;&nbsp;
+<ul class="n-t1-vr">
+  <li class="n-t1-e"><a href="http://www.zytrax.com/Company/contacts.html" class="t-db">Contact Us</a></li>
+ 	<li class="n-t1-e"><a href="http://www.zytrax.com/Company" class="t-db">Background</a></li>
+	<li class="n-t1-e"><a href="http://www.zytrax.com/Company/maps.html" class="t-db">Map</a></li>
+	<li class="n-t1-e"><a href="http://www.zytrax.com/press/" class="t-db">Media Center</a></li>
+	<li class="n-t1-e"><a href="http://www.zytrax.com/feedback.htm" class="t-db">Feedback</a></li>
+	<li class="n-t1-e"><a href="http://www.zytrax.com/open/" class="t-db">Open Source</a></li>
+</ul>
+</div>
+<div class="n-t0">
+	<a id="p3" href="http://www.zytrax.com/products/" class="n-t-s">products</a>
+		&nbsp;&#124;&nbsp;
+		<ul class="n-t1-v">
+		<li class="n-t1-e"><a href="http://www.zytrax.net" class="t-db">Air-Frame</a></li>
+	<li class="n-t1-e"><a href="http://www.lite-eco.com" class="t-db">Lite-Eco (Solar)</a></li>
+	<li class="n-t1-e"><a href="http://www.zytrax.com/consulting/" class="t-db">Consulting</a></li>
+	<li class="n-t1-e"><a href="http://www.zytrax.com/training/" class="t-db">Training</a></li>
+	</ul>
+</div>
+<div class="n-t0">
+	<a href="http://www.zytrax.com/support/" class="n-t-s">support</a>
+	&nbsp;&#124;&nbsp;
+	<ul class="n-t1-v">
+	<li class="n-t1-es"><a href="http://www.zytrax.com/tech/" class="t-db">Tech Info</a>
+	<!-- tertiary pop-outs -->
+		<ul class="n-t2">
+      	<li class="n-t2-es"><a title="collection of web based technology stuff" href="http://www.zytrax.com/tech/web/" class="t-db">web stuff</a>
+					<ul class="n-t3">
+			<li class="n-t3-e"><a title="collection of UA strings for most browsers" href="http://www.zytrax.com/tech/web/browser_ids.htm" class="t-db">browser ids</a></li>
+			<li class="n-t3-e"><a title="collection of mobile UA strings" href="http://www.zytrax.com/tech/web/mobile_ids.html" class="t-db">mobile ids</a></li>
+			<li class="n-t3-e"><a title="how we do server-side browser sniffing with apache" href="http://www.zytrax.com/tech/web/browser_sniffing.html" class="t-db">browser sniffing</a></li>
+			<li class="n-t3-e"><a title="apache server side includes - extensive notes and examples" href="http://www.zytrax.com/tech/web/ssi.htm" class="t-db">apache ssi</a></li>
+			<li class="n-t3-e"><a title="our lite-weight (2K) JS menus (which are being replaced with css)" href="http://www.zytrax.com/tech/web/popout.htm" class="t-db">pop-outs (js)</a></li>
+			<li class="n-t3-e"><a title="our css pop-up/pop-down/flyout menus for Gecko/Opera and now for MSIE" href="http://www.zytrax.com/tech/css/workarounds.html#popout" class="t-db">pop-outs (css)</a></li>
+			<li class="n-t3-e"><a title="most of those annoying HTML entity codes that we forget all the time" href="http://www.zytrax.com/tech/web/entities.html" class="t-db">html entities</a></li>
+			<li class="n-t3-e"><a title="collection of HTML and CSS notes, workarounds and kluges" href="http://www.zytrax.com/tech/web/really.html" class="t-db">oh really</a></li>
+				</ul>
+				</li>
+    		<li class="n-t2-e"><a href="http://www.zytrax.com/tech/dom/" class="t-db">dom stuff</a></li>
+				<li class="n-t2-e"><a title="Pages about Digital Audio, Primaers, Calculator, Equalization" href="http://www.zytrax.com/tech/audio/" class="t-db">audio stuff</a></li>
+    		<li class="n-t2-es"><a title="collection of css notes and experiences including css menus and css liquid layout" href="http://www.zytrax.com/tech/css/" class="t-db">css stuff</a>
+				<ul class="n-t3">
+					<li class="n-t3-e"><a title="Notes on our experience with converting to css based liquid layouts - including blow by blow css" href="http://www.zytrax.com/tech/css/layoutnotes.html" class="t-db">css liquid design</a></li>
+					<li class="n-t3-e"><a title="we have used css menus since mid-2003 - blow-by-blow implementation notes" href="http://www.zytrax.com/tech/css/workarounds.html#popout" class="t-db">css menus</a></li>
+					<li class="n-t3-e"><a title="some practical solutions on using css" href="http://www.zytrax.com/tech/css/workarounds.html" class="t-db">css notes</a></li>
+					<li class="n-t3-e"><a title="css shortforms at a glance" href="http://www.zytrax.com/tech/css/shortcut.html" class="t-db">css short-forms</a></li>
+					<li class="n-t3-e"><a title="css selectors and quick overview with links to the W3C specs" href="http://www.zytrax.com/tech/css/syntax.html" class="t-db">css overview</a></li>
+					</ul>
+</li>
+    		<li class="n-t2-e"><a href="http://www.zytrax.com/tech/lang/" class="t-db">language stuff</a></li>
+    		<li class="n-t2-e"><a href="http://www.zytrax.com/tech/web/regex.htm" class="t-db">regex stuff</a></li>
+    		<li class="n-t2-e"><a href="http://www.zytrax.com/tech/rfcs/" class="t-db">rfc stuff</a></li>
+    		<li class="n-t2-es"><a href="http://www.zytrax.com/tech/layer_1/" class="t-db">cable stuff</a>
+					<ul class="n-t3">
+					<li class="n-t3-e"><a href="http://www.zytrax.com/tech/layer_1/cables/tech_lan.htm" class="t-db">lan wiring</a></li>
+<li class="n-t3-e"><a href="http://www.zytrax.com/tech/layer_1/cables/mixed.html" class="t-db">lan &amp; telephone</a></li>
+					<li class="n-t3-e"><a href="http://www.zytrax.com/tech/layer_1/cables/tech_rs232.htm" class="t-db">rs232 stuff</a></li>
+					<li class="n-t3-e"><a href="http://www.zytrax.com/tech/layer_1/cables/heavy.htm" class="t-db">serial primer</a></li>
+					<li class="n-t3-e"><a href="http://www.zytrax.com/tech/layer_1/cables/soup.htm" class="t-db">rs alphabet</a></li>
+					<li class="n-t3-e"><a href="http://www.zytrax.com/tech/layer_1/cables/cables_faq.htm" class="t-db">cable faq</a></li>
+					<li class="n-t3-e"><a href="http://www.zytrax.com/tech/layer_1/cables/cables_jacks.htm" class="t-db">modular jacks</a></li>
+					</ul>
+				</li>
+    		<li class="n-t2-es"><a href="http://www.zytrax.com/tech/protocols/" class="t-db">protocol stuff</a>
+					<ul class="n-t3">
+					<li class="n-t3-e"><a href="http://www.zytrax.com/tech/protocols/tcp.html" class="t-db">tcp-udp-icmp</a></li>
+					<li class="n-t3-e"><a href="http://www.zytrax.com/tech/protocols/ip-classes.html" class="t-db">ipv4 and cidr</a></li>
+					<li class="n-t3-e"><a href="http://www.zytrax.com/tech/protocols/ipv6.html" class="t-db">ipv6 format</a></li>
+					<li class="n-t3-e"><a href="http://www.zytrax.com/tech/protocols/isdn">isdn-bri</a></li>
+					<li class="n-t3-e"><a href="http://www.zytrax.com/tech/protocols/lan" class="t-db">802 lan</a></li>
+					<li class="n-t3-e"><a href="http://www.zytrax.com/tech/ss7" class="t-db">ss7 &amp; sigtran</a></li>
+					</ul>
+				</li>
+    		<li class="n-t2-e"><a href="http://www.zytrax.com/tech/pc/" class="t-db">pc stuff</a></li>
+    		<li class="n-t2-e"><a href="http://www.zytrax.com/tech/wireless/" class="t-db">wireless stuff</a></li>
+    		<li class="n-t2-e"><a href="http://www.zytrax.com/tech/codes.htm" class="t-db">ascii codes</a></li>
+    		<li class="n-t2-e"><a href="http://www.zytrax.com/tech/data_rates.htm" class="t-db">data rate stuff</a></li>
+    		<li class="n-t2-e"><a href="http://www.zytrax.com/tech/telephony/" class="t-db">telephony stuff</a></li>
+    		<li class="n-t2-e"><a href="http://www.zytrax.com/tech/mech/" class="t-db">mechanical stuff</a></li>
+    		<li class="n-t2-e"><a href="http://www.zytrax.com/tech/develop/" class="t-db">embedded stuff</a></li>
+<li class="n-t2-e"><a href="http://www.zytrax.com/tech/survival/" title="a series of survival guides for popular open source software" class="t-db">survival stuff</a></li>
+    		<li class="n-t2-e"><a href="http://www.zytrax.com/tech/electronics/" class="t-db">electronic stuff</a></li>
+        <li class="n-t2-es"><a href="http://www.zytrax.com/books/" class="t-db">open guides</a>
+					<ul class="n-t3">
+				<li class="n-t3-e"><a href="http://www.zytrax.com/books/dns" class="t-db">dns guide</a></li>
+				<li class="n-t3-e"><a href="http://www.zytrax.com/books/ldap" class="t-db">ldap guide</a></li>
+				</ul>
+				</li>
+    		</ul>
+
+	</li>
+	<li class="n-t1-e"><a href="http://www.zytrax.com/security/" class="t-db">Security</a></li>
+ 	<li class="n-t1-e"><a href="http://www.zytrax.com/help/user_man/troubleshoot/w2_troubleshoot.htm" class="t-db">Troubleshoot</a></li>
+	<li class="n-t1-e"><a href="http://www.zytrax.com/help/" class="t-db">On-Line Help</a></li>
+	<li class="n-t1-e"><a href="http://www.zytrax.com/faqs/" class="t-db">FAQ</a></li>
+	</ul>
+	</div>
+
+</div>
+
+
+
+	
+
+<!-- begin body table -->
+<div class="l-c">
+<p class="adv" align="center">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-9419480011552853";
+/* Javascript Leaderboard */
+google_ad_slot = "4646638029";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</p>
+<h1>Tech Stuff - W3C DOM</h1>
+<p>We are not big fans of Javascript or any other client side scripting for that matter. We originally used javascript like everyone else for local page effects (roll-overs, pop-out menus and other stupid stuff) in the bad old pre-DOM days. We now use CSS almost exclusively for this purpose. CSS does have limitations if you want super-snazzy pages but we generally don't - as may be obvious from our site! Nevertheless, we use Javascript especially for client side applications like our calculators (<a href="../wireless/calc.htm" class="t-db">wireless</a> and <a href="../audio/calculator.html" class="t-db">audio</a>) and <a href="../web/regex.htm#experiment" class="t-db">Regular Expression</a> tester as well as trivial page effect stuff like printing, page linking and font size changes for which there appear to be no other solutions - better, make that none that we can find.</p>
+<p>In the context of Javascript - and all future client side scripting that we can see - the W3C DOM is vital. The W3C DOM is big and complex which - coupled with the lingering browser incompatibilities and proprietary DOMs - probably explains the rise of the Javascript libraries. The smallest of which we can find weighs in at around 80K and the biggest at well over 200K for a page with 10K of useful user data. Perhaps just a tad overkill. Or, perhaps, plain stupid.<p>
+<p>These pages were originally written when the world was young and the DOM very much the bleeding edge. They are updated when we need to know stuff - which based on our comments above about javascript is not very often. Very much a <i>work in progress</i> like much of the stuff on this site.</p>
+<table border="0" cellspacing="4" cellpadding="4" class="p-m-s">
+<tr valign="top">
+<td width="160" class="t-td1"><a href="guide.html" class="t-db">DOM User Guide</a></td>
+<td class="t-td2">Our version of a DOM User Guide. We add methods and properties as we need them. We found lots of omissions from the available material so created our own. Each section references the base W3C specs as well as our own content. We are not trying to replicate the W3C effort but rather document usage with some real-world examples. The HTML section is not complete. This is a BIG page.</td>
+</tr>
+<tr valign="top">
+<td class="t-td1"><a href="w3c_dom.html" class="t-db">HTML Page Explorer</a></td>
+<td class="t-td2">This page allows you to look at and explore an HTML page using the W3C DOM and find the various objects and hierarchies. Based on some early experiments when trying to understand and navigate the DOM. Pretty crude but still kinda fun and useful when we forget all this stuff - which is often.</td>
+</tr>
+<tr valign="top">
+<td class="t-td1"><a href="navigate.html" class="t-db">DOM Navigation</a></td>
+<td class="t-td2">Our overview of page navigation/exploration using the DOM. The key points you need to know while you are drowning in detail. IOHO.</td>
+</tr>
+</table>
+	<!-- end body table -->
+	<hr />
+<p class="p-m-n"><br />Problems, comments, suggestions, corrections (including broken links) or something to add? Please take the time from a busy life to 'mail us' (at top of screen), the webmaster (below) or <a href="javascript:mailus('info-support','zytrax.com','Support Issue')" class="t-db">info-support at zytrax</a>. You will have a warm inner glow for the rest of the day.</p>
+	<!-- end body table -->
+	</div>
+	</div>
+	<div class="l-l">
+<!-- left hand navigation -->
+<div class="n-l">
+<h2 align="right">Tech</h2>
+<p class="n-l-f">
+<a href="http://www.zytrax.com/tech">tech home</a><br />
+<a title="Digital Audio - primers, calculators, equalization, frequency tables, file formats, glossary - a mere splash in the ocean" href="http://www.zytrax.com/tech/audio/">audio stuff</a><br />
+<a title="Browser IDs, SSIs, Apache Configuration, regular expressions" href="http://www.zytrax.com/tech/web/">web stuff</a><br />
+<a href="http://www.zytrax.com/tech/dom/">dom stuff</a><br />
+<a title="CSS is about a lot more than STYLE. Wheezes, table-less layouts, CSS pop-ups, CSS Shortcuts" href="http://www.zytrax.com/tech/css/">css stuff</a><br />
+<a title="includes PHP and Ruby (our new language of choice)" href="http://www.zytrax.com/tech/lang/">language stuff</a><br />
+<a title="quick overview 'cos we always forget - not that we ever knew much - now includes a nifty tester" href="http://www.zytrax.com/tech/web/regex.htm">regex stuff</a><br />
+<a href="http://www.zytrax.com/tech/rfcs/">rfc stuff</a><br />
+<a title="TCP/IP, ISDN, LAN, VoIP, ITU Multi-Media" href="http://www.zytrax.com/tech/protocols/">protocol stuff</a><br />
+<a title="PC Parallel Ports, LAN wiring, RS232, Centronics, DIN" href="http://www.zytrax.com/tech/layer_1/">cable stuff</a><br />
+<a href="http://www.zytrax.com/tech/layer_1/cables/tech_lan.htm">lan wiring</a><br />
+<a title="DB9, DB25 pinouts, RJ45 serial, RS standards" href="http://www.zytrax.com/tech/layer_1/cables/tech_rs232.htm">rs232 wiring</a><br />
+<a title="A collection of detailed howtos including Samba3 as PDC, FreeBSD firewalls" href="http://www.zytrax.com/tech/howtos/">howto stuff</a><br />
+<a title="A collection of survival guides - quick overviews - to popular software" href="http://www.zytrax.com/tech/survival/">survival stuff</a><br />
+<a title="Our overview, Calculators, links to 'heavy' stuff, some early 802.11 stuff" href="http://www.zytrax.com/tech/wireless/">wireless stuff</a><br />
+<a href="http://www.zytrax.com/tech/codes.htm">ascii  codes</a><br />
+<a href="http://www.zytrax.com/tech/data_rates.htm">data rate stuff</a><br />
+<a href="http://www.zytrax.com/tech/telephony/">telephony stuff</a><br />
+<a href="http://www.zytrax.com/tech/mech/">mechanical stuff</a><br />
+<a href="http://www.zytrax.com/tech/pc/">pc stuff</a><br />
+<a href="http://www.zytrax.com/tech/electronics/">electronic stuff</a><br />
+<a href="http://www.zytrax.com/links">tech links</a><br />
+<a href="http://www.zytrax.com/books">open guides</a><br />
+<a title="RSS (2.0) Feed - right click on icon, select 'Copy Link URL' or 'Copy Shortcut', paste into RSS Feed Reader, or drag and drop into RSS Feed Reader" href="http://www.zytrax.com/zytrax.rss"><img border="0" src="http://www.zytrax.com/images/feed-icon-14x14.png" alt="RSS Feed Icon" />&nbsp;RSS Feed</a>
+</p>
+<p align="right" class="p-b-h">If you are happy it's OK - but your browser is giving a less than optimal experience on our site. You could, at no charge, upgrade to a W3C STANDARDS COMPLIANT browser such as <a href="http://www.mozilla.org" class="t-db">Mozilla</a></p>
+</div>
+
+</div>
+<div class="l-r">
+<!-- right menu  -->
+<div class="g-sb">
+<!-- SiteSearch Google -->
+<form method="get" action="http://www.google.com/custom" target="_top">
+<table border="0">
+<tr>
+<td nowrap="nowrap">
+<input type="hidden" name="domains" value="www.zytrax.com" />
+<input type="text" name="q" size="20" maxlength="255" value="" />
+</td></tr>
+<tr>
+<td nowrap="nowrap">
+<table>
+<tr>
+<td>
+<input type="radio" name="sitesearch" value="" checked="checked" />
+<font size="-2" color="#000000" >web</font>
+</td>
+<td>
+<input type="radio" name="sitesearch" value="www.zytrax.com"  />
+<font size="-2" color="#000000">zytrax.com</font>
+</td>
+</tr>
+</table>
+<input type="submit" name="sa" value="Google Search" />
+<input type="hidden" name="client" value="pub-9419480011552853" />
+<input type="hidden" name="forid" value="1" />
+<input type="hidden" name="ie" value="ISO-8859-1" />
+<input type="hidden" name="oe" value="ISO-8859-1" />
+<input type="hidden" name="safe" value="active" />
+<input type="hidden" name="cof" value="GALT:#008000;GL:1;DIV:#336699;VLC:663399;AH:center;BGC:FFFFFF;LBGC:336699;ALC:0000FF;LC:0000FF;T:000000;GFNT:0000FF;GIMP:0000FF;LH:50;LW:355;L:http://www.zytrax.com/images/zytrax-info-google.gif;S:http://www.zytrax.com/tech;FORID:1;" />
+<input type="hidden" name="hl" value="en" />
+</td></tr></table>
+</form>
+<!-- SiteSearch Google -->
+<h4>Share Page</h4>
+<div class="b-b-s">
+<a href="http://www.facebook.com/share.php?u=http://www.zytrax.com/tech/dom/&h=Tech Stuff - W3C DOM"><img class="i-m-s" title="add page to facebook" border="0" src="http://www.zytrax.com/images/f_logo.png" alt="share page via facebook" /></a>
+<a href="http://twitter.com/home/?status=Useful page http://www.zytrax.com/tech/dom/"><img class="i-m-s" title="tweet this page" border="0" src="http://www.zytrax.com/images/twitter-bird.png" alt="tweet this page" /></a>
+<script src="//platform.linkedin.com/in.js" type="text/javascript"></script>
+<script type="IN/Share"></script>
+<a href="https://www.stumbleupon.com/submit?url=http://www.zytrax.com/tech/dom/&title=Tech Stuff - W3C DOM"><img class="i-m-s" title="submit page to stumbleupon" border="0" src="http://www.zytrax.com/images/stumbleupon.gif" alt="submit page to stumbleupon" /></a>
+<a href="http://reddit.com/submit?url=http://www.zytrax.com/tech/dom/&title=Tech Stuff - W3C DOM"><img class="i-m-s" title="submit page to reddit.com" border="0" src="http://www.zytrax.com/images/reddit.gif" alt="submit page to reddit.com" /></a>
+</div>
+<h4>Page Features</h4>
+<div class="b-b-s">
+<a href="http://www.zytrax.com/run/mailpage.php"><img class="i-m-s" title="Page comment feature" border="0" src="http://www.zytrax.com/images/mail.gif" alt="Page comment feature" /></a>
+<a href="http://www.zytrax.com/run/mailpage.php"><img class="i-m-s" title="Send to a friend feature" border="0" src="http://www.zytrax.com/images/mailfriend.gif" alt="Send to a friend feature" /></a>
+<a href="#" onclick="window.print();return false;"><img class="i-m-s" title="print this page" border="0" src="http://www.zytrax.com/images/pf.gif" alt="print this page" /></a>
+<a href="#" onclick="fontchange('d');return false;"><img class="i-m-s" title="Decrease font size" border="0" src="http://www.zytrax.com/images/smaller.gif" alt="Decrease font size" /></a>
+<a href="#" onclick="fontchange('i');return false;"><img class="i-m-s" title="Increase font size" border="0" src="http://www.zytrax.com/images/bigger.gif" alt="Increase font size" /></a>
+</div>
+<h4>HTML Stuff</h4>
+<p class="g-sb-n">
+<a title="It was the Last HTML standard - the future was XHTML - but HTML 5 rises from the ashes" href="http://www.w3.org/TR/html4/" target="_blank" class="w-db">W3C HTML 4.01</a><br />
+<a title="HTML is alive and well and moving toward HTML5 - the objective being an incremental standard - reconciling HTML4 and XHTML - in your dreams?" href="http://www.whatwg.org/specs/web-apps/current-work/multipage/" target="_blank" class="w-db">HTML5 (WHATWG)</a><br />
+<a title="HTML4 - HTML5 differences - well today's differences - and tomorrow's. Who knows." href="http://dev.w3.org/html5/html4-differences/" target="_blank" class="w-db">HTML4 vs HTML5</a><br />
+<a title="W3C current HTML5 Reference" href="http://dev.w3.org/html5/html-author/" target="_blank" class="w-db">HTML5 Reference</a><br />
+<a title="Excellent tool and great for finding page bugs as well" href="http://validator.w3.org/" target="_blank" class="w-db">W3C Page Validator</a><br />
+<a title="Quick list of valid DTD's - explains one of life's great mysteries" href="http://www.w3.org/QA/2002/04/valid-dtd-list.html" target="_blank" class="w-db">W3C DOCTYPE</a>
+</p>
+<h4>CSS Stuff</h4>
+<p class="g-sb-n">
+<a title="CSS1 - the only approved spec" href="http://www.w3.org/TR/1999/REC-CSS1-19990111" target="_blank" class="w-db">W3C CSS1</a><br />
+<a title="CSS2.1 - the lastest non-approved spec" href="http://www.w3.org/TR/2007/CR-CSS21-20070719/" target="_blank" class="w-db">W3C CSS2.1</a>
+</p>
+<h4>DOM Stuff</h4>
+<p class="g-sb-n">
+<a title="W3C's main DOM site with links to all their DOM documentation" href="http://www.w3c.org/DOM/" target="_blank" class="w-db">W3C DOM</a><br />
+<a title="W3C DOM Events specification" href="http://www.w3.org/TR/DOM-Level-2-Events/" target="_blank" class="w-db">W3C DOM Events</a><br />
+<a title="Good documentation about the Gecko (Mozilla etc) DOM implementation" href="http://www.mozilla.org/docs/dom/" target="_blank" class="w-db">Gecko DOM</a><br />
+<a href="http://msdn.microsoft.com/workshop/author/dhtml/dhtml_node_entry.asp" target="_blank" class="w-db">MSIE DOM</a>
+</p>
+<h4>Usability/Access</h4>
+<p class="g-sb-n">
+<a title="Excellent resource - research based as opposed to opnions. The guide is superb" href="http://www.usability.gov/" target="_blank" class="w-db">usability.gov</a><br />
+<a title="Bit heavy on motherhood." href="http://www.w3.org/WAI/guid-tech.html" target="_blank" class="w-db">W3C -WAI</a><br />
+<a title="Use to be the yale style guide - now renamed - good stuff" href="http://www.webstyleguide.com/index.html?/contents.html" target="_blank" class="w-db">Web Style Guide</a><br />
+<a title="Good research based information - super bibliography" href="http://psychology.wichita.edu/optimalweb/default.htm" target="_blank" class="w-db">Michael L Bernard</a><br />
+<a title="Good background explanations such as how screen readers work and some useful tools - perhaps a bit light on research references" href="http://www.webaim.org/" target="_blank" class="w-db">WebAim.org</a><br />
+</p>
+<h4>Jolly Useful</h4>
+<p class="g-sb-n">
+<a title="Good solid stuff well presented and paced" href="http://www.quirksmode.org/" target="_blank" class="w-db">Peter-Paul Koch</a><br />
+<a title="Outspoken site on use of Web Standards - many excellent articles" href="http://www.alistapart.com/" target="_blank" class="t-db">A List Apart</a><br />
+<a title="Some really great uses of CSS - is this CSS's future?" href="http://www.meyerweb.com/eric/css/" target="_blank" class="t-db">Eric Meyer on CSS</a><br />
+<a title="Real world layouts - highly pratical site for us hard working folks" href="http://glish.com/css/" target="_blank" class="t-db">glish.com</a><br />
+<a title="DOCTYPE defintions and Quirks mode" href="http://hsivonen.iki.fi/doctype/" target="_blank" class="t-db">DOCTYPE definitions</a>
+</p>
+<h4>Our Stuff</h4>
+<p class="g-sb-n">
+<a href="http://www.zytrax.com/tech/dom/" class="t-db">Our DOM Pages</a><br />
+<a title="Full list of all DOM 'Interfaces' on a single page. We add specific pages as we use the feature" href="http://www.zytrax.com/tech/dom/guide.html" class="t-db">DOM User Guide</a><br />
+<a title="A programming excercise on DOM inspection/structure. Mozilla/Gecko only" href="http://www.zytrax.com/tech/dom/w3c_dom.html" class="t-db">DOM Explorer</a><br />
+<a title="Overview of navigating the DOM using Javascript" href="http://www.zytrax.com/tech/dom/navigate.html" class="t-db">DOM Navigation</a><br />
+<a title="CSS Techniques and workarounds, including 3 column layout, pop-ups and more" href="http://www.zytrax.com/tech/css/workarounds.html" class="t-db">CSS Techniques</a><br />
+<a title="CSS short forms to avoid all that 'border-with-right' stuff" href="http://www.zytrax.com/tech/css/shortcut.html" class="t-db">CSS Short Cuts</a><br />
+<a title="CSS overview with selectors and W3C spec links" href="http://www.zytrax.com/tech/css/syntax.html" class="t-db">CSS overview</a><br />
+<a title="Some CSS, HTML and Javascript wheezes and kluges that cost us blood to find" href="http://www.zytrax.com/tech/web/really.html" class="t-db">Oh Really!</a>
+</p>
+<h4>Javascript</h4>
+<p class="g-sb-n">
+<a href="http://www.ecma-international.org/publications/standards/Ecma-262.htm" class="t-db">ECMA-262</a>
+</p>
+<h4>Pop-out Menus</h4>
+<p class="g-sb-n">
+<a href="http://www.webmasterbase.com/examples/dhtmlpopup.html" target="_blank" class="t-db">webmasterbase.com</a><br />
+<a href="http://www.brainjar.com/dhtml/menubar/" target="_blank" class="t-db">Brainjar Menubar</a><br />
+<a href="http://www.zytrax.com/tech/web/popout.htm" class="t-db">Our Lite JS Menus</a><br />
+<a href="http://www.zytrax.com/tech/css/workarounds.html#popout" class="t-db">Our CSS Menus</a><br />
+<a href="http://www.softcomplex.com/products/tigra_menu/" class="t-db">Tigra Menus</a>
+</p>
+</div>
+<ul class="b-b">
+<li class="b-b-l" id="layout"><a class="b-b-a" href="http://www.zytrax.com/about_site.htm#buttons"><span>CSS</span> Layout</a></li>
+<li class="b-b-l" id="popups"><a class="b-b-a" href="http://www.zytrax.com/about_site.htm#buttons"><span>CSS</span> Popup</a></li>
+</ul>
+<p align="center"><img src="http://www.zytrax.com/images/pf.gif" border="0" alt="" /><a title="View full width page format" href="http://www.zytrax.com/tech/dom/?pf=yes" class="t-db"> printer friendly</a></p>
+<p align="center"><a href="#" onclick="window.print();return false;"><img src="http://www.zytrax.com/images/print.gif" border="0" alt="Print Page" /></a></p>
+<p align="center"><a href="http://www.zytrax.com/security/spf.html"><img src="http://www.zytrax.com/images/protectedbyspf_13a.gif" border="0" alt="SPF Record Conformant Domain Logo" /></a></p>
+</div>
+
+
+<div class="l-f">
+<div class="l-100">
+<!-- standard footer full width -->
+<table border="0" cellspacing="0" align="center">
+  <tr valign="top">
+    <td class="p-f-s" align="left">
+		
+		Copyright &copy; 1994 - 2013 ZyTrax, Inc.<br /> All rights reserved. 
+		<a href="http://www.zytrax.com/legal.html" class="p-f-s">Legal and Privacy</a>
+		</td>
+		<td align="center"><a href="http://www.zytrax.com/isp/web" target="_blank" class="p-f-s">site by zytrax</a><br /> <a href="http://www.super.net.sg" target="_blank" class="p-f-s"><img src="http://www.zytrax.com/super-net-s.gif" border="0" alt="Hosted by super.net.sg" /></a></td>
+		<td class="p-f-s" align="right">
+		<a href="javascript:mailus('web-master','zytrax.com','About Web site')" class="p-f-s">web-master at zytrax</a><br />
+		Page modified: January 18 2013.
+		</td>
+  </tr>
+</table>
+</div>
+</div>
+
+<!-- pop-out tables only if Javascript supported -->
+
+
+
+
+
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-2096769-1";
+urchinTracker();
+</script>
+</body>
+</html>
+
+
+

@@ -1,0 +1,255 @@
+@import './mixin'
+@import './theme'
+@import './background'
+@import './iosicons'
+@import './iosslider'
+@import './modal'
+@import './tabs'
+@import './nav'
+@import './slidingpane'
+@import './ruler'
+
+#warning-message
+  display none 
+
+@media only screen and (orientation:portrait)
+  #wrapper
+    display none
+  #warning 
+    display block
+    background-color #000000
+    text-align center
+    width 100%
+    height 100%
+    p
+      color #FFFFFF  
+      margin-top 100px
+@media only screen and (orientation:landscape)
+  #warning
+    display none
+  #wrapper
+    width 1024px
+    height 768px
+    position absolute
+    left 50%
+    top 50% 
+    margin-left -512px
+    margin-top -384px
+
+.stack
+  position: relative
+  
+  > *:not(.active)
+    display: none
+    
+body, html
+  margin: 0;
+  padding: 0;
+  width: 100%
+  height: 100%
+
+body
+  vbox()
+
+header#header
+  overflow: hidden;
+  height: 50px;
+  border-box()
+  inset-box-shadow(0px, -1px, 3px, #1d1d1d)
+  vbg-gradient( #474747, #303030)
+
+header#header h1
+  line-height: 50px;
+  float: left;
+  padding: 0 20px;
+  font-size: 18px;
+  margin: 0;
+  color: #FFF;
+  border-right: 1px solid #181818;
+  box-shadow(1px, 0px, 1px, #525252)
+  text-shadow: 0 -1px 1px black;
+  font-weight: bold;
+
+article#article
+  overflow hidden
+  height 718px
+
+#article
+  box-flex(1)
+  vbox()
+
+#article .index
+  box-flex(1)
+  hbox()
+  
+  .sidebar
+    width: 154px;
+    background url(resources/images/backgrounds/texture_grain_200x200_v2.png)
+    vbox()
+    
+    header
+      color: #333333;
+      font-weight: bold;
+      text-shadow: 0 1px 1px #ffffff;
+      font-size: 14px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+      vbg-gradient(#ffffff, #e0e0e1)
+      box-shadow(1px, 1px, 2px, rgba(0, 0, 0, 0.1))
+      height: 33px;
+      overflow: hidden
+
+      input
+        line-height: 24px;
+        height: 24px;
+        margin: 4px;
+        font-size: 14px;
+        width: 158px;   
+
+      input[type="search"]
+        font-size 14px
+        -webkit-appearance: none; 
+        -webkit-border-radius: 0 3px 3px 0;
+        border-radius: 0 3px 3px 0;
+        background-color: #dadada;
+        &:focus
+          background-color: #ffffff;
+        
+    .items
+      box-flex(1)
+      overflow-x: hidden
+      overflow-y: auto
+      height 651px
+    
+    .item
+      height: 33px
+      padding: 0 15px
+      line-height: 33px
+      cursor auto
+      vbg-gradient(#dedfe0, #dadada)
+      border-bottom: 1px solid #d2d2d1;
+      color: #333;
+      ellipsis()
+      
+      &.active
+        color: #ffffff;
+        text-shadow: 0 -1px 1px #46677f;
+        vbg-gradient( #7bb5db, #4775b8)
+        border-bottom-color: #609fd0;
+        inset-box-shadow(0, 2px, 2px, #4775b8)
+
+    .item:hover
+      cursor pointer
+        
+    footer
+      color: #333333;
+      font-weight: bold;
+      text-shadow: 0 1px 1px #ffffff;
+      font-size: 14px;
+      padding: 0px;
+      border-top: 1px solid #c5c5c5;
+      vbg-gradient(#ffffff, #dedfe0)
+      box-shadow(0, -1px, 2px, rgba(0, 0, 0, 0.1))
+      text-align: right;
+      height: 33px;
+      width: 154px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+
+      a
+        float: left;
+        line-height: 33px;
+        height: 33px;
+        padding: 0 20px;
+        cursor: pointer;
+        border-right: 1px solid rgba(0, 0, 0, 0.3);
+        text-decoration: none
+
+        &:active
+          background: #dadada;
+          inset-box-shadow(0, 0, 10px, #9c9c9c)
+
+        &.add:before
+          content attr(sign)
+          font-size 20px
+
+  .vdivide
+      border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+      a
+        position relative
+        display inline-block
+        top 240px
+        height 40px
+        width 6px
+        background-color: rgb(185, 185, 185);
+        background-image: linear-gradient(-45deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent);
+        background-size: 5px 5px;
+        &:hover
+          background-color: rgb(85, 85, 85);
+          cursor pointer
+
+  .main
+    box-flex(1)
+    
+    header
+      color: #333333;
+      font-weight: bold;
+      text-shadow: 0 1px 1px #ffffff;
+      font-size: 14px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+      vbg-gradient(#ffffff, #e0e0e1)
+      box-shadow(1px, 1px, 2px, rgba(0, 0, 0, 0.1))
+      overflow: hidden
+      
+      a
+        float: left;
+        line-height: 33px;
+        height: 33px;
+        padding: 0 20px;
+        cursor: pointer;
+        border-right: 1px solid rgba(0, 0, 0, 0.3);
+        text-decoration: none
+        
+        &:active
+          background: #dadada;
+          inset-box-shadow(0, 0, 10px, #9c9c9c)
+    
+    .content
+      box-flex(1)
+      inset-box-shadow(1px, 2px, 2px, rgba(0, 0, 0, 0.1))
+      padding 20px
+      -webkit-user-select text
+    .content h2
+      font-size 36px
+      padding 0 0 20px
+
+    footer
+      color: #333333;
+      font-weight: bold;
+      text-shadow: 0 1px 1px #ffffff;
+      font-size: 14px;
+      padding: 0px;
+      border-top: 1px solid #c5c5c5;
+      vbg-gradient(#ffffff, #dedfe0)
+      box-shadow(0, -1px, 2px, rgba(0, 0, 0, 0.1))
+      text-align: right;
+      height: 33px;
+      overflow: hidden;
+      width: 846px;
+      z-index: 9999;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+
+      a
+        float: left;
+        line-height: 33px;
+        height: 33px;
+        padding: 0 20px;
+        cursor: pointer;
+        border-right: 1px solid rgba(0, 0, 0, 0.3);
+        text-decoration: none
+
+        &:active
+          background: #dadada;
+          inset-box-shadow(0, 0, 10px, #9c9c9c)
+
+        &.toggle:before
+          content attr(sign)
+          font-size 15px

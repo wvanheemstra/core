@@ -1,0 +1,13 @@
+@import './mixin'
+
+@media only screen and (orientation:portrait)
+  #wrapper
+    display none
+  #warning 
+    display block
+@media only screen and (orientation:landscape)
+  #warning
+    display none
+  #wrapper
+    width 1024px
+    height 768px

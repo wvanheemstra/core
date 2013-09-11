@@ -1,0 +1,1127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--
+ Generated: Tue Jan 07 17:20:15 PST 2003 chacal
+ -->
+<html lang='en-US' xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>IDL Definitions</title>
+<link rel='stylesheet' type='text/css' href='./spec.css' />
+<link rel='stylesheet' type='text/css' href='http://www.w3.org/StyleSheets/TR/W3C-REC.css' />
+<link rel='next' href='java-binding.html' />
+<link rel='contents' href='Overview.html#contents' />
+<link rel='copyright' href='copyright-notice.html' />
+<link rel='glossary' href='glossary.html' />
+<link rel='Start' href='Overview.html' />
+<link rel='index' href='def-index.html' />
+<link rel='author' href='mailto:www-dom@w3.org' />
+<link rel='help' href='http://www.w3.org/DOM/' />
+<link rel='prev' href='changes.html' />
+</head>
+<body>
+<div class='navbar' align='center'><a accesskey='p'
+href='changes.html'>previous</a> &nbsp; <a accesskey='n'
+href='java-binding.html'>next</a> &nbsp; <a accesskey='c'
+href='Overview.html#contents'>contents</a> &nbsp; <a accesskey='i'
+href='def-index.html'>index</a> 
+
+<hr title='Navigation area separator' />
+</div>
+
+<div class='noprint' style='text-align: right'>
+<p style='font-family: monospace;font-size:small'>09 January
+2003</p>
+</div>
+
+<div class='div1'><a id="idl" name='idl'></a> 
+
+<h1 id='idl-h1' class='adiv1'>Appendix B: IDL Definitions</h1>
+
+<p>This appendix contains the complete OMG IDL [<a
+class='noxref normative' href='references.html#OMGIDL'>OMG IDL</a>]
+for the Level 2 Document Object Model HTML definitions.</p>
+
+<p>Unfortunately the OMG IDL in this appendix is not conformant due
+to problems in the validator that was used to validate Level 1. The
+<code>readOnly</code> attribute on the <a
+href='html.html#ID-6043025'><code>HTMLInputElement</code></a> and
+<a
+href='html.html#ID-24874179'><code>HTMLTextAreaElement</code></a>
+interfaces, as well as the <code>object</code> attribute on the <a
+href='html.html#ID-31006348'><code>HTMLAppletElement</code></a>
+interface, are not conformant with OMG IDL 2.2. The
+<code>valueType</code> attribute on the <a
+href='html.html#ID-64077273'><code>HTMLParamElement</code></a>
+interface is not conformant with OMG IDL 2.3.1, which hadn't been
+released when DOM Level 1 [<a class='noxref normative'
+href='references.html#DOM-Level-1'>DOM Level 1</a>] was
+published.</p>
+
+<p>The IDL files are also available as: <a class='normative'
+href='idl.zip'>http://www.w3.org/TR/2003/REC-DOM-Level-2-HTML-20030109/idl.zip</a></p>
+
+<h3 id='idl-html2.idl'><a href='idl/html2.idl'>html2.idl</a>:</h3>
+
+<div class='idl-code'>
+<pre>
+// File: html2.idl
+
+#ifndef _HTML2_IDL_
+#define _HTML2_IDL_
+
+#include "dom.idl"
+
+#pragma prefix "dom.w3c.org"
+module html2
+{
+
+  typedef dom::DOMString DOMString;
+  typedef dom::Node Node;
+  typedef dom::Document Document;
+  typedef dom::NodeList NodeList;
+  typedef dom::Element Element;
+
+  interface HTMLElement;
+  interface HTMLFormElement;
+  interface HTMLTableCaptionElement;
+  interface HTMLTableSectionElement;
+
+  interface <a class='noxref'
+href='html.html#ID-75708506'>HTMLCollection</a> {
+    readonly attribute unsigned long   <a class='noxref'
+href='html.html#ID-40057551'>length</a>;
+    Node               <a class='noxref'
+href='html.html#ID-33262535'>item</a>(in unsigned long index);
+    Node               <a class='noxref'
+href='html.html#ID-21069976'>namedItem</a>(in DOMString name);
+  };
+
+  // Introduced in DOM Level 2:
+  interface <a class='noxref'
+href='html.html#HTMLOptionsCollection'>HTMLOptionsCollection</a> {
+             attribute unsigned long   <a class='noxref'
+href='html.html#HTMLOptionsCollection-length'>length</a>;
+                                        // raises(dom::DOMException) on setting
+
+    Node               <a class='noxref'
+href='html.html#HTMLOptionsCollection-item'>item</a>(in unsigned long index);
+    Node               <a class='noxref'
+href='html.html#HTMLOptionsCollection-namedItem'>namedItem</a>(in DOMString name);
+  };
+
+  interface <a class='noxref'
+href='html.html#ID-26809268'>HTMLDocument</a> : Document {
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-18446827'>title</a>;
+    readonly attribute DOMString       <a class='noxref'
+href='html.html#ID-95229140'>referrer</a>;
+    readonly attribute DOMString       <a class='noxref'
+href='html.html#ID-2250147'>domain</a>;
+    readonly attribute DOMString       <a class='noxref'
+href='html.html#ID-46183437'>URL</a>;
+             attribute <a class='noxref'
+href='html.html#ID-58190037'>HTMLElement</a>     <a class='noxref'
+href='html.html#ID-56360201'>body</a>;
+    readonly attribute <a class='noxref'
+href='html.html#ID-75708506'>HTMLCollection</a>  <a class='noxref'
+href='html.html#ID-90379117'>images</a>;
+    readonly attribute <a class='noxref'
+href='html.html#ID-75708506'>HTMLCollection</a>  <a class='noxref'
+href='html.html#ID-85113862'>applets</a>;
+    readonly attribute <a class='noxref'
+href='html.html#ID-75708506'>HTMLCollection</a>  <a class='noxref'
+href='html.html#ID-7068919'>links</a>;
+    readonly attribute <a class='noxref'
+href='html.html#ID-75708506'>HTMLCollection</a>  <a class='noxref'
+href='html.html#ID-1689064'>forms</a>;
+    readonly attribute <a class='noxref'
+href='html.html#ID-75708506'>HTMLCollection</a>  <a class='noxref'
+href='html.html#ID-7577272'>anchors</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-8747038'>cookie</a>;
+                                        // raises(dom::DOMException) on setting
+
+    void               <a class='noxref'
+href='html.html#ID-72161170'>open</a>();
+    void               <a class='noxref'
+href='html.html#ID-98948567'>close</a>();
+    void               <a class='noxref'
+href='html.html#ID-75233634'>write</a>(in DOMString text);
+    void               <a class='noxref'
+href='html.html#ID-35318390'>writeln</a>(in DOMString text);
+    NodeList           <a class='noxref'
+href='html.html#ID-71555259'>getElementsByName</a>(in DOMString elementName);
+  };
+
+  interface <a class='noxref'
+href='html.html#ID-58190037'>HTMLElement</a> : Element {
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-63534901'>id</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-78276800'>title</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-59132807'>lang</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-52460740'>dir</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-95362176'>className</a>;
+  };
+
+  interface <a class='noxref'
+href='html.html#ID-33759296'>HTMLHtmlElement</a> : <a
+class='noxref' href='html.html#ID-58190037'>HTMLElement</a> {
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-9383775'>version</a>;
+  };
+
+  interface <a class='noxref'
+href='html.html#ID-77253168'>HTMLHeadElement</a> : <a
+class='noxref' href='html.html#ID-58190037'>HTMLElement</a> {
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-96921909'>profile</a>;
+  };
+
+  interface <a class='noxref'
+href='html.html#ID-35143001'>HTMLLinkElement</a> : <a
+class='noxref' href='html.html#ID-58190037'>HTMLElement</a> {
+             attribute boolean         <a class='noxref'
+href='html.html#ID-87355129'>disabled</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-63954491'>charset</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-33532588'>href</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-85145682'>hreflang</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-75813125'>media</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-41369587'>rel</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-40715461'>rev</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-84183095'>target</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-32498296'>type</a>;
+  };
+
+  interface <a class='noxref'
+href='html.html#ID-79243169'>HTMLTitleElement</a> : <a
+class='noxref' href='html.html#ID-58190037'>HTMLElement</a> {
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-77500413'>text</a>;
+  };
+
+  interface <a class='noxref'
+href='html.html#ID-37041454'>HTMLMetaElement</a> : <a
+class='noxref' href='html.html#ID-58190037'>HTMLElement</a> {
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-87670826'>content</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-77289449'>httpEquiv</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-31037081'>name</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-35993789'>scheme</a>;
+  };
+
+  interface <a class='noxref'
+href='html.html#ID-73629039'>HTMLBaseElement</a> : <a
+class='noxref' href='html.html#ID-58190037'>HTMLElement</a> {
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-65382887'>href</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-73844298'>target</a>;
+  };
+
+  interface <a class='noxref'
+href='html.html#ID-85283003'>HTMLIsIndexElement</a> : <a
+class='noxref' href='html.html#ID-58190037'>HTMLElement</a> {
+    readonly attribute <a class='noxref'
+href='html.html#ID-40002357'>HTMLFormElement</a> <a class='noxref'
+href='html.html#ID-87069980'>form</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-33589862'>prompt</a>;
+  };
+
+  interface <a class='noxref'
+href='html.html#ID-16428977'>HTMLStyleElement</a> : <a
+class='noxref' href='html.html#ID-58190037'>HTMLElement</a> {
+             attribute boolean         <a class='noxref'
+href='html.html#ID-51162010'>disabled</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-76412738'>media</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-22472002'>type</a>;
+  };
+
+  interface <a class='noxref'
+href='html.html#ID-62018039'>HTMLBodyElement</a> : <a
+class='noxref' href='html.html#ID-58190037'>HTMLElement</a> {
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-59424581'>aLink</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-37574810'>background</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-24940084'>bgColor</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-7662206'>link</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-73714763'>text</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-83224305'>vLink</a>;
+  };
+
+  interface <a class='noxref'
+href='html.html#ID-40002357'>HTMLFormElement</a> : <a
+class='noxref' href='html.html#ID-58190037'>HTMLElement</a> {
+    readonly attribute <a class='noxref'
+href='html.html#ID-75708506'>HTMLCollection</a>  <a class='noxref'
+href='html.html#ID-76728479'>elements</a>;
+    readonly attribute long            <a class='noxref'
+href='html.html#HTML-HTMLFormElement-length'>length</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-22051454'>name</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-19661795'>acceptCharset</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-74049184'>action</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-84227810'>enctype</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-82545539'>method</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-6512890'>target</a>;
+    void               <a class='noxref'
+href='html.html#ID-76767676'>submit</a>();
+    void               <a class='noxref'
+href='html.html#ID-76767677'>reset</a>();
+  };
+
+  interface <a class='noxref'
+href='html.html#ID-94282980'>HTMLSelectElement</a> : <a
+class='noxref' href='html.html#ID-58190037'>HTMLElement</a> {
+    readonly attribute DOMString       <a class='noxref'
+href='html.html#ID-58783172'>type</a>;
+             attribute long            <a class='noxref'
+href='html.html#ID-85676760'>selectedIndex</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-59351919'>value</a>;
+    // Modified in DOM Level 2:
+             attribute unsigned long   <a class='noxref'
+href='html.html#ID-5933486'>length</a>;
+                                        // raises(dom::DOMException) on setting
+
+    readonly attribute <a class='noxref'
+href='html.html#ID-40002357'>HTMLFormElement</a> <a class='noxref'
+href='html.html#ID-20489458'>form</a>;
+    // Modified in DOM Level 2:
+    readonly attribute <a class='noxref'
+href='html.html#HTMLOptionsCollection'>HTMLOptionsCollection</a> <a
+class='noxref' href='html.html#ID-30606413'>options</a>;
+             attribute boolean         <a class='noxref'
+href='html.html#ID-79102918'>disabled</a>;
+             attribute boolean         <a class='noxref'
+href='html.html#ID-13246613'>multiple</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-41636323'>name</a>;
+             attribute long            <a class='noxref'
+href='html.html#ID-18293826'>size</a>;
+             attribute long            <a class='noxref'
+href='html.html#ID-40676705'>tabIndex</a>;
+    void               <a class='noxref'
+href='html.html#ID-14493106'>add</a>(in <a class='noxref'
+href='html.html#ID-58190037'>HTMLElement</a> element, 
+                           in <a class='noxref'
+href='html.html#ID-58190037'>HTMLElement</a> before)
+                                        raises(dom::DOMException);
+    void               <a class='noxref'
+href='html.html#ID-33404570'>remove</a>(in long index);
+    void               <a class='noxref'
+href='html.html#ID-28216144'>blur</a>();
+    void               <a class='noxref'
+href='html.html#ID-32130014'>focus</a>();
+  };
+
+  interface <a class='noxref'
+href='html.html#ID-38450247'>HTMLOptGroupElement</a> : <a
+class='noxref' href='html.html#ID-58190037'>HTMLElement</a> {
+             attribute boolean         <a class='noxref'
+href='html.html#ID-15518803'>disabled</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-95806054'>label</a>;
+  };
+
+  interface <a class='noxref'
+href='html.html#ID-70901257'>HTMLOptionElement</a> : <a
+class='noxref' href='html.html#ID-58190037'>HTMLElement</a> {
+    readonly attribute <a class='noxref'
+href='html.html#ID-40002357'>HTMLFormElement</a> <a class='noxref'
+href='html.html#ID-17116503'>form</a>;
+    // Modified in DOM Level 2:
+             attribute boolean         <a class='noxref'
+href='html.html#ID-37770574'>defaultSelected</a>;
+    readonly attribute DOMString       <a class='noxref'
+href='html.html#ID-48154426'>text</a>;
+    // Modified in DOM Level 2:
+    readonly attribute long            <a class='noxref'
+href='html.html#ID-14038413'>index</a>;
+             attribute boolean         <a class='noxref'
+href='html.html#ID-23482473'>disabled</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-40736115'>label</a>;
+             attribute boolean         <a class='noxref'
+href='html.html#ID-70874476'>selected</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-6185554'>value</a>;
+  };
+
+  interface <a class='noxref'
+href='html.html#ID-6043025'>HTMLInputElement</a> : <a
+class='noxref' href='html.html#ID-58190037'>HTMLElement</a> {
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-26091157'>defaultValue</a>;
+             attribute boolean         <a class='noxref'
+href='html.html#ID-20509171'>defaultChecked</a>;
+    readonly attribute <a class='noxref'
+href='html.html#ID-40002357'>HTMLFormElement</a> <a class='noxref'
+href='html.html#ID-63239895'>form</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-15328520'>accept</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-59914154'>accessKey</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-96991182'>align</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-92701314'>alt</a>;
+             attribute boolean         <a class='noxref'
+href='html.html#ID-30233917'>checked</a>;
+             attribute boolean         <a class='noxref'
+href='html.html#ID-50886781'>disabled</a>;
+             attribute long            <a class='noxref'
+href='html.html#ID-54719353'>maxLength</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-89658498'>name</a>;
+             attribute boolean         <a class='noxref'
+href='html.html#ID-88461592'>readOnly</a>;
+    // Modified in DOM Level 2:
+             attribute unsigned long   <a class='noxref'
+href='html.html#ID-79659438'>size</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-97320704'>src</a>;
+             attribute long            <a class='noxref'
+href='html.html#ID-62176355'>tabIndex</a>;
+    // Modified in DOM Level 2:
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-62883744'>type</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-32463706'>useMap</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-49531485'>value</a>;
+    void               <a class='noxref'
+href='html.html#ID-26838235'>blur</a>();
+    void               <a class='noxref'
+href='html.html#ID-65996295'>focus</a>();
+    void               <a class='noxref'
+href='html.html#ID-34677168'>select</a>();
+    void               <a class='noxref'
+href='html.html#ID-2651361'>click</a>();
+  };
+
+  interface <a class='noxref'
+href='html.html#ID-24874179'>HTMLTextAreaElement</a> : <a
+class='noxref' href='html.html#ID-58190037'>HTMLElement</a> {
+    // Modified in DOM Level 2:
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-36152213'>defaultValue</a>;
+    readonly attribute <a class='noxref'
+href='html.html#ID-40002357'>HTMLFormElement</a> <a class='noxref'
+href='html.html#ID-18911464'>form</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-93102991'>accessKey</a>;
+             attribute long            <a class='noxref'
+href='html.html#ID-51387225'>cols</a>;
+             attribute boolean         <a class='noxref'
+href='html.html#ID-98725443'>disabled</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-70715578'>name</a>;
+             attribute boolean         <a class='noxref'
+href='html.html#ID-39131423'>readOnly</a>;
+             attribute long            <a class='noxref'
+href='html.html#ID-46975887'>rows</a>;
+             attribute long            <a class='noxref'
+href='html.html#ID-60363303'>tabIndex</a>;
+    readonly attribute DOMString       <a class='noxref'
+href='html.html#HTML-HTMLTextAreaElement-type'>type</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-70715579'>value</a>;
+    void               <a class='noxref'
+href='html.html#ID-6750689'>blur</a>();
+    void               <a class='noxref'
+href='html.html#ID-39055426'>focus</a>();
+    void               <a class='noxref'
+href='html.html#ID-48880622'>select</a>();
+  };
+
+  interface <a class='noxref'
+href='html.html#ID-34812697'>HTMLButtonElement</a> : <a
+class='noxref' href='html.html#ID-58190037'>HTMLElement</a> {
+    readonly attribute <a class='noxref'
+href='html.html#ID-40002357'>HTMLFormElement</a> <a class='noxref'
+href='html.html#ID-71254493'>form</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-73169431'>accessKey</a>;
+             attribute boolean         <a class='noxref'
+href='html.html#ID-92757155'>disabled</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-11029910'>name</a>;
+             attribute long            <a class='noxref'
+href='html.html#ID-39190908'>tabIndex</a>;
+    readonly attribute DOMString       <a class='noxref'
+href='html.html#ID-27430092'>type</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-72856782'>value</a>;
+  };
+
+  interface <a class='noxref'
+href='html.html#ID-13691394'>HTMLLabelElement</a> : <a
+class='noxref' href='html.html#ID-58190037'>HTMLElement</a> {
+    readonly attribute <a class='noxref'
+href='html.html#ID-40002357'>HTMLFormElement</a> <a class='noxref'
+href='html.html#ID-32480901'>form</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-43589892'>accessKey</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-96509813'>htmlFor</a>;
+  };
+
+  interface <a class='noxref'
+href='html.html#ID-7365882'>HTMLFieldSetElement</a> : <a
+class='noxref' href='html.html#ID-58190037'>HTMLElement</a> {
+    readonly attribute <a class='noxref'
+href='html.html#ID-40002357'>HTMLFormElement</a> <a class='noxref'
+href='html.html#ID-75392630'>form</a>;
+  };
+
+  interface <a class='noxref'
+href='html.html#ID-21482039'>HTMLLegendElement</a> : <a
+class='noxref' href='html.html#ID-58190037'>HTMLElement</a> {
+    readonly attribute <a class='noxref'
+href='html.html#ID-40002357'>HTMLFormElement</a> <a class='noxref'
+href='html.html#ID-29594519'>form</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-11297832'>accessKey</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-79538067'>align</a>;
+  };
+
+  interface <a class='noxref'
+href='html.html#ID-86834457'>HTMLUListElement</a> : <a
+class='noxref' href='html.html#ID-58190037'>HTMLElement</a> {
+             attribute boolean         <a class='noxref'
+href='html.html#ID-39864178'>compact</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-96874670'>type</a>;
+  };
+
+  interface <a class='noxref'
+href='html.html#ID-58056027'>HTMLOListElement</a> : <a
+class='noxref' href='html.html#ID-58190037'>HTMLElement</a> {
+             attribute boolean         <a class='noxref'
+href='html.html#ID-76448506'>compact</a>;
+             attribute long            <a class='noxref'
+href='html.html#ID-14793325'>start</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-40971103'>type</a>;
+  };
+
+  interface <a class='noxref'
+href='html.html#ID-52368974'>HTMLDListElement</a> : <a
+class='noxref' href='html.html#ID-58190037'>HTMLElement</a> {
+             attribute boolean         <a class='noxref'
+href='html.html#ID-21738539'>compact</a>;
+  };
+
+  interface <a class='noxref'
+href='html.html#ID-71600284'>HTMLDirectoryElement</a> : <a
+class='noxref' href='html.html#ID-58190037'>HTMLElement</a> {
+             attribute boolean         <a class='noxref'
+href='html.html#ID-75317739'>compact</a>;
+  };
+
+  interface <a class='noxref'
+href='html.html#ID-72509186'>HTMLMenuElement</a> : <a
+class='noxref' href='html.html#ID-58190037'>HTMLElement</a> {
+             attribute boolean         <a class='noxref'
+href='html.html#ID-68436464'>compact</a>;
+  };
+
+  interface <a class='noxref'
+href='html.html#ID-74680021'>HTMLLIElement</a> : <a class='noxref'
+href='html.html#ID-58190037'>HTMLElement</a> {
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-52387668'>type</a>;
+             attribute long            <a class='noxref'
+href='html.html#ID-45496263'>value</a>;
+  };
+
+  interface <a class='noxref'
+href='html.html#ID-22445964'>HTMLDivElement</a> : <a class='noxref'
+href='html.html#ID-58190037'>HTMLElement</a> {
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-70908791'>align</a>;
+  };
+
+  interface <a class='noxref'
+href='html.html#ID-84675076'>HTMLParagraphElement</a> : <a
+class='noxref' href='html.html#ID-58190037'>HTMLElement</a> {
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-53465507'>align</a>;
+  };
+
+  interface <a class='noxref'
+href='html.html#ID-43345119'>HTMLHeadingElement</a> : <a
+class='noxref' href='html.html#ID-58190037'>HTMLElement</a> {
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-6796462'>align</a>;
+  };
+
+  interface <a class='noxref'
+href='html.html#ID-70319763'>HTMLQuoteElement</a> : <a
+class='noxref' href='html.html#ID-58190037'>HTMLElement</a> {
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-53895598'>cite</a>;
+  };
+
+  interface <a class='noxref'
+href='html.html#ID-11383425'>HTMLPreElement</a> : <a class='noxref'
+href='html.html#ID-58190037'>HTMLElement</a> {
+             attribute long            <a class='noxref'
+href='html.html#ID-13894083'>width</a>;
+  };
+
+  interface <a class='noxref'
+href='html.html#ID-56836063'>HTMLBRElement</a> : <a class='noxref'
+href='html.html#ID-58190037'>HTMLElement</a> {
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-82703081'>clear</a>;
+  };
+
+  interface <a class='noxref'
+href='html.html#ID-32774408'>HTMLBaseFontElement</a> : <a
+class='noxref' href='html.html#ID-58190037'>HTMLElement</a> {
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-87502302'>color</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-88128969'>face</a>;
+    // Modified in DOM Level 2:
+             attribute long            <a class='noxref'
+href='html.html#ID-38930424'>size</a>;
+  };
+
+  interface <a class='noxref'
+href='html.html#ID-43943847'>HTMLFontElement</a> : <a
+class='noxref' href='html.html#ID-58190037'>HTMLElement</a> {
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-53532975'>color</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-55715655'>face</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-90127284'>size</a>;
+  };
+
+  interface <a class='noxref'
+href='html.html#ID-68228811'>HTMLHRElement</a> : <a class='noxref'
+href='html.html#ID-58190037'>HTMLElement</a> {
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-15235012'>align</a>;
+             attribute boolean         <a class='noxref'
+href='html.html#ID-79813978'>noShade</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-77612587'>size</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-87744198'>width</a>;
+  };
+
+  interface <a class='noxref'
+href='html.html#ID-79359609'>HTMLModElement</a> : <a class='noxref'
+href='html.html#ID-58190037'>HTMLElement</a> {
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-75101708'>cite</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-88432678'>dateTime</a>;
+  };
+
+  interface <a class='noxref'
+href='html.html#ID-48250443'>HTMLAnchorElement</a> : <a
+class='noxref' href='html.html#ID-58190037'>HTMLElement</a> {
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-89647724'>accessKey</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-67619266'>charset</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-92079539'>coords</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-88517319'>href</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-87358513'>hreflang</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-32783304'>name</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-3815891'>rel</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-58259771'>rev</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-49899808'>shape</a>;
+             attribute long            <a class='noxref'
+href='html.html#ID-41586466'>tabIndex</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-6414197'>target</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-63938221'>type</a>;
+    void               <a class='noxref'
+href='html.html#ID-65068939'>blur</a>();
+    void               <a class='noxref'
+href='html.html#ID-47150313'>focus</a>();
+  };
+
+  interface <a class='noxref'
+href='html.html#ID-17701901'>HTMLImageElement</a> : <a
+class='noxref' href='html.html#ID-58190037'>HTMLElement</a> {
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-47534097'>name</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-3211094'>align</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-95636861'>alt</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-136671'>border</a>;
+    // Modified in DOM Level 2:
+             attribute long            <a class='noxref'
+href='html.html#ID-91561496'>height</a>;
+    // Modified in DOM Level 2:
+             attribute long            <a class='noxref'
+href='html.html#ID-53675471'>hspace</a>;
+             attribute boolean         <a class='noxref'
+href='html.html#ID-58983880'>isMap</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-77376969'>longDesc</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-87762984'>src</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-35981181'>useMap</a>;
+    // Modified in DOM Level 2:
+             attribute long            <a class='noxref'
+href='html.html#ID-85374897'>vspace</a>;
+    // Modified in DOM Level 2:
+             attribute long            <a class='noxref'
+href='html.html#ID-13839076'>width</a>;
+  };
+
+  interface <a class='noxref'
+href='html.html#ID-9893177'>HTMLObjectElement</a> : <a
+class='noxref' href='html.html#ID-58190037'>HTMLElement</a> {
+    readonly attribute <a class='noxref'
+href='html.html#ID-40002357'>HTMLFormElement</a> <a class='noxref'
+href='html.html#ID-46094773'>form</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-75241146'>code</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-16962097'>align</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-47783837'>archive</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-82818419'>border</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-25709136'>codeBase</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-19945008'>codeType</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-81766986'>data</a>;
+             attribute boolean         <a class='noxref'
+href='html.html#ID-942770'>declare</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-88925838'>height</a>;
+             attribute long            <a class='noxref'
+href='html.html#ID-17085376'>hspace</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-20110362'>name</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-25039673'>standby</a>;
+             attribute long            <a class='noxref'
+href='html.html#ID-27083787'>tabIndex</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-91665621'>type</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-6649772'>useMap</a>;
+             attribute long            <a class='noxref'
+href='html.html#ID-8682483'>vspace</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-38538620'>width</a>;
+    // Introduced in DOM Level 2:
+    readonly attribute Document        <a class='noxref'
+href='html.html#ID-38538621'>contentDocument</a>;
+  };
+
+  interface <a class='noxref'
+href='html.html#ID-64077273'>HTMLParamElement</a> : <a
+class='noxref' href='html.html#ID-58190037'>HTMLElement</a> {
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-59871447'>name</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-18179888'>type</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-77971357'>value</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-23931872'>valueType</a>;
+  };
+
+  interface <a class='noxref'
+href='html.html#ID-31006348'>HTMLAppletElement</a> : <a
+class='noxref' href='html.html#ID-58190037'>HTMLElement</a> {
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-8049912'>align</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-58610064'>alt</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-14476360'>archive</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-61509645'>code</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-6581160'>codeBase</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-90184867'>height</a>;
+    // Modified in DOM Level 2:
+             attribute long            <a class='noxref'
+href='html.html#ID-1567197'>hspace</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-39843695'>name</a>;
+    // Modified in DOM Level 2:
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-93681523'>object</a>;
+    // Modified in DOM Level 2:
+             attribute long            <a class='noxref'
+href='html.html#ID-22637173'>vspace</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-16526327'>width</a>;
+  };
+
+  interface <a class='noxref'
+href='html.html#ID-94109203'>HTMLMapElement</a> : <a class='noxref'
+href='html.html#ID-58190037'>HTMLElement</a> {
+    readonly attribute <a class='noxref'
+href='html.html#ID-75708506'>HTMLCollection</a>  <a class='noxref'
+href='html.html#ID-71838730'>areas</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-52696514'>name</a>;
+  };
+
+  interface <a class='noxref'
+href='html.html#ID-26019118'>HTMLAreaElement</a> : <a
+class='noxref' href='html.html#ID-58190037'>HTMLElement</a> {
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-57944457'>accessKey</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-39775416'>alt</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-66021476'>coords</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-34672936'>href</a>;
+             attribute boolean         <a class='noxref'
+href='html.html#ID-61826871'>noHref</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-85683271'>shape</a>;
+             attribute long            <a class='noxref'
+href='html.html#ID-8722121'>tabIndex</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-46054682'>target</a>;
+  };
+
+  interface <a class='noxref'
+href='html.html#ID-81598695'>HTMLScriptElement</a> : <a
+class='noxref' href='html.html#ID-58190037'>HTMLElement</a> {
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-46872999'>text</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-66979266'>htmlFor</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-56700403'>event</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-35305677'>charset</a>;
+             attribute boolean         <a class='noxref'
+href='html.html#ID-93788534'>defer</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-75147231'>src</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-30534818'>type</a>;
+  };
+
+  interface <a class='noxref'
+href='html.html#ID-64060425'>HTMLTableElement</a> : <a
+class='noxref' href='html.html#ID-58190037'>HTMLElement</a> {
+    // Modified in DOM Level 2:
+             attribute <a class='noxref'
+href='html.html#ID-12035137'>HTMLTableCaptionElement</a> <a
+class='noxref' href='html.html#ID-14594520'>caption</a>;
+                                        // raises(dom::DOMException) on setting
+
+    // Modified in DOM Level 2:
+             attribute <a class='noxref'
+href='html.html#ID-67417573'>HTMLTableSectionElement</a> <a
+class='noxref' href='html.html#ID-9530944'>tHead</a>;
+                                        // raises(dom::DOMException) on setting
+
+    // Modified in DOM Level 2:
+             attribute <a class='noxref'
+href='html.html#ID-67417573'>HTMLTableSectionElement</a> <a
+class='noxref' href='html.html#ID-64197097'>tFoot</a>;
+                                        // raises(dom::DOMException) on setting
+
+    readonly attribute <a class='noxref'
+href='html.html#ID-75708506'>HTMLCollection</a>  <a class='noxref'
+href='html.html#ID-6156016'>rows</a>;
+    readonly attribute <a class='noxref'
+href='html.html#ID-75708506'>HTMLCollection</a>  <a class='noxref'
+href='html.html#ID-63206416'>tBodies</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-23180977'>align</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-83532985'>bgColor</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-50969400'>border</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-59162158'>cellPadding</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-68907883'>cellSpacing</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-64808476'>frame</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-26347553'>rules</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-44998528'>summary</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-77447361'>width</a>;
+    <a class='noxref'
+href='html.html#ID-58190037'>HTMLElement</a>        <a
+class='noxref' href='html.html#ID-70313345'>createTHead</a>();
+    void               <a class='noxref'
+href='html.html#ID-38310198'>deleteTHead</a>();
+    <a class='noxref'
+href='html.html#ID-58190037'>HTMLElement</a>        <a
+class='noxref' href='html.html#ID-8453710'>createTFoot</a>();
+    void               <a class='noxref'
+href='html.html#ID-78363258'>deleteTFoot</a>();
+    <a class='noxref'
+href='html.html#ID-58190037'>HTMLElement</a>        <a
+class='noxref' href='html.html#ID-96920263'>createCaption</a>();
+    void               <a class='noxref'
+href='html.html#ID-22930071'>deleteCaption</a>();
+    // Modified in DOM Level 2:
+    <a class='noxref'
+href='html.html#ID-58190037'>HTMLElement</a>        <a
+class='noxref'
+href='html.html#ID-39872903'>insertRow</a>(in long index)
+                                        raises(dom::DOMException);
+    // Modified in DOM Level 2:
+    void               <a class='noxref'
+href='html.html#ID-13114938'>deleteRow</a>(in long index)
+                                        raises(dom::DOMException);
+  };
+
+  interface <a class='noxref'
+href='html.html#ID-12035137'>HTMLTableCaptionElement</a> : <a
+class='noxref' href='html.html#ID-58190037'>HTMLElement</a> {
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-79875068'>align</a>;
+  };
+
+  interface <a class='noxref'
+href='html.html#ID-84150186'>HTMLTableColElement</a> : <a
+class='noxref' href='html.html#ID-58190037'>HTMLElement</a> {
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-31128447'>align</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-9447412'>ch</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-57779225'>chOff</a>;
+             attribute long            <a class='noxref'
+href='html.html#ID-96511335'>span</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-83291710'>vAlign</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-25196799'>width</a>;
+  };
+
+  interface <a class='noxref'
+href='html.html#ID-67417573'>HTMLTableSectionElement</a> : <a
+class='noxref' href='html.html#ID-58190037'>HTMLElement</a> {
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-40530119'>align</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-83470012'>ch</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-53459732'>chOff</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-4379116'>vAlign</a>;
+    readonly attribute <a class='noxref'
+href='html.html#ID-75708506'>HTMLCollection</a>  <a class='noxref'
+href='html.html#ID-52092650'>rows</a>;
+    // Modified in DOM Level 2:
+    <a class='noxref'
+href='html.html#ID-58190037'>HTMLElement</a>        <a
+class='noxref'
+href='html.html#ID-93995626'>insertRow</a>(in long index)
+                                        raises(dom::DOMException);
+    // Modified in DOM Level 2:
+    void               <a class='noxref'
+href='html.html#ID-5625626'>deleteRow</a>(in long index)
+                                        raises(dom::DOMException);
+  };
+
+  interface <a class='noxref'
+href='html.html#ID-6986576'>HTMLTableRowElement</a> : <a
+class='noxref' href='html.html#ID-58190037'>HTMLElement</a> {
+    // Modified in DOM Level 2:
+    readonly attribute long            <a class='noxref'
+href='html.html#ID-67347567'>rowIndex</a>;
+    // Modified in DOM Level 2:
+    readonly attribute long            <a class='noxref'
+href='html.html#ID-79105901'>sectionRowIndex</a>;
+    // Modified in DOM Level 2:
+    readonly attribute <a class='noxref'
+href='html.html#ID-75708506'>HTMLCollection</a>  <a class='noxref'
+href='html.html#ID-67349879'>cells</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-74098257'>align</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-18161327'>bgColor</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-16230502'>ch</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-68207461'>chOff</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-90000058'>vAlign</a>;
+    // Modified in DOM Level 2:
+    <a class='noxref'
+href='html.html#ID-58190037'>HTMLElement</a>        <a
+class='noxref'
+href='html.html#ID-68927016'>insertCell</a>(in long index)
+                                        raises(dom::DOMException);
+    // Modified in DOM Level 2:
+    void               <a class='noxref'
+href='html.html#ID-11738598'>deleteCell</a>(in long index)
+                                        raises(dom::DOMException);
+  };
+
+  interface <a class='noxref'
+href='html.html#ID-82915075'>HTMLTableCellElement</a> : <a
+class='noxref' href='html.html#ID-58190037'>HTMLElement</a> {
+    readonly attribute long            <a class='noxref'
+href='html.html#ID-80748363'>cellIndex</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-74444037'>abbr</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-98433879'>align</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-76554418'>axis</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-88135431'>bgColor</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-30914780'>ch</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-20144310'>chOff</a>;
+             attribute long            <a class='noxref'
+href='html.html#ID-84645244'>colSpan</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-89104817'>headers</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-83679212'>height</a>;
+             attribute boolean         <a class='noxref'
+href='html.html#ID-62922045'>noWrap</a>;
+             attribute long            <a class='noxref'
+href='html.html#ID-48237625'>rowSpan</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-36139952'>scope</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-58284221'>vAlign</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-27480795'>width</a>;
+  };
+
+  interface <a class='noxref'
+href='html.html#ID-43829095'>HTMLFrameSetElement</a> : <a
+class='noxref' href='html.html#ID-58190037'>HTMLElement</a> {
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-98869594'>cols</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-19739247'>rows</a>;
+  };
+
+  interface <a class='noxref'
+href='html.html#ID-97790553'>HTMLFrameElement</a> : <a
+class='noxref' href='html.html#ID-58190037'>HTMLElement</a> {
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-11858633'>frameBorder</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-7836998'>longDesc</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-55569778'>marginHeight</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-8369969'>marginWidth</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-91128709'>name</a>;
+             attribute boolean         <a class='noxref'
+href='html.html#ID-80766578'>noResize</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-45411424'>scrolling</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-78799535'>src</a>;
+    // Introduced in DOM Level 2:
+    readonly attribute Document        <a class='noxref'
+href='html.html#ID-78799536'>contentDocument</a>;
+  };
+
+  interface <a class='noxref'
+href='html.html#ID-50708718'>HTMLIFrameElement</a> : <a
+class='noxref' href='html.html#ID-58190037'>HTMLElement</a> {
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-11309947'>align</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-22463410'>frameBorder</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-1678118'>height</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-70472105'>longDesc</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-91371294'>marginHeight</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-66486595'>marginWidth</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-96819659'>name</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-36369822'>scrolling</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-43933957'>src</a>;
+             attribute DOMString       <a class='noxref'
+href='html.html#ID-67133005'>width</a>;
+    // Introduced in DOM Level 2:
+    readonly attribute Document        <a class='noxref'
+href='html.html#ID-67133006'>contentDocument</a>;
+  };
+};
+
+#endif // _HTML2_IDL_
+
+</pre>
+</div>
+</div>
+
+<!-- div1 idl -->
+<div class='navbar' align='center'>
+<hr title='Navigation area separator' />
+<a accesskey='p' href='changes.html'>previous</a> &nbsp; <a
+accesskey='n' href='java-binding.html'>next</a> &nbsp; <a
+accesskey='c' href='Overview.html#contents'>contents</a> &nbsp; <a
+accesskey='i' href='def-index.html'>index</a></div>
+</body>
+</html>
+

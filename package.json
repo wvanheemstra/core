@@ -1,0 +1,34 @@
+{
+  "name": "skin_app",
+  "description": "Skin Application",
+  "keywords": ["browser", "mobile", "detection", "user-agent", "express", "layout", "view routing", "desktop", "phone", "tablet", "tv", "bot", "responsive design"],
+  "author": "van Heemstra Systems (info@vanheemstrasystems.com)",
+  "version": "1.0.0",
+  "main": "./server/server.js",
+  "private": false,
+  "engines": {"node": "*"},
+  "dependencies": {
+      "express": ">=3.0.0",
+      "express-partials": ">=0.1.1",
+      "express-redirect": ">=1.1.0",
+	  "forever": ">=0.10.8",
+	  "forever-monitor": ">=1.2.2",
+      "serveup": "~0.0.5",
+      "hem": "~0.1.8",
+      "es5-shimify": "~0.0.1",
+      "json2ify": "~0.0.1",
+      "jqueryify": "~0.0.1",
+      "spine": "~1.0.7",
+      "stylus": "~0.0.1",
+      "mocha": "~1.11.0"
+  },
+  "devDependencies": {
+      "ejs": "*",
+      "mocha": "*",
+      "supertest": "*"
+  },
+  "scripts": {
+      "test": "mocha"
+  },
+  "repository": "git://github.com/wvanheemstra/skin"
+}

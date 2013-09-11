@@ -1,0 +1,197 @@
+div,h2,p
+  margin 0
+  padding 0
+
+/* ICON
+------------------------------------------------------------------------------------------------------------------------------- */
+.icon 
+  background #fff
+  float left
+  cursor auto
+  -webkit-user-select none
+  &.small
+    margin 25px
+    width 88px
+    height 88px 
+    -webkit-border-radius 15px
+    -webkit-box-shadow 0px 2px 3px rgba(0, 0, 0, 0.5)
+  &.medium
+    margin 20px 32px 32px 32px
+    width 132px
+    height 132px 
+    -webkit-border-radius 23px
+    -webkit-box-shadow 0px 3px 5px rgba(0, 0, 0, 0.5)
+  &.large
+    margin 50px
+    width 176px
+    height 176px 
+    -webkit-border-radius 30px
+    -webkit-box-shadow 0px 4px 6px rgba(0, 0, 0, 0.5)
+
+.icon:hover
+  cursor pointer
+
+.icon:hover .header
+  background -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ffffff), to(#363636), color-stop(.92,#4775b8),color-stop(.1,#7bb5db))
+  -webkit-box-shadow inset 0px 2px 1px #4775b8
+
+.icon:hover .body
+  background -webkit-gradient(linear, 0% 0%, 0% 100%, from(#363636), to(#ffffff), color-stop(.05,#EBEBEB),color-stop(.2,#E3E3E3))
+
+/* DEFAULT
+------------------------------------------------------------------------------------------------------------------------------- */
+.default
+  background #9B2424
+
+.default .header
+  background -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ffffff), to(#363636), color-stop(.92,#BEC5CF),color-stop(.1,#DDE5EE))
+  -webkit-box-shadow inset 0px 2px 1px #BEC5CF
+  &.small
+    -webkit-border-top-left-radius 15px
+    -webkit-border-top-right-radius 15px  
+    height 25px
+    width 88px   
+  &.medium
+    -webkit-border-top-left-radius 23px
+    -webkit-border-top-right-radius 23px  
+    height 37px
+    width 132px
+  &.large
+    -webkit-border-top-left-radius 30px
+    -webkit-border-top-right-radius 30px  
+    height 50px
+    width 176px
+
+.default p.title
+  color #fff
+  font-weight bold
+  text-shadow 0px 1px 1px rgba(0, 0, 0, 0.7)
+  text-align center
+  &.small
+    width 88px 
+    line-height 25px
+    font-size 12px 
+  &.medium
+    width 132px 
+    line-height 37px
+    font-size 18px 
+  &.large
+    width 176px 
+    line-height 50px
+    font-size 25px 
+
+.default p.context
+  color rgb(64, 64, 64)
+  font-weight bold
+  text-align center
+  &.small.default
+    width 88px
+    line-height 63px
+    font-size 65px 
+    text-shadow 0px 1px 0px #fff
+  &.medium.default
+    width 132px
+    line-height 95px
+    font-size 97px
+    text-shadow 0px 1px 0px #fff
+    background transparent
+  &.medium.profile
+    border 1px solid transparent
+    width 130px
+    height 94px
+  &.medium.profile span
+    display block
+    margin-left 46px
+    width 40px
+    height inherit
+  &.medium.profile span:before /* body */
+    margin-top 38px
+    width 40px
+    height 34px
+    display block
+    content '.'
+    color transparent
+    background rgb(64, 64, 64)
+    -webkit-box-shadow 0px 1px 0px #fff
+    -moz-box-box-shadow 0px 1px 0px #fff
+    box-shadow 0px 1px 0px #fff
+    -webkit-border-top-right-radius 5px
+    -webkit-border-top-left-radius 5px
+    -moz-border-radius 5px 5px 0 0
+    border-radius 5px 5px 0 0
+  &.medium.profile span:after /* head */
+    margin-left 11px
+    margin-top -60px
+    width 16px
+    height 24px
+    display block
+    content '.'
+    color transparent 
+    background rgb(64, 64, 64)
+    -webkit-box-shadow 0px 1px 0px #fff
+    -moz-box-box-shadow 0px 1px 0px #fff
+    box-shadow 0px 1px 0px #fff
+    -webkit-border-top-right-radius 5px
+    -webkit-border-top-left-radius 5px
+    -webkit-border-bottom-right-radius 5px 10px
+    -webkit-border-bottom-left-radius 5px 10px
+    -moz-border-radius 5px 5px 5px 5px / 5px 5px 10px 10px
+    border-radius 5px 5px 5px 5px / 5px 5px 10px 10px
+  &.medium.file
+    border 1px solid transparent
+    width 130px
+    height 94px
+  &.medium.file span
+    display block
+    margin-left 46px
+    width 40px
+    height inherit
+  &.medium.file span:before /* page */
+    margin-top 12px
+    left 5px
+    width 40px
+    height 58px
+    border 2px solid rgb(64, 64, 64)
+    display block
+    content '.'
+    color transparent 
+    -webkit-box-shadow 0px 1px 0px #fff
+    -moz-box-box-shadow 0px 1px 0px #fff
+    box-shadow 0px 1px 0px #fff
+    background transparent   
+  &.medium.file span:after /* corner */
+    margin-left 1px
+    border-width 3px
+    width 16px
+    border-style solid
+    border-color transparent rgb(64, 64, 64) rgb(64, 64, 64) transparent
+    margin-top -61px 
+    display block
+    content '.'
+    color transparent 
+    -webkit-box-shadow 0px 1px 0px #fff
+    -moz-box-box-shadow 0px 1px 0px #fff
+    box-shadow 0px 1px 0px #fff
+    background transparent
+  &.large.default
+    width 176px
+    line-height 126px
+    font-size 130px
+    text-shadow 0px 1px 0px #fff
+.default .body
+  background -webkit-gradient(linear, 0% 0%, 0% 100%, from(#7A7A7A), to(#EDEDED), color-stop(.05,#BFBFBF),color-stop(.2,#E3E3E3))
+  &.small
+    -webkit-border-bottom-left-radius 15px
+    -webkit-border-bottom-right-radius 15px
+    height 63px
+    width 88px
+  &.medium
+    -webkit-border-bottom-left-radius 23px
+    -webkit-border-bottom-right-radius 23px
+    height 95px
+    width 132px
+  &.large
+    -webkit-border-bottom-left-radius 30px
+    -webkit-border-bottom-right-radius 30px
+    height 126px
+    width 176px

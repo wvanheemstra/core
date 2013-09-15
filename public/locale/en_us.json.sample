@@ -94,6 +94,87 @@
         "title": "Main",
         "close": "Close"
     },
+
+    /////////////////////////////////////////////
+    // PERSON SLIDE
+    /////////////////////////////////////////////
+    "personSlide": {
+        "title": "Persons",
+        "title1": "Persons1",	
+        "title2": "Persons2",
+        "title3": "Persons3",	
+        "title4": "Persons4",			
+        "logOut": "Log Out",
+        "new": "New",
+        "search": "live search",
+        "name": "Name",
+        "loading": "Loading Persons...",
+        "noMains": "No Persons found."
+    },	
+	
+    /////////////////////////////////////////////
+    // PERSON LIST
+    /////////////////////////////////////////////
+    "personList": {
+        "title": "Persons",
+        "logOut": "Log Out",
+        "new": "New",
+        "search": "live search",
+        "name": "Name",
+        "loading": "Loading Persons...",
+        "noMains": "No Persons found."
+    },
+
+    /////////////////////////////////////////////
+    // PERSON TILE
+    /////////////////////////////////////////////
+    "personTile": {
+        "title": "Persons",
+        "logOut": "Log Out",
+        "new": "New",
+        "search": "live search",
+        "name": "Name",
+        "loading": "Loading Persons...",
+        "noMains": "No Persons found."
+    },
+
+    /////////////////////////////////////////////
+    // PERSON ITEMS
+    /////////////////////////////////////////////
+    "personItem1": {
+        "title": "Item 1",
+    },	
+    "personItem2": {
+        "title": "Item 2",
+    },
+    "personItem3": {
+        "title": "Item 3",
+    },		
+    "personItem4": {
+        "title": "Item 4",
+    },	
+	
+    /////////////////////////////////////////////
+    // PERSON DETAIL
+    /////////////////////////////////////////////
+    "personDetail": {
+        "title": "Person",
+        "back": "Back",
+        "save": "Save",
+        "name": "Name",
+        "delete": "Delete",
+        "creatingMain": "Creating Person ...",
+        "updatingMain": "Updating Person ...",
+        "deletingMain": "Deleting Person..."
+    },
+
+    /////////////////////////////////////////////
+    // PERSON MODAL
+    /////////////////////////////////////////////
+    "personModal": {
+        "title": "Person",
+        "close": "Close"
+    },
 	
     /////////////////////////////////////////////
     // EMPLOYEE LIST

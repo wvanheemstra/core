@@ -95,6 +95,87 @@
         "title": "Main",
         "close": "Sluiten"
     },	
+
+    /////////////////////////////////////////////
+    // PERSON SLIDE
+    /////////////////////////////////////////////
+    "personSlide": {
+        "title": "Personen",
+        "title1": "Personen1",	
+        "title2": "Personen2",
+        "title3": "Personen3",	
+        "title4": "Personen4",			
+        "logOut": "Log Uit",
+        "new": "Nieuw",
+        "search": "live zoeken",
+        "name": "Naam",
+        "loading": "Laad Personen...",
+        "noMains": "Geen Personen gevonden."
+    },	
+	
+    /////////////////////////////////////////////
+    // PERSON LIST
+    /////////////////////////////////////////////
+    "personList": {
+        "title": "Personen",
+        "logOut": "Log Uit",
+        "new": "Nieuw",
+        "search": "live zoeken",
+        "name": "Naam",
+        "loading": "Laad Personen...",
+        "noMains": "Geen Personen gevonden."
+    },
+
+    /////////////////////////////////////////////
+    // PERSON TILE
+    /////////////////////////////////////////////
+    "personTile": {
+        "title": "Personen",
+        "logOut": "Log Uit",
+        "new": "Nieuw",
+        "search": "live zoeken",
+        "name": "Naam",
+        "loading": "Laad Personen...",
+        "noMains": "Geen Personen gevonden."
+    },
+
+    /////////////////////////////////////////////
+    // PERSON ITEMS
+    /////////////////////////////////////////////
+    "personItem1": {
+        "title": "Item 1",
+    },	
+    "personItem2": {
+        "title": "Item 2",
+    },
+    "personItem3": {
+        "title": "Item 3",
+    },		
+    "personItem4": {
+        "title": "Item 4",
+    },	
+	
+    /////////////////////////////////////////////
+    // PERSON DETAIL
+    /////////////////////////////////////////////
+    "personDetail": {
+        "title": "Main",
+        "back": "Terug",
+        "save": "Bewaar",
+        "name": "Naam",
+        "delete": "Verwijder",
+        "creatingMain": "Maak Persoon aan ...",
+        "updatingMain": "Werk Persoon bij ...",
+        "deletingMain": "Verwijder Persoon..."
+    },
+
+    /////////////////////////////////////////////
+    // PERSON MODAL
+    /////////////////////////////////////////////
+    "personModal": {
+        "title": "Persoon",
+        "close": "Sluiten"
+    },	
 	
     /////////////////////////////////////////////
     // EMPLOYEE LIST

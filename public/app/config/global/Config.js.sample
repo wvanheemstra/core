@@ -24,7 +24,18 @@ Ext.define("Core.config.global.Config",{
 		locale: 'en_us',	      // initialize to 'en_us'
 		background: 'noise',      // initialize to 'noise'
 		url: '',				  // initialize to ''
-		title: ''				  // initialize to ''		
+		groups: {},				  // initialize to {}
+		categories: [{
+			0: [{
+				title: 'Home',
+				group: '', // intentionally left empty, to avoid a group bar
+				html: ['<center>',
+					'<img src="./resources/logos/logo.png" />',
+					'<h2>Welcome to Your Home Page</h2>',
+					'<p>This page can be customized in whatever way you prefer.</p>',
+					'</center>'].join("")
+			}]
+		}]		
     },
     constructor : function(config){
         this.initConfig(config);

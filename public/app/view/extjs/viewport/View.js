@@ -19,10 +19,12 @@ Ext.define("Core.view.extjs.viewport.View", {
         "Core.view.extjs.main.list.View",
         "Core.view.extjs.main.detail.View",
         "Core.view.extjs.main.tile.View",
-        "Core.view.extjs.main.modal.View"		
-        //"Core.view.extjs.employee.list.View",
-        //"Core.view.extjs.employee.detail.View",
-        //"Core.view.extjs.employee.tile.View"
+        "Core.view.extjs.main.modal.View",
+		"Core.view.extjs.person.slide.View",
+        "Core.view.extjs.person.list.View",
+        "Core.view.extjs.person.detail.View",
+        "Core.view.extjs.person.tile.View",
+        "Core.view.extjs.person.modal.View"
     ],
 
     config: {
@@ -42,7 +44,6 @@ Ext.define("Core.view.extjs.viewport.View", {
             itemId: "login",
             hidden: true
         },
-		// THIS BELOW CAUSES THE ERROR Uncaught TypeError: Object #<Object> has no method 'getById'
         {
             xtype: "mainSlideView",
             itemId: "mainslide", 
@@ -67,22 +68,32 @@ Ext.define("Core.view.extjs.viewport.View", {
             xtype: "mainModalView",
             itemId: "mainmodal",
             hidden: true
-        }		
-        // {
-            // xtype: "employeeListView",
-            // itemId: "employeelist",
-            // hidden: true
-        // },
-        // {
-            // xtype: "employeeDetailView",
-            // itemId: "employeedetail",
-            // hidden: true
-        // },
-        // {
-            // xtype: "employeeTileView",
-            // itemId: "employeetile",
-            // hidden: true
-        // }
+        },
+        {
+            xtype: "personSlideView",
+            itemId: "personslide", 
+            hidden: true
+        },		
+        {
+            xtype: "personListView",
+            itemId: "personlist",
+            hidden: true
+        },
+        {
+            xtype: "personDetailView",
+            itemId: "persondetail",
+            hidden: true
+        },
+        {
+            xtype: "personTileView",
+            itemId: "maintile",
+            hidden: true
+        },
+        {
+            xtype: "personModalView",
+            itemId: "personmodal",
+            hidden: true
+        }
     ],
 
     // TODO: BMR: Remove all logic from views

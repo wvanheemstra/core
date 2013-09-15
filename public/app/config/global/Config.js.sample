@@ -18,7 +18,7 @@ Ext.define("Core.config.global.Config",{
 		initialView: 'login',     // initialize to 'login'
         previousView: '',         // initialize to empty
         currentView: '',          // initialize to empty
-        nextView: 'mainslide',    // initialize to empty
+        nextView: '',    		  // initialize to empty
         ui: 'neutral',        	  // initialize to 'neutral'
         company: 'Your Company',  // initialize to 'Your Company'
 		locale: 'en_us',	      // initialize to 'en_us'

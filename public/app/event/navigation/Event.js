@@ -9,15 +9,18 @@ Ext.define("Core.event.navigation.Event", {
 
         RIGHT:                              "navigateRight",
         LEFT:                               "navigateLeft",
-
-        ACTION_BACK_SHOW_EMPLOYEE_LIST:     "actionBackShowEmployeeList",
-        ACTION_BACK_SHOW_EMPLOYEE_TILE:     "actionBackShowEmployeeTile",
-        ACTION_SHOW_EMPLOYEE_DETAIL:        "actionShowEmployeeDetail",
         
-        ACTION_BACK_SHOW_MAIN_LIST:     "actionBackShowMainList",
-        ACTION_BACK_SHOW_MAIN_TILE:     "actionBackShowMainTile",
-        ACTION_SHOW_MAIN_DETAIL:        "actionShowMainDetail",  
-        ACTION_SHOW_MAIN_MODAL:         "actionShowMainModal"	
+		// CAN WE MOVE THIS BELOW AWAY... IT SHOULDN'T BE PART OF NAVIGATE
+		
+        ACTION_BACK_SHOW_MAIN_LIST:     	"actionBackShowMainList",
+        ACTION_BACK_SHOW_MAIN_TILE:     	"actionBackShowMainTile",
+        ACTION_SHOW_MAIN_DETAIL:        	"actionShowMainDetail",  
+        ACTION_SHOW_MAIN_MODAL:         	"actionShowMainModal",
+		
+		ACTION_BACK_SHOW_PERSON_LIST:     	"actionBackShowPersonList",
+        ACTION_BACK_SHOW_PERSON_TILE:     	"actionBackShowPersonTile",
+        ACTION_SHOW_PERSON_DETAIL:        	"actionShowPersonDetail",  
+        ACTION_SHOW_PERSON_MODAL:         	"actionShowPersonModal"
     },
 
     action: "",

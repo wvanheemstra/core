@@ -131,11 +131,6 @@ Ext.define("Core.mediator.extjs.viewport.Mediator", {
 				if(nextView == 'mainlist') {view = this.getViewByXType("mainListView");}
 				if(nextView == 'maintile') {view = this.getViewByXType("mainTileView");}	
 				if(nextView == 'mainmodal') {view = this.getViewByXType("mainModalView");}				
-				// PERSON
-				if(nextView == 'personslide') {view = this.getViewByXType("personSlideView");}
-				if(nextView == 'personlist') {view = this.getViewByXType("personListView");}
-				if(nextView == 'persontile') {view = this.getViewByXType("personTileView");}	
-				if(nextView == 'personmodal') {view = this.getViewByXType("personModalView");}				
 				
 				Core.config.global.Config.setCurrentView(nextView);
                 direction = this.getSlideLeftTransition();
@@ -182,41 +177,7 @@ Ext.define("Core.mediator.extjs.viewport.Mediator", {
 				Core.config.global.Config.setCurrentView('mainslide');
                 direction = this.getSlideRightTransition(); // CHANGE THIS TO A CLOSE TRANSITION
                 break;
-			// PERSON
-            case Core.event.navigation.Event.ACTION_SHOW_PERSON_DETAIL:
-                view = this.getViewByXType("personDetailView");
-				Core.config.global.Config.setCurrentView('persondetail');
-                direction = this.getSlideLeftTransition();
-                break;
-				
-            case Core.event.navigation.Event.ACTION_SHOW_PERSON_MODAL:
-                view = this.getViewByXType("personModalView");
-				Core.config.global.Config.setCurrentView('personmodal');
-                direction = this.getSlideLeftTransition();// CHANGE THIS TO AN OPEN TRANSITION
-                break;				
 
-            case Core.event.navigation.Event.ACTION_BACK_SHOW_PERSON_SLIDE:
-                view = this.getViewByXType("personSlideView");
-				Core.config.global.Config.setCurrentView('personslide');
-                direction = this.getSlideRightTransition();
-                break;
-				
-            case Core.event.navigation.Event.ACTION_BACK_SHOW_PERSON_LIST:
-                view = this.getViewByXType("personListView");
-				Core.config.global.Config.setCurrentView('personlist');
-                direction = this.getSlideRightTransition();
-                break;
-
-            case Core.event.navigation.Event.ACTION_BACK_SHOW_PERSON_TILE:
-                view = this.getViewByXType("personTileView");
-				Core.config.global.Config.setCurrentView('persontile');
-                direction = this.getSlideRightTransition();
-                break;
-
-            case Core.event.navigation.Event.ACTION_CLOSE_SHOW_PERSON_SLIDE:
-                view = this.getViewByXType("personSlideView");
-				Core.config.global.Config.setCurrentView('personslide');
-                direction = this.getSlideRightTransition(); // CHANGE THIS TO A CLOSE TRANSITION
         }
 
         // only navigate to the screen if the view exists

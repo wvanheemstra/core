@@ -1,5 +1,5 @@
 /**
- * The main application class sets up the following:
+ * The person application class sets up the following:
  *
  * <ul>
  * <li>Sets up loaders and class loader dependencies</li>
@@ -26,12 +26,10 @@ Ext.onReady(function () {
         "Core.service.url.mock.Service",
         "Core.service.authentication.Service",
         "Core.service.authentication.mock.Service",
-        "Core.service.main.Service",
-        "Core.service.main.mock.Service",		
-        //"Core.service.employee.mock.Service",
+        "Core.service.person.Service",
+        "Core.service.person.mock.Service",		
 		"Core.store.session.Store",
-        "Core.store.main.Store",		
-        //"Core.store.employee.Store",
+        "Core.store.person.Store",		
         "FlowMVC.mvc.event.EventDispatcher",
         "FlowMVC.logger.Logger"
     ]);
@@ -61,8 +59,7 @@ Ext.onReady(function () {
         // IMPL
         ////////////////////////////////////////////
         sessionStore:			"Core.store.session.Store",
-        mainStore:				"Core.store.main.Store",		
-        //employeeStore:          "Core.store.employee.Store",
+        personStore:			"Core.store.person.Store",	
 
 	    ////////////////////////////////////////////
 	    // SERVICES
@@ -77,8 +74,7 @@ Ext.onReady(function () {
         uiService:        		"Core.service.ui.mock.Service",
         companyService:        	"Core.service.company.mock.Service",
         urlService:        	    "Core.service.url.mock.Service",		
-        mainService:			"Core.service.main.mock.Service",
-        //employeeService:        "Core.service.employee.mock.Service",
+        personService:			"Core.service.person.mock.Service",
 
         sessionServiceClass: {
             value: "Core.service.session.mock.Service"
@@ -102,6 +98,10 @@ Ext.onReady(function () {
 
         urlServiceClass: {
             value: "Core.service.url.mock.Service"
+        },
+
+        personServiceClass: {
+            value: "Core.service.person.mock.Service"
         }
     });
 });
@@ -121,7 +121,8 @@ Ext.application({
     // CONFIG
     ////////////////////////////////////////////    
     requires: [
-    	"Core.config.global.Config"
+    	"Core.config.global.Config",
+		"Core.config.person.Config"
     ],
 
     ////////////////////////////////////////////
@@ -129,24 +130,20 @@ Ext.application({
     ////////////////////////////////////////////
     models: [
         "session.Model",
-    	"main.Model"
-		//"employee.Model"
+    	"person.Model"
     ],
 
     ////////////////////////////////////////////
     // VIEWS
     ////////////////////////////////////////////
     views: [
-        "Core.view.extjs.viewport.View",
+        "Core.view.extjs.viewport.person.View",
         "Core.view.extjs.login.View",
-        "Core.view.extjs.main.slide.View",		
-        "Core.view.extjs.main.list.View",
-        "Core.view.extjs.main.detail.View",
-        "Core.view.extjs.main.tile.View",
-        "Core.view.extjs.main.modal.View"		
-        //"Core.view.extjs.employee.list.View",
-        //"Core.view.extjs.employee.detail.View",
-        //"Core.view.extjs.employee.tile.View"
+        "Core.view.extjs.person.slide.View",		
+        "Core.view.extjs.person.list.View",
+        "Core.view.extjs.person.detail.View",
+        "Core.view.extjs.person.tile.View",
+        "Core.view.extjs.person.modal.View"		
     ],
 
     ////////////////////////////////////////////
@@ -160,8 +157,7 @@ Ext.application({
         "company.Controller",
         "url.Controller",		
         "authentication.Controller",
-        "main.Controller"		
-        //"employee.Controller"
+        "person.Controller"	
     ],
 
     /**
@@ -178,7 +174,7 @@ Ext.application({
 
         // Set up QuickTips and create the Viewport
         Ext.tip.QuickTipManager.init();
-        var viewport = Ext.create("Core.view.extjs.viewport.View");
+        var viewport = Ext.create("Core.view.extjs.viewport.person.View");
 		// BELOW IS MOVED TO GET_SESSION_SUCCESS and GET_SESSION_FAILURE
 		// viewport.setView(Core.config.global.Config.getInitialView());
 		var viewportMediator = viewport.getController();

@@ -31,10 +31,6 @@ Ext.define("Core.mediator.touch.viewport.Mediator", {
         mainTileView:			"mainTileView",
         mainModalView:			"mainModalView",	
         mainDetailView:		    "mainDetailView"
-        personListView:         "personListView",
-        personTileView:         "personTileView",
-        personModalView:		"personModalView",
-        personDetailView:       "personDetailView"
     },
 
     ////////////////////////////////////////////////
@@ -154,10 +150,6 @@ Ext.define("Core.mediator.touch.viewport.Mediator", {
 				if(nextView == 'mainslide') {view = this.getViewByXType("mainSlideView");}
 				if(nextView == 'mainlist') {view = this.getViewByXType("mainListView");}
 				if(nextView == 'maintile') {view = this.getViewByXType("mainTileView");}
-				// PERSON
-				if(nextView == 'personslide') {view = this.getViewByXType("personSlideView");}
-				if(nextView == 'personlist') {view = this.getViewByXType("personListView");}
-				if(nextView == 'persontile') {view = this.getViewByXType("personTileView");}
 				Core.config.global.Config.setCurrentView(nextView);
                 direction = 'left';
                 break;
@@ -232,69 +224,7 @@ Ext.define("Core.mediator.touch.viewport.Mediator", {
 				duration = 600;
 				easing = {type: 'ease-out'};
                 break;				
-				
-				// PERSON
-            case Core.event.navigation.Event.ACTION_SHOW_PERSON_SLIDE:
-                view = this.getPersonSlideView();
-				Core.config.global.Config.setCurrentView('personslide');
-                direction = 'right';
-                break;
-				
-            case Core.event.navigation.Event.ACTION_SHOW_PERSON_LIST:
-                view = this.getPersonListView();
-				Core.config.global.Config.setCurrentView('personlist');
-                direction = 'right';
-                break;
-
-            case Core.event.navigation.Event.ACTION_SHOW_PERSON_TILE:
-                view = this.getPersonTileView();
-				Core.config.global.Config.setCurrentView('persontile');
-                direction = 'right';
-                break;
-
-            case Core.event.navigation.Event.ACTION_SHOW_PERSON_MODAL:
-                view = this.getPersonModalView();
-				Core.config.global.Config.setCurrentView('personmodal');
-				type = 'pop';
-				duration = 600;
-				easing = {type: 'ease-in'};
-                break;				
-				
-            case Core.event.navigation.Event.ACTION_SHOW_PERSON_DETAIL:
-                view = this.getPersonDetailView();
-				Core.config.global.Config.setCurrentView('persondetail');
-                direction = 'left';
-				type = 'slide';
-                break;
-
-            case Core.event.navigation.Event.ACTION_BACK_SHOW_PERSON_SLIDE:
-                view = this.getPersonSlideView();
-				Core.config.global.Config.setCurrentView('personslide');
-                direction = 'right';
-				type = 'slide';
-                break;				
-				
-            case Core.event.navigation.Event.ACTION_BACK_SHOW_PERSON_LIST:
-                view = this.getPersonListView();
-				Core.config.global.Config.setCurrentView('personlist');
-                direction = 'right';
-				type = 'slide';
-                break;
-                
-            case Core.event.navigation.Event.ACTION_BACK_SHOW_PERSON_TILE:
-                view = this.getPersonTileView();
-				Core.config.global.Config.setCurrentView('persontile');
-                direction = 'right';
-				type = 'slide';
-                break;				
-
-            case Core.event.navigation.Event.ACTION_CLOSE_SHOW_PERSON_SLIDE:
-                view = this.getPersonSlideView();
-				Core.config.global.Config.setCurrentView('personslide');
-				type = 'pop';
-				duration = 600;
-				easing = {type: 'ease-out'};
-                break;				
+			
         }
 
         // only navigate to the screen if the view exist

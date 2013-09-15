@@ -196,7 +196,7 @@ Ext.application({
         Ext.fly('appLoadingIndicator').destroy();
 
         //since there's no view associated with it
-        var viewportMediator = Ext.create("Core.mediator.touch.viewport.Mediator");
+        var viewportMediator = Ext.create("Core.mediator.touch.viewport.person.Mediator");
         viewportMediator.init();
 
         Ext.Viewport.add([

@@ -228,7 +228,14 @@ else {
 
 // routing to pages
 app.get('/', function(req, res) {
-    res.render('index', { title: title, host: host, web_root: web_root, layout: false });
+	// Distinguish based on an optional key-value parameter in the request url (e.g. '/?app=person')
+	var app = 'index'; // default
+	// update app variable here with value from 'app' key (e.g. app=person) sets app to 'person'
+	if(req.query.app){
+		app = req.query.app;	
+	}
+	console.log("App requested: " + app);	
+    res.render(app, { title: title, host: host, web_root: web_root, layout: false });
 });
 
 app.get('/2', function(req, res) {
@@ -248,7 +255,14 @@ app.get('/5', function(req, res) {
 });
 
 app.get('/debug', function(req, res) {
-    res.render('index-debug', { title: title, host: host, web_root: web_root, layout: false });
+	// Distinguish based on an optional key-value parameter in the request url (e.g. '/debug?app=person')
+	var appDebug = 'index-debug'; // default
+	// update appDebug variable here with value from 'app' key (e.g. app=person) sets appDebug to 'person-debug'
+	if(req.query.app){
+		appDebug = req.query.app + '-debug';	
+	}
+	console.log("App requested: " + appDebug);		
+    res.render(appDebug, { title: title, host: host, web_root: web_root, layout: false });
 });
 
 app.get('/page-analyzer', function(req, res) {
@@ -256,7 +270,14 @@ app.get('/page-analyzer', function(req, res) {
 });
 
 app.get('/touch', function(req, res) {
-    res.render('index-touch', { title: title, host: host, web_root: web_root, layout: false });
+	// Distinguish based on an optional key-value parameter in the request url (e.g. '/touch?app=person')
+	var appTouch = 'index-touch'; // default
+	// update appTouch variable here with value from 'app' key (e.g. app=person) sets appTouch to 'person-touch'
+	if(req.query.app){
+		appTouch = req.query.app + '-touch';
+	}
+	console.log("App requested: " + appTouch);	
+    res.render(appTouch, { title: title, host: host, web_root: web_root, layout: false });
 });
 
 app.listen(app_port, function () {

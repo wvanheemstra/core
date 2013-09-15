@@ -1,5 +1,5 @@
 /**
- * Contains the list of person doperson objects.
+ * Contains the list of person objects.
  */
 Ext.define("Core.store.person.Store", {
     extend: "FlowMVC.mvc.store.AbstractStore",

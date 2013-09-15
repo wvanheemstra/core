@@ -12,8 +12,6 @@ Ext.define("Core.controller.authentication.Controller", {
 
     inject: [
         "authenticationService",
-        "mainStore",
-        //"employeeStore",
         "authenticationServiceClass",
         "logger"
     ],
@@ -80,10 +78,7 @@ Ext.define("Core.controller.authentication.Controller", {
      */
     resetSessionData: function() {
         this.logger.info("resetSessionData");
-
         this.setSessionToken(null);
-        this.mainStore.setData(null);
-        //this.employeeStore.setData(null);
     },
 
     ////////////////////////////////////////////////

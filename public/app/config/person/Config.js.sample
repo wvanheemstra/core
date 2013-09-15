@@ -1,0 +1,32 @@
+/*
+ * Config for values that belong tot person and set at runtime
+ *
+ * Example to set a person value:
+ * Core.config.person.Config.setMyLastCustomer(12345);
+ *
+ * Example to get a person value:
+ * Core.config.person.Config.getMyLastCustomer();
+ *
+ */
+Ext.define("Core.config.person.Config",{
+    singleton : true,
+    config : {
+        //myLastCustomer : 0,     // initialize to 0
+        id: 0,     				  // initialize to 0
+        sessionId: '',            // initialize to empty
+        keepMeLoggedIn: false,	  // initialize to false
+		initialView: 'login',     // initialize to 'login'
+        previousView: '',         // initialize to empty
+        currentView: '',          // initialize to empty
+        nextView: 'personlist',   // initialize to empty
+        ui: 'neutral',        	  // initialize to 'neutral'
+        company: 'Your Company',  // initialize to 'Your Company'
+		locale: 'en_us',	      // initialize to 'en_us'
+		background: 'noise',      // initialize to 'noise'
+		url: '',				  // initialize to ''
+		title: ''				  // initialize to ''		
+    },
+    constructor : function(config){
+        this.initConfig(config);
+    }
+});

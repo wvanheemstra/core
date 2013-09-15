@@ -1,12 +1,12 @@
 /**
- * The main application class sets up the following:
+ * The person application class sets up the following:
  *
  * <ul>
  * <li>Sets up loaders and class loader dependencies</li>
  * <li>Sencha MVC infrastructure (listing out the models, views, and controllers)</li>
  * <li>WASI Sencha Extensions library</li>
  * <li>DeftJS IoC and dependencies</li>
- * <li>Adds the views to the main Viewport when the application launches</li>
+ * <li>Adds the views to the person Viewport when the application launches</li>
  * </ul>
  */
 Ext.onReady(function () {
@@ -26,12 +26,10 @@ Ext.onReady(function () {
         "Core.service.title.mock.Service", 		
         "Core.service.authentication.Service",
         "Core.service.authentication.mock.Service",
-        "Core.service.main.Service",
-        "Core.service.main.mock.Service",        
-        //"Core.service.employee.mock.Service",
+        "Core.service.person.Service",
+        "Core.service.person.mock.Service",
 		"Core.store.session.Store",
-        "Core.store.main.Store",
-        //"Core.store.employee.Store",
+        "Core.store.person.Store",
         "nineam.locale.LocaleManager",
         "nineam.locale.plugin.touch.LocalePlugin"
 
@@ -54,8 +52,7 @@ Ext.onReady(function () {
         // IMPL
         ////////////////////////////////////////////
         sessionStore:			"Core.store.session.Store",
-        mainStore:				"Core.store.main.Store",
-        //employeeStore:          "Core.store.employee.Store",
+        personStore:			"Core.store.person.Store",
 
 	    ////////////////////////////////////////////
 	    // SERVICES
@@ -71,8 +68,7 @@ Ext.onReady(function () {
         companyService:        	"Core.service.company.mock.Service",   
         urlService:        	    "Core.service.url.mock.Service", 
         titleService:        	"Core.service.title.mock.Service", 		
-        mainService:			"Core.service.main.mock.Service",
-        //employeeService:        "Core.service.employee.mock.Service",
+        personService:			"Core.service.person.mock.Service",
 
         sessionServiceClass: {
             value: "Core.service.session.mock.Service"
@@ -100,7 +96,11 @@ Ext.onReady(function () {
 		
         titleServiceClass: {
             value: "Core.service.title.mock.Service"
-        }		
+        },
+		
+        personServiceClass: {
+            value: "Core.service.person.mock.Service"
+        }	
     });
 
 });
@@ -120,7 +120,8 @@ Ext.application({
     // CONFIG
     ////////////////////////////////////////////    
     requires: [
-    	"Core.config.global.Config"
+    	"Core.config.global.Config",
+    	"Core.config.person.Config"	
     ],
     
     ////////////////////////////////////////////
@@ -128,8 +129,7 @@ Ext.application({
     ////////////////////////////////////////////
     models: [
         "session.Model",
-    	"main.Model"
-        //"employee.Model"
+    	"person.Model"
     ],    
 
     ////////////////////////////////////////////
@@ -137,14 +137,11 @@ Ext.application({
     ////////////////////////////////////////////
     views: [
         "Core.view.touch.login.View",
-		"Core.view.touch.main.slide.View",
-        "Core.view.touch.main.list.View",
-        "Core.view.touch.main.tile.View",
-        "Core.view.touch.main.modal.View",		
-        "Core.view.touch.main.detail.View"
-        //"Core.view.touch.employee.list.View",
-        //"Core.view.touch.employee.tile.View",
-        //"Core.view.touch.employee.detail.View"
+		"Core.view.touch.person.slide.View",
+        "Core.view.touch.person.list.View",
+        "Core.view.touch.person.tile.View",
+        "Core.view.touch.person.modal.View",		
+        "Core.view.touch.person.detail.View"
     ],
 
     ////////////////////////////////////////////
@@ -159,8 +156,7 @@ Ext.application({
         "url.Controller",
         "title.Controller",		
         "authentication.Controller",
-        "main.Controller"
-        //"employee.Controller"
+        "person.Controller"
     ],
 
     ////////////////////////////////////////////
@@ -205,14 +201,11 @@ Ext.application({
 
         Ext.Viewport.add([
             { xtype: "loginView" },
-			{ xtype: "mainSlideView" },
-            { xtype: "mainListView" },
-            { xtype: "mainTileView" },
-            { xtype: "mainModalView" },	
-            { xtype: "mainDetailView" }
-            //{ xtype: "employeeListView" },
-            //{ xtype: "employeeTileView" },
-            //{ xtype: "employeeDetailView" }            
+			{ xtype: "personSlideView" },
+            { xtype: "personListView" },
+            { xtype: "personTileView" },
+            { xtype: "personModalView" },	
+            { xtype: "personDetailView" }           
         ]);
 		
 		viewportMediator.setupViewport();

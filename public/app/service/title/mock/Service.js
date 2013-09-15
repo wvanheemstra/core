@@ -16,29 +16,25 @@ Ext.define("Core.service.title.mock.Service", {
     set: function(title) {
         this.logger.debug("set: title = " + title);
 
-        if(
-	        (title == "Google") ||
-		    (title == "Yahoo") ||
-            (title == "Amazon")
-            ) {
+        if(title == title) { // allow any title for now
 
             var response = {
                 success: true,
                 sessionToken: "qwerty0987654321",
                 title: {
-                    title:"Google"
+                    title: title // return the same title as provided
                 }
             };
-
-            return this.delayedSuccess(response);
+			var delayInMilliseconds = 100; // The default delay of 3 seconds (=3000) for mock services.
+            return this.delayedSuccess(response, delayInMilliseconds);
         }
         else {
 
             var response = {
                 success: false
             };
-
-            return this.delayedFailure(response);
+			var delayInMilliseconds = 100; // The default delay of 3 seconds (=3000) for mock services.
+            return this.delayedFailure(response, delayInMilliseconds);
         }
     }
 });

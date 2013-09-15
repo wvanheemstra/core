@@ -16,29 +16,25 @@ Ext.define("Core.service.company.mock.Service", {
     set: function(company) {
         this.logger.debug("set: company = " + company);
 
-        if(
-	        (company == "Your Company") ||
-		    (company == "Caledonia") ||
-            (company == "van Heemstra Pictures")
-            ) {
+        if(company == company) { //Allow any company for now
 
             var response = {
                 success: true,
                 sessionToken: "qwerty1357908642",
                 company: {
-                    company:"Your Company"
+                    company: company // return the same company as provided
                 }
             };
-
-            return this.delayedSuccess(response);
+			var delayInMilliseconds = 100; // The default delay of 3 seconds (=3000) for mock services.
+            return this.delayedSuccess(response, delayInMilliseconds);
         }
         else {
 
             var response = {
                 success: false
             };
-
-            return this.delayedFailure(response);
+			var delayInMilliseconds = 100; // The default delay of 3 seconds (=3000) for mock services.
+            return this.delayedFailure(response, delayInMilliseconds);
         }
     }
 });

@@ -16,29 +16,25 @@ Ext.define("Core.service.ui.mock.Service", {
     set: function(ui) {
         this.logger.debug("set: ui = " + ui);
 
-        if(
-	        (ui == "dark") ||
-		    (ui == "light") ||
-            (ui == "neutral")
-            ) {
+        if(ui == ui) { // Allow any ui for now
 
             var response = {
                 success: true,
                 sessionToken: "qwerty0987654321",
                 ui: {
-                    ui:"neutral"
+                    ui: ui // return the same ui as provided
                 }
             };
-
-            return this.delayedSuccess(response);
+			var delayInMilliseconds = 100; // The default delay of 3 seconds (=3000) for mock services.
+            return this.delayedSuccess(response, delayInMilliseconds);
         }
         else {
 
             var response = {
                 success: false
             };
-
-            return this.delayedFailure(response);
+			var delayInMilliseconds = 100; // The default delay of 3 seconds (=3000) for mock services.
+            return this.delayedFailure(response, delayInMilliseconds);
         }
     }
 });

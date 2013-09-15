@@ -16,26 +16,23 @@ Ext.define("Core.service.background.mock.Service", {
     set: function(background) {
         this.logger.debug("set: background = " + background);
 
-        if(
-	        (background == "noise") ||
-		    (background == "red") ||
-            (background == "blue")
-            ) {
+        if(background == background) { // allow any background for now
 
             var response = {
                 success: true,
                 background: {
-                    background: "url('/bg/noise.png')"
+                    background: background // return the same background as provided
                 }
             };
-
-            return this.delayedSuccess(response);
+			var delayInMilliseconds = 100; // The default delay of 3 seconds (=3000) for mock services.
+            return this.delayedSuccess(response, delayInMilliseconds);
         }
         else {
             var response = {
                 success: false
             };
-            return this.delayedFailure(response);
+			var delayInMilliseconds = 100; // The default delay of 3 seconds (=3000) for mock services.			
+            return this.delayedFailure(response, delayInMilliseconds);
         }
     }
 });

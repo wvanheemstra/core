@@ -48,7 +48,8 @@ Ext.define("Core.service.session.mock.Service", {
 					sessionId: value['sessionId']
 				}
 			};
-			return me.delayedSuccess(response);
+			var delayInMilliseconds = 100; // The default delay of 3 seconds (=3000) for mock services.				
+			return me.delayedSuccess(response, delayInMilliseconds);
 		}
 
 		// THIS CHECK IS WHEN WE DO PROVIDE A sessionId OTHER THAN '' TO VERIFY
@@ -78,8 +79,8 @@ Ext.define("Core.service.session.mock.Service", {
 	                    sessionId: me.sessionId
 	                }
 	            };
-	            
-	            return me.delayedSuccess(response);
+				var delayInMilliseconds = 100; // The default delay of 3 seconds (=3000) for mock services.	            
+	            return me.delayedSuccess(response, delayInMilliseconds);
 			}// eof second if
 			else {   
 				this.logger.debug("getSession.failure");
@@ -87,7 +88,8 @@ Ext.define("Core.service.session.mock.Service", {
 				var response = {
 	                success: false
 	            };
-	            return me.delayedFailure(response);
+				var delayInMilliseconds = 100; // The default delay of 3 seconds (=3000) for mock services.					
+	            return me.delayedFailure(response, delayInMilliseconds);
 			}
 	    }// eof first if
 	    else {
@@ -96,7 +98,8 @@ Ext.define("Core.service.session.mock.Service", {
 			var response = {
                 success: false
             };
-            return me.delayedFailure(response);	    	
+			var delayInMilliseconds = 100; // The default delay of 3 seconds (=3000) for mock services.				
+            return me.delayedFailure(response, delayInMilliseconds);    	
 	    }
 	    // REPLACE ONCE SENCHA WORKS WITH localstorage AS DESIGNED
 
@@ -153,8 +156,8 @@ Ext.define("Core.service.session.mock.Service", {
             
 			this.logger.debug("sessionStore: ");// for testing only
 	    	console.log(sessionStore);
-            
-            return me.delayedSuccess(response);
+			var delayInMilliseconds = 100; // The default delay of 3 seconds (=3000) for mock services.	            
+            return me.delayedSuccess(response, delayInMilliseconds);
 		}
 		else {   
 			this.logger.debug("setSession.failure");
@@ -162,7 +165,8 @@ Ext.define("Core.service.session.mock.Service", {
 			var response = {
                 success: false
             };
-            return me.delayedFailure(response);
+			var delayInMilliseconds = 100; // The default delay of 3 seconds (=3000) for mock services.				
+            return me.delayedFailure(response, delayInMilliseconds);
 		}
 
 	},
@@ -201,14 +205,16 @@ Ext.define("Core.service.session.mock.Service", {
                     sessionId: me.sessionId
                 }
             };
-			return me.delayedSuccess(response);	
+			var delayInMilliseconds = 100; // The default delay of 3 seconds (=3000) for mock services.				
+			return me.delayedSuccess(response, delayInMilliseconds);
 		}
 		else {   
 			this.logger.debug("clearSession.failure");
 			var response = {
                 success: false
             };
-			return me.delayedFailure(response);
+			var delayInMilliseconds = 100; // The default delay of 3 seconds (=3000) for mock services.				
+			return me.delayedFailure(response, delayInMilliseconds);
 		}
 	} 
 	

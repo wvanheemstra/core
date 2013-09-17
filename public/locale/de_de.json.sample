@@ -97,90 +97,90 @@
     },
 
     /////////////////////////////////////////////
-    // PERSON SLIDE
+    // ORGANISATION SLIDE
     /////////////////////////////////////////////
-    "personSlide": {
-        "title": "Personen",
-        "title1": "Personen1",	
-        "title2": "Personen2",
-        "title3": "Personen3",	
-        "title4": "Personen4",			
+    "organisationSlide": {
+        "title": "Organisationen",
+        "title1": "Organisationen1",	
+        "title2": "Organisationen2",
+        "title3": "Organisationen3",	
+        "title4": "Organisationen4",			
         "logOut": "Abmelden",
         "new": "Neu",
         "search": "live suchen",
         "name": "Name",
-        "loading": "Laad Personen...",
-        "noMains": "Keine Personen wurden gefunden."
+        "loading": "Laad Organisationen...",
+        "noMains": "Keine Organisationen wurden gefunden."
     },	
 	
     /////////////////////////////////////////////
-    // PERSON LIST
+    // ORGANISATION LIST
     /////////////////////////////////////////////
-    "personList": {
-        "title": "Personen",
+    "organisationList": {
+        "title": "Organisationen",
         "logOut": "Abmelden",
         "new": "Neu",
         "search": "live suchen",
         "name": "Name",
-        "loading": "Laad Personen...",
-        "noMains": "Keine Personen wurden gefunden."
+        "loading": "Laad Organisationen...",
+        "noMains": "Keine Organisationen wurden gefunden."
     },
 
     /////////////////////////////////////////////
-    // PERSON TILE
+    // ORGANISATION TILE
     /////////////////////////////////////////////
-    "personTile": {
-        "title": "Personen",
+    "organisationTile": {
+        "title": "Organisationen",
         "logOut": "Abmelden",
         "new": "Neu",
         "search": "live suchen",
         "name": "Name",
-        "loading": "Laad Personen...",
-        "noMains": "Keine Personen wurden gefunden."
+        "loading": "Laad Organisationen...",
+        "noMains": "Keine Organisationen wurden gefunden."
     },
 
     /////////////////////////////////////////////
-    // PERSON ITEMS
+    // ORGANISATION ITEMS
     /////////////////////////////////////////////
-    "personItem1": {
+    "organisationItem1": {
         "title": "Item 1",
     },	
-    "personItem2": {
+    "organisationItem2": {
         "title": "Item 2",
     },
-    "personItem3": {
+    "organisationItem3": {
         "title": "Item 3",
     },		
-    "personItem4": {
+    "organisationItem4": {
         "title": "Item 4",
     },	
 	
     /////////////////////////////////////////////
-    // PERSON CATEGORIES
+    // ORGANISATION CATEGORIES
     /////////////////////////////////////////////
-    "personCategory0": {
+    "organisationCategory0": {
         "title": "Home",
     },
 	
     /////////////////////////////////////////////
-    // PERSON DETAIL
+    // ORGANISATION DETAIL
     /////////////////////////////////////////////
-    "personDetail": {
-        "title": "Person",
+    "organisationDetail": {
+        "title": "Organisation",
         "back": "Zurück",
         "save": "Speichern",
         "name": "Name",
         "delete": "Löschen",
-        "creatingMain": "Mach Person neu an ...",
-        "updatingMain": "Bearbeit Person ...",
-        "deletingMain": "Lösch Person..."
+        "creatingMain": "Mach Organisation neu an ...",
+        "updatingMain": "Bearbeit Organisation ...",
+        "deletingMain": "Lösch Organisation..."
     },
 
     /////////////////////////////////////////////
-    // PERSON MODAL
+    // ORGANISATION MODAL
     /////////////////////////////////////////////
-    "personModal": {
-        "title": "Person",
+    "organisationModal": {
+        "title": "Organisation",
         "close": "schließen"
     },
 	

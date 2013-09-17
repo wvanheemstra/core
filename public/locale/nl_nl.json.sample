@@ -97,90 +97,90 @@
     },	
 
     /////////////////////////////////////////////
-    // PERSON SLIDE
+    // ORGANISATION SLIDE
     /////////////////////////////////////////////
-    "personSlide": {
-        "title": "Personen",
-        "title1": "Personen1",	
-        "title2": "Personen2",
-        "title3": "Personen3",	
-        "title4": "Personen4",			
+    "organisationSlide": {
+        "title": "Organisatie",
+        "title1": "Organisatie1",	
+        "title2": "Organisatie2",
+        "title3": "Organisatie3",	
+        "title4": "Organisatie4",			
         "logOut": "Log Uit",
         "new": "Nieuw",
         "search": "live zoeken",
         "name": "Naam",
-        "loading": "Laad Personen...",
-        "noMains": "Geen Personen gevonden."
+        "loading": "Laad Organisatie...",
+        "noMains": "Geen Organisatie gevonden."
     },	
 	
     /////////////////////////////////////////////
-    // PERSON LIST
+    // ORGANISATION LIST
     /////////////////////////////////////////////
-    "personList": {
-        "title": "Personen",
+    "organisationList": {
+        "title": "Organisatie",
         "logOut": "Log Uit",
         "new": "Nieuw",
         "search": "live zoeken",
         "name": "Naam",
-        "loading": "Laad Personen...",
-        "noMains": "Geen Personen gevonden."
+        "loading": "Laad Organisatie...",
+        "noMains": "Geen Organisatie gevonden."
     },
 
     /////////////////////////////////////////////
-    // PERSON TILE
+    // ORGANISATION TILE
     /////////////////////////////////////////////
-    "personTile": {
-        "title": "Personen",
+    "organisationTile": {
+        "title": "Organisatie",
         "logOut": "Log Uit",
         "new": "Nieuw",
         "search": "live zoeken",
         "name": "Naam",
-        "loading": "Laad Personen...",
-        "noMains": "Geen Personen gevonden."
+        "loading": "Laad Organisatie...",
+        "noMains": "Geen Organisatie gevonden."
     },
 
     /////////////////////////////////////////////
-    // PERSON ITEMS
+    // ORGANISATION ITEMS
     /////////////////////////////////////////////
-    "personItem1": {
+    "organisationItem1": {
         "title": "Item 1",
     },	
-    "personItem2": {
+    "organisationItem2": {
         "title": "Item 2",
     },
-    "personItem3": {
+    "organisationItem3": {
         "title": "Item 3",
     },		
-    "personItem4": {
+    "organisationItem4": {
         "title": "Item 4",
     },	
 	
     /////////////////////////////////////////////
-    // PERSON CATEGORIES
+    // ORGANISATION CATEGORIES
     /////////////////////////////////////////////
-    "personCategory0": {
+    "organisationCategory0": {
         "title": "Home",
     },
 		
     /////////////////////////////////////////////
-    // PERSON DETAIL
+    // ORGANISATION DETAIL
     /////////////////////////////////////////////
-    "personDetail": {
+    "organisationDetail": {
         "title": "Main",
         "back": "Terug",
         "save": "Bewaar",
         "name": "Naam",
         "delete": "Verwijder",
-        "creatingMain": "Maak Persoon aan ...",
-        "updatingMain": "Werk Persoon bij ...",
-        "deletingMain": "Verwijder Persoon..."
+        "creatingMain": "Maak Organisatie aan ...",
+        "updatingMain": "Werk Organisatie bij ...",
+        "deletingMain": "Verwijder Organisatie..."
     },
 
     /////////////////////////////////////////////
-    // PERSON MODAL
+    // ORGANISATION MODAL
     /////////////////////////////////////////////
-    "personModal": {
-        "title": "Persoon",
+    "organisationModal": {
+        "title": "Organisatie",
         "close": "Sluiten"
     },	
 	

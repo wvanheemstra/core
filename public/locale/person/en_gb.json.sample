@@ -16,222 +16,97 @@
     },
 
     /////////////////////////////////////////////
-    // MAIN SLIDE
+    // PERSON SLIDE
     /////////////////////////////////////////////
-    "mainSlide": {
-        "title": "Mains",
-        "title1": "Mains1",	
-        "title2": "Mains2",
-        "title3": "Mains3",	
-        "title4": "Mains4",			
+    "personSlide": {
+        "title": "Persons",
+        "title1": "Persons1",	
+        "title2": "Persons2",
+        "title3": "Persons3",	
+        "title4": "Persons4",			
         "logOut": "Log Out",
         "new": "New",
         "search": "live search",
         "name": "Name",
-        "loading": "Loading Mains...",
-        "noMains": "No Mains found."
-    },
+        "loading": "Loading Persons...",
+        "noMains": "No Persons found."
+    },	
 	
     /////////////////////////////////////////////
-    // MAIN LIST
+    // PERSON LIST
     /////////////////////////////////////////////
-    "mainList": {
-        "title": "Mains",
+    "personList": {
+        "title": "Persons",
         "logOut": "Log Out",
         "new": "New",
         "search": "live search",
         "name": "Name",
-        "loading": "Loading Mains...",
-        "noMains": "No Mains found."
+        "loading": "Loading Persons...",
+        "noMains": "No Persons found."
     },
 
     /////////////////////////////////////////////
-    // MAIN TILE
+    // PERSON TILE
     /////////////////////////////////////////////
-    "mainTile": {
-        "title": "Mains",
+    "personTile": {
+        "title": "Persons",
         "logOut": "Log Out",
         "new": "New",
         "search": "live search",
         "name": "Name",
-        "loading": "Loading Mains...",
-        "noMains": "No Mains found."
+        "loading": "Loading Persons...",
+        "noMains": "No Persons found."
     },
-	
+
     /////////////////////////////////////////////
-    // MAIN ITEMS
+    // PERSON ITEMS
     /////////////////////////////////////////////
-    "mainItem1": {
+    "personItem1": {
         "title": "Item 1",
     },	
-    "mainItem2": {
+    "personItem2": {
         "title": "Item 2",
     },
-    "mainItem3": {
-        "title": "Item 3",
-    },
-    "mainItem4": {
-        "title": "Item 4",
-    },
-	
-    /////////////////////////////////////////////
-    // MAIN DETAIL
-    /////////////////////////////////////////////
-    "mainDetail": {
-        "title": "Main",
-        "back": "Back",
-        "save": "Save",
-        "name": "Name",
-        "delete": "Delete",
-        "creatingMain": "Creating Main...",
-        "updatingMain": "Updating Main...",
-        "deletingMain": "Deleting Main..."
-    },
-
-    /////////////////////////////////////////////
-    // MAIN MODAL
-    /////////////////////////////////////////////
-    "mainModal": {
-        "title": "Main",
-        "close": "Close"
-    },
-
-    /////////////////////////////////////////////
-    // ORGANISATION SLIDE
-    /////////////////////////////////////////////
-    "organisationSlide": {
-        "title": "Organisations",
-        "title1": "Organisations1",	
-        "title2": "Organisations2",
-        "title3": "Organisations3",	
-        "title4": "Organisations4",			
-        "logOut": "Log Out",
-        "new": "New",
-        "search": "live search",
-        "name": "Name",
-        "loading": "Loading Organisations...",
-        "noMains": "No Organisations found."
-    },	
-	
-    /////////////////////////////////////////////
-    // ORGANISATION LIST
-    /////////////////////////////////////////////
-    "organisationList": {
-        "title": "Organisations",
-        "logOut": "Log Out",
-        "new": "New",
-        "search": "live search",
-        "name": "Name",
-        "loading": "Loading Organisations...",
-        "noMains": "No Organisations found."
-    },
-
-    /////////////////////////////////////////////
-    // ORGANISATION TILE
-    /////////////////////////////////////////////
-    "organisationTile": {
-        "title": "Organisations",
-        "logOut": "Log Out",
-        "new": "New",
-        "search": "live search",
-        "name": "Name",
-        "loading": "Loading Organisations...",
-        "noMains": "No Organisations found."
-    },
-
-    /////////////////////////////////////////////
-    // ORGANISATION ITEMS
-    /////////////////////////////////////////////
-    "organisationItem1": {
-        "title": "Item 1",
-    },	
-    "organisationItem2": {
-        "title": "Item 2",
-    },
-    "organisationItem3": {
+    "personItem3": {
         "title": "Item 3",
     },		
-    "organisationItem4": {
+    "personItem4": {
         "title": "Item 4",
     },	
 	
     /////////////////////////////////////////////
-    // ORGANISATION CATEGORIES
+    // PERSON CATEGORIES
     /////////////////////////////////////////////
-    "organisationCategory0": {
+    "personCategory0": {
         "title": "Home",
     },	
 	
     /////////////////////////////////////////////
-    // ORGANISATION CATEGORIES
+    // PERSON CATEGORIES
     /////////////////////////////////////////////
-    "organisationCategory0": {
+    "personCategory0": {
         "title": "Home",
     },
 		
     /////////////////////////////////////////////
-    // ORGANISATION DETAIL
+    // PERSON DETAIL
     /////////////////////////////////////////////
-    "organisationDetail": {
-        "title": "Organisation",
+    "personDetail": {
+        "title": "Person",
         "back": "Back",
         "save": "Save",
         "name": "Name",
         "delete": "Delete",
-        "creatingMain": "Creating Organisation ...",
-        "updatingMain": "Updating Organisation ...",
-        "deletingMain": "Deleting Organisation..."
+        "creatingMain": "Creating Person ...",
+        "updatingMain": "Updating Person ...",
+        "deletingMain": "Deleting Person..."
     },
 
     /////////////////////////////////////////////
-    // ORGANISATION MODAL
+    // PERSON MODAL
     /////////////////////////////////////////////
-    "organisationModal": {
-        "title": "Organisation",
+    "personModal": {
+        "title": "Person",
         "close": "Close"
-    },
-	
-    /////////////////////////////////////////////
-    // EMPLOYEE LIST
-    /////////////////////////////////////////////
-    "employeeList": {
-        "title": "Employees",
-        "logOut": "Log Out",
-        "new": "New",
-        "search": "live search",
-        "firstName": "First Name",
-        "lastName": "Last Name",
-        "loading": "Loading Employees...",
-        "noEmployees": "No Employees found."
-    },
-
-    /////////////////////////////////////////////
-    // EMPLOYEE TILE
-    /////////////////////////////////////////////
-    "employeeTile": {
-        "title": "Employees",
-        "logOut": "Log Out",
-        "new": "New",
-        "search": "live search",
-        "firstName": "First Name",
-        "lastName": "Last Name",
-        "loading": "Loading Employees...",
-        "noEmployees": "No Employees found."
-    },
-
-    /////////////////////////////////////////////
-    // EMPLOYEE DETAIL
-    /////////////////////////////////////////////
-    "employeeDetail": {
-        "title": "Employee",
-        "back": "Back",
-        "save": "Save",
-        "firstName": "First Name",
-        "lastName": "Last Name",
-        "phoneNumber": "Phone Number",
-        "delete": "Delete",
-        "creatingEmployee": "Creating Employee...",
-        "updatingEmployee": "Updating Employee...",
-        "deletingEmployee": "Deleting Employee..."
     }
 }

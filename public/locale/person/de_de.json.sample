@@ -16,215 +16,90 @@
     },
 
     /////////////////////////////////////////////
-    // MAIN SLIDE
+    // PERSON SLIDE
     /////////////////////////////////////////////
-    "mainSlide": {
-        "title": "Mains",
-        "title1": "Mains1",	
-        "title2": "Mains2",
-        "title3": "Mains3",	
-        "title4": "Mains4",				
+    "personSlide": {
+        "title": "Personen",
+        "title1": "Personen1",	
+        "title2": "Personen2",
+        "title3": "Personen3",	
+        "title4": "Personen4",			
         "logOut": "Abmelden",
         "new": "Neu",
         "search": "live suchen",
         "name": "Name",
-        "loading": "Laad Mains...",
-        "noMains": "Keine Mains wurden gefunden."
+        "loading": "Laad Personen...",
+        "noMains": "Keine Personen wurden gefunden."
     },	
 	
     /////////////////////////////////////////////
-    // MAIN LIST
+    // PERSON LIST
     /////////////////////////////////////////////
-    "mainList": {
-        "title": "Mains",
+    "personList": {
+        "title": "Personen",
         "logOut": "Abmelden",
         "new": "Neu",
         "search": "live suchen",
         "name": "Name",
-        "loading": "Laad Mains...",
-        "noMains": "Keine Mains wurden gefunden."
+        "loading": "Laad Personen...",
+        "noMains": "Keine Personen wurden gefunden."
     },
 
     /////////////////////////////////////////////
-    // MAIN TILE
+    // PERSON TILE
     /////////////////////////////////////////////
-    "mainTile": {
-        "title": "Mains",
+    "personTile": {
+        "title": "Personen",
         "logOut": "Abmelden",
         "new": "Neu",
         "search": "live suchen",
         "name": "Name",
-        "loading": "Laad Mains...",
-        "noMains": "Keine Mains wurden gefunden."
+        "loading": "Laad Personen...",
+        "noMains": "Keine Personen wurden gefunden."
     },
 
     /////////////////////////////////////////////
-    // MAIN ITEMS
+    // PERSON ITEMS
     /////////////////////////////////////////////
-    "mainItem1": {
+    "personItem1": {
         "title": "Item 1",
     },	
-    "mainItem2": {
+    "personItem2": {
         "title": "Item 2",
     },
-    "mainItem3": {
-        "title": "Item 3",
-    },	
-    "mainItem4": {
-        "title": "Item 4",
-    },	
-	
-    /////////////////////////////////////////////
-    // MAIN DETAIL
-    /////////////////////////////////////////////
-    "mainDetail": {
-        "title": "Main",
-        "back": "Zurück",
-        "save": "Speichern",
-        "name": "Name",
-        "delete": "Löschen",
-        "creatingMain": "Mach Main neu an ...",
-        "updatingMain": "Bearbeit Main ...",
-        "deletingMain": "Lösch Main..."
-    },
-
-    /////////////////////////////////////////////
-    // MAIN MODAL
-    /////////////////////////////////////////////
-    "mainModal": {
-        "title": "Main",
-        "close": "schließen"
-    },
-
-    /////////////////////////////////////////////
-    // ORGANISATION SLIDE
-    /////////////////////////////////////////////
-    "organisationSlide": {
-        "title": "Organisationen",
-        "title1": "Organisationen1",	
-        "title2": "Organisationen2",
-        "title3": "Organisationen3",	
-        "title4": "Organisationen4",			
-        "logOut": "Abmelden",
-        "new": "Neu",
-        "search": "live suchen",
-        "name": "Name",
-        "loading": "Laad Organisationen...",
-        "noMains": "Keine Organisationen wurden gefunden."
-    },	
-	
-    /////////////////////////////////////////////
-    // ORGANISATION LIST
-    /////////////////////////////////////////////
-    "organisationList": {
-        "title": "Organisationen",
-        "logOut": "Abmelden",
-        "new": "Neu",
-        "search": "live suchen",
-        "name": "Name",
-        "loading": "Laad Organisationen...",
-        "noMains": "Keine Organisationen wurden gefunden."
-    },
-
-    /////////////////////////////////////////////
-    // ORGANISATION TILE
-    /////////////////////////////////////////////
-    "organisationTile": {
-        "title": "Organisationen",
-        "logOut": "Abmelden",
-        "new": "Neu",
-        "search": "live suchen",
-        "name": "Name",
-        "loading": "Laad Organisationen...",
-        "noMains": "Keine Organisationen wurden gefunden."
-    },
-
-    /////////////////////////////////////////////
-    // ORGANISATION ITEMS
-    /////////////////////////////////////////////
-    "organisationItem1": {
-        "title": "Item 1",
-    },	
-    "organisationItem2": {
-        "title": "Item 2",
-    },
-    "organisationItem3": {
+    "personItem3": {
         "title": "Item 3",
     },		
-    "organisationItem4": {
+    "personItem4": {
         "title": "Item 4",
     },	
 	
     /////////////////////////////////////////////
-    // ORGANISATION CATEGORIES
+    // PERSON CATEGORIES
     /////////////////////////////////////////////
-    "organisationCategory0": {
+    "personCategory0": {
         "title": "Home",
     },
 	
     /////////////////////////////////////////////
-    // ORGANISATION DETAIL
+    // PERSON DETAIL
     /////////////////////////////////////////////
-    "organisationDetail": {
-        "title": "Organisation",
+    "personDetail": {
+        "title": "Person",
         "back": "Zurück",
         "save": "Speichern",
         "name": "Name",
         "delete": "Löschen",
-        "creatingMain": "Mach Organisation neu an ...",
-        "updatingMain": "Bearbeit Organisation ...",
-        "deletingMain": "Lösch Organisation..."
+        "creatingMain": "Mach Person neu an ...",
+        "updatingMain": "Bearbeit Person ...",
+        "deletingMain": "Lösch Person..."
     },
 
     /////////////////////////////////////////////
-    // ORGANISATION MODAL
+    // PERSON MODAL
     /////////////////////////////////////////////
-    "organisationModal": {
-        "title": "Organisation",
+    "personModal": {
+        "title": "Person",
         "close": "schließen"
-    },
-	
-    /////////////////////////////////////////////
-    // EMPLOYEE LIST
-    /////////////////////////////////////////////
-    "employeeList": {
-        "title": "Arbeiter",
-        "logOut": "Abmelden",
-        "new": "Neu",
-        "search": "live suchen",
-        "firstName": "Vorname",
-        "lastName": "Nachname",
-        "loading": "Laat Arbeiter...",
-        "noEmployees": "Keine Arbeiter gefunden."
-    },
-
-    /////////////////////////////////////////////
-    // EMPLOYEE TILE
-    /////////////////////////////////////////////
-    "employeeTile": {
-        "title": "Arbeiter",
-        "logOut": "Abmelden",
-        "new": "Neu",
-        "search": "live suchen",
-        "firstName": "Vorname",
-        "lastName": "Nachname",
-        "loading": "Laat Arbeiter...",
-        "noEmployees": "Keine Arbeiter gefunden."
-    },
-
-    /////////////////////////////////////////////
-    // EMPLOYEE DETAIL
-    /////////////////////////////////////////////
-    "employeeDetail": {
-        "title": "Arbeiter",
-        "back": "Zurück",
-        "save": "Speichern",
-        "firstName": "Vorname",
-        "lastName": "Nachname",
-        "phoneNumber": "Telefonnummer",
-        "delete": "Löschen",
-        "creatingEmployee": "Mach Arbeiter neu an...",
-        "updatingEmployee": "Bearbeit Arbeiter...",
-        "deletingEmployee": "Lösch Arbeiter..."
     }
 }

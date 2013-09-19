@@ -11,10 +11,17 @@
  */
 Ext.onReady(function () {
     console.log("app.onReady");
+	
+    Ext.require([
+    	"Core.config.global.Config"
+    ]);
+	
+	var currentApp = 'organisation';
+	Core.config.global.Config.setCurrentApp(currentApp); // Set currentApp globally		
 
     // pull all of this in so they can be injected
     Ext.syncRequire([
-	    "Core.view.extjs.viewport.View",
+	    "Core.view.extjs.viewport.organisation.View",
         "Core.service.session.mock.Service", 
         "Core.service.background.Service",
         "Core.service.background.mock.Service",		

@@ -13,6 +13,13 @@ Ext.onReady(function () {
     console.log("app.onReady");
 
     Ext.require([
+    	"Core.config.global.Config"
+    ]);
+	
+	var currentApp = 'person';
+	Core.config.global.Config.setCurrentApp(currentApp); // Set currentApp globally	
+
+    Ext.require([
         "Core.service.session.mock.Service", 
         "Core.service.background.Service",
         "Core.service.background.mock.Service",	

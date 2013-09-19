@@ -10,7 +10,7 @@
  * </ul>
  */
 Ext.onReady(function () {
-    console.log("app.onReady");
+    console.log("app.onReady");	
 
     Ext.require([
         "Core.service.session.mock.Service", 
@@ -148,7 +148,7 @@ Ext.application({
     // CONTROLLERS
     ////////////////////////////////////////////
     controllers:[
-        "bootstrap.Controller",
+        //"bootstrap.Controller", // DEPRECATED, now part of "organisation.Controller"
         "session.Controller",   
         "background.Controller",
         "ui.Controller",

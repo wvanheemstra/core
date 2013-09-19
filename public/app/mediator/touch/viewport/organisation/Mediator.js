@@ -60,10 +60,7 @@ Ext.define("Core.mediator.touch.viewport.organisation.Mediator", {
 	 *
 	 */
 	setupViewport: function(){
-		this.logger.debug("setupViewport");
-
-		var currentApp = 'organisation';
-		Core.config.global.Config.setCurrentApp(currentApp); // Set currentApp globally		
+		this.logger.debug("setupViewport");	
 		
 		var background = Core.config.organisation.Config.getBackground();
 		this.setBackground(background);		

@@ -10,11 +10,11 @@
  * </ul>
  */
 Ext.onReady(function () {
-    console.log("app.onReady");
+    console.log("app.onReady");	
 
     // pull all of this in so they can be injected
     Ext.syncRequire([
-	    "Core.view.extjs.viewport.View",
+	    "Core.view.extjs.viewport.person.View",
         "Core.service.session.mock.Service", 
         "Core.service.background.Service",
         "Core.service.background.mock.Service",		
@@ -150,7 +150,7 @@ Ext.application({
     // CONTROLLERS
     ////////////////////////////////////////////
     controllers:[
-        "bootstrap.Controller",
+        //"bootstrap.Controller", // DEPRECATED, now part of "person.Controller"
         "session.Controller",  
         "background.Controller",		
         "ui.Controller",

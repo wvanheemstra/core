@@ -173,7 +173,7 @@ Ext.define("Core.mediator.touch.organisation.detail.Mediator", {
      */
     onSetUISuccess: function() {
         this.logger.debug("onSetUISuccess");
-        this.setUI(Core.config.global.Config.getUi());
+        this.setUI(Core.config.organisation.Config.getUi());
     },
 
     /**
@@ -182,7 +182,7 @@ Ext.define("Core.mediator.touch.organisation.detail.Mediator", {
     onCreateOrganisationSuccess: function() {
         this.logger.debug("onCreateOrganisationSuccess");
         this.getView().setMasked(false);
-        this.backToPrevious(Core.config.global.Config.getPreviousView());
+        this.backToPrevious(Core.config.organisation.Config.getPreviousView());
     },
 
     /**
@@ -191,7 +191,7 @@ Ext.define("Core.mediator.touch.organisation.detail.Mediator", {
     onUpdateOrganisationSuccess: function() {
         this.logger.debug("onUpdateOrganisationSuccess");
         this.getView().setMasked(false);
-        this.backToPrevious(Core.config.global.Config.getPreviousView());
+        this.backToPrevious(Core.config.organisation.Config.getPreviousView());
     },
 
     /**
@@ -200,7 +200,7 @@ Ext.define("Core.mediator.touch.organisation.detail.Mediator", {
     onDeleteOrganisationSuccess: function() {
         this.logger.debug("onDeleteOrganisationSuccess");
         this.reset();
-        this.backToPrevious(Core.config.global.Config.getPreviousView());
+        this.backToPrevious(Core.config.organisation.Config.getPreviousView());
     },
 
     /**
@@ -231,7 +231,7 @@ Ext.define("Core.mediator.touch.organisation.detail.Mediator", {
      */
     onBackButtonTap: function() {
         this.logger.debug("onBackButtonTap");
-        this.backToPrevious(Core.config.global.Config.getPreviousView());
+        this.backToPrevious(Core.config.organisation.Config.getPreviousView());
     },
 
     /**

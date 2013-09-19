@@ -42,7 +42,7 @@ Ext.define("Core.mediator.extjs.organisation.list.Mediator", {
             ? ": id = " + record.get("id") + ", organisation = " + record.get("name")
             : "";
         this.logger.debug("showOrganisationDetail = " + logMsg);
-		Core.config.global.Config.setPreviousView('organisationlist');
+		Core.config.organisation.Config.setPreviousView('organisationlist');
         this.organisationStore.setSelectedRecord(record);
 		
 		console.log("selected record:");
@@ -81,7 +81,7 @@ Ext.define("Core.mediator.extjs.organisation.list.Mediator", {
      * onto stage.
      */
     onLoginSuccess: function() {
-		if(Core.config.global.Config.getNextView()==='organisationlist') {
+		if(Core.config.organisation.Config.getNextView()==='organisationlist') {
 			this.logger.debug("onLoginSuccess");		
         	this.navigate(Core.event.authentication.Event.LOGIN_SUCCESS);
         	this.getOrganisationListData();
@@ -93,14 +93,14 @@ Ext.define("Core.mediator.extjs.organisation.list.Mediator", {
      */
     onSetUISuccess: function() {
         this.logger.debug("onSetUISuccess");
-        this.setUI(Core.config.global.Config.getUi());
+        this.setUI(Core.config.organisation.Config.getUi());
     },	
 	
     /**
      * Handles the get organisations success application-level event.
      */
     onGetOrganisationListSuccess: function() {
-		if(Core.config.global.Config.getNextView()==='organisationlist') {
+		if(Core.config.organisation.Config.getNextView()==='organisationlist') {
 			this.logger.debug("onGetOrganisationListSuccess");
 			this.getView().setLoading(false);
 			this.getList().getStore().loadRecords(this.organisationStore.getRange());
@@ -111,7 +111,7 @@ Ext.define("Core.mediator.extjs.organisation.list.Mediator", {
      * Handles the get organisations failure event from the login controller.
      */
     onGetOrganisationListFailure: function() {
-		if(Core.config.global.Config.getNextView()==='organisationlist') {
+		if(Core.config.organisation.Config.getNextView()==='organisationlist') {
 			this.logger.debug("onGetOrganisationListFailure");
 			this.getView().setLoading(false);
 		}
@@ -122,7 +122,7 @@ Ext.define("Core.mediator.extjs.organisation.list.Mediator", {
      * Touch takes care of this for you, not so ext
      */
     onDeleteOrganisationSuccess: function() {
-		if(Core.config.global.Config.getNextView()==='organisationlist') {
+		if(Core.config.organisation.Config.getNextView()==='organisationlist') {
 			this.logger.debug("onDeleteOrganisationSuccess");
 			this.getList().getStore().loadRecords(this.organisationStore.getRange());
 		}
@@ -132,7 +132,7 @@ Ext.define("Core.mediator.extjs.organisation.list.Mediator", {
      * Handles the update organisation success application-level event.
      */
     onUpdateOrganisationSuccess: function() {
-		if(Core.config.global.Config.getNextView()==='organisationlist') {
+		if(Core.config.organisation.Config.getNextView()==='organisationlist') {
 			this.logger.debug("onUpdateOrganisationSuccess");
 			this.getView().setLoading(false);
 			this.getList().getStore().loadRecords(this.organisationStore.getRange());
@@ -144,7 +144,7 @@ Ext.define("Core.mediator.extjs.organisation.list.Mediator", {
      * Touch takes care of this for you, not so ext
      */
     onCreateOrganisationSuccess: function() {
-		if(Core.config.global.Config.getNextView()==='organisationlist') {
+		if(Core.config.organisation.Config.getNextView()==='organisationlist') {
 			this.logger.debug("onCreateOrganisationSuccess");
 			this.getList().getStore().loadRecords(this.organisationStore.getRange());
 		}
@@ -158,7 +158,7 @@ Ext.define("Core.mediator.extjs.organisation.list.Mediator", {
      * Handles the tap of the logout button. Dispatches the logout application-level event.
      */
     onLogoutButtonClick: function() {
-    	if(Core.config.global.Config.getCurrentView()==='organisationlist') {	
+    	if(Core.config.organisation.Config.getCurrentView()==='organisationlist') {	
 			this.logger.debug("onLogoutButtonClick");
 			var evt = Ext.create("Core.event.authentication.Event", Core.event.authentication.Event.LOGOUT);
 			this.eventBus.dispatchGlobalEvent(evt);
@@ -169,7 +169,7 @@ Ext.define("Core.mediator.extjs.organisation.list.Mediator", {
      * Handles the tap of the new organisation button. Shows the organisation detail view.
      */
     onNewOrganisationButtonClick: function() {
-    	if(Core.config.global.Config.getCurrentView()==='organisationlist') { 	
+    	if(Core.config.organisation.Config.getCurrentView()==='organisationlist') { 	
 			this.logger.debug("onNewOrganisationButtonClick");
 			this.showOrganisationDetail(null);
     	}		
@@ -185,7 +185,7 @@ Ext.define("Core.mediator.extjs.organisation.list.Mediator", {
      * @param {Object} options ???
      */
     onListSelect: function(list, record, index, options) {
-    	if(Core.config.global.Config.getCurrentView()==='organisationlist') {	
+    	if(Core.config.organisation.Config.getCurrentView()==='organisationlist') {	
 			this.logger.debug("onListSelect");
 			this.showOrganisationDetail(record);
     	}	

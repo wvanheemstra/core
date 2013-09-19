@@ -62,20 +62,23 @@ Ext.define("Core.mediator.touch.viewport.organisation.Mediator", {
 	setupViewport: function(){
 		this.logger.debug("setupViewport");
 
-		var background = Core.config.global.Config.getBackground();
+		var currentApp = 'organisation';
+		Core.config.global.Config.setCurrentApp(currentApp); // Set currentApp globally		
+		
+		var background = Core.config.organisation.Config.getBackground();
 		this.setBackground(background);		
 		
-		var ui = Core.config.global.Config.getUi();
+		var ui = Core.config.organisation.Config.getUi();
 		this.setUI(ui);
 		
-		var company = Core.config.global.Config.getCompany();
+		var company = Core.config.organisation.Config.getCompany();
 		this.setCompany(company);
 		
-		var url = Core.config.global.Config.getUrl();
+		var url = Core.config.organisation.Config.getUrl();
 		this.setURL(url);
 		
-		var id = Core.config.global.Config.getId();
-		var sessionId = Core.config.global.Config.getSessionId();
+		var id = Core.config.organisation.Config.getId();
+		var sessionId = Core.config.organisation.Config.getSessionId();
 		this.getSession(id, sessionId);
 	},	
 
@@ -141,7 +144,7 @@ Ext.define("Core.mediator.touch.viewport.organisation.Mediator", {
 
             case Core.event.authentication.Event.LOGIN_SUCCESS:
             	// HERE WE GET WHICH VIEW TO GO TO
-				var nextView = Core.config.global.Config.getNextView();
+				var nextView = Core.config.organisation.Config.getNextView();
                 console.log("next view: " + nextView); // added by wvh, for testing only
 				// LOGIN
 				if(nextView == 'login') {view = this.getViewByXType("loginView");}
@@ -149,13 +152,13 @@ Ext.define("Core.mediator.touch.viewport.organisation.Mediator", {
 				if(nextView == 'organisationslide') {view = this.getViewByXType("organisationSlideView");}
 				if(nextView == 'organisationlist') {view = this.getViewByXType("organisationListView");}
 				if(nextView == 'organisationtile') {view = this.getViewByXType("organisationTileView");}
-				Core.config.global.Config.setCurrentView(nextView);
+				Core.config.organisation.Config.setCurrentView(nextView);
                 direction = 'left';
                 break;
 				// LOGIN
             case Core.event.authentication.Event.LOGOUT_SUCCESS:
                 view = this.getLoginView();
-				Core.config.global.Config.setCurrentView('login');
+				Core.config.organisation.Config.setCurrentView('login');
                 type = 'pop';
 				duration = 600;
 				easing = {type: 'ease-out'};
@@ -163,25 +166,25 @@ Ext.define("Core.mediator.touch.viewport.organisation.Mediator", {
 				// ORGANISATION
             case Core.event.navigation.Event.ACTION_SHOW_ORGANISATION_SLIDE:
                 view = this.getOrganisationSlideView();
-				Core.config.global.Config.setCurrentView('organisationslide');
+				Core.config.organisation.Config.setCurrentView('organisationslide');
                 direction = 'right';
                 break;
 				
             case Core.event.navigation.Event.ACTION_SHOW_ORGANISATION_LIST:
                 view = this.getOrganisationListView();
-				Core.config.global.Config.setCurrentView('organisationlist');
+				Core.config.organisation.Config.setCurrentView('organisationlist');
                 direction = 'right';
                 break;
 
             case Core.event.navigation.Event.ACTION_SHOW_ORGANISATION_TILE:
                 view = this.getOrganisationTileView();
-				Core.config.global.Config.setCurrentView('organisationtile');
+				Core.config.organisation.Config.setCurrentView('organisationtile');
                 direction = 'right';
                 break;
 
             case Core.event.navigation.Event.ACTION_SHOW_ORGANISATION_MODAL:
                 view = this.getOrganisationModalView();
-				Core.config.global.Config.setCurrentView('organisationmodal');
+				Core.config.organisation.Config.setCurrentView('organisationmodal');
 				type = 'pop';
 				duration = 600;
 				easing = {type: 'ease-in'};
@@ -189,35 +192,35 @@ Ext.define("Core.mediator.touch.viewport.organisation.Mediator", {
 				
             case Core.event.navigation.Event.ACTION_SHOW_ORGANISATION_DETAIL:
                 view = this.getOrganisationDetailView();
-				Core.config.global.Config.setCurrentView('organisationdetail');
+				Core.config.organisation.Config.setCurrentView('organisationdetail');
                 direction = 'left';
 				type = 'slide';
                 break;
 
             case Core.event.navigation.Event.ACTION_BACK_SHOW_ORGANISATION_SLIDE:
                 view = this.getOrganisationSlideView();
-				Core.config.global.Config.setCurrentView('organisationslide');
+				Core.config.organisation.Config.setCurrentView('organisationslide');
                 direction = 'right';
 				type = 'slide';
                 break;				
 				
             case Core.event.navigation.Event.ACTION_BACK_SHOW_ORGANISATION_LIST:
                 view = this.getOrganisationListView();
-				Core.config.global.Config.setCurrentView('organisationlist');
+				Core.config.organisation.Config.setCurrentView('organisationlist');
                 direction = 'right';
 				type = 'slide';
                 break;
                 
             case Core.event.navigation.Event.ACTION_BACK_SHOW_ORGANISATION_TILE:
                 view = this.getOrganisationTileView();
-				Core.config.global.Config.setCurrentView('organisationtile');
+				Core.config.organisation.Config.setCurrentView('organisationtile');
                 direction = 'right';
 				type = 'slide';
                 break;				
 
             case Core.event.navigation.Event.ACTION_CLOSE_SHOW_ORGANISATION_SLIDE:
                 view = this.getOrganisationSlideView();
-				Core.config.global.Config.setCurrentView('organisationslide');
+				Core.config.organisation.Config.setCurrentView('organisationslide');
 				type = 'pop';
 				duration = 600;
 				easing = {type: 'ease-out'};
@@ -294,7 +297,7 @@ Ext.define("Core.mediator.touch.viewport.organisation.Mediator", {
      */
     onGetSessionFailure: function() { 
     	this.logger.debug("onGetSessionFailure"); 
-    	//Core.config.global.Config.setCurrentView('login');
+    	//Core.config.organisation.Config.setCurrentView('login');
 		this.navigate(Core.event.authentication.Event.LOGOUT_SUCCESS);
     },	
 	

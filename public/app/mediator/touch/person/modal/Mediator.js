@@ -147,7 +147,7 @@ Ext.define("Core.mediator.touch.person.modal.Mediator", {
      */
     onSetUISuccess: function() {
         this.logger.debug("onSetUISuccess");
-        this.setUI(Core.config.global.Config.getUi());
+        this.setUI(Core.config.person.Config.getUi());
     },
 
     /**
@@ -155,7 +155,7 @@ Ext.define("Core.mediator.touch.person.modal.Mediator", {
      */
     onSetTitleSuccess: function() {
         this.logger.debug("onSetTitleSuccess");
-        this.setTitle(Core.config.global.Config.getTitle());
+        this.setTitle(Core.config.person.Config.getTitle());
     },	
 
     /**
@@ -163,7 +163,7 @@ Ext.define("Core.mediator.touch.person.modal.Mediator", {
      */
     onSetURLSuccess: function() {
         this.logger.debug("onSetURLSuccess");
-		var url = Core.config.global.Config.getUrl();
+		var url = Core.config.person.Config.getUrl();
         this.setURL(url);
     },
 	
@@ -193,7 +193,7 @@ Ext.define("Core.mediator.touch.person.modal.Mediator", {
      */
     onCloseButtonTap: function() {
         this.logger.debug("onCloseButtonTap");
-        this.backToPrevious(Core.config.global.Config.getPreviousView());
+        this.backToPrevious(Core.config.person.Config.getPreviousView());
     }	
 	
 });

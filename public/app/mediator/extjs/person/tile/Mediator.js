@@ -42,7 +42,7 @@ Ext.define("Core.mediator.extjs.person.tile.Mediator", {
             ? ": id = " + record.get("id") + ", person = " + record.get("name")
             : "";
         this.logger.debug("showPersonDetail = " + logMsg);
-		Core.config.global.Config.setPreviousView('persontile');
+		Core.config.person.Config.setPreviousView('persontile');
         this.personStore.setSelectedRecord(record);
         this.navigate(Core.event.navigation.Event.ACTION_SHOW_PERSON_DETAIL);
     },
@@ -77,7 +77,7 @@ Ext.define("Core.mediator.extjs.person.tile.Mediator", {
      * onto stage.
      */
     onLoginSuccess: function() {
-		if(Core.config.global.Config.getNextView()==='persontile') {
+		if(Core.config.person.Config.getNextView()==='persontile') {
 		    this.logger.debug("onLoginSuccess");
         	this.navigate(Core.event.authentication.Event.LOGIN_SUCCESS);
         	this.getPersonTileData();
@@ -89,14 +89,14 @@ Ext.define("Core.mediator.extjs.person.tile.Mediator", {
      */
     onSetUISuccess: function() {
         this.logger.debug("onSetUISuccess");
-        this.setUI(Core.config.global.Config.getUi());
+        this.setUI(Core.config.person.Config.getUi());
     },	
 	
     /**
      * Handles the get persons application-level event.
      */
     onGetPersonTileSuccess: function() {
-		if(Core.config.global.Config.getCurrentView()==='persontile') {
+		if(Core.config.person.Config.getCurrentView()==='persontile') {
 			this.logger.debug("onGetPersonTileSuccess");
 			this.getView().setLoading(false);
 			this.getTile().getStore().loadRecords(this.personStore.getRange());
@@ -107,7 +107,7 @@ Ext.define("Core.mediator.extjs.person.tile.Mediator", {
      * Handles the get persons failure event from the login controller.
      */
     onGetPersonTileFailure: function() {
-	    if(Core.config.global.Config.getCurrentView()==='persontile') {
+	    if(Core.config.person.Config.getCurrentView()==='persontile') {
 			this.logger.debug("onGetPersonTileFailure");
 			this.getView().setLoading(false);
 		}
@@ -117,7 +117,7 @@ Ext.define("Core.mediator.extjs.person.tile.Mediator", {
      * Handles the update persons application-level event.
      */
     onUpdatePersonSuccess: function() {
-		if(Core.config.global.Config.getCurrentView()==='persontile') {
+		if(Core.config.person.Config.getCurrentView()==='persontile') {
 			this.logger.debug("onUpdatePersonSuccess");
 			this.getView().setLoading(false);
 			this.getTile().getStore().loadRecords(this.personStore.getRange());
@@ -129,7 +129,7 @@ Ext.define("Core.mediator.extjs.person.tile.Mediator", {
      * Touch takes care of this for you, not so ext
      */
     onDeletePersonSuccess: function() {
-		if(Core.config.global.Config.getCurrentView()==='persontile') {
+		if(Core.config.person.Config.getCurrentView()==='persontile') {
 			this.logger.debug("onDeletePersonSuccess");
 			this.getTile().getStore().loadRecords(this.personStore.getRange());
 		}
@@ -140,7 +140,7 @@ Ext.define("Core.mediator.extjs.person.tile.Mediator", {
      * Touch takes care of this for you, not so ext
      */
     onCreatePersonSuccess: function() {
-    	if(Core.config.global.Config.getCurrentView()==='persontile') {	
+    	if(Core.config.person.Config.getCurrentView()==='persontile') {	
 			this.logger.debug("onCreatePersonSuccess");
 			this.getTile().getStore().loadRecords(this.personStore.getRange());
 		}
@@ -154,7 +154,7 @@ Ext.define("Core.mediator.extjs.person.tile.Mediator", {
      * Handles the tap of the logout button. Dispatches the logout application-level event.
      */
     onLogoutButtonClick: function() {
-    	if(Core.config.global.Config.getCurrentView()==='persontile') {	
+    	if(Core.config.person.Config.getCurrentView()==='persontile') {	
 			this.logger.debug("onLogoutButtonClick");
 			var evt = Ext.create("Core.event.authentication.Event", Core.event.authentication.Event.LOGOUT);
 			this.eventBus.dispatchGlobalEvent(evt);
@@ -165,7 +165,7 @@ Ext.define("Core.mediator.extjs.person.tile.Mediator", {
      * Handles the tap of the new person button. Shows the person detail view.
      */
     onNewPersonButtonClick: function() {
-    	if(Core.config.global.Config.getCurrentView()==='persontile') {	
+    	if(Core.config.person.Config.getCurrentView()==='persontile') {	
 			this.logger.debug("onNewPersonButtonClick");
 			this.showPersonDetail(null);
     	}		
@@ -181,7 +181,7 @@ Ext.define("Core.mediator.extjs.person.tile.Mediator", {
      * @param {Object} options ???
      */
     onTileSelect: function(tile, record, index, options) {
-    	if(Core.config.global.Config.getCurrentView()==='persontile') { 	
+    	if(Core.config.person.Config.getCurrentView()==='persontile') { 	
 			this.logger.debug("onTileSelect");
 			this.showPersonDetail(record);
     	}			
@@ -191,7 +191,7 @@ Ext.define("Core.mediator.extjs.person.tile.Mediator", {
      * Handles the clear icon tap event on the search field. Clears all filter on the list's store.
      */
 //    onSearchClearIconTap: function() {
-//    	if(Core.config.global.Config.getCurrentView()==='personTileView') {
+//    	if(Core.config.person.Config.getCurrentView()==='personTileView') {
 //	        this.logger.debug("onSearchClearIconTap");
 //
 //          var store = this.getView().getStore();
@@ -208,7 +208,7 @@ Ext.define("Core.mediator.extjs.person.tile.Mediator", {
      * TODO: BMR: 02/28/13: clean this up. pulled directly from another example with minor changes: http://www.phs4j.com/2012/05/add-a-searchfield-to-a-sencha-touch-2-list-mvc/
      */
 //    onSearchKeyUp: function(field) {
-//    	if(Core.config.global.Config.getCurrentView()==='personTileView') {
+//    	if(Core.config.person.Config.getCurrentView()==='personTileView') {
 //        this.logger.debug("onSearchKeyUp");
 //
 //        //get the store and the value of the field

@@ -155,17 +155,17 @@ Ext.define("Core.mediator.extjs.organisation.detail.Mediator", {
      */
     onSetUISuccess: function() {
         this.logger.debug("onSetUISuccess");
-        this.setUI(Core.config.global.Config.getUi());
+        this.setUI(Core.config.organisation.Config.getUi());
     },
 	
     /**
      * Handles the create organisation success application-level event. Navigates back to the organisation list view.
      */
     onCreateOrganisationSuccess: function() {
-		if(Core.config.global.Config.getCurrentView()==='organisationdetail') {
+		if(Core.config.organisation.Config.getCurrentView()==='organisationdetail') {
 			this.logger.debug("onCreateOrganisationSuccess");
 			this.getView().setLoading(false);
-			this.backToPrevious(Core.config.global.Config.getPreviousView());
+			this.backToPrevious(Core.config.organisation.Config.getPreviousView());
 		}
     },
 
@@ -173,10 +173,10 @@ Ext.define("Core.mediator.extjs.organisation.detail.Mediator", {
      * Handles the update organisation success application-level event. Navigates back to the organisation list view.
      */
     onUpdateOrganisationSuccess: function() {
-		if(Core.config.global.Config.getCurrentView()==='organisationdetail') {	
+		if(Core.config.organisation.Config.getCurrentView()==='organisationdetail') {	
 			this.logger.debug("onUpdateOrganisationFailure");
 			this.getView().setLoading(false);
-			this.backToPrevious(Core.config.global.Config.getPreviousView());
+			this.backToPrevious(Core.config.organisation.Config.getPreviousView());
 		}
     },
 
@@ -184,10 +184,10 @@ Ext.define("Core.mediator.extjs.organisation.detail.Mediator", {
      * Handles the delete organisation success application-level event. Navigates back to the organisation list view.
      */
     onDeleteOrganisationSuccess: function() {
-		if(Core.config.global.Config.getCurrentView()==='organisationdetail') {
+		if(Core.config.organisation.Config.getCurrentView()==='organisationdetail') {
 			this.logger.debug("onDeleteOrganisationSuccess");
 			this.reset();
-			this.backToPrevious(Core.config.global.Config.getPreviousView());
+			this.backToPrevious(Core.config.organisation.Config.getPreviousView());
 		}
     },
 
@@ -220,7 +220,7 @@ Ext.define("Core.mediator.extjs.organisation.detail.Mediator", {
      */
     onBackButtonClick: function() {
         this.logger.debug("onBackButtonClick");
-        this.backToPrevious(Core.config.global.Config.getPreviousView());
+        this.backToPrevious(Core.config.organisation.Config.getPreviousView());
     },
 
     /**

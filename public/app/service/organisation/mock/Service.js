@@ -11,12 +11,12 @@ Ext.define("Core.service.organisation.mock.Service", {
     /**
      * The mock service call.
      */
-    getPersonSlide: function() {
-        this.logger.debug("getPersonSlide");
+    getOrganisationSlide: function() {
+        this.logger.debug("getOrganisationSlide");
 
         var response = {
             success: true,
-            personSlide: [
+            organisationSlide: [
                 { id: 0,    name: "Alfa" },
                 { id: 1,    name: "Bravo" },
                 { id: 2,    name: "Charlie" },
@@ -52,12 +52,12 @@ Ext.define("Core.service.organisation.mock.Service", {
     /**
      * The mock service call.
      */
-    getPersonList: function() {
-        this.logger.debug("getPersonList");
+    getOrganisationList: function() {
+        this.logger.debug("getOrganisationList");
 
         var response = {
             success: true,
-            personList: [
+            organisationList: [
                 { id: 0,    name: "Alfa" },
                 { id: 1,    name: "Bravo" },
                 { id: 2,    name: "Charlie" },
@@ -93,12 +93,12 @@ Ext.define("Core.service.organisation.mock.Service", {
     /**
      * The mock service call.
      */
-    getPersonTile: function() {
-        this.logger.debug("getPersonTile");
+    getOrganisationTile: function() {
+        this.logger.debug("getOrganisationTile");
 
         var response = {
             success: true,
-            personTile: [
+            organisationTile: [
                 { id: 0,    name: "Alfa" },
                 { id: 1,    name: "Bravo" },
                 { id: 2,    name: "Charlie" },
@@ -134,8 +134,8 @@ Ext.define("Core.service.organisation.mock.Service", {
     /**
      * The mock service call.
      */
-    createPerson: function(organisation) {
-        this.logger.debug("createPerson");
+    createOrganisation: function(organisation) {
+        this.logger.debug("createOrganisation");
 
         var response = {
             success: true,
@@ -152,8 +152,8 @@ Ext.define("Core.service.organisation.mock.Service", {
     /**
      * The mock service call.
      */
-    updatePerson: function(organisation) {
-        this.logger.debug("updatePerson: id = ", organisation.id);
+    updateOrganisation: function(organisation) {
+        this.logger.debug("updateOrganisation: id = ", organisation.id);
 
         var response = {
             success: true,
@@ -170,8 +170,8 @@ Ext.define("Core.service.organisation.mock.Service", {
     /**
      * The mock service call.
      */
-    deletePerson: function(organisation) {
-        this.logger.debug("deletePerson: id = ", organisation.id);
+    deleteOrganisation: function(organisation) {
+        this.logger.debug("deleteOrganisation: id = ", organisation.id);
 
         var response = {
             success: true,

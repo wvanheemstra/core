@@ -42,7 +42,7 @@ Ext.define("Core.mediator.extjs.organisation.tile.Mediator", {
             ? ": id = " + record.get("id") + ", organisation = " + record.get("name")
             : "";
         this.logger.debug("showorganisationDetail = " + logMsg);
-		Core.config.global.Config.setPreviousView('organisationtile');
+		Core.config.organisation.Config.setPreviousView('organisationtile');
         this.organisationStore.setSelectedRecord(record);
         this.navigate(Core.event.navigation.Event.ACTION_SHOW_organisation_DETAIL);
     },
@@ -77,7 +77,7 @@ Ext.define("Core.mediator.extjs.organisation.tile.Mediator", {
      * onto stage.
      */
     onLoginSuccess: function() {
-		if(Core.config.global.Config.getNextView()==='organisationtile') {
+		if(Core.config.organisation.Config.getNextView()==='organisationtile') {
 		    this.logger.debug("onLoginSuccess");
         	this.navigate(Core.event.authentication.Event.LOGIN_SUCCESS);
         	this.getorganisationTileData();
@@ -89,14 +89,14 @@ Ext.define("Core.mediator.extjs.organisation.tile.Mediator", {
      */
     onSetUISuccess: function() {
         this.logger.debug("onSetUISuccess");
-        this.setUI(Core.config.global.Config.getUi());
+        this.setUI(Core.config.organisation.Config.getUi());
     },	
 	
     /**
      * Handles the get organisations application-level event.
      */
     onGetorganisationTileSuccess: function() {
-		if(Core.config.global.Config.getCurrentView()==='organisationtile') {
+		if(Core.config.organisation.Config.getCurrentView()==='organisationtile') {
 			this.logger.debug("onGetorganisationTileSuccess");
 			this.getView().setLoading(false);
 			this.getTile().getStore().loadRecords(this.organisationStore.getRange());
@@ -107,7 +107,7 @@ Ext.define("Core.mediator.extjs.organisation.tile.Mediator", {
      * Handles the get organisations failure event from the login controller.
      */
     onGetorganisationTileFailure: function() {
-	    if(Core.config.global.Config.getCurrentView()==='organisationtile') {
+	    if(Core.config.organisation.Config.getCurrentView()==='organisationtile') {
 			this.logger.debug("onGetorganisationTileFailure");
 			this.getView().setLoading(false);
 		}
@@ -117,7 +117,7 @@ Ext.define("Core.mediator.extjs.organisation.tile.Mediator", {
      * Handles the update organisations application-level event.
      */
     onUpdateorganisationSuccess: function() {
-		if(Core.config.global.Config.getCurrentView()==='organisationtile') {
+		if(Core.config.organisation.Config.getCurrentView()==='organisationtile') {
 			this.logger.debug("onUpdateorganisationSuccess");
 			this.getView().setLoading(false);
 			this.getTile().getStore().loadRecords(this.organisationStore.getRange());
@@ -129,7 +129,7 @@ Ext.define("Core.mediator.extjs.organisation.tile.Mediator", {
      * Touch takes care of this for you, not so ext
      */
     onDeleteorganisationSuccess: function() {
-		if(Core.config.global.Config.getCurrentView()==='organisationtile') {
+		if(Core.config.organisation.Config.getCurrentView()==='organisationtile') {
 			this.logger.debug("onDeleteorganisationSuccess");
 			this.getTile().getStore().loadRecords(this.organisationStore.getRange());
 		}
@@ -140,7 +140,7 @@ Ext.define("Core.mediator.extjs.organisation.tile.Mediator", {
      * Touch takes care of this for you, not so ext
      */
     onCreateorganisationSuccess: function() {
-    	if(Core.config.global.Config.getCurrentView()==='organisationtile') {	
+    	if(Core.config.organisation.Config.getCurrentView()==='organisationtile') {	
 			this.logger.debug("onCreateorganisationSuccess");
 			this.getTile().getStore().loadRecords(this.organisationStore.getRange());
 		}
@@ -154,7 +154,7 @@ Ext.define("Core.mediator.extjs.organisation.tile.Mediator", {
      * Handles the tap of the logout button. Dispatches the logout application-level event.
      */
     onLogoutButtonClick: function() {
-    	if(Core.config.global.Config.getCurrentView()==='organisationtile') {	
+    	if(Core.config.organisation.Config.getCurrentView()==='organisationtile') {	
 			this.logger.debug("onLogoutButtonClick");
 			var evt = Ext.create("Core.event.authentication.Event", Core.event.authentication.Event.LOGOUT);
 			this.eventBus.dispatchGlobalEvent(evt);
@@ -165,7 +165,7 @@ Ext.define("Core.mediator.extjs.organisation.tile.Mediator", {
      * Handles the tap of the new organisation button. Shows the organisation detail view.
      */
     onNeworganisationButtonClick: function() {
-    	if(Core.config.global.Config.getCurrentView()==='organisationtile') {	
+    	if(Core.config.organisation.Config.getCurrentView()==='organisationtile') {	
 			this.logger.debug("onNeworganisationButtonClick");
 			this.showorganisationDetail(null);
     	}		
@@ -181,7 +181,7 @@ Ext.define("Core.mediator.extjs.organisation.tile.Mediator", {
      * @param {Object} options ???
      */
     onTileSelect: function(tile, record, index, options) {
-    	if(Core.config.global.Config.getCurrentView()==='organisationtile') { 	
+    	if(Core.config.organisation.Config.getCurrentView()==='organisationtile') { 	
 			this.logger.debug("onTileSelect");
 			this.showorganisationDetail(record);
     	}			
@@ -191,7 +191,7 @@ Ext.define("Core.mediator.extjs.organisation.tile.Mediator", {
      * Handles the clear icon tap event on the search field. Clears all filter on the list's store.
      */
 //    onSearchClearIconTap: function() {
-//    	if(Core.config.global.Config.getCurrentView()==='organisationTileView') {
+//    	if(Core.config.organisation.Config.getCurrentView()==='organisationTileView') {
 //	        this.logger.debug("onSearchClearIconTap");
 //
 //          var store = this.getView().getStore();
@@ -208,7 +208,7 @@ Ext.define("Core.mediator.extjs.organisation.tile.Mediator", {
      * TODO: BMR: 02/28/13: clean this up. pulled directly from another example with minor changes: http://www.phs4j.com/2012/05/add-a-searchfield-to-a-sencha-touch-2-list-mvc/
      */
 //    onSearchKeyUp: function(field) {
-//    	if(Core.config.global.Config.getCurrentView()==='organisationTileView') {
+//    	if(Core.config.organisation.Config.getCurrentView()==='organisationTileView') {
 //        this.logger.debug("onSearchKeyUp");
 //
 //        //get the store and the value of the field

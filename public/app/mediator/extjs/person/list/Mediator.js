@@ -42,7 +42,7 @@ Ext.define("Core.mediator.extjs.person.list.Mediator", {
             ? ": id = " + record.get("id") + ", person = " + record.get("name")
             : "";
         this.logger.debug("showPersonDetail = " + logMsg);
-		Core.config.global.Config.setPreviousView('personlist');
+		Core.config.person.Config.setPreviousView('personlist');
         this.personStore.setSelectedRecord(record);
 		
 		console.log("selected record:");
@@ -81,7 +81,7 @@ Ext.define("Core.mediator.extjs.person.list.Mediator", {
      * onto stage.
      */
     onLoginSuccess: function() {
-		if(Core.config.global.Config.getNextView()==='personlist') {
+		if(Core.config.person.Config.getNextView()==='personlist') {
 			this.logger.debug("onLoginSuccess");		
         	this.navigate(Core.event.authentication.Event.LOGIN_SUCCESS);
         	this.getPersonListData();
@@ -93,14 +93,14 @@ Ext.define("Core.mediator.extjs.person.list.Mediator", {
      */
     onSetUISuccess: function() {
         this.logger.debug("onSetUISuccess");
-        this.setUI(Core.config.global.Config.getUi());
+        this.setUI(Core.config.person.Config.getUi());
     },	
 	
     /**
      * Handles the get persons success application-level event.
      */
     onGetPersonListSuccess: function() {
-		if(Core.config.global.Config.getNextView()==='personlist') {
+		if(Core.config.person.Config.getNextView()==='personlist') {
 			this.logger.debug("onGetPersonListSuccess");
 			this.getView().setLoading(false);
 			this.getList().getStore().loadRecords(this.personStore.getRange());
@@ -111,7 +111,7 @@ Ext.define("Core.mediator.extjs.person.list.Mediator", {
      * Handles the get persons failure event from the login controller.
      */
     onGetPersonListFailure: function() {
-		if(Core.config.global.Config.getNextView()==='personlist') {
+		if(Core.config.person.Config.getNextView()==='personlist') {
 			this.logger.debug("onGetPersonListFailure");
 			this.getView().setLoading(false);
 		}
@@ -122,7 +122,7 @@ Ext.define("Core.mediator.extjs.person.list.Mediator", {
      * Touch takes care of this for you, not so ext
      */
     onDeletePersonSuccess: function() {
-		if(Core.config.global.Config.getNextView()==='personlist') {
+		if(Core.config.person.Config.getNextView()==='personlist') {
 			this.logger.debug("onDeletePersonSuccess");
 			this.getList().getStore().loadRecords(this.personStore.getRange());
 		}
@@ -132,7 +132,7 @@ Ext.define("Core.mediator.extjs.person.list.Mediator", {
      * Handles the update person success application-level event.
      */
     onUpdatePersonSuccess: function() {
-		if(Core.config.global.Config.getNextView()==='personlist') {
+		if(Core.config.person.Config.getNextView()==='personlist') {
 			this.logger.debug("onUpdatePersonSuccess");
 			this.getView().setLoading(false);
 			this.getList().getStore().loadRecords(this.personStore.getRange());
@@ -144,7 +144,7 @@ Ext.define("Core.mediator.extjs.person.list.Mediator", {
      * Touch takes care of this for you, not so ext
      */
     onCreatePersonSuccess: function() {
-		if(Core.config.global.Config.getNextView()==='personlist') {
+		if(Core.config.person.Config.getNextView()==='personlist') {
 			this.logger.debug("onCreatePersonSuccess");
 			this.getList().getStore().loadRecords(this.personStore.getRange());
 		}
@@ -158,7 +158,7 @@ Ext.define("Core.mediator.extjs.person.list.Mediator", {
      * Handles the tap of the logout button. Dispatches the logout application-level event.
      */
     onLogoutButtonClick: function() {
-    	if(Core.config.global.Config.getCurrentView()==='personlist') {	
+    	if(Core.config.person.Config.getCurrentView()==='personlist') {	
 			this.logger.debug("onLogoutButtonClick");
 			var evt = Ext.create("Core.event.authentication.Event", Core.event.authentication.Event.LOGOUT);
 			this.eventBus.dispatchGlobalEvent(evt);
@@ -169,7 +169,7 @@ Ext.define("Core.mediator.extjs.person.list.Mediator", {
      * Handles the tap of the new person button. Shows the person detail view.
      */
     onNewPersonButtonClick: function() {
-    	if(Core.config.global.Config.getCurrentView()==='personlist') { 	
+    	if(Core.config.person.Config.getCurrentView()==='personlist') { 	
 			this.logger.debug("onNewPersonButtonClick");
 			this.showPersonDetail(null);
     	}		
@@ -185,7 +185,7 @@ Ext.define("Core.mediator.extjs.person.list.Mediator", {
      * @param {Object} options ???
      */
     onListSelect: function(list, record, index, options) {
-    	if(Core.config.global.Config.getCurrentView()==='personlist') {	
+    	if(Core.config.person.Config.getCurrentView()==='personlist') {	
 			this.logger.debug("onListSelect");
 			this.showPersonDetail(record);
     	}	

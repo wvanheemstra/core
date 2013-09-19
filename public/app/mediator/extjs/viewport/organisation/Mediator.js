@@ -45,20 +45,20 @@ Ext.define("Core.mediator.extjs.viewport.Mediator", {
 	setupViewport: function(){
 		this.logger.debug("setupViewport");
 
-		var ui = Core.config.global.Config.getUi();
+		var ui = Core.config.organisation.Config.getUi();
 		this.setUI(ui);
 		
-		var background = Core.config.global.Config.getBackground();
+		var background = Core.config.organisation.Config.getBackground();
 		this.setBackground(background);	
 		
-		var company = Core.config.global.Config.getCompany();
+		var company = Core.config.organisation.Config.getCompany();
 		this.setCompany(company);
 		
-		var url = Core.config.global.Config.getUrl();
+		var url = Core.config.organisation.Config.getUrl();
 		this.setURL(url);	
 		
-		var id = Core.config.global.Config.getId();
-		var sessionId = Core.config.global.Config.getSessionId();
+		var id = Core.config.organisation.Config.getId();
+		var sessionId = Core.config.organisation.Config.getSessionId();
 		this.getSession(id, sessionId);
 	}, 
 	
@@ -122,7 +122,7 @@ Ext.define("Core.mediator.extjs.viewport.Mediator", {
 		
             case Core.event.authentication.Event.LOGIN_SUCCESS:
             	// HERE WE GET WHICH VIEW TO GO TO
-				var nextView = Core.config.global.Config.getNextView();
+				var nextView = Core.config.organisation.Config.getNextView();
                 console.log("next view: " + nextView);
 				// LOGIN
 				if(nextView == 'login') {view = this.getViewByXType("loginView");}			
@@ -132,49 +132,49 @@ Ext.define("Core.mediator.extjs.viewport.Mediator", {
 				if(nextView == 'ORGANISATIONtile') {view = this.getViewByXType("ORGANISATIONTileView");}	
 				if(nextView == 'ORGANISATIONmodal') {view = this.getViewByXType("ORGANISATIONModalView");}				
 				
-				Core.config.global.Config.setCurrentView(nextView);
+				Core.config.organisation.Config.setCurrentView(nextView);
                 direction = this.getSlideLeftTransition();
                 break;
 			// LOGIN
             case Core.event.authentication.Event.LOGOUT_SUCCESS:
                 view = this.getViewByXType("loginView");
-				Core.config.global.Config.setCurrentView('login');
+				Core.config.organisation.Config.setCurrentView('login');
                 direction = this.getSlideRightTransition();
                 break;
 			// ORGANISATION
             case Core.event.navigation.Event.ACTION_SHOW_ORGANISATION_DETAIL:
                 view = this.getViewByXType("ORGANISATIONDetailView");
-				Core.config.global.Config.setCurrentView('ORGANISATIONdetail');
+				Core.config.organisation.Config.setCurrentView('ORGANISATIONdetail');
                 direction = this.getSlideLeftTransition();
                 break;
 				
             case Core.event.navigation.Event.ACTION_SHOW_ORGANISATION_MODAL:
                 view = this.getViewByXType("ORGANISATIONModalView");
-				Core.config.global.Config.setCurrentView('ORGANISATIONmodal');
+				Core.config.organisation.Config.setCurrentView('ORGANISATIONmodal');
                 direction = this.getSlideLeftTransition();// CHANGE THIS TO AN OPEN TRANSITION
                 break;				
 
             case Core.event.navigation.Event.ACTION_BACK_SHOW_ORGANISATION_SLIDE:
                 view = this.getViewByXType("ORGANISATIONSlideView");
-				Core.config.global.Config.setCurrentView('ORGANISATIONslide');
+				Core.config.organisation.Config.setCurrentView('ORGANISATIONslide');
                 direction = this.getSlideRightTransition();
                 break;
 				
             case Core.event.navigation.Event.ACTION_BACK_SHOW_ORGANISATION_LIST:
                 view = this.getViewByXType("ORGANISATIONListView");
-				Core.config.global.Config.setCurrentView('ORGANISATIONlist');
+				Core.config.organisation.Config.setCurrentView('ORGANISATIONlist');
                 direction = this.getSlideRightTransition();
                 break;
 
             case Core.event.navigation.Event.ACTION_BACK_SHOW_ORGANISATION_TILE:
                 view = this.getViewByXType("ORGANISATIONTileView");
-				Core.config.global.Config.setCurrentView('ORGANISATIONtile');
+				Core.config.organisation.Config.setCurrentView('ORGANISATIONtile');
                 direction = this.getSlideRightTransition();
                 break;
 
             case Core.event.navigation.Event.ACTION_CLOSE_SHOW_ORGANISATION_SLIDE:
                 view = this.getViewByXType("ORGANISATIONSlideView");
-				Core.config.global.Config.setCurrentView('ORGANISATIONslide');
+				Core.config.organisation.Config.setCurrentView('ORGANISATIONslide');
                 direction = this.getSlideRightTransition(); // CHANGE THIS TO A CLOSE TRANSITION
         }
 
@@ -235,7 +235,7 @@ Ext.define("Core.mediator.extjs.viewport.Mediator", {
      */
     onGetSessionSuccess: function() { 
     	this.logger.debug("onGetSessionSuccess"); 	
-    	//Core.config.global.Config.setNextView('maintile');
+    	//Core.config.organisation.Config.setNextView('maintile');
         //var view = this.getView();
         //view.setLoading(false);
 	//	this.navigate(Core.event.authentication.Event.LOGIN_SUCCESS);
@@ -251,7 +251,7 @@ Ext.define("Core.mediator.extjs.viewport.Mediator", {
      */
     onGetSessionFailure: function() { 
     	this.logger.debug("onGetSessionFailure"); 
-    	Core.config.global.Config.setCurrentView('login');
+    	Core.config.organisation.Config.setCurrentView('login');
         //var view = this.getView();
         //view.setLoading(false);
 		this.navigate(Core.event.authentication.Event.LOGOUT_SUCCESS);

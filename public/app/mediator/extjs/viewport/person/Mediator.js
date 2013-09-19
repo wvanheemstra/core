@@ -45,20 +45,20 @@ Ext.define("Core.mediator.extjs.viewport.Mediator", {
 	setupViewport: function(){
 		this.logger.debug("setupViewport");
 
-		var ui = Core.config.global.Config.getUi();
+		var ui = Core.config.person.Config.getUi();
 		this.setUI(ui);
 		
-		var background = Core.config.global.Config.getBackground();
+		var background = Core.config.person.Config.getBackground();
 		this.setBackground(background);	
 		
-		var company = Core.config.global.Config.getCompany();
+		var company = Core.config.person.Config.getCompany();
 		this.setCompany(company);
 		
-		var url = Core.config.global.Config.getUrl();
+		var url = Core.config.person.Config.getUrl();
 		this.setURL(url);	
 		
-		var id = Core.config.global.Config.getId();
-		var sessionId = Core.config.global.Config.getSessionId();
+		var id = Core.config.person.Config.getId();
+		var sessionId = Core.config.person.Config.getSessionId();
 		this.getSession(id, sessionId);
 	}, 
 	
@@ -122,7 +122,7 @@ Ext.define("Core.mediator.extjs.viewport.Mediator", {
 		
             case Core.event.authentication.Event.LOGIN_SUCCESS:
             	// HERE WE GET WHICH VIEW TO GO TO
-				var nextView = Core.config.global.Config.getNextView();
+				var nextView = Core.config.person.Config.getNextView();
                 console.log("next view: " + nextView);
 				// LOGIN
 				if(nextView == 'login') {view = this.getViewByXType("loginView");}			
@@ -132,49 +132,49 @@ Ext.define("Core.mediator.extjs.viewport.Mediator", {
 				if(nextView == 'persontile') {view = this.getViewByXType("personTileView");}	
 				if(nextView == 'personmodal') {view = this.getViewByXType("personModalView");}				
 				
-				Core.config.global.Config.setCurrentView(nextView);
+				Core.config.person.Config.setCurrentView(nextView);
                 direction = this.getSlideLeftTransition();
                 break;
 			// LOGIN
             case Core.event.authentication.Event.LOGOUT_SUCCESS:
                 view = this.getViewByXType("loginView");
-				Core.config.global.Config.setCurrentView('login');
+				Core.config.person.Config.setCurrentView('login');
                 direction = this.getSlideRightTransition();
                 break;
 			// PERSON
             case Core.event.navigation.Event.ACTION_SHOW_PERSON_DETAIL:
                 view = this.getViewByXType("personDetailView");
-				Core.config.global.Config.setCurrentView('persondetail');
+				Core.config.person.Config.setCurrentView('persondetail');
                 direction = this.getSlideLeftTransition();
                 break;
 				
             case Core.event.navigation.Event.ACTION_SHOW_PERSON_MODAL:
                 view = this.getViewByXType("personModalView");
-				Core.config.global.Config.setCurrentView('personmodal');
+				Core.config.person.Config.setCurrentView('personmodal');
                 direction = this.getSlideLeftTransition();// CHANGE THIS TO AN OPEN TRANSITION
                 break;				
 
             case Core.event.navigation.Event.ACTION_BACK_SHOW_PERSON_SLIDE:
                 view = this.getViewByXType("personSlideView");
-				Core.config.global.Config.setCurrentView('personslide');
+				Core.config.person.Config.setCurrentView('personslide');
                 direction = this.getSlideRightTransition();
                 break;
 				
             case Core.event.navigation.Event.ACTION_BACK_SHOW_PERSON_LIST:
                 view = this.getViewByXType("personListView");
-				Core.config.global.Config.setCurrentView('personlist');
+				Core.config.person.Config.setCurrentView('personlist');
                 direction = this.getSlideRightTransition();
                 break;
 
             case Core.event.navigation.Event.ACTION_BACK_SHOW_PERSON_TILE:
                 view = this.getViewByXType("personTileView");
-				Core.config.global.Config.setCurrentView('persontile');
+				Core.config.person.Config.setCurrentView('persontile');
                 direction = this.getSlideRightTransition();
                 break;
 
             case Core.event.navigation.Event.ACTION_CLOSE_SHOW_PERSON_SLIDE:
                 view = this.getViewByXType("personSlideView");
-				Core.config.global.Config.setCurrentView('personslide');
+				Core.config.person.Config.setCurrentView('personslide');
                 direction = this.getSlideRightTransition(); // CHANGE THIS TO A CLOSE TRANSITION
         }
 
@@ -235,7 +235,7 @@ Ext.define("Core.mediator.extjs.viewport.Mediator", {
      */
     onGetSessionSuccess: function() { 
     	this.logger.debug("onGetSessionSuccess"); 	
-    	//Core.config.global.Config.setNextView('maintile');
+    	//Core.config.person.Config.setNextView('maintile');
         //var view = this.getView();
         //view.setLoading(false);
 	//	this.navigate(Core.event.authentication.Event.LOGIN_SUCCESS);
@@ -251,7 +251,7 @@ Ext.define("Core.mediator.extjs.viewport.Mediator", {
      */
     onGetSessionFailure: function() { 
     	this.logger.debug("onGetSessionFailure"); 
-    	Core.config.global.Config.setCurrentView('login');
+    	Core.config.person.Config.setCurrentView('login');
         //var view = this.getView();
         //view.setLoading(false);
 		this.navigate(Core.event.authentication.Event.LOGOUT_SUCCESS);

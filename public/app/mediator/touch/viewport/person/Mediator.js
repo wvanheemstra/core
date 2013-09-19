@@ -61,21 +61,24 @@ Ext.define("Core.mediator.touch.viewport.person.Mediator", {
 	 */
 	setupViewport: function(){
 		this.logger.debug("setupViewport");
+		
+		var currentApp = 'person';
+		Core.config.global.Config.setCurrentApp(currentApp); // Set currentApp globally
 
-		var background = Core.config.global.Config.getBackground();
+		var background = Core.config.person.Config.getBackground();
 		this.setBackground(background);		
 		
-		var ui = Core.config.global.Config.getUi();
+		var ui = Core.config.person.Config.getUi();
 		this.setUI(ui);
 		
-		var company = Core.config.global.Config.getCompany();
+		var company = Core.config.person.Config.getCompany();
 		this.setCompany(company);
 		
-		var url = Core.config.global.Config.getUrl();
+		var url = Core.config.person.Config.getUrl();
 		this.setURL(url);
 		
-		var id = Core.config.global.Config.getId();
-		var sessionId = Core.config.global.Config.getSessionId();
+		var id = Core.config.person.Config.getId();
+		var sessionId = Core.config.person.Config.getSessionId();
 		this.getSession(id, sessionId);
 	},	
 
@@ -141,7 +144,7 @@ Ext.define("Core.mediator.touch.viewport.person.Mediator", {
 
             case Core.event.authentication.Event.LOGIN_SUCCESS:
             	// HERE WE GET WHICH VIEW TO GO TO
-				var nextView = Core.config.global.Config.getNextView();
+				var nextView = Core.config.person.Config.getNextView();
                 console.log("next view: " + nextView); // added by wvh, for testing only
 				// LOGIN
 				if(nextView == 'login') {view = this.getViewByXType("loginView");}
@@ -149,13 +152,13 @@ Ext.define("Core.mediator.touch.viewport.person.Mediator", {
 				if(nextView == 'personslide') {view = this.getViewByXType("personSlideView");}
 				if(nextView == 'personlist') {view = this.getViewByXType("personListView");}
 				if(nextView == 'persontile') {view = this.getViewByXType("personTileView");}
-				Core.config.global.Config.setCurrentView(nextView);
+				Core.config.person.Config.setCurrentView(nextView);
                 direction = 'left';
                 break;
 				// LOGIN
             case Core.event.authentication.Event.LOGOUT_SUCCESS:
                 view = this.getLoginView();
-				Core.config.global.Config.setCurrentView('login');
+				Core.config.person.Config.setCurrentView('login');
                 type = 'pop';
 				duration = 600;
 				easing = {type: 'ease-out'};
@@ -163,25 +166,25 @@ Ext.define("Core.mediator.touch.viewport.person.Mediator", {
 				// PERSON
             case Core.event.navigation.Event.ACTION_SHOW_PERSON_SLIDE:
                 view = this.getPersonSlideView();
-				Core.config.global.Config.setCurrentView('personslide');
+				Core.config.person.Config.setCurrentView('personslide');
                 direction = 'right';
                 break;
 				
             case Core.event.navigation.Event.ACTION_SHOW_PERSON_LIST:
                 view = this.getPersonListView();
-				Core.config.global.Config.setCurrentView('personlist');
+				Core.config.person.Config.setCurrentView('personlist');
                 direction = 'right';
                 break;
 
             case Core.event.navigation.Event.ACTION_SHOW_PERSON_TILE:
                 view = this.getPersonTileView();
-				Core.config.global.Config.setCurrentView('persontile');
+				Core.config.person.Config.setCurrentView('persontile');
                 direction = 'right';
                 break;
 
             case Core.event.navigation.Event.ACTION_SHOW_PERSON_MODAL:
                 view = this.getPersonModalView();
-				Core.config.global.Config.setCurrentView('personmodal');
+				Core.config.person.Config.setCurrentView('personmodal');
 				type = 'pop';
 				duration = 600;
 				easing = {type: 'ease-in'};
@@ -189,35 +192,35 @@ Ext.define("Core.mediator.touch.viewport.person.Mediator", {
 				
             case Core.event.navigation.Event.ACTION_SHOW_PERSON_DETAIL:
                 view = this.getPersonDetailView();
-				Core.config.global.Config.setCurrentView('persondetail');
+				Core.config.person.Config.setCurrentView('persondetail');
                 direction = 'left';
 				type = 'slide';
                 break;
 
             case Core.event.navigation.Event.ACTION_BACK_SHOW_PERSON_SLIDE:
                 view = this.getPersonSlideView();
-				Core.config.global.Config.setCurrentView('personslide');
+				Core.config.person.Config.setCurrentView('personslide');
                 direction = 'right';
 				type = 'slide';
                 break;				
 				
             case Core.event.navigation.Event.ACTION_BACK_SHOW_PERSON_LIST:
                 view = this.getPersonListView();
-				Core.config.global.Config.setCurrentView('personlist');
+				Core.config.person.Config.setCurrentView('personlist');
                 direction = 'right';
 				type = 'slide';
                 break;
                 
             case Core.event.navigation.Event.ACTION_BACK_SHOW_PERSON_TILE:
                 view = this.getPersonTileView();
-				Core.config.global.Config.setCurrentView('persontile');
+				Core.config.person.Config.setCurrentView('persontile');
                 direction = 'right';
 				type = 'slide';
                 break;				
 
             case Core.event.navigation.Event.ACTION_CLOSE_SHOW_PERSON_SLIDE:
                 view = this.getPersonSlideView();
-				Core.config.global.Config.setCurrentView('personslide');
+				Core.config.person.Config.setCurrentView('personslide');
 				type = 'pop';
 				duration = 600;
 				easing = {type: 'ease-out'};
@@ -294,7 +297,7 @@ Ext.define("Core.mediator.touch.viewport.person.Mediator", {
      */
     onGetSessionFailure: function() { 
     	this.logger.debug("onGetSessionFailure"); 
-    	//Core.config.global.Config.setCurrentView('login');
+    	//Core.config.person.Config.setCurrentView('login');
 		this.navigate(Core.event.authentication.Event.LOGOUT_SUCCESS);
     },	
 	

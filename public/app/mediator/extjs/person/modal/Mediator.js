@@ -100,14 +100,14 @@ Ext.define("Core.mediator.extjs.person.modal.Mediator", {
      */
     onSetUISuccess: function() {
         this.logger.debug("onSetUISuccess");
-        this.setUI(Core.config.global.Config.getUi());
+        this.setUI(Core.config.person.Config.getUi());
     },	
 	
     /**
      * Handles the get persons success application-level event.
      */
     onGetPersonModalSuccess: function() {
-		if(Core.config.global.Config.getNextView()==='personmodal') {
+		if(Core.config.person.Config.getNextView()==='personmodal') {
 			this.logger.debug("onGetPersonModalSuccess");
 			this.getView().setLoading(false);
 			//this.getList().getStore().loadRecords(this.personStore.getRange());
@@ -118,7 +118,7 @@ Ext.define("Core.mediator.extjs.person.modal.Mediator", {
      * Handles the get persons failure event from the login controller.
      */
     onGetPersonModalFailure: function() {
-		if(Core.config.global.Config.getNextView()==='personmodal') {
+		if(Core.config.person.Config.getNextView()==='personmodal') {
 			this.logger.debug("onGetPersonModalFailure");
 			this.getView().setLoading(false);
 		}
@@ -133,7 +133,7 @@ Ext.define("Core.mediator.extjs.person.modal.Mediator", {
      */
     onCloseButtonTap: function() {
         this.logger.debug("onCloseButtonTap");
-        this.backToPrevious(Core.config.global.Config.getPreviousView());
+        this.backToPrevious(Core.config.person.Config.getPreviousView());
     }
 
 });

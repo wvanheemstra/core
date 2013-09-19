@@ -104,7 +104,7 @@ Ext.define("Core.mediator.touch.person.slide.Mediator", {
             ? ": id = " + record.get("id") + ", person = " + record.get("name")
             : "new person";
         this.logger.debug("showPersonDetail = " + logMsg);
-		Core.config.global.Config.setPreviousView('personslide');
+		Core.config.person.Config.setPreviousView('personslide');
         this.navigate(Core.event.navigation.Event.ACTION_SHOW_PERSON_DETAIL);
         this.personStore.setSelectedRecord(record);
     },
@@ -128,7 +128,7 @@ Ext.define("Core.mediator.touch.person.slide.Mediator", {
 			var evt = Ext.create("Core.event.url.Event", Core.event.url.Event.SET_URL, url);
 	        this.eventBus.dispatchGlobalEvent(evt);
 		}		
-		Core.config.global.Config.setPreviousView('personslide');
+		Core.config.person.Config.setPreviousView('personslide');
 		this.navigate(Core.event.navigation.Event.ACTION_SHOW_PERSON_MODAL);
 	},
 	
@@ -178,7 +178,7 @@ Ext.define("Core.mediator.touch.person.slide.Mediator", {
      */
     onLoginSuccess: function() {
         this.logger.debug("onLoginSuccess");        
-		if(Core.config.global.Config.getNextView()==='personslide') {
+		if(Core.config.person.Config.getNextView()==='personslide') {
         	this.navigate(Core.event.authentication.Event.LOGIN_SUCCESS);
         	//this.getPersonSlideData(); // TEMP commented out by wvh
 
@@ -190,7 +190,7 @@ Ext.define("Core.mediator.touch.person.slide.Mediator", {
      */
     onSetUISuccess: function() {
         this.logger.debug("onSetUISuccess");
-        this.setUI(Core.config.global.Config.getUi());
+        this.setUI(Core.config.person.Config.getUi());
     },
 
     /**
@@ -218,7 +218,7 @@ Ext.define("Core.mediator.touch.person.slide.Mediator", {
      * Handles the tap of the logout button. Dispatches the logout application-level event.
      */
     onLogoutButtonTap: function() {
-    	if(Core.config.global.Config.getCurrentView()==='personslide') {      	
+    	if(Core.config.person.Config.getCurrentView()==='personslide') {      	
 	        this.logger.debug("onLogoutButtonTap");
 	        var evt = Ext.create("Core.event.authentication.Event", Core.event.authentication.Event.LOGOUT);
 	        this.eventBus.dispatchGlobalEvent(evt);
@@ -229,7 +229,7 @@ Ext.define("Core.mediator.touch.person.slide.Mediator", {
      * Handles the tap of the new person button. Shows the person detail view.
      */
     onNewPersonButtonTap: function() {
-    	if(Core.config.global.Config.getCurrentView()==='personslide') {     	
+    	if(Core.config.person.Config.getCurrentView()==='personslide') {     	
 	        this.logger.debug("onNewPersonButtonTap");
 	        this.showPersonDetail();
     	}
@@ -247,7 +247,7 @@ Ext.define("Core.mediator.touch.person.slide.Mediator", {
      * @param {Object} options ???
      */
     onSlideDisclose: function(slide, record, target, index, evt, options) {
-    	if(Core.config.global.Config.getCurrentView()==='personslide') {      	
+    	if(Core.config.person.Config.getCurrentView()==='personslide') {      	
 	        this.logger.debug("onSlideDisclose");
 	        this.personStore.setSelectedRecord(record);
 	        this.showPersonDetail(record);
@@ -258,7 +258,7 @@ Ext.define("Core.mediator.touch.person.slide.Mediator", {
      * Handles the clear icon tap event on the search field. Clears all filter on the list's store.
      */
     onSearchClearIconTap: function() {
-    	if(Core.config.global.Config.getCurrentView()==='personslide') {  	
+    	if(Core.config.person.Config.getCurrentView()==='personslide') {  	
 	        this.logger.debug("onSearchClearIconTap");
 	        var store = this.getList().getStore();
 	        store.clearFilter();
@@ -274,7 +274,7 @@ Ext.define("Core.mediator.touch.person.slide.Mediator", {
      * TODO: BMR: 02/28/13: clean this up. pulled directly from another example with minor changes: http://www.phs4j.com/2012/05/add-a-searchfield-to-a-sencha-touch-2-list-mvc/
      */
     onSearchKeyUp: function(field) {
-    	if(Core.config.global.Config.getCurrentView()==='personslide') {
+    	if(Core.config.person.Config.getCurrentView()==='personslide') {
 	        this.logger.debug("onSearchKeyUp");
 	        //get the store and the value of the field
 	        var value = field.getValue();

@@ -19,6 +19,7 @@ Ext.define("Core.config.global.Config",{
         previousView: '',         // initialize to empty
         currentView: '',          // initialize to empty
         nextView: '',    		  // initialize to empty
+		currentApp: '',			  // initialize to empty
         ui: 'neutral',        	  // initialize to 'neutral'
         company: 'Your Company',  // initialize to 'Your Company'
 		locale: 'en_us',	      // initialize to 'en_us'

@@ -1,11 +1,11 @@
 /**
- * The ORGANISATION slide mediator essentially fulfils the passive view pattern for the ORGANISATION slide view.
+ * The organisation slide mediator essentially fulfils the passive view pattern for the organisation slide view.
  */
-Ext.define("Core.mediator.extjs.ORGANISATION.slide.Mediator", {
-    extend: "Core.mediator.extjs.ORGANISATION.base.Mediator",
+Ext.define("Core.mediator.extjs.organisation.slide.Mediator", {
+    extend: "Core.mediator.extjs.organisation.base.Mediator",
 	
 	refs: {
-		slideNav: "ORGANISATIONSlideView"
+		slideNav: "organisationSlideView"
 	},
 
     // set up view event to mediator mapping
@@ -16,8 +16,8 @@ Ext.define("Core.mediator.extjs.ORGANISATION.slide.Mediator", {
         logoutButton: {
             click: "onLogoutButtonClick"
         },
-        newORGANISATIONButton: {
-            click: "onNewORGANISATIONButtonClick"
+        newOrganisationButton: {
+            click: "onNewOrganisationButtonClick"
         },
         slide: {
             itemclick: "onSlideSelect"
@@ -25,32 +25,32 @@ Ext.define("Core.mediator.extjs.ORGANISATION.slide.Mediator", {
     },
 
     /**
-     * Dispatches the application event to get the slide of ORGANISATIONs.
+     * Dispatches the application event to get the slide of organisations.
      */
-    getORGANISATIONSlideData: function() {
-        this.logger.debug("getORGANISATIONSlideData");
-        this.getView().setLoading(nineam.locale.LocaleManager.getProperty("ORGANISATIONSlide.loading"));
-        var evt = Ext.create("Core.event.ORGANISATION.Event", Core.event.ORGANISATION.Event.GET_ORGANISATION_SLIDE);
+    getOrganisationSlideData: function() {
+        this.logger.debug("getOrganisationSlideData");
+        this.getView().setLoading(nineam.locale.LocaleManager.getProperty("organisationSlide.loading"));
+        var evt = Ext.create("Core.event.organisation.Event", Core.event.organisation.Event.GET_ORGANISATION_SLIDE);
         this.eventBus.dispatchGlobalEvent(evt);
     },
 
     /**
-     * Handles the show ORGANISATION detail event from the ORGANISATION list view. Grab the data model
+     * Handles the show organisation detail event from the organisation list view. Grab the data model
      * from the selected item in the list and set it as the data provider for the detail view.
      * Finally, slide the detail view onto stage.
      *
      * @param record    The record is the data model for the item in the list currently selected.
      */
-    showORGANISATIONDetail: function(record) {
+    showOrganisationDetail: function(record) {
         var logMsg = (record != null)
-            ? ": id = " + record.get("id") + ", ORGANISATION = " + record.get("name")
+            ? ": id = " + record.get("id") + ", organisation = " + record.get("name")
             : "";
-        this.logger.debug("showORGANISATIONDetail = " + logMsg);
-		Core.config.global.Config.setPreviousView('ORGANISATIONslide');
-        this.ORGANISATIONStore.setSelectedRecord(record);
+        this.logger.debug("showOrganisationDetail = " + logMsg);
+		Core.config.organisation.Config.setPreviousView('organisationslide');
+        this.organisationStore.setSelectedRecord(record);
 		
 		console.log("selected record:");
-		console.log(this.ORGANISATIONStore.getSelectedRecord());
+		console.log(this.organisationStore.getSelectedRecord());
 		
         this.navigate(Core.event.navigation.Event.ACTION_SHOW_ORGANISATION_DETAIL);
     },
@@ -73,7 +73,7 @@ Ext.define("Core.mediator.extjs.ORGANISATION.slide.Mediator", {
     ////////////////////////////////////////////////
 
     /**
-     * Handles the painted application-level event. Set the ORGANISATION list view
+     * Handles the painted application-level event. Set the organisation list view
      * as the current view.
      */    
     onPainted: function() {
@@ -81,14 +81,14 @@ Ext.define("Core.mediator.extjs.ORGANISATION.slide.Mediator", {
     },
 	
     /**
-     * Handles the login success application-level event. Slide the ORGANISATION list view
+     * Handles the login success application-level event. Slide the organisation list view
      * onto stage.
      */
     onLoginSuccess: function() {
-		if(Core.config.global.Config.getNextView()==='ORGANISATIONslide') {
+		if(Core.config.organisation.Config.getNextView()==='organisationslide') {
 			this.logger.debug("onLoginSuccess");		
         	this.navigate(Core.event.authentication.Event.LOGIN_SUCCESS);
-        	this.getORGANISATIONSlideData();
+        	this.getOrganisationSlideData();
 		}
     },
 
@@ -97,60 +97,60 @@ Ext.define("Core.mediator.extjs.ORGANISATION.slide.Mediator", {
      */
     onSetUISuccess: function() {
         this.logger.debug("onSetUISuccess");
-        this.setUI(Core.config.global.Config.getUi());
+        this.setUI(Core.config.organisation.Config.getUi());
     },	
 	
     /**
-     * Handles the get ORGANISATIONs success application-level event.
+     * Handles the get organisations success application-level event.
      */
-    onGetORGANISATIONSlideSuccess: function() {
-		if(Core.config.global.Config.getNextView()==='ORGANISATIONslide') {
-			this.logger.debug("onGetORGANISATIONSlideSuccess");
+    onGetOrganisationSlideSuccess: function() {
+		if(Core.config.organisation.Config.getNextView()==='organisationslide') {
+			this.logger.debug("onGetOrganisationSlideSuccess");
 			this.getView().setLoading(false);
-			this.getSlide().getStore().loadRecords(this.ORGANISATIONStore.getRange());
+			this.getSlide().getStore().loadRecords(this.organisationStore.getRange());
 		}
     },
 
     /**
-     * Handles the get ORGANISATIONs failure event from the login controller.
+     * Handles the get organisations failure event from the login controller.
      */
-    onGetORGANISATIONSlideFailure: function() {
-		if(Core.config.global.Config.getNextView()==='ORGANISATIONslide') {
-			this.logger.debug("onGetORGANISATIONSlideFailure");
+    onGetOrganisationSlideFailure: function() {
+		if(Core.config.organisation.Config.getNextView()==='organisationslide') {
+			this.logger.debug("onGetOrganisationSlideFailure");
 			this.getView().setLoading(false);
 		}
     },
 
     /**
-     * Handles the delete of a ORGANISATION by refreshing the grid
+     * Handles the delete of a organisation by refreshing the grid
      * Touch takes care of this for you, not so ext
      */
-    onDeleteORGANISATIONSuccess: function() {
-		if(Core.config.global.Config.getNextView()==='ORGANISATIONslide') {
-			this.logger.debug("onDeleteORGANISATIONSuccess");
-			this.getSlide().getStore().loadRecords(this.ORGANISATIONStore.getRange());
+    onDeleteOrganisationSuccess: function() {
+		if(Core.config.organisation.Config.getNextView()==='organisationslide') {
+			this.logger.debug("onDeleteOrganisationSuccess");
+			this.getSlide().getStore().loadRecords(this.organisationStore.getRange());
 		}
     },
 	
 	/**
-     * Handles the update ORGANISATION success application-level event.
+     * Handles the update organisation success application-level event.
      */
-    onUpdateORGANISATIONSuccess: function() {
-		if(Core.config.global.Config.getNextView()==='ORGANISATIONslide') {
-			this.logger.debug("onUpdateORGANISATIONSuccess");
+    onUpdateOrganisationSuccess: function() {
+		if(Core.config.organisation.Config.getNextView()==='organisationslide') {
+			this.logger.debug("onUpdateOrganisationSuccess");
 			this.getView().setLoading(false);
-			this.getSlide().getStore().loadRecords(this.ORGANISATIONStore.getRange());
+			this.getSlide().getStore().loadRecords(this.organisationStore.getRange());
 		}
     },
 
     /**
-     * Handles the add of a ORGANISATION by refreshing the grid
+     * Handles the add of a organisation by refreshing the grid
      * Touch takes care of this for you, not so ext
      */
-    onCreateORGANISATIONSuccess: function() {
-		if(Core.config.global.Config.getNextView()==='ORGANISATIONslide') {
-			this.logger.debug("onCreateORGANISATIONSuccess");
-			this.getSlide().getStore().loadRecords(this.ORGANISATIONStore.getRange());
+    onCreateOrganisationSuccess: function() {
+		if(Core.config.organisation.Config.getNextView()==='organisationslide') {
+			this.logger.debug("onCreateOrganisationSuccess");
+			this.getSlide().getStore().loadRecords(this.organisationStore.getRange());
 		}
     },
 
@@ -162,7 +162,7 @@ Ext.define("Core.mediator.extjs.ORGANISATION.slide.Mediator", {
      * Handles the tap of the logout button. Dispatches the logout application-level event.
      */
     onLogoutButtonClick: function() {
-    	if(Core.config.global.Config.getCurrentView()==='ORGANISATIONslide') {	
+    	if(Core.config.organisation.Config.getCurrentView()==='organisationslide') {	
 			this.logger.debug("onLogoutButtonClick");
 			var evt = Ext.create("Core.event.authentication.Event", Core.event.authentication.Event.LOGOUT);
 			this.eventBus.dispatchGlobalEvent(evt);
@@ -170,17 +170,17 @@ Ext.define("Core.mediator.extjs.ORGANISATION.slide.Mediator", {
     },
 
     /**
-     * Handles the tap of the new ORGANISATION button. Shows the ORGANISATION detail view.
+     * Handles the tap of the new organisation button. Shows the organisation detail view.
      */
-    onNewORGANISATIONButtonClick: function() {
-    	if(Core.config.global.Config.getCurrentView()==='ORGANISATIONslide') { 	
-			this.logger.debug("onNewORGANISATIONButtonClick");
-			this.showORGANISATIONDetail(null);
+    onNewOrganisationButtonClick: function() {
+    	if(Core.config.organisation.Config.getCurrentView()==='organisationslide') { 	
+			this.logger.debug("onNewOrganisationButtonClick");
+			this.showOrganisationDetail(null);
     	}		
     },
 
     /**
-     * Handles the list select of a ORGANISATION list item. Shows the ORGANISATION detail view passing in a reference to
+     * Handles the list select of a organisation list item. Shows the organisation detail view passing in a reference to
      * the selected item in the list.
      *
      * @param {Ext.dataview.List} list  Reference to the visual list component.
@@ -189,9 +189,9 @@ Ext.define("Core.mediator.extjs.ORGANISATION.slide.Mediator", {
      * @param {Object} options ???
      */
     onSlideSelect: function(slide, record, index, options) {
-    	if(Core.config.global.Config.getCurrentView()==='ORGANISATIONslide') {	
+    	if(Core.config.organisation.Config.getCurrentView()==='organisationslide') {	
 			this.logger.debug("onSlideSelect");
-			this.showORGANISATIONDetail(record);
+			this.showOrganisationDetail(record);
     	}	
     }
 

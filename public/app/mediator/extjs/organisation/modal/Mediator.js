@@ -100,14 +100,14 @@ Ext.define("Core.mediator.extjs.organisation.modal.Mediator", {
      */
     onSetUISuccess: function() {
         this.logger.debug("onSetUISuccess");
-        this.setUI(Core.config.global.Config.getUi());
+        this.setUI(Core.config.organisation.Config.getUi());
     },	
 	
     /**
      * Handles the get organisations success application-level event.
      */
     onGetOrganisationModalSuccess: function() {
-		if(Core.config.global.Config.getNextView()==='organisationmodal') {
+		if(Core.config.organisation.Config.getNextView()==='organisationmodal') {
 			this.logger.debug("onGetOrganisationModalSuccess");
 			this.getView().setLoading(false);
 			//this.getList().getStore().loadRecords(this.organisationStore.getRange());
@@ -118,7 +118,7 @@ Ext.define("Core.mediator.extjs.organisation.modal.Mediator", {
      * Handles the get organisations failure event from the login controller.
      */
     onGetOrganisationModalFailure: function() {
-		if(Core.config.global.Config.getNextView()==='organisationmodal') {
+		if(Core.config.organisation.Config.getNextView()==='organisationmodal') {
 			this.logger.debug("onGetOrganisationModalFailure");
 			this.getView().setLoading(false);
 		}
@@ -133,7 +133,7 @@ Ext.define("Core.mediator.extjs.organisation.modal.Mediator", {
      */
     onCloseButtonTap: function() {
         this.logger.debug("onCloseButtonTap");
-        this.backToPrevious(Core.config.global.Config.getPreviousView());
+        this.backToPrevious(Core.config.organisation.Config.getPreviousView());
     }
 
 });

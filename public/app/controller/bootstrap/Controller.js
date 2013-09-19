@@ -40,19 +40,24 @@ Ext.define("Core.controller.bootstrap.Controller", {
     },
 
     /**
-     * Initializes the Localization Manager loading in four languages for now.
+     * Initializes the Localization Manager loading in the languages available.
      */
     initLocaleManager: function() {
         var lm = nineam.locale.LocaleManager;
         lm.addListener(nineam.locale.event.LocaleEvent.INITIALIZED, this.localeManagerInitializedEventHandler, this);
 
+		var currentApp = Core.config.global.Config.getCurrentApp();
+		if(currentApp !== '') { 
+			currentApp = currentApp + "/"; 
+		}
+		
         var locales = Ext.create("nineam.locale.store.LocalesStore", {
             data: [
-                {id: "en_gb", label: "English GB", url: "locale/en_gb.json"},
-                {id: "en_us", label: "English US", url: "locale/en_us.json"},
-                {id: "es_us", label: "Spanish", url: "locale/es_us.json"},
-                {id: "nl_nl", label: "Dutch", url: "locale/nl_nl.json"},
-                {id: "de_de", label: "Deutsch", url: "locale/de_de.json"}
+                {id: "en_gb", label: "English GB", url: "locale/" + currentApp + "en_gb.json"},
+                {id: "en_us", label: "English US", url: "locale/" + currentApp + "en_us.json"},
+                {id: "es_us", label: "Spanish", url: "locale/" + currentApp + "es_us.json"},
+                {id: "nl_nl", label: "Dutch", url: "locale/" + currentApp + "nl_nl.json"},
+                {id: "de_de", label: "Deutsch", url: "locale/" + currentApp + "de_de.json"}
             ]
         });
         lm.setLocales(locales);

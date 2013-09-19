@@ -155,17 +155,17 @@ Ext.define("Core.mediator.extjs.person.detail.Mediator", {
      */
     onSetUISuccess: function() {
         this.logger.debug("onSetUISuccess");
-        this.setUI(Core.config.global.Config.getUi());
+        this.setUI(Core.config.person.Config.getUi());
     },
 	
     /**
      * Handles the create person success application-level event. Navigates back to the person list view.
      */
     onCreatePersonSuccess: function() {
-		if(Core.config.global.Config.getCurrentView()==='persondetail') {
+		if(Core.config.person.Config.getCurrentView()==='persondetail') {
 			this.logger.debug("onCreatePersonSuccess");
 			this.getView().setLoading(false);
-			this.backToPrevious(Core.config.global.Config.getPreviousView());
+			this.backToPrevious(Core.config.person.Config.getPreviousView());
 		}
     },
 
@@ -173,10 +173,10 @@ Ext.define("Core.mediator.extjs.person.detail.Mediator", {
      * Handles the update person success application-level event. Navigates back to the person list view.
      */
     onUpdatePersonSuccess: function() {
-		if(Core.config.global.Config.getCurrentView()==='persondetail') {	
+		if(Core.config.person.Config.getCurrentView()==='persondetail') {	
 			this.logger.debug("onUpdatePersonFailure");
 			this.getView().setLoading(false);
-			this.backToPrevious(Core.config.global.Config.getPreviousView());
+			this.backToPrevious(Core.config.person.Config.getPreviousView());
 		}
     },
 
@@ -184,10 +184,10 @@ Ext.define("Core.mediator.extjs.person.detail.Mediator", {
      * Handles the delete person success application-level event. Navigates back to the person list view.
      */
     onDeletePersonSuccess: function() {
-		if(Core.config.global.Config.getCurrentView()==='persondetail') {
+		if(Core.config.person.Config.getCurrentView()==='persondetail') {
 			this.logger.debug("onDeletePersonSuccess");
 			this.reset();
-			this.backToPrevious(Core.config.global.Config.getPreviousView());
+			this.backToPrevious(Core.config.person.Config.getPreviousView());
 		}
     },
 
@@ -220,7 +220,7 @@ Ext.define("Core.mediator.extjs.person.detail.Mediator", {
      */
     onBackButtonClick: function() {
         this.logger.debug("onBackButtonClick");
-        this.backToPrevious(Core.config.global.Config.getPreviousView());
+        this.backToPrevious(Core.config.person.Config.getPreviousView());
     },
 
     /**

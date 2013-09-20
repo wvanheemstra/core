@@ -29,7 +29,7 @@
         "search": "live search",
         "name": "Name",
         "loading": "Loading Persons...",
-        "noMains": "No Persons found."
+        "noPersons": "No Persons found."
     },	
 	
     /////////////////////////////////////////////
@@ -42,7 +42,7 @@
         "search": "live search",
         "name": "Name",
         "loading": "Loading Persons...",
-        "noMains": "No Persons found."
+        "noPersons": "No Persons found."
     },
 
     /////////////////////////////////////////////
@@ -55,7 +55,7 @@
         "search": "live search",
         "name": "Name",
         "loading": "Loading Persons...",
-        "noMains": "No Persons found."
+        "noPersons": "No Persons found."
     },
 
     /////////////////////////////////////////////
@@ -90,9 +90,9 @@
         "save": "Save",
         "name": "Name",
         "delete": "Delete",
-        "creatingMain": "Creating Person ...",
-        "updatingMain": "Updating Person ...",
-        "deletingMain": "Deleting Person..."
+        "creatingPerson": "Creating Person ...",
+        "updatingPerson": "Updating Person ...",
+        "deletingPerson": "Deleting Person..."
     },
 
     /////////////////////////////////////////////

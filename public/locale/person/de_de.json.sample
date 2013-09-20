@@ -29,7 +29,7 @@
         "search": "live suchen",
         "name": "Name",
         "loading": "Laad Personen...",
-        "noMains": "Keine Personen wurden gefunden."
+        "noPersons": "Keine Personen wurden gefunden."
     },	
 	
     /////////////////////////////////////////////
@@ -42,7 +42,7 @@
         "search": "live suchen",
         "name": "Name",
         "loading": "Laad Personen...",
-        "noMains": "Keine Personen wurden gefunden."
+        "noPersons": "Keine Personen wurden gefunden."
     },
 
     /////////////////////////////////////////////
@@ -55,7 +55,7 @@
         "search": "live suchen",
         "name": "Name",
         "loading": "Laad Personen...",
-        "noMains": "Keine Personen wurden gefunden."
+        "noPersons": "Keine Personen wurden gefunden."
     },
 
     /////////////////////////////////////////////
@@ -90,9 +90,9 @@
         "save": "Speichern",
         "name": "Name",
         "delete": "Löschen",
-        "creatingMain": "Mach Person neu an ...",
-        "updatingMain": "Bearbeit Person ...",
-        "deletingMain": "Lösch Person..."
+        "creatingPerson": "Mach Person neu an ...",
+        "updatingPerson": "Bearbeit Person ...",
+        "deletingPerson": "Lösch Person..."
     },
 
     /////////////////////////////////////////////

@@ -29,7 +29,7 @@
         "search": "live zoeken",
         "name": "Naam",
         "loading": "Laad Persoon...",
-        "noMains": "Geen Persoon gevonden."
+        "noPersons": "Geen Persoon gevonden."
     },	
 	
     /////////////////////////////////////////////
@@ -42,7 +42,7 @@
         "search": "live zoeken",
         "name": "Naam",
         "loading": "Laad Persoon...",
-        "noMains": "Geen Persoon gevonden."
+        "noPersons": "Geen Persoon gevonden."
     },
 
     /////////////////////////////////////////////
@@ -55,7 +55,7 @@
         "search": "live zoeken",
         "name": "Naam",
         "loading": "Laad Persoon...",
-        "noMains": "Geen Persoon gevonden."
+        "noPersons": "Geen Persoon gevonden."
     },
 
     /////////////////////////////////////////////
@@ -85,14 +85,14 @@
     // PERSON DETAIL
     /////////////////////////////////////////////
     "personDetail": {
-        "title": "Main",
+        "title": "Person",
         "back": "Terug",
         "save": "Bewaar",
         "name": "Naam",
         "delete": "Verwijder",
-        "creatingMain": "Maak Persoon aan ...",
-        "updatingMain": "Werk Persoon bij ...",
-        "deletingMain": "Verwijder Persoon..."
+        "creatingPerson": "Maak Persoon aan ...",
+        "updatingPerson": "Werk Persoon bij ...",
+        "deletingPerson": "Verwijder Persoon..."
     },
 
     /////////////////////////////////////////////

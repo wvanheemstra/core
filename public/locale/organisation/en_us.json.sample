@@ -29,7 +29,7 @@
         "search": "live search",
         "name": "Name",
         "loading": "Loading Organisations...",
-        "noMains": "No Organisations found."
+        "noOrganisations": "No Organisations found."
     },	
 	
     /////////////////////////////////////////////
@@ -42,7 +42,7 @@
         "search": "live search",
         "name": "Name",
         "loading": "Loading Organisations...",
-        "noMains": "No Organisations found."
+        "noOrganisations": "No Organisations found."
     },
 
     /////////////////////////////////////////////
@@ -55,7 +55,7 @@
         "search": "live search",
         "name": "Name",
         "loading": "Loading Organisations...",
-        "noMains": "No Organisations found."
+        "noOrganisations": "No Organisations found."
     },
 
     /////////////////////////////////////////////
@@ -90,9 +90,9 @@
         "save": "Save",
         "name": "Name",
         "delete": "Delete",
-        "creatingMain": "Creating Organisation ...",
-        "updatingMain": "Updating Organisation ...",
-        "deletingMain": "Deleting Organisation..."
+        "creatingOrganisation": "Creating Organisation ...",
+        "updatingOrganisation": "Updating Organisation ...",
+        "deletingOrganisation": "Deleting Organisation..."
     },
 
     /////////////////////////////////////////////

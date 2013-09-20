@@ -29,7 +29,7 @@
         "search": "live suchen",
         "name": "Name",
         "loading": "Laad Organisationen...",
-        "noMains": "Keine Organisationen wurden gefunden."
+        "noOrganisations": "Keine Organisationen wurden gefunden."
     },	
 	
     /////////////////////////////////////////////
@@ -42,7 +42,7 @@
         "search": "live suchen",
         "name": "Name",
         "loading": "Laad Organisationen...",
-        "noMains": "Keine Organisationen wurden gefunden."
+        "noOrganisations": "Keine Organisationen wurden gefunden."
     },
 
     /////////////////////////////////////////////
@@ -55,7 +55,7 @@
         "search": "live suchen",
         "name": "Name",
         "loading": "Laad Organisationen...",
-        "noMains": "Keine Organisationen wurden gefunden."
+        "noOrganisations": "Keine Organisationen wurden gefunden."
     },
 
     /////////////////////////////////////////////
@@ -90,9 +90,9 @@
         "save": "Speichern",
         "name": "Name",
         "delete": "Löschen",
-        "creatingMain": "Mach Organisation neu an ...",
-        "updatingMain": "Bearbeit Organisation ...",
-        "deletingMain": "Lösch Organisation..."
+        "creatingOrganisation": "Mach Organisation neu an ...",
+        "updatingOrganisation": "Bearbeit Organisation ...",
+        "deletingOrganisation": "Lösch Organisation..."
     },
 
     /////////////////////////////////////////////

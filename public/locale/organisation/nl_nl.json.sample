@@ -29,7 +29,7 @@
         "search": "live zoeken",
         "name": "Naam",
         "loading": "Laad Organisatie...",
-        "noMains": "Geen Organisatie gevonden."
+        "noOrganisations": "Geen Organisatie gevonden."
     },	
 	
     /////////////////////////////////////////////
@@ -42,7 +42,7 @@
         "search": "live zoeken",
         "name": "Naam",
         "loading": "Laad Organisatie...",
-        "noMains": "Geen Organisatie gevonden."
+        "noOrganisations": "Geen Organisatie gevonden."
     },
 
     /////////////////////////////////////////////
@@ -55,7 +55,7 @@
         "search": "live zoeken",
         "name": "Naam",
         "loading": "Laad Organisatie...",
-        "noMains": "Geen Organisatie gevonden."
+        "noOrganisations": "Geen Organisatie gevonden."
     },
 
     /////////////////////////////////////////////
@@ -85,14 +85,14 @@
     // ORGANISATION DETAIL
     /////////////////////////////////////////////
     "organisationDetail": {
-        "title": "Main",
+        "title": "Organisation",
         "back": "Terug",
         "save": "Bewaar",
         "name": "Naam",
         "delete": "Verwijder",
-        "creatingMain": "Maak Organisatie aan ...",
-        "updatingMain": "Werk Organisatie bij ...",
-        "deletingMain": "Verwijder Organisatie..."
+        "creatingOrganisation": "Maak Organisatie aan ...",
+        "updatingOrganisation": "Werk Organisatie bij ...",
+        "deletingOrganisation": "Verwijder Organisatie..."
     },
 
     /////////////////////////////////////////////

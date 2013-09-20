@@ -27,6 +27,7 @@ Ext.define("Core.mediator.touch.viewport.organisation.Mediator", {
         // create references to this mediator's views so we can listen to events and grab data from them
         loginView:              "loginView",
         organisationListView:         "organisationListView",
+		organisationSlideView:         "organisationSlideView",
         organisationTileView:         "organisationTileView",
         organisationModalView:		"organisationModalView",
         organisationDetailView:       "organisationDetailView"

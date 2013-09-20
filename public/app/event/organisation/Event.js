@@ -6,6 +6,14 @@ Ext.define("Core.event.organisation.Event", {
     
     statics: {
 
+		/**
+		 * Moved to here from Navigate Event, but isn't as yet used by Navigate Event
+		 */	
+		ACTION_BACK_SHOW_ORGANISATION_LIST: "actionBackShowOrganisationList",
+        ACTION_BACK_SHOW_ORGANISATION_TILE: "actionBackShowOrganisationTile",
+        ACTION_SHOW_ORGANISATION_DETAIL:    "actionShowOrganisationDetail",  
+        ACTION_SHOW_ORGANISATION_MODAL:     "actionShowOrganisationModal",	
+	
         /**
          * The get organisation slide event type.
          */

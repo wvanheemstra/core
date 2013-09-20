@@ -6,6 +6,14 @@ Ext.define("Core.event.person.Event", {
     
     statics: {
 
+		/**
+		 * Moved to here from Navigate Event, but isn't as yet used by Navigate Event
+		 */
+		ACTION_BACK_SHOW_PERSON_LIST:     	"actionBackShowPersonList",
+        ACTION_BACK_SHOW_PERSON_TILE:     	"actionBackShowPersonTile",
+        ACTION_SHOW_PERSON_DETAIL:        	"actionShowPersonDetail",  
+        ACTION_SHOW_PERSON_MODAL:         	"actionShowPersonModal",	
+	
         /**
          * The get person slide event type.
          */

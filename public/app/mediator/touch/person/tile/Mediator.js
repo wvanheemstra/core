@@ -59,7 +59,7 @@ Ext.define("Core.mediator.touch.person.tile.Mediator", {
      */
     showPersonDetail: function(record) {
         var logMsg = (record != null)
-            ? ": id = " + record.get("id") + ", person = " + record.get("name")
+            ? ": id = " + record.get("id") + ", person = " + record.get("personFirstName")
             : "new person";
         this.logger.debug("showPersonDetail = " + logMsg);
 		Core.config.person.Config.setPreviousView('persontile');

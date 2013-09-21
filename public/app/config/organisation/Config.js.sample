@@ -1,5 +1,5 @@
 /*
- * Config for values that belong tot organisation and set at runtime
+ * Config for values that belong to organisation and set at runtime
  *
  * Example to set a organisation value:
  * Core.config.organisation.Config.setMyLastCustomer(12345);

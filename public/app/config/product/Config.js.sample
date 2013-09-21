@@ -1,14 +1,14 @@
 /*
- * Config for values that belong to person and set at runtime
+ * Config for values that belong to product and set at runtime
  *
- * Example to set a person value:
- * Core.config.person.Config.setMyLastCustomer(12345);
+ * Example to set a product value:
+ * Core.config.product.Config.setMyLastCustomer(12345);
  *
- * Example to get a person value:
- * Core.config.person.Config.getMyLastCustomer();
+ * Example to get a product value:
+ * Core.config.product.Config.getMyLastCustomer();
  *
  */
-Ext.define("Core.config.person.Config",{
+Ext.define("Core.config.product.Config",{
     singleton : true,
     config : {
         //myLastCustomer : 0,     // initialize to 0
@@ -18,7 +18,7 @@ Ext.define("Core.config.person.Config",{
 		initialView: 'login',     // initialize to 'login'
         previousView: '',         // initialize to empty
         currentView: '',          // initialize to empty
-        nextView: 'personlist',   // initialize to empty
+        nextView: 'productlist',   // initialize to empty
         ui: 'neutral',        	  // initialize to 'neutral'
         company: 'Your Company',  // initialize to 'Your Company'
 		locale: 'en_us',	      // initialize to 'en_us'

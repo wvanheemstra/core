@@ -46,19 +46,19 @@ Ext.define("Core.view.touch.person.detail.View", {
 					{
 						xtype: "spacer"
 					},
-                    {
-                        xtype: "button",
-                        itemId: "savePersonButton",
-                        align: "right",
-                        ui: "neutral", // WAS action
-                        plugins: [
-                            {
-                                type: "localization",
-                                method: "setText",
-                                key: "personDetail.save"
-                            }
-                        ]
-                    }
+					{
+						xtype: "button",
+						itemId: "deleteButton",
+						align: "right",
+						ui: "neutral", // WAS action
+						plugins: [
+							{
+								type: "localization",
+								method: "setText",
+								key: "personDetail.delete"
+							}
+						]
+					}
                 ]
             },
             {
@@ -106,19 +106,19 @@ Ext.define("Core.view.touch.person.detail.View", {
                     }
                 ]
             },
-            {
-                xtype: "button",
-                itemId: "deleteButton",
-                align: "center",
-                ui: "neutral", // WAS action
-                plugins: [
-                    {
-                        type: "localization",
-                        method: "setText",
-                        key: "personDetail.delete"
-                    }
-                ]
-            }
+			{
+				xtype: "button",
+				itemId: "savePersonButton",
+				align: "center",
+				ui: "neutral", // WAS action
+				plugins: [
+					{
+						type: "localization",
+						method: "setText",
+						key: "personDetail.save"
+					}
+				]
+			}
         ]
     }
 });

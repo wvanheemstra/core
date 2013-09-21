@@ -65,16 +65,42 @@ Ext.define("Core.view.touch.person.detail.View", {
                 xtype: "fieldset",
                 itemId: "fieldset",
                 items: [
-                    {
+					{
                         xtype: "textfield",
-                        itemId: "nameTextField",
-                        name: "name",
+                        itemId: "salutationAbbreviationTextField",
+                        name: "salutationAbbreviation",
                         required: true,
                         plugins: [
                             {
                                 type: "localization",
                                 method: "setPlaceHolder",
-                                key: "personDetail.name"
+                                key: "personDetail.salutationAbbreviation"
+                            }
+                        ]
+                    },
+					{
+                        xtype: "textfield",
+                        itemId: "personFirstNameTextField",
+                        name: "personFirstName",
+                        required: true,
+                        plugins: [
+                            {
+                                type: "localization",
+                                method: "setPlaceHolder",
+                                key: "personDetail.personFirstName"
+                            }
+                        ]
+                    },
+                    {
+                        xtype: "textfield",
+                        itemId: "personLastNameTextField",
+                        name: "personLastName",
+                        required: true,
+                        plugins: [
+                            {
+                                type: "localization",
+                                method: "setPlaceHolder",
+                                key: "personDetail.personLastName"
                             }
                         ]
                     }

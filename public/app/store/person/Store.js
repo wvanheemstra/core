@@ -25,7 +25,7 @@ Ext.define("Core.store.person.Store", {
     grouper: {
         groupFn: function(record) {
             try {
-                return record.get("personLastName")[0];
+                return record.get("personLastName")[0].toUpperCase(); // so 'van Halen' comes under 'V'
             } catch(err) {
 				console.log(err);
             }

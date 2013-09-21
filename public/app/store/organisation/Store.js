@@ -11,7 +11,7 @@ Ext.define("Core.store.organisation.Store", {
 	    grouper: {
 	        groupFn: function(record) {
 	            try {
-	                return record.get("name")[0];
+	                return record.get("name")[0].toUpperCase(); // so 'van Halen' comes under 'V'
 	            } catch(err) {
 	
 	            }
@@ -25,7 +25,7 @@ Ext.define("Core.store.organisation.Store", {
     grouper: {
         groupFn: function(record) {
             try {
-                return record.get("name")[0];
+                return record.get("name")[0].toUpperCase(); // so 'van Halen' comes under 'V'
             } catch(err) {
 
             }

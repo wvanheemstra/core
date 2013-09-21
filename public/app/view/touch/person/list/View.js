@@ -71,7 +71,15 @@ Ext.define("Core.view.touch.person.list.View", {
                 itemId: "list",
                 fullscreen: true,
 				ui: "neutral",
-                itemTpl: "<div class='person'>{personFirstName}<strong>{personLastName}</strong></div>",
+				itemTpl: Ext.create('Ext.XTemplate',
+						"<div class='personFirstName'>",
+						  "<div style='float:left; width: 50%'>{personFirstName}</div>",
+						"</div>",
+						"<div class='personLastName'>",
+						  "<div style='float:left; width: 50%'>{personLastName}</div>",
+						"</div>",
+						"<div style='clear:both'></div>"
+				),
                 grouped: false,// WAS true, grouped currently causes an error
                 onItemDisclosure: true,
                 plugins: [

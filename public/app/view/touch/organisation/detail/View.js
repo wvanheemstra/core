@@ -46,19 +46,19 @@ Ext.define("Core.view.touch.organisation.detail.View", {
 					{
 						xtype: "spacer"
 					},
-                    {
-                        xtype: "button",
-                        itemId: "saveOrganisationButton",
-                        align: "right",
-                        ui: "neutral", // WAS action
-                        plugins: [
-                            {
-                                type: "localization",
-                                method: "setText",
-                                key: "organisationDetail.save"
-                            }
-                        ]
-                    }
+					{
+						xtype: "button",
+						itemId: "deleteButton",
+						align: "right",
+						ui: "neutral", // WAS action
+						plugins: [
+							{
+								type: "localization",
+								method: "setText",
+								key: "organisationDetail.delete"
+							}
+						]
+					}
                 ]
             },
             {
@@ -67,32 +67,32 @@ Ext.define("Core.view.touch.organisation.detail.View", {
                 items: [
                     {
                         xtype: "textfield",
-                        itemId: "nameTextField",
-                        name: "name",
+                        itemId: "organisatioNameTextField",
+                        name: "organisationName",
                         required: true,
                         plugins: [
                             {
                                 type: "localization",
                                 method: "setPlaceHolder",
-                                key: "organisationDetail.name"
+                                key: "organisationDetail.organisationName"
                             }
                         ]
                     }
                 ]
             },
-            {
-                xtype: "button",
-                itemId: "deleteButton",
-                align: "center",
-                ui: "neutral", // WAS action
-                plugins: [
-                    {
-                        type: "localization",
-                        method: "setText",
-                        key: "organisationDetail.delete"
-                    }
-                ]
-            }
+			{
+				xtype: "button",
+				itemId: "saveOrganisationButton",
+				align: "center",
+				ui: "neutral", // WAS action
+				plugins: [
+					{
+						type: "localization",
+						method: "setText",
+						key: "organisationDetail.save"
+					}
+				]
+			}
         ]
     }
 });

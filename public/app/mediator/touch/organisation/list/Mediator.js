@@ -218,7 +218,7 @@ Ext.define("Core.mediator.touch.organisation.list.Mediator", {
 	                //loop through each of the regular expressions
 	                for (i = 0; i < regexps.length; i++) {
 	                    var search = regexps[i],
-	                        didMatch = record.get("name").match(search);
+	                        didMatch = record.get("organisationName").match(search);
 	                    //if it matched the name, push it into the matches array
 	                    matched.push(didMatch);
 	                }

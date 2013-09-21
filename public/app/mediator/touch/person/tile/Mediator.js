@@ -219,8 +219,9 @@ Ext.define("Core.mediator.touch.person.tile.Mediator", {
 	                //loop through each of the regular expressions
 	                for (i = 0; i < regexps.length; i++) {
 	                    var search = regexps[i],
-	                        didMatch = record.get("name").match(search);
-	                    //if it matched the name, push it into the matches array
+	                        didMatch = record.get("personFirstName").match(search) ||
+	                            record.get("personLastName").match(search);
+	                    //if it matched the first or last name, push it into the matches array
 	                    matched.push(didMatch);
 	                }
 	                //if nothing was found, return false (don't so in the store)

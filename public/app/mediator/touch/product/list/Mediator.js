@@ -1,0 +1,236 @@
+/**
+ * The product list mediator essentially fulfils the passive view pattern for the product list view.
+ */
+Ext.define("Core.mediator.touch.product.list.Mediator", {
+    extend: "Core.mediator.touch.product.base.Mediator",
+
+    // set up view event to mediator mapping
+    control: {
+    	titlebar: {
+    		painted: "onPainted"
+    	},
+        logoutButton: {
+            tap: "onLogoutButtonTap"
+        },
+        newProductButton: {
+            tap: "onNewProductButtonTap"
+        },
+        searchInput :{
+            keyup:          "onSearchKeyUp",
+            clearicontap:   "onSearchClearIconTap"
+        },
+        list: {
+            disclose: "onListDisclose"
+        }
+    },
+
+    /**
+     * Sets up global event bus handlers. Called by the parent superclass during the initialization phase.
+     */
+    setupGlobalEventListeners: function() {
+        this.callParent();
+        this.logger.debug("setupGlobalEventListeners");
+        this.eventBus.addGlobalEventListener(Core.event.ui.Event.SET_UI_SUCCESS, this.onSetUISuccess, this);
+        this.eventBus.addGlobalEventListener(Core.event.authentication.Event.LOGIN_SUCCESS, this.onLoginSuccess, this);
+        this.eventBus.addGlobalEventListener(Core.event.product.Event.GET_PRODUCT_LIST_SUCCESS, this.onGetProductListSuccess, this);
+        this.eventBus.addGlobalEventListener(Core.event.product.Event.GET_PRODUCT_LIST_FAILURE, this.onGetProductListFailure, this);
+    },
+
+    /**
+     * Dispatches the application event to get the list of products.
+     */
+    getProductListData: function() {
+        this.logger.debug("getProductListData");
+        this.getView().setMasked({
+            xtype: "loadmask",
+            message: nineam.locale.LocaleManager.getProperty("productList.loading")
+        });
+        var evt = Ext.create("Core.event.product.Event", Core.event.product.Event.GET_PRODUCT_LIST);
+        this.eventBus.dispatchGlobalEvent(evt);
+    },
+
+    /**
+     * Handles the show product detail event from the product list view. Grab the data model
+     * from the selected item in the list and set it as the data provider for the detail view.
+     * Finally, slide the detail view onto stage.
+     *
+     * @param record    The record is the data model for the item in the list currently selected.
+     */
+    showProductDetail: function(record) {
+        var logMsg = (record != null)
+            ? ": id = " + record.get("id") + ", product = " + record.get("name")
+            : "new product";
+        this.logger.debug("showProductDetail = " + logMsg);
+		Core.config.product.Config.setPreviousView('productlist');
+        this.navigate(Core.event.navigation.Event.ACTION_SHOW_PRODUCT_DETAIL);
+        this.productStore.setSelectedRecord(record);
+    },
+    
+    /**
+     * Handles the set UI event. 
+     *
+     * @param ui    The ui to set.	 
+     */
+    setUI: function(ui) {
+    	this.logger.debug("setUI: ui = " + ui);
+		for ( var i=0; i<this.getView().items.length; i++)
+        {
+            this.getView().items.getAt(i).setUi(ui);
+        }
+    },     
+
+    ////////////////////////////////////////////////
+    // EVENT BUS HANDLERS
+    ////////////////////////////////////////////////
+
+    /**
+     * Handles the painted application-level event. 
+     */    
+    onPainted: function() {
+	    this.logger.debug("onPainted");	
+    },
+
+    /**
+     * Handles the login success application-level event. Slide the product list view
+     * onto stage.
+     */
+    onLoginSuccess: function() {
+        this.logger.debug("onLoginSuccess");        
+		if(Core.config.product.Config.getNextView()==='productlist') {
+        	this.navigate(Core.event.authentication.Event.LOGIN_SUCCESS);
+        	this.getProductListData();
+		}
+    },
+
+    /**
+     * Handles the set ui success application-level event. Update the components for the ui.
+     */
+    onSetUISuccess: function() {
+        this.logger.debug("onSetUISuccess");
+        this.setUI(Core.config.product.Config.getUi());
+    },
+
+    /**
+     * Handles the get products application-level event.
+     */
+    onGetProductListSuccess: function() {
+        this.logger.debug("onGetProductListSuccess");
+        this.getView().setMasked(false);
+        this.getList().setStore(this.productStore);
+    },
+
+    /**
+     * Handles the get products failure event from the login controller.
+     */
+    onGetProductListFailure: function() {
+        this.logger.debug("onGetProductListFailure");
+        this.getView().setMasked(false);
+    },
+
+    ////////////////////////////////////////////////
+    // VIEW EVENT HANDLERS
+    ////////////////////////////////////////////////
+
+    /**
+     * Handles the tap of the logout button. Dispatches the logout application-level event.
+     */
+    onLogoutButtonTap: function() {
+    	if(Core.config.product.Config.getCurrentView()==='productlist') {      	
+	        this.logger.debug("onLogoutButtonTap");
+	        var evt = Ext.create("Core.event.authentication.Event", Core.event.authentication.Event.LOGOUT);
+	        this.eventBus.dispatchGlobalEvent(evt);
+    	}	        
+    },
+
+    /**
+     * Handles the tap of the new product button. Shows the product detail view.
+     */
+    onNewProductButtonTap: function() {
+    	if(Core.config.product.Config.getCurrentView()==='productlist') {     	
+	        this.logger.debug("onNewProductButtonTap");
+	        this.showProductDetail();
+    	}
+    },
+
+    /**
+     * Handles the list disclose of an product list item. Shows the product detail view passing in a reference to
+     * the selected item in the list.
+     *
+     * @param {Ext.dataview.List} list  Reference to the visual list component.
+     * @param {Object/Ext.data.Model} record Reference to the selected item in the list.
+     * @param {Object} target The item in the list that's selected.
+     * @param {Number} index The index of the selected item.
+     * @param {Object/Event} evt the event that triggered the handler.
+     * @param {Object} options ???
+     */
+    onListDisclose: function(list, record, target, index, evt, options) {
+    	if(Core.config.product.Config.getCurrentView()==='productlist') {      	
+	        this.logger.debug("onListDisclose");
+	        this.productStore.setSelectedRecord(record);
+	        this.showProductDetail(record);
+    	}
+    },
+
+    /**
+     * Handles the clear icon tap event on the search field. Clears all filter on the list's store.
+     */
+    onSearchClearIconTap: function() {
+    	if(Core.config.product.Config.getCurrentView()==='productlist') {    	
+	        this.logger.debug("onSearchClearIconTap");
+	        var store = this.getList().getStore();
+	        store.clearFilter();
+    	}        
+    },
+
+    /**
+     * Handles the key up event on the search field. Filters the list component's store by the value in the
+     * search field and determining if it matches the name element of each record in the list.
+     *
+     * @param {Ext.field.Search} field Reference to the search field.
+     *
+     * TODO: BMR: 02/28/13: clean this up. pulled directly from another example with minor changes: http://www.phs4j.com/2012/05/add-a-searchfield-to-a-sencha-touch-2-list-mvc/
+     */
+    onSearchKeyUp: function(field) {
+    	if(Core.config.product.Config.getCurrentView()==='productlist') {
+	        this.logger.debug("onSearchKeyUp");
+	        //get the store and the value of the field
+	        var value = field.getValue();
+	        var store = this.getList().getStore();
+	        //first clear any current filters on the store
+	        store.clearFilter();
+	        //check if a value is set first, as if it isn't we don't have to do anything
+	        if (value) {
+	            //the user could have entered spaces, so we must split them so we can loop through them all
+	            var searches = value.split(" "),
+	                regexps = [],
+	                i;
+	            //loop them all
+	            for (i = 0; i < searches.length; i++) {
+	                //if it is nothing, continue
+	                if (!searches[i]) continue;
+	                //if found, create a new regular expression which is case insensitive
+	                regexps.push(new RegExp(searches[i], "i"));
+	            }
+	            //now filter the store by passing a method
+	            //the passed method will be called for each record in the store
+	            store.filter(function(record) {
+	                var matched = [];
+	                //loop through each of the regular expressions
+	                for (i = 0; i < regexps.length; i++) {
+	                    var search = regexps[i],
+	                        didMatch = record.get("name").match(search);
+	                    //if it matched the name, push it into the matches array
+	                    matched.push(didMatch);
+	                }
+	                //if nothing was found, return false (dont so in the store)
+	                if (regexps.length > 1 && matched.indexOf(false) != -1) {
+	                    return false;
+	                } else {
+	                    //else true true (show in the store)
+	                    return matched[0];
+	                }
+	            });
+	        }
+    	}//eof if
+    }
+});

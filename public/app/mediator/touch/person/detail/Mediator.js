@@ -212,7 +212,7 @@ Ext.define("Core.mediator.touch.person.detail.Mediator", {
      */
     onSelectedRecordChange: function(store, record) {
         var logMsg = (record != null)
-            ? ": id = " + record.get("id") + ", person = " + record.get("name")
+            ? ": id = " + record.get("id") + ", person = " + record.get("personFirstName")
             : "new person";
         this.logger.debug("onSelectedRecordChange = " + logMsg);
         if (record) {

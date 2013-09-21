@@ -8,6 +8,7 @@ Ext.define("Core.model.person.Model", {
 	    idProperty: "id",
 	    fields: [
 	        { name: "id",      			type: "int"     },
+	        { name: "salutationAbbreviation",  type: "string"  },			
 	        { name: "personFirstName",  type: "string"  },
 	        { name: "personLastName",  	type: "string"  }			
 	    ],
@@ -21,6 +22,7 @@ Ext.define("Core.model.person.Model", {
     idProperty: "id",
 	fields: [
         { name: "id",      type: "int"     },
+	    { name: "salutationAbbreviation",  type: "string"  },			
 		{ name: "personFirstName",  type: "string"  },
 	    { name: "personLastName",  	type: "string"  }
 	],

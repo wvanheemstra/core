@@ -27,7 +27,7 @@
         "logOut": "Log Out",
         "new": "New",
         "search": "live search",
-        "name": "Name",
+        "organisationName": "Name",
         "loading": "Loading Organisations...",
         "noOrganisations": "No Organisations found."
     },	
@@ -40,7 +40,7 @@
         "logOut": "Log Out",
         "new": "New",
         "search": "live search",
-        "name": "Name",
+        "organisationName": "Name",
         "loading": "Loading Organisations...",
         "noOrganisations": "No Organisations found."
     },
@@ -53,7 +53,7 @@
         "logOut": "Log Out",
         "new": "New",
         "search": "live search",
-        "name": "Name",
+        "organisationName": "Name",
         "loading": "Loading Organisations...",
         "noOrganisations": "No Organisations found."
     },
@@ -95,7 +95,7 @@
         "title": "Organisation",
         "back": "Back",
         "save": "Save",
-        "name": "Name",
+        "organisationName": "Name",
         "delete": "Delete",
         "creatingOrganisation": "Creating Organisation ...",
         "updatingOrganisation": "Updating Organisation ...",

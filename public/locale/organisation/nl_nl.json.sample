@@ -27,7 +27,7 @@
         "logOut": "Log Uit",
         "new": "Nieuw",
         "search": "live zoeken",
-        "name": "Naam",
+        "organisationName": "Naam",
         "loading": "Laad Organisatie...",
         "noOrganisations": "Geen Organisatie gevonden."
     },	
@@ -40,7 +40,7 @@
         "logOut": "Log Uit",
         "new": "Nieuw",
         "search": "live zoeken",
-        "name": "Naam",
+        "organisationName": "Naam",
         "loading": "Laad Organisatie...",
         "noOrganisations": "Geen Organisatie gevonden."
     },
@@ -53,7 +53,7 @@
         "logOut": "Log Uit",
         "new": "Nieuw",
         "search": "live zoeken",
-        "name": "Naam",
+        "organisationName": "Naam",
         "loading": "Laad Organisatie...",
         "noOrganisations": "Geen Organisatie gevonden."
     },
@@ -88,7 +88,7 @@
         "title": "Organisation",
         "back": "Terug",
         "save": "Bewaar",
-        "name": "Naam",
+        "organisationName": "Naam",
         "delete": "Verwijder",
         "creatingOrganisation": "Maak Organisatie aan ...",
         "updatingOrganisation": "Werk Organisatie bij ...",

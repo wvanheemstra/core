@@ -1,0 +1,105 @@
+{
+    /////////////////////////////////////////////
+    // LOGIN
+    /////////////////////////////////////////////
+    "login": {
+        "title": "Login",
+        "username": "Gebruikersnaam",
+        "password": "Wachtwoord",
+        "passwordHint": "Hint: password",
+        "keepmeloggedin": "Houd me ingelogd",
+        "submit": "Log In",
+        "reset": "Wissen",
+        "loggingIn" : "Verifieren...",
+        "credentialsRequired": "Voer alsjeblieft gebruikersnaam en wachtwoord in.",
+        "loginFailed": "Login mislukt. Voer alsjeblieft de juiste gegevens in."
+    },	
+
+    /////////////////////////////////////////////
+    // PRODUCT SLIDE
+    /////////////////////////////////////////////
+    "productSlide": {
+        "title": "Persoon",
+        "title1": "Persoon1",	
+        "title2": "Persoon2",
+        "title3": "Persoon3",	
+        "title4": "Persoon4",			
+        "logOut": "Log Uit",
+        "new": "Nieuw",
+        "search": "live zoeken",
+        "name": "Naam",
+        "loading": "Laad Persoon...",
+        "noProducts": "Geen Persoon gevonden."
+    },	
+	
+    /////////////////////////////////////////////
+    // PRODUCT LIST
+    /////////////////////////////////////////////
+    "productList": {
+        "title": "Persoon",
+        "logOut": "Log Uit",
+        "new": "Nieuw",
+        "search": "live zoeken",
+        "name": "Naam",
+        "loading": "Laad Persoon...",
+        "noProducts": "Geen Persoon gevonden."
+    },
+
+    /////////////////////////////////////////////
+    // PRODUCT TILE
+    /////////////////////////////////////////////
+    "productTile": {
+        "title": "Persoon",
+        "logOut": "Log Uit",
+        "new": "Nieuw",
+        "search": "live zoeken",
+        "name": "Naam",
+        "loading": "Laad Persoon...",
+        "noProducts": "Geen Persoon gevonden."
+    },
+
+    /////////////////////////////////////////////
+    // PRODUCT ITEMS
+    /////////////////////////////////////////////
+    "productItem1": {
+        "title": "Item 1",
+    },	
+    "productItem2": {
+        "title": "Item 2",
+    },
+    "productItem3": {
+        "title": "Item 3",
+    },		
+    "productItem4": {
+        "title": "Item 4",
+    },	
+	
+    /////////////////////////////////////////////
+    // PRODUCT CATEGORIES
+    /////////////////////////////////////////////
+    "productCategory0": {
+        "title": "Home",
+    },
+		
+    /////////////////////////////////////////////
+    // PRODUCT DETAIL
+    /////////////////////////////////////////////
+    "productDetail": {
+        "title": "Product",
+        "back": "Terug",
+        "save": "Bewaar",
+        "name": "Naam",
+        "delete": "Verwijder",
+        "creatingProduct": "Maak Persoon aan ...",
+        "updatingProduct": "Werk Persoon bij ...",
+        "deletingProduct": "Verwijder Persoon..."
+    },
+
+    /////////////////////////////////////////////
+    // PRODUCT MODAL
+    /////////////////////////////////////////////
+    "productModal": {
+        "title": "Persoon",
+        "close": "Sluiten"
+    }
+}

@@ -1,0 +1,105 @@
+{
+    /////////////////////////////////////////////
+    // LOGIN
+    /////////////////////////////////////////////
+    "login": {
+        "title": "Anmelden",
+        "username": "Benutzername",
+        "password": "Kennwort",
+        "passwordHint": "Hinweis: password",
+        "keepmeloggedin": "Angemeldet bleiben",
+        "submit": "Meld an",
+        "reset": "Neu stellen",
+        "loggingIn" : "Überprüfen...",
+        "credentialsRequired": "Tragen Sie bitte Ihre Benutzername und Kennwort ein.",
+        "loginFailed": "Anmelden hat gefählt. Bitte tragen Sie die richtige Daten ein."
+    },
+
+    /////////////////////////////////////////////
+    // PRODUCT SLIDE
+    /////////////////////////////////////////////
+    "productSlide": {
+        "title": "Producten",
+        "title1": "Producten1",	
+        "title2": "Producten2",
+        "title3": "Producten3",	
+        "title4": "Producten4",			
+        "logOut": "Abmelden",
+        "new": "Neu",
+        "search": "live suchen",
+        "name": "Name",
+        "loading": "Laad Producten...",
+        "noProducts": "Keine Producten wurden gefunden."
+    },	
+	
+    /////////////////////////////////////////////
+    // PRODUCT LIST
+    /////////////////////////////////////////////
+    "productList": {
+        "title": "Producten",
+        "logOut": "Abmelden",
+        "new": "Neu",
+        "search": "live suchen",
+        "name": "Name",
+        "loading": "Laad Producten...",
+        "noProducts": "Keine Producten wurden gefunden."
+    },
+
+    /////////////////////////////////////////////
+    // PRODUCT TILE
+    /////////////////////////////////////////////
+    "productTile": {
+        "title": "Producten",
+        "logOut": "Abmelden",
+        "new": "Neu",
+        "search": "live suchen",
+        "name": "Name",
+        "loading": "Laad Producten...",
+        "noProducts": "Keine Producten wurden gefunden."
+    },
+
+    /////////////////////////////////////////////
+    // PRODUCT ITEMS
+    /////////////////////////////////////////////
+    "productItem1": {
+        "title": "Item 1",
+    },	
+    "productItem2": {
+        "title": "Item 2",
+    },
+    "productItem3": {
+        "title": "Item 3",
+    },		
+    "productItem4": {
+        "title": "Item 4",
+    },	
+	
+    /////////////////////////////////////////////
+    // PRODUCT CATEGORIES
+    /////////////////////////////////////////////
+    "productCategory0": {
+        "title": "Home",
+    },
+	
+    /////////////////////////////////////////////
+    // PRODUCT DETAIL
+    /////////////////////////////////////////////
+    "productDetail": {
+        "title": "Product",
+        "back": "Zurück",
+        "save": "Speichern",
+        "name": "Name",
+        "delete": "Löschen",
+        "creatingProduct": "Mach Product neu an ...",
+        "updatingProduct": "Bearbeit Product ...",
+        "deletingProduct": "Lösch Product..."
+    },
+
+    /////////////////////////////////////////////
+    // PRODUCT MODAL
+    /////////////////////////////////////////////
+    "productModal": {
+        "title": "Product",
+        "close": "schließen"
+    }
+}

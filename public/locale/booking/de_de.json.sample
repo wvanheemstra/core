@@ -1,0 +1,105 @@
+{
+    /////////////////////////////////////////////
+    // LOGIN
+    /////////////////////////////////////////////
+    "login": {
+        "title": "Anmelden",
+        "username": "Benutzername",
+        "password": "Kennwort",
+        "passwordHint": "Hinweis: password",
+        "keepmeloggedin": "Angemeldet bleiben",
+        "submit": "Meld an",
+        "reset": "Neu stellen",
+        "loggingIn" : "Überprüfen...",
+        "credentialsRequired": "Tragen Sie bitte Ihre Benutzername und Kennwort ein.",
+        "loginFailed": "Anmelden hat gefählt. Bitte tragen Sie die richtige Daten ein."
+    },
+
+    /////////////////////////////////////////////
+    // BOOKING SLIDE
+    /////////////////////////////////////////////
+    "bookingSlide": {
+        "title": "Bookingen",
+        "title1": "Bookingen1",	
+        "title2": "Bookingen2",
+        "title3": "Bookingen3",	
+        "title4": "Bookingen4",			
+        "logOut": "Abmelden",
+        "new": "Neu",
+        "search": "live suchen",
+        "name": "Name",
+        "loading": "Laad Bookingen...",
+        "noBookings": "Keine Bookingen wurden gefunden."
+    },	
+	
+    /////////////////////////////////////////////
+    // BOOKING LIST
+    /////////////////////////////////////////////
+    "bookingList": {
+        "title": "Bookingen",
+        "logOut": "Abmelden",
+        "new": "Neu",
+        "search": "live suchen",
+        "name": "Name",
+        "loading": "Laad Bookingen...",
+        "noBookings": "Keine Bookingen wurden gefunden."
+    },
+
+    /////////////////////////////////////////////
+    // BOOKING TILE
+    /////////////////////////////////////////////
+    "bookingTile": {
+        "title": "Bookingen",
+        "logOut": "Abmelden",
+        "new": "Neu",
+        "search": "live suchen",
+        "name": "Name",
+        "loading": "Laad Bookingen...",
+        "noBookings": "Keine Bookingen wurden gefunden."
+    },
+
+    /////////////////////////////////////////////
+    // BOOKING ITEMS
+    /////////////////////////////////////////////
+    "bookingItem1": {
+        "title": "Item 1",
+    },	
+    "bookingItem2": {
+        "title": "Item 2",
+    },
+    "bookingItem3": {
+        "title": "Item 3",
+    },		
+    "bookingItem4": {
+        "title": "Item 4",
+    },	
+	
+    /////////////////////////////////////////////
+    // BOOKING CATEGORIES
+    /////////////////////////////////////////////
+    "bookingCategory0": {
+        "title": "Home",
+    },
+	
+    /////////////////////////////////////////////
+    // BOOKING DETAIL
+    /////////////////////////////////////////////
+    "bookingDetail": {
+        "title": "Booking",
+        "back": "Zurück",
+        "save": "Speichern",
+        "name": "Name",
+        "delete": "Löschen",
+        "creatingBooking": "Mach Booking neu an ...",
+        "updatingBooking": "Bearbeit Booking ...",
+        "deletingBooking": "Lösch Booking..."
+    },
+
+    /////////////////////////////////////////////
+    // BOOKING MODAL
+    /////////////////////////////////////////////
+    "bookingModal": {
+        "title": "Booking",
+        "close": "schließen"
+    }
+}

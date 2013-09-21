@@ -1,0 +1,105 @@
+{
+    /////////////////////////////////////////////
+    // LOGIN
+    /////////////////////////////////////////////
+    "login": {
+        "title": "Login",
+        "username": "Gebruikersnaam",
+        "password": "Wachtwoord",
+        "passwordHint": "Hint: password",
+        "keepmeloggedin": "Houd me ingelogd",
+        "submit": "Log In",
+        "reset": "Wissen",
+        "loggingIn" : "Verifieren...",
+        "credentialsRequired": "Voer alsjeblieft gebruikersnaam en wachtwoord in.",
+        "loginFailed": "Login mislukt. Voer alsjeblieft de juiste gegevens in."
+    },	
+
+    /////////////////////////////////////////////
+    // BOOKING SLIDE
+    /////////////////////////////////////////////
+    "bookingSlide": {
+        "title": "Persoon",
+        "title1": "Persoon1",	
+        "title2": "Persoon2",
+        "title3": "Persoon3",	
+        "title4": "Persoon4",			
+        "logOut": "Log Uit",
+        "new": "Nieuw",
+        "search": "live zoeken",
+        "name": "Naam",
+        "loading": "Laad Persoon...",
+        "noBookings": "Geen Persoon gevonden."
+    },	
+	
+    /////////////////////////////////////////////
+    // BOOKING LIST
+    /////////////////////////////////////////////
+    "bookingList": {
+        "title": "Persoon",
+        "logOut": "Log Uit",
+        "new": "Nieuw",
+        "search": "live zoeken",
+        "name": "Naam",
+        "loading": "Laad Persoon...",
+        "noBookings": "Geen Persoon gevonden."
+    },
+
+    /////////////////////////////////////////////
+    // BOOKING TILE
+    /////////////////////////////////////////////
+    "bookingTile": {
+        "title": "Persoon",
+        "logOut": "Log Uit",
+        "new": "Nieuw",
+        "search": "live zoeken",
+        "name": "Naam",
+        "loading": "Laad Persoon...",
+        "noBookings": "Geen Persoon gevonden."
+    },
+
+    /////////////////////////////////////////////
+    // BOOKING ITEMS
+    /////////////////////////////////////////////
+    "bookingItem1": {
+        "title": "Item 1",
+    },	
+    "bookingItem2": {
+        "title": "Item 2",
+    },
+    "bookingItem3": {
+        "title": "Item 3",
+    },		
+    "bookingItem4": {
+        "title": "Item 4",
+    },	
+	
+    /////////////////////////////////////////////
+    // BOOKING CATEGORIES
+    /////////////////////////////////////////////
+    "bookingCategory0": {
+        "title": "Home",
+    },
+		
+    /////////////////////////////////////////////
+    // BOOKING DETAIL
+    /////////////////////////////////////////////
+    "bookingDetail": {
+        "title": "Booking",
+        "back": "Terug",
+        "save": "Bewaar",
+        "name": "Naam",
+        "delete": "Verwijder",
+        "creatingBooking": "Maak Persoon aan ...",
+        "updatingBooking": "Werk Persoon bij ...",
+        "deletingBooking": "Verwijder Persoon..."
+    },
+
+    /////////////////////////////////////////////
+    // BOOKING MODAL
+    /////////////////////////////////////////////
+    "bookingModal": {
+        "title": "Persoon",
+        "close": "Sluiten"
+    }
+}

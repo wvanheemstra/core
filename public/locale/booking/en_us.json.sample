@@ -1,0 +1,149 @@
+{
+    /////////////////////////////////////////////
+    // LOGIN
+    /////////////////////////////////////////////
+    "login": {
+        "title": "Login",
+        "username": "Username",
+        "password": "Password",
+        "passwordHint": "Hint: password",
+        "keepmeloggedin": "Keep me logged in",
+        "submit": "Log In",
+        "reset": "Clear",
+        "loggingIn" : "Logging In...",
+        "credentialsRequired": "Please enter your username and password.",
+        "loginFailed": "Login failed. Please enter the correct credentials."
+    },
+
+    /////////////////////////////////////////////
+    // BOOKING SLIDE
+    /////////////////////////////////////////////
+    "bookingSlide": {
+        "title": "Bookings",
+        "title1": "Bookings1",	
+        "title2": "Bookings2",
+        "title3": "Bookings3",	
+        "title4": "Bookings4",			
+        "logOut": "Log Out",
+        "new": "New",
+        "search": "live search",
+        "name": "Name",
+        "loading": "Loading Bookings...",
+        "noBookings": "No Bookings found."
+    },	
+	
+    /////////////////////////////////////////////
+    // BOOKING LIST
+    /////////////////////////////////////////////
+    "bookingList": {
+        "title": "Bookings",
+        "logOut": "Log Out",
+        "new": "New",
+        "search": "live search",
+        "name": "Name",
+        "loading": "Loading Bookings...",
+        "noBookings": "No Bookings found."
+    },
+
+    /////////////////////////////////////////////
+    // BOOKING TILE
+    /////////////////////////////////////////////
+    "bookingTile": {
+        "title": "Bookings",
+        "logOut": "Log Out",
+        "new": "New",
+        "search": "live search",
+        "name": "Name",
+        "loading": "Loading Bookings...",
+        "noBookings": "No Bookings found."
+    },
+
+    /////////////////////////////////////////////
+    // BOOKING ITEMS
+    /////////////////////////////////////////////
+    "bookingItem1": {
+        "title": "Item 1",
+    },	
+    "bookingItem2": {
+        "title": "Item 2",
+    },
+    "bookingItem3": {
+        "title": "Item 3",
+    },		
+    "bookingItem4": {
+        "title": "Item 4",
+    },	
+	
+    /////////////////////////////////////////////
+    // BOOKING CATEGORIES
+    /////////////////////////////////////////////
+    "bookingCategory0": {
+        "title": "Home",
+    },
+		
+    /////////////////////////////////////////////
+    // BOOKING DETAIL
+    /////////////////////////////////////////////
+    "bookingDetail": {
+        "title": "Booking",
+        "back": "Back",
+        "save": "Save",
+        "name": "Name",
+        "delete": "Delete",
+        "creatingBooking": "Creating Booking ...",
+        "updatingBooking": "Updating Booking ...",
+        "deletingBooking": "Deleting Booking..."
+    },
+
+    /////////////////////////////////////////////
+    // BOOKING MODAL
+    /////////////////////////////////////////////
+    "bookingModal": {
+        "title": "Booking",
+        "close": "Close"
+    },
+	
+    /////////////////////////////////////////////
+    // EMPLOYEE LIST
+    /////////////////////////////////////////////
+    "employeeList": {
+        "title": "Employees",
+        "logOut": "Log Out",
+        "new": "New",
+        "search": "live search",
+        "firstName": "First Name",
+        "lastName": "Last Name",
+        "loading": "Loading Employees...",
+        "noEmployees": "No Employees found."
+    },
+
+    /////////////////////////////////////////////
+    // EMPLOYEE TILE
+    /////////////////////////////////////////////
+    "employeeTile": {
+        "title": "Employees",
+        "logOut": "Log Out",
+        "new": "New",
+        "search": "live search",
+        "firstName": "First Name",
+        "lastName": "Last Name",
+        "loading": "Loading Employees...",
+        "noEmployees": "No Employees found."
+    },
+
+    /////////////////////////////////////////////
+    // EMPLOYEE DETAIL
+    /////////////////////////////////////////////
+    "employeeDetail": {
+        "title": "Employee",
+        "back": "Back",
+        "save": "Save",
+        "firstName": "First Name",
+        "lastName": "Last Name",
+        "phoneNumber": "Phone Number",
+        "delete": "Delete",
+        "creatingEmployee": "Creating Employee...",
+        "updatingEmployee": "Updating Employee...",
+        "deletingEmployee": "Deleting Employee..."
+    }
+}

@@ -339,7 +339,7 @@ app.get('/touch', function(req, res) {
 	var appTouch = app + '-touch';
 	// update appTouch variable here with value from 'app' key (e.g. app=person) sets appTouch to 'person-touch'
 	if(req.query.app){
-		app = req.query.app
+		app = req.query.app;
 		appTouch = app + '-touch';
 		var appTouch_not_found = true; // default to true
 		// lookup app in app list, if not found set to not_found
@@ -357,7 +357,7 @@ app.get('/touch', function(req, res) {
 			appTouch = app + '-touch';
 		}
 	}
-	console.log("App requested: " + appTouch);	
+	console.log("App requested: " + appTouch);
     res.render(appTouch, { title: title, host: host, web_root: web_root, layout: false });
 });
 

@@ -58,7 +58,7 @@ Ext.define("Core.mediator.touch.person.list.Mediator", {
      */
     showPersonDetail: function(record) {
         var logMsg = (record != null)
-            ? ": id = " + record.get("id") + ", person = " + record.get("name")
+            ? ": id = " + record.get("id") + ", person = " + record.get("personFirstName")
             : "new person";
         this.logger.debug("showPersonDetail = " + logMsg);
 		Core.config.person.Config.setPreviousView('personlist');
@@ -218,8 +218,9 @@ Ext.define("Core.mediator.touch.person.list.Mediator", {
 	                //loop through each of the regular expressions
 	                for (i = 0; i < regexps.length; i++) {
 	                    var search = regexps[i],
-	                        didMatch = record.get("name").match(search);
-	                    //if it matched the name, push it into the matches array
+							didMatch = record.get("personFirstName").match(search) ||
+	                            record.get("personLastName").match(search);
+	                    //if it matched the first or last name, push it into the matches array
 	                    matched.push(didMatch);
 	                }
 	                //if nothing was found, return false (dont so in the store)

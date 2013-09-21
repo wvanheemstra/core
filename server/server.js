@@ -88,6 +88,13 @@ if(typeof configs.app_uid === 'undefined'){
 else {
 	var app_uid = configs.app_uid;
 }
+// App List
+if(typeof configs.app_list === 'undefined'){
+	var app_list = {};
+}
+else {
+	var app_list = configs.app_list;
+}
 /*
  * API- The Application Programming Interface
  */
@@ -113,6 +120,13 @@ if(typeof configs.app_uid === 'undefined'){
 else {
 	var api_uid = configs.api_uid;
 }
+// Api List
+if(typeof configs.api_list === 'undefined'){
+	var api_list = {};
+}
+else {
+	var api_list = configs.api_list;
+}
 api.configure(function(){
 	api.use(api.router);
 });
@@ -120,7 +134,7 @@ api.configure(function(){
 api.all('*', function(req, res, next){
   if (!req.get('Origin')) return next();
   // use "*" here to accept any origin
-  res.set('Access-Control-Allow-Origin', '*'); // Accepts requests coming from app
+  res.set('Access-Control-Allow-Origin', '*');  // Accepts requests coming from anyone, replace '*' by configs.allowedHost to restrict it
   res.set('Access-Control-Allow-Methods', 'GET, PUT, POST');
   res.set('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type');
   // res.set('Access-Control-Allow-Max-Age', 3600);
@@ -168,6 +182,17 @@ app.configure('development', function(){
     app.use(express.errorHandler({ dumpExceptions: true, showStack: true })); // specific for development
 });
 
+app.all('*', function(req, res, next){
+  if (!req.get('Origin')) return next();
+  // use "*" here to accept any origin
+  res.set('Access-Control-Allow-Origin', '*');  // Accepts requests coming from anyone, replace '*' by configs.allowedHost to restrict it
+  res.set('Access-Control-Allow-Methods', 'GET, PUT, POST');
+  res.set('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type');
+  // res.set('Access-Control-Allow-Max-Age', 3600);
+  if ('OPTIONS' == req.method) return res.send(200);
+  next();
+});
+
 /*
  * PRODUCTION
  *
@@ -203,7 +228,16 @@ app.configure('production', function(){
     app.use(express.errorHandler()); // specific for production
 });
 
-
+app.all('*', function(req, res, next){
+  if (!req.get('Origin')) return next();
+  // use "*" here to accept any origin
+  res.set('Access-Control-Allow-Origin', '*'); // Accepts requests coming from anyone, replace '*' by configs.allowedHost to restrict it
+  res.set('Access-Control-Allow-Methods', 'GET, PUT, POST');
+  res.set('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type');
+  // res.set('Access-Control-Allow-Max-Age', 3600);
+  if ('OPTIONS' == req.method) return res.send(200);
+  next();
+});
 
 if(typeof configs.title === 'undefined'){
 	var title = 'Untitled';
@@ -232,7 +266,20 @@ app.get('/', function(req, res) {
 	var app = 'index'; // default
 	// update app variable here with value from 'app' key (e.g. app=person) sets app to 'person'
 	if(req.query.app){
-		app = req.query.app;	
+		app = req.query.app;
+		var app_not_found = true; // default to true
+		// lookup app in app list, if not found set to not_found
+		for (key in app_list) {		
+			if(key == app){
+				app = key;
+				app_not_found = false;
+				break;
+			}
+		}// eof for
+		if(app_not_found) {
+			console.log("App requested, but not found: " + app);
+			app = 'not_found';
+		}
 	}
 	console.log("App requested: " + app);	
     res.render(app, { title: title, host: host, web_root: web_root, layout: false });
@@ -256,10 +303,27 @@ app.get('/5', function(req, res) {
 
 app.get('/debug', function(req, res) {
 	// Distinguish based on an optional key-value parameter in the request url (e.g. '/debug?app=person')
-	var appDebug = 'index-debug'; // default
+	var app = 'index'; // default
+	var appDebug = app + '-debug';
 	// update appDebug variable here with value from 'app' key (e.g. app=person) sets appDebug to 'person-debug'
 	if(req.query.app){
-		appDebug = req.query.app + '-debug';	
+		app = req.query.app;
+		appDebug = app + '-debug';	
+		var appDebug_not_found = true; // default to true
+		// lookup app in app list, if not found set to not_found
+		for (key in app_list) {
+			if(key == app){
+				app = key;
+				appDebug = app + '-debug';
+				appDebug_not_found = false;
+				break;
+			}
+		}// eof for
+		if(appDebug_not_found) {
+			console.log("App requested, but not found: " + appDebug);
+			app = 'not_found';
+			appDebug = app + '-debug';
+		}
 	}
 	console.log("App requested: " + appDebug);		
     res.render(appDebug, { title: title, host: host, web_root: web_root, layout: false });
@@ -271,10 +335,27 @@ app.get('/page-analyzer', function(req, res) {
 
 app.get('/touch', function(req, res) {
 	// Distinguish based on an optional key-value parameter in the request url (e.g. '/touch?app=person')
-	var appTouch = 'index-touch'; // default
+	var app = 'index'; // default
+	var appTouch = app + '-touch';
 	// update appTouch variable here with value from 'app' key (e.g. app=person) sets appTouch to 'person-touch'
 	if(req.query.app){
-		appTouch = req.query.app + '-touch';
+		app = req.query.app
+		appTouch = app + '-touch';
+		var appTouch_not_found = true; // default to true
+		// lookup app in app list, if not found set to not_found
+		for (key in app_list) {
+			if(key == app){
+				app = key;
+				appTouch = app + '-touch';
+				appTouch_not_found = false;
+				break;
+			}
+		}// eof for
+		if(appTouch_not_found) {
+			console.log("App requested, but not found: " + appTouch);
+			app = 'not_found';
+			appTouch = app + '-touch';
+		}
 	}
 	console.log("App requested: " + appTouch);	
     res.render(appTouch, { title: title, host: host, web_root: web_root, layout: false });

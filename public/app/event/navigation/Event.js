@@ -10,12 +10,8 @@ Ext.define("Core.event.navigation.Event", {
         RIGHT:                              "navigateRight",
         LEFT:                               "navigateLeft",
         
-		// CAN WE MOVE THIS BELOW AWAY... IT SHOULDN'T BE PART OF NAVIGATE... STILL TO DO..FOR NOW navigate NEEDS IT HERE
-		
-    //    ACTION_BACK_SHOW_MAIN_LIST:     	"actionBackShowMainList",
-    //    ACTION_BACK_SHOW_MAIN_TILE:     	"actionBackShowMainTile",
-    //    ACTION_SHOW_MAIN_DETAIL:        	"actionShowMainDetail",  
-    //    ACTION_SHOW_MAIN_MODAL:         	"actionShowMainModal",
+		// CAN WE MOVE THIS BELOW AWAY... IT SHOULDN'T BE PART OF NAVIGATE
+		// ... STILL TO DO..FOR NOW navigate NEEDS IT HERE
 		
 		ACTION_BACK_SHOW_PERSON_LIST:     	"actionBackShowPersonList",
         ACTION_BACK_SHOW_PERSON_TILE:     	"actionBackShowPersonTile",
@@ -25,7 +21,17 @@ Ext.define("Core.event.navigation.Event", {
 		ACTION_BACK_SHOW_ORGANISATION_LIST: "actionBackShowOrganisationList",
         ACTION_BACK_SHOW_ORGANISATION_TILE: "actionBackShowOrganisationTile",
         ACTION_SHOW_ORGANISATION_DETAIL:    "actionShowOrganisationDetail",  
-        ACTION_SHOW_ORGANISATION_MODAL:     "actionShowOrganisationModal"
+        ACTION_SHOW_ORGANISATION_MODAL:     "actionShowOrganisationModal",
+		
+		ACTION_BACK_SHOW_PRODUCT_LIST: 		"actionBackShowProductList",
+        ACTION_BACK_SHOW_PRODUCT_TILE: 		"actionBackShowProductTile",
+        ACTION_SHOW_PRODUCT_DETAIL:    		"actionShowProductDetail",  
+        ACTION_SHOW_PRODUCT_MODAL:     		"actionShowProductModal",
+
+		ACTION_BACK_SHOW_BOOKING_LIST: 		"actionBackShowBookingList",
+        ACTION_BACK_SHOW_BOOKING_TILE: 		"actionBackShowBookingTile",
+        ACTION_SHOW_BOOKING_DETAIL:    		"actionShowBookingDetail",  
+        ACTION_SHOW_BOOKING_MODAL:     		"actionShowBookingModal"		
     },
 
     action: "",

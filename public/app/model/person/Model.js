@@ -7,22 +7,26 @@ Ext.define("Core.model.person.Model", {
 	config: {
 	    idProperty: "id",
 	    fields: [
-	        { name: "id",      type: "int"     },
-	        { name: "name",    type: "string"  }
+	        { name: "id",      			type: "int"     },
+	        { name: "personFirstName",  type: "string"  },
+	        { name: "personLastName",  	type: "string"  }			
 	    ],
 	    validations: [
 	        { type: "presence", field: "id" },
-	        { type: "presence", field: "name",     message: "Please enter a name." }
+	        { type: "presence", field: "personFirstName",     message: "Please enter a first name." },
+	        { type: "presence", field: "personLastName",     message: "Please enter a last name." }			
 	    ]
 	},//eof config
 	// Ext requires properties outside of config
     idProperty: "id",
 	fields: [
         { name: "id",      type: "int"     },
-        { name: "name",    type: "string"  }
+		{ name: "personFirstName",  type: "string"  },
+	    { name: "personLastName",  	type: "string"  }
 	],
     validations: [
         { type: "presence", field: "id" },
-        { type: "presence", field: "name",     message: "Please enter a name." }
+	    { type: "presence", field: "personFirstName",     message: "Please enter a first name." },
+	    { type: "presence", field: "personLastName",     message: "Please enter a last name." }	
     ]	
 });

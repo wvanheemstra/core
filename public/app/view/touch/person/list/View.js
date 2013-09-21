@@ -71,7 +71,7 @@ Ext.define("Core.view.touch.person.list.View", {
                 itemId: "list",
                 fullscreen: true,
 				ui: "neutral",
-                itemTpl: "<div class='contact'>{name}</div>",
+                itemTpl: "<div class='person'>{personFirstName}<strong>{personLastName}</strong></div>",
                 grouped: false,// WAS true, grouped currently causes an error
                 onItemDisclosure: true,
                 plugins: [

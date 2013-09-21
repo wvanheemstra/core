@@ -83,7 +83,7 @@ Ext.define("Core.view.touch.person.list.View", {
 						"</div>",
 						"<div style='clear:both'></div>"
 				),
-                grouped: false,// WAS true, grouped currently causes an error
+                grouped: true,
                 onItemDisclosure: true,
                 plugins: [
                     {

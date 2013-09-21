@@ -4,9 +4,16 @@ module.exports.configs = {
 	app_port : 4000, // put your port number here
 	app_gid : 'root', // put your group id here
 	app_uid : 'root', // put your user id here
+	app_list: {
+		'person':true,
+		'organisation':true,
+		'product':true,
+		'booking':true
+	}, // put your apps here
 	api_port : 4001, // put your port number here
 	api_gid : 'root', // put your group id here
 	api_uid : 'root', // put your user id here	
+	api_list: {}, // put your apis here
 	allow_cross_domain : true, // allow is true, otherwise false
 	allowedHost : {
 		'http://vanheemstrapictures.com': true,

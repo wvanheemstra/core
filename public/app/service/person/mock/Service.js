@@ -17,32 +17,32 @@ Ext.define("Core.service.person.mock.Service", {
         var response = {
             success: true,
             personSlide: [
-                { id: 0,    name: "Alfa" },
-                { id: 1,    name: "Bravo" },
-                { id: 2,    name: "Charlie" },
-                { id: 3,    name: "Delta" },
-                { id: 4,    name: "Echo" },
-                { id: 5,    name: "Foxtrot" },
-                { id: 6,    name: "Golf" },
-                { id: 7,    name: "Hotel" },
-                { id: 8,    name: "India" },
-                { id: 9,    name: "Juliet" },
-                { id: 10,   name: "Kilo" },
-                { id: 11,   name: "Lima" },
-                { id: 12,   name: "Mike" },
-                { id: 13,   name: "November" },
-                { id: 14,   name: "Oscar" },
-                { id: 15,   name: "Papa" },
-                { id: 16,   name: "Quebec" },                
-                { id: 17,   name: "Romeo" },
-                { id: 18,   name: "Sierra" },
-                { id: 19,   name: "Tango" },
-                { id: 20,   name: "Uniform" },              
-                { id: 21,   name: "Victor" },
-                { id: 22,   name: "Whiskey" },
-                { id: 23,   name: "X-ray" },                
-                { id: 24,   name: "Yankee" },
-                { id: 25,   name: "Zulu" }
+                { id: 0,    personFirstName: "Adam",    	personLastName: "Alfa" },
+                { id: 1,    personFirstName: "Bob",    		personLastName: "Bravo" },
+                { id: 2,    personFirstName: "Carol",    	personLastName: "Charlie" },
+                { id: 3,    personFirstName: "David",    	personLastName: "Delta" },
+                { id: 4,    personFirstName: "Eddie",    	personLastName: "Echo" },
+                { id: 5,    personFirstName: "Frank",    	personLastName: "Foxtrot" },
+                { id: 6,    personFirstName: "George",    	personLastName: "Golf" },
+                { id: 7,    personFirstName: "Harry",    	personLastName: "Hotel" },
+                { id: 8,    personFirstName: "Ike",    		personLastName: "India" },
+                { id: 9,    personFirstName: "Jim",    		personLastName: "Juliet" },
+                { id: 10,   personFirstName: "Kenny",   	personLastName: "Kilo" },
+                { id: 11,   personFirstName: "Larry",   	personLastName: "Lima" },
+                { id: 12,   personFirstName: "Mary",   		personLastName: "Mike" },
+                { id: 13,   personFirstName: "Nancy",   	personLastName: "November" },
+                { id: 14,   personFirstName: "Olivier",   	personLastName: "Oscar" },
+                { id: 15,   personFirstName: "Peter",   	personLastName: "Papa" },
+                { id: 16,   personFirstName: "Quincy",   	personLastName: "Quebec" },
+                { id: 17,   personFirstName: "Roger",   	personLastName: "Romeo" },
+                { id: 18,   personFirstName: "Sam",   		personLastName: "Sierra" },
+                { id: 19,   personFirstName: "Thomas",   	personLastName: "Tango" },
+                { id: 20,   personFirstName: "Uncle",   	personLastName: "Uniform" },
+                { id: 21,   personFirstName: "Vincent",  	personLastName: "Victor" },
+                { id: 22,   personFirstName: "William",  	personLastName: "Whiskey" },
+                { id: 23,   personFirstName: "Xavier",   	personLastName: "X-ray" },
+                { id: 24,   personFirstName: "Yogi",   		personLastName: "Yankee" },
+                { id: 25,   personFirstName: "Zachary",   	personLastName: "Zulu" }
             ]
         };
 
@@ -58,32 +58,32 @@ Ext.define("Core.service.person.mock.Service", {
         var response = {
             success: true,
             personList: [
-                { id: 0,    name: "Alfa" },
-                { id: 1,    name: "Bravo" },
-                { id: 2,    name: "Charlie" },
-                { id: 3,    name: "Delta" },
-                { id: 4,    name: "Echo" },
-                { id: 5,    name: "Foxtrot" },
-                { id: 6,    name: "Golf" },
-                { id: 7,    name: "Hotel" },
-                { id: 8,    name: "India" },
-                { id: 9,    name: "Juliet" },
-                { id: 10,   name: "Kilo" },
-                { id: 11,   name: "Lima" },
-                { id: 12,   name: "Mike" },
-                { id: 13,   name: "November" },
-                { id: 14,   name: "Oscar" },
-                { id: 15,   name: "Papa" },
-                { id: 16,   name: "Quebec" },                
-                { id: 17,   name: "Romeo" },
-                { id: 18,   name: "Sierra" },
-                { id: 19,   name: "Tango" },
-                { id: 20,   name: "Uniform" },              
-                { id: 21,   name: "Victor" },
-                { id: 22,   name: "Whiskey" },
-                { id: 23,   name: "X-ray" },                
-                { id: 24,   name: "Yankee" },
-                { id: 25,   name: "Zulu" }
+                { id: 0,    personFirstName: "Adam",    	personLastName: "Alfa" },
+                { id: 1,    personFirstName: "Bob",    		personLastName: "Bravo" },
+                { id: 2,    personFirstName: "Carol",    	personLastName: "Charlie" },
+                { id: 3,    personFirstName: "David",    	personLastName: "Delta" },
+                { id: 4,    personFirstName: "Eddie",    	personLastName: "Echo" },
+                { id: 5,    personFirstName: "Frank",    	personLastName: "Foxtrot" },
+                { id: 6,    personFirstName: "George",    	personLastName: "Golf" },
+                { id: 7,    personFirstName: "Harry",    	personLastName: "Hotel" },
+                { id: 8,    personFirstName: "Ike",    		personLastName: "India" },
+                { id: 9,    personFirstName: "Jim",    		personLastName: "Juliet" },
+                { id: 10,   personFirstName: "Kenny",   	personLastName: "Kilo" },
+                { id: 11,   personFirstName: "Larry",   	personLastName: "Lima" },
+                { id: 12,   personFirstName: "Mary",   		personLastName: "Mike" },
+                { id: 13,   personFirstName: "Nancy",   	personLastName: "November" },
+                { id: 14,   personFirstName: "Olivier",   	personLastName: "Oscar" },
+                { id: 15,   personFirstName: "Peter",   	personLastName: "Papa" },
+                { id: 16,   personFirstName: "Quincy",   	personLastName: "Quebec" },
+                { id: 17,   personFirstName: "Roger",   	personLastName: "Romeo" },
+                { id: 18,   personFirstName: "Sam",   		personLastName: "Sierra" },
+                { id: 19,   personFirstName: "Thomas",   	personLastName: "Tango" },
+                { id: 20,   personFirstName: "Uncle",   	personLastName: "Uniform" },
+                { id: 21,   personFirstName: "Vincent",  	personLastName: "Victor" },
+                { id: 22,   personFirstName: "William",  	personLastName: "Whiskey" },
+                { id: 23,   personFirstName: "Xavier",   	personLastName: "X-ray" },
+                { id: 24,   personFirstName: "Yogi",   		personLastName: "Yankee" },
+                { id: 25,   personFirstName: "Zachary",   	personLastName: "Zulu" }
             ]
         };
 
@@ -99,32 +99,32 @@ Ext.define("Core.service.person.mock.Service", {
         var response = {
             success: true,
             personTile: [
-                { id: 0,    name: "Alfa" },
-                { id: 1,    name: "Bravo" },
-                { id: 2,    name: "Charlie" },
-                { id: 3,    name: "Delta" },
-                { id: 4,    name: "Echo" },
-                { id: 5,    name: "Foxtrot" },
-                { id: 6,    name: "Golf" },
-                { id: 7,    name: "Hotel" },
-                { id: 8,    name: "India" },
-                { id: 9,    name: "Juliet" },
-                { id: 10,   name: "Kilo" },
-                { id: 11,   name: "Lima" },
-                { id: 12,   name: "Mike" },
-                { id: 13,   name: "November" },
-                { id: 14,   name: "Oscar" },
-                { id: 15,   name: "Papa" },
-                { id: 16,   name: "Quebec" },                
-                { id: 17,   name: "Romeo" },
-                { id: 18,   name: "Sierra" },
-                { id: 19,   name: "Tango" },
-                { id: 20,   name: "Uniform" },              
-                { id: 21,   name: "Victor" },
-                { id: 22,   name: "Whiskey" },
-                { id: 23,   name: "X-ray" },                
-                { id: 24,   name: "Yankee" },
-                { id: 25,   name: "Zulu" }
+                { id: 0,    personFirstName: "Adam",    	personLastName: "Alfa" },
+                { id: 1,    personFirstName: "Bob",    		personLastName: "Bravo" },
+                { id: 2,    personFirstName: "Carol",    	personLastName: "Charlie" },
+                { id: 3,    personFirstName: "David",    	personLastName: "Delta" },
+                { id: 4,    personFirstName: "Eddie",    	personLastName: "Echo" },
+                { id: 5,    personFirstName: "Frank",    	personLastName: "Foxtrot" },
+                { id: 6,    personFirstName: "George",    	personLastName: "Golf" },
+                { id: 7,    personFirstName: "Harry",    	personLastName: "Hotel" },
+                { id: 8,    personFirstName: "Ike",    		personLastName: "India" },
+                { id: 9,    personFirstName: "Jim",    		personLastName: "Juliet" },
+                { id: 10,   personFirstName: "Kenny",   	personLastName: "Kilo" },
+                { id: 11,   personFirstName: "Larry",   	personLastName: "Lima" },
+                { id: 12,   personFirstName: "Mary",   		personLastName: "Mike" },
+                { id: 13,   personFirstName: "Nancy",   	personLastName: "November" },
+                { id: 14,   personFirstName: "Olivier",   	personLastName: "Oscar" },
+                { id: 15,   personFirstName: "Peter",   	personLastName: "Papa" },
+                { id: 16,   personFirstName: "Quincy",   	personLastName: "Quebec" },
+                { id: 17,   personFirstName: "Roger",   	personLastName: "Romeo" },
+                { id: 18,   personFirstName: "Sam",   		personLastName: "Sierra" },
+                { id: 19,   personFirstName: "Thomas",   	personLastName: "Tango" },
+                { id: 20,   personFirstName: "Uncle",   	personLastName: "Uniform" },
+                { id: 21,   personFirstName: "Vincent",  	personLastName: "Victor" },
+                { id: 22,   personFirstName: "William",  	personLastName: "Whiskey" },
+                { id: 23,   personFirstName: "Xavier",   	personLastName: "X-ray" },
+                { id: 24,   personFirstName: "Yogi",   		personLastName: "Yankee" },
+                { id: 25,   personFirstName: "Zachary",   	personLastName: "Zulu" }
             ]
         };
 
@@ -141,7 +141,8 @@ Ext.define("Core.service.person.mock.Service", {
             success: true,
             person: {
                 id: this.getRandomInt(1000, 99999),
-                name: person.name
+                personFirstName: person.personFirstName,
+				personLastName: person.personLastName
             }
         };
 
@@ -159,7 +160,8 @@ Ext.define("Core.service.person.mock.Service", {
             success: true,
             person: {
                 id: person.id,
-                name: person.name
+                personFirstName: person.personFirstName,
+				personLastName: person.personLastName			
             }
         };
 
@@ -177,7 +179,8 @@ Ext.define("Core.service.person.mock.Service", {
             success: true,
             person: {
                 id: person.id,
-                name: person.name
+                personFirstName: person.personFirstName,
+				personLastName: person.personLastName
             }
         };
 

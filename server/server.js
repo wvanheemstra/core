@@ -3,8 +3,8 @@ var express = require('express'),
     redirect = require('express-redirect');
 
 config = require('../config/server.js');
-var configs = config.configs;
-
+var configs = config.configs,
+	server_prefix = configs.server_prefix || 'CORE';
 
 /*
  * SERVER - The Server used for shutdown etc
@@ -19,9 +19,9 @@ else {
 	var server_port = configs.server_port;
 }
 server.listen(server_port);
-console.log('Node Version: ' + process.version);
-console.log("Express server listening on port %d", server_port);
-console.log("To shutdown server gracefully type: node prepareForStop.js");
+console.log(server_prefix + " - Node Version: " + process.version);
+console.log(server_prefix + " - Express server listening on port %d", server_port);
+console.log(server_prefix + " - To shutdown server gracefully type: node prepareForStop.js");
 
 server.get('/prepareForShutdown', function(req, res) {
   if(req.connection.remoteAddress == "127.0.0.1"
@@ -47,19 +47,19 @@ var managePreparationForShutdown = function(callback) {
   // these operations are actually complete.
   	try {
 		app.close();
-		console.log("Shutdown app successful.");
+		console.log(server_prefix + " - Shutdown app successful.");
 	}
 	catch(ex) {
-		console.log("Shutdown app failed.");
+		console.log(server_prefix + " - Shutdown app failed.");
 	}
   	try {
 		api.close();
-		console.log("Shutdown api successful.");
+		console.log(server_prefix + " - Shutdown api successful.");
 	}
 	catch(ex) {
-		console.log("Shutdown api failed.");
+		console.log(server_prefix + " - Shutdown api failed.");
 	} 
-  console.log("All preparations for shutdown completed.");
+  console.log(server_prefix + " - All preparations for shutdown completed.");
   callback();
 };
 
@@ -277,11 +277,11 @@ app.get('/', function(req, res) {
 			}
 		}// eof for
 		if(app_not_found) {
-			console.log("App requested, but not found: " + app);
+			console.log(server_prefix + " - App requested, but not found: " + app);
 			app = 'not_found';
 		}
 	}
-	console.log("App requested: " + app);	
+	console.log(server_prefix + " - App requested: " + app);	
     res.render(app, { title: title, host: host, web_root: web_root, layout: false });
 });
 
@@ -320,12 +320,12 @@ app.get('/debug', function(req, res) {
 			}
 		}// eof for
 		if(appDebug_not_found) {
-			console.log("App requested, but not found: " + appDebug);
+			console.log(server_prefix + " - App requested, but not found: " + appDebug);
 			app = 'not_found';
 			appDebug = app + '-debug';
 		}
 	}
-	console.log("App requested: " + appDebug);		
+	console.log(server_prefix + " - App requested: " + appDebug);		
     res.render(appDebug, { title: title, host: host, web_root: web_root, layout: false });
 });
 
@@ -352,17 +352,17 @@ app.get('/touch', function(req, res) {
 			}
 		}// eof for
 		if(appTouch_not_found) {
-			console.log("App requested, but not found: " + appTouch);
+			console.log(server_prefix + " - App requested, but not found: " + appTouch);
 			app = 'not_found';
 			appTouch = app + '-touch';
 		}
 	}
-	console.log("App requested: " + appTouch);
+	console.log(server_prefix + " - App requested: " + appTouch);
     res.render(appTouch, { title: title, host: host, web_root: web_root, layout: false });
 });
 
 app.listen(app_port, function () {
-	console.log("Express app server listening on port %d in %s mode", app_port, app.settings.env);
+	console.log(server_prefix + " - Express app server listening on port %d in %s mode", app_port, app.settings.env);
 	// launching as the root user 
 	// and then downgrading the process permissions 
 	// to run as another (non-privileged) user 
@@ -370,22 +370,22 @@ app.listen(app_port, function () {
 	// for better security
 	try {
 		process.setgid(app_gid); // Note: this function is only available on POSIX platforms (i.e. not Windows)
-		console.log("App GID set to " + app_gid);
+		console.log(server_prefix + " - App GID set to " + app_gid);
 	}
 	catch(ex) {
-		console.log("App GID not set. Not supported on Windows.");
+		console.log(server_prefix + " - App GID not set. Not supported on Windows.");
 	}
 	try {
 		process.setuid(app_uid); // Note: this function is only available on POSIX platforms (i.e. not Windows)
-		console.log("App UID set to " + app_uid);
+		console.log(server_prefix + " - App UID set to " + app_uid);
 	}
 	catch(ex) {
-		console.log("App UID not set. Not supported on Windows.");
+		console.log(server_prefix + " - App UID not set. Not supported on Windows.");
 	}
 });
 
 api.listen(api_port, function() {
-	console.log("Express api server listening on port %d in %s mode", api_port, api.settings.env);
+	console.log(server_prefix + " - Express api server listening on port %d in %s mode", api_port, api.settings.env);
 	// launching as the root user 
 	// and then downgrading the process permissions 
 	// to run as another (non-privileged) user 
@@ -393,16 +393,16 @@ api.listen(api_port, function() {
 	// for better security
 	try {
 		process.setgid(api_gid); // Note: this function is only available on POSIX platforms (i.e. not Windows)
-		console.log("Api GID set to " + api_gid);
+		console.log(server_prefix + " - Api GID set to " + api_gid);
 	}
 	catch(ex) {
-		console.log("Api GID not set. Not supported on Windows.");
+		console.log(server_prefix + " - Api GID not set. Not supported on Windows.");
 	}
 	try {
 		process.setuid(api_uid); // Note: this function is only available on POSIX platforms (i.e. not Windows)
-		console.log("Api UID set to " + api_uid);
+		console.log(server_prefix + " - Api UID set to " + api_uid);
 	}
 	catch(ex) {
-		console.log("Api UID not set. Not supported on Windows.");
+		console.log(server_prefix + " - Api UID not set. Not supported on Windows.");
 	}
 });

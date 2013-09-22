@@ -1,6 +1,6 @@
 {
-  "name": "skin_app",
-  "description": "Skin Application",
+  "name": "core",
+  "description": "Core Application & Application Programming Interface",
   "keywords": ["browser", "mobile", "detection", "user-agent", "express", "layout", "view routing", "desktop", "phone", "tablet", "tv", "bot", "responsive design"],
   "author": "van Heemstra Systems (info@vanheemstrasystems.com)",
   "version": "1.0.0",
@@ -30,5 +30,5 @@
   "scripts": {
       "test": "mocha"
   },
-  "repository": "git://github.com/wvanheemstra/skin"
+  "repository": "git://github.com/wvanheemstra/core"
 }

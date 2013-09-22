@@ -17,7 +17,8 @@ module.exports.configs = {
 	allow_cross_domain : true, // allow is true, otherwise false
 	allowedHost : {
 		'http://vanheemstrapictures.com': true,
-		'localhost': true
+		'localhost': true,
+		'localhost:4000': true
 	},
 	title : 'Your Company', // put the page title here
 	web_root : '/core/public' // put your web root here, starting with a slash forward (/)

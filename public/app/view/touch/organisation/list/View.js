@@ -23,7 +23,7 @@ Ext.define("Core.view.touch.organisation.list.View", {
 
         items: [
             {
-                xtype: "titlebar",
+                xtype: "toolbar", // WAS "titlebar" but that does not show title
                 itemId: "titlebar",
                 ui: "neutral",
                 docked: "top",

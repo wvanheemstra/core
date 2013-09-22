@@ -23,7 +23,7 @@ Ext.define("Core.view.touch.person.list.View", {
 
         items: [
             {
-                xtype: "titlebar",
+                xtype: "toolbar", // WAS "titlebar" but that does not show title
                 itemId: "titlebar",
                 ui: "neutral",
                 docked: "top",

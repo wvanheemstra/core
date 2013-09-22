@@ -16,7 +16,7 @@ module.exports.configs = {
 	api_uid : 'root', // put your user id here	
 	api_list: {}, // put your apis here
 	allow_cross_domain : true, // allow is true, otherwise false
-	allowedHost : {
+	allowedHosts : {
 		'http://vanheemstrapictures.com': true,
 		'localhost': true,
 		'localhost:4000': true

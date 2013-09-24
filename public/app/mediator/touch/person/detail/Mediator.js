@@ -54,7 +54,7 @@ Ext.define("Core.mediator.touch.person.detail.Mediator", {
         var evt;
         var msg;
         if(person != null) {
-            var id = person.id;
+            var id = person.kp_PersonID;
             if( (id != null) && (id != "") ) {
                 evt = Ext.create("Core.event.person.Event", Core.event.person.Event.UPDATE_PERSON);
                 msg = nineam.locale.LocaleManager.getProperty("personDetail.updatingPerson");
@@ -212,7 +212,7 @@ Ext.define("Core.mediator.touch.person.detail.Mediator", {
      */
     onSelectedRecordChange: function(store, record) {
         var logMsg = (record != null)
-            ? ": id = " + record.get("id") + ", person = " + record.get("personFirstName")
+            ? ": kp_PersonID = " + record.get("kp_PersonID") + ", person = " + record.get("PersonFirstName") + " " + record.get("PersonLastName") 
             : "new person";
         this.logger.debug("onSelectedRecordChange = " + logMsg);
         if (record) {
@@ -244,7 +244,7 @@ Ext.define("Core.mediator.touch.person.detail.Mediator", {
         var newPerson = this.getView().getValues();
         // if this is a new person record, there's no id available
         if(person != null) {
-            newPerson.id = person.data.id;
+            newPerson.kp_PersonID = person.data.kp_PersonID;
         }
         this.savePerson(newPerson);
     },

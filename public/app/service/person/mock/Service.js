@@ -17,32 +17,32 @@ Ext.define("Core.service.person.mock.Service", {
         var response = {
             success: true,
             personSlide: [
-                { id: 0,    salutationAbbreviation: "Mr",	personFirstName: "Adam",    	personLastName: "Alfa" },
-                { id: 1,    salutationAbbreviation: "Mr",	personFirstName: "Bob",    		personLastName: "Bravo" },
-                { id: 2,    salutationAbbreviation: "Mrs",	personFirstName: "Carol",    	personLastName: "Charlie" },
-                { id: 3,    salutationAbbreviation: "Mr",	personFirstName: "David",    	personLastName: "Delta" },
-                { id: 4,    salutationAbbreviation: "Mr",	personFirstName: "Eddie",    	personLastName: "Echo" },
-                { id: 5,    salutationAbbreviation: "Mr",	personFirstName: "Frank",    	personLastName: "Foxtrot" },
-                { id: 6,    salutationAbbreviation: "Mr",	personFirstName: "George",    	personLastName: "Golf" },
-                { id: 7,    salutationAbbreviation: "Mr",	personFirstName: "Harry",    	personLastName: "Hotel" },
-                { id: 8,    salutationAbbreviation: "Mr",	personFirstName: "Ike",    		personLastName: "India" },
-                { id: 9,    salutationAbbreviation: "Mr",	personFirstName: "Jim",    		personLastName: "Juliet" },
-                { id: 10,   salutationAbbreviation: "Mr",	personFirstName: "Kenny",   	personLastName: "Kilo" },
-                { id: 11,   salutationAbbreviation: "Mr",	personFirstName: "Larry",   	personLastName: "Lima" },
-                { id: 12,   salutationAbbreviation: "Ms",	personFirstName: "Mary",   		personLastName: "Mike" },
-                { id: 13,   salutationAbbreviation: "Miss",	personFirstName: "Nancy",   	personLastName: "November" },
-                { id: 14,   salutationAbbreviation: "Mr",	personFirstName: "Olivier",   	personLastName: "Oscar" },
-                { id: 15,   salutationAbbreviation: "Mr",	personFirstName: "Peter",   	personLastName: "Papa" },
-                { id: 16,   salutationAbbreviation: "Mr",	personFirstName: "Quincy",   	personLastName: "Quebec" },
-                { id: 17,   salutationAbbreviation: "Mr",	personFirstName: "Roger",   	personLastName: "Romeo" },
-                { id: 18,   salutationAbbreviation: "Mr",	personFirstName: "Sam",   		personLastName: "Sierra" },
-                { id: 19,   salutationAbbreviation: "Mr",	personFirstName: "Thomas",   	personLastName: "Tango" },
-                { id: 20,   salutationAbbreviation: "Mr",	personFirstName: "Uncle",   	personLastName: "Uniform" },
-                { id: 21,   salutationAbbreviation: "Mr",	personFirstName: "Vincent",  	personLastName: "Victor" },
-                { id: 22,   salutationAbbreviation: "Mr",	personFirstName: "William",  	personLastName: "Whiskey" },
-                { id: 23,   salutationAbbreviation: "Mr",	personFirstName: "Xavier",   	personLastName: "X-ray" },
-                { id: 24,   salutationAbbreviation: "Mr",	personFirstName: "Yogi",   		personLastName: "Yankee" },
-                { id: 25,   salutationAbbreviation: "Mr",	personFirstName: "Zachary",   	personLastName: "Zulu" }
+                { kp_PersonID: 0,    kf_SalutationID: 0,	PersonFirstName: "Adam",    	PersonLastName: "Alfa",    kf_GenderID: 0 },
+                { kp_PersonID: 1,    kf_SalutationID: 0,	PersonFirstName: "Bob",    		PersonLastName: "Bravo",    kf_GenderID: 0 },
+                { kp_PersonID: 2,    kf_SalutationID: 0,	PersonFirstName: "Carol",    	PersonLastName: "Charlie",    kf_GenderID: 0 },
+                { kp_PersonID: 3,    kf_SalutationID: 0,	PersonFirstName: "David",    	PersonLastName: "Delta",    kf_GenderID: 0 },
+                { kp_PersonID: 4,    kf_SalutationID: 0,	PersonFirstName: "Eddie",    	PersonLastName: "Echo",    kf_GenderID: 0 },
+                { kp_PersonID: 5,    kf_SalutationID: 0,	PersonFirstName: "Frank",    	PersonLastName: "Foxtrot",    kf_GenderID: 0 },
+                { kp_PersonID: 6,    kf_SalutationID: 0,	PersonFirstName: "George",    	PersonLastName: "Golf",    kf_GenderID: 0 },
+                { kp_PersonID: 7,    kf_SalutationID: 0,	PersonFirstName: "Harry",    	PersonLastName: "Hotel",    kf_GenderID: 0 },
+                { kp_PersonID: 8,    kf_SalutationID: 0,	PersonFirstName: "Ike",    		PersonLastName: "India",    kf_GenderID: 0 },
+                { kp_PersonID: 9,    kf_SalutationID: 0,	PersonFirstName: "Jim",    		PersonLastName: "Juliet",    kf_GenderID: 0 },
+                { kp_PersonID: 10,   kf_SalutationID: 0,	PersonFirstName: "Kenny",   	PersonLastName: "Kilo",    kf_GenderID: 0 },
+                { kp_PersonID: 11,   kf_SalutationID: 0,	PersonFirstName: "Larry",   	PersonLastName: "Lima",    kf_GenderID: 0 },
+                { kp_PersonID: 12,   kf_SalutationID: 0,	PersonFirstName: "Mary",   		PersonLastName: "Mike",    kf_GenderID: 0 },
+                { kp_PersonID: 13,   kf_SalutationID: 0,	PersonFirstName: "Nancy",   	PersonLastName: "November",    kf_GenderID: 0 },
+                { kp_PersonID: 14,   kf_SalutationID: 0,	PersonFirstName: "Olivier",   	PersonLastName: "Oscar",    kf_GenderID: 0 },
+                { kp_PersonID: 15,   kf_SalutationID: 0,	PersonFirstName: "Peter",   	PersonLastName: "Papa",    kf_GenderID: 0 },
+                { kp_PersonID: 16,   kf_SalutationID: 0,	PersonFirstName: "Quincy",   	PersonLastName: "Quebec",    kf_GenderID: 0 },
+                { kp_PersonID: 17,   kf_SalutationID: 0,	PersonFirstName: "Roger",   	PersonLastName: "Romeo",    kf_GenderID: 0 },
+                { kp_PersonID: 18,   kf_SalutationID: 0,	PersonFirstName: "Sam",   		PersonLastName: "Sierra",    kf_GenderID: 0 },
+                { kp_PersonID: 19,   kf_SalutationID: 0,	PersonFirstName: "Thomas",   	PersonLastName: "Tango",    kf_GenderID: 0 },
+                { kp_PersonID: 20,   kf_SalutationID: 0,	PersonFirstName: "Uncle",   	PersonLastName: "Uniform",    kf_GenderID: 0 },
+                { kp_PersonID: 21,   kf_SalutationID: 0,	PersonFirstName: "Vincent",  	PersonLastName: "Victor",    kf_GenderID: 0 },
+                { kp_PersonID: 22,   kf_SalutationID: 0,	PersonFirstName: "William",  	PersonLastName: "Whiskey",    kf_GenderID: 0 },
+                { kp_PersonID: 23,   kf_SalutationID: 0,	PersonFirstName: "Xavier",   	PersonLastName: "X-ray",    kf_GenderID: 0 },
+                { kp_PersonID: 24,   kf_SalutationID: 0,	PersonFirstName: "Yogi",   		PersonLastName: "Yankee",    kf_GenderID: 0 },
+                { kp_PersonID: 25,   kf_SalutationID: 0,	PersonFirstName: "Zachary",   	PersonLastName: "Zulu",    kf_GenderID: 0 }
             ]
         };
 
@@ -58,32 +58,32 @@ Ext.define("Core.service.person.mock.Service", {
         var response = {
             success: true,
             personList: [
-                { id: 0,    salutationAbbreviation: "Mr",	personFirstName: "Adam",    	personLastName: "Alfa" },
-                { id: 1,    salutationAbbreviation: "Mr",	personFirstName: "Bob",    		personLastName: "Bravo" },
-                { id: 2,    salutationAbbreviation: "Mrs",	personFirstName: "Carol",    	personLastName: "Charlie" },
-                { id: 3,    salutationAbbreviation: "Mr",	personFirstName: "David",    	personLastName: "Delta" },
-                { id: 4,    salutationAbbreviation: "Mr",	personFirstName: "Eddie",    	personLastName: "Echo" },
-                { id: 5,    salutationAbbreviation: "Mr",	personFirstName: "Frank",    	personLastName: "Foxtrot" },
-                { id: 6,    salutationAbbreviation: "Mr",	personFirstName: "George",    	personLastName: "Golf" },
-                { id: 7,    salutationAbbreviation: "Mr",	personFirstName: "Harry",    	personLastName: "Hotel" },
-                { id: 8,    salutationAbbreviation: "Mr",	personFirstName: "Ike",    		personLastName: "India" },
-                { id: 9,    salutationAbbreviation: "Mr",	personFirstName: "Jim",    		personLastName: "Juliet" },
-                { id: 10,   salutationAbbreviation: "Mr",	personFirstName: "Kenny",   	personLastName: "Kilo" },
-                { id: 11,   salutationAbbreviation: "Mr",	personFirstName: "Larry",   	personLastName: "Lima" },
-                { id: 12,   salutationAbbreviation: "Ms",	personFirstName: "Mary",   		personLastName: "Mike" },
-                { id: 13,   salutationAbbreviation: "Miss",	personFirstName: "Nancy",   	personLastName: "November" },
-                { id: 14,   salutationAbbreviation: "Mr",	personFirstName: "Olivier",   	personLastName: "Oscar" },
-                { id: 15,   salutationAbbreviation: "Mr",	personFirstName: "Peter",   	personLastName: "Papa" },
-                { id: 16,   salutationAbbreviation: "Mr",	personFirstName: "Quincy",   	personLastName: "Quebec" },
-                { id: 17,   salutationAbbreviation: "Mr",	personFirstName: "Roger",   	personLastName: "Romeo" },
-                { id: 18,   salutationAbbreviation: "Mr",	personFirstName: "Sam",   		personLastName: "Sierra" },
-                { id: 19,   salutationAbbreviation: "Mr",	personFirstName: "Thomas",   	personLastName: "Tango" },
-                { id: 20,   salutationAbbreviation: "Mr",	personFirstName: "Uncle",   	personLastName: "Uniform" },
-                { id: 21,   salutationAbbreviation: "Mr",	personFirstName: "Vincent",  	personLastName: "Victor" },
-                { id: 22,   salutationAbbreviation: "Mr",	personFirstName: "William",  	personLastName: "Whiskey" },
-                { id: 23,   salutationAbbreviation: "Mr",	personFirstName: "Xavier",   	personLastName: "X-ray" },
-                { id: 24,   salutationAbbreviation: "Mr",	personFirstName: "Yogi",   		personLastName: "Yankee" },
-                { id: 25,   salutationAbbreviation: "Mr",	personFirstName: "Zachary",   	personLastName: "Zulu" }
+                { kp_PersonID: 0,    kf_SalutationID: 0,	PersonFirstName: "Adam",    	PersonLastName: "Alfa",    kf_GenderID: 0 },
+                { kp_PersonID: 1,    kf_SalutationID: 0,	PersonFirstName: "Bob",    		PersonLastName: "Bravo",    kf_GenderID: 0 },
+                { kp_PersonID: 2,    kf_SalutationID: 0,	PersonFirstName: "Carol",    	PersonLastName: "Charlie",    kf_GenderID: 0 },
+                { kp_PersonID: 3,    kf_SalutationID: 0,	PersonFirstName: "David",    	PersonLastName: "Delta",    kf_GenderID: 0 },
+                { kp_PersonID: 4,    kf_SalutationID: 0,	PersonFirstName: "Eddie",    	PersonLastName: "Echo",    kf_GenderID: 0 },
+                { kp_PersonID: 5,    kf_SalutationID: 0,	PersonFirstName: "Frank",    	PersonLastName: "Foxtrot",    kf_GenderID: 0 },
+                { kp_PersonID: 6,    kf_SalutationID: 0,	PersonFirstName: "George",    	PersonLastName: "Golf",    kf_GenderID: 0 },
+                { kp_PersonID: 7,    kf_SalutationID: 0,	PersonFirstName: "Harry",    	PersonLastName: "Hotel",    kf_GenderID: 0 },
+                { kp_PersonID: 8,    kf_SalutationID: 0,	PersonFirstName: "Ike",    		PersonLastName: "India",    kf_GenderID: 0 },
+                { kp_PersonID: 9,    kf_SalutationID: 0,	PersonFirstName: "Jim",    		PersonLastName: "Juliet",    kf_GenderID: 0 },
+                { kp_PersonID: 10,   kf_SalutationID: 0,	PersonFirstName: "Kenny",   	PersonLastName: "Kilo",    kf_GenderID: 0 },
+                { kp_PersonID: 11,   kf_SalutationID: 0,	PersonFirstName: "Larry",   	PersonLastName: "Lima",    kf_GenderID: 0 },
+                { kp_PersonID: 12,   kf_SalutationID: 0,	PersonFirstName: "Mary",   		PersonLastName: "Mike",    kf_GenderID: 0 },
+                { kp_PersonID: 13,   kf_SalutationID: 0,	PersonFirstName: "Nancy",   	PersonLastName: "November",    kf_GenderID: 0 },
+                { kp_PersonID: 14,   kf_SalutationID: 0,	PersonFirstName: "Olivier",   	PersonLastName: "Oscar",    kf_GenderID: 0 },
+                { kp_PersonID: 15,   kf_SalutationID: 0,	PersonFirstName: "Peter",   	PersonLastName: "Papa",    kf_GenderID: 0 },
+                { kp_PersonID: 16,   kf_SalutationID: 0,	PersonFirstName: "Quincy",   	PersonLastName: "Quebec",    kf_GenderID: 0 },
+                { kp_PersonID: 17,   kf_SalutationID: 0,	PersonFirstName: "Roger",   	PersonLastName: "Romeo",    kf_GenderID: 0 },
+                { kp_PersonID: 18,   kf_SalutationID: 0,	PersonFirstName: "Sam",   		PersonLastName: "Sierra",    kf_GenderID: 0 },
+                { kp_PersonID: 19,   kf_SalutationID: 0,	PersonFirstName: "Thomas",   	PersonLastName: "Tango",    kf_GenderID: 0 },
+                { kp_PersonID: 20,   kf_SalutationID: 0,	PersonFirstName: "Uncle",   	PersonLastName: "Uniform",    kf_GenderID: 0 },
+                { kp_PersonID: 21,   kf_SalutationID: 0,	PersonFirstName: "Vincent",  	PersonLastName: "Victor",    kf_GenderID: 0 },
+                { kp_PersonID: 22,   kf_SalutationID: 0,	PersonFirstName: "William",  	PersonLastName: "Whiskey",    kf_GenderID: 0 },
+                { kp_PersonID: 23,   kf_SalutationID: 0,	PersonFirstName: "Xavier",   	PersonLastName: "X-ray",    kf_GenderID: 0 },
+                { kp_PersonID: 24,   kf_SalutationID: 0,	PersonFirstName: "Yogi",   		PersonLastName: "Yankee",    kf_GenderID: 0 },
+                { kp_PersonID: 25,   kf_SalutationID: 0,	PersonFirstName: "Zachary",   	PersonLastName: "Zulu",    kf_GenderID: 0 }
             ]
         };
 
@@ -99,32 +99,32 @@ Ext.define("Core.service.person.mock.Service", {
         var response = {
             success: true,
             personTile: [
-                { id: 0,    salutationAbbreviation: "Mr",	personFirstName: "Adam",    	personLastName: "Alfa" },
-                { id: 1,    salutationAbbreviation: "Mr",	personFirstName: "Bob",    		personLastName: "Bravo" },
-                { id: 2,    salutationAbbreviation: "Mrs",	personFirstName: "Carol",    	personLastName: "Charlie" },
-                { id: 3,    salutationAbbreviation: "Mr",	personFirstName: "David",    	personLastName: "Delta" },
-                { id: 4,    salutationAbbreviation: "Mr",	personFirstName: "Eddie",    	personLastName: "Echo" },
-                { id: 5,    salutationAbbreviation: "Mr",	personFirstName: "Frank",    	personLastName: "Foxtrot" },
-                { id: 6,    salutationAbbreviation: "Mr",	personFirstName: "George",    	personLastName: "Golf" },
-                { id: 7,    salutationAbbreviation: "Mr",	personFirstName: "Harry",    	personLastName: "Hotel" },
-                { id: 8,    salutationAbbreviation: "Mr",	personFirstName: "Ike",    		personLastName: "India" },
-                { id: 9,    salutationAbbreviation: "Mr",	personFirstName: "Jim",    		personLastName: "Juliet" },
-                { id: 10,   salutationAbbreviation: "Mr",	personFirstName: "Kenny",   	personLastName: "Kilo" },
-                { id: 11,   salutationAbbreviation: "Mr",	personFirstName: "Larry",   	personLastName: "Lima" },
-                { id: 12,   salutationAbbreviation: "Ms",	personFirstName: "Mary",   		personLastName: "Mike" },
-                { id: 13,   salutationAbbreviation: "Miss",	personFirstName: "Nancy",   	personLastName: "November" },
-                { id: 14,   salutationAbbreviation: "Mr",	personFirstName: "Olivier",   	personLastName: "Oscar" },
-                { id: 15,   salutationAbbreviation: "Mr",	personFirstName: "Peter",   	personLastName: "Papa" },
-                { id: 16,   salutationAbbreviation: "Mr",	personFirstName: "Quincy",   	personLastName: "Quebec" },
-                { id: 17,   salutationAbbreviation: "Mr",	personFirstName: "Roger",   	personLastName: "Romeo" },
-                { id: 18,   salutationAbbreviation: "Mr",	personFirstName: "Sam",   		personLastName: "Sierra" },
-                { id: 19,   salutationAbbreviation: "Mr",	personFirstName: "Thomas",   	personLastName: "Tango" },
-                { id: 20,   salutationAbbreviation: "Mr",	personFirstName: "Uncle",   	personLastName: "Uniform" },
-                { id: 21,   salutationAbbreviation: "Mr",	personFirstName: "Vincent",  	personLastName: "Victor" },
-                { id: 22,   salutationAbbreviation: "Mr",	personFirstName: "William",  	personLastName: "Whiskey" },
-                { id: 23,   salutationAbbreviation: "Mr",	personFirstName: "Xavier",   	personLastName: "X-ray" },
-                { id: 24,   salutationAbbreviation: "Mr",	personFirstName: "Yogi",   		personLastName: "Yankee" },
-                { id: 25,   salutationAbbreviation: "Mr",	personFirstName: "Zachary",   	personLastName: "Zulu" }
+                { kp_PersonID: 0,    kf_SalutationID: 0,	PersonFirstName: "Adam",    	PersonLastName: "Alfa",    kf_GenderID: 0 },
+                { kp_PersonID: 1,    kf_SalutationID: 0,	PersonFirstName: "Bob",    		PersonLastName: "Bravo",    kf_GenderID: 0 },
+                { kp_PersonID: 2,    kf_SalutationID: 0,	PersonFirstName: "Carol",    	PersonLastName: "Charlie",    kf_GenderID: 0 },
+                { kp_PersonID: 3,    kf_SalutationID: 0,	PersonFirstName: "David",    	PersonLastName: "Delta",    kf_GenderID: 0 },
+                { kp_PersonID: 4,    kf_SalutationID: 0,	PersonFirstName: "Eddie",    	PersonLastName: "Echo",    kf_GenderID: 0 },
+                { kp_PersonID: 5,    kf_SalutationID: 0,	PersonFirstName: "Frank",    	PersonLastName: "Foxtrot",    kf_GenderID: 0 },
+                { kp_PersonID: 6,    kf_SalutationID: 0,	PersonFirstName: "George",    	PersonLastName: "Golf",    kf_GenderID: 0 },
+                { kp_PersonID: 7,    kf_SalutationID: 0,	PersonFirstName: "Harry",    	PersonLastName: "Hotel",    kf_GenderID: 0 },
+                { kp_PersonID: 8,    kf_SalutationID: 0,	PersonFirstName: "Ike",    		PersonLastName: "India",    kf_GenderID: 0 },
+                { kp_PersonID: 9,    kf_SalutationID: 0,	PersonFirstName: "Jim",    		PersonLastName: "Juliet",    kf_GenderID: 0 },
+                { kp_PersonID: 10,   kf_SalutationID: 0,	PersonFirstName: "Kenny",   	PersonLastName: "Kilo",    kf_GenderID: 0 },
+                { kp_PersonID: 11,   kf_SalutationID: 0,	PersonFirstName: "Larry",   	PersonLastName: "Lima",    kf_GenderID: 0 },
+                { kp_PersonID: 12,   kf_SalutationID: 0,	PersonFirstName: "Mary",   		PersonLastName: "Mike",    kf_GenderID: 0 },
+                { kp_PersonID: 13,   kf_SalutationID: 0,	PersonFirstName: "Nancy",   	PersonLastName: "November",    kf_GenderID: 0 },
+                { kp_PersonID: 14,   kf_SalutationID: 0,	PersonFirstName: "Olivier",   	PersonLastName: "Oscar",    kf_GenderID: 0 },
+                { kp_PersonID: 15,   kf_SalutationID: 0,	PersonFirstName: "Peter",   	PersonLastName: "Papa",    kf_GenderID: 0 },
+                { kp_PersonID: 16,   kf_SalutationID: 0,	PersonFirstName: "Quincy",   	PersonLastName: "Quebec",    kf_GenderID: 0 },
+                { kp_PersonID: 17,   kf_SalutationID: 0,	PersonFirstName: "Roger",   	PersonLastName: "Romeo",    kf_GenderID: 0 },
+                { kp_PersonID: 18,   kf_SalutationID: 0,	PersonFirstName: "Sam",   		PersonLastName: "Sierra",    kf_GenderID: 0 },
+                { kp_PersonID: 19,   kf_SalutationID: 0,	PersonFirstName: "Thomas",   	PersonLastName: "Tango",    kf_GenderID: 0 },
+                { kp_PersonID: 20,   kf_SalutationID: 0,	PersonFirstName: "Uncle",   	PersonLastName: "Uniform",    kf_GenderID: 0 },
+                { kp_PersonID: 21,   kf_SalutationID: 0,	PersonFirstName: "Vincent",  	PersonLastName: "Victor",    kf_GenderID: 0 },
+                { kp_PersonID: 22,   kf_SalutationID: 0,	PersonFirstName: "William",  	PersonLastName: "Whiskey",    kf_GenderID: 0 },
+                { kp_PersonID: 23,   kf_SalutationID: 0,	PersonFirstName: "Xavier",   	PersonLastName: "X-ray",    kf_GenderID: 0 },
+                { kp_PersonID: 24,   kf_SalutationID: 0,	PersonFirstName: "Yogi",   		PersonLastName: "Yankee",    kf_GenderID: 0 },
+                { kp_PersonID: 25,   kf_SalutationID: 0,	PersonFirstName: "Zachary",   	PersonLastName: "Zulu",    kf_GenderID: 0 }
             ]
         };
 
@@ -140,10 +140,11 @@ Ext.define("Core.service.person.mock.Service", {
         var response = {
             success: true,
             person: {
-                id: this.getRandomInt(1000, 99999),
-				salutationAbbreviation: person.salutationAbbreviation,
-                personFirstName: person.personFirstName,
-				personLastName: person.personLastName
+                kp_PersonID: this.getRandomInt(1000, 99999),
+				kf_SalutationID: person.kf_SalutationID,
+                PersonFirstName: person.PersonFirstName,
+				PersonLastName: person.PersonLastName,
+				kf_GenderID: person.kf_GenderID
             }
         };
 
@@ -155,15 +156,16 @@ Ext.define("Core.service.person.mock.Service", {
      * The mock service call.
      */
     updatePerson: function(person) {
-        this.logger.debug("updatePerson: id = ", person.id);
+        this.logger.debug("updatePerson: kp_PersonID = ", person.kp_PersonID);
 
         var response = {
             success: true,
             person: {
-                id: person.id,
-				salutationAbbreviation: person.salutationAbbreviation,
-                personFirstName: person.personFirstName,
-				personLastName: person.personLastName			
+                kp_PersonID: person.kp_PersonID,
+				kf_SalutationID: person.kf_SalutationID,
+                PersonFirstName: person.PersonFirstName,
+				PersonLastName: person.PersonLastName,
+				kf_GenderID: person.kf_GenderID			
             }
         };
 
@@ -175,15 +177,16 @@ Ext.define("Core.service.person.mock.Service", {
      * The mock service call.
      */
     deletePerson: function(person) {
-        this.logger.debug("deletePerson: id = ", person.id);
+        this.logger.debug("deletePerson: kp_PersonID = ", person.kp_PersonID);
 
         var response = {
             success: true,
             person: {
-                id: person.id,
-				salutationAbbreviation: person.salutationAbbreviation,
-                personFirstName: person.personFirstName,
-				personLastName: person.personLastName
+                kp_PersonID: person.kp_PersonID,
+				kf_SalutationID: person.kf_SalutationID,
+                PersonFirstName: person.PersonFirstName,
+				PersonLastName: person.PersonLastName,
+				kf_GenderID: person.kf_GenderID
             }
         };
 

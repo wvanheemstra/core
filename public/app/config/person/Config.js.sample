@@ -24,7 +24,42 @@ Ext.define("Core.config.person.Config",{
 		locale: 'en_us',	      // initialize to 'en_us'
 		background: 'noise',      // initialize to 'noise'
 		url: '',				  // initialize to ''
-		title: ''				  // initialize to ''		
+		title: '',				  // initialize to ''
+		services: [{
+			authentication:  [{
+				mock: true
+			}]
+		},{
+			background:  [{
+				mock: true
+			}]
+		},{
+			session:  [{
+				mock: true,
+				store: true
+			}]
+		},{
+			title:  [{
+				mock: true
+			}]
+		},{
+			ui:  [{
+				mock: true
+			}]
+		},{
+			url:  [{
+				mock: true
+			}]
+		},{
+			company:  [{
+				mock: true
+			}]
+		},{
+			person:  [{
+				mock: true,
+				store: true
+			}]
+		}]	 // put your services here
     },
     constructor : function(config){
         this.initConfig(config);

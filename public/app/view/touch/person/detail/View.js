@@ -68,8 +68,8 @@ Ext.define("Core.view.touch.person.detail.View", {
 					{
                         xtype: "textfield",
                         itemId: "salutationAbbreviationTextField",
-                        name: "salutationAbbreviation",
-                        required: true,
+                        name: "kf_SalutationID",
+                        required: false,
                         plugins: [
                             {
                                 type: "localization",
@@ -81,7 +81,7 @@ Ext.define("Core.view.touch.person.detail.View", {
 					{
                         xtype: "textfield",
                         itemId: "personFirstNameTextField",
-                        name: "personFirstName",
+                        name: "PersonFirstName",
                         required: true,
                         plugins: [
                             {
@@ -94,13 +94,26 @@ Ext.define("Core.view.touch.person.detail.View", {
                     {
                         xtype: "textfield",
                         itemId: "personLastNameTextField",
-                        name: "personLastName",
+                        name: "PersonLastName",
                         required: true,
                         plugins: [
                             {
                                 type: "localization",
                                 method: "setPlaceHolder",
                                 key: "personDetail.personLastName"
+                            }
+                        ]
+                    },
+                    {
+                        xtype: "textfield",
+                        itemId: "genderTextField",
+                        name: "kf_GenderID",
+                        required: false,
+                        plugins: [
+                            {
+                                type: "localization",
+                                method: "setPlaceHolder",
+                                key: "personDetail.gender"
                             }
                         ]
                     }

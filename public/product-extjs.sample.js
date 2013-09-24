@@ -14,22 +14,7 @@ Ext.onReady(function () {
 
     // pull all of this in so they can be injected
     Ext.syncRequire([
-	    "Core.view.extjs.viewport.product.View",
-        "Core.service.session.mock.Service", 
-        "Core.service.background.Service",
-        "Core.service.background.mock.Service",		
-        "Core.service.ui.Service",
-        "Core.service.ui.mock.Service", 
-        "Core.service.company.Service",
-        "Core.service.company.mock.Service",
-        "Core.service.url.Service",
-        "Core.service.url.mock.Service",
-        "Core.service.authentication.Service",
-        "Core.service.authentication.mock.Service",
-        "Core.service.product.Service",
-        "Core.service.product.mock.Service",		
-		"Core.store.session.Store",
-        "Core.store.product.Store",		
+	    "Core.view.extjs.viewport.product.View",		
         "FlowMVC.mvc.event.EventDispatcher",
         "FlowMVC.logger.Logger"
     ]);
@@ -42,9 +27,8 @@ Ext.onReady(function () {
         "nineam.locale.plugin.extjs.LocalePlugin"
     ]);
 
-    // Configure the DeftJS IoC container
+	// Configure the DeftJS IoC container in general
     Deft.Injector.configure({
-
         ////////////////////////////////////////////
         // LOGGER
         ////////////////////////////////////////////
@@ -53,57 +37,84 @@ Ext.onReady(function () {
         ////////////////////////////////////////////
         // EVENT DISPATCHER
         ////////////////////////////////////////////
-        eventBus:               "FlowMVC.mvc.event.EventDispatcher",
-
-        ////////////////////////////////////////////
-        // IMPL
-        ////////////////////////////////////////////
-        sessionStore:			"Core.store.session.Store",
-        productStore:			"Core.store.product.Store",	
-
-	    ////////////////////////////////////////////
-	    // SERVICES
-	    ////////////////////////////////////////////		
-		
-        ////////////////////////////////////////////
-        // SERVICE MOCKS
-        ////////////////////////////////////////////
-        sessionService:         "Core.service.session.mock.Service", 
-        authenticationService:  "Core.service.authentication.mock.Service",
-        backgroundService:      "Core.service.background.mock.Service",		
-        uiService:        		"Core.service.ui.mock.Service",
-        companyService:        	"Core.service.company.mock.Service",
-        urlService:        	    "Core.service.url.mock.Service",		
-        productService:			"Core.service.product.mock.Service",
-
-        sessionServiceClass: {
-            value: "Core.service.session.mock.Service"
-        },		
-		
-        authenticationServiceClass: {
-            value: "Core.service.authentication.mock.Service"
-        },
-        
-        backgroundServiceClass: {
-            value: "Core.service.background.mock.Service"
-        },
-        
-        uiServiceClass: {
-            value: "Core.service.ui.mock.Service"
-        },
-        
-        companyServiceClass: {
-            value: "Core.service.company.mock.Service"
-        },
-
-        urlServiceClass: {
-            value: "Core.service.url.mock.Service"
-        },
-
-        productServiceClass: {
-            value: "Core.service.product.mock.Service"
-        }
-    });
+        eventBus:               "FlowMVC.mvc.event.EventDispatcher"
+	});
+	
+	// MOVE THIS TO THE Core.config.person.Config AS SOON AS Core IS NOT undefined
+	var services = [{
+		authentication:  [{
+			mock: true
+		}]
+	},{
+		background:  [{
+			mock: true
+		}]
+	},{
+		session:  [{
+			mock: true,
+			store: true
+		}]
+	},{
+		title:  [{
+			mock: true
+		}]
+	},{
+		ui:  [{
+			mock: true
+		}]
+	},{
+		url:  [{
+			mock: true
+		}]
+	},{
+		company:  [{
+			mock: true
+		}]
+	},{
+		product:  [{
+			mock: true,
+			store: true
+		}]
+	}];
+	
+	for (var n = 0; n < services.length; n++) {
+		var service = services[n];
+		for (var key in service) {
+			if (key === 'length' || !service.hasOwnProperty(key)) continue;
+			var serviceName = key.toString();		
+			var value = service[key][0];
+			// value is e.g. 
+			// {mock: true, store: false}
+			for (var key in value) {
+				if(key == 'mock'){
+					var mock = value[key];
+					var serviceService = serviceName+"Service";
+					var keyValuePairArray = {};
+					if(mock){
+						keyValuePairArray[serviceService] = String("Core.service."+serviceName+".mock"+".Service");
+						Ext.syncRequire([String("Core.service."+serviceName+".mock"+".Service")]);
+					} 
+					else {
+						keyValuePairArray[serviceService] = String("Core.service."+serviceName+".Service");
+						Ext.syncRequire([String("Core.service."+serviceName+".Service")]);
+					}
+					// Configure the DeftJS IoC container for Services
+					Deft.Injector.configure(keyValuePairArray);
+				}
+				if(key == 'store'){
+					var store = value[key];
+					var serviceStore = serviceName+"Store";
+					var keyValuePairArray = {};
+					if(store){
+						keyValuePairArray[serviceStore] = String("Core.store."+serviceName+".Store");
+						Ext.syncRequire([String("Core.store."+serviceName+".Store")]);
+					} 				
+					// Configure the DeftJS IoC container for Stores
+					Deft.Injector.configure(keyValuePairArray);
+				}
+			}	
+		}
+	}
 });
 
 Ext.application({

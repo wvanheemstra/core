@@ -12,7 +12,7 @@ Ext.define("Core.controller.background.Controller", {
 
     inject: [
         "backgroundService",
-        "backgroundServiceClass",
+    //    "backgroundServiceClass",
         "logger"
     ],
 

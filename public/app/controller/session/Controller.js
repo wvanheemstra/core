@@ -13,7 +13,7 @@ Ext.define("Core.controller.session.Controller", {
     inject: [
         "sessionService",
         "sessionStore",
-        "sessionServiceClass",
+    //    "sessionServiceClass",
         "logger"
     ],
     

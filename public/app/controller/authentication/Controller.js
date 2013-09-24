@@ -12,7 +12,7 @@ Ext.define("Core.controller.authentication.Controller", {
 
     inject: [
         "authenticationService",
-        "authenticationServiceClass",
+    //    "authenticationServiceClass",
         "logger"
     ],
 

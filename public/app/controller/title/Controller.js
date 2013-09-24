@@ -12,7 +12,7 @@ Ext.define("Core.controller.title.Controller", {
 
     inject: [
         "titleService",
-        "titleServiceClass",
+    //    "titleServiceClass",
         "logger"
     ],
 

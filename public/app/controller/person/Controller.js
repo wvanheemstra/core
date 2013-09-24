@@ -337,7 +337,7 @@ Ext.define("Core.controller.person.Controller", {
         this.logger.info("deletePersonSuccess");
 
         this.personStore.setSelectedRecord(null);
-        var person = this.personStore.findRecord("id", response.data.id);
+        var person = this.personStore.findRecord("kp_PersonID", response.data.kp_PersonID);
         this.personStore.remove(person);
 
         var evt = Ext.create("Core.event.person.Event", Core.event.person.Event.DELETE_PERSON_SUCCESS);

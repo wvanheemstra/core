@@ -1,0 +1,105 @@
+{
+    /////////////////////////////////////////////
+    // LOGIN
+    /////////////////////////////////////////////
+    "login": {
+        "title": "Login",
+        "username": "Gebruikersnaam",
+        "password": "Wachtwoord",
+        "passwordHint": "Hint: password",
+        "keepmeloggedin": "Houd me ingelogd",
+        "submit": "Log In",
+        "reset": "Wissen",
+        "loggingIn" : "Verifieren...",
+        "credentialsRequired": "Voer alsjeblieft gebruikersnaam en wachtwoord in.",
+        "loginFailed": "Login mislukt. Voer alsjeblieft de juiste gegevens in."
+    },	
+
+    /////////////////////////////////////////////
+    // SALUTATION SLIDE
+    /////////////////////////////////////////////
+    "salutationSlide": {
+        "title": "Aanhef",
+        "title1": "Aanhef1",	
+        "title2": "Aanhef2",
+        "title3": "Aanhef3",	
+        "title4": "Aanhef4",			
+        "logOut": "Log Uit",
+        "new": "Nieuw",
+        "search": "live zoeken",
+		"salutationAbbreviation": "Aanhef",
+        "loading": "Laad Aanhef...",
+        "noSalutations": "Geen Aanhef gevonden."
+    },	
+	
+    /////////////////////////////////////////////
+    // SALUTATION LIST
+    /////////////////////////////////////////////
+    "salutationList": {
+        "title": "Aanhef",
+        "logOut": "Log Uit",
+        "new": "Nieuw",
+        "search": "live zoeken",
+		"salutationAbbreviation": "Aanhef",	
+        "loading": "Laad Aanhef...",
+        "noSalutations": "Geen Aanhef gevonden."
+    },
+
+    /////////////////////////////////////////////
+    // SALUTATION TILE
+    /////////////////////////////////////////////
+    "salutationTile": {
+        "title": "Aanhef",
+        "logOut": "Log Uit",
+        "new": "Nieuw",
+        "search": "live zoeken",
+		"salutationAbbreviation": "Aanhef",
+        "loading": "Laad Aanhef...",
+        "noSalutations": "Geen Aanhef gevonden."
+    },
+
+    /////////////////////////////////////////////
+    // SALUTATION ITEMS
+    /////////////////////////////////////////////
+    "salutationItem1": {
+        "title": "Item 1",
+    },	
+    "salutationItem2": {
+        "title": "Item 2",
+    },
+    "salutationItem3": {
+        "title": "Item 3",
+    },		
+    "salutationItem4": {
+        "title": "Item 4",
+    },	
+	
+    /////////////////////////////////////////////
+    // SALUTATION CATEGORIES
+    /////////////////////////////////////////////
+    "salutationCategory0": {
+        "title": "Home",
+    },
+		
+    /////////////////////////////////////////////
+    // SALUTATION DETAIL
+    /////////////////////////////////////////////
+    "salutationDetail": {
+        "title": "Salutation",
+        "back": "Terug",
+        "save": "Bewaar",
+		"salutationAbbreviation": "Aanhef",
+        "delete": "Verwijder",
+        "creatingSalutation": "Maak Aanhef aan ...",
+        "updatingSalutation": "Werk Aanhef bij ...",
+        "deletingSalutation": "Verwijder Aanhef..."
+    },
+
+    /////////////////////////////////////////////
+    // SALUTATION MODAL
+    /////////////////////////////////////////////
+    "salutationModal": {
+        "title": "Aanhef",
+        "close": "Sluiten"
+    }
+}

@@ -1,0 +1,105 @@
+{
+    /////////////////////////////////////////////
+    // LOGIN
+    /////////////////////////////////////////////
+    "login": {
+        "title": "Anmelden",
+        "username": "Benutzername",
+        "password": "Kennwort",
+        "passwordHint": "Hinweis: password",
+        "keepmeloggedin": "Angemeldet bleiben",
+        "submit": "Meld an",
+        "reset": "Neu stellen",
+        "loggingIn" : "Überprüfen...",
+        "credentialsRequired": "Tragen Sie bitte Ihre Benutzername und Kennwort ein.",
+        "loginFailed": "Anmelden hat gefählt. Bitte tragen Sie die richtige Daten ein."
+    },
+
+    /////////////////////////////////////////////
+    // SALUTATION SLIDE
+    /////////////////////////////////////////////
+    "salutationSlide": {
+        "title": "Anreden",
+        "title1": "Anreden1",	
+        "title2": "Anreden2",
+        "title3": "Anreden3",	
+        "title4": "Anreden4",			
+        "logOut": "Abmelden",
+        "new": "Neu",
+        "search": "live suchen",
+		"salutationAbbreviation": "Anrede",
+        "loading": "Laad Anreden...",
+        "noSalutations": "Keine Anreden wurden gefunden."
+    },	
+	
+    /////////////////////////////////////////////
+    // SALUTATION LIST
+    /////////////////////////////////////////////
+    "salutationList": {
+        "title": "Anreden",
+        "logOut": "Abmelden",
+        "new": "Neu",
+        "search": "live suchen",
+		"salutationAbbreviation": "Anrede",
+        "loading": "Laad Anreden...",
+        "noSalutations": "Keine Anreden wurden gefunden."
+    },
+
+    /////////////////////////////////////////////
+    // SALUTATION TILE
+    /////////////////////////////////////////////
+    "salutationTile": {
+        "title": "Anreden",
+        "logOut": "Abmelden",
+        "new": "Neu",
+        "search": "live suchen",
+		"salutationAbbreviation": "Anrede",	
+        "loading": "Laad Anreden...",
+        "noSalutations": "Keine Anreden wurden gefunden."
+    },
+
+    /////////////////////////////////////////////
+    // SALUTATION ITEMS
+    /////////////////////////////////////////////
+    "salutationItem1": {
+        "title": "Item 1",
+    },	
+    "salutationItem2": {
+        "title": "Item 2",
+    },
+    "salutationItem3": {
+        "title": "Item 3",
+    },		
+    "salutationItem4": {
+        "title": "Item 4",
+    },	
+	
+    /////////////////////////////////////////////
+    // SALUTATION CATEGORIES
+    /////////////////////////////////////////////
+    "salutationCategory0": {
+        "title": "Home",
+    },
+	
+    /////////////////////////////////////////////
+    // SALUTATION DETAIL
+    /////////////////////////////////////////////
+    "salutationDetail": {
+        "title": "Anrede",
+        "back": "Zurück",
+        "save": "Speichern",
+		"salutationAbbreviation": "Anrede",
+        "delete": "Löschen",
+        "creatingSalutation": "Mach Anrede neu an ...",
+        "updatingSalutation": "Bearbeit Anrede ...",
+        "deletingSalutation": "Lösch Anrede..."
+    },
+
+    /////////////////////////////////////////////
+    // SALUTATION MODAL
+    /////////////////////////////////////////////
+    "salutationModal": {
+        "title": "Anrede",
+        "close": "schließen"
+    }
+}

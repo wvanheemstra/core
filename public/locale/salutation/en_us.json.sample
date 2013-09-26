@@ -1,0 +1,105 @@
+{
+    /////////////////////////////////////////////
+    // LOGIN
+    /////////////////////////////////////////////
+    "login": {
+        "title": "Login",
+        "username": "Username",
+        "password": "Password",
+        "passwordHint": "Hint: password",
+        "keepmeloggedin": "Keep me logged in",
+        "submit": "Log In",
+        "reset": "Clear",
+        "loggingIn" : "Logging In...",
+        "credentialsRequired": "Please enter your username and password.",
+        "loginFailed": "Login failed. Please enter the correct credentials."
+    },
+
+    /////////////////////////////////////////////
+    // SALUTATION SLIDE
+    /////////////////////////////////////////////
+    "salutationSlide": {
+        "title": "Salutations",
+        "title1": "Salutations1",	
+        "title2": "Salutations2",
+        "title3": "Salutations3",	
+        "title4": "Salutations4",			
+        "logOut": "Log Out",
+        "new": "New",
+        "search": "live search",
+		"salutationAbbreviation": "Salutation",
+        "loading": "Loading Salutations...",
+        "noSalutations": "No Salutations found."
+    },	
+	
+    /////////////////////////////////////////////
+    // SALUTATION LIST
+    /////////////////////////////////////////////
+    "salutationList": {
+        "title": "Salutations",
+        "logOut": "Log Out",
+        "new": "New",
+        "search": "live search",
+		"salutationAbbreviation": "Salutation",
+        "loading": "Loading Salutations...",
+        "noSalutations": "No Salutations found."
+    },
+
+    /////////////////////////////////////////////
+    // SALUTATION TILE
+    /////////////////////////////////////////////
+    "salutationTile": {
+        "title": "Salutations",
+        "logOut": "Log Out",
+        "new": "New",
+        "search": "live search",
+		"salutationAbbreviation": "Salutation",
+        "loading": "Loading Salutations...",
+        "noSalutations": "No Salutations found."
+    },
+
+    /////////////////////////////////////////////
+    // SALUTATION ITEMS
+    /////////////////////////////////////////////
+    "salutationItem1": {
+        "title": "Item 1",
+    },	
+    "salutationItem2": {
+        "title": "Item 2",
+    },
+    "salutationItem3": {
+        "title": "Item 3",
+    },		
+    "salutationItem4": {
+        "title": "Item 4",
+    },	
+	
+    /////////////////////////////////////////////
+    // SALUTATION CATEGORIES
+    /////////////////////////////////////////////
+    "salutationCategory0": {
+        "title": "Home",
+    },
+		
+    /////////////////////////////////////////////
+    // SALUTATION DETAIL
+    /////////////////////////////////////////////
+    "salutationDetail": {
+        "title": "Salutation",
+        "back": "Back",
+        "save": "Save",
+		"salutationAbbreviation": "Salutation",	
+        "delete": "Delete",
+        "creatingSalutation": "Creating Salutation ...",
+        "updatingSalutation": "Updating Salutation ...",
+        "deletingSalutation": "Deleting Salutation..."
+    },
+
+    /////////////////////////////////////////////
+    // SALUTATION MODAL
+    /////////////////////////////////////////////
+    "salutationModal": {
+        "title": "Salutation",
+        "close": "Close"
+    }
+}

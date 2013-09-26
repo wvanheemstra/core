@@ -1,5 +1,5 @@
 /**
- * The product object representing a product.
+ * The person object representing a person.
  */
 Ext.define("Core.model.person.Model", {
     extend: "Ext.data.Model",

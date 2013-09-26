@@ -12,11 +12,14 @@ Ext.define("Core.view.touch.person.detail.View", {
     controller: "Core.mediator.touch.person.detail.Mediator",
 
     requires: [
-        "Ext.form.FieldSet"
+        "Ext.form.FieldSet",
+		"Ext.field.DatePicker"
     ],
 
     config: {
 
+		salutationPicker: null,
+	
         items: [
             {
                 xtype: "titlebar",
@@ -63,7 +66,12 @@ Ext.define("Core.view.touch.person.detail.View", {
             },
             {
                 xtype: "fieldset",
-                itemId: "fieldset",
+			//	title: "Personal Information",
+			//	instructions: "Please enter the information above",
+                itemId: "personDetailForm",
+				defaults: {
+					labelWidth: "35%"
+				},
                 items: [
 					{
                         xtype: "textfield",
@@ -76,7 +84,42 @@ Ext.define("Core.view.touch.person.detail.View", {
                                 method: "setPlaceHolder",
                                 key: "personDetail.salutationAbbreviation"
                             }
-                        ]
+                        ],
+						readOnly: true
+						
+				/*		
+						listeners: {
+							focus: function () {
+								if(this.salutationPicker == null) {
+									// Create the salutationPicker
+									this.salutationPicker = Ext.create('Ext.Picker', {
+										doneButton: "Done",
+										cancelButton: true,
+										slots: [{
+											name: 'kf_SalutationID',
+											title: 'Choose a Salutation',
+											store: Ext.create('Core.store.salutation.Store'),
+											itemTpl: '{SalutationAbbreviation}',
+											listeners: {
+												itemtap: function (obj, index, target, record, e, eOpts) {
+													var form = Ext.getCmp('personDetailForm');
+													form.setValues({
+											//			SalutationAbbreviation: record.get('SalutationAbbreviation'),
+														kf_SalutationID: record.get('kf_SalutationID'),
+													});
+													// how to dismiss the picker?
+													obj.parent.hide();
+												}
+											}
+										}]
+									});
+									Ext.Viewport.add(this.salutationPicker);
+								}//eof if
+								this.salutationPicker.show();
+							}//eof focus
+						}//eof listeners
+				*/
+						
                     },
 					{
                         xtype: "textfield",
@@ -116,7 +159,17 @@ Ext.define("Core.view.touch.person.detail.View", {
                                 key: "personDetail.gender"
                             }
                         ]
-                    }
+                    },	
+					{
+						xtype: "datepickerfield",
+						destroyPickerOnHide: true,
+						name: "StartDate",
+						label: "Date of Birth",
+						value: new Date(),
+						picker: {
+							yearFrom: 1920
+						}
+					}
                 ]
             },
 			{

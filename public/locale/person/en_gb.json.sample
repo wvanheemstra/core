@@ -68,30 +68,23 @@
     // PERSON ITEMS
     /////////////////////////////////////////////
     "personItem1": {
-        "title": "Item 1",
+        "title": "Item 1"
     },	
     "personItem2": {
-        "title": "Item 2",
+        "title": "Item 2"
     },
     "personItem3": {
-        "title": "Item 3",
+        "title": "Item 3"
     },		
     "personItem4": {
-        "title": "Item 4",
+        "title": "Item 4"
     },	
 	
     /////////////////////////////////////////////
     // PERSON CATEGORIES
     /////////////////////////////////////////////
     "personCategory0": {
-        "title": "Home",
-    },	
-	
-    /////////////////////////////////////////////
-    // PERSON CATEGORIES
-    /////////////////////////////////////////////
-    "personCategory0": {
-        "title": "Home",
+        "title": "Home"
     },
 		
     /////////////////////////////////////////////
@@ -104,10 +97,12 @@
 		"salutationAbbreviation": "Salutation",
         "personFirstName": "First Name",
         "personLastName": "Last Name",
+		"gender": "Gender",		
         "delete": "Delete",
         "creatingPerson": "Creating Person ...",
         "updatingPerson": "Updating Person ...",
-        "deletingPerson": "Deleting Person..."
+        "deletingPerson": "Deleting Person...",
+		"readingSalutations": "Reading Salutations..."
     },
 
     /////////////////////////////////////////////

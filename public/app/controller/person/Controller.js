@@ -15,6 +15,7 @@ Ext.define("Core.controller.person.Controller", {
     inject: [
         "personService",
         "personStore",
+		"salutationStore",
         "logger"
     ],
     
@@ -38,7 +39,8 @@ Ext.define("Core.controller.person.Controller", {
         this.logger.debug("setupGlobalEventListeners");
         this.eventBus.addGlobalEventListener(Core.event.person.Event.GET_PERSON_SLIDE, this.onGetPersonSlide, this);
         this.eventBus.addGlobalEventListener(Core.event.person.Event.GET_PERSON_LIST, this.onGetPersonList, this); 
-        this.eventBus.addGlobalEventListener(Core.event.person.Event.GET_PERSON_TILE, this.onGetPersonTile, this);        this.eventBus.addGlobalEventListener(Core.event.person.Event.GET_PERSON_MODAL, this.onGetPersonModal, this);               
+        this.eventBus.addGlobalEventListener(Core.event.person.Event.GET_PERSON_TILE, this.onGetPersonTile, this); 
+		this.eventBus.addGlobalEventListener(Core.event.person.Event.GET_PERSON_MODAL, this.onGetPersonModal, this);               
         this.eventBus.addGlobalEventListener(Core.event.person.Event.CREATE_PERSON, this.onCreatePerson, this);
         this.eventBus.addGlobalEventListener(Core.event.person.Event.UPDATE_PERSON, this.onUpdatePerson, this);
         this.eventBus.addGlobalEventListener(Core.event.person.Event.DELETE_PERSON, this.onDeletePerson, this);
@@ -154,7 +156,7 @@ Ext.define("Core.controller.person.Controller", {
         this.logger.debug("deletePerson");
         this.executeServiceCall(this.personService, this.personService.deletePerson, [person], this.deletePersonSuccess, this.deletePersonFailure, this);
     },
-
+	
     ////////////////////////////////////////////////
     // SERVICE SUCCESS/FAULT HANDLERS
     ////////////////////////////////////////////////
@@ -356,7 +358,33 @@ Ext.define("Core.controller.person.Controller", {
         var evt = Ext.create("Core.event.person.Event", Core.event.person.Event.DELETE_PERSON_FAILURE);
         this.eventBus.dispatchGlobalEvent(evt);
     },
-    
+	
+	/**
+     * Handles the successful read salutations service call.
+     * Fires off the corresponding success event on the application-level event bus.
+     *
+     */
+    readSalutationsSuccess: function(response) {
+        this.logger.info("readSalutationsSuccess");
+
+        this.salutationStore.load();
+
+        var evt = Ext.create("Core.event.person.Event", Core.event.person.Event.READ_SALUTATIONS_SUCCESS);
+        this.eventBus.dispatchGlobalEvent(evt);
+    },
+
+    /**
+     * Handles the failed read salutations service call.
+     * Fires off the corresponding failure event on the application-level event bus.
+     *
+     */
+    readSalutationsFailure: function(response) {
+        this.logger.warn("readSalutationsFailure");
+
+        var evt = Ext.create("Core.event.person.Event", Core.event.person.Event.READ_SALUTATIONS_FAILURE);
+        this.eventBus.dispatchGlobalEvent(evt);
+    },
+	
     ////////////////////////////////////////////////
     // EVENT BUS HANDLERS
     ////////////////////////////////////////////////
@@ -446,6 +474,17 @@ Ext.define("Core.controller.person.Controller", {
         this.logger.debug("onDeletePerson");
 
         this.deletePerson(event.person);
+    },
+	
+	/**
+     * Handles the read salutations event on the application-level event bus. Calls a functional method that's more
+     * testable than this event handler.
+     *
+     */
+    onReadSalutations: function(event) {
+        this.logger.debug("onReadSalutations");
+
+        this.readSalutations();
     }
     
 });    

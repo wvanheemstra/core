@@ -20,6 +20,7 @@ Ext.Loader.setConfig({
 Ext.syncRequire([
 	"Ext.Component",
 	"Ext.ComponentManager",
-	"Ext.ComponentQuery"
+	"Ext.ComponentQuery",
+	"Core.config.person.Config" // ADDED by wvh for test
 ]);
 

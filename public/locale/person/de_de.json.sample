@@ -60,6 +60,7 @@
 		"salutationAbbreviation": "Anrede",
         "personFirstName": "Vorame",
         "personLastName": "Nachname",
+		"gender": "Geschlecht",		
         "loading": "Laad Personen...",
         "noPersons": "Keine Personen wurden gefunden."
     },
@@ -68,23 +69,23 @@
     // PERSON ITEMS
     /////////////////////////////////////////////
     "personItem1": {
-        "title": "Item 1",
+        "title": "Item 1"
     },	
     "personItem2": {
-        "title": "Item 2",
+        "title": "Item 2"
     },
     "personItem3": {
-        "title": "Item 3",
+        "title": "Item 3"
     },		
     "personItem4": {
-        "title": "Item 4",
+        "title": "Item 4"
     },	
 	
     /////////////////////////////////////////////
     // PERSON CATEGORIES
     /////////////////////////////////////////////
     "personCategory0": {
-        "title": "Home",
+        "title": "Home"
     },
 	
     /////////////////////////////////////////////
@@ -100,7 +101,8 @@
         "delete": "Löschen",
         "creatingPerson": "Mach Person neu an ...",
         "updatingPerson": "Bearbeit Person ...",
-        "deletingPerson": "Lösch Person..."
+        "deletingPerson": "Lösch Person...",
+		"readingSalutations": "Lese Anreden..."
     },
 
     /////////////////////////////////////////////

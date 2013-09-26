@@ -55,6 +55,11 @@ Ext.define("Core.config.person.Config",{
 				mock: true
 			}]
 		},{
+			salutation:  [{
+				mock: true,
+				store: true
+			}]
+		},{
 			person:  [{
 				mock: true,
 				store: true

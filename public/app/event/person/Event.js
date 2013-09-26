@@ -133,6 +133,7 @@ Ext.define("Core.event.person.Event", {
          * The delete person failure event type.
          */
         DELETE_PERSON_FAILURE:    "deletePersonFailure"
+		
     },
 
     /**

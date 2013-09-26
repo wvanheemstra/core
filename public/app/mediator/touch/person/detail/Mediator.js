@@ -5,7 +5,7 @@ Ext.define("Core.mediator.touch.person.detail.Mediator", {
     extend: "Core.mediator.touch.person.base.Mediator",
 
     requires: [
-        "Core.event.navigation.Event"
+        "Core.event.navigation.Event"  // THIS IS ALREADY IN THE BASE CLASS, REMOVE?
     ],
 
     // set up view event to mediator mapping
@@ -21,7 +21,10 @@ Ext.define("Core.mediator.touch.person.detail.Mediator", {
         },
         deleteButton: {
             tap: "onDeleteButtonTap"
-        }
+        },
+		salutationAbbreviationTextField: {
+			focus: "onSalutationAbbreviationTextFieldFocus"
+		}
     },
 
     // set up injected object event listening
@@ -41,6 +44,7 @@ Ext.define("Core.mediator.touch.person.detail.Mediator", {
         this.eventBus.addGlobalEventListener(Core.event.person.Event.CREATE_PERSON_SUCCESS, this.onCreatePersonSuccess, this);
         this.eventBus.addGlobalEventListener(Core.event.person.Event.UPDATE_PERSON_SUCCESS, this.onUpdatePersonSuccess, this);
         this.eventBus.addGlobalEventListener(Core.event.person.Event.DELETE_PERSON_SUCCESS, this.onDeletePersonSuccess, this);
+		this.eventBus.addGlobalEventListener(Core.event.salutation.Event.READ_SALUTATIONS_SUCCESS, this.onReadSalutationsSuccess, this);
     },
 
     /**
@@ -89,6 +93,26 @@ Ext.define("Core.mediator.touch.person.detail.Mediator", {
         }
     },
 
+    /**
+     * Functional method to read salutations. Fires off the corresponding application-level event.
+     *
+     */
+	readSalutations: function() {
+        this.logger.debug("readSalutations");
+		var salutationPicker = this.getView().getSalutationPicker();
+        if(salutationPicker == null) {
+            this.getView().setMasked({
+                xtype: "loadmask",
+                message: nineam.locale.LocaleManager.getProperty("personDetail.readingSalutations")
+            });
+            var evt = Ext.create("Core.event.salutation.Event", Core.event.salutation.Event.READ_SALUTATIONS);
+            this.eventBus.dispatchGlobalEvent(evt);
+        }
+		else{
+			salutationPicker.show();
+		}
+	},	
+	
     /**
      * Simple navigation method used to navigate back, depending on the previous view.
 	 *
@@ -204,6 +228,21 @@ Ext.define("Core.mediator.touch.person.detail.Mediator", {
     },
 
     /**
+     * Handles the read salutations success application-level event.
+     */
+    onReadSalutationsSuccess: function() {
+		if(Core.config.person.Config.getCurrentView()==='persondetail') {
+			this.logger.debug("onReadSalutationsSuccess");
+			
+			// to do...
+			
+			//this.getList().getStore().loadRecords(this.salutationStore.getRange());
+			
+			this.getView().setMasked(false);
+		}		
+    },	
+	
+    /**
      * Handles the change of the selected record in the person store. Loads the appropriate record in the view or
      * resets it if the record is null.
      *
@@ -259,5 +298,14 @@ Ext.define("Core.mediator.touch.person.detail.Mediator", {
 	    if(person) {
 		    this.deletePerson(person.data);
 	    }
+    },
+
+    /**
+     * Handles the salutation abbreviation text field focus event. 
+     * 
+     */
+    onSalutationAbbreviationTextFieldFocus: function() {
+        this.logger.debug("onSalutationAbbreviationTextFieldFocus");
+		this.readSalutations();
     }
 });

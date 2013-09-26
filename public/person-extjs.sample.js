@@ -71,6 +71,11 @@ Ext.onReady(function () {
 			mock: true
 		}]
 	},{
+		salutation:  [{
+			mock: true,
+			store: true
+		}]
+	},{
 		person:  [{
 			mock: true,
 			store: true
@@ -141,6 +146,7 @@ Ext.application({
     ////////////////////////////////////////////
     models: [
         "session.Model",
+		"salutation.Model",		
     	"person.Model"
     ],
 
@@ -168,6 +174,7 @@ Ext.application({
         "company.Controller",
         "url.Controller",		
         "authentication.Controller",
+		"salutation.Controller",		
         "person.Controller"	
     ],
 

@@ -17,7 +17,10 @@ Ext.define("Core.mediator.extjs.person.detail.Mediator", {
         },
         deleteButton: {
             click: "onDeleteButtonClick"
-        }
+        },
+		salutationAbbreviationTextField: {
+			focus: "onSalutationAbbreviationTextFieldFocus"
+		}
     },
 
     // set up injected object event listening
@@ -66,7 +69,27 @@ Ext.define("Core.mediator.extjs.person.detail.Mediator", {
             this.eventBus.dispatchGlobalEvent(evt);
         }
     },
-
+	
+    /**
+     * Functional method to read salutations. Fires off the corresponding application-level event.
+     *
+     */
+	readSalutations: function() {
+        this.logger.debug("readSalutations");
+		var salutationPicker = this.getView().getSalutationPicker();
+        if(salutationPicker == null) {
+            this.getView().setMasked({
+                xtype: "loadmask",
+                message: nineam.locale.LocaleManager.getProperty("personDetail.readingSalutations")
+            });
+            var evt = Ext.create("Core.event.person.Event", Core.event.person.Event.READ_SALUTATIONS);
+            this.eventBus.dispatchGlobalEvent(evt);
+        }
+		else{
+			salutationPicker.show();
+		}
+	},
+	
     /**
      * Simple navigation method used to navigate back, depending on the previous view.
 	 *
@@ -190,7 +213,29 @@ Ext.define("Core.mediator.extjs.person.detail.Mediator", {
 			this.backToPrevious(Core.config.person.Config.getPreviousView());
 		}
     },
+	
+	/**
+     * Handles the read salutations success application-level event.
+     */
+    onReadSalutationsSuccess: function() {
+		if(Core.config.person.Config.getCurrentView()==='persondetail') {
+			this.logger.debug("onReadSalutationsSuccess");
+			// to do ...
+			
+			this.getView().setMasked(false);
+		}
+    },
 
+    /**
+     * Handles the read salutations failure application-level event.
+     */
+    onReadSalutationsFailure: function() {
+		if(Core.config.person.Config.getCurrentView()==='persondetail') {
+			this.logger.debug("onReadSalutationsFailure");
+			this.getView().setLoading(false);
+		}
+    },	
+	
     /**
      * Handles the change of the selected record in the person store. Loads the appropriate record in the view or
      * resets it if the record is null.
@@ -248,5 +293,14 @@ Ext.define("Core.mediator.extjs.person.detail.Mediator", {
 	    if(person) {
 		    this.deletePerson(person.data);
 	    }
+    },
+
+    /**
+     * Handles the salutation abbreviation text field focus event. 
+     * 
+     */
+    onSalutationAbbreviationTextFieldFocus: function() {
+        this.logger.debug("onSalutationAbbreviationTextFieldFocus");
+		this.readSalutations();
     }
 });

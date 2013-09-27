@@ -16,6 +16,7 @@ Ext.define("Core.controller.person.Controller", {
         "personService",
         "personStore",
 		"salutationStore",
+		"genderStore",		
         "logger"
     ],
     
@@ -384,6 +385,32 @@ Ext.define("Core.controller.person.Controller", {
         var evt = Ext.create("Core.event.person.Event", Core.event.person.Event.READ_SALUTATIONS_FAILURE);
         this.eventBus.dispatchGlobalEvent(evt);
     },
+
+	/**
+     * Handles the successful read genders service call.
+     * Fires off the corresponding success event on the application-level event bus.
+     *
+     */
+    readGendersSuccess: function(response) {
+        this.logger.info("readSalutationsSuccess");
+
+        this.genderStore.load();
+
+        var evt = Ext.create("Core.event.person.Event", Core.event.person.Event.READ_GENDERS_SUCCESS);
+        this.eventBus.dispatchGlobalEvent(evt);
+    },
+
+    /**
+     * Handles the failed read genders service call.
+     * Fires off the corresponding failure event on the application-level event bus.
+     *
+     */
+    readGendersFailure: function(response) {
+        this.logger.warn("readGendersFailure");
+
+        var evt = Ext.create("Core.event.person.Event", Core.event.person.Event.READ_GENDERS_FAILURE);
+        this.eventBus.dispatchGlobalEvent(evt);
+    },
 	
     ////////////////////////////////////////////////
     // EVENT BUS HANDLERS
@@ -485,6 +512,17 @@ Ext.define("Core.controller.person.Controller", {
         this.logger.debug("onReadSalutations");
 
         this.readSalutations();
-    }
+    },
+	
+	/**
+     * Handles the read genders event on the application-level event bus. Calls a functional method that's more
+     * testable than this event handler.
+     *
+     */
+    onReadGenders: function(event) {
+        this.logger.debug("onReadGenders");
+
+        this.readGenders();
+    }	
     
 });    

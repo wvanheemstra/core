@@ -1,0 +1,105 @@
+{
+    /////////////////////////////////////////////
+    // LOGIN
+    /////////////////////////////////////////////
+    "login": {
+        "title": "Login",
+        "username": "Username",
+        "password": "Password",
+        "passwordHint": "Hint: password",
+        "keepmeloggedin": "Keep me logged in",
+        "submit": "Log In",
+        "reset": "Clear",
+        "loggingIn" : "Logging In...",
+        "credentialsRequired": "Please enter your username and password.",
+        "loginFailed": "Login failed. Please enter the correct credentials."
+    },
+
+    /////////////////////////////////////////////
+    // GENDER SLIDE
+    /////////////////////////////////////////////
+    "genderSlide": {
+        "title": "Genders",
+        "title1": "Genders1",	
+        "title2": "Genders2",
+        "title3": "Genders3",	
+        "title4": "Genders4",			
+        "logOut": "Log Out",
+        "new": "New",
+        "search": "live search",
+		"genderName": "Gender",
+        "loading": "Loading Genders...",
+        "noGenders": "No Genders found."
+    },	
+	
+    /////////////////////////////////////////////
+    // GENDER LIST
+    /////////////////////////////////////////////
+    "genderList": {
+        "title": "Genders",
+        "logOut": "Log Out",
+        "new": "New",
+        "search": "live search",
+		"genderName": "Gender",
+        "loading": "Loading Genders...",
+        "noGenders": "No Genders found."
+    },
+
+    /////////////////////////////////////////////
+    // GENDER TILE
+    /////////////////////////////////////////////
+    "genderTile": {
+        "title": "Genders",
+        "logOut": "Log Out",
+        "new": "New",
+        "search": "live search",
+		"genderName": "Gender",
+        "loading": "Loading Genders...",
+        "noGenders": "No Genders found."
+    },
+
+    /////////////////////////////////////////////
+    // GENDER ITEMS
+    /////////////////////////////////////////////
+    "genderItem1": {
+        "title": "Item 1",
+    },	
+    "genderItem2": {
+        "title": "Item 2",
+    },
+    "genderItem3": {
+        "title": "Item 3",
+    },		
+    "genderItem4": {
+        "title": "Item 4",
+    },	
+	
+    /////////////////////////////////////////////
+    // GENDER CATEGORIES
+    /////////////////////////////////////////////
+    "genderCategory0": {
+        "title": "Home",
+    },
+		
+    /////////////////////////////////////////////
+    // GENDER DETAIL
+    /////////////////////////////////////////////
+    "genderDetail": {
+        "title": "Gender",
+        "back": "Back",
+        "save": "Save",
+		"genderName": "Gender",	
+        "delete": "Delete",
+        "creatingGender": "Creating Gender ...",
+        "updatingGender": "Updating Gender ...",
+        "deletingGender": "Deleting Gender..."
+    },
+
+    /////////////////////////////////////////////
+    // GENDER MODAL
+    /////////////////////////////////////////////
+    "genderModal": {
+        "title": "Gender",
+        "close": "Close"
+    }
+}

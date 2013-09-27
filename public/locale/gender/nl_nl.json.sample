@@ -1,0 +1,105 @@
+{
+    /////////////////////////////////////////////
+    // LOGIN
+    /////////////////////////////////////////////
+    "login": {
+        "title": "Login",
+        "username": "Gebruikersnaam",
+        "password": "Wachtwoord",
+        "passwordHint": "Hint: password",
+        "keepmeloggedin": "Houd me ingelogd",
+        "submit": "Log In",
+        "reset": "Wissen",
+        "loggingIn" : "Verifieren...",
+        "credentialsRequired": "Voer alsjeblieft gebruikersnaam en wachtwoord in.",
+        "loginFailed": "Login mislukt. Voer alsjeblieft de juiste gegevens in."
+    },	
+
+    /////////////////////////////////////////////
+    // GENDER SLIDE
+    /////////////////////////////////////////////
+    "genderSlide": {
+        "title": "Geslacht",
+        "title1": "Geslacht1",	
+        "title2": "Geslacht2",
+        "title3": "Geslacht3",	
+        "title4": "Geslacht4",			
+        "logOut": "Log Uit",
+        "new": "Nieuw",
+        "search": "live zoeken",
+		"genderName": "Geslacht",
+        "loading": "Laad Geslacht...",
+        "noGenders": "Geen Geslacht gevonden."
+    },	
+	
+    /////////////////////////////////////////////
+    // GENDER LIST
+    /////////////////////////////////////////////
+    "genderList": {
+        "title": "Geslacht",
+        "logOut": "Log Uit",
+        "new": "Nieuw",
+        "search": "live zoeken",
+		"genderName": "Geslacht",	
+        "loading": "Laad Geslacht...",
+        "noGenders": "Geen Geslacht gevonden."
+    },
+
+    /////////////////////////////////////////////
+    // GENDER TILE
+    /////////////////////////////////////////////
+    "genderTile": {
+        "title": "Geslacht",
+        "logOut": "Log Uit",
+        "new": "Nieuw",
+        "search": "live zoeken",
+		"genderName": "Geslacht",
+        "loading": "Laad Geslacht...",
+        "noGenders": "Geen Geslacht gevonden."
+    },
+
+    /////////////////////////////////////////////
+    // GENDER ITEMS
+    /////////////////////////////////////////////
+    "genderItem1": {
+        "title": "Item 1",
+    },	
+    "genderItem2": {
+        "title": "Item 2",
+    },
+    "genderItem3": {
+        "title": "Item 3",
+    },		
+    "genderItem4": {
+        "title": "Item 4",
+    },	
+	
+    /////////////////////////////////////////////
+    // GENDER CATEGORIES
+    /////////////////////////////////////////////
+    "genderCategory0": {
+        "title": "Home",
+    },
+		
+    /////////////////////////////////////////////
+    // GENDER DETAIL
+    /////////////////////////////////////////////
+    "genderDetail": {
+        "title": "Gender",
+        "back": "Terug",
+        "save": "Bewaar",
+		"genderName": "Geslacht",
+        "delete": "Verwijder",
+        "creatingGender": "Maak Geslacht aan ...",
+        "updatingGender": "Werk Geslacht bij ...",
+        "deletingGender": "Verwijder Geslacht..."
+    },
+
+    /////////////////////////////////////////////
+    // GENDER MODAL
+    /////////////////////////////////////////////
+    "genderModal": {
+        "title": "Geslacht",
+        "close": "Sluiten"
+    }
+}

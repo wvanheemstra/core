@@ -1,0 +1,105 @@
+{
+    /////////////////////////////////////////////
+    // LOGIN
+    /////////////////////////////////////////////
+    "login": {
+        "title": "Anmelden",
+        "username": "Benutzername",
+        "password": "Kennwort",
+        "passwordHint": "Hinweis: password",
+        "keepmeloggedin": "Angemeldet bleiben",
+        "submit": "Meld an",
+        "reset": "Neu stellen",
+        "loggingIn" : "Überprüfen...",
+        "credentialsRequired": "Tragen Sie bitte Ihre Benutzername und Kennwort ein.",
+        "loginFailed": "Anmelden hat gefählt. Bitte tragen Sie die richtige Daten ein."
+    },
+
+    /////////////////////////////////////////////
+    // GENDER SLIDE
+    /////////////////////////////////////////////
+    "genderSlide": {
+        "title": "Geschlechtn",
+        "title1": "Geschlechtn1",	
+        "title2": "Geschlechtn2",
+        "title3": "Geschlechtn3",	
+        "title4": "Geschlechtn4",			
+        "logOut": "Abmelden",
+        "new": "Neu",
+        "search": "live suchen",
+		"genderName": "Geschlecht",
+        "loading": "Laad Geschlechtn...",
+        "noGenders": "Keine Geschlechtn wurden gefunden."
+    },	
+	
+    /////////////////////////////////////////////
+    // GENDER LIST
+    /////////////////////////////////////////////
+    "genderList": {
+        "title": "Geschlechtn",
+        "logOut": "Abmelden",
+        "new": "Neu",
+        "search": "live suchen",
+		"genderName": "Geschlecht",
+        "loading": "Laad Geschlechtn...",
+        "noGenders": "Keine Geschlechtn wurden gefunden."
+    },
+
+    /////////////////////////////////////////////
+    // GENDER TILE
+    /////////////////////////////////////////////
+    "genderTile": {
+        "title": "Geschlechtn",
+        "logOut": "Abmelden",
+        "new": "Neu",
+        "search": "live suchen",
+		"genderName": "Geschlecht",	
+        "loading": "Laad Geschlechtn...",
+        "noGenders": "Keine Geschlechtn wurden gefunden."
+    },
+
+    /////////////////////////////////////////////
+    // GENDER ITEMS
+    /////////////////////////////////////////////
+    "genderItem1": {
+        "title": "Item 1",
+    },	
+    "genderItem2": {
+        "title": "Item 2",
+    },
+    "genderItem3": {
+        "title": "Item 3",
+    },		
+    "genderItem4": {
+        "title": "Item 4",
+    },	
+	
+    /////////////////////////////////////////////
+    // GENDER CATEGORIES
+    /////////////////////////////////////////////
+    "genderCategory0": {
+        "title": "Home",
+    },
+	
+    /////////////////////////////////////////////
+    // GENDER DETAIL
+    /////////////////////////////////////////////
+    "genderDetail": {
+        "title": "Geschlecht",
+        "back": "Zurück",
+        "save": "Speichern",
+		"genderName": "Geschlecht",
+        "delete": "Löschen",
+        "creatingGender": "Mach Geschlecht neu an ...",
+        "updatingGender": "Bearbeit Geschlecht ...",
+        "deletingGender": "Lösch Geschlecht..."
+    },
+
+    /////////////////////////////////////////////
+    // GENDER MODAL
+    /////////////////////////////////////////////
+    "genderModal": {
+        "title": "Geschlecht",
+        "close": "schließen"
+    }
+}

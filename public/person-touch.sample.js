@@ -136,7 +136,7 @@ Ext.application({
     ////////////////////////////////////////////
     models: [
         "session.Model",
-		"salutation.Model",		
+		"salutation.Model",
     	"person.Model"
     ],    
 
@@ -156,7 +156,7 @@ Ext.application({
     // CONTROLLERS
     ////////////////////////////////////////////
     controllers:[
-        //"bootstrap.Controller",  // DEPRECATED, now part of "person.Controller"
+        //"bootstrap.Controller", // DEPRECATED, now part of "person.Controller"
         "session.Controller",   
         "background.Controller",
         "ui.Controller",
@@ -164,7 +164,7 @@ Ext.application({
         "url.Controller",
         "title.Controller",		
         "authentication.Controller",
-		"salutation.Controller",		
+		"salutation.Controller",
         "person.Controller"
     ],
 
@@ -199,7 +199,7 @@ Ext.application({
      * TODO: BMR: 02/22/13: Don't add all the views to the stage at once. Do it on demand.
      */
     launch: function () {
-        console.log("app.launch");
+        console.log("app.launch");	
         
         // Destroy the #appLoadingIndicator element
         Ext.fly('appLoadingIndicator').destroy();

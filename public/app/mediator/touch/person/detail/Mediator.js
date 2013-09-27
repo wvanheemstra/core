@@ -33,6 +33,12 @@ Ext.define("Core.mediator.touch.person.detail.Mediator", {
 		},
 		genderPicker: {
 			// empty, but used by mediator
+		},
+		nationalityNameTextField: {
+			focus: "onNationalityNameTextFieldFocus"
+		},
+		nationalityPicker: {
+			// empty, but used by mediator
 		}
     },
 
@@ -45,7 +51,8 @@ Ext.define("Core.mediator.touch.person.detail.Mediator", {
 	
 	statics: {
         SALUTATION_PICKER_SET:    false,
-        GENDER_PICKER_SET:    false	
+        GENDER_PICKER_SET:    false,
+        NATIONALITY_PICKER_SET:    false			
 	},
 
     /**
@@ -60,6 +67,7 @@ Ext.define("Core.mediator.touch.person.detail.Mediator", {
         this.eventBus.addGlobalEventListener(Core.event.person.Event.DELETE_PERSON_SUCCESS, this.onDeletePersonSuccess, this);
 		this.eventBus.addGlobalEventListener(Core.event.salutation.Event.READ_SALUTATIONS_SUCCESS, this.onReadSalutationsSuccess, this);
 		this.eventBus.addGlobalEventListener(Core.event.gender.Event.READ_GENDERS_SUCCESS, this.onReadGendersSuccess, this);
+		this.eventBus.addGlobalEventListener(Core.event.nationality.Event.READ_NATIONALITIES_SUCCESS, this.onReadNationalitiesSuccess, this);		
     },
 
     /**
@@ -145,7 +153,26 @@ Ext.define("Core.mediator.touch.person.detail.Mediator", {
 			this.getGenderPicker().show();
 		}
 	},
-	
+
+    /**
+     * Functional method to read nationalities. Fires off the corresponding application-level event.
+     *
+     */
+	readNationalities: function() {
+        this.logger.debug("readNationalities");
+        if(this.self.NATIONALITY_PICKER_SET == false) {
+            this.getView().setMasked({
+                xtype: "loadmask",
+                message: nineam.locale.LocaleManager.getProperty("personDetail.readingNationalities")
+            });
+            var evt = Ext.create("Core.event.nationality.Event", Core.event.nationality.Event.READ_NATIONALITIES);
+            this.eventBus.dispatchGlobalEvent(evt);
+        }
+		else {
+			this.getNationalityPicker().show();
+		}
+	},	
+
     /**
      * Simple navigation method used to navigate back, depending on the previous view.
 	 *
@@ -332,6 +359,42 @@ Ext.define("Core.mediator.touch.person.detail.Mediator", {
     },
 
     /**
+     * Handles the read nationalities success application-level event.
+     */
+    onReadNationalitiesSuccess: function() {
+		if(Core.config.person.Config.getCurrentView()==='persondetail') {
+			this.logger.debug("onReadNationalitiesSuccess");
+			var nationalityPicker = this.getNationalityPicker(); // referenced as a control
+			
+		//	document.getElementById('ext-pickerslot-1').style.width = "100% !important"; // Force a width or Chrome will not show the slots
+			
+			nationalityPicker.setSlots({
+				name: 'nationalitySlot1',
+				title: 'Choose a Nationality',
+				store: this.nationalityStore,
+				displayField: "NationalityName",
+				valueField: "kp_NationalityID",
+				itemTpl: '{NationalityName}',
+				listeners:{
+					itemtap: function (obj, index, target, record, e, eOpts) {	
+						console.log("itemtap");
+						var form = this.up('personDetailView');
+						form.setValues({
+							NationalityName: record.get('NationalityName'),
+							kf_NationalityID: record.get('kp_NationalityID'), // Note: kf links to kp
+						});
+						obj.parent.hide(); // Dismiss the picker
+					}
+				}
+			});
+			this.getView().add(nationalityPicker);			
+			this.self.NATIONALITY_PICKER_SET = true;
+			nationalityPicker.show();
+			this.getView().setMasked(false);
+		}	
+    },	
+	
+    /**
      * Handles the change of the selected record in the person store. Loads the appropriate record in the view or
      * resets it if the record is null.
      *
@@ -405,6 +468,15 @@ Ext.define("Core.mediator.touch.person.detail.Mediator", {
     onGenderNameTextFieldFocus: function() {
         this.logger.debug("onGenderNameTextFieldFocus");
 		this.readGenders();
-    }	
+    },
+	
+    /**
+     * Handles the nationality name text field focus event. 
+     * 
+     */
+    onNationalityNameTextFieldFocus: function() {
+        this.logger.debug("onNationalityNameTextFieldFocus");
+		this.readNationalities();
+    }		
 
 });

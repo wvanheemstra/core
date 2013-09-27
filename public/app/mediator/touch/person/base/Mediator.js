@@ -13,13 +13,15 @@ Ext.define("Core.mediator.touch.person.base.Mediator", {
 		"Core.event.url.Event",
 		"Core.event.background.Event",
 		"Core.event.salutation.Event",
-		"Core.event.gender.Event"		
+		"Core.event.gender.Event",
+		"Core.event.nationality.Event"			
     ],
 
     inject: [
         "personStore",
 		"salutationStore", // MAYBE NOT REQUIRED HERE
-		"genderStore", // MAYBE NOT REQUIRED HERE		
+		"genderStore", // MAYBE NOT REQUIRED HERE	
+		"nationalityStore", // MAYBE NOT REQUIRED HERE			
         "logger"
     ]
     

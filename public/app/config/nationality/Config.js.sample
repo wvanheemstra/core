@@ -1,0 +1,67 @@
+/*
+ * Config for values that belong to nationality and set at runtime
+ *
+ * Example to set a nationality value:
+ * Core.config.nationality.Config.setMyLastCustomer(12345);
+ *
+ * Example to get a nationality value:
+ * Core.config.nationality.Config.getMyLastCustomer();
+ *
+ */
+Ext.define("Core.config.nationality.Config",{
+    singleton : true,
+    config : {
+        //myLastCustomer : 0,     // initialize to 0
+        id: 0,     				  // initialize to 0
+        sessionId: '',            // initialize to empty
+        keepMeLoggedIn: false,	  // initialize to false
+		initialView: 'login',     // initialize to 'login'
+        previousView: '',         // initialize to empty
+        currentView: '',          // initialize to empty
+        nextView: 'nationalitylist',   // initialize to empty
+        ui: 'neutral',        	  // initialize to 'neutral'
+        company: 'Your Company',  // initialize to 'Your Company'
+		locale: 'en_us',	      // initialize to 'en_us'
+		background: 'noise',      // initialize to 'noise'
+		url: '',				  // initialize to ''
+		title: '',				  // initialize to ''
+		services: [{
+			authentication:  [{
+				mock: true
+			}]
+		},{
+			background:  [{
+				mock: true
+			}]
+		},{
+			session:  [{
+				mock: true,
+				store: true
+			}]
+		},{
+			title:  [{
+				mock: true
+			}]
+		},{
+			ui:  [{
+				mock: true
+			}]
+		},{
+			url:  [{
+				mock: true
+			}]
+		},{
+			company:  [{
+				mock: true
+			}]
+		},{
+			nationality:  [{
+				mock: true,
+				store: true
+			}]
+		}]	 // put your services here
+    },
+    constructor : function(config){
+        this.initConfig(config);
+    }
+});

@@ -24,6 +24,9 @@ Ext.define("Core.mediator.touch.person.detail.Mediator", {
         },
 		salutationAbbreviationTextField: {
 			focus: "onSalutationAbbreviationTextFieldFocus"
+		},
+		salutationPicker: {
+			// empty, but used by mediator
 		}
     },
 
@@ -33,6 +36,10 @@ Ext.define("Core.mediator.touch.person.detail.Mediator", {
             selectedRecordChange: "onSelectedRecordChange"
         }
     },
+	
+	statics: {
+        SALUTATION_PICKER_SET:    false,
+	},
 
     /**
      * Sets up global event bus handlers. Called by the parent superclass during the initialization phase.
@@ -99,8 +106,7 @@ Ext.define("Core.mediator.touch.person.detail.Mediator", {
      */
 	readSalutations: function() {
         this.logger.debug("readSalutations");
-		var salutationPicker = this.getView().getSalutationPicker();
-        if(salutationPicker == null) {
+        if(this.self.SALUTATION_PICKER_SET == false) {
             this.getView().setMasked({
                 xtype: "loadmask",
                 message: nineam.locale.LocaleManager.getProperty("personDetail.readingSalutations")
@@ -108,8 +114,8 @@ Ext.define("Core.mediator.touch.person.detail.Mediator", {
             var evt = Ext.create("Core.event.salutation.Event", Core.event.salutation.Event.READ_SALUTATIONS);
             this.eventBus.dispatchGlobalEvent(evt);
         }
-		else{
-			salutationPicker.show();
+		else {
+			this.getSalutationPicker().show();
 		}
 	},	
 	
@@ -185,8 +191,7 @@ Ext.define("Core.mediator.touch.person.detail.Mediator", {
     ////////////////////////////////////////////////
 
     /**
-     * Handles the painted application-level event. Set the person detail view
-     * as the current view.
+     * Handles the painted application-level event. 
      */    
     onPainted: function() {
 		this.logger.debug("onPainted");
@@ -233,13 +238,34 @@ Ext.define("Core.mediator.touch.person.detail.Mediator", {
     onReadSalutationsSuccess: function() {
 		if(Core.config.person.Config.getCurrentView()==='persondetail') {
 			this.logger.debug("onReadSalutationsSuccess");
+			var salutationPicker = this.getSalutationPicker(); // referenced as a control
 			
-			// to do...
+		//	document.getElementById('ext-pickerslot-1').style.width = "100% !important"; // Force a width or Chrome will not show the slots
 			
-			//this.getList().getStore().loadRecords(this.salutationStore.getRange());
-			
+			salutationPicker.setSlots({
+				name: 'salutationSlot1',
+				title: 'Choose a Salutation',
+				store: this.salutationStore,
+				displayField: "SalutationAbbreviation",
+				valueField: "kp_SalutationID",
+				itemTpl: '{SalutationAbbreviation}',
+				listeners:{
+					itemtap: function (obj, index, target, record, e, eOpts) {	
+						console.log("itemtap");
+						var form = this.up('personDetailView');
+						form.setValues({
+							SalutationAbbreviation: record.get('SalutationAbbreviation'),
+							kf_SalutationID: record.get('kp_SalutationID'), // Note: kf links to kp
+						});
+						obj.parent.hide(); // Dismiss the picker
+					}
+				}
+			});
+			this.getView().add(salutationPicker);			
+			this.self.SALUTATION_PICKER_SET = true;
+			salutationPicker.show();
 			this.getView().setMasked(false);
-		}		
+		}	
     },	
 	
     /**

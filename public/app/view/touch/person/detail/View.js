@@ -17,8 +17,6 @@ Ext.define("Core.view.touch.person.detail.View", {
     ],
 
     config: {
-
-		salutationPicker: null,
 	
         items: [
             {
@@ -76,51 +74,33 @@ Ext.define("Core.view.touch.person.detail.View", {
 					{
                         xtype: "textfield",
                         itemId: "salutationAbbreviationTextField",
-                        name: "kf_SalutationID",
+                        name: "SalutationAbbreviation",
                         required: false,
-                        plugins: [
+						plugins: [
                             {
                                 type: "localization",
                                 method: "setPlaceHolder",
                                 key: "personDetail.salutationAbbreviation"
                             }
                         ],
+						readOnly: true,					
+					},
+					{
+                        xtype: "hiddenfield",
+                        itemId: "kf_SalutationIDHiddenField",
+                        name: "kf_SalutationID",
+                        required: false,
 						readOnly: true
-						
-				/*		
-						listeners: {
-							focus: function () {
-								if(this.salutationPicker == null) {
-									// Create the salutationPicker
-									this.salutationPicker = Ext.create('Ext.Picker', {
-										doneButton: "Done",
-										cancelButton: true,
-										slots: [{
-											name: 'kf_SalutationID',
-											title: 'Choose a Salutation',
-											store: Ext.create('Core.store.salutation.Store'),
-											itemTpl: '{SalutationAbbreviation}',
-											listeners: {
-												itemtap: function (obj, index, target, record, e, eOpts) {
-													var form = Ext.getCmp('personDetailForm');
-													form.setValues({
-											//			SalutationAbbreviation: record.get('SalutationAbbreviation'),
-														kf_SalutationID: record.get('kf_SalutationID'),
-													});
-													// how to dismiss the picker?
-													obj.parent.hide();
-												}
-											}
-										}]
-									});
-									Ext.Viewport.add(this.salutationPicker);
-								}//eof if
-								this.salutationPicker.show();
-							}//eof focus
-						}//eof listeners
-				*/
-						
                     },
+					{ 
+						xtype: "picker",
+						itemId: "salutationPicker",
+						ui: "neutral",
+						doneButton: false,
+						cancelButton: true,
+						slots: [], // default empty, gets set in Mediator
+						hidden: true
+					},
 					{
                         xtype: "textfield",
                         itemId: "personFirstNameTextField",
@@ -173,17 +153,24 @@ Ext.define("Core.view.touch.person.detail.View", {
                 ]
             },
 			{
-				xtype: "button",
-				itemId: "savePersonButton",
-				align: "center",
-				ui: "neutral", // WAS action
-				plugins: [
-					{
-						type: "localization",
-						method: "setText",
-						key: "personDetail.save"
-					}
-				]
+                xtype: "titlebar", // Allows for button alignment
+                itemId: "bottombar",
+                ui: "neutral",
+                docked: "bottom",
+                items: [
+                    {
+					xtype: "button",
+					itemId: "savePersonButton",
+					align: "right",
+					ui: "neutral", // WAS action
+					plugins: [
+						{
+							type: "localization",
+							method: "setText",
+							key: "personDetail.save"
+						}
+					]
+				}]
 			}
         ]
     }

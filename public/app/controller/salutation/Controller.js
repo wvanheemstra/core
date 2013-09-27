@@ -377,7 +377,7 @@ Ext.define("Core.controller.salutation.Controller", {
     readSalutationsSuccess: function(response) {
         this.logger.info("readSalutationsSuccess");
 
-        this.salutationStore.load();
+		this.salutationStore.setData(response.salutations);
 
         var evt = Ext.create("Core.event.salutation.Event", Core.event.salutation.Event.READ_SALUTATIONS_SUCCESS);
         this.eventBus.dispatchGlobalEvent(evt);

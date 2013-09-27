@@ -60,6 +60,11 @@ Ext.define("Core.config.person.Config",{
 				store: true
 			}]
 		},{
+			gender:  [{
+				mock: true,
+				store: true
+			}]
+		},{
 			person:  [{
 				mock: true,
 				store: true

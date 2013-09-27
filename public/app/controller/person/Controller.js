@@ -370,7 +370,7 @@ Ext.define("Core.controller.person.Controller", {
 
         this.salutationStore.load();
 
-        var evt = Ext.create("Core.event.person.Event", Core.event.person.Event.READ_SALUTATIONS_SUCCESS);
+        var evt = Ext.create("Core.event.salutation.Event", Core.event.salutation.Event.READ_SALUTATIONS_SUCCESS);
         this.eventBus.dispatchGlobalEvent(evt);
     },
 
@@ -382,7 +382,7 @@ Ext.define("Core.controller.person.Controller", {
     readSalutationsFailure: function(response) {
         this.logger.warn("readSalutationsFailure");
 
-        var evt = Ext.create("Core.event.person.Event", Core.event.person.Event.READ_SALUTATIONS_FAILURE);
+        var evt = Ext.create("Core.event.salutation.Event", Core.event.salutation.Event.READ_SALUTATIONS_FAILURE);
         this.eventBus.dispatchGlobalEvent(evt);
     },
 
@@ -396,7 +396,7 @@ Ext.define("Core.controller.person.Controller", {
 
         this.genderStore.load();
 
-        var evt = Ext.create("Core.event.person.Event", Core.event.person.Event.READ_GENDERS_SUCCESS);
+        var evt = Ext.create("Core.event.gender.Event", Core.event.gender.Event.READ_GENDERS_SUCCESS);
         this.eventBus.dispatchGlobalEvent(evt);
     },
 
@@ -408,7 +408,7 @@ Ext.define("Core.controller.person.Controller", {
     readGendersFailure: function(response) {
         this.logger.warn("readGendersFailure");
 
-        var evt = Ext.create("Core.event.person.Event", Core.event.person.Event.READ_GENDERS_FAILURE);
+        var evt = Ext.create("Core.event.gender.Event", Core.event.gender.Event.READ_GENDERS_FAILURE);
         this.eventBus.dispatchGlobalEvent(evt);
     },
 	

@@ -98,11 +98,13 @@
 		"salutationAbbreviation": "Anrede",
         "personFirstName": "Vorame",
         "personLastName": "Nachname",
+		"genderName": "Geschlecht",
         "delete": "Löschen",
         "creatingPerson": "Mach Person neu an ...",
         "updatingPerson": "Bearbeit Person ...",
         "deletingPerson": "Lösch Person...",
-		"readingSalutations": "Lese Anreden..."
+		"readingSalutations": "Lese Anreden...",
+		"readingGenders": "Lese Geschlechten..."		
     },
 
     /////////////////////////////////////////////

@@ -29,7 +29,7 @@
         "search": "live search",
 		"salutationAbbreviation": "Salutation",
         "personFirstName": "First Name",
-        "personLastName": "Last Name",
+        "personLastName": "Last Name",	
         "loading": "Loading Persons...",
         "noPersons": "No Persons found."
     },	
@@ -97,12 +97,13 @@
 		"salutationAbbreviation": "Salutation",
         "personFirstName": "First Name",
         "personLastName": "Last Name",
-		"gender": "Gender",		
+		"genderName": "Gender",
         "delete": "Delete",
         "creatingPerson": "Creating Person ...",
         "updatingPerson": "Updating Person ...",
         "deletingPerson": "Deleting Person...",
-		"readingSalutations": "Reading Salutations..."
+		"readingSalutations": "Reading Salutations...",
+		"readingGenders": "Reading Genders..."		
     },
 
     /////////////////////////////////////////////

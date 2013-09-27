@@ -97,12 +97,13 @@
 		"salutationAbbreviation": "Aanhef",
         "personFirstName": "Voornaam",
         "personLastName": "Achternaam",	
-		"gender": "Geslacht",
+		"genderName": "Geslacht",
         "delete": "Verwijder",
         "creatingPerson": "Maak Persoon aan ...",
         "updatingPerson": "Werk Persoon bij ...",
         "deletingPerson": "Verwijder Persoon...",
-		"readingSalutations": "Lees Aanheven..."
+		"readingSalutations": "Lees Aanheven...",
+		"readingGenders": "Lees Geslachten..."	
     },
 
     /////////////////////////////////////////////

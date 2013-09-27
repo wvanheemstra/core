@@ -12,6 +12,7 @@ Ext.define("Core.view.touch.booking.detail.View", {
     controller: "Core.mediator.touch.booking.detail.Mediator",
 
     requires: [
+		"Ext.TitleBar", // Require explicitely
         "Ext.form.FieldSet"
     ],
 

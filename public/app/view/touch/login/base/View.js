@@ -10,6 +10,7 @@ Ext.define("Core.view.touch.login.base.View", {
     extend: "Ext.form.Panel",
 	
     requires: [
+		"Ext.TitleBar", // Require explicitely
         "Ext.form.FieldSet",
         "Ext.form.Password",
         "Ext.Label",

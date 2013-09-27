@@ -12,6 +12,7 @@ Ext.define("Core.view.touch.person.detail.View", {
     controller: "Core.mediator.touch.person.detail.Mediator",
 
     requires: [
+		"Ext.TitleBar", // Require explicitely
         "Ext.form.FieldSet",
 		"Ext.field.DatePicker"
     ],

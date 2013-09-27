@@ -12,7 +12,7 @@ Ext.define("Core.view.touch.person.detail.View", {
     controller: "Core.mediator.touch.person.detail.Mediator",
 
     requires: [
-		"Ext.TitleBar", // Require explicitely
+		"Ext.TitleBar", // Require explicitly
         "Ext.form.FieldSet",
 		"Ext.field.DatePicker"
     ],
@@ -130,17 +130,34 @@ Ext.define("Core.view.touch.person.detail.View", {
                     },
                     {
                         xtype: "textfield",
-                        itemId: "genderTextField",
-                        name: "kf_GenderID",
+                        itemId: "genderNameTextField",
+                        name: "GenderName",
                         required: false,
-                        plugins: [
+						plugins: [
                             {
                                 type: "localization",
                                 method: "setPlaceHolder",
-                                key: "personDetail.gender"
+                                key: "personDetail.genderName"
                             }
-                        ]
-                    },	
+                        ],
+						readOnly: true,					
+					},
+					{
+                        xtype: "hiddenfield",
+                        itemId: "kf_GenderIDHiddenField",
+                        name: "kf_GenderID",
+                        required: false,
+						readOnly: true
+                    },
+					{ 
+						xtype: "picker",
+						itemId: "genderPicker",
+						ui: "neutral",
+						doneButton: false,
+						cancelButton: true,
+						slots: [], // default empty, gets set in Mediator
+						hidden: true
+					},	
 					{
 						xtype: "datepickerfield",
 						destroyPickerOnHide: true,

@@ -66,6 +66,16 @@ Ext.onReady(function () {
 			store: true
 		}]
 	},{
+		gender:  [{
+			mock: true,
+			store: true
+		}]
+	},{
+		nationality:  [{
+			mock: true,
+			store: true
+		}]
+	},{
 		person:  [{
 			mock: true,
 			store: true
@@ -137,6 +147,8 @@ Ext.application({
     models: [
         "session.Model",
 		"salutation.Model",
+		"gender.Model",
+		"nationality.Model",		
     	"person.Model"
     ],    
 
@@ -165,6 +177,8 @@ Ext.application({
         "title.Controller",		
         "authentication.Controller",
 		"salutation.Controller",
+		"gender.Controller",
+		"nationality.Controller",
         "person.Controller"
     ],
 

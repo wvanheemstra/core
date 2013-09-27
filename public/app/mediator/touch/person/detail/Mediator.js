@@ -27,6 +27,12 @@ Ext.define("Core.mediator.touch.person.detail.Mediator", {
 		},
 		salutationPicker: {
 			// empty, but used by mediator
+		},
+		genderNameTextField: {
+			focus: "onGenderNameTextFieldFocus"
+		},
+		genderPicker: {
+			// empty, but used by mediator
 		}
     },
 
@@ -39,6 +45,7 @@ Ext.define("Core.mediator.touch.person.detail.Mediator", {
 	
 	statics: {
         SALUTATION_PICKER_SET:    false,
+        GENDER_PICKER_SET:    false	
 	},
 
     /**
@@ -52,6 +59,7 @@ Ext.define("Core.mediator.touch.person.detail.Mediator", {
         this.eventBus.addGlobalEventListener(Core.event.person.Event.UPDATE_PERSON_SUCCESS, this.onUpdatePersonSuccess, this);
         this.eventBus.addGlobalEventListener(Core.event.person.Event.DELETE_PERSON_SUCCESS, this.onDeletePersonSuccess, this);
 		this.eventBus.addGlobalEventListener(Core.event.salutation.Event.READ_SALUTATIONS_SUCCESS, this.onReadSalutationsSuccess, this);
+		this.eventBus.addGlobalEventListener(Core.event.gender.Event.READ_GENDERS_SUCCESS, this.onReadGendersSuccess, this);
     },
 
     /**
@@ -118,6 +126,25 @@ Ext.define("Core.mediator.touch.person.detail.Mediator", {
 			this.getSalutationPicker().show();
 		}
 	},	
+
+    /**
+     * Functional method to read genders. Fires off the corresponding application-level event.
+     *
+     */
+	readGenders: function() {
+        this.logger.debug("readGenders");
+        if(this.self.GENDER_PICKER_SET == false) {
+            this.getView().setMasked({
+                xtype: "loadmask",
+                message: nineam.locale.LocaleManager.getProperty("personDetail.readingGenders")
+            });
+            var evt = Ext.create("Core.event.gender.Event", Core.event.gender.Event.READ_GENDERS);
+            this.eventBus.dispatchGlobalEvent(evt);
+        }
+		else {
+			this.getGenderPicker().show();
+		}
+	},
 	
     /**
      * Simple navigation method used to navigate back, depending on the previous view.
@@ -267,7 +294,43 @@ Ext.define("Core.mediator.touch.person.detail.Mediator", {
 			this.getView().setMasked(false);
 		}	
     },	
-	
+
+    /**
+     * Handles the read genders success application-level event.
+     */
+    onReadGendersSuccess: function() {
+		if(Core.config.person.Config.getCurrentView()==='persondetail') {
+			this.logger.debug("onReadGendersSuccess");
+			var genderPicker = this.getGenderPicker(); // referenced as a control
+			
+		//	document.getElementById('ext-pickerslot-1').style.width = "100% !important"; // Force a width or Chrome will not show the slots
+			
+			genderPicker.setSlots({
+				name: 'genderSlot1',
+				title: 'Choose a Gender',
+				store: this.genderStore,
+				displayField: "GenderName",
+				valueField: "kp_GenderID",
+				itemTpl: '{GenderName}',
+				listeners:{
+					itemtap: function (obj, index, target, record, e, eOpts) {	
+						console.log("itemtap");
+						var form = this.up('personDetailView');
+						form.setValues({
+							GenderName: record.get('GenderName'),
+							kf_GenderID: record.get('kp_GenderID'), // Note: kf links to kp
+						});
+						obj.parent.hide(); // Dismiss the picker
+					}
+				}
+			});
+			this.getView().add(genderPicker);			
+			this.self.GENDER_PICKER_SET = true;
+			genderPicker.show();
+			this.getView().setMasked(false);
+		}	
+    },
+
     /**
      * Handles the change of the selected record in the person store. Loads the appropriate record in the view or
      * resets it if the record is null.
@@ -333,5 +396,15 @@ Ext.define("Core.mediator.touch.person.detail.Mediator", {
     onSalutationAbbreviationTextFieldFocus: function() {
         this.logger.debug("onSalutationAbbreviationTextFieldFocus");
 		this.readSalutations();
-    }
+    },
+	
+    /**
+     * Handles the gender name text field focus event. 
+     * 
+     */
+    onGenderNameTextFieldFocus: function() {
+        this.logger.debug("onGenderNameTextFieldFocus");
+		this.readGenders();
+    }	
+
 });

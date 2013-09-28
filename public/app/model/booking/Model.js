@@ -8,21 +8,21 @@ Ext.define("Core.model.booking.Model", {
 	    idProperty: "id",
 	    fields: [
 	        { name: "id",      type: "int"     },
-	        { name: "name",    type: "string"  }
+	        { name: "BookingName",    type: "string"  }
 	    ],
 	    validations: [
 	        { type: "presence", field: "id" },
-	        { type: "presence", field: "name",     message: "Please enter a name." }
+	        { type: "presence", field: "BookingName",     message: "Please enter a name." }
 	    ]
 	},//eof config
 	// Ext requires properties outside of config
     idProperty: "id",
 	fields: [
         { name: "id",      type: "int"     },
-        { name: "name",    type: "string"  }
+        { name: "BookingName",    type: "string"  }
 	],
     validations: [
         { type: "presence", field: "id" },
-        { type: "presence", field: "name",     message: "Please enter a name." }
+        { type: "presence", field: "BookingName",     message: "Please enter a name." }
     ]	
 });

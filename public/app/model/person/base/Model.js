@@ -10,7 +10,8 @@ Ext.define("Core.model.person.base.Model", {
 	
     /* uses information from the associations to fetch a parent from an associated store */
 	getParent: function(assocName) {
-		console.log('getParent');		
+		console.log('getParent: assocName = ');	
+		console.log(assocName);
 		var assoc = this.associations.get(assocName);
 		if (!assoc) {
 		  return null;
@@ -24,7 +25,8 @@ Ext.define("Core.model.person.base.Model", {
 	},
 
 	getChildren: function(assocName) {
-		console.log('getChildren');		
+		console.log('getChildren: assocName = ');	
+		console.log(assocName);		
 		var assoc = this.associations.get(assocName),
 		  id = this.get(assoc.config.primaryKey);
 
@@ -51,12 +53,16 @@ Ext.define("Core.model.person.base.Model", {
 
 	/* warning, recursive down in combination with up can be dangerous when there are loops in associations */
 	getData: function(includeAssociated,down) {
-		console.log('getData');		
-			if (includeAssociated && !this.linkedAssociations) {
+		console.log('getData: includeAssociated = ');	
+		console.log(includeAssociated);
+		console.log('getData: down = ');		
+		console.log(down);		
+
+		if (includeAssociated && !this.linkedAssociations) {
 		  this.linkedAssociations = true;
 		  this.linkChildAssociations(includeAssociated);
 		  this.linkAssociations(includeAssociated);
-			}
+		}
 
 		var data = this.callParent(arguments);
 		return data;
@@ -71,7 +77,8 @@ Ext.define("Core.model.person.base.Model", {
 	 *
      */	
 	getFlattenedData: function(includeAssociated) {
-		console.log('getFlattenedData');			
+		console.log('getFlattenedData: includeAssociated = ');
+		console.log(includeAssociated);
 		var data = this.getData(includeAssociated, false); // don't ever recurse down when getting flattened data!
 
 		/* This function flattens the datastructure of am object such that it can be used in a form
@@ -116,7 +123,10 @@ Ext.define("Core.model.person.base.Model", {
 	 * This function ONLY recurses upwards (belongsTo), otherwise the data structure could become infinite.
 	 */
 	linkAssociations: function(includeAssociated, count) {
-		console.log('linkAssociations');	
+		console.log('linkAssociations: includeAssociated = ');	
+		console.log(includeAssociated);
+		console.log('linkAssociations: count = ');			
+		console.log(count);		
 		var associations = this.associations.items,
 		  associationCount = associations.length,
 		  associationName,
@@ -163,7 +173,10 @@ Ext.define("Core.model.person.base.Model", {
 	 *
      */	 
 	linkChildAssociations: function(includeAssociated, count) {
-		console.log('linkChildAssociations');	
+		console.log('linkChildAssociations: includeAssociated = ');	
+		console.log(includeAssociated);			
+		console.log('linkChildAssociations: count = ');			
+		console.log(count);	
 		var associations = this.associations.items,
 		  associationCount = associations.length,
 		  associationName,

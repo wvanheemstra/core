@@ -72,7 +72,7 @@ Ext.define("Core.view.touch.organisation.detail.View", {
                     {
                         xtype: "textfield",
                         itemId: "organisationNameTextField",
-                        name: "organisationName",
+                        name: "OrganisationName",
 						label: "Name",
                         required: true,
                         plugins: [

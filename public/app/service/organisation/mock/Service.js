@@ -17,32 +17,32 @@ Ext.define("Core.service.organisation.mock.Service", {
         var response = {
             success: true,
             organisationSlide: [
-                { id: 0,    organisationName: "Atlas Ltd." },
-                { id: 1,    organisationName: "Brachium Ltd." },
-                { id: 2,    organisationName: "Cursa & Co." },
-                { id: 3,    organisationName: "Diadem Corp." },
-                { id: 4,    organisationName: "Electra & Sons" },
-                { id: 5,    organisationName: "Fornacis Holding" },
-                { id: 6,    organisationName: "Grafias Inc." },
-                { id: 7,    organisationName: "Homam Enterprise" },
-                { id: 8,    organisationName: "Izar Services" },
-                { id: 9,    organisationName: "Jabbah Ltd." },
-                { id: 10,   organisationName: "Kuma Corp." },
-                { id: 11,   organisationName: "Lesath & Co." },
-                { id: 12,   organisationName: "Matar Ind." },
-                { id: 13,   organisationName: "Naos & Co." },
-                { id: 14,   organisationName: "Oxyn Ltd." },
-                { id: 15,   organisationName: "Propus Holding" },
-                { id: 16,   organisationName: "Quebec Limited" },    
-                { id: 17,   organisationName: "Rana Productions" },
-                { id: 18,   organisationName: "Salm Inc." },
-                { id: 19,   organisationName: "Thabit Ltd." },
-                { id: 20,   organisationName: "Universe Unlimited" },   
-                { id: 21,   organisationName: "Vega Stores" },
-                { id: 22,   organisationName: "Wasat Inc." },
-                { id: 23,   organisationName: "Xanadu & Sons" },
-                { id: 24,   organisationName: "Yildun Industrial" },
-                { id: 25,   organisationName: "Zibla & Co." }
+                { id: 0,    OrganisationName: "Atlas Ltd." },
+                { id: 1,    OrganisationName: "Brachium Ltd." },
+                { id: 2,    OrganisationName: "Cursa & Co." },
+                { id: 3,    OrganisationName: "Diadem Corp." },
+                { id: 4,    OrganisationName: "Electra & Sons" },
+                { id: 5,    OrganisationName: "Fornacis Holding" },
+                { id: 6,    OrganisationName: "Grafias Inc." },
+                { id: 7,    OrganisationName: "Homam Enterprise" },
+                { id: 8,    OrganisationName: "Izar Services" },
+                { id: 9,    OrganisationName: "Jabbah Ltd." },
+                { id: 10,   OrganisationName: "Kuma Corp." },
+                { id: 11,   OrganisationName: "Lesath & Co." },
+                { id: 12,   OrganisationName: "Matar Ind." },
+                { id: 13,   OrganisationName: "Naos & Co." },
+                { id: 14,   OrganisationName: "Oxyn Ltd." },
+                { id: 15,   OrganisationName: "Propus Holding" },
+                { id: 16,   OrganisationName: "Quebec Limited" },    
+                { id: 17,   OrganisationName: "Rana Productions" },
+                { id: 18,   OrganisationName: "Salm Inc." },
+                { id: 19,   OrganisationName: "Thabit Ltd." },
+                { id: 20,   OrganisationName: "Universe Unlimited" },   
+                { id: 21,   OrganisationName: "Vega Stores" },
+                { id: 22,   OrganisationName: "Wasat Inc." },
+                { id: 23,   OrganisationName: "Xanadu & Sons" },
+                { id: 24,   OrganisationName: "Yildun Industrial" },
+                { id: 25,   OrganisationName: "Zibla & Co." }
             ]
         };
 
@@ -58,32 +58,32 @@ Ext.define("Core.service.organisation.mock.Service", {
         var response = {
             success: true,
             organisationList: [
-                { id: 0,    organisationName: "Atlas Ltd." },
-                { id: 1,    organisationName: "Brachium Ltd." },
-                { id: 2,    organisationName: "Cursa & Co." },
-                { id: 3,    organisationName: "Diadem Corp." },
-                { id: 4,    organisationName: "Electra & Sons" },
-                { id: 5,    organisationName: "Fornacis Holding" },
-                { id: 6,    organisationName: "Grafias Inc." },
-                { id: 7,    organisationName: "Homam Enterprise" },
-                { id: 8,    organisationName: "Izar Services" },
-                { id: 9,    organisationName: "Jabbah Ltd." },
-                { id: 10,   organisationName: "Kuma Corp." },
-                { id: 11,   organisationName: "Lesath & Co." },
-                { id: 12,   organisationName: "Matar Ind." },
-                { id: 13,   organisationName: "Naos & Co." },
-                { id: 14,   organisationName: "Oxyn Ltd." },
-                { id: 15,   organisationName: "Propus Holding" },
-                { id: 16,   organisationName: "Quebec Limited" },    
-                { id: 17,   organisationName: "Rana Productions" },
-                { id: 18,   organisationName: "Salm Inc." },
-                { id: 19,   organisationName: "Thabit Ltd." },
-                { id: 20,   organisationName: "Universe Unlimited" },   
-                { id: 21,   organisationName: "Vega Stores" },
-                { id: 22,   organisationName: "Wasat Inc." },
-                { id: 23,   organisationName: "Xanadu & Sons" },
-                { id: 24,   organisationName: "Yildun Industrial" },
-                { id: 25,   organisationName: "Zibla & Co." }
+                { id: 0,    OrganisationName: "Atlas Ltd." },
+                { id: 1,    OrganisationName: "Brachium Ltd." },
+                { id: 2,    OrganisationName: "Cursa & Co." },
+                { id: 3,    OrganisationName: "Diadem Corp." },
+                { id: 4,    OrganisationName: "Electra & Sons" },
+                { id: 5,    OrganisationName: "Fornacis Holding" },
+                { id: 6,    OrganisationName: "Grafias Inc." },
+                { id: 7,    OrganisationName: "Homam Enterprise" },
+                { id: 8,    OrganisationName: "Izar Services" },
+                { id: 9,    OrganisationName: "Jabbah Ltd." },
+                { id: 10,   OrganisationName: "Kuma Corp." },
+                { id: 11,   OrganisationName: "Lesath & Co." },
+                { id: 12,   OrganisationName: "Matar Ind." },
+                { id: 13,   OrganisationName: "Naos & Co." },
+                { id: 14,   OrganisationName: "Oxyn Ltd." },
+                { id: 15,   OrganisationName: "Propus Holding" },
+                { id: 16,   OrganisationName: "Quebec Limited" },    
+                { id: 17,   OrganisationName: "Rana Productions" },
+                { id: 18,   OrganisationName: "Salm Inc." },
+                { id: 19,   OrganisationName: "Thabit Ltd." },
+                { id: 20,   OrganisationName: "Universe Unlimited" },   
+                { id: 21,   OrganisationName: "Vega Stores" },
+                { id: 22,   OrganisationName: "Wasat Inc." },
+                { id: 23,   OrganisationName: "Xanadu & Sons" },
+                { id: 24,   OrganisationName: "Yildun Industrial" },
+                { id: 25,   OrganisationName: "Zibla & Co." }
             ]
         };
 
@@ -99,32 +99,32 @@ Ext.define("Core.service.organisation.mock.Service", {
         var response = {
             success: true,
             organisationTile: [
-                { id: 0,    organisationName: "Atlas Ltd." },
-                { id: 1,    organisationName: "Brachium Ltd." },
-                { id: 2,    organisationName: "Cursa & Co." },
-                { id: 3,    organisationName: "Diadem Corp." },
-                { id: 4,    organisationName: "Electra & Sons" },
-                { id: 5,    organisationName: "Fornacis Holding" },
-                { id: 6,    organisationName: "Grafias Inc." },
-                { id: 7,    organisationName: "Homam Enterprise" },
-                { id: 8,    organisationName: "Izar Services" },
-                { id: 9,    organisationName: "Jabbah Ltd." },
-                { id: 10,   organisationName: "Kuma Corp." },
-                { id: 11,   organisationName: "Lesath & Co." },
-                { id: 12,   organisationName: "Matar Ind." },
-                { id: 13,   organisationName: "Naos & Co." },
-                { id: 14,   organisationName: "Oxyn Ltd." },
-                { id: 15,   organisationName: "Propus Holding" },
-                { id: 16,   organisationName: "Quebec Limited" },    
-                { id: 17,   organisationName: "Rana Productions" },
-                { id: 18,   organisationName: "Salm Inc." },
-                { id: 19,   organisationName: "Thabit Ltd." },
-                { id: 20,   organisationName: "Universe Unlimited" },   
-                { id: 21,   organisationName: "Vega Stores" },
-                { id: 22,   organisationName: "Wasat Inc." },
-                { id: 23,   organisationName: "Xanadu & Sons" },
-                { id: 24,   organisationName: "Yildun Industrial" },
-                { id: 25,   organisationName: "Zibla & Co." }
+                { id: 0,    OrganisationName: "Atlas Ltd." },
+                { id: 1,    OrganisationName: "Brachium Ltd." },
+                { id: 2,    OrganisationName: "Cursa & Co." },
+                { id: 3,    OrganisationName: "Diadem Corp." },
+                { id: 4,    OrganisationName: "Electra & Sons" },
+                { id: 5,    OrganisationName: "Fornacis Holding" },
+                { id: 6,    OrganisationName: "Grafias Inc." },
+                { id: 7,    OrganisationName: "Homam Enterprise" },
+                { id: 8,    OrganisationName: "Izar Services" },
+                { id: 9,    OrganisationName: "Jabbah Ltd." },
+                { id: 10,   OrganisationName: "Kuma Corp." },
+                { id: 11,   OrganisationName: "Lesath & Co." },
+                { id: 12,   OrganisationName: "Matar Ind." },
+                { id: 13,   OrganisationName: "Naos & Co." },
+                { id: 14,   OrganisationName: "Oxyn Ltd." },
+                { id: 15,   OrganisationName: "Propus Holding" },
+                { id: 16,   OrganisationName: "Quebec Limited" },    
+                { id: 17,   OrganisationName: "Rana Productions" },
+                { id: 18,   OrganisationName: "Salm Inc." },
+                { id: 19,   OrganisationName: "Thabit Ltd." },
+                { id: 20,   OrganisationName: "Universe Unlimited" },   
+                { id: 21,   OrganisationName: "Vega Stores" },
+                { id: 22,   OrganisationName: "Wasat Inc." },
+                { id: 23,   OrganisationName: "Xanadu & Sons" },
+                { id: 24,   OrganisationName: "Yildun Industrial" },
+                { id: 25,   OrganisationName: "Zibla & Co." }
             ]
         };
 
@@ -141,7 +141,7 @@ Ext.define("Core.service.organisation.mock.Service", {
             success: true,
             organisation: {
                 id: this.getRandomInt(1000, 99999),
-                organisationName: organisation.organisationName
+                OrganisationName: organisation.OrganisationName
             }
         };
 
@@ -159,7 +159,7 @@ Ext.define("Core.service.organisation.mock.Service", {
             success: true,
             organisation: {
                 id: organisation.id,
-                organisationName: organisation.organisationName
+                OrganisationName: organisation.OrganisationName
             }
         };
 
@@ -177,7 +177,7 @@ Ext.define("Core.service.organisation.mock.Service", {
             success: true,
             organisation: {
                 id: organisation.id,
-                organisationName: organisation.organisationName
+                OrganisationName: organisation.OrganisationName
             }
         };
 

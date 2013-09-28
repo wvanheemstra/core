@@ -17,32 +17,32 @@ Ext.define("Core.service.product.mock.Service", {
         var response = {
             success: true,
             productSlide: [
-                { id: 0,    name: "Alfa" },
-                { id: 1,    name: "Bravo" },
-                { id: 2,    name: "Charlie" },
-                { id: 3,    name: "Delta" },
-                { id: 4,    name: "Echo" },
-                { id: 5,    name: "Foxtrot" },
-                { id: 6,    name: "Golf" },
-                { id: 7,    name: "Hotel" },
-                { id: 8,    name: "India" },
-                { id: 9,    name: "Juliet" },
-                { id: 10,   name: "Kilo" },
-                { id: 11,   name: "Lima" },
-                { id: 12,   name: "Mike" },
-                { id: 13,   name: "November" },
-                { id: 14,   name: "Oscar" },
-                { id: 15,   name: "Papa" },
-                { id: 16,   name: "Quebec" },                
-                { id: 17,   name: "Romeo" },
-                { id: 18,   name: "Sierra" },
-                { id: 19,   name: "Tango" },
-                { id: 20,   name: "Uniform" },              
-                { id: 21,   name: "Victor" },
-                { id: 22,   name: "Whiskey" },
-                { id: 23,   name: "X-ray" },                
-                { id: 24,   name: "Yankee" },
-                { id: 25,   name: "Zulu" }
+                { id: 0,    ProductName: "Alfa" },
+                { id: 1,    ProductName: "Bravo" },
+                { id: 2,    ProductName: "Charlie" },
+                { id: 3,    ProductName: "Delta" },
+                { id: 4,    ProductName: "Echo" },
+                { id: 5,    ProductName: "Foxtrot" },
+                { id: 6,    ProductName: "Golf" },
+                { id: 7,    ProductName: "Hotel" },
+                { id: 8,    ProductName: "India" },
+                { id: 9,    ProductName: "Juliet" },
+                { id: 10,   ProductName: "Kilo" },
+                { id: 11,   ProductName: "Lima" },
+                { id: 12,   ProductName: "Mike" },
+                { id: 13,   ProductName: "November" },
+                { id: 14,   ProductName: "Oscar" },
+                { id: 15,   ProductName: "Papa" },
+                { id: 16,   ProductName: "Quebec" },                
+                { id: 17,   ProductName: "Romeo" },
+                { id: 18,   ProductName: "Sierra" },
+                { id: 19,   ProductName: "Tango" },
+                { id: 20,   ProductName: "Uniform" },              
+                { id: 21,   ProductName: "Victor" },
+                { id: 22,   ProductName: "Whiskey" },
+                { id: 23,   ProductName: "X-ray" },                
+                { id: 24,   ProductName: "Yankee" },
+                { id: 25,   ProductName: "Zulu" }
             ]
         };
 
@@ -58,32 +58,32 @@ Ext.define("Core.service.product.mock.Service", {
         var response = {
             success: true,
             productList: [
-                { id: 0,    name: "Alfa" },
-                { id: 1,    name: "Bravo" },
-                { id: 2,    name: "Charlie" },
-                { id: 3,    name: "Delta" },
-                { id: 4,    name: "Echo" },
-                { id: 5,    name: "Foxtrot" },
-                { id: 6,    name: "Golf" },
-                { id: 7,    name: "Hotel" },
-                { id: 8,    name: "India" },
-                { id: 9,    name: "Juliet" },
-                { id: 10,   name: "Kilo" },
-                { id: 11,   name: "Lima" },
-                { id: 12,   name: "Mike" },
-                { id: 13,   name: "November" },
-                { id: 14,   name: "Oscar" },
-                { id: 15,   name: "Papa" },
-                { id: 16,   name: "Quebec" },                
-                { id: 17,   name: "Romeo" },
-                { id: 18,   name: "Sierra" },
-                { id: 19,   name: "Tango" },
-                { id: 20,   name: "Uniform" },              
-                { id: 21,   name: "Victor" },
-                { id: 22,   name: "Whiskey" },
-                { id: 23,   name: "X-ray" },                
-                { id: 24,   name: "Yankee" },
-                { id: 25,   name: "Zulu" }
+                { id: 0,    ProductName: "Alfa" },
+                { id: 1,    ProductName: "Bravo" },
+                { id: 2,    ProductName: "Charlie" },
+                { id: 3,    ProductName: "Delta" },
+                { id: 4,    ProductName: "Echo" },
+                { id: 5,    ProductName: "Foxtrot" },
+                { id: 6,    ProductName: "Golf" },
+                { id: 7,    ProductName: "Hotel" },
+                { id: 8,    ProductName: "India" },
+                { id: 9,    ProductName: "Juliet" },
+                { id: 10,   ProductName: "Kilo" },
+                { id: 11,   ProductName: "Lima" },
+                { id: 12,   ProductName: "Mike" },
+                { id: 13,   ProductName: "November" },
+                { id: 14,   ProductName: "Oscar" },
+                { id: 15,   ProductName: "Papa" },
+                { id: 16,   ProductName: "Quebec" },                
+                { id: 17,   ProductName: "Romeo" },
+                { id: 18,   ProductName: "Sierra" },
+                { id: 19,   ProductName: "Tango" },
+                { id: 20,   ProductName: "Uniform" },              
+                { id: 21,   ProductName: "Victor" },
+                { id: 22,   ProductName: "Whiskey" },
+                { id: 23,   ProductName: "X-ray" },                
+                { id: 24,   ProductName: "Yankee" },
+                { id: 25,   ProductName: "Zulu" }
             ]
         };
 
@@ -99,32 +99,32 @@ Ext.define("Core.service.product.mock.Service", {
         var response = {
             success: true,
             productTile: [
-                { id: 0,    name: "Alfa" },
-                { id: 1,    name: "Bravo" },
-                { id: 2,    name: "Charlie" },
-                { id: 3,    name: "Delta" },
-                { id: 4,    name: "Echo" },
-                { id: 5,    name: "Foxtrot" },
-                { id: 6,    name: "Golf" },
-                { id: 7,    name: "Hotel" },
-                { id: 8,    name: "India" },
-                { id: 9,    name: "Juliet" },
-                { id: 10,   name: "Kilo" },
-                { id: 11,   name: "Lima" },
-                { id: 12,   name: "Mike" },
-                { id: 13,   name: "November" },
-                { id: 14,   name: "Oscar" },
-                { id: 15,   name: "Papa" },
-                { id: 16,   name: "Quebec" },                
-                { id: 17,   name: "Romeo" },
-                { id: 18,   name: "Sierra" },
-                { id: 19,   name: "Tango" },
-                { id: 20,   name: "Uniform" },              
-                { id: 21,   name: "Victor" },
-                { id: 22,   name: "Whiskey" },
-                { id: 23,   name: "X-ray" },                
-                { id: 24,   name: "Yankee" },
-                { id: 25,   name: "Zulu" }
+                { id: 0,    ProductName: "Alfa" },
+                { id: 1,    ProductName: "Bravo" },
+                { id: 2,    ProductName: "Charlie" },
+                { id: 3,    ProductName: "Delta" },
+                { id: 4,    ProductName: "Echo" },
+                { id: 5,    ProductName: "Foxtrot" },
+                { id: 6,    ProductName: "Golf" },
+                { id: 7,    ProductName: "Hotel" },
+                { id: 8,    ProductName: "India" },
+                { id: 9,    ProductName: "Juliet" },
+                { id: 10,   ProductName: "Kilo" },
+                { id: 11,   ProductName: "Lima" },
+                { id: 12,   ProductName: "Mike" },
+                { id: 13,   ProductName: "November" },
+                { id: 14,   ProductName: "Oscar" },
+                { id: 15,   ProductName: "Papa" },
+                { id: 16,   ProductName: "Quebec" },                
+                { id: 17,   ProductName: "Romeo" },
+                { id: 18,   ProductName: "Sierra" },
+                { id: 19,   ProductName: "Tango" },
+                { id: 20,   ProductName: "Uniform" },              
+                { id: 21,   ProductName: "Victor" },
+                { id: 22,   ProductName: "Whiskey" },
+                { id: 23,   ProductName: "X-ray" },                
+                { id: 24,   ProductName: "Yankee" },
+                { id: 25,   ProductName: "Zulu" }
             ]
         };
 
@@ -141,7 +141,7 @@ Ext.define("Core.service.product.mock.Service", {
             success: true,
             product: {
                 id: this.getRandomInt(1000, 99999),
-                name: product.name
+                ProductName: product.name
             }
         };
 
@@ -159,7 +159,7 @@ Ext.define("Core.service.product.mock.Service", {
             success: true,
             product: {
                 id: product.id,
-                name: product.name
+                ProductName: product.name
             }
         };
 
@@ -177,7 +177,7 @@ Ext.define("Core.service.product.mock.Service", {
             success: true,
             product: {
                 id: product.id,
-                name: product.name
+                ProductName: product.name
             }
         };
 

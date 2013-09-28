@@ -17,32 +17,32 @@ Ext.define("Core.service.booking.mock.Service", {
         var response = {
             success: true,
             bookingSlide: [
-                { id: 0,    name: "Alfa" },
-                { id: 1,    name: "Bravo" },
-                { id: 2,    name: "Charlie" },
-                { id: 3,    name: "Delta" },
-                { id: 4,    name: "Echo" },
-                { id: 5,    name: "Foxtrot" },
-                { id: 6,    name: "Golf" },
-                { id: 7,    name: "Hotel" },
-                { id: 8,    name: "India" },
-                { id: 9,    name: "Juliet" },
-                { id: 10,   name: "Kilo" },
-                { id: 11,   name: "Lima" },
-                { id: 12,   name: "Mike" },
-                { id: 13,   name: "November" },
-                { id: 14,   name: "Oscar" },
-                { id: 15,   name: "Papa" },
-                { id: 16,   name: "Quebec" },                
-                { id: 17,   name: "Romeo" },
-                { id: 18,   name: "Sierra" },
-                { id: 19,   name: "Tango" },
-                { id: 20,   name: "Uniform" },              
-                { id: 21,   name: "Victor" },
-                { id: 22,   name: "Whiskey" },
-                { id: 23,   name: "X-ray" },                
-                { id: 24,   name: "Yankee" },
-                { id: 25,   name: "Zulu" }
+                { id: 0,    BookingName: "Alfa" },
+                { id: 1,    BookingName: "Bravo" },
+                { id: 2,    BookingName: "Charlie" },
+                { id: 3,    BookingName: "Delta" },
+                { id: 4,    BookingName: "Echo" },
+                { id: 5,    BookingName: "Foxtrot" },
+                { id: 6,    BookingName: "Golf" },
+                { id: 7,    BookingName: "Hotel" },
+                { id: 8,    BookingName: "India" },
+                { id: 9,    BookingName: "Juliet" },
+                { id: 10,   BookingName: "Kilo" },
+                { id: 11,   BookingName: "Lima" },
+                { id: 12,   BookingName: "Mike" },
+                { id: 13,   BookingName: "November" },
+                { id: 14,   BookingName: "Oscar" },
+                { id: 15,   BookingName: "Papa" },
+                { id: 16,   BookingName: "Quebec" },                
+                { id: 17,   BookingName: "Romeo" },
+                { id: 18,   BookingName: "Sierra" },
+                { id: 19,   BookingName: "Tango" },
+                { id: 20,   BookingName: "Uniform" },              
+                { id: 21,   BookingName: "Victor" },
+                { id: 22,   BookingName: "Whiskey" },
+                { id: 23,   BookingName: "X-ray" },                
+                { id: 24,   BookingName: "Yankee" },
+                { id: 25,   BookingName: "Zulu" }
             ]
         };
 
@@ -58,32 +58,32 @@ Ext.define("Core.service.booking.mock.Service", {
         var response = {
             success: true,
             bookingList: [
-                { id: 0,    name: "Alfa" },
-                { id: 1,    name: "Bravo" },
-                { id: 2,    name: "Charlie" },
-                { id: 3,    name: "Delta" },
-                { id: 4,    name: "Echo" },
-                { id: 5,    name: "Foxtrot" },
-                { id: 6,    name: "Golf" },
-                { id: 7,    name: "Hotel" },
-                { id: 8,    name: "India" },
-                { id: 9,    name: "Juliet" },
-                { id: 10,   name: "Kilo" },
-                { id: 11,   name: "Lima" },
-                { id: 12,   name: "Mike" },
-                { id: 13,   name: "November" },
-                { id: 14,   name: "Oscar" },
-                { id: 15,   name: "Papa" },
-                { id: 16,   name: "Quebec" },                
-                { id: 17,   name: "Romeo" },
-                { id: 18,   name: "Sierra" },
-                { id: 19,   name: "Tango" },
-                { id: 20,   name: "Uniform" },              
-                { id: 21,   name: "Victor" },
-                { id: 22,   name: "Whiskey" },
-                { id: 23,   name: "X-ray" },                
-                { id: 24,   name: "Yankee" },
-                { id: 25,   name: "Zulu" }
+                { id: 0,    BookingName: "Alfa" },
+                { id: 1,    BookingName: "Bravo" },
+                { id: 2,    BookingName: "Charlie" },
+                { id: 3,    BookingName: "Delta" },
+                { id: 4,    BookingName: "Echo" },
+                { id: 5,    BookingName: "Foxtrot" },
+                { id: 6,    BookingName: "Golf" },
+                { id: 7,    BookingName: "Hotel" },
+                { id: 8,    BookingName: "India" },
+                { id: 9,    BookingName: "Juliet" },
+                { id: 10,   BookingName: "Kilo" },
+                { id: 11,   BookingName: "Lima" },
+                { id: 12,   BookingName: "Mike" },
+                { id: 13,   BookingName: "November" },
+                { id: 14,   BookingName: "Oscar" },
+                { id: 15,   BookingName: "Papa" },
+                { id: 16,   BookingName: "Quebec" },                
+                { id: 17,   BookingName: "Romeo" },
+                { id: 18,   BookingName: "Sierra" },
+                { id: 19,   BookingName: "Tango" },
+                { id: 20,   BookingName: "Uniform" },              
+                { id: 21,   BookingName: "Victor" },
+                { id: 22,   BookingName: "Whiskey" },
+                { id: 23,   BookingName: "X-ray" },                
+                { id: 24,   BookingName: "Yankee" },
+                { id: 25,   BookingName: "Zulu" }
             ]
         };
 
@@ -99,32 +99,32 @@ Ext.define("Core.service.booking.mock.Service", {
         var response = {
             success: true,
             bookingTile: [
-                { id: 0,    name: "Alfa" },
-                { id: 1,    name: "Bravo" },
-                { id: 2,    name: "Charlie" },
-                { id: 3,    name: "Delta" },
-                { id: 4,    name: "Echo" },
-                { id: 5,    name: "Foxtrot" },
-                { id: 6,    name: "Golf" },
-                { id: 7,    name: "Hotel" },
-                { id: 8,    name: "India" },
-                { id: 9,    name: "Juliet" },
-                { id: 10,   name: "Kilo" },
-                { id: 11,   name: "Lima" },
-                { id: 12,   name: "Mike" },
-                { id: 13,   name: "November" },
-                { id: 14,   name: "Oscar" },
-                { id: 15,   name: "Papa" },
-                { id: 16,   name: "Quebec" },                
-                { id: 17,   name: "Romeo" },
-                { id: 18,   name: "Sierra" },
-                { id: 19,   name: "Tango" },
-                { id: 20,   name: "Uniform" },              
-                { id: 21,   name: "Victor" },
-                { id: 22,   name: "Whiskey" },
-                { id: 23,   name: "X-ray" },                
-                { id: 24,   name: "Yankee" },
-                { id: 25,   name: "Zulu" }
+                { id: 0,    BookingName: "Alfa" },
+                { id: 1,    BookingName: "Bravo" },
+                { id: 2,    BookingName: "Charlie" },
+                { id: 3,    BookingName: "Delta" },
+                { id: 4,    BookingName: "Echo" },
+                { id: 5,    BookingName: "Foxtrot" },
+                { id: 6,    BookingName: "Golf" },
+                { id: 7,    BookingName: "Hotel" },
+                { id: 8,    BookingName: "India" },
+                { id: 9,    BookingName: "Juliet" },
+                { id: 10,   BookingName: "Kilo" },
+                { id: 11,   BookingName: "Lima" },
+                { id: 12,   BookingName: "Mike" },
+                { id: 13,   BookingName: "November" },
+                { id: 14,   BookingName: "Oscar" },
+                { id: 15,   BookingName: "Papa" },
+                { id: 16,   BookingName: "Quebec" },                
+                { id: 17,   BookingName: "Romeo" },
+                { id: 18,   BookingName: "Sierra" },
+                { id: 19,   BookingName: "Tango" },
+                { id: 20,   BookingName: "Uniform" },              
+                { id: 21,   BookingName: "Victor" },
+                { id: 22,   BookingName: "Whiskey" },
+                { id: 23,   BookingName: "X-ray" },                
+                { id: 24,   BookingName: "Yankee" },
+                { id: 25,   BookingName: "Zulu" }
             ]
         };
 
@@ -141,7 +141,7 @@ Ext.define("Core.service.booking.mock.Service", {
             success: true,
             booking: {
                 id: this.getRandomInt(1000, 99999),
-                name: booking.name
+                BookingName: booking.BookingName
             }
         };
 
@@ -159,7 +159,7 @@ Ext.define("Core.service.booking.mock.Service", {
             success: true,
             booking: {
                 id: booking.id,
-                name: booking.name
+                BookingName: booking.BookingName
             }
         };
 
@@ -177,7 +177,7 @@ Ext.define("Core.service.booking.mock.Service", {
             success: true,
             booking: {
                 id: booking.id,
-                name: booking.name
+                BookingName: booking.BookingName
             }
         };
 

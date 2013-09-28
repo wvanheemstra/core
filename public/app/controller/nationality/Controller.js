@@ -43,7 +43,7 @@ Ext.define("Core.controller.nationality.Controller", {
         this.eventBus.addGlobalEventListener(Core.event.nationality.Event.CREATE_NATIONALITY, this.onCreateNationality, this);
         this.eventBus.addGlobalEventListener(Core.event.nationality.Event.UPDATE_NATIONALITY, this.onUpdateNationality, this);
         this.eventBus.addGlobalEventListener(Core.event.nationality.Event.DELETE_NATIONALITY, this.onDeleteNationality, this);
-		this.eventBus.addGlobalEventListener(Core.event.nationality.Event.READ_NATIONALITYS, this.onReadNationalitys, this);
+		this.eventBus.addGlobalEventListener(Core.event.nationality.Event.READ_NATIONALITIES, this.onReadNationalities, this);
     },
 
     /**
@@ -158,13 +158,13 @@ Ext.define("Core.controller.nationality.Controller", {
     },
 
     /**
-     * Performs read nationalitys by using the referenced service and sets up the service success and failure
+     * Performs read nationalities by using the referenced service and sets up the service success and failure
      * callback handlers.
      *
      */
-    readNationalitys: function() {
-        this.logger.debug("readNationalitys");
-        this.executeServiceCall(this.nationalityService, this.nationalityService.readNationalitys, null, this.readNationalitysSuccess, this.readNationalitysFailure, this);
+    readNationalities: function() {
+        this.logger.debug("readNationalities");
+        this.executeServiceCall(this.nationalityService, this.nationalityService.readNationalities, null, this.readNationalitiesSuccess, this.readNationalitiesFailure, this);
     },	
 	
     ////////////////////////////////////////////////
@@ -370,29 +370,29 @@ Ext.define("Core.controller.nationality.Controller", {
     },
 
     /**
-     * Handles the successful read nationalitys service call and takes the response data packet as a parameter.
+     * Handles the successful read nationalities service call and takes the response data packet as a parameter.
      * Fires off the corresponding success event on the application-level event bus.
      *
      */
-    readNationalitysSuccess: function(response) {
-        this.logger.info("readNationalitysSuccess");
+    readNationalitiesSuccess: function(response) {
+        this.logger.info("readNationalitiesSuccess");
 
-		this.nationalityStore.setData(response.nationalitys);
+		this.nationalityStore.setData(response.nationalities);
 
-        var evt = Ext.create("Core.event.nationality.Event", Core.event.nationality.Event.READ_NATIONALITYS_SUCCESS);
+        var evt = Ext.create("Core.event.nationality.Event", Core.event.nationality.Event.READ_NATIONALITIES_SUCCESS);
         this.eventBus.dispatchGlobalEvent(evt);
     },
 
     /**
-     * Handles the failed read nationalitys service call and takes the response data packet as a parameter.
+     * Handles the failed read nationalities service call and takes the response data packet as a parameter.
      * Fires off the corresponding failure event on the application-level event bus.
      *
      * @param {Object} response The response data packet from the failed service call.
      */
-    readNationalitysFailure: function(response) {
-        this.logger.warn("readNationalitysFailure");
+    readNationalitiesFailure: function(response) {
+        this.logger.warn("readNationalitiesFailure");
 
-        var evt = Ext.create("Core.event.nationality.Event", Core.event.nationality.Event.READ_NATIONALITYS_FAILURE);
+        var evt = Ext.create("Core.event.nationality.Event", Core.event.nationality.Event.READ_NATIONALITIES_FAILURE);
         this.eventBus.dispatchGlobalEvent(evt);
     },
 	
@@ -488,16 +488,16 @@ Ext.define("Core.controller.nationality.Controller", {
     },
 	
 	/**
-     * Handles the read nationalitys event on the application-level event bus. Calls a functional method that's more
+     * Handles the read nationalities event on the application-level event bus. Calls a functional method that's more
      * testable than this event handler.
      *
      * @param {Core.event.nationality.Event} event Reference to the nationality event. Contains a reference to the
-     * nationalitys.
+     * nationalities.
      */
-    onReadNationalitys: function(event) {
-        this.logger.debug("onReadNationalitys");
+    onReadNationalities: function(event) {
+        this.logger.debug("onReadNationalities");
 
-        this.readNationalitys();
+        this.readNationalities();
     }
     
 });    

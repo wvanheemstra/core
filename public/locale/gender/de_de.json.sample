@@ -19,43 +19,43 @@
     // GENDER SLIDE
     /////////////////////////////////////////////
     "genderSlide": {
-        "title": "Geschlechtn",
-        "title1": "Geschlechtn1",	
-        "title2": "Geschlechtn2",
-        "title3": "Geschlechtn3",	
-        "title4": "Geschlechtn4",			
+        "title": "Geschlechten",
+        "title1": "Geschlechten1",	
+        "title2": "Geschlechten2",
+        "title3": "Geschlechten3",	
+        "title4": "Geschlechten4",			
         "logOut": "Abmelden",
         "new": "Neu",
         "search": "live suchen",
 		"genderName": "Geschlecht",
-        "loading": "Laad Geschlechtn...",
-        "noGenders": "Keine Geschlechtn wurden gefunden."
+        "loading": "Laad Geschlechten...",
+        "noGenders": "Keine Geschlechten wurden gefunden."
     },	
 	
     /////////////////////////////////////////////
     // GENDER LIST
     /////////////////////////////////////////////
     "genderList": {
-        "title": "Geschlechtn",
+        "title": "Geschlechten",
         "logOut": "Abmelden",
         "new": "Neu",
         "search": "live suchen",
 		"genderName": "Geschlecht",
-        "loading": "Laad Geschlechtn...",
-        "noGenders": "Keine Geschlechtn wurden gefunden."
+        "loading": "Laad Geschlechten...",
+        "noGenders": "Keine Geschlechten wurden gefunden."
     },
 
     /////////////////////////////////////////////
     // GENDER TILE
     /////////////////////////////////////////////
     "genderTile": {
-        "title": "Geschlechtn",
+        "title": "Geschlechten",
         "logOut": "Abmelden",
         "new": "Neu",
         "search": "live suchen",
 		"genderName": "Geschlecht",	
-        "loading": "Laad Geschlechtn...",
-        "noGenders": "Keine Geschlechtn wurden gefunden."
+        "loading": "Laad Geschlechten...",
+        "noGenders": "Keine Geschlechten wurden gefunden."
     },
 
     /////////////////////////////////////////////

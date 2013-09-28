@@ -98,12 +98,14 @@
         "personFirstName": "Voornaam",
         "personLastName": "Achternaam",	
 		"genderName": "Geslacht",
+		"nationalityName": "Nationaliteit",		
         "delete": "Verwijder",
         "creatingPerson": "Maak Persoon aan ...",
         "updatingPerson": "Werk Persoon bij ...",
         "deletingPerson": "Verwijder Persoon...",
 		"readingSalutations": "Lees Aanheven...",
-		"readingGenders": "Lees Geslachten..."	
+		"readingGenders": "Lees Geslachten...",
+		"readingNationalities": "Lees Nationaliteiten..."		
     },
 
     /////////////////////////////////////////////

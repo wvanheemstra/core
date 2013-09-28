@@ -99,12 +99,14 @@
         "personFirstName": "Vorame",
         "personLastName": "Nachname",
 		"genderName": "Geschlecht",
+		"nationalityName": "Nationalität",		
         "delete": "Löschen",
         "creatingPerson": "Mach Person neu an ...",
         "updatingPerson": "Bearbeit Person ...",
         "deletingPerson": "Lösch Person...",
 		"readingSalutations": "Lese Anreden...",
-		"readingGenders": "Lese Geschlechten..."		
+		"readingGenders": "Lese Geschlechten...",
+		"readingNationalities": "Lese Nationalitäten..."	
     },
 
     /////////////////////////////////////////////

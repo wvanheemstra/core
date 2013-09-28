@@ -98,12 +98,14 @@
         "personFirstName": "First Name",
         "personLastName": "Last Name",
 		"genderName": "Gender",
+		"nationalityName": "Nationality",		
         "delete": "Delete",
         "creatingPerson": "Creating Person ...",
         "updatingPerson": "Updating Person ...",
         "deletingPerson": "Deleting Person...",
 		"readingSalutations": "Reading Salutations...",
-		"readingGenders": "Reading Genders..."		
+		"readingGenders": "Reading Genders...",
+		"readingNationalities": "Reading Nationalities..."			
     },
 
     /////////////////////////////////////////////

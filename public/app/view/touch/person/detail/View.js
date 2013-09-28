@@ -97,6 +97,10 @@ Ext.define("Core.view.touch.person.detail.View", {
 					{ 
 						xtype: "picker",
 						itemId: "salutationPicker",
+					//	width: '100% !important', // TEST
+					//	flex: 1,
+					//	style: "width: 100% !important", // TEST
+						useTitles: true,
 						ui: "neutral",
 						doneButton: false,
 						cancelButton: true,
@@ -156,6 +160,7 @@ Ext.define("Core.view.touch.person.detail.View", {
 					{ 
 						xtype: "picker",
 						itemId: "genderPicker",
+						useTitles: true,						
 						ui: "neutral",
 						doneButton: false,
 						cancelButton: true,
@@ -166,9 +171,12 @@ Ext.define("Core.view.touch.person.detail.View", {
 						xtype: "datepickerfield",
 						destroyPickerOnHide: true,
 						name: "StartDate",
+						useTitles: true,						
 						label: "Date of Birth",
 						value: new Date(),
 						picker: {
+							title: "Choose a Date of Birth",
+							width: "100% !important", // TEST
 							yearFrom: 1920
 						}
 					},
@@ -197,6 +205,7 @@ Ext.define("Core.view.touch.person.detail.View", {
 					{ 
 						xtype: "picker",
 						itemId: "nationalityPicker",
+						useTitles: true,						
 						ui: "neutral",
 						doneButton: false,
 						cancelButton: true,

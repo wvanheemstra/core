@@ -1,5 +1,5 @@
 /**
- * The nationality event contains data and event types to perform CRUD operations on nationalitys.
+ * The nationality event contains data and event types to perform CRUD operations on nationalities.
  */
 Ext.define("Core.event.nationality.Event", {
     extend: "FlowMVC.mvc.event.AbstractEvent",
@@ -135,19 +135,19 @@ Ext.define("Core.event.nationality.Event", {
         DELETE_NATIONALITY_FAILURE:    "deleteNationalityFailure",
 		
 		/**
-         * The read nationalitys event type.
+         * The read nationalities event type.
          */
-        READ_NATIONALITYS:            "readNationalitys",
+        READ_NATIONALITIES:            "readNationalities",
 
         /**
-         * The read nationalitys success event type.
+         * The read nationalities success event type.
          */
-        READ_NATIONALITYS_SUCCESS:    "readNationalitysSuccess",
+        READ_NATIONALITIES_SUCCESS:    "readNationalitiesSuccess",
 
         /**
-         * The read nationalitys failure event type.
+         * The read nationalities failure event type.
          */
-        READ_NATIONALITYS_FAILURE:    "readNationalitysFailure"
+        READ_NATIONALITIES_FAILURE:    "readNationalitiesFailure"
 		
     },
 

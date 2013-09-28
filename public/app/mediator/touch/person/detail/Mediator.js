@@ -26,19 +26,21 @@ Ext.define("Core.mediator.touch.person.detail.Mediator", {
 			focus: "onSalutationAbbreviationTextFieldFocus"
 		},
 		salutationPicker: {
-			// empty, but used by mediator
+			//painted: "onPaintedPicker",
+			show: "onShowPicker",
+			change: "onChangeSalutationPicker"
 		},
 		genderNameTextField: {
 			focus: "onGenderNameTextFieldFocus"
 		},
 		genderPicker: {
-			// empty, but used by mediator
+			show: "onShowPicker"
 		},
 		nationalityNameTextField: {
 			focus: "onNationalityNameTextFieldFocus"
 		},
 		nationalityPicker: {
-			// empty, but used by mediator
+			show: "onShowPicker"
 		}
     },
 
@@ -218,7 +220,7 @@ Ext.define("Core.mediator.touch.person.detail.Mediator", {
     },
 
     /**
-     * Rests the view to it's default state -- no record set on the view's fields.
+     * Resets the view to it's default state -- no record set on the view's fields.
      */
     reset: function() {
         this.logger.debug("reset");
@@ -239,6 +241,32 @@ Ext.define("Core.mediator.touch.person.detail.Mediator", {
             this.getView().items.getAt(i).setUi(ui);
         }
     }, 
+	
+    /**
+     * Refreshes an element provided.
+	 *
+	 * @param element    The element to refresh
+	 * @param style      The element style to retain
+	 * @param timeout    The timeout in milliseconds (e.g. 20)
+     */	
+	refreshElement: function(element, style, timeout) {
+		this.logger.debug("refreshElement: element = ");
+		console.log(element);
+		this.logger.debug("refreshElement: style = ");
+		console.log(style);
+		if (!element) { 
+			console.log("no element");
+			return; 
+		}
+		var n = document.createTextNode(' ');
+		element.appendChild(n);
+		element.style.display = 'none';
+		setTimeout(function(){
+			element.style.display = style; // Set to the style provided
+			n.parentNode.removeChild(n);
+			console.log(element);
+		}, timeout); // you can play with this timeout to make it as short as possible	
+	},
 
     ////////////////////////////////////////////////
     // EVENT BUS HANDLERS
@@ -287,6 +315,78 @@ Ext.define("Core.mediator.touch.person.detail.Mediator", {
     },
 
     /**
+     * Handles the painted picker application-level event. 
+	 *
+	 * @param picker    The picker that is painted.
+     */    
+    onPaintedPicker: function(picker) {
+		this.logger.debug("onPaintedPicker");
+	/*	for (var i=0;i<50;i++){ // TEMP an arbitrary number of attempts
+			var pickerslotId = 'ext-pickerslot-'+i;
+			var pickerslotElement = document.getElementById(pickerslotId);
+			if(pickerslotElement) {
+				this.logger.debug("pickerslot found: " +i);
+				var id = document.getElementById(pickerslotId).getAttribute("id");
+				console.log("id = " +id);
+				var style = document.getElementById(pickerslotId).getAttribute("style");
+				console.log("style = " +style);
+				// Force a width of '100% !important' or Chrome will not show the slots
+				// refresh the element
+				this.refreshElement(document.getElementById(pickerslotId), "width:'100%!important'", 20);  // SADLY Sencha overwrites our attempt
+			}
+		}
+	*/
+    },	
+	
+    /**
+     * Handles the show picker application-level event. 
+	 *
+	 * @param picker    The picker that is shown.
+     */    
+    onShowPicker: function(picker) {	
+		this.logger.debug("onShowPicker");
+		// Set the value from the form to the slot
+		var form = this.getView();
+		var formValues = form.getValues();
+		for (formValue in formValues) {
+			switch(formValue) {
+				case 'kf_SalutationID': 
+					setTimeout(function() {
+						picker.setValue({
+							salutationSlot1 : formValues[formValue]
+						}, true);
+					}, 2000);
+					break;
+				case 'kf_GenderID': 
+					setTimeout(function() {
+						picker.setValue({
+							genderSlot1 : formValues[formValue]
+						}, true);
+					}, 2000);
+					break;	
+				case 'kf_NationalityID': 
+					setTimeout(function() {
+						picker.setValue({
+							nationalitySlot1 : formValues[formValue]
+						}, true);
+					}, 2000);
+					break;						
+				default: //empty
+			}
+		}
+	},
+	
+    /**
+     * Handles the change salutation picker application-level event. 
+	 *
+	 * @param picker    The picker that is changed.
+     */ 	
+	onChangeSalutationPicker: function(picker) {
+        selectedValue = picker.getValue()['salutationSlot1'];
+        console.log("salutationSlot1: value = " + selectedValue);
+	},
+	
+    /**
      * Handles the read salutations success application-level event.
      */
     onReadSalutationsSuccess: function() {
@@ -298,11 +398,16 @@ Ext.define("Core.mediator.touch.person.detail.Mediator", {
 			
 			salutationPicker.setSlots({
 				name: 'salutationSlot1',
+				itemId: "salutationSlot1", // TEST
 				title: 'Choose a Salutation',
 				store: this.salutationStore,
 				displayField: "SalutationAbbreviation",
 				valueField: "kp_SalutationID",
 				itemTpl: '{SalutationAbbreviation}',
+			//	width: "100% !important", // TEST
+			//	style: "width: 100% !important", // TEST
+			//	flex: 1, // TEST
+				value: 0, // The value at the start, default to empty
 				listeners:{
 					itemtap: function (obj, index, target, record, e, eOpts) {	
 						console.log("itemtap");
@@ -315,6 +420,7 @@ Ext.define("Core.mediator.touch.person.detail.Mediator", {
 					}
 				}
 			});
+			
 			this.getView().add(salutationPicker);			
 			this.self.SALUTATION_PICKER_SET = true;
 			salutationPicker.show();

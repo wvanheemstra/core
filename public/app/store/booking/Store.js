@@ -6,12 +6,12 @@ Ext.define("Core.store.booking.Store", {
     // Touch uses properties inside of config
 	config: {
 	    model: "Core.model.booking.Model",
-	    sorters: "name",
+	    sorters: "BookingName",
 	    isAutoUpdate: true,
 	    grouper: {
 	        groupFn: function(record) {
 	            try {
-	                return record.get("name")[0].toUpperCase(); // so 'van Halen' comes under 'V'
+	                return record.get("BookingName")[0].toUpperCase(); // so 'van Halen' comes under 'V'
 	            } catch(err) {
 	
 	            }
@@ -20,12 +20,12 @@ Ext.define("Core.store.booking.Store", {
 	},//eof config
 	// Ext requires properties outside of config
     model: "Core.model.booking.Model",
-    sorters: "name",
+    sorters: "BookingName",
     isAutoUpdate: true,
     grouper: {
         groupFn: function(record) {
             try {
-                return record.get("name")[0].toUpperCase(); // so 'van Halen' comes under 'V'
+                return record.get("BookingName")[0].toUpperCase(); // so 'van Halen' comes under 'V'
             } catch(err) {
 
             }

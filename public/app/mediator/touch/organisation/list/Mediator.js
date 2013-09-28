@@ -58,7 +58,7 @@ Ext.define("Core.mediator.touch.organisation.list.Mediator", {
      */
     showOrganisationDetail: function(record) {
         var logMsg = (record != null)
-            ? ": id = " + record.get("id") + ", organisation = " + record.get("name")
+            ? ": id = " + record.get("id") + ", organisation = " + record.get("OrganisationName")
             : "new organisation";
         this.logger.debug("showOrganisationDetail = " + logMsg);
 		Core.config.organisation.Config.setPreviousView('organisationlist');

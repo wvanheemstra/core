@@ -64,12 +64,16 @@ Ext.define("Core.view.touch.organisation.detail.View", {
             },
             {
                 xtype: "fieldset",
-                itemId: "fieldset",
+                itemId: "organisationDetailForm",
+				defaults: {
+					labelWidth: "35%"
+				},
                 items: [
                     {
                         xtype: "textfield",
                         itemId: "organisationNameTextField",
                         name: "organisationName",
+						label: "Name",
                         required: true,
                         plugins: [
                             {
@@ -82,17 +86,24 @@ Ext.define("Core.view.touch.organisation.detail.View", {
                 ]
             },
 			{
-				xtype: "button",
-				itemId: "saveOrganisationButton",
-				align: "center",
-				ui: "neutral", // WAS action
-				plugins: [
-					{
-						type: "localization",
-						method: "setText",
-						key: "organisationDetail.save"
-					}
-				]
+                xtype: "titlebar", // Allows for button alignment
+                itemId: "bottombar",
+                ui: "neutral",
+                docked: "bottom",
+                items: [
+                    {
+					xtype: "button",
+					itemId: "saveOrganisationButton",
+					align: "right",
+					ui: "neutral", // WAS action
+					plugins: [
+						{
+							type: "localization",
+							method: "setText",
+							key: "organisationDetail.save"
+						}
+					]
+				}]
 			}
         ]
     }

@@ -48,28 +48,32 @@ Ext.define("Core.view.touch.booking.detail.View", {
 						xtype: "spacer"
 					},
                     {
-                        xtype: "button",
-                        itemId: "saveBookingButton",
-                        align: "right",
-                        ui: "neutral", // WAS action
-                        plugins: [
-                            {
-                                type: "localization",
-                                method: "setText",
-                                key: "bookingDetail.save"
-                            }
-                        ]
-                    }
+						xtype: "button",
+						itemId: "deleteButton",
+						align: "right",
+						ui: "neutral", // WAS action
+						plugins: [
+							{
+								type: "localization",
+								method: "setText",
+								key: "bookingDetail.delete"
+							}
+						]
+					}
                 ]
             },
             {
                 xtype: "fieldset",
-                itemId: "fieldset",
+                itemId: "bookingDetailForm",
+				defaults: {
+					labelWidth: "35%"
+				},
                 items: [
                     {
                         xtype: "textfield",
                         itemId: "nameTextField",
                         name: "name",
+						label: "Name",		
                         required: true,
                         plugins: [
                             {
@@ -81,19 +85,26 @@ Ext.define("Core.view.touch.booking.detail.View", {
                     }
                 ]
             },
-            {
-                xtype: "button",
-                itemId: "deleteButton",
-                align: "center",
-                ui: "neutral", // WAS action
-                plugins: [
+			{
+                xtype: "titlebar", // Allows for button alignment
+                itemId: "bottombar",
+                ui: "neutral",
+                docked: "bottom",
+                items: [
                     {
-                        type: "localization",
-                        method: "setText",
-                        key: "bookingDetail.delete"
-                    }
-                ]
-            }
+					xtype: "button",
+					itemId: "saveBookingButton",
+					align: "right",
+					ui: "neutral", // WAS action
+					plugins: [
+						{
+							type: "localization",
+							method: "setText",
+							key: "bookingDetail.save"
+						}
+					]
+				}]
+			}
         ]
     }
 });

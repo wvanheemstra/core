@@ -76,6 +76,7 @@ Ext.define("Core.view.touch.person.detail.View", {
                         xtype: "textfield",
                         itemId: "salutationAbbreviationTextField",
                         name: "SalutationAbbreviation",
+						label: "Salutation",
                         required: false,
 						plugins: [
                             {
@@ -106,6 +107,7 @@ Ext.define("Core.view.touch.person.detail.View", {
                         xtype: "textfield",
                         itemId: "personFirstNameTextField",
                         name: "PersonFirstName",
+						label: "First Name",
                         required: true,
                         plugins: [
                             {
@@ -119,6 +121,7 @@ Ext.define("Core.view.touch.person.detail.View", {
                         xtype: "textfield",
                         itemId: "personLastNameTextField",
                         name: "PersonLastName",
+						label: "Last Name",						
                         required: true,
                         plugins: [
                             {
@@ -132,6 +135,7 @@ Ext.define("Core.view.touch.person.detail.View", {
                         xtype: "textfield",
                         itemId: "genderNameTextField",
                         name: "GenderName",
+						label: "Gender",
                         required: false,
 						plugins: [
                             {
@@ -159,9 +163,20 @@ Ext.define("Core.view.touch.person.detail.View", {
 						hidden: true
 					},
 					{
+						xtype: "datepickerfield",
+						destroyPickerOnHide: true,
+						name: "StartDate",
+						label: "Date of Birth",
+						value: new Date(),
+						picker: {
+							yearFrom: 1920
+						}
+					},
+					{
                         xtype: "textfield",
                         itemId: "nationalityNameTextField",
                         name: "NationalityName",
+						label: "Nationality",
                         required: false,
 						plugins: [
                             {
@@ -187,16 +202,6 @@ Ext.define("Core.view.touch.person.detail.View", {
 						cancelButton: true,
 						slots: [], // default empty, gets set in Mediator
 						hidden: true
-					},
-					{
-						xtype: "datepickerfield",
-						destroyPickerOnHide: true,
-						name: "StartDate",
-						label: "Date of Birth",
-						value: new Date(),
-						picker: {
-							yearFrom: 1920
-						}
 					}
                 ]
             },

@@ -157,7 +157,37 @@ Ext.define("Core.view.touch.person.detail.View", {
 						cancelButton: true,
 						slots: [], // default empty, gets set in Mediator
 						hidden: true
-					},	
+					},
+					{
+                        xtype: "textfield",
+                        itemId: "nationalityNameTextField",
+                        name: "NationalityName",
+                        required: false,
+						plugins: [
+                            {
+                                type: "localization",
+                                method: "setPlaceHolder",
+                                key: "personDetail.nationalityName"
+                            }
+                        ],
+						readOnly: true,					
+					},
+					{
+                        xtype: "hiddenfield",
+                        itemId: "kf_NationalityIDHiddenField",
+                        name: "kf_NationalityID",
+                        required: false,
+						readOnly: true
+                    },
+					{ 
+						xtype: "picker",
+						itemId: "nationalityPicker",
+						ui: "neutral",
+						doneButton: false,
+						cancelButton: true,
+						slots: [], // default empty, gets set in Mediator
+						hidden: true
+					},
 					{
 						xtype: "datepickerfield",
 						destroyPickerOnHide: true,

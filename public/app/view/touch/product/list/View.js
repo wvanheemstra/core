@@ -73,7 +73,7 @@ Ext.define("Core.view.touch.product.list.View", {
 				ui: "neutral",
 				itemTpl: Ext.create('Ext.XTemplate',
 						"<div class='productName'>",
-						  "<div style='float:left; width: 100%'>{productName}</div>",
+						  "<div style='float:left; width: 100%'>{ProductName}</div>",
 						"</div>",
 						"<div style='clear:both'></div>"
 				),

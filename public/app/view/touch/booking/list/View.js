@@ -71,8 +71,13 @@ Ext.define("Core.view.touch.booking.list.View", {
                 itemId: "list",
                 fullscreen: true,
 				ui: "neutral",
-                itemTpl: "<div class='contact'>{name}</div>",
-                grouped: false,// WAS true, grouped currently causes an error
+				itemTpl: Ext.create('Ext.XTemplate',
+						"<div class='bookingName'>",
+						  "<div style='float:left; width: 100%'>{BookingName}</div>",
+						"</div>",
+						"<div style='clear:both'></div>"
+				),
+                grouped: true,
                 onItemDisclosure: true,
                 plugins: [
                     {

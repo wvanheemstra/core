@@ -71,15 +71,15 @@ Ext.define("Core.view.touch.product.detail.View", {
                 items: [
                     {
                         xtype: "textfield",
-                        itemId: "nameTextField",
-                        name: "name",
+                        itemId: "productNameTextField",
+                        name: "ProductName",
 						label: "Name",
                         required: true,
                         plugins: [
                             {
                                 type: "localization",
                                 method: "setPlaceHolder",
-                                key: "productDetail.name"
+                                key: "productDetail.productName"
                             }
                         ]
                     }

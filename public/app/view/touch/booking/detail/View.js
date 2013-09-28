@@ -71,15 +71,15 @@ Ext.define("Core.view.touch.booking.detail.View", {
                 items: [
                     {
                         xtype: "textfield",
-                        itemId: "nameTextField",
-                        name: "name",
+                        itemId: "bookingNameTextField",
+                        name: "BookingName",
 						label: "Name",		
                         required: true,
                         plugins: [
                             {
                                 type: "localization",
                                 method: "setPlaceHolder",
-                                key: "bookingDetail.name"
+                                key: "bookingDetail.bookingName"
                             }
                         ]
                     }

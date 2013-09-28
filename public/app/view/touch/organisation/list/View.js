@@ -73,7 +73,7 @@ Ext.define("Core.view.touch.organisation.list.View", {
 				ui: "neutral",
 				itemTpl: Ext.create('Ext.XTemplate',
 						"<div class='organisationName'>",
-						  "<div style='float:left; width: 100%'>{organisationName}</div>",
+						  "<div style='float:left; width: 100%'>{OrganisationName}</div>",
 						"</div>",
 						"<div style='clear:both'></div>"
 				),

@@ -11,7 +11,8 @@ Ext.define("Core.model.person.Model", {
 	        { name: "PersonFirstName",    type: "string"  },
 			{ name: "PersonLastName",    type: "string"  },
 			{ name: 'kf_GenderID', type: 'int', defaultValue: '0' },
-			{ name: 'kf_SalutationID', type: 'int', defaultValue: '0' }
+			{ name: 'kf_SalutationID', type: 'int', defaultValue: '0' },
+			{ name: 'kf_NationalityID', type: 'int', defaultValue: '0' }
 	    ],
 	    validations: [
 	        { type: "presence", field: "kp_PersonID" },
@@ -26,7 +27,8 @@ Ext.define("Core.model.person.Model", {
         { name: "PersonFirstName",    type: "string"  },
 		{ name: "PersonLastName",    type: "string"  },
 		{ name: 'kf_GenderID', type: 'int', defaultValue: '0' },
-		{ name: 'kf_SalutationID', type: 'int', defaultValue: '0' }
+		{ name: 'kf_SalutationID', type: 'int', defaultValue: '0' },
+		{ name: 'kf_NationalityID', type: 'int', defaultValue: '0' }
 	],
     validations: [
         { type: "presence", field: "kp_PersonID" },

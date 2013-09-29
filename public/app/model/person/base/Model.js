@@ -17,6 +17,11 @@ Ext.define("Core.model.person.base.Model", {
 		  return null;
 		}
 		var store = Ext.StoreMgr.get(assoc.config.foreignStore);
+		
+		if(!store) {
+			store = Ext.StoreMgr.get(assoc.config.foreignStoreId);
+		}		
+		
 		if (!store) {
 		  return null;
 		}
@@ -34,6 +39,11 @@ Ext.define("Core.model.person.base.Model", {
 		  return null;
 		}
 		var store = Ext.StoreMgr.get(assoc.config.foreignStore);
+		
+		if(!store) {
+			store = Ext.StoreMgr.get(assoc.config.foreignStoreId);
+		}
+		
 		if (!store) {
 		  return null;
 		}
@@ -149,6 +159,10 @@ Ext.define("Core.model.person.base.Model", {
 		  type = association.getType();
 		  foreignStore = association.config.foreignStore;
 
+		  if(!foreignStore) {
+			 foreignStore = association.config.foreignStoreId;
+		  }		  
+		  
 		  if (!foreignStore) {
 			continue;
 		  }
@@ -199,6 +213,10 @@ Ext.define("Core.model.person.base.Model", {
 		  type = association.getType();
 		  foreignStore = association.config.foreignStore;
 
+		  if(!foreignStore) {
+			 foreignStore = association.config.foreignStoreId;
+		  }		  
+		  
 		  if (!foreignStore) {
 			continue;
 		  }

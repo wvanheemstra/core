@@ -75,7 +75,7 @@ Ext.define("Core.view.touch.person.detail.View", {
 					{
                         xtype: "textfield",
                         itemId: "salutationAbbreviationTextField",
-                        name: "SalutationAbbreviation",
+                        name: "SalutationAbbreviation", // Gets set in Mediator
 						label: "Salutation",
                         required: false,
 						plugins: [
@@ -138,7 +138,7 @@ Ext.define("Core.view.touch.person.detail.View", {
                     {
                         xtype: "textfield",
                         itemId: "genderNameTextField",
-                        name: "GenderName",
+                        name: "GenderName", // Gets set in Mediator
 						label: "Gender",
                         required: false,
 						plugins: [
@@ -148,7 +148,7 @@ Ext.define("Core.view.touch.person.detail.View", {
                                 key: "personDetail.genderName"
                             }
                         ],
-						readOnly: true,					
+						readOnly: true
 					},
 					{
                         xtype: "hiddenfield",
@@ -183,7 +183,7 @@ Ext.define("Core.view.touch.person.detail.View", {
 					{
                         xtype: "textfield",
                         itemId: "nationalityNameTextField",
-                        name: "NationalityName",
+                        name: "NationalityName", // Gets set in Mediator
 						label: "Nationality",
                         required: false,
 						plugins: [

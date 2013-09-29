@@ -73,7 +73,7 @@ Ext.define("Core.view.touch.person.list.View", {
 				ui: "neutral",
 				itemTpl: Ext.create('Ext.XTemplate',
 						"<div class='salutationAbbreviation'>",
-						  "<div style='float:left; width: 15%'>{kf_SalutationID}</div>",
+						  "<div style='float:left; width: 15%'>{Salutation.SalutationAbbreviation}</div>",
 						"</div>",				
 						"<div class='personFirstName'>",
 						  "<div style='float:left; width: 35%'>{PersonFirstName}</div>",

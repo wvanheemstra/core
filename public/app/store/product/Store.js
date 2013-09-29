@@ -5,6 +5,7 @@ Ext.define("Core.store.product.Store", {
     extend: "FlowMVC.mvc.store.AbstractStore",
     // Touch uses properties inside of config
 	config: {
+		storeId: "productStore", // Required for automatic registration	
 	    model: "Core.model.product.Model",
 	    sorters: "ProductName",
 	    isAutoUpdate: true,
@@ -19,6 +20,7 @@ Ext.define("Core.store.product.Store", {
 	    }
 	},//eof config
 	// Ext requires properties outside of config
+	storeId: "productStore", // Required for automatic registration		
     model: "Core.model.product.Model",
     sorters: "ProductName",
     isAutoUpdate: true,

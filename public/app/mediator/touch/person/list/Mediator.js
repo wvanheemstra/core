@@ -24,6 +24,11 @@ Ext.define("Core.mediator.touch.person.list.Mediator", {
         }
     },
 
+	statics: {
+        READ_PERSONS_SUCCESS:    false,
+        READ_GENDERS_SUCCESS:    false		
+	},	
+	
     /**
      * Sets up global event bus handlers. Called by the parent superclass during the initialization phase.
      */
@@ -34,6 +39,8 @@ Ext.define("Core.mediator.touch.person.list.Mediator", {
         this.eventBus.addGlobalEventListener(Core.event.authentication.Event.LOGIN_SUCCESS, this.onLoginSuccess, this);
         this.eventBus.addGlobalEventListener(Core.event.person.Event.GET_PERSON_LIST_SUCCESS, this.onGetPersonListSuccess, this);
         this.eventBus.addGlobalEventListener(Core.event.person.Event.GET_PERSON_LIST_FAILURE, this.onGetPersonListFailure, this);
+        this.eventBus.addGlobalEventListener(Core.event.gender.Event.READ_GENDERS_SUCCESS, this.onReadGendersSuccess, this);
+        this.eventBus.addGlobalEventListener(Core.event.gender.Event.READ_GENDERS_FAILURE, this.onReadGendersFailure, this);	
     },
 
     /**
@@ -47,6 +54,10 @@ Ext.define("Core.mediator.touch.person.list.Mediator", {
         });
         var evt = Ext.create("Core.event.person.Event", Core.event.person.Event.GET_PERSON_LIST);
         this.eventBus.dispatchGlobalEvent(evt);
+		
+		var evt = Ext.create("Core.event.gender.Event", Core.event.gender.Event.READ_GENDERS);
+        this.eventBus.dispatchGlobalEvent(evt); 
+		
     },
 
     /**
@@ -66,6 +77,19 @@ Ext.define("Core.mediator.touch.person.list.Mediator", {
         this.personStore.setSelectedRecord(record);
     },
     
+    /**
+     * Shows the list once all reads have been successful. 
+     *
+     */	 
+	showPersonList: function(){
+    	this.logger.debug("showPersonList");	
+		if(this.self.READ_PERSONS_SUCCESS 
+			&& this.self.READ_GENDERS_SUCCESS){
+			this.getView().setMasked(false);
+			this.getList().setStore(this.personStore);
+		}
+	},
+	
     /**
      * Handles the set UI event. 
      *
@@ -115,18 +139,36 @@ Ext.define("Core.mediator.touch.person.list.Mediator", {
      */
     onGetPersonListSuccess: function() {
         this.logger.debug("onGetPersonListSuccess");
-        this.getView().setMasked(false);
-        this.getList().setStore(this.personStore);
+		this.self.READ_PERSONS_SUCCESS = true;
+        this.showPersonList();
     },
 
     /**
-     * Handles the get persons failure event from the login controller.
+     * Handles the get persons failure event.
      */
     onGetPersonListFailure: function() {
         this.logger.debug("onGetPersonListFailure");
+		this.self.READ_PERSONS_SUCCESS = false;
         this.getView().setMasked(false);
     },
 
+    /**
+     * Handles the read genders success event.
+     */
+    onReadGendersSuccess: function() {
+        this.logger.debug("onReadGendersSuccess");
+		this.self.READ_GENDERS_SUCCESS = true;		
+        this.showPersonList();
+    },
+
+    /**
+     * Handles the read genders failure event.
+     */
+    onReadGendersFailure: function() {
+        this.logger.debug("onReadGendersFailure");
+		this.self.READ_GENDERS_SUCCESS = false;
+        this.getView().setMasked(false);
+    },	
     ////////////////////////////////////////////////
     // VIEW EVENT HANDLERS
     ////////////////////////////////////////////////

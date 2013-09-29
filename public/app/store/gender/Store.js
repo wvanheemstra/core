@@ -2,7 +2,7 @@
  * Contains the list of gender objects.
  */
 Ext.define("Core.store.gender.Store", {
-    extend: "FlowMVC.mvc.store.AbstractStore",
+    extend: "Core.store.gender.base.Store",
     // Touch uses properties inside of config
 	config: {
 	    storeId: "genderStore", // Required for automatic registration

@@ -2,7 +2,7 @@
  * Contains the list of person objects.
  */
 Ext.define("Core.store.person.Store", {
-    extend: "FlowMVC.mvc.store.AbstractStore",
+    extend: "Core.store.person.base.Store",
     // Touch uses properties inside of config
 	config: {
 	    storeId: "personStore", // Required for automatic registration	

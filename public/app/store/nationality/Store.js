@@ -2,7 +2,7 @@
  * Contains the list of nationality objects.
  */
 Ext.define("Core.store.nationality.Store", {
-    extend: "FlowMVC.mvc.store.AbstractStore",
+    extend: "Core.store.nationality.base.Store",
     // Touch uses properties inside of config
 	config: {
 		storeId: "nationalityStore", // Required for automatic registration	

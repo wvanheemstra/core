@@ -2,7 +2,7 @@
  * Contains the list of salutation objects.
  */
 Ext.define("Core.store.salutation.Store", {
-    extend: "FlowMVC.mvc.store.AbstractStore",
+    extend: "Core.store.salutation.base.Store",
     // Touch uses properties inside of config
 	config: {
 		storeId: "salutationStore", // Required for automatic registration	

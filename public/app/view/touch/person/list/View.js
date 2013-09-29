@@ -81,22 +81,9 @@ Ext.define("Core.view.touch.person.list.View", {
 						"<div class='personLastName'>",
 						  "<div style='float:left; width: 35%'>{PersonLastName}</div>",
 						"</div>",
-						
-						"<div class='genderID'>",
-						  "<div style='float:left; width: 0%'>{kf_GenderID}</div>",
-						"</div>",
-						
 						"<div class='genderName'>",
-						  "<div style='float:left; width: 15%'>{Gender.kp_GenderID}{Gender}{Gender[0][0]}</div>",
-						"</div>",						
-						
-						
-				//		"<tpl for='Gender'>",     // interrogate the Gender property within the data
-				//			"<div class='genderName'>",
-				//				"<div style='float:left; width: 15%'>{GenderName}</div>",
-				//			"</div>",
-                //        "</tpl>",
-						
+						  "<div style='float:left; width: 15%'>{Gender.GenderName}</div>",
+						"</div>",
 						"<div style='clear:both'></div>"
 				),
                 grouped: true,

@@ -68,9 +68,10 @@ Ext.define("Core.mediator.touch.person.list.Mediator", {
      * @param record    The record is the data model for the item in the list currently selected.
      */
     showPersonDetail: function(record) {
+    	this.logger.debug("showPersonDetail");	
         var logMsg = (record != null)
             ? ": kp_PersonID = " + record.get("kp_PersonID") + ", person = " + record.get("PersonFirstName") + " " + record.get("PersonLastName") 
-            : "new person";
+            + ", gender = " + record.get("Gender")["GenderName"] : "new person";
         this.logger.debug("showPersonDetail = " + logMsg);
 		Core.config.person.Config.setPreviousView('personlist');
         this.navigate(Core.event.navigation.Event.ACTION_SHOW_PERSON_DETAIL);

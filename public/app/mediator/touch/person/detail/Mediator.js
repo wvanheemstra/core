@@ -23,6 +23,7 @@ Ext.define("Core.mediator.touch.person.detail.Mediator", {
             tap: "onDeleteButtonTap"
         },
 		salutationAbbreviationTextField: {
+			painted: "onSalutationAbbreviationTextFieldPainted",	
 			focus: "onSalutationAbbreviationTextFieldFocus"
 		},
 		salutationPicker: {
@@ -31,12 +32,14 @@ Ext.define("Core.mediator.touch.person.detail.Mediator", {
 			change: "onChangeSalutationPicker"
 		},
 		genderNameTextField: {
+			painted: "onGenderNameTextFieldPainted",
 			focus: "onGenderNameTextFieldFocus"
 		},
 		genderPicker: {
 			show: "onShowPicker"
 		},
 		nationalityNameTextField: {
+			painted: "onNationalityNameTextFieldPainted",		
 			focus: "onNationalityNameTextFieldFocus"
 		},
 		nationalityPicker: {
@@ -559,12 +562,38 @@ Ext.define("Core.mediator.touch.person.detail.Mediator", {
     },
 
     /**
+     * Handles the salutation abbreviation text field painted event. 
+     * 
+	 * @param element   The element that is painted
+	 * @param options   The options
+     */
+    onSalutationAbbreviationTextFieldPainted: function(element, options) {
+        this.logger.debug("onSalutationAbbreviationTextFieldPainted");
+		var record = this.getView().getRecord();
+		var salutationAbbreviation = record.get("Salutation")["SalutationAbbreviation"];
+		this.getView().down('#salutationAbbreviationTextField').setValue(salutationAbbreviation);
+    },	
+	
+    /**
      * Handles the salutation abbreviation text field focus event. 
      * 
      */
     onSalutationAbbreviationTextFieldFocus: function() {
         this.logger.debug("onSalutationAbbreviationTextFieldFocus");
 		this.readSalutations();
+    },
+
+    /**
+     * Handles the gender name text field painted event. 
+     * 
+	 * @param element   The element that is painted
+	 * @param options   The options
+     */
+    onGenderNameTextFieldPainted: function(element, options) {
+        this.logger.debug("onGenderNameTextFieldPainted");
+		var record = this.getView().getRecord();
+		var genderName = record.get("Gender")["GenderName"];
+		this.getView().down('#genderNameTextField').setValue(genderName);
     },
 	
     /**
@@ -575,7 +604,20 @@ Ext.define("Core.mediator.touch.person.detail.Mediator", {
         this.logger.debug("onGenderNameTextFieldFocus");
 		this.readGenders();
     },
-	
+
+    /**
+     * Handles the nationality name text field painted event. 
+     * 
+	 * @param element   The element that is painted
+	 * @param options   The options
+     */
+    onNationalityNameTextFieldPainted: function(element, options) {
+        this.logger.debug("onNationalityNameTextFieldPainted");
+		var record = this.getView().getRecord();
+		var nationalityName = record.get("Nationality")["NationalityName"];
+		this.getView().down('#nationalityNameTextField').setValue(nationalityName);
+    },	
+
     /**
      * Handles the nationality name text field focus event. 
      * 

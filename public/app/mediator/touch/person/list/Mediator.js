@@ -25,8 +25,10 @@ Ext.define("Core.mediator.touch.person.list.Mediator", {
     },
 
 	statics: {
-        READ_PERSONS_SUCCESS:    false,
-        READ_GENDERS_SUCCESS:    false		
+        READ_PERSONS_SUCCESS:    	false,
+        READ_SALUTATIONS_SUCCESS:	false,			
+        READ_GENDERS_SUCCESS:		false,
+        READ_NATIONALITIES_SUCCESS:	false	
 	},	
 	
     /**
@@ -39,8 +41,12 @@ Ext.define("Core.mediator.touch.person.list.Mediator", {
         this.eventBus.addGlobalEventListener(Core.event.authentication.Event.LOGIN_SUCCESS, this.onLoginSuccess, this);
         this.eventBus.addGlobalEventListener(Core.event.person.Event.GET_PERSON_LIST_SUCCESS, this.onGetPersonListSuccess, this);
         this.eventBus.addGlobalEventListener(Core.event.person.Event.GET_PERSON_LIST_FAILURE, this.onGetPersonListFailure, this);
+        this.eventBus.addGlobalEventListener(Core.event.salutation.Event.READ_SALUTATIONS_SUCCESS, this.onReadSalutationsSuccess, this);
+        this.eventBus.addGlobalEventListener(Core.event.salutation.Event.READ_SALUTATIONS_FAILURE, this.onReadSalutationsFailure, this);		
         this.eventBus.addGlobalEventListener(Core.event.gender.Event.READ_GENDERS_SUCCESS, this.onReadGendersSuccess, this);
-        this.eventBus.addGlobalEventListener(Core.event.gender.Event.READ_GENDERS_FAILURE, this.onReadGendersFailure, this);	
+        this.eventBus.addGlobalEventListener(Core.event.gender.Event.READ_GENDERS_FAILURE, this.onReadGendersFailure, this);
+        this.eventBus.addGlobalEventListener(Core.event.nationality.Event.READ_NATIONALITIES_SUCCESS, this.onReadNationalitiesSuccess, this);
+        this.eventBus.addGlobalEventListener(Core.event.nationality.Event.READ_NATIONALITIES_FAILURE, this.onReadNationalitiesFailure, this);		
     },
 
     /**
@@ -54,9 +60,15 @@ Ext.define("Core.mediator.touch.person.list.Mediator", {
         });
         var evt = Ext.create("Core.event.person.Event", Core.event.person.Event.GET_PERSON_LIST);
         this.eventBus.dispatchGlobalEvent(evt);
+
+		var evt = Ext.create("Core.event.salutation.Event", Core.event.salutation.Event.READ_SALUTATIONS);
+        this.eventBus.dispatchGlobalEvent(evt); 
 		
 		var evt = Ext.create("Core.event.gender.Event", Core.event.gender.Event.READ_GENDERS);
         this.eventBus.dispatchGlobalEvent(evt); 
+		
+		var evt = Ext.create("Core.event.nationality.Event", Core.event.nationality.Event.READ_NATIONALITIES);
+        this.eventBus.dispatchGlobalEvent(evt); 		
 		
     },
 
@@ -85,7 +97,9 @@ Ext.define("Core.mediator.touch.person.list.Mediator", {
 	showPersonList: function(){
     	this.logger.debug("showPersonList");	
 		if(this.self.READ_PERSONS_SUCCESS 
-			&& this.self.READ_GENDERS_SUCCESS){
+			&& this.self.READ_SALUTATIONS_SUCCESS
+			&& this.self.READ_GENDERS_SUCCESS
+			&& this.self.READ_NATIONALITIES_SUCCESS){
 			this.getView().setMasked(false);
 			this.getList().setStore(this.personStore);
 		}
@@ -154,6 +168,24 @@ Ext.define("Core.mediator.touch.person.list.Mediator", {
     },
 
     /**
+     * Handles the read salutations success event.
+     */
+    onReadSalutationsSuccess: function() {
+        this.logger.debug("onReadSalutationsSuccess");
+		this.self.READ_SALUTATIONS_SUCCESS = true;		
+        this.showPersonList();
+    },
+
+    /**
+     * Handles the read salutations failure event.
+     */
+    onReadSalutationsFailure: function() {
+        this.logger.debug("onReadSalutationsFailure");
+		this.self.READ_SALUTATIONS_SUCCESS = false;
+        this.getView().setMasked(false);
+    },		
+	
+    /**
      * Handles the read genders success event.
      */
     onReadGendersSuccess: function() {
@@ -168,6 +200,24 @@ Ext.define("Core.mediator.touch.person.list.Mediator", {
     onReadGendersFailure: function() {
         this.logger.debug("onReadGendersFailure");
 		this.self.READ_GENDERS_SUCCESS = false;
+        this.getView().setMasked(false);
+    },	
+	
+    /**
+     * Handles the read nationalities success event.
+     */
+    onReadNationalitiesSuccess: function() {
+        this.logger.debug("onReadNationalitiesSuccess");
+		this.self.READ_NATIONALITIES_SUCCESS = true;		
+        this.showPersonList();
+    },
+
+    /**
+     * Handles the read nationalities failure event.
+     */
+    onReadNationalitiesFailure: function() {
+        this.logger.debug("onReadNationalitiesFailure");
+		this.self.READ_NATIONALITIES_SUCCESS = false;
         this.getView().setMasked(false);
     },	
     ////////////////////////////////////////////////

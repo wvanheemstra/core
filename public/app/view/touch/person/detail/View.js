@@ -167,12 +167,30 @@ Ext.define("Core.view.touch.person.detail.View", {
 						slots: [], // default empty, gets set in Mediator
 						hidden: true
 					},
+					// Note: No separate textfield for dateStart, is part of Picker
+					{
+                        xtype: "hiddenfield",
+                        itemId: "kf_DateIDHiddenField",
+                        name: "kf_DateID",
+                        required: false,
+						readOnly: true
+                    },
 					{
 						xtype: "datepickerfield",
+						itemId: "dateStartTextField",
 						destroyPickerOnHide: true,
-						name: "StartDate",
+						name: "DateStart", // Gets set in Mediator
 						useTitles: true,						
 						label: "Date of Birth",
+						required: false,
+						plugins: [
+                            {
+                                type: "localization",
+                                method: "setPlaceHolder",
+                                key: "personDetail.dateStart"
+                            }
+                        ],
+						readOnly: true,
 						value: new Date(),
 						picker: {
 							title: "Choose a Date of Birth",

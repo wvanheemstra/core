@@ -198,7 +198,7 @@ Ext.define("Core.service.person.mock.Service", {
 
         response = Ext.create("Core.model.person.Model", response.person);
         return this.delayedSuccess(response);
-    }   
+    }, 
 
     /**
      * The mock service call.

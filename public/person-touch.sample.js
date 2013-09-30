@@ -76,6 +76,11 @@ Ext.onReady(function () {
 			store: true
 		}]
 	},{
+		date:  [{
+			mock: true,
+			store: true
+		}]
+	},{
 		person:  [{
 			mock: true,
 			store: true

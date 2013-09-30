@@ -65,6 +65,16 @@ Ext.define("Core.config.person.Config",{
 				store: true
 			}]
 		},{
+			nationality:  [{
+				mock: true,
+				store: true
+			}]
+		},{
+			date:  [{
+				mock: true,
+				store: true
+			}]
+		},{
 			person:  [{
 				mock: true,
 				store: true

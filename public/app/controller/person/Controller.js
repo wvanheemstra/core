@@ -16,7 +16,9 @@ Ext.define("Core.controller.person.Controller", {
         "personService",
         "personStore",
 		"salutationStore",
-		"genderStore",		
+		"genderStore",
+		"nationalityStore",
+		"dateStore",
         "logger"
     ],
     
@@ -157,6 +159,14 @@ Ext.define("Core.controller.person.Controller", {
         this.logger.debug("deletePerson");
         this.executeServiceCall(this.personService, this.personService.deletePerson, [person], this.deletePersonSuccess, this.deletePersonFailure, this);
     },
+
+    /**
+     * Resets the session data.
+     */
+    resetSessionData: function() {
+        this.logger.info("resetSessionData");
+        this.setSessionToken(null);
+    },
 	
     ////////////////////////////////////////////////
     // SERVICE SUCCESS/FAULT HANDLERS
@@ -186,6 +196,9 @@ Ext.define("Core.controller.person.Controller", {
     getPersonListSuccess: function(response) {
         this.logger.info("getPersonListSuccess");
 
+		// The server will send a token that can be used throughout the app.
+        this.setSessionToken(response.sessionToken);
+		
         this.personStore.setData(response.personList);
 
         var evt = Ext.create("Core.event.person.Event", Core.event.person.Event.GET_PERSON_LIST_SUCCESS);
@@ -201,6 +214,9 @@ Ext.define("Core.controller.person.Controller", {
     getPersonTileSuccess: function(response) {
         this.logger.info("getPersonTileSuccess");
 
+		// The server will send a token that can be used throughout the app.
+        this.setSessionToken(response.sessionToken);
+		
         this.personStore.setData(response.personTile);
 
         var evt = Ext.create("Core.event.person.Event", Core.event.person.Event.GET_PERSON_TILE_SUCCESS);
@@ -216,6 +232,9 @@ Ext.define("Core.controller.person.Controller", {
     getPersonModalSuccess: function(response) {
         this.logger.info("getPersonModalSuccess");
 
+		// The server will send a token that can be used throughout the app.
+        this.setSessionToken(response.sessionToken);		
+		
         this.personStore.setData(response.personModal);
 
         var evt = Ext.create("Core.event.person.Event", Core.event.person.Event.GET_PERSON_MODAL_SUCCESS);
@@ -231,6 +250,8 @@ Ext.define("Core.controller.person.Controller", {
     getPersonSlideFailure: function(response) {
         this.logger.warn("getPersonSlideFailure");
 
+        this.resetSessionData();		
+		
         var evt = Ext.create("Core.event.person.Event", Core.event.person.Event.GET_PERSON_SLIDE_FAILURE);
         this.eventBus.dispatchGlobalEvent(evt);
     },
@@ -243,6 +264,8 @@ Ext.define("Core.controller.person.Controller", {
      */
     getPersonListFailure: function(response) {
         this.logger.warn("getPersonListFailure");
+		
+        this.resetSessionData();		
 
         var evt = Ext.create("Core.event.person.Event", Core.event.person.Event.GET_PERSON_LIST_FAILURE);
         this.eventBus.dispatchGlobalEvent(evt);
@@ -257,6 +280,8 @@ Ext.define("Core.controller.person.Controller", {
     getPersonTileFailure: function(response) {
         this.logger.warn("getPersonTileFailure");
 
+        this.resetSessionData();		
+		
         var evt = Ext.create("Core.event.person.Event", Core.event.person.Event.GET_PERSON_TILE_FAILURE);
         this.eventBus.dispatchGlobalEvent(evt);
     }, 
@@ -270,6 +295,8 @@ Ext.define("Core.controller.person.Controller", {
     getPersonModalFailure: function(response) {
         this.logger.warn("getPersonModalFailure");
 
+        this.resetSessionData();		
+		
         var evt = Ext.create("Core.event.person.Event", Core.event.person.Event.GET_PERSON_MODAL_FAILURE);
         this.eventBus.dispatchGlobalEvent(evt);
     }, 	
@@ -283,6 +310,9 @@ Ext.define("Core.controller.person.Controller", {
     createPersonSuccess: function(response) {
         this.logger.info("createPersonSuccess");
 
+		// The server will send a token that can be used throughout the app.
+        this.setSessionToken(response.sessionToken);		
+		
         this.personStore.add(response);
 
         var evt = Ext.create("Core.event.person.Event", Core.event.person.Event.CREATE_PERSON_SUCCESS);
@@ -298,6 +328,8 @@ Ext.define("Core.controller.person.Controller", {
     createPersonFailure: function(response) {
         this.logger.warn("createPersonFailure");
 
+        this.resetSessionData();		
+		
         var evt = Ext.create("Core.event.person.Event", Core.event.person.Event.CREATE_PERSON_FAILURE);
         this.eventBus.dispatchGlobalEvent(evt);
     },
@@ -311,6 +343,9 @@ Ext.define("Core.controller.person.Controller", {
     updatePersonSuccess: function(response) {
         this.logger.info("updatePersonSuccess");
 
+		// The server will send a token that can be used throughout the app.
+        this.setSessionToken(response.sessionToken);		
+		
         this.personStore.update(response);
 
         var evt = Ext.create("Core.event.person.Event", Core.event.person.Event.UPDATE_PERSON_SUCCESS);
@@ -326,6 +361,8 @@ Ext.define("Core.controller.person.Controller", {
     updatePersonFailure: function(response) {
         this.logger.warn("updatePersonFailure");
 
+        this.resetSessionData();		
+		
         var evt = Ext.create("Core.event.person.Event", Core.event.person.Event.UPDATE_PERSON_FAILURE);
         this.eventBus.dispatchGlobalEvent(evt);
     },
@@ -339,6 +376,9 @@ Ext.define("Core.controller.person.Controller", {
     deletePersonSuccess: function(response) {
         this.logger.info("deletePersonSuccess");
 
+		// The server will send a token that can be used throughout the app.
+        this.setSessionToken(response.sessionToken);		
+		
         this.personStore.setSelectedRecord(null);
         var person = this.personStore.findRecord("kp_PersonID", response.data.kp_PersonID);
         this.personStore.remove(person);
@@ -356,6 +396,8 @@ Ext.define("Core.controller.person.Controller", {
     deletePersonFailure: function(response) {
         this.logger.warn("deletePersonFailure");
 
+        this.resetSessionData();		
+		
         var evt = Ext.create("Core.event.person.Event", Core.event.person.Event.DELETE_PERSON_FAILURE);
         this.eventBus.dispatchGlobalEvent(evt);
     },
@@ -368,6 +410,9 @@ Ext.define("Core.controller.person.Controller", {
     readSalutationsSuccess: function(response) {
         this.logger.info("readSalutationsSuccess");
 
+		// The server will send a token that can be used throughout the app.
+        this.setSessionToken(response.sessionToken);		
+		
         this.salutationStore.load();
 
         var evt = Ext.create("Core.event.salutation.Event", Core.event.salutation.Event.READ_SALUTATIONS_SUCCESS);
@@ -382,6 +427,8 @@ Ext.define("Core.controller.person.Controller", {
     readSalutationsFailure: function(response) {
         this.logger.warn("readSalutationsFailure");
 
+        this.resetSessionData();		
+		
         var evt = Ext.create("Core.event.salutation.Event", Core.event.salutation.Event.READ_SALUTATIONS_FAILURE);
         this.eventBus.dispatchGlobalEvent(evt);
     },
@@ -392,8 +439,11 @@ Ext.define("Core.controller.person.Controller", {
      *
      */
     readGendersSuccess: function(response) {
-        this.logger.info("readSalutationsSuccess");
+        this.logger.info("readGendersSuccess");
 
+		// The server will send a token that can be used throughout the app.
+        this.setSessionToken(response.sessionToken);		
+		
         this.genderStore.load();
 
         var evt = Ext.create("Core.event.gender.Event", Core.event.gender.Event.READ_GENDERS_SUCCESS);
@@ -408,7 +458,71 @@ Ext.define("Core.controller.person.Controller", {
     readGendersFailure: function(response) {
         this.logger.warn("readGendersFailure");
 
+        this.resetSessionData();		
+		
         var evt = Ext.create("Core.event.gender.Event", Core.event.gender.Event.READ_GENDERS_FAILURE);
+        this.eventBus.dispatchGlobalEvent(evt);
+    },
+
+	/**
+     * Handles the successful read nationalities service call.
+     * Fires off the corresponding success event on the application-level event bus.
+     *
+     */
+    readNationalitiesSuccess: function(response) {
+        this.logger.info("readNationalitiesSuccess");
+
+		// The server will send a token that can be used throughout the app.
+        this.setSessionToken(response.sessionToken);		
+		
+        this.nationalityStore.load();
+
+        var evt = Ext.create("Core.event.nationality.Event", Core.event.nationality.Event.READ_NATIONALITIES_SUCCESS);
+        this.eventBus.dispatchGlobalEvent(evt);
+    },
+
+    /**
+     * Handles the failed read nationalities service call.
+     * Fires off the corresponding failure event on the application-level event bus.
+     *
+     */
+    readNationalitiesFailure: function(response) {
+        this.logger.warn("readNationalitiesFailure");
+
+        this.resetSessionData();		
+		
+        var evt = Ext.create("Core.event.nationality.Event", Core.event.nationality.Event.READ_NATIONALITIES_FAILURE);
+        this.eventBus.dispatchGlobalEvent(evt);
+    },
+
+	/**
+     * Handles the successful read dates service call.
+     * Fires off the corresponding success event on the application-level event bus.
+     *
+     */
+    readDatesSuccess: function(response) {
+        this.logger.info("readDatesSuccess");
+
+		// The server will send a token that can be used throughout the app.
+        this.setSessionToken(response.sessionToken);		
+		
+        this.dateStore.load();
+
+        var evt = Ext.create("Core.event.date.Event", Core.event.date.Event.READ_DATES_SUCCESS);
+        this.eventBus.dispatchGlobalEvent(evt);
+    },
+
+    /**
+     * Handles the failed read dates service call.
+     * Fires off the corresponding failure event on the application-level event bus.
+     *
+     */
+    readDatesFailure: function(response) {
+        this.logger.warn("readDatesFailure");
+
+        this.resetSessionData();		
+		
+        var evt = Ext.create("Core.event.date.Event", Core.event.date.Event.READ_DATES_FAILURE);
         this.eventBus.dispatchGlobalEvent(evt);
     },
 	

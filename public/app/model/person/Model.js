@@ -12,7 +12,8 @@ Ext.define("Core.model.person.Model", {
 			{ name: "PersonLastName",    type: "string"  },
 			{ name: 'kf_GenderID', type: 'int', defaultValue: '0' },
 			{ name: 'kf_SalutationID', type: 'int', defaultValue: '0' },
-			{ name: 'kf_NationalityID', type: 'int', defaultValue: '0' }
+			{ name: 'kf_NationalityID', type: 'int', defaultValue: '0' },
+			{ name: 'kf_DateID', type: 'int', defaultValue: '0' }
 	    ],
 		belongsTo:[
 			{
@@ -40,6 +41,16 @@ Ext.define("Core.model.person.Model", {
 			  foreignStoreId: "nationalityStore" // the store id  of the foreign store
 			}		
 		],
+		hasOne:[
+			{
+			  name: "Date",
+			  model: "Core.model.date.Model",
+			  primaryKey: "kp_DateID", // the field in the parent that identifies it.
+			  foreignKey: "kf_DateID", // the key that identifies the parent in the child. In a belongsTo or hasOne relation, this is part of the model itself, in a hasMany relation this is a field of the child objects that refer to my Id.
+			  foreignStore: "dateStore",  //WAS "Core.store.date.Store", // the store name that contains the related records
+			  foreignStoreId: "dateStore" // the store id  of the foreign store
+			}		
+		],
 	    validations: [
 	        { type: "presence", field: "kp_PersonID" },
 	        { type: "presence", field: "PersonFirstName",     message: "Please enter a first name." },
@@ -54,7 +65,8 @@ Ext.define("Core.model.person.Model", {
 		{ name: "PersonLastName",    type: "string"  },
 		{ name: 'kf_GenderID', type: 'int', defaultValue: '0' },
 		{ name: 'kf_SalutationID', type: 'int', defaultValue: '0' },
-		{ name: 'kf_NationalityID', type: 'int', defaultValue: '0' }
+		{ name: 'kf_NationalityID', type: 'int', defaultValue: '0' },
+		{ name: 'kf_DateID', type: 'int', defaultValue: '0' }
 	],
 	belongsTo:[
 		{
@@ -82,6 +94,16 @@ Ext.define("Core.model.person.Model", {
 		  foreignStoreId: "nationalityStore" // the store id  of the foreign store
 		}			
 	],
+	hasOne:[
+		{
+		  name: "Date",
+		  model: "Core.model.date.Model",
+		  primaryKey: "kp_DateID", // the field in the parent that identifies it.
+		  foreignKey: "kf_DateID", // the key that identifies the parent in the child. In a belongsTo or hasOne relation, this is part of the model itself, in a hasMany relation this is a field of the child objects that refer to my Id.
+		  foreignStore: "dateStore",  //WAS "Core.store.date.Store", // the store name that contains the related records
+		  foreignStoreId: "dateStore" // the store id  of the foreign store
+		}		
+	],	
     validations: [
         { type: "presence", field: "kp_PersonID" },
         { type: "presence", field: "PersonFirstName",     message: "Please enter a first name." },

@@ -28,7 +28,8 @@ Ext.define("Core.mediator.touch.person.list.Mediator", {
         READ_PERSONS_SUCCESS:    	false,
         READ_SALUTATIONS_SUCCESS:	false,			
         READ_GENDERS_SUCCESS:		false,
-        READ_NATIONALITIES_SUCCESS:	false	
+        READ_NATIONALITIES_SUCCESS:	false,	
+		READ_DATES_SUCCESS:	false
 	},	
 	
     /**
@@ -46,7 +47,9 @@ Ext.define("Core.mediator.touch.person.list.Mediator", {
         this.eventBus.addGlobalEventListener(Core.event.gender.Event.READ_GENDERS_SUCCESS, this.onReadGendersSuccess, this);
         this.eventBus.addGlobalEventListener(Core.event.gender.Event.READ_GENDERS_FAILURE, this.onReadGendersFailure, this);
         this.eventBus.addGlobalEventListener(Core.event.nationality.Event.READ_NATIONALITIES_SUCCESS, this.onReadNationalitiesSuccess, this);
-        this.eventBus.addGlobalEventListener(Core.event.nationality.Event.READ_NATIONALITIES_FAILURE, this.onReadNationalitiesFailure, this);		
+        this.eventBus.addGlobalEventListener(Core.event.nationality.Event.READ_NATIONALITIES_FAILURE, this.onReadNationalitiesFailure, this);
+        this.eventBus.addGlobalEventListener(Core.event.date.Event.READ_DATES_SUCCESS, this.onReadDatesSuccess, this);
+        this.eventBus.addGlobalEventListener(Core.event.date.Event.READ_DATES_FAILURE, this.onReadDatesFailure, this);		
     },
 
     /**
@@ -68,6 +71,9 @@ Ext.define("Core.mediator.touch.person.list.Mediator", {
         this.eventBus.dispatchGlobalEvent(evt); 
 		
 		var evt = Ext.create("Core.event.nationality.Event", Core.event.nationality.Event.READ_NATIONALITIES);
+        this.eventBus.dispatchGlobalEvent(evt); 
+
+		var evt = Ext.create("Core.event.date.Event", Core.event.date.Event.READ_DATES);
         this.eventBus.dispatchGlobalEvent(evt); 		
 		
     },
@@ -82,8 +88,11 @@ Ext.define("Core.mediator.touch.person.list.Mediator", {
     showPersonDetail: function(record) {
     	this.logger.debug("showPersonDetail");	
         var logMsg = (record != null)
-            ? ": kp_PersonID = " + record.get("kp_PersonID") + ", person = " + record.get("PersonFirstName") + " " + record.get("PersonLastName") 
-            + ", gender = " + record.get("Gender")["GenderName"] : "new person";
+            ? ": kp_PersonID = " + record.get("kp_PersonID") 
+			+ ", person = " + record.get("PersonFirstName") + " " + record.get("PersonLastName") 
+            + ", gender = " + record.get("Gender")["GenderName"] 
+			+ ", nationality = " + record.get("Nationality")["NationalityName"]
+			+ ", date = " + record.get("Date")["DateStart"] : "new person";
         this.logger.debug("showPersonDetail = " + logMsg);
 		Core.config.person.Config.setPreviousView('personlist');
         this.navigate(Core.event.navigation.Event.ACTION_SHOW_PERSON_DETAIL);
@@ -99,7 +108,8 @@ Ext.define("Core.mediator.touch.person.list.Mediator", {
 		if(this.self.READ_PERSONS_SUCCESS 
 			&& this.self.READ_SALUTATIONS_SUCCESS
 			&& this.self.READ_GENDERS_SUCCESS
-			&& this.self.READ_NATIONALITIES_SUCCESS){
+			&& this.self.READ_NATIONALITIES_SUCCESS
+			&& this.self.READ_DATES_SUCCESS){
 			this.getView().setMasked(false);
 			this.getList().setStore(this.personStore);
 		}
@@ -220,6 +230,24 @@ Ext.define("Core.mediator.touch.person.list.Mediator", {
 		this.self.READ_NATIONALITIES_SUCCESS = false;
         this.getView().setMasked(false);
     },	
+	
+    /**
+     * Handles the read dates success event.
+     */
+    onReadDatesSuccess: function() {
+        this.logger.debug("onReadDatesSuccess");
+		this.self.READ_DATES_SUCCESS = true;		
+        this.showPersonList();
+    },
+
+    /**
+     * Handles the read dates failure event.
+     */
+    onReadDatesFailure: function() {
+        this.logger.debug("onReadDatesFailure");
+		this.self.READ_DATES_SUCCESS = false;
+        this.getView().setMasked(false);
+    },		
     ////////////////////////////////////////////////
     // VIEW EVENT HANDLERS
     ////////////////////////////////////////////////

@@ -92,7 +92,7 @@ Ext.onReady(function () {
 		}]
 	},{
 		person:  [{
-			mock: true,
+			mock: true,  // Set to 'false' when retrieving live data
 			store: true
 		}]
 	}];
@@ -163,7 +163,8 @@ Ext.application({
         "session.Model",
 		"salutation.Model",	
 		"gender.Model",	
-		"nationality.Model",			
+		"nationality.Model",	
+		"date.Model",		
     	"person.Model"
     ],
 
@@ -193,7 +194,8 @@ Ext.application({
         "authentication.Controller",
 		"salutation.Controller",
 		"gender.Controller",
-		"nationality.Controller",		
+		"nationality.Controller",	
+		"date.Controller",			
         "person.Controller"	
     ],
 

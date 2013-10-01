@@ -1,20 +1,20 @@
 /**
  * The DateController acts as the command with asynchronous callback methods for successful
- * and failed gender service calls.eError: "undefined" is not a function(evaluating "controller.getStores()")
+ * and failed date service calls.eError: "undefined" is not a function(evaluating "controller.getStores()")
  */
-Ext.define("Core.controller.gender.Controller", {
+Ext.define("Core.controller.date.Controller", {
     extend: "FlowMVC.mvc.controller.AbstractController",
 
     requires: [
-        "Core.event.gender.Event",
+        "Core.event.date.Event",
         "FlowMVC.mvc.service.rpc.Responder",
         "nineam.locale.store.LocalesStore",
         "nineam.locale.event.LocaleEvent"		
     ],
 
     inject: [
-        "genderService",
-        "genderStore",
+        "dateService",
+        "dateStore",
         "logger"
     ],
     
@@ -36,14 +36,14 @@ Ext.define("Core.controller.gender.Controller", {
     setupGlobalEventListeners: function() {
         this.callParent();
         this.logger.debug("setupGlobalEventListeners");
-        this.eventBus.addGlobalEventListener(Core.event.gender.Event.GET_DATE_SLIDE, this.onGetDateSlide, this);
-        this.eventBus.addGlobalEventListener(Core.event.gender.Event.GET_DATE_LIST, this.onGetDateList, this); 
-        this.eventBus.addGlobalEventListener(Core.event.gender.Event.GET_DATE_TILE, this.onGetDateTile, this);
-		this.eventBus.addGlobalEventListener(Core.event.gender.Event.GET_DATE_MODAL, this.onGetDateModal, this)               
-        this.eventBus.addGlobalEventListener(Core.event.gender.Event.CREATE_DATE, this.onCreateDate, this);
-        this.eventBus.addGlobalEventListener(Core.event.gender.Event.UPDATE_DATE, this.onUpdateDate, this);
-        this.eventBus.addGlobalEventListener(Core.event.gender.Event.DELETE_DATE, this.onDeleteDate, this);
-		this.eventBus.addGlobalEventListener(Core.event.gender.Event.READ_DATES, this.onReadDates, this);
+        this.eventBus.addGlobalEventListener(Core.event.date.Event.GET_DATE_SLIDE, this.onGetDateSlide, this);
+        this.eventBus.addGlobalEventListener(Core.event.date.Event.GET_DATE_LIST, this.onGetDateList, this); 
+        this.eventBus.addGlobalEventListener(Core.event.date.Event.GET_DATE_TILE, this.onGetDateTile, this);
+		this.eventBus.addGlobalEventListener(Core.event.date.Event.GET_DATE_MODAL, this.onGetDateModal, this)               
+        this.eventBus.addGlobalEventListener(Core.event.date.Event.CREATE_DATE, this.onCreateDate, this);
+        this.eventBus.addGlobalEventListener(Core.event.date.Event.UPDATE_DATE, this.onUpdateDate, this);
+        this.eventBus.addGlobalEventListener(Core.event.date.Event.DELETE_DATE, this.onDeleteDate, this);
+		this.eventBus.addGlobalEventListener(Core.event.date.Event.READ_DATES, this.onReadDates, this);
     },
 
     /**
@@ -60,11 +60,11 @@ Ext.define("Core.controller.gender.Controller", {
 		
         // var locales = Ext.create("nineam.locale.store.LocalesStore", {
             // data: [
-                // {id: "en_gb", label: "English GB", url: "locale/gender/en_gb.json"},
-                // {id: "en_us", label: "English US", url: "locale/gender/en_us.json"},
-                // {id: "es_us", label: "Spanish", url: "locale/gender/es_us.json"},
-                // {id: "nl_nl", label: "Dutch", url: "locale/gender/nl_nl.json"},
-                // {id: "de_de", label: "Deutsch", url: "locale/gender/de_de.json"}
+                // {id: "en_gb", label: "English GB", url: "locale/date/en_gb.json"},
+                // {id: "en_us", label: "English US", url: "locale/date/en_us.json"},
+                // {id: "es_us", label: "Spanish", url: "locale/date/es_us.json"},
+                // {id: "nl_nl", label: "Dutch", url: "locale/date/nl_nl.json"},
+                // {id: "de_de", label: "Deutsch", url: "locale/date/de_de.json"}
             // ]
         // });
         // lm.setLocales(locales);
@@ -89,82 +89,82 @@ Ext.define("Core.controller.gender.Controller", {
     // },
 	
     /**
-     * Performs get gender by using the referenced service and sets up the service success and failure
+     * Performs get date by using the referenced service and sets up the service success and failure
      * callback handlers.
      */
     getDateSlide: function() {
         this.logger.debug("getDateSlide");
-        this.executeServiceCall(this.genderService, this.genderService.getDateSlide, null, this.getDateSlideSuccess, this.getDateSlideFailure, this);
+        this.executeServiceCall(this.dateService, this.dateService.getDateSlide, null, this.getDateSlideSuccess, this.getDateSlideFailure, this);
     },	
 	
     /**
-     * Performs get gender by using the referenced service and sets up the service success and failure
+     * Performs get date by using the referenced service and sets up the service success and failure
      * callback handlers.
      */
     getDateList: function() {
         this.logger.debug("getDateList");
-        this.executeServiceCall(this.genderService, this.genderService.getDateList, null, this.getDateListSuccess, this.getDateListFailure, this);
+        this.executeServiceCall(this.dateService, this.dateService.getDateList, null, this.getDateListSuccess, this.getDateListFailure, this);
     },
 
     /**
-     * Performs get gender by using the referenced service and sets up the service success and failure
+     * Performs get date by using the referenced service and sets up the service success and failure
      * callback handlers.
      */
     getDateTile: function() {
         this.logger.debug("getDateTile");
-        this.executeServiceCall(this.genderService, this.genderService.getDateTile, null, this.getDateTileSuccess, this.getDateTileFailure, this);
+        this.executeServiceCall(this.dateService, this.dateService.getDateTile, null, this.getDateTileSuccess, this.getDateTileFailure, this);
     },
 
     /**
-     * Performs get gender by using the referenced service and sets up the service success and failure
+     * Performs get date by using the referenced service and sets up the service success and failure
      * callback handlers.
      */
     getDateModal: function() {
         this.logger.debug("getDateModal");
-        this.executeServiceCall(this.genderService, this.genderService.getDateModal, null, this.getDateModalSuccess, this.getDateModalFailure, this);
+        this.executeServiceCall(this.dateService, this.dateService.getDateModal, null, this.getDateModalSuccess, this.getDateModalFailure, this);
     },	
 	
     /**
-     * Performs create gender by using the referenced service and sets up the service success and failure
+     * Performs create date by using the referenced service and sets up the service success and failure
      * callback handlers.
      *
-     * @param {Core.model.gender.Model} gender The gender to create.
+     * @param {Core.model.date.Model} date The date to create.
      */
-    createDate: function(gender) {
+    createDate: function(date) {
         this.logger.debug("createDate");
-        this.executeServiceCall(this.genderService, this.genderService.createDate, [gender], this.createDateSuccess, this.createDateFailure, this);
+        this.executeServiceCall(this.dateService, this.dateService.createDate, [date], this.createDateSuccess, this.createDateFailure, this);
     },
 
     /**
-     * Performs update gender by using the referenced service and sets up the service success and failure
+     * Performs update date by using the referenced service and sets up the service success and failure
      * callback handlers.
      *
-     * @param {Core.model.gender.Model} gender The gender to update.
+     * @param {Core.model.date.Model} date The date to update.
      */
-    updateDate: function(gender) {
+    updateDate: function(date) {
         this.logger.debug("updateDate");
-        this.executeServiceCall(this.genderService, this.genderService.updateDate, [gender], this.updateDateSuccess, this.updateDateFailure, this);
+        this.executeServiceCall(this.dateService, this.dateService.updateDate, [date], this.updateDateSuccess, this.updateDateFailure, this);
     },
 
     /**
-     * Performs delete gender by using the referenced service and sets up the service success and failure
+     * Performs delete date by using the referenced service and sets up the service success and failure
      * callback handlers.
      *
-     * @param {Core.model.gender.Model} gender The gender to delete.
+     * @param {Core.model.date.Model} date The date to delete.
      */
-    deleteDate: function(gender) {
+    deleteDate: function(date) {
         this.logger.debug("deleteDate");
-        this.executeServiceCall(this.genderService, this.genderService.deleteDate, [gender], this.deleteDateSuccess, this.deleteDateFailure, this);
+        this.executeServiceCall(this.dateService, this.dateService.deleteDate, [date], this.deleteDateSuccess, this.deleteDateFailure, this);
     },
 
     /**
-     * Performs read genders by using the referenced service and sets up the service success and failure
+     * Performs read dates by using the referenced service and sets up the service success and failure
      * callback handlers.
      *
      */
     readDates: function() {
         this.logger.debug("readDates");
-        this.executeServiceCall(this.genderService, this.genderService.readDates, null, this.readDatesSuccess, this.readDatesFailure, this);
+        this.executeServiceCall(this.dateService, this.dateService.readDates, null, this.readDatesSuccess, this.readDatesFailure, this);
     },	
 	
     ////////////////////////////////////////////////
@@ -172,7 +172,7 @@ Ext.define("Core.controller.gender.Controller", {
     ////////////////////////////////////////////////
 
     /**
-     * Handles the successful get gender service call and takes the response data packet as a parameter.
+     * Handles the successful get date service call and takes the response data packet as a parameter.
      * Fires off the corresponding success event on the application-level event bus.
      *
      * @param {Object} response The response data packet from the successful service call.
@@ -180,14 +180,14 @@ Ext.define("Core.controller.gender.Controller", {
     getDateSlideSuccess: function(response) {
         this.logger.info("getDateSlideSuccess");
 
-		this.genderStore.setData(response.genderSlide);
+		this.dateStore.setData(response.dateSlide);
 
-        var evt = Ext.create("Core.event.gender.Event", Core.event.gender.Event.GET_DATE_SLIDE_SUCCESS);
+        var evt = Ext.create("Core.event.date.Event", Core.event.date.Event.GET_DATE_SLIDE_SUCCESS);
         this.eventBus.dispatchGlobalEvent(evt);
     },	
 	
     /**
-     * Handles the successful get gender service call and takes the response data packet as a parameter.
+     * Handles the successful get date service call and takes the response data packet as a parameter.
      * Fires off the corresponding success event on the application-level event bus.
      *
      * @param {Object} response The response data packet from the successful service call.
@@ -195,14 +195,14 @@ Ext.define("Core.controller.gender.Controller", {
     getDateListSuccess: function(response) {
         this.logger.info("getDateListSuccess");
 
-        this.genderStore.setData(response.genderList);
+        this.dateStore.setData(response.dateList);
 
-        var evt = Ext.create("Core.event.gender.Event", Core.event.gender.Event.GET_DATE_LIST_SUCCESS);
+        var evt = Ext.create("Core.event.date.Event", Core.event.date.Event.GET_DATE_LIST_SUCCESS);
         this.eventBus.dispatchGlobalEvent(evt);
     },
 
     /**
-     * Handles the successful get gender service call and takes the response data packet as a parameter.
+     * Handles the successful get date service call and takes the response data packet as a parameter.
      * Fires off the corresponding success event on the application-level event bus.
      *
      * @param {Object} response The response data packet from the successful service call.
@@ -210,14 +210,14 @@ Ext.define("Core.controller.gender.Controller", {
     getDateTileSuccess: function(response) {
         this.logger.info("getDateTileSuccess");
 
-        this.genderStore.setData(response.genderTile);
+        this.dateStore.setData(response.dateTile);
 
-        var evt = Ext.create("Core.event.gender.Event", Core.event.gender.Event.GET_DATE_TILE_SUCCESS);
+        var evt = Ext.create("Core.event.date.Event", Core.event.date.Event.GET_DATE_TILE_SUCCESS);
         this.eventBus.dispatchGlobalEvent(evt);
     },
 
     /**
-     * Handles the successful get gender service call and takes the response data packet as a parameter.
+     * Handles the successful get date service call and takes the response data packet as a parameter.
      * Fires off the corresponding success event on the application-level event bus.
      *
      * @param {Object} response The response data packet from the successful service call.
@@ -225,14 +225,14 @@ Ext.define("Core.controller.gender.Controller", {
     getDateModalSuccess: function(response) {
         this.logger.info("getDateModalSuccess");
 
-        this.genderStore.setData(response.genderModal);
+        this.dateStore.setData(response.dateModal);
 
-        var evt = Ext.create("Core.event.gender.Event", Core.event.gender.Event.GET_DATE_MODAL_SUCCESS);
+        var evt = Ext.create("Core.event.date.Event", Core.event.date.Event.GET_DATE_MODAL_SUCCESS);
         this.eventBus.dispatchGlobalEvent(evt);
     },	
 	
     /**
-     * Handles the failed get gender service call and takes the response data packet as a parameter.
+     * Handles the failed get date service call and takes the response data packet as a parameter.
      * Fires off the corresponding failure event on the application-level event bus.
      *
      * @param {Object} response The response data packet from the failed service call.
@@ -240,12 +240,12 @@ Ext.define("Core.controller.gender.Controller", {
     getDateSlideFailure: function(response) {
         this.logger.warn("getDateSlideFailure");
 
-        var evt = Ext.create("Core.event.gender.Event", Core.event.gender.Event.GET_DATE_SLIDE_FAILURE);
+        var evt = Ext.create("Core.event.date.Event", Core.event.date.Event.GET_DATE_SLIDE_FAILURE);
         this.eventBus.dispatchGlobalEvent(evt);
     },
 	
     /**
-     * Handles the failed get gender service call and takes the response data packet as a parameter.
+     * Handles the failed get date service call and takes the response data packet as a parameter.
      * Fires off the corresponding failure event on the application-level event bus.
      *
      * @param {Object} response The response data packet from the failed service call.
@@ -253,12 +253,12 @@ Ext.define("Core.controller.gender.Controller", {
     getDateListFailure: function(response) {
         this.logger.warn("getDateListFailure");
 
-        var evt = Ext.create("Core.event.gender.Event", Core.event.gender.Event.GET_DATE_LIST_FAILURE);
+        var evt = Ext.create("Core.event.date.Event", Core.event.date.Event.GET_DATE_LIST_FAILURE);
         this.eventBus.dispatchGlobalEvent(evt);
     }, 
 
     /**
-     * Handles the failed get gender service call and takes the response data packet as a parameter.
+     * Handles the failed get date service call and takes the response data packet as a parameter.
      * Fires off the corresponding failure event on the application-level event bus.
      *
      * @param {Object} response The response data packet from the failed service call.
@@ -266,12 +266,12 @@ Ext.define("Core.controller.gender.Controller", {
     getDateTileFailure: function(response) {
         this.logger.warn("getDateTileFailure");
 
-        var evt = Ext.create("Core.event.gender.Event", Core.event.gender.Event.GET_DATE_TILE_FAILURE);
+        var evt = Ext.create("Core.event.date.Event", Core.event.date.Event.GET_DATE_TILE_FAILURE);
         this.eventBus.dispatchGlobalEvent(evt);
     }, 
 
     /**
-     * Handles the failed get gender service call and takes the response data packet as a parameter.
+     * Handles the failed get date service call and takes the response data packet as a parameter.
      * Fires off the corresponding failure event on the application-level event bus.
      *
      * @param {Object} response The response data packet from the failed service call.
@@ -279,12 +279,12 @@ Ext.define("Core.controller.gender.Controller", {
     getDateModalFailure: function(response) {
         this.logger.warn("getDateModalFailure");
 
-        var evt = Ext.create("Core.event.gender.Event", Core.event.gender.Event.GET_DATE_MODAL_FAILURE);
+        var evt = Ext.create("Core.event.date.Event", Core.event.date.Event.GET_DATE_MODAL_FAILURE);
         this.eventBus.dispatchGlobalEvent(evt);
     }, 	
 	
     /**
-     * Handles the successful create gender service call and takes the response data packet as a parameter.
+     * Handles the successful create date service call and takes the response data packet as a parameter.
      * Fires off the corresponding success event on the application-level event bus.
      *
      * @param {Object} response The response data packet from the successful service call.
@@ -292,14 +292,14 @@ Ext.define("Core.controller.gender.Controller", {
     createDateSuccess: function(response) {
         this.logger.info("createDateSuccess");
 
-        this.genderStore.add(response);
+        this.dateStore.add(response);
 
-        var evt = Ext.create("Core.event.gender.Event", Core.event.gender.Event.CREATE_DATE_SUCCESS);
+        var evt = Ext.create("Core.event.date.Event", Core.event.date.Event.CREATE_DATE_SUCCESS);
         this.eventBus.dispatchGlobalEvent(evt);
     },
 
     /**
-     * Handles the failed create gender service call and takes the response data packet as a parameter.
+     * Handles the failed create date service call and takes the response data packet as a parameter.
      * Fires off the corresponding failure event on the application-level event bus.
      *
      * @param {Object} response The response data packet from the failed service call.
@@ -307,12 +307,12 @@ Ext.define("Core.controller.gender.Controller", {
     createDateFailure: function(response) {
         this.logger.warn("createDateFailure");
 
-        var evt = Ext.create("Core.event.gender.Event", Core.event.gender.Event.CREATE_DATE_FAILURE);
+        var evt = Ext.create("Core.event.date.Event", Core.event.date.Event.CREATE_DATE_FAILURE);
         this.eventBus.dispatchGlobalEvent(evt);
     },
 
     /**
-     * Handles the successful update gender service call and takes the response data packet as a parameter.
+     * Handles the successful update date service call and takes the response data packet as a parameter.
      * Fires off the corresponding success event on the application-level event bus.
      *
      * @param {Object} response The response data packet from the successful service call.
@@ -320,14 +320,14 @@ Ext.define("Core.controller.gender.Controller", {
     updateDateSuccess: function(response) {
         this.logger.info("updateDateSuccess");
 
-        this.genderStore.update(response);
+        this.dateStore.update(response);
 
-        var evt = Ext.create("Core.event.gender.Event", Core.event.gender.Event.UPDATE_DATE_SUCCESS);
+        var evt = Ext.create("Core.event.date.Event", Core.event.date.Event.UPDATE_DATE_SUCCESS);
         this.eventBus.dispatchGlobalEvent(evt);
     },
 
     /**
-     * Handles the failed update gender service call and takes the response data packet as a parameter.
+     * Handles the failed update date service call and takes the response data packet as a parameter.
      * Fires off the corresponding failure event on the application-level event bus.
      *
      * @param {Object} response The response data packet from the failed service call.
@@ -335,12 +335,12 @@ Ext.define("Core.controller.gender.Controller", {
     updateDateFailure: function(response) {
         this.logger.warn("updateDateFailure");
 
-        var evt = Ext.create("Core.event.gender.Event", Core.event.gender.Event.UPDATE_DATE_FAILURE);
+        var evt = Ext.create("Core.event.date.Event", Core.event.date.Event.UPDATE_DATE_FAILURE);
         this.eventBus.dispatchGlobalEvent(evt);
     },
 
     /**
-     * Handles the successful delete gender service call and takes the response data packet as a parameter.
+     * Handles the successful delete date service call and takes the response data packet as a parameter.
      * Fires off the corresponding success event on the application-level event bus.
      *
      * @param {Object} response The response data packet from the successful service call.
@@ -348,16 +348,16 @@ Ext.define("Core.controller.gender.Controller", {
     deleteDateSuccess: function(response) {
         this.logger.info("deleteDateSuccess");
 
-        this.genderStore.setSelectedRecord(null);
-        var gender = this.genderStore.findRecord("kp_DateID", response.data.kp_DateID);
-        this.genderStore.remove(gender);
+        this.dateStore.setSelectedRecord(null);
+        var date = this.dateStore.findRecord("kp_DateID", response.data.kp_DateID);
+        this.dateStore.remove(date);
 
-        var evt = Ext.create("Core.event.gender.Event", Core.event.gender.Event.DELETE_DATE_SUCCESS);
+        var evt = Ext.create("Core.event.date.Event", Core.event.date.Event.DELETE_DATE_SUCCESS);
         this.eventBus.dispatchGlobalEvent(evt);
     },
 
     /**
-     * Handles the failed delete gender service call and takes the response data packet as a parameter.
+     * Handles the failed delete date service call and takes the response data packet as a parameter.
      * Fires off the corresponding failure event on the application-level event bus.
      *
      * @param {Object} response The response data packet from the failed service call.
@@ -365,26 +365,26 @@ Ext.define("Core.controller.gender.Controller", {
     deleteDateFailure: function(response) {
         this.logger.warn("deleteDateFailure");
 
-        var evt = Ext.create("Core.event.gender.Event", Core.event.gender.Event.DELETE_DATE_FAILURE);
+        var evt = Ext.create("Core.event.date.Event", Core.event.date.Event.DELETE_DATE_FAILURE);
         this.eventBus.dispatchGlobalEvent(evt);
     },
 
     /**
-     * Handles the successful read genders service call and takes the response data packet as a parameter.
+     * Handles the successful read dates service call and takes the response data packet as a parameter.
      * Fires off the corresponding success event on the application-level event bus.
      *
      */
     readDatesSuccess: function(response) {
         this.logger.info("readDatesSuccess");
 
-		this.genderStore.setData(response.genders);
+		this.dateStore.setData(response.dates);
 
-        var evt = Ext.create("Core.event.gender.Event", Core.event.gender.Event.READ_DATES_SUCCESS);
+        var evt = Ext.create("Core.event.date.Event", Core.event.date.Event.READ_DATES_SUCCESS);
         this.eventBus.dispatchGlobalEvent(evt);
     },
 
     /**
-     * Handles the failed read genders service call and takes the response data packet as a parameter.
+     * Handles the failed read dates service call and takes the response data packet as a parameter.
      * Fires off the corresponding failure event on the application-level event bus.
      *
      * @param {Object} response The response data packet from the failed service call.
@@ -392,7 +392,7 @@ Ext.define("Core.controller.gender.Controller", {
     readDatesFailure: function(response) {
         this.logger.warn("readDatesFailure");
 
-        var evt = Ext.create("Core.event.gender.Event", Core.event.gender.Event.READ_DATES_FAILURE);
+        var evt = Ext.create("Core.event.date.Event", Core.event.date.Event.READ_DATES_FAILURE);
         this.eventBus.dispatchGlobalEvent(evt);
     },
 	
@@ -401,10 +401,10 @@ Ext.define("Core.controller.gender.Controller", {
     ////////////////////////////////////////////////
 
     /**
-     * Handles the get gender event on the application-level event bus. Calls a functional method that's more
+     * Handles the get date event on the application-level event bus. Calls a functional method that's more
      * testable than this event handler.
      *
-     * @param {Core.event.gender.Event} event Reference to the gender event.
+     * @param {Core.event.date.Event} event Reference to the date event.
      */
     onGetDateSlide: function(event) {
         this.logger.debug("onGetDateSlide");
@@ -413,10 +413,10 @@ Ext.define("Core.controller.gender.Controller", {
     },
 	
     /**
-     * Handles the get gender event on the application-level event bus. Calls a functional method that's more
+     * Handles the get date event on the application-level event bus. Calls a functional method that's more
      * testable than this event handler.
      *
-     * @param {Core.event.gender.Event} event Reference to the gender event.
+     * @param {Core.event.date.Event} event Reference to the date event.
      */
     onGetDateList: function(event) {
         this.logger.debug("onGetDateList");
@@ -425,10 +425,10 @@ Ext.define("Core.controller.gender.Controller", {
     },    
 
     /**
-     * Handles the get gender event on the application-level event bus. Calls a functional method that's more
+     * Handles the get date event on the application-level event bus. Calls a functional method that's more
      * testable than this event handler.
      *
-     * @param {Core.event.gender.Event} event Reference to the gender event.
+     * @param {Core.event.date.Event} event Reference to the date event.
      */
     onGetDateTile: function(event) {
         this.logger.debug("onGetDateTile");
@@ -437,10 +437,10 @@ Ext.define("Core.controller.gender.Controller", {
     }, 
 
     /**
-     * Handles the get gender event on the application-level event bus. Calls a functional method that's more
+     * Handles the get date event on the application-level event bus. Calls a functional method that's more
      * testable than this event handler.
      *
-     * @param {Core.event.gender.Event} event Reference to the gender event.
+     * @param {Core.event.date.Event} event Reference to the date event.
      */
     onGetDateModal: function(event) {
         this.logger.debug("onGetDateModal");
@@ -449,50 +449,50 @@ Ext.define("Core.controller.gender.Controller", {
     },
 	
     /**
-     * Handles the create gender event on the application-level event bus. Calls a functional method that's more
+     * Handles the create date event on the application-level event bus. Calls a functional method that's more
      * testable than this event handler.
      *
-     * @param {Core.event.gender.Event} event Reference to the gender event. Contains a reference to the
-     * gender.
+     * @param {Core.event.date.Event} event Reference to the date event. Contains a reference to the
+     * date.
      */
     onCreateDate: function(event) {
         this.logger.debug("onCreateDate");
 
-        this.createDate(event.gender);
+        this.createDate(event.date);
     },
 
     /**
-     * Handles the update gender event on the application-level event bus. Calls a functional method that's more
+     * Handles the update date event on the application-level event bus. Calls a functional method that's more
      * testable than this event handler.
      *
-     * @param {Core.event.gender.Event} event Reference to the gender event. Contains a reference to the
-     * gender.
+     * @param {Core.event.date.Event} event Reference to the date event. Contains a reference to the
+     * date.
      */
     onUpdateDate: function(event) {
         this.logger.debug("onUpdateDate");
 
-        this.updateDate(event.gender);
+        this.updateDate(event.date);
     },
 
     /**
-     * Handles the delete gender event on the application-level event bus. Calls a functional method that's more
+     * Handles the delete date event on the application-level event bus. Calls a functional method that's more
      * testable than this event handler.
      *
-     * @param {Core.event.gender.Event} event Reference to the gender event. Contains a reference to the
-     * gender.
+     * @param {Core.event.date.Event} event Reference to the date event. Contains a reference to the
+     * date.
      */
     onDeleteDate: function(event) {
         this.logger.debug("onDeleteDate");
 
-        this.deleteDate(event.gender);
+        this.deleteDate(event.date);
     },
 	
 	/**
-     * Handles the read genders event on the application-level event bus. Calls a functional method that's more
+     * Handles the read dates event on the application-level event bus. Calls a functional method that's more
      * testable than this event handler.
      *
-     * @param {Core.event.gender.Event} event Reference to the gender event. Contains a reference to the
-     * genders.
+     * @param {Core.event.date.Event} event Reference to the date event. Contains a reference to the
+     * dates.
      */
     onReadDates: function(event) {
         this.logger.debug("onReadDates");

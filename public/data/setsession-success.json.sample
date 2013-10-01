@@ -1,0 +1,8 @@
+{
+    "success": true,
+    "sessionToken": "qwerty1234567890",
+    "setSession": {
+        "id":"1",
+        "sessionId":"MySessionId1234567890"
+    }
+}

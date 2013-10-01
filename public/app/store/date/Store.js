@@ -12,7 +12,7 @@ Ext.define("Core.store.date.Store", {
 	    grouper: {
 	        groupFn: function(record) {
 	            try {
-	                return record.get("DateStart")[0].toUpperCase(); // so 'van Halen' comes under 'V'   
+	//NOT APPLICABLE FOR DATES        return record.get("DateStart")[0].toUpperCase(); // so 'van Halen' comes under 'V'   
 	            } catch(err) {
 					console.log(err);
 	            }
@@ -27,7 +27,7 @@ Ext.define("Core.store.date.Store", {
     grouper: {
         groupFn: function(record) {
             try {
-                return record.get("DateStart")[0].toUpperCase(); // so 'van Halen' comes under 'V'
+    //NOT APPLICABLE FOR DATES        return record.get("DateStart")[0].toUpperCase(); // so 'van Halen' comes under 'V'
             } catch(err) {
 				console.log(err);
             }

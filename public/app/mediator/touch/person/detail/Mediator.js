@@ -44,6 +44,10 @@ Ext.define("Core.mediator.touch.person.detail.Mediator", {
 		},
 		nationalityPicker: {
 			show: "onShowPicker"
+		},
+		dateStartTextField: {
+			painted: "onDateStartTextFieldPainted",		
+			focus: "onDateStartTextFieldFocus"
 		}
     },
 
@@ -57,7 +61,8 @@ Ext.define("Core.mediator.touch.person.detail.Mediator", {
 	statics: {
         SALUTATION_PICKER_SET:    false,
         GENDER_PICKER_SET:    false,
-        NATIONALITY_PICKER_SET:    false			
+        NATIONALITY_PICKER_SET:    false,
+		DATE_PICKER_SET: false
 	},
 
     /**
@@ -72,7 +77,8 @@ Ext.define("Core.mediator.touch.person.detail.Mediator", {
         this.eventBus.addGlobalEventListener(Core.event.person.Event.DELETE_PERSON_SUCCESS, this.onDeletePersonSuccess, this);
 		this.eventBus.addGlobalEventListener(Core.event.salutation.Event.READ_SALUTATIONS_SUCCESS, this.onReadSalutationsSuccess, this);
 		this.eventBus.addGlobalEventListener(Core.event.gender.Event.READ_GENDERS_SUCCESS, this.onReadGendersSuccess, this);
-		this.eventBus.addGlobalEventListener(Core.event.nationality.Event.READ_NATIONALITIES_SUCCESS, this.onReadNationalitiesSuccess, this);		
+		this.eventBus.addGlobalEventListener(Core.event.nationality.Event.READ_NATIONALITIES_SUCCESS, this.onReadNationalitiesSuccess, this);	
+		this.eventBus.addGlobalEventListener(Core.event.date.Event.READ_DATES_SUCCESS, this.onReadDatesSuccess, this);		
     },
 
     /**
@@ -502,6 +508,20 @@ Ext.define("Core.mediator.touch.person.detail.Mediator", {
 			this.getView().setMasked(false);
 		}	
     },	
+
+
+    /**
+     * Handles the read dates success application-level event.
+     */
+    onReadDatesSuccess: function() {
+		if(Core.config.person.Config.getCurrentView()==='persondetail') {
+			this.logger.debug("onReadDatesSuccess");
+			var datePicker = this.getDatePicker(); // referenced as a control
+
+			// to do ...
+			
+		}
+	},
 	
     /**
      * Handles the change of the selected record in the person store. Loads the appropriate record in the view or
@@ -625,6 +645,27 @@ Ext.define("Core.mediator.touch.person.detail.Mediator", {
     onNationalityNameTextFieldFocus: function() {
         this.logger.debug("onNationalityNameTextFieldFocus");
 		this.readNationalities();
-    }		
+    },		
 
+    /**
+     * Handles the date start text field painted event. 
+     * 
+	 * @param element   The element that is painted
+	 * @param options   The options
+     */
+    onDateStartTextFieldPainted: function(element, options) {
+        this.logger.debug("onDateStartTextFieldPainted");
+		var record = this.getView().getRecord();
+		var dateStart = record.get("Date")["DateStart"];
+		this.getView().down('#dateStartTextField').setValue(dateStart);
+    },	
+
+    /**
+     * Handles the date start text field focus event. 
+     * 
+     */
+    onDateStartTextFieldFocus: function() {
+        this.logger.debug("onDateStartTextFieldFocus");
+		// NO .. dates are generated automatically //this.readDates();
+    }	
 });

@@ -105,7 +105,8 @@ Ext.define("Core.view.touch.person.detail.View", {
 						doneButton: false,
 						cancelButton: true,
 						slots: [], // default empty, gets set in Mediator
-						hidden: true
+						hidden: true,
+						destroyPickerOnHide: false
 					},
 					{
                         xtype: "textfield",
@@ -165,9 +166,24 @@ Ext.define("Core.view.touch.person.detail.View", {
 						doneButton: false,
 						cancelButton: true,
 						slots: [], // default empty, gets set in Mediator
-						hidden: true
+						hidden: true,
+						destroyPickerOnHide: false
 					},
-					// Note: No separate textfield for dateStart, is part of Picker
+                    {
+                        xtype: "textfield",
+                        itemId: "dateStartTextField",
+                        name: "DateStart", // Gets set in Mediator
+						label: "Date of Birth",
+                        required: false,
+						plugins: [
+                            {
+                                type: "localization",
+                                method: "setPlaceHolder",
+                                key: "personDetail.dateStart"
+                            }
+                        ],
+						readOnly: true
+					},
 					{
                         xtype: "hiddenfield",
                         itemId: "kf_DateIDHiddenField",
@@ -176,27 +192,25 @@ Ext.define("Core.view.touch.person.detail.View", {
 						readOnly: true
                     },
 					{
-						xtype: "datepickerfield",
-						itemId: "dateStartTextField",
-						destroyPickerOnHide: true,
-						name: "DateStart", // Gets set in Mediator
+						xtype: "datepickerfield", // WAS picker
+						itemId: "datePicker",
 						useTitles: true,						
-						label: "Date of Birth",
-						required: false,
-						plugins: [
-                            {
-                                type: "localization",
-                                method: "setPlaceHolder",
-                                key: "personDetail.dateStart"
-                            }
-                        ],
-						readOnly: true,
+						ui: "neutral",
+						doneButton: true, // deviates from the standard
+						cancelButton: true,
+						slots: [], // default empty, gets set in Mediator
+						hidden: true,
+						destroyPickerOnHide: true, // deviates from the standard
+
+						/* THIS SHOULD BE SET IN THE MEDIATOR
 						value: new Date(),
 						picker: {
 							title: "Choose a Date of Birth",
 							width: "100% !important", // TEST
 							yearFrom: 1920
 						}
+						*/
+						
 					},
 					{
                         xtype: "textfield",

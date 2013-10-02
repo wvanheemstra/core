@@ -185,6 +185,25 @@ Ext.define("Core.mediator.touch.person.detail.Mediator", {
 	},	
 
     /**
+     * Functional method to read dates. Fires off the corresponding application-level event.
+     *
+     */
+	readDates: function() {
+        this.logger.debug("readDates");
+        if(this.self.DATE_PICKER_SET == false) {
+            this.getView().setMasked({
+                xtype: "loadmask",
+                message: nineam.locale.LocaleManager.getProperty("personDetail.readingDates")
+            });
+            var evt = Ext.create("Core.event.date.Event", Core.event.date.Event.READ_DATES);
+            this.eventBus.dispatchGlobalEvent(evt);
+        }
+		else {
+			this.getDatePicker().show();
+		}
+	},		
+	
+    /**
      * Simple navigation method used to navigate back, depending on the previous view.
 	 *
 	 * @param view	The view to go back to.
@@ -509,7 +528,6 @@ Ext.define("Core.mediator.touch.person.detail.Mediator", {
 		}	
     },	
 
-
     /**
      * Handles the read dates success application-level event.
      */
@@ -517,11 +535,44 @@ Ext.define("Core.mediator.touch.person.detail.Mediator", {
 		if(Core.config.person.Config.getCurrentView()==='persondetail') {
 			this.logger.debug("onReadDatesSuccess");
 			var datePicker = this.getDatePicker(); // referenced as a control
-
-			// to do ...
 			
-		}
-	},
+		//	document.getElementById('ext-pickerslot-1').style.width = "100% !important"; // Force a width or Chrome will not show the slots
+			
+			datePicker.value = new Date();
+			datePicker.picker = {
+				title: "Choose a Date of Birth",
+				width: "100% !important", // TEST
+				yearFrom: 1920
+			};
+			
+			/* MERGE THIS WITH THE ABOVE...
+			datePicker.setSlots({
+				name: 'dateSlot1',
+				title: 'Choose a Date',
+				value: new Date(),  // WAS store: this.dateStore,
+				displayField: "DateStart",
+				valueField: "kp_DateID",
+				itemTpl: '{DateStart}',
+				listeners:{
+					itemtap: function (obj, index, target, record, e, eOpts) {	
+						console.log("itemtap");
+						var form = this.up('personDetailView');
+						form.setValues({
+							DateStart: record.get('DateStart'),
+							kf_DateID: record.get('kp_DateID'), // Note: kf links to kp
+						});
+						obj.parent.hide(); // Dismiss the picker
+					}
+				}
+			});
+			*/
+			
+			this.getView().add(datePicker);			
+			this.self.DATE_PICKER_SET = true;
+			datePicker.show();
+			this.getView().setMasked(false);
+		}	
+    },	
 	
     /**
      * Handles the change of the selected record in the person store. Loads the appropriate record in the view or
@@ -666,6 +717,6 @@ Ext.define("Core.mediator.touch.person.detail.Mediator", {
      */
     onDateStartTextFieldFocus: function() {
         this.logger.debug("onDateStartTextFieldFocus");
-		// NO .. dates are generated automatically //this.readDates();
+		this.readDates();
     }	
 });

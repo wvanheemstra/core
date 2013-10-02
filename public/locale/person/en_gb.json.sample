@@ -105,7 +105,8 @@
         "deletingPerson": "Deleting Person...",
 		"readingSalutations": "Reading Salutations...",
 		"readingGenders": "Reading Genders...",
-		"readingNationalities": "Reading Nationalities..."			
+		"readingNationalities": "Reading Nationalities...",
+		"readingDates": "Reading Dates..."				
     },
 
     /////////////////////////////////////////////

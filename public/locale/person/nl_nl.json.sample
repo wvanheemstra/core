@@ -105,7 +105,8 @@
         "deletingPerson": "Verwijder Persoon...",
 		"readingSalutations": "Lees Aanheven...",
 		"readingGenders": "Lees Geslachten...",
-		"readingNationalities": "Lees Nationaliteiten..."		
+		"readingNationalities": "Lees Nationaliteiten...",
+		"readingDates": "Lees Datums..."		
     },
 
     /////////////////////////////////////////////

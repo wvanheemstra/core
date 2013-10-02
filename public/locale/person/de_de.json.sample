@@ -106,7 +106,8 @@
         "deletingPerson": "Lösch Person...",
 		"readingSalutations": "Lese Anreden...",
 		"readingGenders": "Lese Geschlechten...",
-		"readingNationalities": "Lese Nationalitäten..."	
+		"readingNationalities": "Lese Nationalitäten...",
+		"readingDates": "Lese Datums..."		
     },
 
     /////////////////////////////////////////////

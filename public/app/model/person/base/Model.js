@@ -196,6 +196,10 @@ Ext.define("Core.model.person.base.Model", {
 		}
 
 		var data = this.callParent(arguments);
+		
+		if(typeof down == 'undefined') {//TEMP added by wvh
+			down = true; // This allows for retrieving hasMany related records
+		}
 
 		if (down) {
 			var childData = this.getAllChildData();

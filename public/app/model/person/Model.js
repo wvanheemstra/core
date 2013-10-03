@@ -51,6 +51,16 @@ Ext.define("Core.model.person.Model", {
 			  foreignStoreId: "dateStore" // the store id  of the foreign store
 			}		
 		],
+		hasMany:[
+			{
+			  name: "Membership",
+			  model: "Core.model.membership.Model",
+			  primaryKey: "kp_PersonID", // the field in the parent that identifies it.
+			  foreignKey: "kf_PersonID", // the key that identifies the parent in the child. In a belongsTo or hasOne relation, this is part of the model itself, in a hasMany relation this is a field of the child objects that refer to my Id.
+			  foreignStore: "membershipStore",  //WAS "Core.store.date.Store", // the store name that contains the related records
+			  foreignStoreId: "membershipStore" // the store id  of the foreign store
+			}		
+		],
 	    validations: [
 	        { type: "presence", field: "kp_PersonID" },
 	        { type: "presence", field: "PersonFirstName",     message: "Please enter a first name." },
@@ -102,6 +112,16 @@ Ext.define("Core.model.person.Model", {
 		  foreignKey: "kf_DateID", // the key that identifies the parent in the child. In a belongsTo or hasOne relation, this is part of the model itself, in a hasMany relation this is a field of the child objects that refer to my Id.
 		  foreignStore: "dateStore",  //WAS "Core.store.date.Store", // the store name that contains the related records
 		  foreignStoreId: "dateStore" // the store id  of the foreign store
+		}		
+	],
+	hasMany:[
+		{
+		  name: "Membership",
+		  model: "Core.model.membership.Model",
+		  primaryKey: "kp_PersonID", // the field in the parent that identifies it.
+		  foreignKey: "kf_PersonID", // the key that identifies the parent in the child. In a belongsTo or hasOne relation, this is part of the model itself, in a hasMany relation this is a field of the child objects that refer to my Id.
+		  foreignStore: "membershipStore",  //WAS "Core.store.date.Store", // the store name that contains the related records
+		  foreignStoreId: "membershipStore" // the store id  of the foreign store
 		}		
 	],	
     validations: [

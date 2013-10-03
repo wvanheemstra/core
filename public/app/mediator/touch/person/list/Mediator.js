@@ -29,7 +29,8 @@ Ext.define("Core.mediator.touch.person.list.Mediator", {
         READ_SALUTATIONS_SUCCESS:	false,			
         READ_GENDERS_SUCCESS:		false,
         READ_NATIONALITIES_SUCCESS:	false,	
-		READ_DATES_SUCCESS:	false
+		READ_DATES_SUCCESS:	false,
+		READ_MEMBERSHIPS_SUCCESS:	false
 	},	
 	
     /**
@@ -49,7 +50,9 @@ Ext.define("Core.mediator.touch.person.list.Mediator", {
         this.eventBus.addGlobalEventListener(Core.event.nationality.Event.READ_NATIONALITIES_SUCCESS, this.onReadNationalitiesSuccess, this);
         this.eventBus.addGlobalEventListener(Core.event.nationality.Event.READ_NATIONALITIES_FAILURE, this.onReadNationalitiesFailure, this);
         this.eventBus.addGlobalEventListener(Core.event.date.Event.READ_DATES_SUCCESS, this.onReadDatesSuccess, this);
-        this.eventBus.addGlobalEventListener(Core.event.date.Event.READ_DATES_FAILURE, this.onReadDatesFailure, this);		
+        this.eventBus.addGlobalEventListener(Core.event.date.Event.READ_DATES_FAILURE, this.onReadDatesFailure, this);
+        this.eventBus.addGlobalEventListener(Core.event.membership.Event.READ_MEMBERSHIPS_SUCCESS, this.onReadMembershipsSuccess, this);
+        this.eventBus.addGlobalEventListener(Core.event.membership.Event.READ_MEMBERSHIPS_FAILURE, this.onReadMembershipsFailure, this);		
     },
 
     /**
@@ -74,7 +77,10 @@ Ext.define("Core.mediator.touch.person.list.Mediator", {
         this.eventBus.dispatchGlobalEvent(evt); 
 
 		var evt = Ext.create("Core.event.date.Event", Core.event.date.Event.READ_DATES);
-        this.eventBus.dispatchGlobalEvent(evt); 		
+        this.eventBus.dispatchGlobalEvent(evt); 
+
+		var evt = Ext.create("Core.event.membership.Event", Core.event.membership.Event.READ_MEMBERSHIPS);
+        this.eventBus.dispatchGlobalEvent(evt);		
 		
     },
 
@@ -109,7 +115,8 @@ Ext.define("Core.mediator.touch.person.list.Mediator", {
 			&& this.self.READ_SALUTATIONS_SUCCESS
 			&& this.self.READ_GENDERS_SUCCESS
 			&& this.self.READ_NATIONALITIES_SUCCESS
-			&& this.self.READ_DATES_SUCCESS){
+			&& this.self.READ_DATES_SUCCESS
+			&& this.self.READ_MEMBERSHIPS_SUCCESS){
 			this.getView().setMasked(false);
 			this.getList().setStore(this.personStore);
 		}
@@ -247,7 +254,26 @@ Ext.define("Core.mediator.touch.person.list.Mediator", {
         this.logger.debug("onReadDatesFailure");
 		this.self.READ_DATES_SUCCESS = false;
         this.getView().setMasked(false);
-    },		
+    },	
+
+    /**
+     * Handles the read memberships success event.
+     */
+    onReadMembershipsSuccess: function() {
+        this.logger.debug("onReadMembershipsSuccess");
+		this.self.READ_MEMBERSHIPS_SUCCESS = true;
+        this.showPersonList();
+    },
+
+    /**
+     * Handles the read memberships failure event.
+     */
+    onReadMembershipsFailure: function() {
+        this.logger.debug("onReadMembershipsFailure");
+		this.self.READ_MEMBERSHIPS_SUCCESS = false;
+        this.getView().setMasked(false);
+    },
+
     ////////////////////////////////////////////////
     // VIEW EVENT HANDLERS
     ////////////////////////////////////////////////

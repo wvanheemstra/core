@@ -91,6 +91,11 @@ Ext.onReady(function () {
 			store: true
 		}]
 	},{
+		membership:  [{
+			mock: true,
+			store: true
+		}]
+	},{
 		person:  [{
 			mock: true,  // Set to 'false' when retrieving live data
 			store: true
@@ -164,7 +169,8 @@ Ext.application({
 		"salutation.Model",	
 		"gender.Model",	
 		"nationality.Model",	
-		"date.Model",		
+		"date.Model",	
+		"membership.Model",			
     	"person.Model"
     ],
 
@@ -195,7 +201,8 @@ Ext.application({
 		"salutation.Controller",
 		"gender.Controller",
 		"nationality.Controller",	
-		"date.Controller",			
+		"date.Controller",
+		"membership.Controller",
         "person.Controller"	
     ],
 

@@ -19,6 +19,7 @@ Ext.define("Core.controller.person.Controller", {
 		"genderStore",
 		"nationalityStore",
 		"dateStore",
+		"membershipStore",
         "logger"
     ],
     
@@ -525,6 +526,37 @@ Ext.define("Core.controller.person.Controller", {
         var evt = Ext.create("Core.event.date.Event", Core.event.date.Event.READ_DATES_FAILURE);
         this.eventBus.dispatchGlobalEvent(evt);
     },
+
+	/**
+     * Handles the successful read memberships service call.
+     * Fires off the corresponding success event on the application-level event bus.
+     *
+     */
+    readMembershipsSuccess: function(response) {
+        this.logger.info("readMembershipsSuccess");
+
+		// The server will send a token that can be used throughout the app.
+        this.setSessionToken(response.sessionToken);		
+		
+        this.membershipStore.load();
+
+        var evt = Ext.create("Core.event.membership.Event", Core.event.membership.Event.READ_MEMBERSHIPS_SUCCESS);
+        this.eventBus.dispatchGlobalEvent(evt);
+    },
+
+    /**
+     * Handles the failed read memberships service call.
+     * Fires off the corresponding failure event on the application-level event bus.
+     *
+     */
+    readMembershipsFailure: function(response) {
+        this.logger.warn("readMembershipsFailure");
+
+        this.resetSessionData();		
+		
+        var evt = Ext.create("Core.event.membership.Event", Core.event.membership.Event.READ_MEMBERSHIPS_FAILURE);
+        this.eventBus.dispatchGlobalEvent(evt);
+    },
 	
     ////////////////////////////////////////////////
     // EVENT BUS HANDLERS
@@ -615,28 +647,6 @@ Ext.define("Core.controller.person.Controller", {
         this.logger.debug("onDeletePerson");
 
         this.deletePerson(event.person);
-    },
-	
-	/**
-     * Handles the read salutations event on the application-level event bus. Calls a functional method that's more
-     * testable than this event handler.
-     *
-     */
-    onReadSalutations: function(event) {
-        this.logger.debug("onReadSalutations");
-
-        this.readSalutations();
-    },
-	
-	/**
-     * Handles the read genders event on the application-level event bus. Calls a functional method that's more
-     * testable than this event handler.
-     *
-     */
-    onReadGenders: function(event) {
-        this.logger.debug("onReadGenders");
-
-        this.readGenders();
     }	
     
 });    

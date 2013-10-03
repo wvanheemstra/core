@@ -75,6 +75,11 @@ Ext.define("Core.config.person.Config",{
 				store: true
 			}]
 		},{
+			membership:  [{
+				mock: true,
+				store: true
+			}]
+		},{
 			person:  [{
 				mock: true,
 				store: true

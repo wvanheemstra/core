@@ -1,0 +1,105 @@
+{
+    /////////////////////////////////////////////
+    // LOGIN
+    /////////////////////////////////////////////
+    "login": {
+        "title": "Login",
+        "username": "Gebruikersnaam",
+        "password": "Wachtwoord",
+        "passwordHint": "Hint: password",
+        "keepmeloggedin": "Houd me ingelogd",
+        "submit": "Log In",
+        "reset": "Wissen",
+        "loggingIn" : "Verifieren...",
+        "credentialsRequired": "Voer alsjeblieft gebruikersnaam en wachtwoord in.",
+        "loginFailed": "Login mislukt. Voer alsjeblieft de juiste gegevens in."
+    },	
+
+    /////////////////////////////////////////////
+    // MEMBERSHIP SLIDE
+    /////////////////////////////////////////////
+    "membershipSlide": {
+        "title": "Lidmaatschap",
+        "title1": "Lidmaatschap1",	
+        "title2": "Lidmaatschap2",
+        "title3": "Lidmaatschap3",	
+        "title4": "Lidmaatschap4",			
+        "logOut": "Log Uit",
+        "new": "Nieuw",
+        "search": "live zoeken",
+		"membershipName": "Lidmaatschap",
+        "loading": "Laad Lidmaatschap...",
+        "noMemberships": "Geen Lidmaatschap gevonden."
+    },	
+	
+    /////////////////////////////////////////////
+    // MEMBERSHIP LIST
+    /////////////////////////////////////////////
+    "membershipList": {
+        "title": "Lidmaatschap",
+        "logOut": "Log Uit",
+        "new": "Nieuw",
+        "search": "live zoeken",
+		"membershipName": "Lidmaatschap",	
+        "loading": "Laad Lidmaatschap...",
+        "noMemberships": "Geen Lidmaatschap gevonden."
+    },
+
+    /////////////////////////////////////////////
+    // MEMBERSHIP TILE
+    /////////////////////////////////////////////
+    "membershipTile": {
+        "title": "Lidmaatschap",
+        "logOut": "Log Uit",
+        "new": "Nieuw",
+        "search": "live zoeken",
+		"membershipName": "Lidmaatschap",
+        "loading": "Laad Lidmaatschap...",
+        "noMemberships": "Geen Lidmaatschap gevonden."
+    },
+
+    /////////////////////////////////////////////
+    // MEMBERSHIP ITEMS
+    /////////////////////////////////////////////
+    "membershipItem1": {
+        "title": "Item 1",
+    },	
+    "membershipItem2": {
+        "title": "Item 2",
+    },
+    "membershipItem3": {
+        "title": "Item 3",
+    },		
+    "membershipItem4": {
+        "title": "Item 4",
+    },	
+	
+    /////////////////////////////////////////////
+    // MEMBERSHIP CATEGORIES
+    /////////////////////////////////////////////
+    "membershipCategory0": {
+        "title": "Home",
+    },
+		
+    /////////////////////////////////////////////
+    // MEMBERSHIP DETAIL
+    /////////////////////////////////////////////
+    "membershipDetail": {
+        "title": "Membership",
+        "back": "Terug",
+        "save": "Bewaar",
+		"membershipName": "Lidmaatschap",
+        "delete": "Verwijder",
+        "creatingMembership": "Maak Lidmaatschap aan ...",
+        "updatingMembership": "Werk Lidmaatschap bij ...",
+        "deletingMembership": "Verwijder Lidmaatschap..."
+    },
+
+    /////////////////////////////////////////////
+    // MEMBERSHIP MODAL
+    /////////////////////////////////////////////
+    "membershipModal": {
+        "title": "Lidmaatschap",
+        "close": "Sluiten"
+    }
+}

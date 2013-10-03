@@ -1,0 +1,105 @@
+{
+    /////////////////////////////////////////////
+    // LOGIN
+    /////////////////////////////////////////////
+    "login": {
+        "title": "Anmelden",
+        "username": "Benutzername",
+        "password": "Kennwort",
+        "passwordHint": "Hinweis: password",
+        "keepmeloggedin": "Angemeldet bleiben",
+        "submit": "Meld an",
+        "reset": "Neu stellen",
+        "loggingIn" : "Überprüfen...",
+        "credentialsRequired": "Tragen Sie bitte Ihre Benutzername und Kennwort ein.",
+        "loginFailed": "Anmelden hat gefählt. Bitte tragen Sie die richtige Daten ein."
+    },
+
+    /////////////////////////////////////////////
+    // MEMBERSHIP SLIDE
+    /////////////////////////////////////////////
+    "membershipSlide": {
+        "title": "Mitgliedschaften",
+        "title1": "Mitgliedschaften1",	
+        "title2": "Mitgliedschaften2",
+        "title3": "Mitgliedschaften3",	
+        "title4": "Mitgliedschaften4",			
+        "logOut": "Abmelden",
+        "new": "Neu",
+        "search": "live suchen",
+		"membershipName": "Mitgliedschaft",
+        "loading": "Laad Mitgliedschaften...",
+        "noMemberships": "Keine Mitgliedschaften wurden gefunden."
+    },	
+	
+    /////////////////////////////////////////////
+    // MEMBERSHIP LIST
+    /////////////////////////////////////////////
+    "membershipList": {
+        "title": "Mitgliedschaften",
+        "logOut": "Abmelden",
+        "new": "Neu",
+        "search": "live suchen",
+		"membershipName": "Mitgliedschaft",
+        "loading": "Laad Mitgliedschaften...",
+        "noMemberships": "Keine Mitgliedschaften wurden gefunden."
+    },
+
+    /////////////////////////////////////////////
+    // MEMBERSHIP TILE
+    /////////////////////////////////////////////
+    "membershipTile": {
+        "title": "Mitgliedschaften",
+        "logOut": "Abmelden",
+        "new": "Neu",
+        "search": "live suchen",
+		"membershipName": "Mitgliedschaft",	
+        "loading": "Laad Mitgliedschaften...",
+        "noMemberships": "Keine Mitgliedschaften wurden gefunden."
+    },
+
+    /////////////////////////////////////////////
+    // MEMBERSHIP ITEMS
+    /////////////////////////////////////////////
+    "membershipItem1": {
+        "title": "Item 1",
+    },	
+    "membershipItem2": {
+        "title": "Item 2",
+    },
+    "membershipItem3": {
+        "title": "Item 3",
+    },		
+    "membershipItem4": {
+        "title": "Item 4",
+    },	
+	
+    /////////////////////////////////////////////
+    // MEMBERSHIP CATEGORIES
+    /////////////////////////////////////////////
+    "membershipCategory0": {
+        "title": "Home",
+    },
+	
+    /////////////////////////////////////////////
+    // MEMBERSHIP DETAIL
+    /////////////////////////////////////////////
+    "membershipDetail": {
+        "title": "Mitgliedschaft",
+        "back": "Zurück",
+        "save": "Speichern",
+		"membershipName": "Mitgliedschaft",
+        "delete": "Löschen",
+        "creatingMembership": "Mach Mitgliedschaft neu an ...",
+        "updatingMembership": "Bearbeit Mitgliedschaft ...",
+        "deletingMembership": "Lösch Mitgliedschaft..."
+    },
+
+    /////////////////////////////////////////////
+    // MEMBERSHIP MODAL
+    /////////////////////////////////////////////
+    "membershipModal": {
+        "title": "Mitgliedschaft",
+        "close": "schließen"
+    }
+}

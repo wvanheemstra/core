@@ -1,0 +1,105 @@
+{
+    /////////////////////////////////////////////
+    // LOGIN
+    /////////////////////////////////////////////
+    "login": {
+        "title": "Login",
+        "username": "Gebruikersnaam",
+        "password": "Wachtwoord",
+        "passwordHint": "Hint: password",
+        "keepmeloggedin": "Houd me ingelogd",
+        "submit": "Log In",
+        "reset": "Wissen",
+        "loggingIn" : "Verifieren...",
+        "credentialsRequired": "Voer alsjeblieft gebruikersnaam en wachtwoord in.",
+        "loginFailed": "Login mislukt. Voer alsjeblieft de juiste gegevens in."
+    },	
+
+    /////////////////////////////////////////////
+    // NATIONALITY SLIDE
+    /////////////////////////////////////////////
+    "nationalitySlide": {
+        "title": "Nationaliteit",
+        "title1": "Nationaliteit1",	
+        "title2": "Nationaliteit2",
+        "title3": "Nationaliteit3",	
+        "title4": "Nationaliteit4",			
+        "logOut": "Log Uit",
+        "new": "Nieuw",
+        "search": "live zoeken",
+		"nationalityName": "Nationaliteit",
+        "loading": "Laad Nationaliteit...",
+        "noNationalities": "Geen Nationaliteit gevonden."
+    },	
+	
+    /////////////////////////////////////////////
+    // NATIONALITY LIST
+    /////////////////////////////////////////////
+    "nationalityList": {
+        "title": "Nationaliteit",
+        "logOut": "Log Uit",
+        "new": "Nieuw",
+        "search": "live zoeken",
+		"nationalityName": "Nationaliteit",	
+        "loading": "Laad Nationaliteit...",
+        "noNationalities": "Geen Nationaliteit gevonden."
+    },
+
+    /////////////////////////////////////////////
+    // NATIONALITY TILE
+    /////////////////////////////////////////////
+    "nationalityTile": {
+        "title": "Nationaliteit",
+        "logOut": "Log Uit",
+        "new": "Nieuw",
+        "search": "live zoeken",
+		"nationalityName": "Nationaliteit",
+        "loading": "Laad Nationaliteit...",
+        "noNationalities": "Geen Nationaliteit gevonden."
+    },
+
+    /////////////////////////////////////////////
+    // NATIONALITY ITEMS
+    /////////////////////////////////////////////
+    "nationalityItem1": {
+        "title": "Item 1",
+    },	
+    "nationalityItem2": {
+        "title": "Item 2",
+    },
+    "nationalityItem3": {
+        "title": "Item 3",
+    },		
+    "nationalityItem4": {
+        "title": "Item 4",
+    },	
+	
+    /////////////////////////////////////////////
+    // NATIONALITY CATEGORIES
+    /////////////////////////////////////////////
+    "nationalityCategory0": {
+        "title": "Home",
+    },
+		
+    /////////////////////////////////////////////
+    // NATIONALITY DETAIL
+    /////////////////////////////////////////////
+    "nationalityDetail": {
+        "title": "Nationality",
+        "back": "Terug",
+        "save": "Bewaar",
+		"nationalityName": "Nationaliteit",
+        "delete": "Verwijder",
+        "creatingNationality": "Maak Nationaliteit aan ...",
+        "updatingNationality": "Werk Nationaliteit bij ...",
+        "deletingNationality": "Verwijder Nationaliteit..."
+    },
+
+    /////////////////////////////////////////////
+    // NATIONALITY MODAL
+    /////////////////////////////////////////////
+    "nationalityModal": {
+        "title": "Nationaliteit",
+        "close": "Sluiten"
+    }
+}

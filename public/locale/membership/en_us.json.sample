@@ -1,0 +1,105 @@
+{
+    /////////////////////////////////////////////
+    // LOGIN
+    /////////////////////////////////////////////
+    "login": {
+        "title": "Login",
+        "username": "Username",
+        "password": "Password",
+        "passwordHint": "Hint: password",
+        "keepmeloggedin": "Keep me logged in",
+        "submit": "Log In",
+        "reset": "Clear",
+        "loggingIn" : "Logging In...",
+        "credentialsRequired": "Please enter your username and password.",
+        "loginFailed": "Login failed. Please enter the correct credentials."
+    },
+
+    /////////////////////////////////////////////
+    // MEMBERSHIP SLIDE
+    /////////////////////////////////////////////
+    "membershipSlide": {
+        "title": "Memberships",
+        "title1": "Memberships1",	
+        "title2": "Memberships2",
+        "title3": "Memberships3",	
+        "title4": "Memberships4",			
+        "logOut": "Log Out",
+        "new": "New",
+        "search": "live search",
+		"membershipName": "Membership",
+        "loading": "Loading Memberships...",
+        "noMemberships": "No Memberships found."
+    },	
+	
+    /////////////////////////////////////////////
+    // MEMBERSHIP LIST
+    /////////////////////////////////////////////
+    "membershipList": {
+        "title": "Memberships",
+        "logOut": "Log Out",
+        "new": "New",
+        "search": "live search",
+		"membershipName": "Membership",
+        "loading": "Loading Memberships...",
+        "noMemberships": "No Memberships found."
+    },
+
+    /////////////////////////////////////////////
+    // MEMBERSHIP TILE
+    /////////////////////////////////////////////
+    "membershipTile": {
+        "title": "Memberships",
+        "logOut": "Log Out",
+        "new": "New",
+        "search": "live search",
+		"membershipName": "Membership",
+        "loading": "Loading Memberships...",
+        "noMemberships": "No Memberships found."
+    },
+
+    /////////////////////////////////////////////
+    // MEMBERSHIP ITEMS
+    /////////////////////////////////////////////
+    "membershipItem1": {
+        "title": "Item 1",
+    },	
+    "membershipItem2": {
+        "title": "Item 2",
+    },
+    "membershipItem3": {
+        "title": "Item 3",
+    },		
+    "membershipItem4": {
+        "title": "Item 4",
+    },	
+	
+    /////////////////////////////////////////////
+    // MEMBERSHIP CATEGORIES
+    /////////////////////////////////////////////
+    "membershipCategory0": {
+        "title": "Home",
+    },
+		
+    /////////////////////////////////////////////
+    // MEMBERSHIP DETAIL
+    /////////////////////////////////////////////
+    "membershipDetail": {
+        "title": "Membership",
+        "back": "Back",
+        "save": "Save",
+		"membershipName": "Membership",	
+        "delete": "Delete",
+        "creatingMembership": "Creating Membership ...",
+        "updatingMembership": "Updating Membership ...",
+        "deletingMembership": "Deleting Membership..."
+    },
+
+    /////////////////////////////////////////////
+    // MEMBERSHIP MODAL
+    /////////////////////////////////////////////
+    "membershipModal": {
+        "title": "Membership",
+        "close": "Close"
+    }
+}

@@ -1,0 +1,105 @@
+{
+    /////////////////////////////////////////////
+    // LOGIN
+    /////////////////////////////////////////////
+    "login": {
+        "title": "Login",
+        "username": "Username",
+        "password": "Password",
+        "passwordHint": "Hint: password",
+        "keepmeloggedin": "Keep me logged in",
+        "submit": "Log In",
+        "reset": "Clear",
+        "loggingIn" : "Logging In...",
+        "credentialsRequired": "Please enter your username and password.",
+        "loginFailed": "Login failed. Please enter the correct credentials."
+    },
+
+    /////////////////////////////////////////////
+    // NATIONALITY SLIDE
+    /////////////////////////////////////////////
+    "nationalitySlide": {
+        "title": "Nationalities",
+        "title1": "Nationalities1",	
+        "title2": "Nationalities2",
+        "title3": "Nationalities3",	
+        "title4": "Nationalities4",			
+        "logOut": "Log Out",
+        "new": "New",
+        "search": "live search",
+		"nationalityName": "Nationality",	
+        "loading": "Loading Nationalities...",
+        "noNationalities": "No Nationalities found."
+    },	
+	
+    /////////////////////////////////////////////
+    // NATIONALITY LIST
+    /////////////////////////////////////////////
+    "nationalityList": {
+        "title": "Nationalities",
+        "logOut": "Log Out",
+        "new": "New",
+        "search": "live search",
+		"nationalityName": "Nationality",
+        "loading": "Loading Nationalities...",
+        "noNationalities": "No Nationalities found."
+    },
+
+    /////////////////////////////////////////////
+    // NATIONALITY TILE
+    /////////////////////////////////////////////
+    "nationalityTile": {
+        "title": "Nationalities",
+        "logOut": "Log Out",
+        "new": "New",
+        "search": "live search",
+		"nationalityName": "Nationality",
+        "loading": "Loading Nationalities...",
+        "noNationalities": "No Nationalities found."
+    },
+
+    /////////////////////////////////////////////
+    // NATIONALITY ITEMS
+    /////////////////////////////////////////////
+    "nationalityItem1": {
+        "title": "Item 1",
+    },	
+    "nationalityItem2": {
+        "title": "Item 2",
+    },
+    "nationalityItem3": {
+        "title": "Item 3",
+    },		
+    "nationalityItem4": {
+        "title": "Item 4",
+    },	
+	
+    /////////////////////////////////////////////
+    // NATIONALITY CATEGORIES
+    /////////////////////////////////////////////
+    "nationalityCategory0": {
+        "title": "Home",
+    },
+		
+    /////////////////////////////////////////////
+    // NATIONALITY DETAIL
+    /////////////////////////////////////////////
+    "nationalityDetail": {
+        "title": "Nationality",
+        "back": "Back",
+        "save": "Save",
+		"nationalityName": "Nationality",
+        "delete": "Delete",
+        "creatingNationality": "Creating Nationality ...",
+        "updatingNationality": "Updating Nationality ...",
+        "deletingNationality": "Deleting Nationality..."
+    },
+
+    /////////////////////////////////////////////
+    // NATIONALITY MODAL
+    /////////////////////////////////////////////
+    "nationalityModal": {
+        "title": "Nationality",
+        "close": "Close"
+    }
+}

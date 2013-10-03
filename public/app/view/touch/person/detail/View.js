@@ -243,6 +243,92 @@ Ext.define("Core.view.touch.person.detail.View", {
 						cancelButton: true,
 						slots: [], // default empty, gets set in Mediator
 						hidden: true
+					},
+					{
+						xtype:"container",
+						align: "100% 100%",
+						autoHeight: true,
+						itemId: "membershipsContainer",						
+						html: "Hello from membershipsContainer",
+						items: [{
+							xtype:"toolbar",
+							itemId: "membershipsToolbar",
+							html: "Hello from membershipsToolbar",
+							docked: "top",
+							ui: "neutral"
+						},{
+							xtype: "carousel",
+							itemId: "membershipsCarousel",
+							anchor: "100% 100%",
+							ui: "neutral",
+							fullscreen: false,
+							direction: "horizontal",
+							html: "Hello from membershipsCarousel",
+							//height: 300, // TEST
+							autoHeight: true,
+							layout: { // TEST
+								type: "hbox"
+							},
+							style: "padding: 0px; margin: 0px",
+							bodyStyle: "padding-top: " + (Ext.isIE ? "0" : "0px"),
+							defaults: {
+								styleHtmlContent: true,
+								labelWidth: "35%",
+								style: "padding: 0px; margin: 0px; font-size: 114%",
+								bodyStyle: "padding-top: " + (Ext.isIE ? "0" : "0px"),
+								align: "100% 100%",
+								autoHeight: true
+							},
+							items: [{	
+								xtype: "container",
+								itemId: "membership1Container",
+								html: "Hello from membership1Container",
+								items:[{	
+									xtype: "textfield",
+									itemId: "membership1TextField",
+									name: "Membership[0]['kp_MembershipID']",						
+									label: "Membership",
+									required: false,
+									plugins: [
+										{
+											type: "localization",
+											method: "setPlaceHolder",
+											key: "personDetail.membershipName"
+										}
+									]
+								},{
+									xtype: "hiddenfield",
+									itemId: "kf_OrganisationID0HiddenField",
+									name: "Membership[0]['kf_OrganisationID']",
+									required: false,
+									readOnly: true
+								}]
+							},{
+								xtype: "container",
+								itemId: "membership2Container",
+								html: "Hello from membership2Container",
+								items:[{	
+									xtype: "textfield",
+									itemId: "membership1TextField",
+									name: "Membership[1]['kp_MembershipID']",						
+									label: "Membership",
+									required: false,
+									plugins: [
+										{
+											type: "localization",
+											method: "setPlaceHolder",
+											key: "personDetail.membershipName"
+										}
+									]
+								},{
+									xtype: "hiddenfield",
+									itemId: "kf_OrganisationID1HiddenField",
+									name: "Membership[1]['kf_OrganisationID']",
+									required: false,
+									readOnly: true
+								}]								
+							}]							
+						}]
 					}
                 ]
             },

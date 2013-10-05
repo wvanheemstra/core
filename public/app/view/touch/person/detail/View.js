@@ -478,15 +478,16 @@ Ext.define("Core.view.touch.person.detail.View", {
 							labelWidth: "35%"
 						},	
 						items:[
-							{
-								xtype: "container", // We create an ItemSelector for here in the Mediator
-								name: "groupsContainer",
-								itemId: "groupsContainer",
-								anchor: "100% 100%",
-								height: 300,
-								width: "100%",
-								html: "Hello from GroupsContainer"
-							}
+					// Gets automatically set on initialize of this View	
+					//		{
+					//			xtype: "container", // We create an ItemSelector for here in the Mediator
+					//			name: "groupsContainer",
+					//			itemId: "groupsContainer",
+					//			anchor: "100% 100%",
+					//			height: 300,
+					//			width: "100%",
+					//			html: "Hello from GroupsContainer"
+					//		}
 						]
 					}//eof groupsFieldSet
 				]
@@ -556,13 +557,20 @@ Ext.define("Core.view.touch.person.detail.View", {
 		// Specific to Group itemSelector
 		var itemId = "groupList";
 		var itemTpl = "{GroupName}";
+		var searchInput = "groupsSearchInput";
 		var mode = "MULTI";
 		var store =	Ext.data.StoreManager.lookup('groupStore');
+		var component = this.down("#groupsFieldSet"); 
 		
-		this.list = this.createItemList(itemId, itemTpl, mode, store);
+		this.list = this.createItemList(itemId, itemTpl, searchInput, mode, store);
+		this.navigation = this.createItemNavigation();
+		this.selection = this.createItemSelection();
 		this.container = this.createContainer('itemSelectorContainer');
-		this.add([
+
+		component.add([
 			this.list,
+			this.navigation,
+			this.selection,
 			this.container
 		]);
 		this.createContainerCSS();
@@ -572,12 +580,51 @@ Ext.define("Core.view.touch.person.detail.View", {
 				selectedItemIndex = index;
 			}
 		});
-		this.list.select(selectedItemIndex);
+		if(this.list.hasLoadedStore) {
+			this.list.select(selectedItemIndex);
+		}
 		this.__init = true;
 	},
 	
-	// more ...
+    /**
+     *  @private
+     *
+     *  Construct style element for container and insert into the DOM.
+     */
+    createContainerCSS: function() {
+		console.log("createContainerCSS");	
+		// more ...
+	},	
+
+	/**
+     *  @private
+     *
+     *  Generates a new object to be used for displaying
+     *  the navigation of items.
+     */
+	createItemNavigation: function() {
+		console.log("createItemNavigation");	
+		return Ext.create('Ext.dataview.List', { // IMPROVE THIS FOR REAL NAVIGATION ITEMS !!!
+            docked: "left",
+            cls: "x-itemselector-navigation",
+			style: "position: absolute; top: 0; left: 250px; height: 250px; width: 50px; border: 1px solid blue; " + "z-index: 2;"
+		});
+	},
 	
+	/**
+     *  @private
+     *
+     *  Generates a new Ext.dataview.List object to be used for displaying
+     *  the selected items.
+     */
+	createItemSelection: function() {
+		console.log("createItemSelection");	
+		return Ext.create('Ext.dataview.List', { // IMPROVE THIS FOR REAL SELECTED ITEMS !!!
+            docked: "left",
+            cls: "x-itemselector-selection",
+			style: "position: absolute; top: 0; left: 300px; height: 250px; width: 100%; border: 1px solid red; " + "z-index: 2;"
+		});
+	},
 	
 	/**
      *  @private
@@ -585,10 +632,11 @@ Ext.define("Core.view.touch.person.detail.View", {
      *  Generates a new Ext.dataview.List object to be used for displaying
      *  the items.
      */
-    createItemList: function(itemId, itemTpl, mode, store) {
+    createItemList: function(itemId, itemTpl, searchInput, mode, store) {
 		console.log("createItemList");
-		var listConfig = this.getItemSelector().getList(),
-			listPosition = this.getItemSelector().getListPosition(); // Not Applicable
+		var listConfig = this.getItemSelector()['list'],
+			listPosition = this.getItemSelector()['listPosition'],
+			listSearchInput = this.getItemSelector()['list']['items'][0]['items'][0]; // Make nicer
 		/* NOT APPLICABLE	
         // The menu can be dragged further than the width
         if (listConfig.width) {
@@ -601,8 +649,10 @@ Ext.define("Core.view.touch.person.detail.View", {
 		*/
 		listConfig.itemId = itemId;
 		listConfig.itemTpl = itemTpl;
+		listSearchInput['itemId'] = searchInput;	// renames the itemId of the searchInput
 		listConfig.mode = mode;
 		listConfig.store = store;
+
         return Ext.create('Ext.dataview.List', Ext.merge({}, listConfig, {
             //store: this.store, // Already set in listConfig
             docked: listPosition,
@@ -647,8 +697,28 @@ Ext.define("Core.view.touch.person.detail.View", {
     onSelect: function(list, item, eOpts) {
 		console.log("onSelect");
 		// more...
-	}
+	},
 	
-	
+    /**
+     *  @private
+     *
+     *  Generates and returns the Ext.Container to be used for displaying
+     *  content.
+	 *
+	 * @param itemId The itemId of the container.
+     */
+    createContainer: function(itemId) {
+		console.log("createContainer");
+        var me = this;
+        var container = Ext.create('Ext.Container', Ext.merge({}, me.config.itemSelector.container, {
+            // docked: 'left',
+			itemId: itemId, // NEW by wvh
+            cls: "x-itemselector-container",
+            style: "width: '100%'; height: '100%'; position: absolute;"
+        }));
+        // Create optional container functionality
+        
+        return container;
+    }	
 	
 });

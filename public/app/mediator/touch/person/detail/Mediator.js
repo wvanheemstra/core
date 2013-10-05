@@ -49,9 +49,10 @@ Ext.define("Core.mediator.touch.person.detail.Mediator", {
 			painted: "onDateStartTextFieldPainted",		
 			focus: "onDateStartTextFieldFocus"
 		},
-		groupsContainer: {
-			painted: "onGroupsContainerPainted"
-		}
+		groupsSearchInput :{
+            keyup:          "onGroupsSearchKeyUp",
+            clearicontap:   "onGroupsSearchClearIconTap"
+        }
     },
 
     // set up injected object event listening
@@ -300,7 +301,7 @@ Ext.define("Core.mediator.touch.person.detail.Mediator", {
 		}, timeout); // you can play with this timeout to make it as short as possible	
 	},
 	
-    /**
+    /**  THIS HAVE BEEN MOVED TO THE VIEW ITSELF ....
      * Build an itemSelector from the element provided.
 	 *
 	 * @param element    The element to build an itemSelector from
@@ -811,13 +812,65 @@ Ext.define("Core.mediator.touch.person.detail.Mediator", {
     },
 
     /**
-     * Handles the groups container painted event. 
-     * 
-	 * @param element   The element that is painted
-	 * @param options   The options
+     * Handles the clear icon tap event on the search field. Clears all filter on the list's store.
      */
-    onGroupsContainerPainted: function(element, options) {
-        this.logger.debug("onGroupsContainerPainted");
-		this.buildItemSelector(element, options);
-    },		
+    onGroupsSearchClearIconTap: function() {
+    	if(Core.config.person.Config.getCurrentView()==='persondetail') {  	
+	        this.logger.debug("onGroupsSearchClearIconTap");
+	        var store = this.getView().down("#groupList").getStore();
+	        store.clearFilter();
+    	}        
+    },
+
+    /**
+     * Handles the key up event on the search field. Filters the list component's store by the value in the
+     * search field and determining if it matches the name element of each record in the list.
+     *
+     * @param {Ext.field.Search} field Reference to the search field.
+     *
+     * TODO: BMR: 02/28/13: clean this up. pulled directly from another example with minor changes: http://www.phs4j.com/2012/05/add-a-searchfield-to-a-sencha-touch-2-list-mvc/
+     */
+    onGroupsSearchKeyUp: function(field) {
+    	if(Core.config.person.Config.getCurrentView()==='persondetail') {
+	        this.logger.debug("onGroupsSearchKeyUp");
+	        //get the store and the value of the field
+	        var value = field.getValue();
+	        var store = this.getView().down("#groupList").getStore(); 
+	        //first clear any current filters on the store
+	        store.clearFilter();
+	        //check if a value is set first, as if it isn't we don't have to do anything
+	        if (value) {
+	            //the user could have entered spaces, so we must split them so we can loop through them all
+	            var searches = value.split(" "),
+	                regexps = [],
+	                i;
+	            //loop them all
+	            for (i = 0; i < searches.length; i++) {
+	                //if it is nothing, continue
+	                if (!searches[i]) continue;
+	                //if found, create a new regular expression which is case insensitive
+	                regexps.push(new RegExp(searches[i], "i"));
+	            }
+	            //now filter the store by passing a method
+	            //the passed method will be called for each record in the store
+	            store.filter(function(record) {
+	                var matched = [];
+	                //loop through each of the regular expressions
+	                for (i = 0; i < regexps.length; i++) {
+	                    var search = regexps[i],
+	                        didMatch = record.get("GroupName").match(search);
+	                    //if it matched the name, push it into the matches array
+	                    matched.push(didMatch);
+	                }
+	                //if nothing was found, return false (don't so in the store)
+	                if (regexps.length > 1 && matched.indexOf(false) != -1) {
+	                    return false;
+	                } else {
+	                    //else true true (show in the store)
+	                    return matched[0];
+	                }
+	            });
+	        }
+    	}//eof if
+    }
 });

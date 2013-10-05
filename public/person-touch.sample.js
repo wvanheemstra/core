@@ -86,6 +86,11 @@ Ext.onReady(function () {
 			store: true
 		}]
 	},{
+		group:  [{
+			mock: true,
+			store: true
+		}]
+	},{
 		person:  [{
 			mock: true,  // Set to 'false' when retrieving live data
 			store: true
@@ -158,9 +163,10 @@ Ext.application({
         "session.Model",
 		"salutation.Model",
 		"gender.Model",
-		"nationality.Model",	
+		"nationality.Model",
 		"date.Model",
-		"membership.Model",		
+		"membership.Model",
+		"group.Model",
     	"person.Model"
     ],    
 
@@ -181,18 +187,19 @@ Ext.application({
     ////////////////////////////////////////////
     controllers:[
         //"bootstrap.Controller", // DEPRECATED, now part of "person.Controller"
-        "session.Controller",   
+        "session.Controller",
         "background.Controller",
         "ui.Controller",
-        "company.Controller",   
+        "company.Controller",
         "url.Controller",
-        "title.Controller",		
+        "title.Controller",
         "authentication.Controller",
 		"salutation.Controller",
 		"gender.Controller",
 		"nationality.Controller",
-		"date.Controller",	
-		"membership.Controller",			
+		"date.Controller",
+		"membership.Controller",
+		"group.Controller",
         "person.Controller"
     ],
 

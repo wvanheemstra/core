@@ -48,6 +48,9 @@ Ext.define("Core.mediator.touch.person.detail.Mediator", {
 		dateStartTextField: {
 			painted: "onDateStartTextFieldPainted",		
 			focus: "onDateStartTextFieldFocus"
+		},
+		groupsContainer: {
+			painted: "onGroupsContainerPainted"
 		}
     },
 
@@ -78,7 +81,8 @@ Ext.define("Core.mediator.touch.person.detail.Mediator", {
 		this.eventBus.addGlobalEventListener(Core.event.salutation.Event.READ_SALUTATIONS_SUCCESS, this.onReadSalutationsSuccess, this);
 		this.eventBus.addGlobalEventListener(Core.event.gender.Event.READ_GENDERS_SUCCESS, this.onReadGendersSuccess, this);
 		this.eventBus.addGlobalEventListener(Core.event.nationality.Event.READ_NATIONALITIES_SUCCESS, this.onReadNationalitiesSuccess, this);	
-		this.eventBus.addGlobalEventListener(Core.event.date.Event.READ_DATES_SUCCESS, this.onReadDatesSuccess, this);		
+		this.eventBus.addGlobalEventListener(Core.event.date.Event.READ_DATES_SUCCESS, this.onReadDatesSuccess, this);
+		this.eventBus.addGlobalEventListener(Core.event.group.Event.READ_GROUPS_SUCCESS, this.onReadGroupsSuccess, this);				
     },
 
     /**
@@ -295,7 +299,83 @@ Ext.define("Core.mediator.touch.person.detail.Mediator", {
 			console.log(element);
 		}, timeout); // you can play with this timeout to make it as short as possible	
 	},
-
+	
+    /**
+     * Build an itemSelector from the element provided.
+	 *
+	 * @param element    The element to build an itemSelector from
+	 * @param options      The element's options
+     */		
+	buildItemSelector: function(element, options){
+		this.logger.debug("buildItemSelector");	
+		var me = element;
+		/*
+		var store = Ext.create('Ext.data.Store', {
+			storeId:'groupStore',
+			fields:['name', 'email', 'phone'],
+			data:{'items':[
+				{ 'name': 'Lisa',  "email":"lisa@simpsons.com",  "phone":"555-111-1224"  },
+				{ 'name': 'Bart',  "email":"bart@simpsons.com",  "phone":"555-222-1234" },
+				{ 'name': 'Homer', "email":"home@simpsons.com",  "phone":"555-222-1244"  },
+				{ 'name': 'Marge', "email":"marge@simpsons.com", "phone":"555-222-1254"  }
+			]},
+			proxy: {
+				type: 'memory',
+				reader: {
+					type: 'json',
+					root: 'items'
+				}
+			}
+		});
+		*/
+		
+		/*
+		var panel = Ext.create('Ext.grid.Panel', {
+			title: 'Groups',
+			store: Ext.data.StoreManager.lookup('groupStore'),
+			columns: [
+				{ header: 'Name',  dataIndex: 'name', flex: 1 }
+			],
+			height: 200,
+			width: 400,
+			//renderTo: Ext.getBody()
+			renderTo: this.getView().down("#groupsContainer")
+		});
+		*/
+		/*
+		var list = Ext.create('Ext.List', {
+			// configure the newly created list
+			mode: 'MULTI',
+			store: Ext.data.StoreManager.lookup('groupStore'), //eof store
+			itemTpl: "{name}",
+			renderTo: this.getView().down("#groupsContainer"),
+			listeners: {
+				selectionchange: function(list,records){
+					var names = [];
+					Ext.Array.each(records, function(item){
+						names.push("<li>"+item.data.name+"</li>");
+					});// eof each()
+					console.log("Selected " + records.length + " item(s): " + names.join(''));
+				}//eof selectionchange
+			}//eof listeners
+		});
+		*/
+		// to do ...
+	//	var component = this.getView().down("#groupsContainer");
+	//	component.getItems().add(list);
+	//	component.setHtml('Setting a list!');	
+	//	var items = component.getItems();
+	//	for(item in items){
+	//		console.log(items[item]);
+	//		items[item] = list; // Make it better so it checks that this is indeed a list
+	//	}
+		
+	//	component.setHeight(300);
+		//component.doLayout(); // Should refresh the component
+		
+		
+	},
+	
     ////////////////////////////////////////////////
     // EVENT BUS HANDLERS
     ////////////////////////////////////////////////
@@ -573,7 +653,17 @@ Ext.define("Core.mediator.touch.person.detail.Mediator", {
 			this.getView().setMasked(false);
 		}	
     },	
-	
+
+    /**
+     * Handles the read groups success application-level event.
+     */
+    onReadGroupsSuccess: function() {
+		if(Core.config.person.Config.getCurrentView()==='persondetail') {
+			this.logger.debug("onReadGroupsSuccess");
+			// more...
+		}
+	},
+
     /**
      * Handles the change of the selected record in the person store. Loads the appropriate record in the view or
      * resets it if the record is null.
@@ -718,5 +808,16 @@ Ext.define("Core.mediator.touch.person.detail.Mediator", {
     onDateStartTextFieldFocus: function() {
         this.logger.debug("onDateStartTextFieldFocus");
 		this.readDates();
-    }	
+    },
+
+    /**
+     * Handles the groups container painted event. 
+     * 
+	 * @param element   The element that is painted
+	 * @param options   The options
+     */
+    onGroupsContainerPainted: function(element, options) {
+        this.logger.debug("onGroupsContainerPainted");
+		this.buildItemSelector(element, options);
+    },		
 });

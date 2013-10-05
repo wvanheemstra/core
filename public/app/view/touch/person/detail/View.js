@@ -19,6 +19,80 @@ Ext.define("Core.view.touch.person.detail.View", {
 
     config: {
 	
+		/**
+		 * @cfg {Object} itemSelector Configuration for the item selector.
+		 *
+		 */
+		itemSelector: {
+			/**
+			 * @cfg {Object} list Configuration for the list.
+			 * 
+			 */
+			list: {
+				xtype: "list",
+				maxDrag: 400, // Not applicable
+				width: 250,
+				grouped: false, // Set to true
+				ui: "neutral",
+				items: [{
+					xtype: 'toolbar',
+					docked: 'top',
+					ui: 'neutral',
+					items: [{
+						docked: 'top',
+						xtype: 'searchfield',
+						placeHolder: 'search',
+						itemId:"searchInput",
+						width: 180
+					}]
+				}]
+				/*
+				THESE ARE DYNAMICALLY SET
+				listeners: {
+					selectionchange: function(list,records){
+						var names = [];
+						Ext.Array.each(records, function(item){
+							names.push("<li>"+item.data.GroupName+"</li>");
+						});// eof each()
+						console.log("Selected " + records.length + " item(s): " + names.join(''));
+					}//eof selectionchange
+				}//eof listeners
+				*/
+			},
+			/**
+			 * @cfg {Object} container Configuration for the container
+			 */
+			container: {},
+			/**
+			 * @cfg {Array} items An array of items to put into the itemselector list.
+			 * The items can either be Ext components or special objects with a "handler"
+			 * key, which should be a function to execute when selected.  Additionally, you
+			 * can define the order of the items by defining an 'order' parameter.
+			 */  
+			items: [], // Initially empty		
+			/**
+			 * @cfg {Object} groups Mapping of group name to order.  For example,
+			 * say you have defined two groups; "Group 1" and "Group 2".  By default
+			 * these will be presented in the list in that order, since
+			 * 'Group 1' > 'Group 2'.  This option allows you to change the ordering,
+			 * like so:
+			 *
+			 *  groups: {
+			 *    'Group 1': 2
+			 *    'Group 2': 1
+			 *  }
+			 *
+			 *  You should use integers, starting with 1, as the ordering value.
+			 *  By default groups are ordered by their name.
+			 */
+			groups: {}, // Initially empty
+			/**
+			 * @cfg {String} listPosition Position of the list menu, left or right.
+			 * Defaults to 'left'.
+			 */
+			listPosition: 'left'
+		},
+
         items: [
             {
                 xtype: "titlebar",
@@ -407,7 +481,10 @@ Ext.define("Core.view.touch.person.detail.View", {
 							{
 								xtype: "container", // We create an ItemSelector for here in the Mediator
 								name: "groupsContainer",
+								itemId: "groupsContainer",
 								anchor: "100% 100%",
+								height: 300,
+								width: "100%",
 								html: "Hello from GroupsContainer"
 							}
 						]
@@ -435,5 +512,143 @@ Ext.define("Core.view.touch.person.detail.View", {
 				}]
 			}
         ]
-    }
+    },
+	initConfig: function() {
+		console.log("initConfig");
+		var me = this;
+		me._indexCount = 0;
+		// Set the groups.
+//		me.setGroups(Core.config.global.Config.getGroups());
+		
+		// NOT APPLICABLE
+		// Create the store.
+        // me.store = Ext.create('Ext.data.Store', {
+            // model: me.getModel(),
+            // sorters: 'order',	
+            // grouper: {
+                // property: 'group',
+                // sortProperty: 'groupOrder'
+            // }
+        // });
+		// console.log("store created");
+		
+		me.callParent(arguments);
+		console.log("parent called");
+		delete me.config.itemSelector.items;// DELETE THE me.config.itemSelector.items AFTER callParent(arguments)
+        /**
+         *  @private
+         *
+         *  This stores the instances of the components created.
+         *  TODO: Support 'autoDestroy'.  
+         */
+        me._cache = {};
+
+
+		// more ...
+	
+	},
+	initialize: function() {
+		console.log("initialize");
+        this.__init = false;
+		this.callParent();
+		this.addCls('x-itemselector');
+		
+		// Specific to Group itemSelector
+		var itemId = "groupList";
+		var itemTpl: "{GroupName}";
+		var mode = "MULTI";
+		var store =	Ext.data.StoreManager.lookup('groupStore');
+		
+		this.list = this.createItemList(itemId, itemTpl, mode, store);
+		this.container = this.createContainer('itemSelectorContainer');
+		this.add([
+			this.list,
+			this.container
+		]);
+		this.createContainerCSS();
+		var selectedItemIndex = 0;
+		Ext.each(this.list.getStore().getRange(), function(item, index) {
+			if(item.get('selected') === true) {
+				selectedItemIndex = index;
+			}
+		});
+		this.list.select(selectedItemIndex);
+		this.__init = true;
+	},
+	
+	// more ...
+	
+	
+	/**
+     *  @private
+     *
+     *  Generates a new Ext.dataview.List object to be used for displaying
+     *  the items.
+     */
+    createItemList: function(itemId, itemTpl, mode, store) {
+		console.log("createItemList");
+		var listConfig = this.getItemSelector().getList(),
+			listPosition = this.getItemSelector().getListPosition(); // Not Applicable
+		/* NOT APPLICABLE	
+        // The menu can be dragged further than the width
+        if (listConfig.width) {
+            listConfig.minWidth = listConfig.width;
+            if (listPosition == "left") {
+                // The actual width of the list is determined by maxDrag
+                listConfig.width = listConfig.maxDrag || listConfig.width;
+            }
+        }
+		*/
+		listConfig.itemId = itemId;
+		listConfig.itemTpl = itemTpl;
+		listConfig.mode = mode;
+		listConfig.store = store;
+        return Ext.create('Ext.dataview.List', Ext.merge({}, listConfig, {
+            //store: this.store, // Already set in listConfig
+            docked: listPosition,
+            cls: 'x-itemselector-list',
+			style: 'position: absolute; top: 0; '+listPosition+': 0; height: 100%;' + 'z-index: 2',
+			listeners: {
+				selectionchange: this.onSelectionChange,
+				select: this.onSelect,
+				itemtap: this.onItemTap,
+				scope: this
+			}
+        }));
+    },
+	/**
+     * @private
+     *
+     * Always called when selection in the list is changed.
+     */
+    onSelectionChange: function (list, records) {
+		console.log("onSelectionChange");
+		var names = [];
+		Ext.Array.each(records, function(item){
+			names.push("<li>"+item.data.GroupName+"</li>"); // Specific to GroupName, make dynamic
+		});// eof each()
+		console.log("Selected " + records.length + " item(s): " + names.join(''));
+		// more ...
+	},
+	/**
+     * @private
+     *
+     * Always called when item in the list is tapped.
+     */
+    onItemTap: function (list, index, target, item, e, eOpts) {
+		console.log("onItemTap");
+		// more ...
+	},
+	/**
+     *  @private
+     *
+     *  Called when an item in the list is tapped if item is not selected.
+     */
+    onSelect: function(list, item, eOpts) {
+		console.log("onSelect");
+		// more...
+	}
+	
+	
+	
 });

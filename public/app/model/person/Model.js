@@ -59,6 +59,13 @@ Ext.define("Core.model.person.Model", {
 			  foreignKey: "kf_PersonID", // the key that identifies the parent in the child. In a belongsTo or hasOne relation, this is part of the model itself, in a hasMany relation this is a field of the child objects that refer to my Id.
 			  foreignStore: "membershipStore",  //WAS "Core.store.date.Store", // the store name that contains the related records
 			  foreignStoreId: "membershipStore" // the store id  of the foreign store
+			},{
+			  name: "PersonGroup",
+			  model: "Core.model.person.group.Model",
+			  primaryKey: "kp_PersonID", // the field in the parent that identifies it.
+			  foreignKey: "kf_PersonID", // the key that identifies the parent in the child. In a belongsTo or hasOne relation, this is part of the model itself, in a hasMany relation this is a field of the child objects that refer to my Id.
+			  foreignStore: "personGroupStore",  //WAS "Core.store.date.Store", // the store name that contains the related records
+			  foreignStoreId: "personGroupStore" // the store id  of the foreign store
 			}		
 		],
 	    validations: [
@@ -122,6 +129,13 @@ Ext.define("Core.model.person.Model", {
 		  foreignKey: "kf_PersonID", // the key that identifies the parent in the child. In a belongsTo or hasOne relation, this is part of the model itself, in a hasMany relation this is a field of the child objects that refer to my Id.
 		  foreignStore: "membershipStore",  //WAS "Core.store.date.Store", // the store name that contains the related records
 		  foreignStoreId: "membershipStore" // the store id  of the foreign store
+		},{
+		  name: "PersonGroup",
+		  model: "Core.model.person.group.Model",
+		  primaryKey: "kp_PersonID", // the field in the parent that identifies it.
+		  foreignKey: "kf_PersonID", // the key that identifies the parent in the child. In a belongsTo or hasOne relation, this is part of the model itself, in a hasMany relation this is a field of the child objects that refer to my Id.
+		  foreignStore: "personGroupStore",  //WAS "Core.store.date.Store", // the store name that contains the related records
+		  foreignStoreId: "personGroupStore" // the store id  of the foreign store
 		}		
 	],	
     validations: [

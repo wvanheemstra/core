@@ -2,7 +2,7 @@
  * Contains the list of organisation objects.
  */
 Ext.define("Core.store.organisation.Store", {
-    extend: "FlowMVC.mvc.store.AbstractStore",
+    extend: "Core.store.organisation.base.Store",
     // Touch uses properties inside of config
 	config: {
 	    model: "Core.model.organisation.Model",

@@ -1,0 +1,67 @@
+/*
+ * Config for values that belong to group and set at runtime
+ *
+ * Example to set a group value:
+ * Core.config.group.Config.setMyLastCustomer(12345);
+ *
+ * Example to get a group value:
+ * Core.config.group.Config.getMyLastCustomer();
+ *
+ */
+Ext.define("Core.config.group.Config",{
+    singleton : true,
+    config : {
+        //myLastCustomer : 0,     // initialize to 0
+        id: 0,     				  // initialize to 0
+        sessionId: '',            // initialize to empty
+        keepMeLoggedIn: false,	  // initialize to false
+		initialView: 'login',     // initialize to 'login'
+        previousView: '',         // initialize to empty
+        currentView: '',          // initialize to empty
+        nextView: 'grouplist',   // initialize to empty
+        ui: 'neutral',        	  // initialize to 'neutral'
+        company: 'Your Company',  // initialize to 'Your Company'
+		locale: 'en_us',	      // initialize to 'en_us'
+		background: 'noise',      // initialize to 'noise'
+		url: '',				  // initialize to ''
+		title: '',				  // initialize to ''
+		services: [{
+			authentication:  [{
+				mock: true
+			}]
+		},{
+			background:  [{
+				mock: true
+			}]
+		},{
+			session:  [{
+				mock: true,
+				store: true
+			}]
+		},{
+			title:  [{
+				mock: true
+			}]
+		},{
+			ui:  [{
+				mock: true
+			}]
+		},{
+			url:  [{
+				mock: true
+			}]
+		},{
+			company:  [{
+				mock: true
+			}]
+		},{
+			group:  [{
+				mock: true,
+				store: true
+			}]
+		}]	 // put your services here
+    },
+    constructor : function(config){
+        this.initConfig(config);
+    }
+});

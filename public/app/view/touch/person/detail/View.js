@@ -555,7 +555,7 @@ Ext.define("Core.view.touch.person.detail.View", {
 		
 		// Specific to Group itemSelector
 		var itemId = "groupList";
-		var itemTpl: "{GroupName}";
+		var itemTpl = "{GroupName}";
 		var mode = "MULTI";
 		var store =	Ext.data.StoreManager.lookup('groupStore');
 		

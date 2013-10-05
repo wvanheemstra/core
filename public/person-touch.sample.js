@@ -86,6 +86,11 @@ Ext.onReady(function () {
 			store: true
 		}]
 	},{
+		personGroup:  [{
+			mock: true,
+			store: true
+		}]
+	},{
 		group:  [{
 			mock: true,
 			store: true
@@ -124,10 +129,18 @@ Ext.onReady(function () {
 				if(key == 'store'){
 					var store = value[key];
 					var serviceStore = serviceName+"Store";
+					var storeName = "";  // TO DO: Make e.g. person to person, but personGroup to person.group
+						// TEMP FIX:
+						if(serviceName == 'personGroup'){
+							storeName = 'person.group'; 
+						}
+						else {
+							storeName = serviceName;
+						}
 					var keyValuePairArray = {};
 					if(store){
-						keyValuePairArray[serviceStore] = String("Core.store."+serviceName+".Store");
-						Ext.require([String("Core.store."+serviceName+".Store")]);
+						keyValuePairArray[serviceStore] = String("Core.store."+storeName+".Store");
+						Ext.require([String("Core.store."+storeName+".Store")]);
 					} 				
 					// Configure the DeftJS IoC container for Stores
 					Deft.Injector.configure(keyValuePairArray);
@@ -166,6 +179,7 @@ Ext.application({
 		"nationality.Model",
 		"date.Model",
 		"membership.Model",
+		"person.group.Model",		
 		"group.Model",
     	"person.Model"
     ],    
@@ -199,6 +213,7 @@ Ext.application({
 		"nationality.Controller",
 		"date.Controller",
 		"membership.Controller",
+		"person.group.Controller",		
 		"group.Controller",
         "person.Controller"
     ],

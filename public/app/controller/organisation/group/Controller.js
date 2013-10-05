@@ -36,10 +36,10 @@ Ext.define("Core.controller.organisation.group.Controller", {
     setupGlobalEventListeners: function() {
         this.callParent();
         this.logger.debug("setupGlobalEventListeners");              
-        this.eventBus.addGlobalEventListener(Core.event.organisation.group.Event.CREATE_ORGANISATIONGROUP, this.onCreateOrganisationGroup, this);
-        this.eventBus.addGlobalEventListener(Core.event.organisation.group.Event.UPDATE_ORGANISATIONGROUP, this.onUpdateOrganisationGroup, this);
-        this.eventBus.addGlobalEventListener(Core.event.organisation.group.Event.DELETE_ORGANISATIONGROUP, this.onDeleteOrganisationGroup, this);
-		this.eventBus.addGlobalEventListener(Core.event.organisation.group.Event.READ_ORGANISATIONGROUPS, this.onReadOrganisationGroups, this);
+        this.eventBus.addGlobalEventListener(Core.event.organisation.group.Event.CREATE_ORGANISATION_GROUP, this.onCreateOrganisationGroup, this);
+        this.eventBus.addGlobalEventListener(Core.event.organisation.group.Event.UPDATE_ORGANISATION_GROUP, this.onUpdateOrganisationGroup, this);
+        this.eventBus.addGlobalEventListener(Core.event.organisation.group.Event.DELETE_ORGANISATION_GROUP, this.onDeleteOrganisationGroup, this);
+		this.eventBus.addGlobalEventListener(Core.event.organisation.group.Event.READ_ORGANISATION_GROUPS, this.onReadOrganisationGroups, this);
     },
 
     /**
@@ -100,7 +100,7 @@ Ext.define("Core.controller.organisation.group.Controller", {
 
         this.organisationGroupStore.add(response);
 
-        var evt = Ext.create("Core.event.organisation.group.Event", Core.event.organisation.group.Event.CREATE_ORGANISATIONGROUP_SUCCESS);
+        var evt = Ext.create("Core.event.organisation.group.Event", Core.event.organisation.group.Event.CREATE_ORGANISATION_GROUP_SUCCESS);
         this.eventBus.dispatchGlobalEvent(evt);
     },
 
@@ -113,7 +113,7 @@ Ext.define("Core.controller.organisation.group.Controller", {
     createOrganisationGroupFailure: function(response) {
         this.logger.warn("createOrganisationGroupFailure");
 
-        var evt = Ext.create("Core.event.organisation.group.Event", Core.event.organisation.group.Event.CREATE_ORGANISATIONGROUP_FAILURE);
+        var evt = Ext.create("Core.event.organisation.group.Event", Core.event.organisation.group.Event.CREATE_ORGANISATION_GROUP_FAILURE);
         this.eventBus.dispatchGlobalEvent(evt);
     },
 
@@ -128,7 +128,7 @@ Ext.define("Core.controller.organisation.group.Controller", {
 
         this.organisationGroupStore.update(response);
 
-        var evt = Ext.create("Core.event.organisation.group.Event", Core.event.organisation.group.Event.UPDATE_ORGANISATIONGROUP_SUCCESS);
+        var evt = Ext.create("Core.event.organisation.group.Event", Core.event.organisation.group.Event.UPDATE_ORGANISATION_GROUP_SUCCESS);
         this.eventBus.dispatchGlobalEvent(evt);
     },
 
@@ -141,7 +141,7 @@ Ext.define("Core.controller.organisation.group.Controller", {
     updateOrganisationGroupFailure: function(response) {
         this.logger.warn("updateOrganisationGroupFailure");
 
-        var evt = Ext.create("Core.event.organisation.group.Event", Core.event.organisation.group.Event.UPDATE_ORGANISATIONGROUP_FAILURE);
+        var evt = Ext.create("Core.event.organisation.group.Event", Core.event.organisation.group.Event.UPDATE_ORGANISATION_GROUP_FAILURE);
         this.eventBus.dispatchGlobalEvent(evt);
     },
 
@@ -158,7 +158,7 @@ Ext.define("Core.controller.organisation.group.Controller", {
         var organisationGroup = this.organisationGroupStore.findRecord("kp_OrganisationGroupID", response.data.kp_OrganisationGroupID);
         this.organisationGroupStore.remove(organisationGroup);
 
-        var evt = Ext.create("Core.event.organisation.group.Event", Core.event.organisation.group.Event.DELETE_ORGANISATIONGROUP_SUCCESS);
+        var evt = Ext.create("Core.event.organisation.group.Event", Core.event.organisation.group.Event.DELETE_ORGANISATION_GROUP_SUCCESS);
         this.eventBus.dispatchGlobalEvent(evt);
     },
 
@@ -171,7 +171,7 @@ Ext.define("Core.controller.organisation.group.Controller", {
     deleteOrganisationGroupFailure: function(response) {
         this.logger.warn("deleteOrganisationGroupFailure");
 
-        var evt = Ext.create("Core.event.organisation.group.Event", Core.event.organisation.group.Event.DELETE_ORGANISATIONGROUP_FAILURE);
+        var evt = Ext.create("Core.event.organisation.group.Event", Core.event.organisation.group.Event.DELETE_ORGANISATION_GROUP_FAILURE);
         this.eventBus.dispatchGlobalEvent(evt);
     },
 
@@ -185,7 +185,7 @@ Ext.define("Core.controller.organisation.group.Controller", {
 
 		this.organisationGroupStore.setData(response.organisationGroups);
 
-        var evt = Ext.create("Core.event.organisation.group.Event", Core.event.organisation.group.Event.READ_ORGANISATIONGROUPS_SUCCESS);
+        var evt = Ext.create("Core.event.organisation.group.Event", Core.event.organisation.group.Event.READ_ORGANISATION_GROUPS_SUCCESS);
         this.eventBus.dispatchGlobalEvent(evt);
     },
 
@@ -198,7 +198,7 @@ Ext.define("Core.controller.organisation.group.Controller", {
     readOrganisationGroupsFailure: function(response) {
         this.logger.warn("readOrganisationGroupsFailure");
 
-        var evt = Ext.create("Core.event.organisation.group.Event", Core.event.organisation.group.Event.READ_ORGANISATIONGROUPS_FAILURE);
+        var evt = Ext.create("Core.event.organisation.group.Event", Core.event.organisation.group.Event.READ_ORGANISATION_GROUPS_FAILURE);
         this.eventBus.dispatchGlobalEvent(evt);
     },
 	

@@ -36,10 +36,10 @@ Ext.define("Core.controller.person.group.Controller", {
     setupGlobalEventListeners: function() {
         this.callParent();
         this.logger.debug("setupGlobalEventListeners");              
-        this.eventBus.addGlobalEventListener(Core.event.person.group.Event.CREATE_PERSONGROUP, this.onCreatePersonGroup, this);
-        this.eventBus.addGlobalEventListener(Core.event.person.group.Event.UPDATE_PERSONGROUP, this.onUpdatePersonGroup, this);
-        this.eventBus.addGlobalEventListener(Core.event.person.group.Event.DELETE_PERSONGROUP, this.onDeletePersonGroup, this);
-		this.eventBus.addGlobalEventListener(Core.event.person.group.Event.READ_PERSONGROUPS, this.onReadPersonGroups, this);
+        this.eventBus.addGlobalEventListener(Core.event.person.group.Event.CREATE_PERSON_GROUP, this.onCreatePersonGroup, this);
+        this.eventBus.addGlobalEventListener(Core.event.person.group.Event.UPDATE_PERSON_GROUP, this.onUpdatePersonGroup, this);
+        this.eventBus.addGlobalEventListener(Core.event.person.group.Event.DELETE_PERSON_GROUP, this.onDeletePersonGroup, this);
+		this.eventBus.addGlobalEventListener(Core.event.person.group.Event.READ_PERSON_GROUPS, this.onReadPersonGroups, this);
     },
 
     /**
@@ -100,7 +100,7 @@ Ext.define("Core.controller.person.group.Controller", {
 
         this.personGroupStore.add(response);
 
-        var evt = Ext.create("Core.event.person.group.Event", Core.event.person.group.Event.CREATE_PERSONGROUP_SUCCESS);
+        var evt = Ext.create("Core.event.person.group.Event", Core.event.person.group.Event.CREATE_PERSON_GROUP_SUCCESS);
         this.eventBus.dispatchGlobalEvent(evt);
     },
 
@@ -113,7 +113,7 @@ Ext.define("Core.controller.person.group.Controller", {
     createPersonGroupFailure: function(response) {
         this.logger.warn("createPersonGroupFailure");
 
-        var evt = Ext.create("Core.event.person.group.Event", Core.event.person.group.Event.CREATE_PERSONGROUP_FAILURE);
+        var evt = Ext.create("Core.event.person.group.Event", Core.event.person.group.Event.CREATE_PERSON_GROUP_FAILURE);
         this.eventBus.dispatchGlobalEvent(evt);
     },
 
@@ -128,7 +128,7 @@ Ext.define("Core.controller.person.group.Controller", {
 
         this.personGroupStore.update(response);
 
-        var evt = Ext.create("Core.event.person.group.Event", Core.event.person.group.Event.UPDATE_PERSONGROUP_SUCCESS);
+        var evt = Ext.create("Core.event.person.group.Event", Core.event.person.group.Event.UPDATE_PERSON_GROUP_SUCCESS);
         this.eventBus.dispatchGlobalEvent(evt);
     },
 
@@ -141,7 +141,7 @@ Ext.define("Core.controller.person.group.Controller", {
     updatePersonGroupFailure: function(response) {
         this.logger.warn("updatePersonGroupFailure");
 
-        var evt = Ext.create("Core.event.person.group.Event", Core.event.person.group.Event.UPDATE_PERSONGROUP_FAILURE);
+        var evt = Ext.create("Core.event.person.group.Event", Core.event.person.group.Event.UPDATE_PERSON_GROUP_FAILURE);
         this.eventBus.dispatchGlobalEvent(evt);
     },
 
@@ -158,7 +158,7 @@ Ext.define("Core.controller.person.group.Controller", {
         var personGroup = this.personGroupStore.findRecord("kp_PersonGroupID", response.data.kp_PersonGroupID);
         this.personGroupStore.remove(personGroup);
 
-        var evt = Ext.create("Core.event.person.group.Event", Core.event.person.group.Event.DELETE_PERSONGROUP_SUCCESS);
+        var evt = Ext.create("Core.event.person.group.Event", Core.event.person.group.Event.DELETE_PERSON_GROUP_SUCCESS);
         this.eventBus.dispatchGlobalEvent(evt);
     },
 
@@ -171,7 +171,7 @@ Ext.define("Core.controller.person.group.Controller", {
     deletePersonGroupFailure: function(response) {
         this.logger.warn("deletePersonGroupFailure");
 
-        var evt = Ext.create("Core.event.person.group.Event", Core.event.person.group.Event.DELETE_PERSONGROUP_FAILURE);
+        var evt = Ext.create("Core.event.person.group.Event", Core.event.person.group.Event.DELETE_PERSON_GROUP_FAILURE);
         this.eventBus.dispatchGlobalEvent(evt);
     },
 
@@ -185,7 +185,7 @@ Ext.define("Core.controller.person.group.Controller", {
 
 		this.personGroupStore.setData(response.personGroups);
 
-        var evt = Ext.create("Core.event.person.group.Event", Core.event.person.group.Event.READ_PERSONGROUPS_SUCCESS);
+        var evt = Ext.create("Core.event.person.group.Event", Core.event.person.group.Event.READ_PERSON_GROUPS_SUCCESS);
         this.eventBus.dispatchGlobalEvent(evt);
     },
 
@@ -198,7 +198,7 @@ Ext.define("Core.controller.person.group.Controller", {
     readPersonGroupsFailure: function(response) {
         this.logger.warn("readPersonGroupsFailure");
 
-        var evt = Ext.create("Core.event.person.group.Event", Core.event.person.group.Event.READ_PERSONGROUPS_FAILURE);
+        var evt = Ext.create("Core.event.person.group.Event", Core.event.person.group.Event.READ_PERSON_GROUPS_FAILURE);
         this.eventBus.dispatchGlobalEvent(evt);
     },
 	

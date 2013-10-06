@@ -377,7 +377,10 @@ Ext.define("Core.controller.group.Controller", {
     readGroupsSuccess: function(response) {
         this.logger.info("readGroupsSuccess");
 		
-		this.groupStore.setData(response.groups);
+		//WAS this.groupStore.setData(response.groups); 
+		// WE HAVE TO WORK OUT HOW WE ARE GOING TO STORE NEWLY RECEIVED records
+		// AS BY CALLING readGroups SERVICE, WE ALREADY load THE groupStore
+		// TO DO ...
 
         var evt = Ext.create("Core.event.group.Event", Core.event.group.Event.READ_GROUPS_SUCCESS);
         this.eventBus.dispatchGlobalEvent(evt);

@@ -135,8 +135,8 @@ Ext.define("Core.store.group.Store", {
 		api: {
 			//read: 'data/read-groups-success.json',
 			//read: 'http://api.vanheemstrapictures.com/services/mql/read', // use this in the future when Bluehost allows for this
-			//read: 'http://localhost:5001/?api=group&action=read',
-			read: 'http://localhost:5001/services/mql/read',
+			read: 'http://localhost:5001/?api=group&action=read', // Gets set in the Service calling this Store as follows: operation.setUrl('http://localhost:5001/?api=group&action=read');
+			//read: 'http://localhost:5001/services/mql/read',
 			write: 'core/components/core/apps/core/data/mql-single-person.json'
 		},
 		reader: {

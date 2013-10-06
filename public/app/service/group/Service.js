@@ -50,7 +50,7 @@ Ext.define("Core.service.group.Service", {
 		proxy['jsonData'] = jsonData;
 		var operation = Ext.create('Ext.data.Operation');
 			operation.setAction('read');
-			operation.setUrl(); // TO DO
+			operation.setUrl('http://localhost:5001/?api=group&action=read');
 		//	operation.setPassword(); // TO DO
 		//	operation.setUsername(); // TO DO
 		var callback = null;
@@ -66,20 +66,28 @@ Ext.define("Core.service.group.Service", {
 					//WAS console.log("Category: " + category.get('name'));
 					//this.logger.debug("readGroups.success"); // logger is undefined here
 					console.log("readGroups.success");
-					if(typeof response.responseText !== 'undefined'){
-						// Covert the string Array to an Object
-						response = JSON.parse(response.responseText);
-					}
+					
+					// since we receive records, not response, we create a response object temporarily
+					var response = records;	
+					
+				//	if(typeof response.responseText !== 'undefined'){
+				//		// Covert the string Array to an Object
+				//		response = JSON.parse(response.responseText);
+				//	}
 					//ORIGINAL me.success(response, deferred);
 					me.success(response, token); // NEW
 				} else {
 					//WAS console.log('error');
 					//this.logger.debug("readGroups.failure"); // logger is undefined here
 					console.log("readGroups.failure");
-					if(typeof response.responseText !== 'undefined'){
-						// Covert the string Array to an Object
-						response = JSON.parse(response.responseText);
-					}				
+					
+					// since we receive records, not response, we create a response object temporarily
+					var response = records; 
+					
+				//	if(typeof response.responseText !== 'undefined'){
+				//		// Covert the string Array to an Object
+				//		response = JSON.parse(response.responseText);
+				//	}				
 					//ORIGINAL me.failure(response, deferred);
 					me.failure(response, token); // NEW
 				}

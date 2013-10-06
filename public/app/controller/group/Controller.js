@@ -291,7 +291,7 @@ Ext.define("Core.controller.group.Controller", {
      */
     createGroupSuccess: function(response) {
         this.logger.info("createGroupSuccess");
-
+	
         this.groupStore.add(response);
 
         var evt = Ext.create("Core.event.group.Event", Core.event.group.Event.CREATE_GROUP_SUCCESS);
@@ -376,7 +376,7 @@ Ext.define("Core.controller.group.Controller", {
      */
     readGroupsSuccess: function(response) {
         this.logger.info("readGroupsSuccess");
-
+		
 		this.groupStore.setData(response.groups);
 
         var evt = Ext.create("Core.event.group.Event", Core.event.group.Event.READ_GROUPS_SUCCESS);

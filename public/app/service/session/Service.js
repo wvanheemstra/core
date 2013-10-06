@@ -34,11 +34,19 @@ Ext.define("Core.service.session.Service", {
 
             success: function(response) {
                 this.logger.debug("getSession.success");
+				if(typeof response.responseText !== 'undefined'){
+					// Covert the string Array to an Object
+					response = JSON.parse(response.responseText);
+				}
                 me.success(response, deferred);
             },
 
             failure: function(response) {
                 this.logger.debug("getSession.failure");
+				if(typeof response.responseText !== 'undefined'){
+					// Covert the string Array to an Object
+					response = JSON.parse(response.responseText);
+				}
                 me.failure(response, deferred);
             }
         });
@@ -70,12 +78,20 @@ Ext.define("Core.service.session.Service", {
             success: function(response) {
                 this.logger.debug("setSession.success");
 
-                var response = Ext.JSON.decode(response.responseText);
+                //WAS var response = Ext.JSON.decode(response.responseText);
+				if(typeof response.responseText !== 'undefined'){
+					// Covert the string Array to an Object
+					response = JSON.parse(response.responseText);
+				}
                 me.success(response);
             },
 
             failure: function(response) {
                 this.logger.debug("setSession.failure");
+				if(typeof response.responseText !== 'undefined'){
+					// Covert the string Array to an Object
+					response = JSON.parse(response.responseText);
+				}
                 me.failure(response);
             }
         });

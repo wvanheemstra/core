@@ -32,12 +32,20 @@ Ext.define("Core.service.authentication.Service", {
 
             success: function(response) {
                 console.log("authenticate.success"); // use console, as logger is undefined
+				if(typeof response.responseText !== 'undefined'){
+					// Covert the string Array to an Object
+					response = JSON.parse(response.responseText);
+				}
                 //ORIGINAL me.success(response, deferred);
 				me.success(response, token); // NEW
             },
 
             failure: function(response) {
                 console.log("authenticate.failure"); // use console, as logger is undefined
+				if(typeof response.responseText !== 'undefined'){
+					// Covert the string Array to an Object
+					response = JSON.parse(response.responseText);
+				}
                 //ORIGINAL me.failure(response, deferred);
 				me.failure(response, token); // NEW
             }
@@ -63,13 +71,21 @@ Ext.define("Core.service.authentication.Service", {
             success: function(response) {
                 console.log("logout.success"); // use console, as logger is undefined
 
-                var response = Ext.JSON.decode(response.responseText);
+                //WAS var response = Ext.JSON.decode(response.responseText);
+				if(typeof response.responseText !== 'undefined'){
+					// Covert the string Array to an Object
+					response = JSON.parse(response.responseText);
+				}
                 //ORIGINAL me.success(response);
 				me.success(response, token); // NEW
             },
 
             failure: function(response) {
                 console.log("logout.failure"); // use console, as logger is undefined
+				if(typeof response.responseText !== 'undefined'){
+					// Covert the string Array to an Object
+					response = JSON.parse(response.responseText);
+				}				
                 //ORIGINAL me.failure(response);
 				me.failure(response, token); // NEW
             }

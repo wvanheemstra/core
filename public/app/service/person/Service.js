@@ -30,6 +30,10 @@ Ext.define("Core.service.person.Service", {
             success: function(response) {
                 //this.logger.debug("getPersonList.success"); // logger is undefined here
 				console.log("getPersonList.success");
+				if(typeof response.responseText !== 'undefined'){
+					// Covert the string Array to an Object
+					response = JSON.parse(response.responseText);
+				}
                 //ORIGINAL me.success(response, deferred);
 				me.success(response, token); // NEW
             },
@@ -37,6 +41,10 @@ Ext.define("Core.service.person.Service", {
             failure: function(response) {
                 //this.logger.debug("getPersonList.failure"); // logger is undefined here
 				console.log("getPersonList.failure");
+				if(typeof response.responseText !== 'undefined'){
+					// Covert the string Array to an Object
+					response = JSON.parse(response.responseText);
+				}
                 //ORIGINAL me.failure(response, deferred);
 				me.failure(response, token); // NEW
             }

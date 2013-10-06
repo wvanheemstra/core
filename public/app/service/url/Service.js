@@ -29,11 +29,19 @@ Ext.define("Core.service.url.Service", {
 
             success: function(response) {
                 this.logger.debug("set.success");
+				if(typeof response.responseText !== 'undefined'){
+					// Covert the string Array to an Object
+					response = JSON.parse(response.responseText);
+				}
                 me.success(response, deferred);
             },
 
             failure: function(response) {
                 this.logger.debug("set.failure");
+				if(typeof response.responseText !== 'undefined'){
+					// Covert the string Array to an Object
+					response = JSON.parse(response.responseText);
+				}
                 me.failure(response, deferred);
             }
         });

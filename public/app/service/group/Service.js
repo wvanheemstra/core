@@ -30,13 +30,21 @@ Ext.define("Core.service.group.Service", {
             success: function(response) {
                 //this.logger.debug("readGroups.success"); // logger is undefined here
 				console.log("readGroups.success");
-                //ORIGINAL me.success(response, deferred);
+				if(typeof response.responseText !== 'undefined'){
+					// Covert the string Array to an Object
+					response = JSON.parse(response.responseText);
+				}
+				//ORIGINAL me.success(response, deferred);
 				me.success(response, token); // NEW
             },
 
             failure: function(response) {
                 //this.logger.debug("readGroups.failure"); // logger is undefined here
 				console.log("readGroups.failure");
+				if(typeof response.responseText !== 'undefined'){
+					// Covert the string Array to an Object
+					response = JSON.parse(response.responseText);
+				}				
                 //ORIGINAL me.failure(response, deferred);
 				me.failure(response, token); // NEW
             }

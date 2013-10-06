@@ -30,6 +30,10 @@ Ext.define("Core.service.membership.Service", {
             success: function(response) {
                 //this.logger.debug("getMembershipList.success"); // logger is undefined here
 				console.log("getMembershipList.success");
+				if(typeof response.responseText !== 'undefined'){
+					// Covert the string Array to an Object
+					response = JSON.parse(response.responseText);
+				}
                 //ORIGINAL me.success(response, deferred);
 				me.success(response, token); // NEW
             },
@@ -37,6 +41,10 @@ Ext.define("Core.service.membership.Service", {
             failure: function(response) {
                 //this.logger.debug("getMembershipList.failure"); // logger is undefined here
 				console.log("getMembershipList.failure");
+				if(typeof response.responseText !== 'undefined'){
+					// Covert the string Array to an Object
+					response = JSON.parse(response.responseText);
+				}
                 //ORIGINAL me.failure(response, deferred);
 				me.failure(response, token); // NEW
             }

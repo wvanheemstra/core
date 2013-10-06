@@ -1,0 +1,9 @@
+{
+    "success": true,
+    "sessionToken": "qwerty1234567890",
+	"groups": [
+		{ "kp_GroupID": 1,    "GroupName": "Group One" },
+		{ "kp_GroupID": 2,    "GroupName": "Group Two" },
+		{ "kp_GroupID": 3,    "GroupName": "Group Three" }	
+    ]
+}

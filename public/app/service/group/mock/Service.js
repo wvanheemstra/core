@@ -7,60 +7,6 @@ Ext.define("Core.service.group.mock.Service", {
     inject: [
         "logger"
     ],
-
-    /**
-     * The mock service call.
-     */
-    getGroupSlide: function() {
-        this.logger.debug("getGroupSlide");
-
-        var response = {
-            success: true,
-            groupSlide: [
-                { kp_GroupID: 1,    GroupName: "Group One" },
-                { kp_GroupID: 2,    GroupName: "Group Two" },
-                { kp_GroupID: 3,    GroupName: "Group Three" }			
-            ]
-        };
-
-        return this.delayedSuccess(response);
-    },
-    
-    /**
-     * The mock service call.
-     */
-    getGroupList: function() {
-        this.logger.debug("getGroupList");
-
-        var response = {
-            success: true,
-            groupList: [
-                { kp_GroupID: 1,    GroupName: "Group One" },
-                { kp_GroupID: 2,    GroupName: "Group Two" },
-                { kp_GroupID: 3,    GroupName: "Group Three" }	
-            ]
-        };
-
-        return this.delayedSuccess(response);
-    },
-    
-    /**
-     * The mock service call.
-     */
-    getGroupTile: function() {
-        this.logger.debug("getGroupTile");
-
-        var response = {
-            success: true,
-            groupTile: [
-                { kp_GroupID: 1,    GroupName: "Group One" },
-                { kp_GroupID: 2,    GroupName: "Group Two" },
-                { kp_GroupID: 3,    GroupName: "Group Three" }	
-            ]
-        };
-
-        return this.delayedSuccess(response);
-    },
     
     /**
      * The mock service call.

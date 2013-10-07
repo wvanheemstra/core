@@ -42,8 +42,10 @@ Ext.define("Core.mediator.touch.person.list.Mediator", {
         this.logger.debug("setupGlobalEventListeners");
         this.eventBus.addGlobalEventListener(Core.event.ui.Event.SET_UI_SUCCESS, this.onSetUISuccess, this);
         this.eventBus.addGlobalEventListener(Core.event.authentication.Event.LOGIN_SUCCESS, this.onLoginSuccess, this);
-        this.eventBus.addGlobalEventListener(Core.event.person.Event.GET_PERSON_LIST_SUCCESS, this.onGetPersonListSuccess, this);
-        this.eventBus.addGlobalEventListener(Core.event.person.Event.GET_PERSON_LIST_FAILURE, this.onGetPersonListFailure, this);
+        //this.eventBus.addGlobalEventListener(Core.event.person.Event.GET_PERSON_LIST_SUCCESS, this.onGetPersonListSuccess, this); // Replaced by READ_PERSONS_SUCCESS
+        //this.eventBus.addGlobalEventListener(Core.event.person.Event.GET_PERSON_LIST_FAILURE, this.onGetPersonListFailure, this); // Replaced by READ_PERSONS_FAILURE
+        this.eventBus.addGlobalEventListener(Core.event.person.Event.READ_PERSONS_SUCCESS, this.onReadPersonsSuccess, this);
+        this.eventBus.addGlobalEventListener(Core.event.person.Event.READ_PERSONS_FAILURE, this.onReadPersonsFailure, this);		
         this.eventBus.addGlobalEventListener(Core.event.salutation.Event.READ_SALUTATIONS_SUCCESS, this.onReadSalutationsSuccess, this);
         this.eventBus.addGlobalEventListener(Core.event.salutation.Event.READ_SALUTATIONS_FAILURE, this.onReadSalutationsFailure, this);		
         this.eventBus.addGlobalEventListener(Core.event.gender.Event.READ_GENDERS_SUCCESS, this.onReadGendersSuccess, this);
@@ -67,9 +69,13 @@ Ext.define("Core.mediator.touch.person.list.Mediator", {
             xtype: "loadmask",
             message: nineam.locale.LocaleManager.getProperty("personList.loading")
         });
-        var evt = Ext.create("Core.event.person.Event", Core.event.person.Event.GET_PERSON_LIST);
-        this.eventBus.dispatchGlobalEvent(evt);
+		// REPLACED BY READ_PERSONS
+        // var evt = Ext.create("Core.event.person.Event", Core.event.person.Event.GET_PERSON_LIST);
+        // this.eventBus.dispatchGlobalEvent(evt);
 
+        var evt = Ext.create("Core.event.person.Event", Core.event.person.Event.READ_PERSONS);
+        this.eventBus.dispatchGlobalEvent(evt);		
+		
 		var evt = Ext.create("Core.event.salutation.Event", Core.event.salutation.Event.READ_SALUTATIONS);
         this.eventBus.dispatchGlobalEvent(evt); 
 		
@@ -173,24 +179,43 @@ Ext.define("Core.mediator.touch.person.list.Mediator", {
         this.setUI(Core.config.person.Config.getUi());
     },
 
+    // /** REPLACED BY onReadPersonsSuccess
+     // * Handles the get persons application-level event.
+     // */
+    // onGetPersonListSuccess: function() {
+        // this.logger.debug("onGetPersonListSuccess");
+		// this.self.READ_PERSONS_SUCCESS = true;
+        // this.showPersonList();
+    // },
+
+    // /** REPLACED BY onReadPersonsFailure
+     // * Handles the get persons failure event.
+     // */
+    // onGetPersonListFailure: function() {
+        // this.logger.debug("onGetPersonListFailure");
+		// this.self.READ_PERSONS_SUCCESS = false;
+        // this.getView().setMasked(false);
+    // },
+
+	
     /**
-     * Handles the get persons application-level event.
+     * Handles the read persons success event.
      */
-    onGetPersonListSuccess: function() {
-        this.logger.debug("onGetPersonListSuccess");
+    onReadPersonsSuccess: function() {
+        this.logger.debug("onReadPersonsSuccess");
 		this.self.READ_PERSONS_SUCCESS = true;
         this.showPersonList();
     },
 
     /**
-     * Handles the get persons failure event.
+     * Handles the read persons failure event.
      */
-    onGetPersonListFailure: function() {
-        this.logger.debug("onGetPersonListFailure");
+    onReadPersonsFailure: function() {
+        this.logger.debug("onReadPersonsFailure");
 		this.self.READ_PERSONS_SUCCESS = false;
         this.getView().setMasked(false);
-    },
-
+    },	
+	
     /**
      * Handles the read salutations success event.
      */

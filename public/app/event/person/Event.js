@@ -14,80 +14,87 @@ Ext.define("Core.event.person.Event", {
         ACTION_SHOW_PERSON_DETAIL:        	"actionShowPersonDetail",  
         ACTION_SHOW_PERSON_MODAL:         	"actionShowPersonModal",	
 	
-        /**
-         * The get person slide event type.
-         */
-        GET_PERSON_SLIDE:          "getPersonSlide",
-    	
-        /**
-         * The get person slide success event type.
-         */
-        GET_PERSON_SLIDE_SUCCESS:  "getPersonSlideSuccess",
-
-        /**
-         * The get person slide failure event type.
-         */
-        GET_PERSON_SLIDE_FAILURE:  "getPersonSlideFailure",	
 	
-        /**
-         * The get person list event type.
-         */
-        GET_PERSON_LIST:          "getPersonList",
-    	
-        /**
-         * The get person list success event type.
-         */
-        GET_PERSON_LIST_SUCCESS:  "getPersonListSuccess",
+		///////////////////////////  ALL REPLACED BY READ_PERSONS_etc
+	
+			/**
+			 * The get person slide event type.
+			 */
+			GET_PERSON_SLIDE:          "getPersonSlide",
+			
+			/**
+			 * The get person slide success event type.
+			 */
+			GET_PERSON_SLIDE_SUCCESS:  "getPersonSlideSuccess",
 
-        /**
-         * The get person list failure event type.
-         */
-        GET_PERSON_LIST_FAILURE:  "getPersonListFailure",
-        
-        /**
-         * The get person tile event type.
-         */
-        GET_PERSON_TILE:          "getPersonTile",
-    	
-        /**
-         * The get person tile success event type.
-         */
-        GET_PERSON_TILE_SUCCESS:  "getPersonTileSuccess",
-
-        /**
-         * The get person tile failure event type.
-         */
-        GET_PERSON_TILE_FAILURE:  "getPersonTileFailure",        
-
-        /**
-         * The get person modal event type.
-         */
-        GET_PERSON_MODAL:          "getPersonModal",
-    	
-        /**
-         * The get person modal success event type.
-         */
-        GET_PERSON_MODAL_SUCCESS:  "getPersonModalSuccess",
-
-        /**
-         * The get person modal failure event type.
-         */
-        GET_PERSON_MODAL_FAILURE:  "getPersonModalFailure",	
+			/**
+			 * The get person slide failure event type.
+			 */
+			GET_PERSON_SLIDE_FAILURE:  "getPersonSlideFailure",	
 		
-        /**
-         * The get person event type.
-         */
-        GET_PERSON:               "getPerson",
+			/**
+			 * The get person list event type.
+			 */
+			GET_PERSON_LIST:          "getPersonList",
+			
+			/**
+			 * The get person list success event type.
+			 */
+			GET_PERSON_LIST_SUCCESS:  "getPersonListSuccess",
 
-        /**
-         * The get person success event type.
-         */
-        GET_PERSON_SUCCESS:       "getPersonSuccess",
+			/**
+			 * The get person list failure event type.
+			 */
+			GET_PERSON_LIST_FAILURE:  "getPersonListFailure",
+			
+			/**
+			 * The get person tile event type.
+			 */
+			GET_PERSON_TILE:          "getPersonTile",
+			
+			/**
+			 * The get person tile success event type.
+			 */
+			GET_PERSON_TILE_SUCCESS:  "getPersonTileSuccess",
 
-        /**
-         * The get person failure event type.
-         */
-        GET_PERSON_FAILURE:       "getPersonFailure",
+			/**
+			 * The get person tile failure event type.
+			 */
+			GET_PERSON_TILE_FAILURE:  "getPersonTileFailure",        
+
+			/**
+			 * The get person modal event type.
+			 */
+			GET_PERSON_MODAL:          "getPersonModal",
+			
+			/**
+			 * The get person modal success event type.
+			 */
+			GET_PERSON_MODAL_SUCCESS:  "getPersonModalSuccess",
+
+			/**
+			 * The get person modal failure event type.
+			 */
+			GET_PERSON_MODAL_FAILURE:  "getPersonModalFailure",	
+			
+			/**
+			 * The get person event type.
+			 */
+			GET_PERSON:               "getPerson",
+
+			/**
+			 * The get person success event type.
+			 */
+			GET_PERSON_SUCCESS:       "getPersonSuccess",
+
+			/**
+			 * The get person failure event type.
+			 */
+			GET_PERSON_FAILURE:       "getPersonFailure",
+		
+		
+		//////////////////////////
+		
 
         /**
          * The create person event type.
@@ -132,7 +139,22 @@ Ext.define("Core.event.person.Event", {
         /**
          * The delete person failure event type.
          */
-        DELETE_PERSON_FAILURE:    "deletePersonFailure"
+        DELETE_PERSON_FAILURE:    "deletePersonFailure",
+		
+        /**
+         * The read persons event type.
+         */
+        READ_PERSONS:            "readPersons",
+
+        /**
+         * The read persons success event type.
+         */
+        READ_PERSONS_SUCCESS:    "readPersonsSuccess",
+
+        /**
+         * The read persons failure event type.
+         */
+        READ_PERSONS_FAILURE:    "readPersonsFailure"		
 		
     },
 

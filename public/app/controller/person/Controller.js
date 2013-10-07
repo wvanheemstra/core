@@ -20,6 +20,7 @@ Ext.define("Core.controller.person.Controller", {
 		"nationalityStore",
 		"dateStore",
 		"membershipStore",
+		"groupStore",
         "logger"
     ],
     
@@ -41,10 +42,13 @@ Ext.define("Core.controller.person.Controller", {
     setupGlobalEventListeners: function() {
         this.callParent();
         this.logger.debug("setupGlobalEventListeners");
-        this.eventBus.addGlobalEventListener(Core.event.person.Event.GET_PERSON_SLIDE, this.onGetPersonSlide, this);
-        this.eventBus.addGlobalEventListener(Core.event.person.Event.GET_PERSON_LIST, this.onGetPersonList, this); 
-        this.eventBus.addGlobalEventListener(Core.event.person.Event.GET_PERSON_TILE, this.onGetPersonTile, this); 
-		this.eventBus.addGlobalEventListener(Core.event.person.Event.GET_PERSON_MODAL, this.onGetPersonModal, this);               
+		// ALL TO BE REPLACED BY READ_PERSONS
+			// this.eventBus.addGlobalEventListener(Core.event.person.Event.GET_PERSON_SLIDE, this.onGetPersonSlide, this);
+			// this.eventBus.addGlobalEventListener(Core.event.person.Event.GET_PERSON_LIST, this.onGetPersonList, this); 
+			// this.eventBus.addGlobalEventListener(Core.event.person.Event.GET_PERSON_TILE, this.onGetPersonTile, this); 
+			// this.eventBus.addGlobalEventListener(Core.event.person.Event.GET_PERSON_MODAL, this.onGetPersonModal, this);  
+		//
+        this.eventBus.addGlobalEventListener(Core.event.person.Event.READ_PERSONS, this.onReadPersons, this);		
         this.eventBus.addGlobalEventListener(Core.event.person.Event.CREATE_PERSON, this.onCreatePerson, this);
         this.eventBus.addGlobalEventListener(Core.event.person.Event.UPDATE_PERSON, this.onUpdatePerson, this);
         this.eventBus.addGlobalEventListener(Core.event.person.Event.DELETE_PERSON, this.onDeletePerson, this);
@@ -92,41 +96,44 @@ Ext.define("Core.controller.person.Controller", {
 //        Ext.getBody().unmask(); // TODO: not for touch
     },
 	
-    /**
-     * Performs get person by using the referenced service and sets up the service success and failure
-     * callback handlers.
-     */
-    getPersonSlide: function() {
-        this.logger.debug("getPersonSlide");
-        this.executeServiceCall(this.personService, this.personService.getPersonSlide, null, this.getPersonSlideSuccess, this.getPersonSlideFailure, this);
-    },	
 	
-    /**
-     * Performs get person by using the referenced service and sets up the service success and failure
-     * callback handlers.
-     */
-    getPersonList: function() {
-        this.logger.debug("getPersonList");
-        this.executeServiceCall(this.personService, this.personService.getPersonList, null, this.getPersonListSuccess, this.getPersonListFailure, this);
-    },
+	/////////////////////////    ALL TO BE REPLACED BY readPersons    
+		/**
+		 * Performs get person by using the referenced service and sets up the service success and failure
+		 * callback handlers.
+		 */
+		// getPersonSlide: function() {
+			// this.logger.debug("getPersonSlide");
+			// this.executeServiceCall(this.personService, this.personService.getPersonSlide, null, this.getPersonSlideSuccess, this.getPersonSlideFailure, this);
+		// },	
+		
+		/**
+		 * Performs get person by using the referenced service and sets up the service success and failure
+		 * callback handlers.
+		 */
+		// getPersonList: function() {
+			// this.logger.debug("getPersonList");
+			// this.executeServiceCall(this.personService, this.personService.getPersonList, null, this.getPersonListSuccess, this.getPersonListFailure, this);
+		// },
 
-    /**
-     * Performs get person by using the referenced service and sets up the service success and failure
-     * callback handlers.
-     */
-    getPersonTile: function() {
-        this.logger.debug("getPersonTile");
-        this.executeServiceCall(this.personService, this.personService.getPersonTile, null, this.getPersonTileSuccess, this.getPersonTileFailure, this);
-    },
+		/**
+		 * Performs get person by using the referenced service and sets up the service success and failure
+		 * callback handlers.
+		 */
+		// getPersonTile: function() {
+			// this.logger.debug("getPersonTile");
+			// this.executeServiceCall(this.personService, this.personService.getPersonTile, null, this.getPersonTileSuccess, this.getPersonTileFailure, this);
+		// },
 
-    /**
-     * Performs get person by using the referenced service and sets up the service success and failure
-     * callback handlers.
-     */
-    getPersonModal: function() {
-        this.logger.debug("getPersonModal");
-        this.executeServiceCall(this.personService, this.personService.getPersonModal, null, this.getPersonModalSuccess, this.getPersonModalFailure, this);
-    },	
+		/**
+		 * Performs get person by using the referenced service and sets up the service success and failure
+		 * callback handlers.
+		 */
+		// getPersonModal: function() {
+			// this.logger.debug("getPersonModal");
+			// this.executeServiceCall(this.personService, this.personService.getPersonModal, null, this.getPersonModalSuccess, this.getPersonModalFailure, this);
+		// },	
+	///////////////////////////
 	
     /**
      * Performs create person by using the referenced service and sets up the service success and failure
@@ -162,6 +169,15 @@ Ext.define("Core.controller.person.Controller", {
     },
 
     /**
+     * Performs read persons by using the referenced service and sets up the service success and failure
+     * callback handlers.
+     */
+    readPersons: function() {
+        this.logger.debug("readPersons");
+        this.executeServiceCall(this.personService, this.personService.readPersons, null, this.readPersonsSuccess, this.readPersonsFailure, this);
+    },	
+	
+    /**
      * Resets the session data.
      */
     resetSessionData: function() {
@@ -173,134 +189,144 @@ Ext.define("Core.controller.person.Controller", {
     // SERVICE SUCCESS/FAULT HANDLERS
     ////////////////////////////////////////////////
 
+	//////////////////// ALL TO BE REPLACED BY readPersonsSuccess 
+	
+		/**
+		 * Handles the successful get person service call and takes the response data packet as a parameter.
+		 * Fires off the corresponding success event on the application-level event bus.
+		 *
+		 * @param {Object} response The response data packet from the successful service call.
+		 */
+		// getPersonSlideSuccess: function(response) {
+			// this.logger.info("getPersonSlideSuccess");
+
+			// this.personStore.setData(response.personSlide);
+
+			// var evt = Ext.create("Core.event.person.Event", Core.event.person.Event.GET_PERSON_SLIDE_SUCCESS);
+			// this.eventBus.dispatchGlobalEvent(evt);
+		// },	
+		
+		/**
+		 * Handles the successful get person service call and takes the response data packet as a parameter.
+		 * Fires off the corresponding success event on the application-level event bus.
+		 *
+		 * @param {Object} response The response data packet from the successful service call.
+		 */
+		// getPersonListSuccess: function(response) {
+			// this.logger.info("getPersonListSuccess");
+
+			// // The server will send a token that can be used throughout the app.
+			// this.setSessionToken(response.sessionToken);
+			
+			// this.personStore.setData(response.personList);
+
+			// var evt = Ext.create("Core.event.person.Event", Core.event.person.Event.GET_PERSON_LIST_SUCCESS);
+			// this.eventBus.dispatchGlobalEvent(evt);
+		// },
+
+		/**
+		 * Handles the successful get person service call and takes the response data packet as a parameter.
+		 * Fires off the corresponding success event on the application-level event bus.
+		 *
+		 * @param {Object} response The response data packet from the successful service call.
+		 */
+		// getPersonTileSuccess: function(response) {
+			// this.logger.info("getPersonTileSuccess");
+
+			// // The server will send a token that can be used throughout the app.
+			// this.setSessionToken(response.sessionToken);
+			
+			// this.personStore.setData(response.personTile);
+
+			// var evt = Ext.create("Core.event.person.Event", Core.event.person.Event.GET_PERSON_TILE_SUCCESS);
+			// this.eventBus.dispatchGlobalEvent(evt);
+		// },
+
+		/**
+		 * Handles the successful get person service call and takes the response data packet as a parameter.
+		 * Fires off the corresponding success event on the application-level event bus.
+		 *
+		 * @param {Object} response The response data packet from the successful service call.
+		 */
+		// getPersonModalSuccess: function(response) {
+			// this.logger.info("getPersonModalSuccess");
+
+			// // The server will send a token that can be used throughout the app.
+			// this.setSessionToken(response.sessionToken);		
+			
+			// this.personStore.setData(response.personModal);
+
+			// var evt = Ext.create("Core.event.person.Event", Core.event.person.Event.GET_PERSON_MODAL_SUCCESS);
+			// this.eventBus.dispatchGlobalEvent(evt);
+		// },	
+	
+	////////////////////////////////
+
+	
+	//////////////////// ALL TO BE REPLACED BY readPersonsFailure
+ 	
     /**
-     * Handles the successful get person service call and takes the response data packet as a parameter.
-     * Fires off the corresponding success event on the application-level event bus.
+     * Handles the failed get person service call and takes the response data packet as a parameter.
+     * Fires off the corresponding failure event on the application-level event bus.
      *
-     * @param {Object} response The response data packet from the successful service call.
+     * @param {Object} response The response data packet from the failed service call.
      */
-    getPersonSlideSuccess: function(response) {
-        this.logger.info("getPersonSlideSuccess");
+    // getPersonSlideFailure: function(response) {
+        // this.logger.warn("getPersonSlideFailure");
 
-		this.personStore.setData(response.personSlide);
-
-        var evt = Ext.create("Core.event.person.Event", Core.event.person.Event.GET_PERSON_SLIDE_SUCCESS);
-        this.eventBus.dispatchGlobalEvent(evt);
-    },	
+        // this.resetSessionData();		
+		
+        // var evt = Ext.create("Core.event.person.Event", Core.event.person.Event.GET_PERSON_SLIDE_FAILURE);
+        // this.eventBus.dispatchGlobalEvent(evt);
+    // },
 	
     /**
-     * Handles the successful get person service call and takes the response data packet as a parameter.
-     * Fires off the corresponding success event on the application-level event bus.
+     * Handles the failed get person service call and takes the response data packet as a parameter.
+     * Fires off the corresponding failure event on the application-level event bus.
      *
-     * @param {Object} response The response data packet from the successful service call.
+     * @param {Object} response The response data packet from the failed service call.
      */
-    getPersonListSuccess: function(response) {
-        this.logger.info("getPersonListSuccess");
-
-		// The server will send a token that can be used throughout the app.
-        this.setSessionToken(response.sessionToken);
+    // getPersonListFailure: function(response) {
+        // this.logger.warn("getPersonListFailure");
 		
-        this.personStore.setData(response.personList);
+        // this.resetSessionData();		
 
-        var evt = Ext.create("Core.event.person.Event", Core.event.person.Event.GET_PERSON_LIST_SUCCESS);
-        this.eventBus.dispatchGlobalEvent(evt);
-    },
+        // var evt = Ext.create("Core.event.person.Event", Core.event.person.Event.GET_PERSON_LIST_FAILURE);
+        // this.eventBus.dispatchGlobalEvent(evt);
+    // }, 
 
     /**
-     * Handles the successful get person service call and takes the response data packet as a parameter.
-     * Fires off the corresponding success event on the application-level event bus.
+     * Handles the failed get person service call and takes the response data packet as a parameter.
+     * Fires off the corresponding failure event on the application-level event bus.
      *
-     * @param {Object} response The response data packet from the successful service call.
+     * @param {Object} response The response data packet from the failed service call.
      */
-    getPersonTileSuccess: function(response) {
-        this.logger.info("getPersonTileSuccess");
+    // getPersonTileFailure: function(response) {
+        // this.logger.warn("getPersonTileFailure");
 
-		// The server will send a token that can be used throughout the app.
-        this.setSessionToken(response.sessionToken);
+        // this.resetSessionData();		
 		
-        this.personStore.setData(response.personTile);
-
-        var evt = Ext.create("Core.event.person.Event", Core.event.person.Event.GET_PERSON_TILE_SUCCESS);
-        this.eventBus.dispatchGlobalEvent(evt);
-    },
+        // var evt = Ext.create("Core.event.person.Event", Core.event.person.Event.GET_PERSON_TILE_FAILURE);
+        // this.eventBus.dispatchGlobalEvent(evt);
+    // }, 
 
     /**
-     * Handles the successful get person service call and takes the response data packet as a parameter.
-     * Fires off the corresponding success event on the application-level event bus.
+     * Handles the failed get person service call and takes the response data packet as a parameter.
+     * Fires off the corresponding failure event on the application-level event bus.
      *
-     * @param {Object} response The response data packet from the successful service call.
+     * @param {Object} response The response data packet from the failed service call.
      */
-    getPersonModalSuccess: function(response) {
-        this.logger.info("getPersonModalSuccess");
+    // getPersonModalFailure: function(response) {
+        // this.logger.warn("getPersonModalFailure");
 
-		// The server will send a token that can be used throughout the app.
-        this.setSessionToken(response.sessionToken);		
+        // this.resetSessionData();		
 		
-        this.personStore.setData(response.personModal);
-
-        var evt = Ext.create("Core.event.person.Event", Core.event.person.Event.GET_PERSON_MODAL_SUCCESS);
-        this.eventBus.dispatchGlobalEvent(evt);
-    },	
+        // var evt = Ext.create("Core.event.person.Event", Core.event.person.Event.GET_PERSON_MODAL_FAILURE);
+        // this.eventBus.dispatchGlobalEvent(evt);
+    // }, 	
 	
-    /**
-     * Handles the failed get person service call and takes the response data packet as a parameter.
-     * Fires off the corresponding failure event on the application-level event bus.
-     *
-     * @param {Object} response The response data packet from the failed service call.
-     */
-    getPersonSlideFailure: function(response) {
-        this.logger.warn("getPersonSlideFailure");
-
-        this.resetSessionData();		
-		
-        var evt = Ext.create("Core.event.person.Event", Core.event.person.Event.GET_PERSON_SLIDE_FAILURE);
-        this.eventBus.dispatchGlobalEvent(evt);
-    },
+	////////////////////////
 	
-    /**
-     * Handles the failed get person service call and takes the response data packet as a parameter.
-     * Fires off the corresponding failure event on the application-level event bus.
-     *
-     * @param {Object} response The response data packet from the failed service call.
-     */
-    getPersonListFailure: function(response) {
-        this.logger.warn("getPersonListFailure");
-		
-        this.resetSessionData();		
-
-        var evt = Ext.create("Core.event.person.Event", Core.event.person.Event.GET_PERSON_LIST_FAILURE);
-        this.eventBus.dispatchGlobalEvent(evt);
-    }, 
-
-    /**
-     * Handles the failed get person service call and takes the response data packet as a parameter.
-     * Fires off the corresponding failure event on the application-level event bus.
-     *
-     * @param {Object} response The response data packet from the failed service call.
-     */
-    getPersonTileFailure: function(response) {
-        this.logger.warn("getPersonTileFailure");
-
-        this.resetSessionData();		
-		
-        var evt = Ext.create("Core.event.person.Event", Core.event.person.Event.GET_PERSON_TILE_FAILURE);
-        this.eventBus.dispatchGlobalEvent(evt);
-    }, 
-
-    /**
-     * Handles the failed get person service call and takes the response data packet as a parameter.
-     * Fires off the corresponding failure event on the application-level event bus.
-     *
-     * @param {Object} response The response data packet from the failed service call.
-     */
-    getPersonModalFailure: function(response) {
-        this.logger.warn("getPersonModalFailure");
-
-        this.resetSessionData();		
-		
-        var evt = Ext.create("Core.event.person.Event", Core.event.person.Event.GET_PERSON_MODAL_FAILURE);
-        this.eventBus.dispatchGlobalEvent(evt);
-    }, 	
 	
     /**
      * Handles the successful create person service call and takes the response data packet as a parameter.
@@ -400,6 +426,40 @@ Ext.define("Core.controller.person.Controller", {
         this.resetSessionData();		
 		
         var evt = Ext.create("Core.event.person.Event", Core.event.person.Event.DELETE_PERSON_FAILURE);
+        this.eventBus.dispatchGlobalEvent(evt);
+    },
+
+	/**
+	 * Handles the successful read persons service call and takes the response data packet as a parameter.
+	 * Fires off the corresponding success event on the application-level event bus.
+	 *
+	 * @param {Object} response The response data packet from the successful service call.
+	 */
+	readPersonsSuccess: function(response) {
+		this.logger.info("readPersonsSuccess");
+
+		// The server will send a token that can be used throughout the app.
+		this.setSessionToken(response.sessionToken);
+		
+		this.personStore.setData(response.persons); // personStore will have already been loaded at Success, 
+													// so need to check for this, and not overwrite. TO DO
+
+		var evt = Ext.create("Core.event.person.Event", Core.event.person.Event.READ_PERSONS_SUCCESS);
+		this.eventBus.dispatchGlobalEvent(evt);
+	},	
+	
+    /**
+     * Handles the failed read persons service call and takes the response data packet as a parameter.
+     * Fires off the corresponding failure event on the application-level event bus.
+     *
+     * @param {Object} response The response data packet from the failed service call.
+     */
+    readPersonsFailure: function(response) {
+        this.logger.warn("readPersonsFailure");
+		
+        this.resetSessionData();		
+
+        var evt = Ext.create("Core.event.person.Event", Core.event.person.Event.READ_PERSONS_FAILURE);
         this.eventBus.dispatchGlobalEvent(evt);
     },
 	
@@ -568,11 +628,11 @@ Ext.define("Core.controller.person.Controller", {
      *
      * @param {Core.event.person.Event} event Reference to the person event.
      */
-    onGetPersonSlide: function(event) {
-        this.logger.debug("onGetPersonSlide");
+    // onGetPersonSlide: function(event) {
+        // this.logger.debug("onGetPersonSlide");
 
-        this.getPersonSlide();
-    },
+        // this.getPersonSlide();
+    // },
 	
     /**
      * Handles the get person event on the application-level event bus. Calls a functional method that's more
@@ -580,23 +640,11 @@ Ext.define("Core.controller.person.Controller", {
      *
      * @param {Core.event.person.Event} event Reference to the person event.
      */
-    onGetPersonList: function(event) {
-        this.logger.debug("onGetPersonList");
+    // onGetPersonList: function(event) {
+        // this.logger.debug("onGetPersonList");
 
-        this.getPersonList();
-    },    
-
-    /**
-     * Handles the get person event on the application-level event bus. Calls a functional method that's more
-     * testable than this event handler.
-     *
-     * @param {Core.event.person.Event} event Reference to the person event.
-     */
-    onGetPersonTile: function(event) {
-        this.logger.debug("onGetPersonTile");
-
-        this.getPersonTile();
-    }, 
+        // this.getPersonList();
+    // },    
 
     /**
      * Handles the get person event on the application-level event bus. Calls a functional method that's more
@@ -604,11 +652,23 @@ Ext.define("Core.controller.person.Controller", {
      *
      * @param {Core.event.person.Event} event Reference to the person event.
      */
-    onGetPersonModal: function(event) {
-        this.logger.debug("onGetPersonModal");
+    // onGetPersonTile: function(event) {
+        // this.logger.debug("onGetPersonTile");
 
-        this.getPersonModal();
-    },
+        // this.getPersonTile();
+    // }, 
+
+    /**
+     * Handles the get person event on the application-level event bus. Calls a functional method that's more
+     * testable than this event handler.
+     *
+     * @param {Core.event.person.Event} event Reference to the person event.
+     */
+    // onGetPersonModal: function(event) {
+        // this.logger.debug("onGetPersonModal");
+
+        // this.getPersonModal();
+    // },
 	
     /**
      * Handles the create person event on the application-level event bus. Calls a functional method that's more
@@ -647,6 +707,18 @@ Ext.define("Core.controller.person.Controller", {
         this.logger.debug("onDeletePerson");
 
         this.deletePerson(event.person);
-    }	
+    },
+
+    /**
+     * Handles the read persons event on the application-level event bus. Calls a functional method that's more
+     * testable than this event handler.
+     *
+     * @param {Core.event.person.Event} event Reference to the person event.
+     */
+    onReadPersons: function(event) {
+        this.logger.debug("onReadPersons");
+
+        this.readPersons();
+    }
     
 });    

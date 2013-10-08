@@ -184,7 +184,7 @@ Ext.define("Core.view.touch.person.detail.View", {
 							//	style: "width: 100% !important", // TEST
 								useTitles: true,
 								ui: "neutral",
-								doneButton: false,
+								doneButton: true,
 								cancelButton: true,
 								slots: [], // default empty, gets set in Mediator
 								hidden: true,
@@ -245,7 +245,7 @@ Ext.define("Core.view.touch.person.detail.View", {
 								itemId: "genderPicker",
 								useTitles: true,						
 								ui: "neutral",
-								doneButton: false,
+								doneButton: true,
 								cancelButton: true,
 								slots: [], // default empty, gets set in Mediator
 								hidden: true,
@@ -282,16 +282,12 @@ Ext.define("Core.view.touch.person.detail.View", {
 								cancelButton: true,
 								slots: [], // default empty, gets set in Mediator
 								hidden: true,
-								destroyPickerOnHide: true, // deviates from the standard
-
-								// THIS SHOULD BE SET IN THE MEDIATOR
-							//	value: new Date(),
-							//	picker: {
-							//		title: "Choose a Date of Birth",
-							//		width: "100% !important", // TEST
-							//		yearFrom: 1920
-							//	}
-								
+								destroyPickerOnHide: false, //WAS true deviates from the default
+								picker: {
+									title: "Choose a Date of Birth",
+									width: "100% !important", // TEST
+									yearFrom: 1920
+								}
 							},
 							{
 								xtype: "textfield",
@@ -320,10 +316,11 @@ Ext.define("Core.view.touch.person.detail.View", {
 								itemId: "nationalityPicker",
 								useTitles: true,						
 								ui: "neutral",
-								doneButton: false,
+								doneButton: true,
 								cancelButton: true,
 								slots: [], // default empty, gets set in Mediator
-								hidden: true
+								hidden: true,
+								destroyPickerOnHide: false
 							}
 						]		
 					},//eof personalFieldSet

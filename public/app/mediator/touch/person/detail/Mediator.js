@@ -49,6 +49,9 @@ Ext.define("Core.mediator.touch.person.detail.Mediator", {
 			painted: "onDateStartTextFieldPainted",		
 			focus: "onDateStartTextFieldFocus"
 		},
+		datePicker: {
+			show: "onShowPicker"
+		},		
 		groupsSearchInput :{
             keyup:          "onGroupsSearchKeyUp",
             clearicontap:   "onGroupsSearchClearIconTap"
@@ -204,7 +207,8 @@ Ext.define("Core.mediator.touch.person.detail.Mediator", {
             this.eventBus.dispatchGlobalEvent(evt);
         }
 		else {
-			this.getDatePicker().show();
+			this.getView().down("#datePicker").show();
+			//this.getDatePicker().show(); // This does not seem to work
 		}
 	},		
 	
@@ -479,7 +483,17 @@ Ext.define("Core.mediator.touch.person.detail.Mediator", {
 							nationalitySlot1 : formValues[formValue]
 						}, true);
 					}, 2000);
-					break;						
+					break;
+				case 'DateStart':
+					setTimeout(function() { // deviates from standard
+						if(formValues[formValue]){
+							picker.setValue(new Date(formValues[formValue])); 
+						}
+						else {
+							picker.setValue(new Date());
+						}
+					}, 2000);
+					break;					
 				default: //empty
 			}
 		}
@@ -493,6 +507,7 @@ Ext.define("Core.mediator.touch.person.detail.Mediator", {
 	onChangeSalutationPicker: function(picker) {
         selectedValue = picker.getValue()['salutationSlot1'];
         console.log("salutationSlot1: value = " + selectedValue);
+		this.getView().down("#kf_SalutationIDHiddenField").setValue(selectedValue);
 	},
 	
     /**
@@ -516,20 +531,24 @@ Ext.define("Core.mediator.touch.person.detail.Mediator", {
 			//	width: "100% !important", // TEST
 			//	style: "width: 100% !important", // TEST
 			//	flex: 1, // TEST
-				value: 0, // The value at the start, default to empty
+				value: 0 // The value at the start, default to empty
+			});
+			salutationPicker.setDoneButton({
 				listeners:{
-					itemtap: function (obj, index, target, record, e, eOpts) {	
-						console.log("itemtap");
+					tap:function (button, event, eOpts) {
+						console.log("doneButton: tap");
+						var picker = button.up("#salutationPicker");
+						var value = picker.getValue()['salutationSlot1'];
+						console.log('value = ' + value);
 						var form = this.up('personDetailView');
 						form.setValues({
-							SalutationAbbreviation: record.get('SalutationAbbreviation'),
-							kf_SalutationID: record.get('kp_SalutationID'), // Note: kf links to kp
+							// SalutationAbbreviation: record.get('SalutationAbbreviation'),
+							kf_SalutationID: value
 						});
-						obj.parent.hide(); // Dismiss the picker
+						picker.hide(); // Dismiss the picker
 					}
 				}
 			});
-			
 			this.getView().add(salutationPicker);			
 			this.self.SALUTATION_PICKER_SET = true;
 			salutationPicker.show();
@@ -553,16 +572,21 @@ Ext.define("Core.mediator.touch.person.detail.Mediator", {
 				store: this.genderStore,
 				displayField: "GenderName",
 				valueField: "kp_GenderID",
-				itemTpl: '{GenderName}',
+				itemTpl: '{GenderName}'
+			});
+			genderPicker.setDoneButton({
 				listeners:{
-					itemtap: function (obj, index, target, record, e, eOpts) {	
-						console.log("itemtap");
+					tap:function (button, event, eOpts) {
+						console.log("doneButton: tap");
+						var picker = button.up("#genderPicker");
+						var value = picker.getValue()['genderSlot1'];
+						console.log('value = ' + value);
 						var form = this.up('personDetailView');
 						form.setValues({
-							GenderName: record.get('GenderName'),
-							kf_GenderID: record.get('kp_GenderID'), // Note: kf links to kp
+							// GenderName: record.get('GenderName'),
+							kf_GenderID: value
 						});
-						obj.parent.hide(); // Dismiss the picker
+						picker.hide(); // Dismiss the picker
 					}
 				}
 			});
@@ -589,19 +613,24 @@ Ext.define("Core.mediator.touch.person.detail.Mediator", {
 				store: this.nationalityStore,
 				displayField: "NationalityName",
 				valueField: "kp_NationalityID",
-				itemTpl: '{NationalityName}',
+				itemTpl: '{NationalityName}'
+			});
+			nationalityPicker.setDoneButton({
 				listeners:{
-					itemtap: function (obj, index, target, record, e, eOpts) {	
-						console.log("itemtap");
+					tap:function (button, event, eOpts) {
+						console.log("doneButton: tap");
+						var picker = button.up("#nationalityPicker");
+						var value = picker.getValue()['nationalitySlot1'];
+						console.log('value = ' + value);
 						var form = this.up('personDetailView');
 						form.setValues({
-							NationalityName: record.get('NationalityName'),
-							kf_NationalityID: record.get('kp_NationalityID'), // Note: kf links to kp
+							// NationalityName: record.get('NationalityName'),
+							kf_NationalityID: value
 						});
-						obj.parent.hide(); // Dismiss the picker
+						picker.hide(); // Dismiss the picker
 					}
 				}
-			});
+			});			
 			this.getView().add(nationalityPicker);			
 			this.self.NATIONALITY_PICKER_SET = true;
 			nationalityPicker.show();
@@ -620,7 +649,7 @@ Ext.define("Core.mediator.touch.person.detail.Mediator", {
 		//	document.getElementById('ext-pickerslot-1').style.width = "100% !important"; // Force a width or Chrome will not show the slots
 			
 			datePicker.value = new Date();
-			datePicker.picker = {
+			datePicker.slots[0] = {
 				title: "Choose a Date of Birth",
 				width: "100% !important", // TEST
 				yearFrom: 1920
@@ -798,7 +827,7 @@ Ext.define("Core.mediator.touch.person.detail.Mediator", {
     onDateStartTextFieldPainted: function(element, options) {
         this.logger.debug("onDateStartTextFieldPainted");
 		var record = this.getView().getRecord();
-		var dateStart = record.get("Date")["DateStart"];
+		var dateStart = record.get("Date")["DateStart"].toDateString(); // It uses the date format according to the user's locale settings. 
 		this.getView().down('#dateStartTextField').setValue(dateStart);
     },	
 

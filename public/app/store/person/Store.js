@@ -13,6 +13,7 @@ Ext.define("Core.store.person.Store", {
 		ajaxCallHeaders: {}, // default empty
 		remoteUser: "Core", // Name of the User requesting for data (e.g. "Core" for Core user)
 		pageSize: 50, // TEST
+		/* PROXY IS SET IN THE MODEL
 		proxy: {
 			type: 'ajax',
 			actionMethods: {
@@ -65,7 +66,7 @@ Ext.define("Core.store.person.Store", {
 				encode: true
 			},
 			simpleSortMode: true
-		},
+		},*/
 		// TO HERE taken from Chat Example store
 	    //WAS sorters: "PersonLastName",
 		sorters: [{
@@ -85,7 +86,11 @@ Ext.define("Core.store.person.Store", {
 		listeners: {
 			beforeload: function(store, operation, eOpts) {
 				console.log("personStore: beforeload");
-			}
+			},
+			load : function(store, records, success, operation) {
+                console.log("personStore: load, success = " + success);
+            }
+        }
 		}
 	},//eof config
 	// Ext requires properties outside of config
@@ -170,6 +175,9 @@ Ext.define("Core.store.person.Store", {
 	listeners: {
 		beforeload: function(store, operation, eOpts) {
 			console.log("personStore: beforeload");
+		},
+		load : function(store, records, success, operation) {
+			console.log("personStore: load, success = " + success);
 		}
 	}	
 });

@@ -35,6 +35,12 @@ Ext.define("Core.store.person.Store", {
 			},
 			load : function(store, records, success, operation) {
                 console.log("personStore: load, success = " + success);
+            },
+            beforesync: function(options, eOpts) {
+                console.log("personStore is being synched. Please wait...");    
+			},
+			afterRequest: function(store, operation, eOpts) {
+                console.log("personStore has been synched.");
             }
 		}
 	},//eof config
@@ -70,6 +76,12 @@ Ext.define("Core.store.person.Store", {
 		},
 		load : function(store, records, success, operation) {
 			console.log("personStore: load, success = " + success);
+		},
+		beforesync: function(options, eOpts) {
+			console.log("personStore is being synched. Please wait...");    
+		},
+		afterRequest: function(store, operation, eOpts) {
+			console.log("personStore has been synched.");
 		}
 	}	
 });

@@ -103,11 +103,27 @@ Ext.define("Core.mediator.touch.person.list.Mediator", {
     createNewPerson: function() {
     	this.logger.debug("createNewPerson");
 		var person = null;
-		var date = createNewDate();
+		var salutation = this.getSalutation(0);
+		var salutationData = salutation.getData();
+		var gender = this.getGender(0);
+		var genderData = gender.getData();
+		var nationality = this.getNationality(0);
+		var nationalityData = nationality.getData();	
+		var date = this.createNewDate();
+		var dateData = date.getData();		
 		person = Ext.create("Core.model.person.Model", {
 			//kp_PersonID = // Is set automatically
-			kf_DateID: date.kp_DateID
+			kf_SalutationID: salutationData['kp_SalutationID'],
+			kf_GenderID: genderData['kp_GenderID'],
+			kf_NationalityID: nationalityData['kp_NationalityID'],		
+			kf_DateID: dateData['kp_DateID'],
 		});
+		var personData = person.getData();
+		personData['Salutation'] = salutationData;
+		personData['Gender'] = genderData;
+		personData['Nationality'] = nationalityData;	
+		personData['Date'] = dateData;
+		this.personStore.insert( person, false );
 		return person;
 	},
 
@@ -119,9 +135,52 @@ Ext.define("Core.mediator.touch.person.list.Mediator", {
     	this.logger.debug("createNewDate");
 		var date = null;
 		date = Ext.create("Core.model.date.Model", {
-			//kp_DateID = // Is set automatically
+			//kf_DateID = // Is set automatically
 		});
+		this.dateStore.insert( date, false );
 		return date;
+	},
+
+    /**
+     * Gets and returns the Gender record at index.
+     *
+     */
+    getGender: function(index) {
+    	this.logger.debug("getGender");
+		if(!index) { 
+			index = 0;
+		}
+		var gender = null;
+		gender = this.genderStore.getAt(index);
+		return gender;
+	},
+
+    /**
+     * Gets and returns the Salutation record at index.
+     *
+     */
+    getSalutation: function(index) {
+    	this.logger.debug("getSalutation");
+		if(!index) { 
+			index = 0;
+		}
+		var salutation = null;
+		salutation = this.salutationStore.getAt(index);
+		return salutation;
+	},
+
+    /**
+     * Gets and returns the Nationality record at index.
+     *
+     */
+    getNationality: function(index) {
+    	this.logger.debug("getNationality");
+		if(!index) { 
+			index = 0;
+		}
+		var nationality = null;
+		nationality = this.nationalityStore.getAt(index);
+		return nationality;
 	},
 	
     /**

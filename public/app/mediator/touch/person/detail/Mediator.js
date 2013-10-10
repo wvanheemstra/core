@@ -827,8 +827,11 @@ Ext.define("Core.mediator.touch.person.detail.Mediator", {
     onDateStartTextFieldPainted: function(element, options) {
         this.logger.debug("onDateStartTextFieldPainted");
 		var record = this.getView().getRecord();
-		var dateStart = record.get("Date")["DateStart"].toDateString(); // It uses the date format according to the user's locale settings. 
-		this.getView().down('#dateStartTextField').setValue(dateStart);
+		var dateStart = record.get("Date")["DateStart"]
+		if(dateStart){
+			dateStart = dateStart.toDateString(); // It uses the date format according to the user's locale settings. 
+			this.getView().down('#dateStartTextField').setValue(dateStart);
+		}
     },	
 
     /**

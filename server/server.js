@@ -135,6 +135,13 @@ if(typeof configs.api_list === 'undefined'){
 else {
 	var api_list = configs.api_list;
 }
+// Action List
+if(typeof configs.action_list === 'undefined'){
+	var action_list = {};
+}
+else {
+	var action_list = configs.action_list;
+}
 api.configure(function(){
 	api.use(api.router);
 });
@@ -358,12 +365,48 @@ app.get('/touch', function(req, res) {
     res.render(appTouch, { title: title, host: host, web_root: web_root, layout: false });
 });
 
-// START: TEMPORARY SOLUTION TO RECEIVE REQUESTS FOR JSON FILES
+
+
+
+// START: TEMPORARY SOLUTION TO HANDLE DATA REQUESTS
 app.post('/data/write-persons-success.json', function(req, res) {
-	console.log(server_prefix + " - data requested: " + req);
-	res.render('data/write-persons-success.json',{}); // DOES THIS NEED TO BE MADE MORE SPECIFIC POINTING AT THE REQUESTED FILE FOR EXAMPLE?
+	// Distinguish based on an optional key-value parameter in the request url (e.g. '/data?action=write')
+	var action = 'write'; // default
+	var model = ''; // default
+	var format = 'json'; // default
+	// update appTouch variable here with value from 'action' key (e.g. action=write) sets appTouch to 'person-touch'
+	if(req.query.action){
+		action = req.query.action;
+		var action_not_found = true; // default to true	
+		// lookup action in action list, if not found set to not_found		
+		for (key in action_list) {	
+			if(key == action){
+				action = key;
+				action_not_found = false;
+				// find model parameter's value
+				if(req.query.model){
+					model = req.query.data;
+					var model_not_found = true; // default to true
+					// lookup model in model list, if not found set to not_found
+					
+					
+					
+				}
+				break;
+			}
+		}//eof for
+		if(action_not_found) {
+			console.log(server_prefix + " - Action requested, but not found: " + action);
+			action = 'not_found';	
+		}
+	}
+	console.log(server_prefix + " - Action requested: " + action);
+	res.render('data/write-persons-success',{title: '', layout: '../layouts/json' });
 });
 // END
+
+
+
 
 app.listen(app_port, function () {
 	console.log(server_prefix + " - Express app server listening on port %d in %s mode", app_port, app.settings.env);

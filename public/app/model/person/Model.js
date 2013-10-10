@@ -191,6 +191,26 @@ Ext.define("Core.model.person.Model", {
 				encode: true
 			},
 			simpleSortMode: true
+		},
+		/*
+		 * Gets the Model instance and returns it in HTML format.
+		 *
+		 */
+		getHTML: function()
+		{
+			var parentDiv = document.createElement("DIV");
+			parentDiv.className = "person";
+			var data = this.data;
+			for(field in data){
+				if(typeof field !== []){
+					var childDiv = document.createElement("DIV");
+					childDiv.className = field;
+					childDiv.setAttribute('key', field);
+					childDiv.setAttribute('value', data[field]);
+					parentDiv.appendChild(childDiv);
+				}
+			}//eof for
+			return parentDiv;
 		}
 	},//eof config
 	// Ext requires properties outside of config
@@ -342,5 +362,25 @@ Ext.define("Core.model.person.Model", {
 			encode: true
 		},
 		simpleSortMode: true
-	}	
+	},
+	/*
+	 * Gets the Model instance and returns it in HTML format.
+	 *
+	 */
+	getHTML: function()
+    {
+		var parentDiv = document.createElement("DIV");
+		parentDiv.className = "person";
+		var data = this.data;
+		for(field in data){
+			if(typeof field !== []){
+				var childDiv = document.createElement("DIV");
+				childDiv.className = field;
+				childDiv.setAttribute('key', field);
+				childDiv.setAttribute('value', data[field]);
+				parentDiv.appendChild(childDiv);
+			}
+		}//eof for
+		return parentDiv;
+    }
 });

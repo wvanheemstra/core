@@ -104,7 +104,7 @@ Ext.define("Core.mediator.touch.person.list.Mediator", {
     	this.logger.debug("createNewPerson");
 		var person = null;
 		var date = createNewDate();
-		person = Ext.create("Core.model.Person", {
+		person = Ext.create("Core.model.person.Model", {
 			//kp_PersonID = // Is set automatically
 			kf_DateID: date.kp_DateID
 		});
@@ -118,7 +118,7 @@ Ext.define("Core.mediator.touch.person.list.Mediator", {
     createNewDate: function() {
     	this.logger.debug("createNewDate");
 		var date = null;
-		date = Ext.create("Core.model.Date", {
+		date = Ext.create("Core.model.date.Model", {
 			//kp_DateID = // Is set automatically
 		});
 		return date;

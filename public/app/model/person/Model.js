@@ -45,13 +45,15 @@ Ext.define("Core.model.person.Model", {
 	config: {
 	    idProperty: "kp_PersonID",
 	    fields: [
-	        { name: "kp_PersonID",      type: "int"     },
-	        { name: "PersonFirstName",    type: "string"  },
-			{ name: "PersonLastName",    type: "string"  },
+	        { name: "kp_PersonID", type: "int",	useNull: true },
+	        { name: "PersonFirstName", type: "string"  },
+			{ name: "PersonLastName", type: "string"  },
 			{ name: 'kf_GenderID', type: 'int', defaultValue: '0' },
 			{ name: 'kf_SalutationID', type: 'int', defaultValue: '0' },
 			{ name: 'kf_NationalityID', type: 'int', defaultValue: '0' },
-			{ name: 'kf_DateID', type: 'int', defaultValue: '0' }
+			{ name: 'kf_DateID', type: 'int', defaultValue: '0' },
+			{ name: 'ts_Created', type: 'date', persist: false },
+			{ name: 'ts_Modified', type: 'date', persist: false }		
 	    ],
 		belongsTo:[
 			{
@@ -137,7 +139,7 @@ Ext.define("Core.model.person.Model", {
 	    ],
 		proxy: {
 			type: 'ajax',
-			url: 'data/write-persons-success.json', // Required placeholder			
+			url: 'data/?action=write&model=person&format=json', // Required placeholder		
 			actionMethods: {
 				create: 'POST',
 				write: 'POST',
@@ -194,13 +196,15 @@ Ext.define("Core.model.person.Model", {
 	// Ext requires properties outside of config
     idProperty: "kp_PersonID",
 	fields: [
-        { name: "kp_PersonID",      type: "int"     },
-        { name: "PersonFirstName",    type: "string"  },
-		{ name: "PersonLastName",    type: "string"  },
+        { name: "kp_PersonID", type: "int", useNull: true },
+        { name: "PersonFirstName", type: "string"  },
+		{ name: "PersonLastName", type: "string"  },
 		{ name: 'kf_GenderID', type: 'int', defaultValue: '0' },
 		{ name: 'kf_SalutationID', type: 'int', defaultValue: '0' },
 		{ name: 'kf_NationalityID', type: 'int', defaultValue: '0' },
-		{ name: 'kf_DateID', type: 'int', defaultValue: '0' }
+		{ name: 'kf_DateID', type: 'int', defaultValue: '0' },
+		{ name: 'ts_Created', type: 'date', persist: false },
+		{ name: 'ts_Modified', type: 'date', persist: false }
 	],
 	belongsTo:[
 		{
@@ -286,7 +290,7 @@ Ext.define("Core.model.person.Model", {
     ],
 	proxy: {
 		type: 'ajax',
-		url: 'data/write-persons-success.json', // Required placeholder
+		url: 'data/?action=write&model=person&format=json', // Required placeholder
 		actionMethods: {
 			create: 'POST',
 			write: 'POST',

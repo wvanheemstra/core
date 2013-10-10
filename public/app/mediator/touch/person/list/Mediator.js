@@ -97,6 +97,34 @@ Ext.define("Core.mediator.touch.person.list.Mediator", {
     },
 
     /**
+     * Creates and returns a new Person record.
+     *
+     */
+    createNewPerson: function() {
+    	this.logger.debug("createNewPerson");
+		var person = null;
+		var date = createNewDate();
+		person = Ext.create("Core.model.Person", {
+			//kp_PersonID = // Is set automatically
+			kf_DateID: date.kp_DateID
+		});
+		return person;
+	},
+
+    /**
+     * Creates and returns a new Date record.
+     *
+     */
+    createNewDate: function() {
+    	this.logger.debug("createNewDate");
+		var date = null;
+		date = Ext.create("Core.model.Date", {
+			//kp_DateID = // Is set automatically
+		});
+		return date;
+	},
+	
+    /**
      * Handles the show person detail event from the person list view. Grab the data model
      * from the selected item in the list and set it as the data provider for the detail view.
      * Finally, slide the detail view onto stage.
@@ -340,12 +368,15 @@ Ext.define("Core.mediator.touch.person.list.Mediator", {
     },
 
     /**
-     * Handles the tap of the new person button. Shows the person detail view.
+     * Handles the tap of the new person button. 
+	 * Creates a new Date record and adds the key to the new Person record.
+	 * Shows the person detail view.
      */
     onNewPersonButtonTap: function() {
     	if(Core.config.person.Config.getCurrentView()==='personlist') {     	
 	        this.logger.debug("onNewPersonButtonTap");
-	        this.showPersonDetail();
+			var record = this.createNewPerson();
+	        this.showPersonDetail(record);
     	}
     },
 

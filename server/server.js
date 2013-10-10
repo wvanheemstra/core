@@ -142,6 +142,21 @@ if(typeof configs.action_list === 'undefined'){
 else {
 	var action_list = configs.action_list;
 }
+// Model List
+if(typeof configs.model_list === 'undefined'){
+	var model_list = {};
+}
+else {
+	var model_list = configs.model_list;
+}
+// Format List
+if(typeof configs.format_list === 'undefined'){
+	var format_list = {};
+}
+else {
+	var format_list = configs.format_list;
+}
+
 api.configure(function(){
 	api.use(api.router);
 });

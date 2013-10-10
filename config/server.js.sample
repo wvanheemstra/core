@@ -19,6 +19,12 @@ module.exports.configs = {
 		'read':true,
 		'write':true
 	}, // put your actions here	
+	model_list: {
+		'person':true,
+		'organisation':true,
+		'product':true,
+		'booking':true		
+	}, // put your models here	
 	allow_cross_domain : true, // allow is true, otherwise false
 	allowedHosts : {
 		'http://vanheemstrapictures.com': true,

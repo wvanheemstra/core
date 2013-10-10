@@ -5,8 +5,9 @@ Ext.define("Core.mediator.touch.person.detail.Mediator", {
     extend: "Core.mediator.touch.person.base.Mediator",
 
     requires: [
-        "Core.event.navigation.Event"  // THIS IS ALREADY IN THE BASE CLASS, REMOVE?
-    ],
+        "Core.event.navigation.Event",  // THIS IS ALREADY IN THE BASE CLASS, REMOVE?
+		"Ext.MessageBox"
+	],
 
     // set up view event to mediator mapping
     control: {
@@ -124,15 +125,31 @@ Ext.define("Core.mediator.touch.person.detail.Mediator", {
      */
     deletePerson: function(person) {
         this.logger.debug("deletePerson");
-        if(person != null) {
-            this.getView().setMasked({
-                xtype: "loadmask",
-                message: nineam.locale.LocaleManager.getProperty("personDetail.deletingPerson")
-            });
-            var evt = Ext.create("Core.event.person.Event", Core.event.person.Event.DELETE_PERSON);
-            evt.person = person;
-            this.eventBus.dispatchGlobalEvent(evt);
-        }
+		var continueDeletion = false;
+		
+		Ext.Msg.show({
+		   title:'Delete',
+		   msg: 'Are you sure?',
+		   buttons: Ext.Msg.YESNOCANCEL,
+		   ui: 'neutral',
+		   fn: function(btn,text){
+				if(btn === 'ok'){
+					continueDeletion = true;
+					if(person != null && continueDeletion ) {
+						this.getView().setMasked({
+							xtype: "loadmask",
+							message: nineam.locale.LocaleManager.getProperty("personDetail.deletingPerson")
+						});
+						var evt = Ext.create("Core.event.person.Event", Core.event.person.Event.DELETE_PERSON);
+						evt.person = person;
+						this.eventBus.dispatchGlobalEvent(evt);
+					}
+				} else {
+					continueDeletion = false;
+				}
+		   },
+		   animEl: 'elId'
+		});
     },
 
     /**
@@ -245,6 +262,9 @@ Ext.define("Core.mediator.touch.person.detail.Mediator", {
      */
     backToPersonList: function() {
         this.logger.debug("backToPersonList");
+		
+		this.getView('personList').reset(); // TEST.. will this work?
+		
         this.navigate(Core.event.navigation.Event.ACTION_BACK_SHOW_PERSON_LIST);
     },
 

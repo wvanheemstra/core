@@ -369,11 +369,13 @@ app.get('/touch', function(req, res) {
 
 
 // START: TEMPORARY SOLUTION TO HANDLE DATA REQUESTS
-app.post('/data/write-persons-success.json', function(req, res) {
-	// Distinguish based on an optional key-value parameter in the request url (e.g. '/data?action=write')
+app.post('/data', function(req, res) {
+	// Distinguish based on an optional key-value parameter in the request url (e.g. '/data?action=write&model=person&format=json')
 	var action = 'write'; // default
 	var model = ''; // default
 	var format = 'json'; // default
+	var success = false; //default
+	var error = ''; //default
 	// update appTouch variable here with value from 'action' key (e.g. action=write) sets appTouch to 'person-touch'
 	if(req.query.action){
 		action = req.query.action;
@@ -385,23 +387,59 @@ app.post('/data/write-persons-success.json', function(req, res) {
 				action_not_found = false;
 				// find model parameter's value
 				if(req.query.model){
-					model = req.query.data;
+					model = req.query.model;
 					var model_not_found = true; // default to true
 					// lookup model in model list, if not found set to not_found
-					
-					
-					
-				}
-				break;
+					for (key in model_list) {	
+						if(key == model){
+							model = key;
+							model_not_found = false;
+							// find format parameter's value
+							if(req.query.format){
+								format = req.query.format;						
+								var format_not_found = true; // default to true
+								// lookup format in format list, if not found set to not_found
+								for (key in format_list) {
+									if(key == format){
+										format = key;
+										format_not_found = false;
+										console.log(server_prefix + " - Action requested: " + action);
+										console.log(server_prefix + " - Model requested: " + model);
+										console.log(server_prefix + " - Format requested: " + format);
+										success = true;
+										error = "No errors";
+										res.render('data/' + action + '/' + model + '/response',{ success: success, error: error, layout: '../layouts/' + format });
+									}
+								}//eof for
+								if(format_not_found) {
+									console.log(server_prefix + " - Format requested, but not found: " + format);
+									format = 'not_found';
+									error = "Format requested, but not found: " + format;
+									res.render('data/' + action + '/' + model + '/error/response',{ success: success, error: error, layout: '../layouts/json' });									
+								}
+							}
+							//break;
+						}
+					}//eof for
+					if(model_not_found) {
+						console.log(server_prefix + " - Model requested, but not found: " + model);
+						model = 'not_found';
+						error = "Model requested, but not found: " + model;
+						res.render('data/' + action + '/error/response',{ success: success, error: error, layout: '../layouts/json' });						
+					}
+				} 
+				//break;
 			}
 		}//eof for
 		if(action_not_found) {
 			console.log(server_prefix + " - Action requested, but not found: " + action);
-			action = 'not_found';	
+			action = 'not_found';
+			error = "Action requested, but not found: " + action;
+			res.render('data/error/response',{ success: success, error: error, layout: '../layouts/json' });			
 		}
 	}
-	console.log(server_prefix + " - Action requested: " + action);
-	res.render('data/write-persons-success',{title: '', layout: '../layouts/json' });
+	//console.log(server_prefix + " - Action requested: " + action);
+	//res.render('data/write-persons-success',{title: '', layout: '../layouts/json' });
 });
 // END
 

@@ -25,6 +25,9 @@ module.exports.configs = {
 		'product':true,
 		'booking':true		
 	}, // put your models here	
+	format_list: {
+		'json':true	
+	}, // put your formats here	
 	allow_cross_domain : true, // allow is true, otherwise false
 	allowedHosts : {
 		'http://vanheemstrapictures.com': true,

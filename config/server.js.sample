@@ -15,6 +15,10 @@ module.exports.configs = {
 	api_gid : 'root', // put your group id here
 	api_uid : 'root', // put your user id here	
 	api_list: {}, // put your apis here
+	action_list: {
+		'read':true,
+		'write':true
+	}, // put your actions here	
 	allow_cross_domain : true, // allow is true, otherwise false
 	allowedHosts : {
 		'http://vanheemstrapictures.com': true,

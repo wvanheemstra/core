@@ -304,6 +304,7 @@ app.get('/', function(req, res) {
     res.render(app, { title: title, host: host, web_root: web_root, layout: false });
 });
 
+/* EXAMPLES
 app.get('/2', function(req, res) {
     res.render('index2', { title: 'Your Company with layout' });
 });
@@ -319,6 +320,7 @@ app.get('/4', function(req, res) {
 app.get('/5', function(req, res) {
     res.render('index3', { title: 'Your Company with layout' });
 });
+*/
 
 app.get('/debug', function(req, res) {
 	// Distinguish based on an optional key-value parameter in the request url (e.g. '/debug?app=person')
@@ -380,10 +382,7 @@ app.get('/touch', function(req, res) {
     res.render(appTouch, { title: title, host: host, web_root: web_root, layout: false });
 });
 
-
-
-
-// START: TEMPORARY SOLUTION TO HANDLE DATA REQUESTS
+// Handles POST requests
 app.post('/data', function(req, res) {
 	// Distinguish based on an optional key-value parameter in the request url (e.g. '/data?action=write&model=person&format=json')
 	var action = 'write'; // default
@@ -391,7 +390,7 @@ app.post('/data', function(req, res) {
 	var format = 'json'; // default
 	var success = false; //default
 	var error = ''; //default
-	// update appTouch variable here with value from 'action' key (e.g. action=write) sets appTouch to 'person-touch'
+	// find action parameter's value
 	if(req.query.action){
 		action = req.query.action;
 		var action_not_found = true; // default to true	
@@ -433,7 +432,6 @@ app.post('/data', function(req, res) {
 									res.render('data/' + action + '/' + model + '/error/response',{ success: success, error: error, layout: '../layouts/json' });									
 								}
 							}
-							//break;
 						}
 					}//eof for
 					if(model_not_found) {
@@ -443,7 +441,6 @@ app.post('/data', function(req, res) {
 						res.render('data/' + action + '/error/response',{ success: success, error: error, layout: '../layouts/json' });						
 					}
 				} 
-				//break;
 			}
 		}//eof for
 		if(action_not_found) {
@@ -453,13 +450,7 @@ app.post('/data', function(req, res) {
 			res.render('data/error/response',{ success: success, error: error, layout: '../layouts/json' });			
 		}
 	}
-	//console.log(server_prefix + " - Action requested: " + action);
-	//res.render('data/write-persons-success',{title: '', layout: '../layouts/json' });
 });
-// END
-
-
-
 
 app.listen(app_port, function () {
 	console.log(server_prefix + " - Express app server listening on port %d in %s mode", app_port, app.settings.env);

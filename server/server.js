@@ -358,6 +358,13 @@ app.get('/touch', function(req, res) {
     res.render(appTouch, { title: title, host: host, web_root: web_root, layout: false });
 });
 
+// START: TEMPORARY SOLUTION TO RECEIVE REQUESTS FOR JSON FILES
+app.post('/data/write-persons-success.json', function(req, res) {
+	console.log(server_prefix + " - data requested: " + req);
+	res.render('data/write-persons-success.json',{}); // DOES THIS NEED TO BE MADE MORE SPECIFIC POINTING AT THE REQUESTED FILE FOR EXAMPLE?
+});
+// END
+
 app.listen(app_port, function () {
 	console.log(server_prefix + " - Express app server listening on port %d in %s mode", app_port, app.settings.env);
 	// launching as the root user 

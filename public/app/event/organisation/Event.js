@@ -8,86 +8,93 @@ Ext.define("Core.event.organisation.Event", {
 
 		/**
 		 * Moved to here from Navigate Event, but isn't as yet used by Navigate Event
-		 */	
-		ACTION_BACK_SHOW_ORGANISATION_LIST: "actionBackShowOrganisationList",
-        ACTION_BACK_SHOW_ORGANISATION_TILE: "actionBackShowOrganisationTile",
-        ACTION_SHOW_ORGANISATION_DETAIL:    "actionShowOrganisationDetail",  
-        ACTION_SHOW_ORGANISATION_MODAL:     "actionShowOrganisationModal",	
+		 */
+		ACTION_BACK_SHOW_ORGANISATION_LIST:     	"actionBackShowOrganisationList",
+        ACTION_BACK_SHOW_ORGANISATION_TILE:     	"actionBackShowOrganisationTile",
+        ACTION_SHOW_ORGANISATION_DETAIL:        	"actionShowOrganisationDetail",  
+        ACTION_SHOW_ORGANISATION_MODAL:         	"actionShowOrganisationModal",	
 	
-        /**
-         * The get organisation slide event type.
-         */
-        GET_ORGANISATION_SLIDE:          "getOrganisationSlide",
-    	
-        /**
-         * The get organisation slide success event type.
-         */
-        GET_ORGANISATION_SLIDE_SUCCESS:  "getOrganisationSlideSuccess",
-
-        /**
-         * The get organisation slide failure event type.
-         */
-        GET_ORGANISATION_SLIDE_FAILURE:  "getOrganisationSlideFailure",	
 	
-        /**
-         * The get organisation list event type.
-         */
-        GET_ORGANISATION_LIST:          "getOrganisationList",
-    	
-        /**
-         * The get organisation list success event type.
-         */
-        GET_ORGANISATION_LIST_SUCCESS:  "getOrganisationListSuccess",
+		///////////////////////////  ALL REPLACED BY READ_ORGANISATIONS_etc
+	
+			/**
+			 * The get organisation slide event type.
+			 */
+			GET_ORGANISATION_SLIDE:          "getOrganisationSlide",
+			
+			/**
+			 * The get organisation slide success event type.
+			 */
+			GET_ORGANISATION_SLIDE_SUCCESS:  "getOrganisationSlideSuccess",
 
-        /**
-         * The get organisation list failure event type.
-         */
-        GET_ORGANISATION_LIST_FAILURE:  "getOrganisationListFailure",
-        
-        /**
-         * The get organisation tile event type.
-         */
-        GET_ORGANISATION_TILE:          "getOrganisationTile",
-    	
-        /**
-         * The get organisation tile success event type.
-         */
-        GET_ORGANISATION_TILE_SUCCESS:  "getOrganisationTileSuccess",
-
-        /**
-         * The get organisation tile failure event type.
-         */
-        GET_ORGANISATION_TILE_FAILURE:  "getOrganisationTileFailure",        
-
-        /**
-         * The get organisation modal event type.
-         */
-        GET_ORGANISATION_MODAL:          "getOrganisationModal",
-    	
-        /**
-         * The get organisation modal success event type.
-         */
-        GET_ORGANISATION_MODAL_SUCCESS:  "getOrganisationModalSuccess",
-
-        /**
-         * The get organisation modal failure event type.
-         */
-        GET_ORGANISATION_MODAL_FAILURE:  "getOrganisationModalFailure",	
+			/**
+			 * The get organisation slide failure event type.
+			 */
+			GET_ORGANISATION_SLIDE_FAILURE:  "getOrganisationSlideFailure",	
 		
-        /**
-         * The get organisation event type.
-         */
-        GET_ORGANISATION:               "getOrganisation",
+			/**
+			 * The get organisation list event type.
+			 */
+			GET_ORGANISATION_LIST:          "getOrganisationList",
+			
+			/**
+			 * The get organisation list success event type.
+			 */
+			GET_ORGANISATION_LIST_SUCCESS:  "getOrganisationListSuccess",
 
-        /**
-         * The get organisation success event type.
-         */
-        GET_ORGANISATION_SUCCESS:       "getOrganisationSuccess",
+			/**
+			 * The get organisation list failure event type.
+			 */
+			GET_ORGANISATION_LIST_FAILURE:  "getOrganisationListFailure",
+			
+			/**
+			 * The get organisation tile event type.
+			 */
+			GET_ORGANISATION_TILE:          "getOrganisationTile",
+			
+			/**
+			 * The get organisation tile success event type.
+			 */
+			GET_ORGANISATION_TILE_SUCCESS:  "getOrganisationTileSuccess",
 
-        /**
-         * The get organisation failure event type.
-         */
-        GET_ORGANISATION_FAILURE:       "getOrganisationFailure",
+			/**
+			 * The get organisation tile failure event type.
+			 */
+			GET_ORGANISATION_TILE_FAILURE:  "getOrganisationTileFailure",        
+
+			/**
+			 * The get organisation modal event type.
+			 */
+			GET_ORGANISATION_MODAL:          "getOrganisationModal",
+			
+			/**
+			 * The get organisation modal success event type.
+			 */
+			GET_ORGANISATION_MODAL_SUCCESS:  "getOrganisationModalSuccess",
+
+			/**
+			 * The get organisation modal failure event type.
+			 */
+			GET_ORGANISATION_MODAL_FAILURE:  "getOrganisationModalFailure",	
+			
+			/**
+			 * The get organisation event type.
+			 */
+			GET_ORGANISATION:               "getOrganisation",
+
+			/**
+			 * The get organisation success event type.
+			 */
+			GET_ORGANISATION_SUCCESS:       "getOrganisationSuccess",
+
+			/**
+			 * The get organisation failure event type.
+			 */
+			GET_ORGANISATION_FAILURE:       "getOrganisationFailure",
+		
+		
+		//////////////////////////
+		
 
         /**
          * The create organisation event type.
@@ -132,7 +139,23 @@ Ext.define("Core.event.organisation.Event", {
         /**
          * The delete organisation failure event type.
          */
-        DELETE_ORGANISATION_FAILURE:    "deleteOrganisationFailure"
+        DELETE_ORGANISATION_FAILURE:    "deleteOrganisationFailure",
+		
+        /**
+         * The read organisations event type.
+         */
+        READ_ORGANISATIONS:            "readOrganisations",
+
+        /**
+         * The read organisations success event type.
+         */
+        READ_ORGANISATIONS_SUCCESS:    "readOrganisationsSuccess",
+
+        /**
+         * The read organisations failure event type.
+         */
+        READ_ORGANISATIONS_FAILURE:    "readOrganisationsFailure"		
+		
     },
 
     /**
@@ -148,7 +171,7 @@ Ext.define("Core.event.organisation.Event", {
     organisation: null,
 
     /**
-     * Constructor. Allows the username and password for authentication to be set on the event.
+     * Constructor.
      *
      * @param {String} type The event type.
      * @param {Number} id The id of the organisation the CRUD operation is acting on.

@@ -171,7 +171,7 @@ Ext.define("Core.event.person.Event", {
     person: null,
 
     /**
-     * Constructor. Allows the username and password for authentication to be set on the event.
+     * Constructor. 
      *
      * @param {String} type The event type.
      * @param {Number} id The id of the person the CRUD operation is acting on.

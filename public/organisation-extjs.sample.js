@@ -78,6 +78,21 @@ Ext.onReady(function () {
 			mock: true
 		}]
 	},{
+		membership:  [{
+			mock: true,
+			store: true
+		}]
+	},{
+		organisationGroup:  [{
+			mock: true,
+			store: true
+		}]
+	},{
+		group:  [{
+			mock: true,
+			store: true
+		}]
+	},{
 		organisation:  [{
 			mock: true,
 			store: true
@@ -96,14 +111,23 @@ Ext.onReady(function () {
 				if(key == 'mock'){
 					var mock = value[key];
 					var serviceService = serviceName+"Service";
+					var servicePath = "";  // TO DO: Make e.g. person to person, but personGroup to person.group
+					// TO DO: Make e.g. person to person, but personGroup to person.group
+						// TEMP FIX:
+						if(serviceName == 'organisationGroup'){
+							servicePath = 'organisation.group'; 
+						}
+						else {
+							servicePath = serviceName;
+						}
 					var keyValuePairArray = {};
 					if(mock){
-						keyValuePairArray[serviceService] = String("Core.service."+serviceName+".mock"+".Service");
-						Ext.syncRequire([String("Core.service."+serviceName+".mock"+".Service")]);
+						keyValuePairArray[serviceService] = String("Core.service."+servicePath+".mock"+".Service");
+						Ext.require([String("Core.service."+servicePath+".mock"+".Service")]);
 					} 
 					else {
-						keyValuePairArray[serviceService] = String("Core.service."+serviceName+".Service");
-						Ext.syncRequire([String("Core.service."+serviceName+".Service")]);
+						keyValuePairArray[serviceService] = String("Core.service."+servicePath+".Service");
+						Ext.require([String("Core.service."+servicePath+".Service")]);
 					}
 					// Configure the DeftJS IoC container for Services
 					Deft.Injector.configure(keyValuePairArray);
@@ -111,10 +135,18 @@ Ext.onReady(function () {
 				if(key == 'store'){
 					var store = value[key];
 					var serviceStore = serviceName+"Store";
+					var storePath = "";  // TO DO: Make e.g. person to person, but personGroup to person.group
+						// TEMP FIX:
+						if(serviceName == 'organisationGroup'){
+							storePath = 'organisation.group'; 
+						}
+						else {
+							storePath = serviceName;
+						}
 					var keyValuePairArray = {};
 					if(store){
-						keyValuePairArray[serviceStore] = String("Core.store."+serviceName+".Store");
-						Ext.syncRequire([String("Core.store."+serviceName+".Store")]);
+						keyValuePairArray[serviceStore] = String("Core.store."+storePath+".Store");
+						Ext.require([String("Core.store."+storePath+".Store")]);
 					} 				
 					// Configure the DeftJS IoC container for Stores
 					Deft.Injector.configure(keyValuePairArray);
@@ -148,6 +180,9 @@ Ext.application({
     ////////////////////////////////////////////
     models: [
         "session.Model",
+		"membership.Model",
+		"organisation.group.Model",		
+		"group.Model",		
     	"organisation.Model"
     ],
 
@@ -175,6 +210,9 @@ Ext.application({
         "company.Controller",
         "url.Controller",		
         "authentication.Controller",
+		"membership.Controller",
+		"organisation.group.Controller",		
+		"group.Controller",			
         "organisation.Controller"	
     ],
 

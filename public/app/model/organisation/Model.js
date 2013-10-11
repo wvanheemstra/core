@@ -50,12 +50,6 @@ Ext.define("Core.model.organisation.Model", {
 			{ name: 'ts_Created', type: 'date', persist: false },
 			{ name: 'ts_Modified', type: 'date', persist: false }		
 	    ],
-		belongsTo:[
-			// empty
-		],
-		hasOne:[
-			// empty		
-		],
 		hasMany:[
 			{
 			  name: "Membership",
@@ -168,12 +162,6 @@ Ext.define("Core.model.organisation.Model", {
 		{ name: "OrganisationName", type: "string"  },
 		{ name: 'ts_Created', type: 'date', persist: false },
 		{ name: 'ts_Modified', type: 'date', persist: false }
-	],
-	belongsTo:[
-		// empty
-	],
-	hasOne:[
-		// empty
 	],
 	hasMany:[
 		{

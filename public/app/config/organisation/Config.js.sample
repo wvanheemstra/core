@@ -55,11 +55,41 @@ Ext.define("Core.config.organisation.Config",{
 				mock: true
 			}]
 		},{
+			salutation:  [{
+				mock: true,
+				store: true
+			}]
+		},{
+			gender:  [{
+				mock: true,
+				store: true
+			}]
+		},{
+			nationality:  [{
+				mock: true,
+				store: true
+			}]
+		},{
+			date:  [{
+				mock: true,
+				store: true
+			}]
+		},{
+			membership:  [{
+				mock: true,
+				store: true
+			}]
+		},{
+			group:  [{
+				mock: true,
+				store: true
+			}]
+		},{
 			organisation:  [{
 				mock: true,
 				store: true
 			}]
-		}]	 // put your services here		
+		}]	 // put your services here
     },
     constructor : function(config){
         this.initConfig(config);

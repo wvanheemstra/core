@@ -49,7 +49,8 @@ Ext.define("Core.view.touch.organisation.list.View", {
                         ]
                     },
 					{
-						xtype: "spacer"
+						xtype: "spacer",
+						width: "100%"
 					},
                     {
                         xtype: "button",

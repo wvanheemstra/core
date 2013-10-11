@@ -72,13 +72,13 @@ Ext.define("Core.view.touch.organisation.list.View", {
                 itemId: "list",
                 fullscreen: true,
 				ui: "neutral",
-				itemTpl: Ext.create('Ext.XTemplate',
+				itemTpl: Ext.create('Ext.XTemplate',				
 						"<div class='organisationName'>",
-						  "<div style='float:left; width: 100%'>{OrganisationName}</div>",
+						  "<div style='float:left; width: 35%'>{OrganisationName}</div>",
 						"</div>",
 						"<div style='clear:both'></div>"
 				),
-                grouped: true,
+                grouped: true, // WAS true, causes an error when data is not loaded yet
                 onItemDisclosure: true,
                 plugins: [
                     {

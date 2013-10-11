@@ -280,9 +280,6 @@ Ext.define("Core.mediator.touch.person.detail.Mediator", {
      */
     backToPersonList: function() {
         this.logger.debug("backToPersonList");
-		
-		this.getView('personList').reset(); // TEST.. will this work?
-		
         this.navigate(Core.event.navigation.Event.ACTION_BACK_SHOW_PERSON_LIST);
     },
 

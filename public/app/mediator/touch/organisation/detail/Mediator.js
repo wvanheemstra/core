@@ -5,8 +5,9 @@ Ext.define("Core.mediator.touch.organisation.detail.Mediator", {
     extend: "Core.mediator.touch.organisation.base.Mediator",
 
     requires: [
-        "Core.event.navigation.Event"
-    ],
+        "Core.event.navigation.Event",  // THIS IS ALREADY IN THE BASE CLASS, REMOVE?
+		"Ext.MessageBox"
+	],
 
     // set up view event to mediator mapping
     control: {
@@ -21,6 +22,10 @@ Ext.define("Core.mediator.touch.organisation.detail.Mediator", {
         },
         deleteButton: {
             tap: "onDeleteButtonTap"
+        },		
+		groupsSearchInput :{
+            keyup:          "onGroupsSearchKeyUp",
+            clearicontap:   "onGroupsSearchClearIconTap"
         }
     },
 
@@ -30,6 +35,10 @@ Ext.define("Core.mediator.touch.organisation.detail.Mediator", {
             selectedRecordChange: "onSelectedRecordChange"
         }
     },
+	
+	statics: {
+		// empty
+	},
 
     /**
      * Sets up global event bus handlers. Called by the parent superclass during the initialization phase.
@@ -41,6 +50,7 @@ Ext.define("Core.mediator.touch.organisation.detail.Mediator", {
         this.eventBus.addGlobalEventListener(Core.event.organisation.Event.CREATE_ORGANISATION_SUCCESS, this.onCreateOrganisationSuccess, this);
         this.eventBus.addGlobalEventListener(Core.event.organisation.Event.UPDATE_ORGANISATION_SUCCESS, this.onUpdateOrganisationSuccess, this);
         this.eventBus.addGlobalEventListener(Core.event.organisation.Event.DELETE_ORGANISATION_SUCCESS, this.onDeleteOrganisationSuccess, this);
+		this.eventBus.addGlobalEventListener(Core.event.group.Event.READ_GROUPS_SUCCESS, this.onReadGroupsSuccess, this);				
     },
 
     /**
@@ -54,7 +64,7 @@ Ext.define("Core.mediator.touch.organisation.detail.Mediator", {
         var evt;
         var msg;
         if(organisation != null) {
-            var id = organisation.id;
+            var id = organisation.kp_OrganisationID;
             if( (id != null) && (id != "") ) {
                 evt = Ext.create("Core.event.organisation.Event", Core.event.organisation.Event.UPDATE_ORGANISATION);
                 msg = nineam.locale.LocaleManager.getProperty("organisationDetail.updatingOrganisation");
@@ -78,17 +88,51 @@ Ext.define("Core.mediator.touch.organisation.detail.Mediator", {
      */
     deleteOrganisation: function(organisation) {
         this.logger.debug("deleteOrganisation");
-        if(organisation != null) {
-            this.getView().setMasked({
-                xtype: "loadmask",
-                message: nineam.locale.LocaleManager.getProperty("organisationDetail.deletingOrganisation")
-            });
-            var evt = Ext.create("Core.event.organisation.Event", Core.event.organisation.Event.DELETE_ORGANISATION);
-            evt.organisation = organisation;
-            this.eventBus.dispatchGlobalEvent(evt);
-        }
-    },
-
+		var continueDeletion = false;
+		var view = this.getView();
+		var eventBus = this.eventBus;
+		var organisationName = organisation.OrganisationFirstName + ' ' + organisation.OrganisationName;
+		var callbackFunction = function(btn, text){
+			if(btn === 'deleteYes'){
+				continueDeletion = true;
+				if(organisation != null && continueDeletion ) {
+					view.setMasked({
+						xtype: "loadmask",
+						message: nineam.locale.LocaleManager.getProperty("organisationDetail.deletingOrganisation")
+					});
+					var evt = Ext.create("Core.event.organisation.Event", Core.event.organisation.Event.DELETE_ORGANISATION);
+					evt.organisation = organisation;
+					eventBus.dispatchGlobalEvent(evt);
+				}
+			} else {
+				continueDeletion = false;
+			}
+	   };
+		var message = Ext.Msg.show({
+		   title:'Delete ' + organisationName,
+		   msg: 'Are you sure?',
+		   buttons: [
+			{
+				id: 'deleteYes',
+				itemId: 'deleteYes',
+				text: 'Yes',
+				docked: 'left'
+			},
+			{
+				id: 'deleteNo',
+				itemId: 'deleteNo',
+				text: 'No',
+				docked: 'right'
+			}
+		   ],
+		   ui: 'neutral',
+		   icon: Ext.MessageBox.WARNING,
+		   fn: callbackFunction,
+		   scope: this,
+		   animEl: 'elId'
+		});
+    },			
+	
     /**
      * Simple navigation method used to navigate back, depending on the previous view.
 	 *
@@ -134,7 +178,7 @@ Ext.define("Core.mediator.touch.organisation.detail.Mediator", {
     },
 
     /**
-     * Rests the view to it's default state -- no record set on the view's fields.
+     * Resets the view to it's default state -- no record set on the view's fields.
      */
     reset: function() {
         this.logger.debug("reset");
@@ -155,14 +199,115 @@ Ext.define("Core.mediator.touch.organisation.detail.Mediator", {
             this.getView().items.getAt(i).setUi(ui);
         }
     }, 
-
+	
+    /**
+     * Refreshes an element provided.
+	 *
+	 * @param element    The element to refresh
+	 * @param style      The element style to retain
+	 * @param timeout    The timeout in milliseconds (e.g. 20)
+     */	
+	refreshElement: function(element, style, timeout) {
+		this.logger.debug("refreshElement: element = ");
+		console.log(element);
+		this.logger.debug("refreshElement: style = ");
+		console.log(style);
+		if (!element) { 
+			console.log("no element");
+			return; 
+		}
+		var n = document.createTextNode(' ');
+		element.appendChild(n);
+		element.style.display = 'none';
+		setTimeout(function(){
+			element.style.display = style; // Set to the style provided
+			n.parentNode.removeChild(n);
+			console.log(element);
+		}, timeout); // you can play with this timeout to make it as short as possible	
+	},
+	
+    /**  THIS HAVE BEEN MOVED TO THE VIEW ITSELF ....
+     * Build an itemSelector from the element provided.
+	 *
+	 * @param element    The element to build an itemSelector from
+	 * @param options      The element's options
+     */		
+	buildItemSelector: function(element, options){
+		this.logger.debug("buildItemSelector");	
+		var me = element;
+		/*
+		var store = Ext.create('Ext.data.Store', {
+			storeId:'groupStore',
+			fields:['name', 'email', 'phone'],
+			data:{'items':[
+				{ 'name': 'Lisa',  "email":"lisa@simpsons.com",  "phone":"555-111-1224"  },
+				{ 'name': 'Bart',  "email":"bart@simpsons.com",  "phone":"555-222-1234" },
+				{ 'name': 'Homer', "email":"home@simpsons.com",  "phone":"555-222-1244"  },
+				{ 'name': 'Marge', "email":"marge@simpsons.com", "phone":"555-222-1254"  }
+			]},
+			proxy: {
+				type: 'memory',
+				reader: {
+					type: 'json',
+					root: 'items'
+				}
+			}
+		});
+		*/
+		
+		/*
+		var panel = Ext.create('Ext.grid.Panel', {
+			title: 'Groups',
+			store: Ext.data.StoreManager.lookup('groupStore'),
+			columns: [
+				{ header: 'Name',  dataIndex: 'name', flex: 1 }
+			],
+			height: 200,
+			width: 400,
+			//renderTo: Ext.getBody()
+			renderTo: this.getView().down("#groupsContainer")
+		});
+		*/
+		/*
+		var list = Ext.create('Ext.List', {
+			// configure the newly created list
+			mode: 'MULTI',
+			store: Ext.data.StoreManager.lookup('groupStore'), //eof store
+			itemTpl: "{name}",
+			renderTo: this.getView().down("#groupsContainer"),
+			listeners: {
+				selectionchange: function(list,records){
+					var names = [];
+					Ext.Array.each(records, function(item){
+						names.push("<li>"+item.data.name+"</li>");
+					});// eof each()
+					console.log("Selected " + records.length + " item(s): " + names.join(''));
+				}//eof selectionchange
+			}//eof listeners
+		});
+		*/
+		// to do ...
+	//	var component = this.getView().down("#groupsContainer");
+	//	component.getItems().add(list);
+	//	component.setHtml('Setting a list!');	
+	//	var items = component.getItems();
+	//	for(item in items){
+	//		console.log(items[item]);
+	//		items[item] = list; // Make it better so it checks that this is indeed a list
+	//	}
+		
+	//	component.setHeight(300);
+		//component.doLayout(); // Should refresh the component
+		
+		
+	},
+	
     ////////////////////////////////////////////////
     // EVENT BUS HANDLERS
     ////////////////////////////////////////////////
 
     /**
-     * Handles the painted application-level event. Set the organisation detail view
-     * as the current view.
+     * Handles the painted application-level event. 
      */    
     onPainted: function() {
 		this.logger.debug("onPainted");
@@ -204,6 +349,57 @@ Ext.define("Core.mediator.touch.organisation.detail.Mediator", {
     },
 
     /**
+     * Handles the painted picker application-level event. 
+	 *
+	 * @param picker    The picker that is painted.
+     */    
+    onPaintedPicker: function(picker) {
+		this.logger.debug("onPaintedPicker");
+	/*	for (var i=0;i<50;i++){ // TEMP an arbitrary number of attempts
+			var pickerslotId = 'ext-pickerslot-'+i;
+			var pickerslotElement = document.getElementById(pickerslotId);
+			if(pickerslotElement) {
+				this.logger.debug("pickerslot found: " +i);
+				var id = document.getElementById(pickerslotId).getAttribute("id");
+				console.log("id = " +id);
+				var style = document.getElementById(pickerslotId).getAttribute("style");
+				console.log("style = " +style);
+				// Force a width of '100% !important' or Chrome will not show the slots
+				// refresh the element
+				this.refreshElement(document.getElementById(pickerslotId), "width:'100%!important'", 20);  // SADLY Sencha overwrites our attempt
+			}
+		}
+	*/
+    },	
+	
+    /**
+     * Handles the show picker application-level event. 
+	 *
+	 * @param picker    The picker that is shown.
+     */    
+    onShowPicker: function(picker) {	
+		this.logger.debug("onShowPicker");
+		// Set the value from the form to the slot
+		var form = this.getView();
+		var formValues = form.getValues();
+		for (formValue in formValues) {
+			switch(formValue) {				
+				default: //empty
+			}
+		}
+	},			
+
+    /**
+     * Handles the read groups success application-level event.
+     */
+    onReadGroupsSuccess: function() {
+		if(Core.config.organisation.Config.getCurrentView()==='organisationdetail') {
+			this.logger.debug("onReadGroupsSuccess");
+			// more...
+		}
+	},
+
+    /**
      * Handles the change of the selected record in the organisation store. Loads the appropriate record in the view or
      * resets it if the record is null.
      *
@@ -212,8 +408,7 @@ Ext.define("Core.mediator.touch.organisation.detail.Mediator", {
      */
     onSelectedRecordChange: function(store, record) {
         var logMsg = (record != null)
-            ? ": id = " + record.get("id") + ", organisation = " + record.get("OrganisationName")
-            : "new organisation";
+            ? ": kp_OrganisationID = " + record.get("kp_OrganisationID") + ", organisation = " + record.get("OrganisationName"): "new organisation";
         this.logger.debug("onSelectedRecordChange = " + logMsg);
         if (record) {
             this.getView().setRecord(record);
@@ -244,7 +439,7 @@ Ext.define("Core.mediator.touch.organisation.detail.Mediator", {
         var newOrganisation = this.getView().getValues();
         // if this is a new organisation record, there's no id available
         if(organisation != null) {
-            newOrganisation.id = organisation.data.id;
+            newOrganisation.kp_OrganisationID = organisation.data.kp_OrganisationID;
         }
         this.saveOrganisation(newOrganisation);
     },
@@ -259,5 +454,68 @@ Ext.define("Core.mediator.touch.organisation.detail.Mediator", {
 	    if(organisation) {
 		    this.deleteOrganisation(organisation.data);
 	    }
+    },		
+
+    /**
+     * Handles the clear icon tap event on the search field. Clears all filter on the list's store.
+     */
+    onGroupsSearchClearIconTap: function() {
+    	if(Core.config.organisation.Config.getCurrentView()==='organisationdetail') {  	
+	        this.logger.debug("onGroupsSearchClearIconTap");
+	        var store = this.getView().down("#groupList").getStore();
+	        store.clearFilter();
+    	}        
+    },
+
+    /**
+     * Handles the key up event on the search field. Filters the list component's store by the value in the
+     * search field and determining if it matches the name element of each record in the list.
+     *
+     * @param {Ext.field.Search} field Reference to the search field.
+     *
+     * TODO: BMR: 02/28/13: clean this up. pulled directly from another example with minor changes: http://www.phs4j.com/2012/05/add-a-searchfield-to-a-sencha-touch-2-list-mvc/
+     */
+    onGroupsSearchKeyUp: function(field) {
+    	if(Core.config.organisation.Config.getCurrentView()==='organisationdetail') {
+	        this.logger.debug("onGroupsSearchKeyUp");
+	        //get the store and the value of the field
+	        var value = field.getValue();
+	        var store = this.getView().down("#groupList").getStore(); 
+	        //first clear any current filters on the store
+	        store.clearFilter();
+	        //check if a value is set first, as if it isn't we don't have to do anything
+	        if (value) {
+	            //the user could have entered spaces, so we must split them so we can loop through them all
+	            var searches = value.split(" "),
+	                regexps = [],
+	                i;
+	            //loop them all
+	            for (i = 0; i < searches.length; i++) {
+	                //if it is nothing, continue
+	                if (!searches[i]) continue;
+	                //if found, create a new regular expression which is case insensitive
+	                regexps.push(new RegExp(searches[i], "i"));
+	            }
+	            //now filter the store by passing a method
+	            //the passed method will be called for each record in the store
+	            store.filter(function(record) {
+	                var matched = [];
+	                //loop through each of the regular expressions
+	                for (i = 0; i < regexps.length; i++) {
+	                    var search = regexps[i],
+	                        didMatch = record.get("GroupName").match(search);
+	                    //if it matched the name, push it into the matches array
+	                    matched.push(didMatch);
+	                }
+	                //if nothing was found, return false (don't so in the store)
+	                if (regexps.length > 1 && matched.indexOf(false) != -1) {
+	                    return false;
+	                } else {
+	                    //else true true (show in the store)
+	                    return matched[0];
+	                }
+	            });
+	        }
+    	}//eof if
     }
 });

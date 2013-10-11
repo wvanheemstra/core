@@ -179,7 +179,7 @@ Ext.define("Core.model.person.Model", {
 				read: 'http://localhost:5001/?api=person&action=read',
 				//read: 'http://localhost:5001/services/mql/read',
 				//write: 'core/components/core/apps/core/data/mql-single-person.json',
-				write: 'data/write-persons-success.json'
+				write: 'data/?action=write&model=person&format=json'
 			},
 			reader: {
 				type: 'json',
@@ -350,7 +350,7 @@ Ext.define("Core.model.person.Model", {
 			read: 'http://localhost:5001/?api=person&action=read',
 			//read: 'http://localhost:5001/services/mql/read',
 			//write: 'core/components/core/apps/core/data/mql-single-person.json',
-			write: 'data/write-persons-success.json'
+			write: 'data/?action=write&model=person&format=json'
 		},
 		reader: {
 			type: 'json',

@@ -130,15 +130,7 @@ Ext.define("Core.controller.person.Controller", {
     readPersons: function() {
         this.logger.debug("readPersons");
         this.executeServiceCall(this.personService, this.personService.readPersons, null, this.readPersonsSuccess, this.readPersonsFailure, this);
-    },	
-	
-    /**
-     * Resets the session data.  		REMOVE
-     */
-    //resetSessionData: function() {
-    //    this.logger.info("resetSessionData");
-    //    this.setSessionToken(null);
-    //},
+    },
 	
     ////////////////////////////////////////////////
     // SERVICE SUCCESS/FAULT HANDLERS
@@ -152,9 +144,6 @@ Ext.define("Core.controller.person.Controller", {
      */
     createPersonSuccess: function(response) {
         this.logger.info("createPersonSuccess");
-
-		// The server will send a token that can be used throughout the app.
-        //this.setSessionToken(response.sessionToken);		REMOVE		
 		
         this.personStore.add(response);
 
@@ -169,9 +158,7 @@ Ext.define("Core.controller.person.Controller", {
      * @param {Object} response The response data packet from the failed service call.
      */
     createPersonFailure: function(response) {
-        this.logger.warn("createPersonFailure");
-
-        //this.resetSessionData();		REMOVE		
+        this.logger.warn("createPersonFailure");		
 		
         var evt = Ext.create("Core.event.person.Event", Core.event.person.Event.CREATE_PERSON_FAILURE);
         this.eventBus.dispatchGlobalEvent(evt);
@@ -185,9 +172,6 @@ Ext.define("Core.controller.person.Controller", {
      */
     updatePersonSuccess: function(response) {
         this.logger.info("updatePersonSuccess");
-
-		// The server will send a token that can be used throughout the app.
-        // this.setSessionToken(response.sessionToken);		REMOVE
 		
 		this.personStore.update(response);
 
@@ -204,8 +188,6 @@ Ext.define("Core.controller.person.Controller", {
     updatePersonFailure: function(response) {
         this.logger.warn("updatePersonFailure");
 
-        // this.resetSessionData();		REMOVE
-		
         var evt = Ext.create("Core.event.person.Event", Core.event.person.Event.UPDATE_PERSON_FAILURE);
         this.eventBus.dispatchGlobalEvent(evt);
     },
@@ -218,9 +200,6 @@ Ext.define("Core.controller.person.Controller", {
      */
     deletePersonSuccess: function(response) {
         this.logger.info("deletePersonSuccess");
-
-		// The server will send a token that can be used throughout the app.
-        //this.setSessionToken(response.sessionToken);		REMOVE		
 		
         this.personStore.setSelectedRecord(null);
         var person = this.personStore.findRecord("kp_PersonID", response.data.kp_PersonID);
@@ -237,9 +216,7 @@ Ext.define("Core.controller.person.Controller", {
      * @param {Object} response The response data packet from the failed service call.
      */
     deletePersonFailure: function(response) {
-        this.logger.warn("deletePersonFailure");
-
-        //this.resetSessionData();		REMOVE		
+        this.logger.warn("deletePersonFailure");	
 		
         var evt = Ext.create("Core.event.person.Event", Core.event.person.Event.DELETE_PERSON_FAILURE);
         this.eventBus.dispatchGlobalEvent(evt);
@@ -253,9 +230,6 @@ Ext.define("Core.controller.person.Controller", {
 	 */
 	readPersonsSuccess: function(response) {
 		this.logger.info("readPersonsSuccess");
-
-		// The server will send a token that can be used throughout the app.
-		//this.setSessionToken(response.sessionToken);		REMOVE
 		
 		this.personStore.setData(response.persons); // personStore will have already been loaded at Success, 
 													// so need to check for this, and not overwrite. TO DO
@@ -272,8 +246,6 @@ Ext.define("Core.controller.person.Controller", {
      */
     readPersonsFailure: function(response) {
         this.logger.warn("readPersonsFailure");
-		
-        //this.resetSessionData();		REMOVE		
 
         var evt = Ext.create("Core.event.person.Event", Core.event.person.Event.READ_PERSONS_FAILURE);
         this.eventBus.dispatchGlobalEvent(evt);
@@ -285,10 +257,7 @@ Ext.define("Core.controller.person.Controller", {
      *
      */
     readSalutationsSuccess: function(response) {
-        this.logger.info("readSalutationsSuccess");
-
-		// The server will send a token that can be used throughout the app.
-        //this.setSessionToken(response.sessionToken);		REMOVE		
+        this.logger.info("readSalutationsSuccess");	
 		
         this.salutationStore.load();
 
@@ -302,9 +271,7 @@ Ext.define("Core.controller.person.Controller", {
      *
      */
     readSalutationsFailure: function(response) {
-        this.logger.warn("readSalutationsFailure");
-
-        //this.resetSessionData();		REMOVE		
+        this.logger.warn("readSalutationsFailure");	
 		
         var evt = Ext.create("Core.event.salutation.Event", Core.event.salutation.Event.READ_SALUTATIONS_FAILURE);
         this.eventBus.dispatchGlobalEvent(evt);
@@ -316,10 +283,7 @@ Ext.define("Core.controller.person.Controller", {
      *
      */
     readGendersSuccess: function(response) {
-        this.logger.info("readGendersSuccess");
-
-		// The server will send a token that can be used throughout the app.
-        //this.setSessionToken(response.sessionToken);		REMOVE		
+        this.logger.info("readGendersSuccess");	
 		
         this.genderStore.load();
 
@@ -333,9 +297,7 @@ Ext.define("Core.controller.person.Controller", {
      *
      */
     readGendersFailure: function(response) {
-        this.logger.warn("readGendersFailure");
-
-        //this.resetSessionData();		REMOVE		
+        this.logger.warn("readGendersFailure");		
 		
         var evt = Ext.create("Core.event.gender.Event", Core.event.gender.Event.READ_GENDERS_FAILURE);
         this.eventBus.dispatchGlobalEvent(evt);
@@ -347,10 +309,7 @@ Ext.define("Core.controller.person.Controller", {
      *
      */
     readNationalitiesSuccess: function(response) {
-        this.logger.info("readNationalitiesSuccess");
-
-		// The server will send a token that can be used throughout the app.
-        //this.setSessionToken(response.sessionToken);		REMOVE		
+        this.logger.info("readNationalitiesSuccess");		
 		
         this.nationalityStore.load();
 
@@ -364,9 +323,7 @@ Ext.define("Core.controller.person.Controller", {
      *
      */
     readNationalitiesFailure: function(response) {
-        this.logger.warn("readNationalitiesFailure");
-
-        //this.resetSessionData();		REMOVE		
+        this.logger.warn("readNationalitiesFailure");		
 		
         var evt = Ext.create("Core.event.nationality.Event", Core.event.nationality.Event.READ_NATIONALITIES_FAILURE);
         this.eventBus.dispatchGlobalEvent(evt);
@@ -378,10 +335,7 @@ Ext.define("Core.controller.person.Controller", {
      *
      */
     readDatesSuccess: function(response) {
-        this.logger.info("readDatesSuccess");
-
-		// The server will send a token that can be used throughout the app.
-        //this.setSessionToken(response.sessionToken);		REMOVE		
+        this.logger.info("readDatesSuccess");	
 		
         this.dateStore.load();
 
@@ -396,8 +350,6 @@ Ext.define("Core.controller.person.Controller", {
      */
     readDatesFailure: function(response) {
         this.logger.warn("readDatesFailure");
-
-        //this.resetSessionData();		REMOVE		
 		
         var evt = Ext.create("Core.event.date.Event", Core.event.date.Event.READ_DATES_FAILURE);
         this.eventBus.dispatchGlobalEvent(evt);
@@ -409,10 +361,7 @@ Ext.define("Core.controller.person.Controller", {
      *
      */
     readMembershipsSuccess: function(response) {
-        this.logger.info("readMembershipsSuccess");
-
-		// The server will send a token that can be used throughout the app.
-        //this.setSessionToken(response.sessionToken);		REMOVE		
+        this.logger.info("readMembershipsSuccess");	
 		
         this.membershipStore.load();
 
@@ -427,8 +376,6 @@ Ext.define("Core.controller.person.Controller", {
      */
     readMembershipsFailure: function(response) {
         this.logger.warn("readMembershipsFailure");
-
-        //this.resetSessionData();		REMOVE		
 		
         var evt = Ext.create("Core.event.membership.Event", Core.event.membership.Event.READ_MEMBERSHIPS_FAILURE);
         this.eventBus.dispatchGlobalEvent(evt);

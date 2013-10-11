@@ -133,6 +133,8 @@
     <script type="text/javascript" src="app/app-loader-touch.js"></script>
 	<script type="text/javascript" src="resources/js/deft/deft-debug.js"></script>
 	<script type="text/javascript" src="resources/js/flow-mvc/flowmvc-debug.js"></script>
+	<! -- place SenchaCompatibility before the app -->
+	<script type="text/javascript" src="resources/js/sencha-compatibility/SenchaCompatibility.js"></script>	
     <script type="text/javascript" src="app-touch.js"></script>
 	<script type="text/javascript">
 		if (!Ext.browser.is.WebKit) {

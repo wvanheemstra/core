@@ -126,28 +126,46 @@ Ext.define("Core.mediator.touch.person.detail.Mediator", {
     deletePerson: function(person) {
         this.logger.debug("deletePerson");
 		var continueDeletion = false;
-		
-		Ext.Msg.show({
-		   title:'Delete',
-		   msg: 'Are you sure?',
-		   buttons: Ext.Msg.YESNOCANCEL,
-		   ui: 'neutral',
-		   fn: function(btn,text){
-				if(btn === 'ok'){
-					continueDeletion = true;
-					if(person != null && continueDeletion ) {
-						this.getView().setMasked({
-							xtype: "loadmask",
-							message: nineam.locale.LocaleManager.getProperty("personDetail.deletingPerson")
-						});
-						var evt = Ext.create("Core.event.person.Event", Core.event.person.Event.DELETE_PERSON);
-						evt.person = person;
-						this.eventBus.dispatchGlobalEvent(evt);
-					}
-				} else {
-					continueDeletion = false;
+		var view = this.getView();
+		var eventBus = this.eventBus;
+		var personName = person.PersonFirstName + ' ' + person.PersonLastName;
+		var callbackFunction = function(btn, text){
+			if(btn === 'deleteYes'){
+				continueDeletion = true;
+				if(person != null && continueDeletion ) {
+					view.setMasked({
+						xtype: "loadmask",
+						message: nineam.locale.LocaleManager.getProperty("personDetail.deletingPerson")
+					});
+					var evt = Ext.create("Core.event.person.Event", Core.event.person.Event.DELETE_PERSON);
+					evt.person = person;
+					eventBus.dispatchGlobalEvent(evt);
 				}
-		   },
+			} else {
+				continueDeletion = false;
+			}
+	   };
+		var message = Ext.Msg.show({
+		   title:'Delete ' + personName,
+		   msg: 'Are you sure?',
+		   buttons: [
+			{
+				id: 'deleteYes',
+				itemId: 'deleteYes',
+				text: 'Yes',
+				docked: 'left'
+			},
+			{
+				id: 'deleteNo',
+				itemId: 'deleteNo',
+				text: 'No',
+				docked: 'right'
+			}
+		   ],
+		   ui: 'neutral',
+		   icon: Ext.MessageBox.WARNING,
+		   fn: callbackFunction,
+		   scope: this,
 		   animEl: 'elId'
 		});
     },

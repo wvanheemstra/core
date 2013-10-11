@@ -287,6 +287,8 @@
     	<script type="text/javascript" src="app/app-loader-extjs.js"></script>
 		<script type="text/javascript" src="resources/js/deft/deft-debug.js"></script>
 	    <script type="text/javascript" src="resources/js/flow-mvc/flowmvc-debug.js"></script>
+		<! -- place SenchaCompatibility before the app -->
+		<script type="text/javascript" src="resources/js/sencha-compatibility/SenchaCompatibility.js"></script>		
     	<script type="text/javascript" src="person-extjs.js"></script>
     <% } %>	
     <% if (is_phone) { %>
@@ -294,6 +296,8 @@
     	<script type="text/javascript" src="app/app-loader-touch.js"></script>
 		<script type="text/javascript" src="resources/js/deft/deft-debug.js"></script>
 	    <script type="text/javascript" src="resources/js/flow-mvc/flowmvc-debug.js"></script>
+		<! -- place SenchaCompatibility before the app -->
+		<script type="text/javascript" src="resources/js/sencha-compatibility/SenchaCompatibility.js"></script>		
     	<script type="text/javascript" src="person-touch.js"></script>
     <% } %>
     <% if (is_tablet) { %>
@@ -301,6 +305,8 @@
     	<script type="text/javascript" src="app/app-loader-touch.js"></script>
 		<script type="text/javascript" src="resources/js/deft/deft-debug.js"></script>
 	    <script type="text/javascript" src="resources/js/flow-mvc/flowmvc-debug.js"></script>
+		<! -- place SenchaCompatibility before the app -->
+		<script type="text/javascript" src="resources/js/sencha-compatibility/SenchaCompatibility.js"></script>		
     	<script type="text/javascript" src="person-touch.js"></script>
     <% } %>
 	<script type="text/javascript">

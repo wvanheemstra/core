@@ -495,24 +495,31 @@ Ext.define("Core.view.touch.person.detail.View", {
 				]
 			},// eof container
 			{
-                xtype: "titlebar", // Allows for button alignment
+                xtype: "toolbar", // WAS "titlebar" but that does align buttons
                 itemId: "bottombar",
                 ui: "neutral",
                 docked: "bottom",
                 items: [
+					{
+						xtype: "spacer",
+						width: "100%"
+					},
                     {
-					xtype: "button",
-					itemId: "savePersonButton",
-					align: "right",
-					ui: "neutral", // WAS action
-					plugins: [
-						{
-							type: "localization",
-							method: "setText",
-							key: "personDetail.save"
-						}
-					]
-				}]
+						xtype: "button",
+						itemId: "savePersonButton",
+						iconCls: 'check2',
+						iconMask: true,
+						align: "right",
+						ui: "neutral", // WAS action
+						plugins: [
+							{
+								type: "localization",
+								method: "setText",
+								key: "personDetail.save"
+							}
+						]
+					}
+				]
 			}
         ]
     },

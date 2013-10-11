@@ -340,24 +340,30 @@ Ext.define("Core.view.touch.organisation.detail.View", {
 				]
 			},// eof container
 			{
-                xtype: "titlebar", // Allows for button alignment
+                xtype: "toolbar", // WAS "titlebar" but that does align buttons
                 itemId: "bottombar",
                 ui: "neutral",
                 docked: "bottom",
                 items: [
-                    {
-					xtype: "button",
-					itemId: "saveOrganisationButton",
-					align: "right",
-					ui: "neutral", // WAS action
-					plugins: [
-						{
-							type: "localization",
-							method: "setText",
-							key: "organisationDetail.save"
-						}
-					]
-				}]
+					{
+						xtype: "spacer",
+						width: "100%"
+					},{
+						xtype: "button",
+						itemId: "saveOrganisationButton",
+						iconCls: 'check2',
+						iconMask: true,
+						align: "right",
+						ui: "neutral", // WAS action
+						plugins: [
+							{
+								type: "localization",
+								method: "setText",
+								key: "organisationDetail.save"
+							}
+						]
+					}
+				]
 			}
         ]
     },

@@ -55,6 +55,8 @@ Ext.define("Core.view.touch.person.list.View", {
                     {
                         xtype: "button",
                         itemId: "newPersonButton",
+						iconCls: 'add',
+						iconMask: true,
                         align: "right",
                         ui: "neutral", // WAS action
                         plugins: [

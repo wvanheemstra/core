@@ -55,6 +55,8 @@ Ext.define("Core.view.touch.organisation.list.View", {
                     {
                         xtype: "button",
                         itemId: "newOrganisationButton",
+						iconCls: 'add',
+						iconMask: true,
                         align: "right",
                         ui: "neutral", // WAS action
                         plugins: [

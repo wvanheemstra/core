@@ -95,7 +95,7 @@ Ext.define("Core.view.touch.person.detail.View", {
 
         items: [
             {
-                xtype: "titlebar",
+                xtype: "toolbar", // WAS "titlebar" but that does not show title
                 itemId: "titlebar",
                 ui: "neutral",
                 docked: "top",
@@ -110,6 +110,8 @@ Ext.define("Core.view.touch.person.detail.View", {
                     {
                         xtype: "button",
                         itemId: "backButton",
+						iconCls: 'arrow_left',
+						iconMask: true,
                         align: "left",
                         plugins: [
                             {
@@ -120,11 +122,14 @@ Ext.define("Core.view.touch.person.detail.View", {
                         ]
                     },
 					{
-						xtype: "spacer"
+						xtype: "spacer",
+						width: "100%"
 					},
 					{
 						xtype: "button",
 						itemId: "deleteButton",
+						iconCls: 'delete',
+						iconMask: true,
 						align: "right",
 						ui: "neutral", // WAS action
 						plugins: [

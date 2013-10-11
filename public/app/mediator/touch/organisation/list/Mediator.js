@@ -23,7 +23,13 @@ Ext.define("Core.mediator.touch.organisation.list.Mediator", {
             disclose: "onListDisclose"
         }
     },
-
+	
+	statics: {
+        READ_ORGANISATIONS_SUCCESS:    	false,
+		READ_MEMBERSHIPS_SUCCESS:	false,
+		READ_GROUPS_SUCCESS:		false		
+	},	
+	
     /**
      * Sets up global event bus handlers. Called by the parent superclass during the initialization phase.
      */
@@ -32,9 +38,22 @@ Ext.define("Core.mediator.touch.organisation.list.Mediator", {
         this.logger.debug("setupGlobalEventListeners");
         this.eventBus.addGlobalEventListener(Core.event.ui.Event.SET_UI_SUCCESS, this.onSetUISuccess, this);
         this.eventBus.addGlobalEventListener(Core.event.authentication.Event.LOGIN_SUCCESS, this.onLoginSuccess, this);
-        this.eventBus.addGlobalEventListener(Core.event.organisation.Event.GET_ORGANISATION_LIST_SUCCESS, this.onGetOrganisationListSuccess, this);
-        this.eventBus.addGlobalEventListener(Core.event.organisation.Event.GET_ORGANISATION_LIST_FAILURE, this.onGetOrganisationListFailure, this);
+        this.eventBus.addGlobalEventListener(Core.event.organisation.Event.READ_ORGANISATIONS_SUCCESS, this.onReadOrganisationsSuccess, this);
+        this.eventBus.addGlobalEventListener(Core.event.organisation.Event.READ_ORGANISATIONS_FAILURE, this.onReadOrganisationsFailure, this);
+        this.eventBus.addGlobalEventListener(Core.event.organisation.Event.UPDATE_ORGANISATION_SUCCESS, this.onUpdateOrganisationSuccess, this);				
+        this.eventBus.addGlobalEventListener(Core.event.membership.Event.READ_MEMBERSHIPS_SUCCESS, this.onReadMembershipsSuccess, this);
+        this.eventBus.addGlobalEventListener(Core.event.membership.Event.READ_MEMBERSHIPS_FAILURE, this.onReadMembershipsFailure, this);
+        this.eventBus.addGlobalEventListener(Core.event.group.Event.READ_GROUPS_SUCCESS, this.onReadGroupsSuccess, this);
+        this.eventBus.addGlobalEventListener(Core.event.group.Event.READ_GROUPS_FAILURE, this.onReadGroupsFailure, this);				
     },
+	
+    /**
+     * Refreshes the list of organisations.
+     */	
+	refreshOrganisationList: function() {
+        this.logger.debug("refreshOrganisationList");	
+		this.getList().refresh();
+	},
 
     /**
      * Dispatches the application event to get the list of organisations.
@@ -45,10 +64,33 @@ Ext.define("Core.mediator.touch.organisation.list.Mediator", {
             xtype: "loadmask",
             message: nineam.locale.LocaleManager.getProperty("organisationList.loading")
         });
-        var evt = Ext.create("Core.event.organisation.Event", Core.event.organisation.Event.GET_ORGANISATION_LIST);
+
+        var evt = Ext.create("Core.event.organisation.Event", Core.event.organisation.Event.READ_ORGANISATIONS);
+        this.eventBus.dispatchGlobalEvent(evt);	
+
+		var evt = Ext.create("Core.event.membership.Event", Core.event.membership.Event.READ_MEMBERSHIPS);
         this.eventBus.dispatchGlobalEvent(evt);
+
+		var evt = Ext.create("Core.event.group.Event", Core.event.group.Event.READ_GROUPS);
+        this.eventBus.dispatchGlobalEvent(evt);			
+		
     },
 
+    /**
+     * Creates and returns a new Organisation record.
+     *
+     */
+    createNewOrganisation: function() {
+    	this.logger.debug("createNewOrganisation");
+		var organisation = null;		
+		organisation = Ext.create("Core.model.organisation.Model", {
+			//kp_OrganisationID = // Is set automatically
+		});
+		var organisationData = organisation.getData();
+		this.organisationStore.insert( organisation, false );
+		return organisation;
+	},
+	
     /**
      * Handles the show organisation detail event from the organisation list view. Grab the data model
      * from the selected item in the list and set it as the data provider for the detail view.
@@ -57,15 +99,30 @@ Ext.define("Core.mediator.touch.organisation.list.Mediator", {
      * @param record    The record is the data model for the item in the list currently selected.
      */
     showOrganisationDetail: function(record) {
+    	this.logger.debug("showOrganisationDetail");	
         var logMsg = (record != null)
-            ? ": id = " + record.get("id") + ", organisation = " + record.get("OrganisationName")
-            : "new organisation";
+            ? ": kp_OrganisationID = " + record.get("kp_OrganisationID") 
+			+ ", organisation = " + record.get("OrganisationName") : "new organisation";
         this.logger.debug("showOrganisationDetail = " + logMsg);
 		Core.config.organisation.Config.setPreviousView('organisationlist');
         this.navigate(Core.event.navigation.Event.ACTION_SHOW_ORGANISATION_DETAIL);
         this.organisationStore.setSelectedRecord(record);
     },
     
+    /**
+     * Shows the list once all reads have been successful. 
+     *
+     */	 
+	showOrganisationList: function(){
+    	this.logger.debug("showOrganisationList");	
+		if(this.self.READ_ORGANISATIONS_SUCCESS 
+			&& this.self.READ_MEMBERSHIPS_SUCCESS
+			&& this.self.READ_GROUPS_SUCCESS){
+			this.getView().setMasked(false);
+			this.getList().setStore(this.organisationStore);
+		}
+	},
+	
     /**
      * Handles the set UI event. 
      *
@@ -111,22 +168,67 @@ Ext.define("Core.mediator.touch.organisation.list.Mediator", {
     },
 
     /**
-     * Handles the get organisations application-level event.
+     * Handles the read organisations success event.
      */
-    onGetOrganisationListSuccess: function() {
-        this.logger.debug("onGetOrganisationListSuccess");
-        this.getView().setMasked(false);
-        this.getList().setStore(this.organisationStore);
+    onReadOrganisationsSuccess: function() {
+        this.logger.debug("onReadOrganisationsSuccess");
+		this.self.READ_ORGANISATIONS_SUCCESS = true;
+        this.showOrganisationList();
     },
 
     /**
-     * Handles the get organisations failure event from the login controller.
+     * Handles the read organisations failure event.
      */
-    onGetOrganisationListFailure: function() {
-        this.logger.debug("onGetOrganisationListFailure");
+    onReadOrganisationsFailure: function() {
+        this.logger.debug("onReadOrganisationsFailure");
+		this.self.READ_ORGANISATIONS_SUCCESS = false;
+        this.getView().setMasked(false);
+    },	
+
+    /**
+     * Handles the update organisation success event.
+     */
+    onUpdateOrganisationSuccess: function() {
+        this.logger.debug("onUpdateOrganisationSuccess");
+        this.refreshOrganisationList();
+    },			
+
+    /**
+     * Handles the read memberships success event.
+     */
+    onReadMembershipsSuccess: function() {
+        this.logger.debug("onReadMembershipsSuccess");
+		this.self.READ_MEMBERSHIPS_SUCCESS = true;
+        this.showOrganisationList();
+    },
+
+    /**
+     * Handles the read memberships failure event.
+     */
+    onReadMembershipsFailure: function() {
+        this.logger.debug("onReadMembershipsFailure");
+		this.self.READ_MEMBERSHIPS_SUCCESS = false;
         this.getView().setMasked(false);
     },
 
+    /**
+     * Handles the read groups success event.
+     */
+    onReadGroupsSuccess: function() {
+        this.logger.debug("onReadGroupsSuccess");
+		this.self.READ_GROUPS_SUCCESS = true;
+        this.showOrganisationList();
+    },
+
+    /**
+     * Handles the read groups failure event.
+     */
+    onReadGroupsFailure: function() {
+        this.logger.debug("onReadGroupsFailure");
+		this.self.READ_GROUPS_SUCCESS = false;
+        this.getView().setMasked(false);
+    },	
+	
     ////////////////////////////////////////////////
     // VIEW EVENT HANDLERS
     ////////////////////////////////////////////////
@@ -143,12 +245,15 @@ Ext.define("Core.mediator.touch.organisation.list.Mediator", {
     },
 
     /**
-     * Handles the tap of the new organisation button. Shows the organisation detail view.
+     * Handles the tap of the new organisation button. 
+	 * Creates a new Date record and adds the key to the new Organisation record.
+	 * Shows the organisation detail view.
      */
     onNewOrganisationButtonTap: function() {
     	if(Core.config.organisation.Config.getCurrentView()==='organisationlist') {     	
 	        this.logger.debug("onNewOrganisationButtonTap");
-	        this.showOrganisationDetail();
+			var record = this.createNewOrganisation();
+	        this.showOrganisationDetail(record);
     	}
     },
 
@@ -218,8 +323,8 @@ Ext.define("Core.mediator.touch.organisation.list.Mediator", {
 	                //loop through each of the regular expressions
 	                for (i = 0; i < regexps.length; i++) {
 	                    var search = regexps[i],
-	                        didMatch = record.get("organisationName").match(search);
-	                    //if it matched the name, push it into the matches array
+							didMatch = record.get("OrganisationName").match(search);
+	                    //if it matched the first or last name, push it into the matches array
 	                    matched.push(didMatch);
 	                }
 	                //if nothing was found, return false (dont so in the store)

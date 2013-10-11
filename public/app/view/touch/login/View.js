@@ -116,7 +116,14 @@ Ext.define("Core.view.touch.login.View", {
                         key: "login.loginFailed"
                     }
                 ]
-            }
+            },
+			{
+				xtype: "container",
+				style: "text-align: center; font-size: small; padding-bottom: 6px;",
+				docked: "bottom",
+				//html:  "Built using Sencha Ext JS " + Ext.getVersion('extjs')				
+				html:  "Built using Sencha Touch " + Ext.getVersion('touch'),
+			}
         ]
     }
 });

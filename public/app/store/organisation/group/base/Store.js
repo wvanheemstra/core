@@ -1,10 +1,10 @@
 /**
- * The person group base store.
+ * The organisation group base store.
  *
  * See:
  * https://github.com/robboerman/SenchaAssociationsPart1/blob/master/app/store/BaseStore.js
  */
-Ext.define("Core.store.person.group.base.Store", {
+Ext.define("Core.store.organisation.group.base.Store", {
     extend: "FlowMVC.mvc.store.AbstractStore",
 	
     findRecordAll: function(key, value) {

@@ -13,7 +13,7 @@ Ext.define("Core.store.person.Store", {
 		remoteUser: "Core", // Name of the User requesting for data (e.g. "Core" for Core user)
 		pageSize: 50, // TEST
 		//proxy: {}, PROXY IS SET IN THE MODEL
-		remoteFilter: true, // Required when the result set is 'paged'
+		remoteFilter: false, // Required when the result set is 'paged'
 		remoteSort: true, // Required when the result set is 'paged'
 		sorters: [{
 			property: "PersonLastName",
@@ -53,7 +53,7 @@ Ext.define("Core.store.person.Store", {
 	remoteUser: "Core", // Name of the User requesting for data (e.g. "Core" for Core user)
 	pageSize: 50, // TEST
 	//proxy: {}, PROXY IS SET IN THE MODEL
-	remoteFilter: true, // Required when the result set is 'paged'
+	remoteFilter: false, // Required when the result set is 'paged'
 	remoteSort: true, // Required when the result set is 'paged'	
 	sorters: [{
 		property: "PersonLastName",

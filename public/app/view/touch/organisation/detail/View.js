@@ -12,7 +12,7 @@ Ext.define("Core.view.touch.organisation.detail.View", {
     controller: "Core.mediator.touch.organisation.detail.Mediator",
 
     requires: [
-		"Ext.TitleBar", // Require explicitly
+		//"Ext.TitleBar", // Remove
         "Ext.form.FieldSet",
 		"Ext.field.DatePicker"
     ],
@@ -123,7 +123,8 @@ Ext.define("Core.view.touch.organisation.detail.View", {
                     },
 					{
 						xtype: "spacer",
-						width: "100%"
+						itemId: "spacer", // Required
+						width: 0 // Set by Mediator	
 					},
 					{
 						xtype: "button",
@@ -347,8 +348,10 @@ Ext.define("Core.view.touch.organisation.detail.View", {
                 items: [
 					{
 						xtype: "spacer",
-						width: "100%"
-					},{
+						itemId: "spacer", // Required
+						width: 0 // Set by Mediator	
+					},
+					{
 						xtype: "button",
 						itemId: "saveOrganisationButton",
 						iconCls: 'check2',

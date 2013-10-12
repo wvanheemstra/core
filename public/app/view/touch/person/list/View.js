@@ -12,11 +12,11 @@ Ext.define("Core.view.touch.person.list.View", {
     controller: "Core.mediator.touch.person.list.Mediator",
 
     requires: [
-        //"Core.view.touch.component.ListView"
+        // empty
     ],
 
     config: {
-
+	
         layout: {
             type: "fit"
         },
@@ -50,7 +50,8 @@ Ext.define("Core.view.touch.person.list.View", {
                     },
 					{
 						xtype: "spacer",
-						width: "100%"
+						itemId: "spacer", // Required
+						width: 0 // Set by Mediator
 					},
                     {
                         xtype: "button",

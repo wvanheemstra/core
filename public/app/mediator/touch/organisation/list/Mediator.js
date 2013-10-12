@@ -7,7 +7,7 @@ Ext.define("Core.mediator.touch.organisation.list.Mediator", {
     // set up view event to mediator mapping
     control: {
     	titlebar: {
-    		painted: "onPainted"
+			resize: "onResizeToolbar"
     	},
         logoutButton: {
             tap: "onLogoutButtonTap"
@@ -141,10 +141,72 @@ Ext.define("Core.mediator.touch.organisation.list.Mediator", {
     ////////////////////////////////////////////////
 
     /**
-     * Handles the painted application-level event. 
+     * Handles the resize toolbar application-level event. 
      */    
-    onPainted: function() {
-	    this.logger.debug("onPainted");	
+    onResizeToolbar: function(toolbar) {
+	    this.logger.debug("onResizeToolbar");
+		var id = toolbar.id;
+		var component = Ext.getCmp(id);
+		var maxWidthToolbar = Math.max(component.element.dom["clientWidth"], component.element.dom["scrollWidth"], component.element.dom["offsetWidth"]);
+		//console.log("maxWidthToolbar = " + maxWidthToolbar);
+		// subtract the total width of any elements (except spacer or title) within the toolbar from max width of the toolbar
+		var allItemsWidth = 0;
+		var clientWidth = 0;
+		var scrollWidth = 0; 
+		var offsetWidth = 0;
+		component.items.each(function(item){ 
+			// Omit spacers
+			var isNotSpacer;
+			var itemId = item.id;
+			var indexSpacer = itemId.indexOf("spacer");
+			//console.log("indexSpacer = " + indexSpacer);
+			if (indexSpacer < 0) {
+				isNotSpacer = true;
+			} else {
+				isNotSpacer = false;
+			}
+			//console.log("isNotSpacer = " + isNotSpacer);
+			// Omit titles
+			var isNotTitle;
+			var itemId = item.id;
+			var indexTitle = itemId.indexOf("title");
+			//console.log("indexTitle = " + indexTitle);
+			if (indexTitle < 0) {
+				isNotTitle = true;
+			} else {
+				isNotTitle = false;
+			}
+			//console.log("isNotTitle = " + isNotTitle);
+			// Measure width of all others
+			if(item.element.dom["clientWidth"] > 0 && isNotSpacer && isNotTitle ) { 
+				clientWidth = item.element.dom["clientWidth"];
+			} else {
+				clientWidth = 0;
+			}
+			//console.log(item.id + ": clientWidth = " + clientWidth);				
+			if(item.element.dom["scrollWidth"] > 0 && isNotSpacer && isNotTitle ) { 
+				scrollWidth = item.element.dom["scrollWidth"];
+			} else {
+				scrollWidth = 0;
+			}
+			//console.log(item.id + ": scrollWidth = " + scrollWidth);			
+			if(item.element.dom["offsetWidth"] > 0 && isNotSpacer && isNotTitle ) { 
+				offsetWidth = item.element.dom["offsetWidth"];
+			} else {
+				offsetWidth = 0;
+			}
+			//console.log(item.id + ": offsetWidth = " + offsetWidth);
+			var maxWidthItem = Math.max(clientWidth, scrollWidth, offsetWidth);
+			allItemsWidth = allItemsWidth + maxWidthItem;
+		});
+		//console.log("allItemsWidth = " + allItemsWidth);
+		// adjust the width of the spacer
+		var spacer = component.down("#spacer");
+		if(spacer) {
+			var spacerWidth = maxWidthToolbar - allItemsWidth;
+			spacer.setWidth(spacerWidth);
+			//console.log("spacerWidth = " + spacerWidth);
+		}
     },
 
     /**

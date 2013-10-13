@@ -1,0 +1,105 @@
+{
+    /////////////////////////////////////////////
+    // LOGIN
+    /////////////////////////////////////////////
+    "login": {
+        "title": "Login",
+        "username": "Username",
+        "password": "Password",
+        "passwordHint": "Hint: password",
+        "keepmeloggedin": "Keep me logged in",
+        "submit": "Log In",
+        "reset": "Clear",
+        "loggingIn" : "Logging In...",
+        "credentialsRequired": "Please enter your username and password.",
+        "loginFailed": "Login failed. Please enter the correct credentials."
+    },
+
+    /////////////////////////////////////////////
+    // EVENT SLIDE
+    /////////////////////////////////////////////
+    "eventSlide": {
+        "title": "Events",
+        "title1": "Events1",	
+        "title2": "Events2",
+        "title3": "Events3",	
+        "title4": "Events4",			
+        "logOut": "Log Out",
+        "new": "New",
+        "search": "live search",
+        "eventName": "Name",
+        "loading": "Loading Events...",
+        "noEvents": "No Events found."
+    },	
+	
+    /////////////////////////////////////////////
+    // EVENT LIST
+    /////////////////////////////////////////////
+    "eventList": {
+        "title": "Events",
+        "logOut": "Log Out",
+        "new": "New",
+        "search": "live search",
+        "eventName": "Name",
+        "loading": "Loading Events...",
+        "noEvents": "No Events found."
+    },
+
+    /////////////////////////////////////////////
+    // EVENT TILE
+    /////////////////////////////////////////////
+    "eventTile": {
+        "title": "Events",
+        "logOut": "Log Out",
+        "new": "New",
+        "search": "live search",
+        "eventName": "Name",
+        "loading": "Loading Events...",
+        "noEvents": "No Events found."
+    },
+
+    /////////////////////////////////////////////
+    // EVENT ITEMS
+    /////////////////////////////////////////////
+    "eventItem1": {
+        "title": "Item 1",
+    },	
+    "eventItem2": {
+        "title": "Item 2",
+    },
+    "eventItem3": {
+        "title": "Item 3",
+    },		
+    "eventItem4": {
+        "title": "Item 4",
+    },	
+	
+    /////////////////////////////////////////////
+    // EVENT CATEGORIES
+    /////////////////////////////////////////////
+    "eventCategory0": {
+        "title": "Home",
+    },
+		
+    /////////////////////////////////////////////
+    // EVENT DETAIL
+    /////////////////////////////////////////////
+    "eventDetail": {
+        "title": "Event",
+        "back": "Back",
+        "save": "Save",
+        "eventName": "Name",
+        "delete": "Delete",
+        "creatingEvent": "Creating Event ...",
+        "updatingEvent": "Updating Event ...",
+        "deletingEvent": "Deleting Event..."
+    },
+
+    /////////////////////////////////////////////
+    // EVENT MODAL
+    /////////////////////////////////////////////
+    "eventModal": {
+        "title": "Event",
+        "close": "Close"
+    }
+}

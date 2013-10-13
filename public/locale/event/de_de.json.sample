@@ -1,0 +1,105 @@
+{
+    /////////////////////////////////////////////
+    // LOGIN
+    /////////////////////////////////////////////
+    "login": {
+        "title": "Anmelden",
+        "username": "Benutzername",
+        "password": "Kennwort",
+        "passwordHint": "Hinweis: password",
+        "keepmeloggedin": "Angemeldet bleiben",
+        "submit": "Meld an",
+        "reset": "Neu stellen",
+        "loggingIn" : "Überprüfen...",
+        "credentialsRequired": "Tragen Sie bitte Ihre Benutzername und Kennwort ein.",
+        "loginFailed": "Anmelden hat gefählt. Bitte tragen Sie die richtige Daten ein."
+    },
+
+    /////////////////////////////////////////////
+    // EVENT SLIDE
+    /////////////////////////////////////////////
+    "eventSlide": {
+        "title": "Veranstaltungen",
+        "title1": "Veranstaltungen1",	
+        "title2": "Veranstaltungen2",
+        "title3": "Veranstaltungen3",	
+        "title4": "Veranstaltungen4",			
+        "logOut": "Abmelden",
+        "new": "Neu",
+        "search": "live suchen",
+        "eventName": "Name",
+        "loading": "Laad Veranstaltungen...",
+        "noEvents": "Keine Veranstaltungen wurden gefunden."
+    },	
+	
+    /////////////////////////////////////////////
+    // EVENT LIST
+    /////////////////////////////////////////////
+    "eventList": {
+        "title": "Veranstaltungen",
+        "logOut": "Abmelden",
+        "new": "Neu",
+        "search": "live suchen",
+        "eventName": "Name",
+        "loading": "Laad Veranstaltungen...",
+        "noEvents": "Keine Veranstaltungen wurden gefunden."
+    },
+
+    /////////////////////////////////////////////
+    // EVENT TILE
+    /////////////////////////////////////////////
+    "eventTile": {
+        "title": "Veranstaltungen",
+        "logOut": "Abmelden",
+        "new": "Neu",
+        "search": "live suchen",
+        "eventName": "Name",
+        "loading": "Laad Veranstaltungen...",
+        "noEvents": "Keine Veranstaltungen wurden gefunden."
+    },
+
+    /////////////////////////////////////////////
+    // EVENT ITEMS
+    /////////////////////////////////////////////
+    "eventItem1": {
+        "title": "Item 1",
+    },	
+    "eventItem2": {
+        "title": "Item 2",
+    },
+    "eventItem3": {
+        "title": "Item 3",
+    },		
+    "eventItem4": {
+        "title": "Item 4",
+    },	
+	
+    /////////////////////////////////////////////
+    // EVENT CATEGORIES
+    /////////////////////////////////////////////
+    "eventCategory0": {
+        "title": "Home",
+    },
+	
+    /////////////////////////////////////////////
+    // EVENT DETAIL
+    /////////////////////////////////////////////
+    "eventDetail": {
+        "title": "Veranstaltung",
+        "back": "Zurück",
+        "save": "Speichern",
+        "eventName": "Name",
+        "delete": "Löschen",
+        "creatingEvent": "Mach Veranstaltung neu an ...",
+        "updatingEvent": "Bearbeit Veranstaltung ...",
+        "deletingEvent": "Lösch Veranstaltung..."
+    },
+
+    /////////////////////////////////////////////
+    // EVENT MODAL
+    /////////////////////////////////////////////
+    "eventModal": {
+        "title": "Veranstaltung",
+        "close": "schließen"
+    }
+}

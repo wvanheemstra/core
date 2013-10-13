@@ -1,0 +1,105 @@
+{
+    /////////////////////////////////////////////
+    // LOGIN
+    /////////////////////////////////////////////
+    "login": {
+        "title": "Login",
+        "username": "Gebruikersnaam",
+        "password": "Wachtwoord",
+        "passwordHint": "Hint: password",
+        "keepmeloggedin": "Houd me ingelogd",
+        "submit": "Log In",
+        "reset": "Wissen",
+        "loggingIn" : "Verifieren...",
+        "credentialsRequired": "Voer alsjeblieft gebruikersnaam en wachtwoord in.",
+        "loginFailed": "Login mislukt. Voer alsjeblieft de juiste gegevens in."
+    },	
+
+    /////////////////////////////////////////////
+    // EVENT SLIDE
+    /////////////////////////////////////////////
+    "eventSlide": {
+        "title": "Evenement",
+        "title1": "Evenement1",	
+        "title2": "Evenement2",
+        "title3": "Evenement3",	
+        "title4": "Evenement4",			
+        "logOut": "Log Uit",
+        "new": "Nieuw",
+        "search": "live zoeken",
+        "eventName": "Naam",
+        "loading": "Laad Evenement...",
+        "noEvents": "Geen Evenement gevonden."
+    },	
+	
+    /////////////////////////////////////////////
+    // EVENT LIST
+    /////////////////////////////////////////////
+    "eventList": {
+        "title": "Evenement",
+        "logOut": "Log Uit",
+        "new": "Nieuw",
+        "search": "live zoeken",
+        "eventName": "Naam",
+        "loading": "Laad Evenement...",
+        "noEvents": "Geen Evenement gevonden."
+    },
+
+    /////////////////////////////////////////////
+    // EVENT TILE
+    /////////////////////////////////////////////
+    "eventTile": {
+        "title": "Evenement",
+        "logOut": "Log Uit",
+        "new": "Nieuw",
+        "search": "live zoeken",
+        "eventName": "Naam",
+        "loading": "Laad Evenement...",
+        "noEvents": "Geen Evenement gevonden."
+    },
+
+    /////////////////////////////////////////////
+    // EVENT ITEMS
+    /////////////////////////////////////////////
+    "eventItem1": {
+        "title": "Item 1",
+    },	
+    "eventItem2": {
+        "title": "Item 2",
+    },
+    "eventItem3": {
+        "title": "Item 3",
+    },		
+    "eventItem4": {
+        "title": "Item 4",
+    },	
+	
+    /////////////////////////////////////////////
+    // EVENT CATEGORIES
+    /////////////////////////////////////////////
+    "eventCategory0": {
+        "title": "Home",
+    },
+		
+    /////////////////////////////////////////////
+    // EVENT DETAIL
+    /////////////////////////////////////////////
+    "eventDetail": {
+        "title": "Event",
+        "back": "Terug",
+        "save": "Bewaar",
+        "eventName": "Naam",
+        "delete": "Verwijder",
+        "creatingEvent": "Maak Evenement aan ...",
+        "updatingEvent": "Werk Evenement bij ...",
+        "deletingEvent": "Verwijder Evenement..."
+    },
+
+    /////////////////////////////////////////////
+    // EVENT MODAL
+    /////////////////////////////////////////////
+    "eventModal": {
+        "title": "Evenement",
+        "close": "Sluiten"
+    }
+}

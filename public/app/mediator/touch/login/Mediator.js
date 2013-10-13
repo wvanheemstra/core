@@ -25,11 +25,10 @@ Ext.define("Core.mediator.touch.login.Mediator", {
 		//background:						true,	
 		company:						true,
         logInButton: {
-            tap: "onLoginButtonTap",
-            painted: "onPainted"
+            tap: "onLoginButtonTap"
         },
-        usernameTextField:      		true,
-        passwordTextField:      		true,
+        usernameTextField: 				true,
+		passwordTextField: 				true,
         keepmeloggedinCheckboxField:    true,
         logInFailedLabel:      			true
     },
@@ -51,7 +50,45 @@ Ext.define("Core.mediator.touch.login.Mediator", {
         this.eventBus.addGlobalEventListener(Core.event.authentication.Event.LOGIN_FAILURE, this.onLoginFailure, this);
         this.eventBus.addGlobalEventListener(Core.event.authentication.Event.LOGOUT_SUCCESS, this.onLogoutSuccess, this);
     },
-
+	
+	/**
+	 * Sets or removes the focus on the form's field
+	 *
+	 * @param field		The field
+	 * @param boolean	The boolean to set or remove the focus
+	 */
+	setFormFieldFocus: function(field, boolean) {
+		this.logger.debug("setFormFieldFocus: field = " + field);
+		this.logger.debug("setFormFieldFocus: boolean = " + boolean);
+		if(boolean) {
+			switch(field) {
+				case "usernameTextField":
+					field = this.getView().down("#usernameTextField");
+					break;
+				case "passwordTextField":
+					field = this.getView().down("#passwordTextField");	
+					break;
+			}
+			setTimeout(function() { // Allow time for the view to complete 	
+				field.focus(); // Required for iframe on iOS
+			}, 2000);
+		}
+		else {
+			switch(field) {
+				case "usernameTextField":
+					field = this.getView().down("#usernameTextField");
+					break;
+				case "passwordTextField":
+					field = this.getView().down("#passwordTextField");
+					break;
+			}
+			//alert("Removing focus");
+			setTimeout(function() { // Allow time for the view to complete 	
+				field.blur(); // Required for iframe on iOS
+			}, 2000);
+		}
+	},
+	
     /**
      * Handles the set background event. 
      *
@@ -60,6 +97,7 @@ Ext.define("Core.mediator.touch.login.Mediator", {
     setBackground: function(background) {
 		this.logger.debug("setBackground: background = " + background);
 		//this.getBackground().setTitle(Core.config.global.Config.getBackground());  // TO DO
+		this.setFormFieldFocus("usernameTextField", true);
     },
 	
     /**
@@ -83,6 +121,7 @@ Ext.define("Core.mediator.touch.login.Mediator", {
     setCompany: function(company) {
 		this.logger.debug("setCompany: company = " + company);
 		this.getCompany().setTitle(Core.config.global.Config.getCompany());
+		this.setFormFieldFocus("usernameTextField", true);		
     },
 
     /**
@@ -122,6 +161,7 @@ Ext.define("Core.mediator.touch.login.Mediator", {
         var label = this.getLogInFailedLabel();
         label.setHtml(message);
         label.show();
+		this.setFormFieldFocus("usernameTextField", true);		
     },
 
     /**
@@ -143,6 +183,7 @@ Ext.define("Core.mediator.touch.login.Mediator", {
 		this.logger.debug("reset");
         this.getUsernameTextField().setValue("");
         this.getPasswordTextField().setValue("");
+		this.setFormFieldFocus("passwordTextField", false); // remove previous set focus
        	this.getKeepmeloggedinCheckboxField().setChecked(false); 		
     },
 	
@@ -167,14 +208,7 @@ Ext.define("Core.mediator.touch.login.Mediator", {
 
     ////////////////////////////////////////////////
     // EVENT BUS HANDLERS
-    ////////////////////////////////////////////////
-
-    /**
-     * Handles the painted application-level event.
-     */    
-    onPainted: function() {
-		this.logger.debug("onPainted");
-    },    	    
+    ////////////////////////////////////////////////   	    
 
     /**
      * Handles the set background success event from the login controller.
@@ -227,7 +261,7 @@ Ext.define("Core.mediator.touch.login.Mediator", {
 			var evt = Ext.create("Core.event.session.Event", Core.event.session.Event.CLEAR_SESSION, id, sessionId);
         	this.eventBus.dispatchGlobalEvent(evt);	
 		}
-
+		this.setFormFieldFocus("passwordTextField", false); // remove previous set focus
 		// The next view to go to after login is set in the config file
         var view = this.getView();
         view.setMasked(false);
@@ -248,6 +282,7 @@ Ext.define("Core.mediator.touch.login.Mediator", {
         var view = this.getView();
         view.setMasked(false);
         this.navigate(Core.event.authentication.Event.LOGOUT_SUCCESS);
+		this.setFormFieldFocus("usernameTextField", true);
     },
 
     /**
@@ -259,6 +294,7 @@ Ext.define("Core.mediator.touch.login.Mediator", {
         var view = this.getView();
         view.setMasked(false);
         this.showLogInFailedMessage(nineam.locale.LocaleManager.getProperty("login.loginFailed"));
+		this.setFormFieldFocus("usernameTextField", true);		
     },
 
     ////////////////////////////////////////////////

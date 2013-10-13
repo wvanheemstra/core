@@ -61,6 +61,16 @@ Ext.define("Core.mediator.touch.person.list.Mediator", {
     },
 	
     /**
+     * Sets the focus on search input.
+     */
+	setFocusOnSearchInput: function() {
+		var field = this.getView().down("#searchInput");	
+		setTimeout(function() { // Allow time for the view to complete 	
+			field.focus();
+		}, 10);
+	},
+	
+    /**
      * Refreshes the list of persons.
      */	
 	refreshPersonList: function() {
@@ -224,6 +234,7 @@ Ext.define("Core.mediator.touch.person.list.Mediator", {
 			&& this.self.READ_GROUPS_SUCCESS){
 			this.getView().setMasked(false);
 			this.getList().setStore(this.personStore);
+			this.setFocusOnSearchInput();
 		}
 	},
 	

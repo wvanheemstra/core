@@ -37,6 +37,16 @@ Ext.define("Core.mediator.touch.booking.list.Mediator", {
     },
 
     /**
+     * Sets the focus on search input.
+     */
+	setFocusOnSearchInput: function() {
+		var field = this.getView().down("#searchInput");	
+		setTimeout(function() { // Allow time for the view to complete 	
+			field.focus();
+		}, 10);
+	},	
+	
+    /**
      * Dispatches the application event to get the list of bookings.
      */
     getBookingListData: function() {

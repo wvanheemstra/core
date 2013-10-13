@@ -46,6 +46,16 @@ Ext.define("Core.mediator.touch.organisation.list.Mediator", {
         this.eventBus.addGlobalEventListener(Core.event.group.Event.READ_GROUPS_SUCCESS, this.onReadGroupsSuccess, this);
         this.eventBus.addGlobalEventListener(Core.event.group.Event.READ_GROUPS_FAILURE, this.onReadGroupsFailure, this);				
     },
+
+    /**
+     * Sets the focus on search input.
+     */
+	setFocusOnSearchInput: function() {
+		var field = this.getView().down("#searchInput");	
+		setTimeout(function() { // Allow time for the view to complete 	
+			field.focus();
+		}, 10);
+	},
 	
     /**
      * Refreshes the list of organisations.
@@ -120,6 +130,7 @@ Ext.define("Core.mediator.touch.organisation.list.Mediator", {
 			&& this.self.READ_GROUPS_SUCCESS){
 			this.getView().setMasked(false);
 			this.getList().setStore(this.organisationStore);
+			this.setFocusOnSearchInput();
 		}
 	},
 	

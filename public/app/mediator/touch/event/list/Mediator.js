@@ -26,7 +26,7 @@ Ext.define("Core.mediator.touch.event.list.Mediator", {
 	
 	statics: {
         READ_EVENTS_SUCCESS:    	false,
-		READ_MEMBERSHIPS_SUCCESS:	false,
+		READ_DATES_SUCCESS:			false,
 		READ_GROUPS_SUCCESS:		false		
 	},	
 	
@@ -41,8 +41,8 @@ Ext.define("Core.mediator.touch.event.list.Mediator", {
         this.eventBus.addGlobalEventListener(Core.event.event.Event.READ_EVENTS_SUCCESS, this.onReadEventsSuccess, this);
         this.eventBus.addGlobalEventListener(Core.event.event.Event.READ_EVENTS_FAILURE, this.onReadEventsFailure, this);
         this.eventBus.addGlobalEventListener(Core.event.event.Event.UPDATE_EVENT_SUCCESS, this.onUpdateEventSuccess, this);				
-        this.eventBus.addGlobalEventListener(Core.event.membership.Event.READ_MEMBERSHIPS_SUCCESS, this.onReadMembershipsSuccess, this);
-        this.eventBus.addGlobalEventListener(Core.event.membership.Event.READ_MEMBERSHIPS_FAILURE, this.onReadMembershipsFailure, this);
+        this.eventBus.addGlobalEventListener(Core.event.date.Event.READ_DATES_SUCCESS, this.onReadDatesSuccess, this);
+        this.eventBus.addGlobalEventListener(Core.event.date.Event.READ_DATES_FAILURE, this.onReadDatesFailure, this);
         this.eventBus.addGlobalEventListener(Core.event.group.Event.READ_GROUPS_SUCCESS, this.onReadGroupsSuccess, this);
         this.eventBus.addGlobalEventListener(Core.event.group.Event.READ_GROUPS_FAILURE, this.onReadGroupsFailure, this);				
     },
@@ -78,7 +78,7 @@ Ext.define("Core.mediator.touch.event.list.Mediator", {
         var evt = Ext.create("Core.event.event.Event", Core.event.event.Event.READ_EVENTS);
         this.eventBus.dispatchGlobalEvent(evt);	
 
-		var evt = Ext.create("Core.event.membership.Event", Core.event.membership.Event.READ_MEMBERSHIPS);
+		var evt = Ext.create("Core.event.date.Event", Core.event.date.Event.READ_DATES);
         this.eventBus.dispatchGlobalEvent(evt);
 
 		var evt = Ext.create("Core.event.group.Event", Core.event.group.Event.READ_GROUPS);
@@ -126,7 +126,7 @@ Ext.define("Core.mediator.touch.event.list.Mediator", {
 	showEventList: function(){
     	this.logger.debug("showEventList");	
 		if(this.self.READ_EVENTS_SUCCESS 
-			&& this.self.READ_MEMBERSHIPS_SUCCESS
+			&& this.self.READ_DATES_SUCCESS
 			&& this.self.READ_GROUPS_SUCCESS){
 			this.getView().setMasked(false);
 			this.getList().setStore(this.eventStore);
@@ -267,20 +267,20 @@ Ext.define("Core.mediator.touch.event.list.Mediator", {
     },			
 
     /**
-     * Handles the read memberships success event.
+     * Handles the read dates success event.
      */
-    onReadMembershipsSuccess: function() {
-        this.logger.debug("onReadMembershipsSuccess");
-		this.self.READ_MEMBERSHIPS_SUCCESS = true;
+    onReadDatesSuccess: function() {
+        this.logger.debug("onReadDatesSuccess");
+		this.self.READ_DATES_SUCCESS = true;
         this.showEventList();
     },
 
     /**
-     * Handles the read memberships failure event.
+     * Handles the read dates failure event.
      */
-    onReadMembershipsFailure: function() {
-        this.logger.debug("onReadMembershipsFailure");
-		this.self.READ_MEMBERSHIPS_SUCCESS = false;
+    onReadDatesFailure: function() {
+        this.logger.debug("onReadDatesFailure");
+		this.self.READ_DATES_SUCCESS = false;
         this.getView().setMasked(false);
     },
 

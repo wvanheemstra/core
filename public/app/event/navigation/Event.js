@@ -31,7 +31,13 @@ Ext.define("Core.event.navigation.Event", {
 		ACTION_BACK_SHOW_BOOKING_LIST: 		"actionBackShowBookingList",
         ACTION_BACK_SHOW_BOOKING_TILE: 		"actionBackShowBookingTile",
         ACTION_SHOW_BOOKING_DETAIL:    		"actionShowBookingDetail",  
-        ACTION_SHOW_BOOKING_MODAL:     		"actionShowBookingModal"		
+        ACTION_SHOW_BOOKING_MODAL:     		"actionShowBookingModal",
+
+		ACTION_BACK_SHOW_EVENT_LIST: 		"actionBackShowEventList",
+        ACTION_BACK_SHOW_EVENT_TILE: 		"actionBackShowEventTile",
+        ACTION_SHOW_EVENT_DETAIL:    		"actionShowEventDetail",  
+        ACTION_SHOW_EVENT_MODAL:     		"actionShowEventModal"
+		
     },
 
     action: "",

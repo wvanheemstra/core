@@ -78,7 +78,7 @@ Ext.onReady(function () {
 			mock: true
 		}]
 	},{
-		membership:  [{
+		date:  [{
 			mock: true,
 			store: true
 		}]
@@ -180,7 +180,7 @@ Ext.application({
     ////////////////////////////////////////////
     models: [
         "session.Model",
-		"membership.Model",
+		"date.Model",
 		"event.group.Model",		
 		"group.Model",		
     	"event.Model"
@@ -210,7 +210,7 @@ Ext.application({
         "company.Controller",
         "url.Controller",		
         "authentication.Controller",
-		"membership.Controller",
+		"date.Controller",
 		"event.group.Controller",		
 		"group.Controller",			
         "event.Controller"	

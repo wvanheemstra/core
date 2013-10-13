@@ -163,7 +163,7 @@ Ext.define("Core.view.touch.event.detail.View", {
 								xtype: "textfield",
 								itemId: "eventNameTextField",
 								name: "EventName",
-								label: "Last Name",						
+								label: "Name",						
 								required: true,
 								plugins: [
 									{

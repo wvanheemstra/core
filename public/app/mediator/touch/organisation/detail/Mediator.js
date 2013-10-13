@@ -94,7 +94,7 @@ Ext.define("Core.mediator.touch.organisation.detail.Mediator", {
 		var continueDeletion = false;
 		var view = this.getView();
 		var eventBus = this.eventBus;
-		var organisationName = organisation.OrganisationFirstName + ' ' + organisation.OrganisationName;
+		var organisationName = organisation.OrganisationName;
 		var callbackFunction = function(btn, text){
 			if(btn === 'deleteYes'){
 				continueDeletion = true;

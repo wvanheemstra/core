@@ -1,0 +1,9 @@
+{
+    "success": true,
+    "sessionToken": "qwerty1234567890",
+	"events": [
+		{ "kp_EventID": 1,    "EventName": "Event One" },
+		{ "kp_EventID": 2,    "EventName": "Event Two" },
+		{ "kp_EventID": 3,    "EventName": "Event Three" }	
+    ]
+}

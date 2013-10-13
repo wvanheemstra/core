@@ -94,7 +94,7 @@ Ext.define("Core.mediator.touch.event.detail.Mediator", {
 		var continueDeletion = false;
 		var view = this.getView();
 		var eventBus = this.eventBus;
-		var eventName = event.EventFirstName + ' ' + event.EventName;
+		var eventName = event.EventName;
 		var callbackFunction = function(btn, text){
 			if(btn === 'deleteYes'){
 				continueDeletion = true;

@@ -26,7 +26,6 @@ Ext.define("Core.mediator.touch.event.list.Mediator", {
 	
 	statics: {
         READ_EVENTS_SUCCESS:    	false,
-		READ_DATES_SUCCESS:			false,
 		READ_GROUPS_SUCCESS:		false		
 	},	
 	
@@ -41,8 +40,6 @@ Ext.define("Core.mediator.touch.event.list.Mediator", {
         this.eventBus.addGlobalEventListener(Core.event.event.Event.READ_EVENTS_SUCCESS, this.onReadEventsSuccess, this);
         this.eventBus.addGlobalEventListener(Core.event.event.Event.READ_EVENTS_FAILURE, this.onReadEventsFailure, this);
         this.eventBus.addGlobalEventListener(Core.event.event.Event.UPDATE_EVENT_SUCCESS, this.onUpdateEventSuccess, this);				
-        this.eventBus.addGlobalEventListener(Core.event.date.Event.READ_DATES_SUCCESS, this.onReadDatesSuccess, this);
-        this.eventBus.addGlobalEventListener(Core.event.date.Event.READ_DATES_FAILURE, this.onReadDatesFailure, this);
         this.eventBus.addGlobalEventListener(Core.event.group.Event.READ_GROUPS_SUCCESS, this.onReadGroupsSuccess, this);
         this.eventBus.addGlobalEventListener(Core.event.group.Event.READ_GROUPS_FAILURE, this.onReadGroupsFailure, this);				
     },
@@ -126,7 +123,6 @@ Ext.define("Core.mediator.touch.event.list.Mediator", {
 	showEventList: function(){
     	this.logger.debug("showEventList");	
 		if(this.self.READ_EVENTS_SUCCESS 
-			&& this.self.READ_DATES_SUCCESS
 			&& this.self.READ_GROUPS_SUCCESS){
 			this.getView().setMasked(false);
 			this.getList().setStore(this.eventStore);
@@ -265,24 +261,6 @@ Ext.define("Core.mediator.touch.event.list.Mediator", {
         this.logger.debug("onUpdateEventSuccess");
         this.refreshEventList();
     },			
-
-    /**
-     * Handles the read dates success event.
-     */
-    onReadDatesSuccess: function() {
-        this.logger.debug("onReadDatesSuccess");
-		this.self.READ_DATES_SUCCESS = true;
-        this.showEventList();
-    },
-
-    /**
-     * Handles the read dates failure event.
-     */
-    onReadDatesFailure: function() {
-        this.logger.debug("onReadDatesFailure");
-		this.self.READ_DATES_SUCCESS = false;
-        this.getView().setMasked(false);
-    },
 
     /**
      * Handles the read groups success event.

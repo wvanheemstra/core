@@ -32,7 +32,6 @@ CREATE TABLE `tbl_person` (
   `RelationshipWithSelf` varchar(255) COLLATE utf8_bin NOT NULL,
   `kf_RequirementID` int(11) NOT NULL,
   `kf_SkillID` int(11) NOT NULL,
-  `kf_PartyID` int(11) NOT NULL,
   `kf_IdentityID` int(11) NOT NULL,
   `ts_Created` datetime DEFAULT NULL,
   `ts_Updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -45,7 +44,6 @@ CREATE TABLE `tbl_person` (
   KEY `kf_RegistryID` (`kf_RegistryID`) USING BTREE,
   KEY `kf_RequirementID` (`kf_RequirementID`) USING BTREE,
   KEY `kf_SkillID` (`kf_SkillID`) USING BTREE,
-  KEY `kf_PartyID` (`kf_PartyID`) USING BTREE,
   KEY `kf_IdentityID` (`kf_IdentityID`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 delimiter ;;

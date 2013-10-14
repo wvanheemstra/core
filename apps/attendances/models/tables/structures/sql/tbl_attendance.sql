@@ -21,7 +21,7 @@ SET FOREIGN_KEY_CHECKS = 0;
 DROP TABLE IF EXISTS `tbl_attendance`;
 CREATE TABLE `tbl_attendance` (
   `kp_AttendanceID` int(11) NOT NULL AUTO_INCREMENT,
-  `kf_PersonID` int(11) NOT NULL,
+  `kf_ArrangementID` int(11) NOT NULL,
   `kf_EventID` int(11) NOT NULL,
   `kf_RoleID` int(11) NOT NULL,
   `kf_ContactID` int(11) NOT NULL,
@@ -33,7 +33,7 @@ CREATE TABLE `tbl_attendance` (
   `ts_Updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`kp_AttendanceID`),
   UNIQUE KEY `kp_AttendanceID` (`kp_AttendanceID`) USING BTREE,
-  KEY `kf_PersonID` (`kf_PersonID`) USING BTREE,
+  KEY `kf_ArrangementID` (`kf_ArrangementID`) USING BTREE,
   KEY `kf_EventID` (`kf_EventID`) USING BTREE,
   KEY `kf_RoleID` (`kf_RoleID`) USING BTREE,
   KEY `kf_ContactID` (`kf_ContactID`) USING BTREE,

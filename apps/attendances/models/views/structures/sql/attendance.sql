@@ -19,7 +19,7 @@ SET FOREIGN_KEY_CHECKS = 0;
 DROP VIEW IF EXISTS `attendance`;
 CREATE VIEW `attendance` AS 
   SELECT `kp_AttendanceID`,
-	`kf_PersonID`,
+	`kf_ArrangementID`,
 	`kf_EventID`,
 	`kf_RoleID`,
 	`kf_ContactID`,

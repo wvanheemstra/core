@@ -21,7 +21,7 @@ CREATE VIEW `organisation` AS
   SELECT `kp_OrganisationID`,
 	`OrganisationName`,
 	`kf_WhereaboutsID`,
-	`kf_PartyID`,
+	`kf_KindOfOrganisationID`,
 	`ts_Created`,
 	`ts_Updated`
 FROM tbl_organisation;

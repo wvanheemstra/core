@@ -18,7 +18,8 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP VIEW IF EXISTS `organisation_party`;
 CREATE VIEW `organisation_party` AS 
-  SELECT `kf_OrganisationID`,
+  SELECT `kp_OrganisationPartyID`,
+    `kf_OrganisationID`,
 	`kf_PartyID`,
 	`ts_Created`,
 	`ts_Updated`

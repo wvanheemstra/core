@@ -20,10 +20,12 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP TABLE IF EXISTS `tbl_organisation_group`;
 CREATE TABLE `tbl_organisation_group` (
+  `kp_OrganisationGroupID` int(11) NOT NULL AUTO_INCREMENT,
   `kf_OrganisationID` int(11) NOT NULL,
   `kf_GroupID` int(11) NOT NULL,
   `ts_Created` datetime DEFAULT NULL,
   `ts_Updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`kp_OrganisationGroupID`),  
   FOREIGN KEY (`kf_OrganisationID`) REFERENCES `tbl_organisation` (`kp_OrganisationID`) ON DELETE CASCADE,
   FOREIGN KEY (`kf_GroupID`) REFERENCES `tbl_group` (`kp_GroupID`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;

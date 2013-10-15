@@ -18,7 +18,7 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP VIEW IF EXISTS `person_group`;
 CREATE VIEW `person_group` AS 
-  SELECT `kf_PersonGroupID`,
+  SELECT `kp_PersonGroupID`,
     `kf_PersonID`,
 	`kf_GroupID`,
 	`ts_Created`,

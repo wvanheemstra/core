@@ -34,7 +34,7 @@ CREATE TABLE `tbl_participation` (
   PRIMARY KEY (`kp_ParticipationID`),
   UNIQUE KEY `kp_ParticipationID` (`kp_ParticipationID`) USING BTREE,
   KEY `kf_ArrangementID` (`kf_ArrangementID`) USING BTREE,
-  KEY `kf_ActivityID` (`kf_EventID`) USING BTREE,
+  KEY `kf_ActivityID` (`kf_ActivityID`) USING BTREE,
   KEY `kf_RoleID` (`kf_RoleID`) USING BTREE,
   KEY `kf_ContactID` (`kf_ContactID`) USING BTREE,
   KEY `kf_MultimediaID` (`kf_MultimediaID`) USING BTREE,

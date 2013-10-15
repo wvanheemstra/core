@@ -30,7 +30,6 @@ CREATE VIEW `person` AS
 	`kf_RegistryID`,
 	`kf_RequirementID`,
 	`kf_SkillID`,
-	`kf_PartyID`,
 	`kf_IdentityID`,
 	`ts_Created`,
 	`ts_Updated`

@@ -20,7 +20,7 @@ DROP VIEW IF EXISTS `participation`;
 CREATE VIEW `participation` AS 
   SELECT `kp_ParticipationID`,
 	`kf_ArrangementID`,
-	`kf_EventID`,
+	`kf_ActivityID`,
 	`kf_RoleID`,
 	`kf_ContactID`,
 	`kf_MultimediaID`,

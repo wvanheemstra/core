@@ -22,7 +22,7 @@ DROP TABLE IF EXISTS `tbl_participation`;
 CREATE TABLE `tbl_participation` (
   `kp_ParticipationID` int(11) NOT NULL AUTO_INCREMENT,
   `kf_ArrangementID` int(11) NOT NULL,
-  `kf_EventID` int(11) NOT NULL,
+  `kf_ActivityID` int(11) NOT NULL,
   `kf_RoleID` int(11) NOT NULL,
   `kf_ContactID` int(11) NOT NULL,
   `kf_MultimediaID` int(11) NOT NULL,
@@ -34,7 +34,7 @@ CREATE TABLE `tbl_participation` (
   PRIMARY KEY (`kp_ParticipationID`),
   UNIQUE KEY `kp_ParticipationID` (`kp_ParticipationID`) USING BTREE,
   KEY `kf_ArrangementID` (`kf_ArrangementID`) USING BTREE,
-  KEY `kf_EventID` (`kf_EventID`) USING BTREE,
+  KEY `kf_ActivityID` (`kf_EventID`) USING BTREE,
   KEY `kf_RoleID` (`kf_RoleID`) USING BTREE,
   KEY `kf_ContactID` (`kf_ContactID`) USING BTREE,
   KEY `kf_MultimediaID` (`kf_MultimediaID`) USING BTREE,

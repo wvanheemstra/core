@@ -21,9 +21,9 @@ SET FOREIGN_KEY_CHECKS = 0;
 DROP TABLE IF EXISTS `tbl_organisation`;
 CREATE TABLE `tbl_organisation` (
   `kp_OrganisationID` int(11) NOT NULL AUTO_INCREMENT,
-  `kf_WhereaboutsID` int(11) NOT NULL,
+  `kf_WhereaboutsID` int(11),
   `OrganisationName` varchar(255) COLLATE utf8_bin NOT NULL,
-  `kf_KindOfOrganisationID` int(11) NOT NULL, 
+  `kf_KindOfOrganisationID` int(11), 
   `ts_Created` datetime DEFAULT NULL,
   `ts_Updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`kp_OrganisationID`),

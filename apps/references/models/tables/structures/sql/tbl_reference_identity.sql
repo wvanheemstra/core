@@ -20,8 +20,8 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP TABLE IF EXISTS `tbl_reference_identity`;
 CREATE TABLE `tbl_reference_identity` (
-  `kf_ReferenceID` int(11) NOT NULL,
-  `kf_IdentityID` int(11) NOT NULL,
+  `kf_ReferenceID` int(11) NOT NULL DEFAULT '0',
+  `kf_IdentityID` int(11) NOT NULL DEFAULT '0',
   `ts_Created` datetime DEFAULT NULL,
   `ts_Updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   FOREIGN KEY (`kf_ReferenceID`) REFERENCES `tbl_reference` (`kp_ReferenceID`) ON DELETE CASCADE,

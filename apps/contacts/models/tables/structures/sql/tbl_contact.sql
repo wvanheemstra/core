@@ -21,9 +21,9 @@ SET FOREIGN_KEY_CHECKS = 0;
 DROP TABLE IF EXISTS `tbl_contact`;
 CREATE TABLE `tbl_contact` (
   `kp_ContactID` int(11) NOT NULL AUTO_INCREMENT,
-  `kf_KindOfContactID` int(11) NOT NULL,
+  `kf_KindOfContactID` int(11) NOT NULL DEFAULT '0',
   `ContactValue` varchar(255) COLLATE utf8_bin NOT NULL,
-  `kf_MembershipID` int(11) NOT NULL,
+  `kf_MembershipID` int(11) NOT NULL DEFAULT '0',
   `ts_Created` datetime DEFAULT NULL,
   `ts_Updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   FOREIGN KEY (`kf_MembershipID`) REFERENCES `tbl_membership` (`kp_MembershipID`) ON DELETE CASCADE,

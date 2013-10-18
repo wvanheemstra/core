@@ -22,8 +22,8 @@ DROP TABLE IF EXISTS `tbl_skill_data`;
 CREATE TABLE `tbl_skill_data` (
   `kp_SkillID` int(11) NOT NULL AUTO_INCREMENT,
   `SkillName` varchar(255) COLLATE utf8_bin NOT NULL,
-  `kf_LanguageID` int(11) NOT NULL,
-  `kf_SkillLevelID` int(11) NOT NULL,
+  `kf_LanguageID` int(11) NOT NULL DEFAULT '0',
+  `kf_SkillLevelID` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`kp_SkillID`),
   KEY `kf_LanguageID` (`kf_LanguageID`) USING BTREE,
   KEY `kf_SkillLevelID` (`kf_SkillLevelID`) USING BTREE

@@ -22,9 +22,9 @@ DROP TABLE IF EXISTS `tbl_programme_data`;
 CREATE TABLE `tbl_programme_data` (
   `kp_ProgrammeID` int(11) NOT NULL AUTO_INCREMENT,
   `ProgrammeName` varchar(255) COLLATE utf8_bin NOT NULL,
-  `kf_WhereaboutsID` int(11) NOT NULL,
-  `kf_KindOfProgrammeID` int(11) NOT NULL,
-  `kf_EventID` int(11) NOT NULL,
+  `kf_WhereaboutsID` int(11) NOT NULL DEFAULT '0',
+  `kf_KindOfProgrammeID` int(11) NOT NULL DEFAULT '0',
+  `kf_EventID` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`kp_ProgrammeID`),
   KEY `kf_WhereaboutsID` (`kf_WhereaboutsID`) USING BTREE,
   KEY `kf_KindOfProgrammeID` (`kf_KindOfProgrammeID`) USING BTREE,

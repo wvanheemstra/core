@@ -23,7 +23,7 @@ CREATE TABLE `tbl_test` (
   `kp_TestID` int(11) NOT NULL AUTO_INCREMENT,
   `TestName` varchar(255) COLLATE utf8_bin NOT NULL,
   `TestDescription` varchar(255) COLLATE utf8_bin NOT NULL,
-  `kf_KindOfTestID` int(11) NOT NULL,  
+  `kf_KindOfTestID` int(11) NOT NULL DEFAULT '0',  
   `ts_Created` datetime DEFAULT NULL,
   `ts_Updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`kp_TestID`),

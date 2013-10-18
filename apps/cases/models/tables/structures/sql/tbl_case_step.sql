@@ -20,8 +20,8 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP TABLE IF EXISTS `tbl_case_step`;
 CREATE TABLE `tbl_case_step` (
-  `kf_CaseID` int(11) NOT NULL,
-  `kf_StepID` int(11) NOT NULL,
+  `kf_CaseID` int(11) NOT NULL DEFAULT '0',
+  `kf_StepID` int(11) NOT NULL DEFAULT '0',
   `ts_Created` datetime DEFAULT NULL,
   `ts_Updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   FOREIGN KEY (`kf_CaseID`) REFERENCES `tbl_case` (`kp_CaseID`) ON DELETE CASCADE,

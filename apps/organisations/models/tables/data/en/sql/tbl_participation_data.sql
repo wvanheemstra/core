@@ -21,9 +21,9 @@ SET FOREIGN_KEY_CHECKS = 0;
 DROP TABLE IF EXISTS `tbl_participation_data`;
 CREATE TABLE `tbl_participation_data` (
   `kp_ParticipationID` int(11) NOT NULL AUTO_INCREMENT,
-  `kf_WhereaboutsID` int(11) NOT NULL,
+  `kf_WhereaboutsID` int(11) NOT NULL DEFAULT '0',
   `ParticipationName` varchar(255) COLLATE utf8_bin NOT NULL,
-  `kf_KindOfParticipationID` int(11) NOT NULL,  
+  `kf_KindOfParticipationID` int(11) NOT NULL DEFAULT '0',  
   PRIMARY KEY (`kp_ParticipationID`),
   UNIQUE KEY `kp_ParticipationID` (`kp_ParticipationID`) USING BTREE,
   KEY `kf_WhereaboutsID` (`kf_WhereaboutsID`) USING BTREE,

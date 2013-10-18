@@ -21,10 +21,10 @@ SET FOREIGN_KEY_CHECKS = 0;
 DROP TABLE IF EXISTS `tbl_registry`;
 CREATE TABLE `tbl_registry` (
   `kp_RegistryID` int(11) NOT NULL AUTO_INCREMENT,
-  `gKindOfPersonID_self` int(11) NOT NULL,
-  `gKindOfPersonID_emergency` int(11) NOT NULL,
-  `gPersonID_registrar` int(11) NOT NULL,
-  `gKindOfPersonID_registrar` int(11) NOT NULL,
+  `gKindOfPersonID_self` int(11) NOT NULL DEFAULT '0',
+  `gKindOfPersonID_emergency` int(11) NOT NULL DEFAULT '0',
+  `gPersonID_registrar` int(11) NOT NULL DEFAULT '0',
+  `gKindOfPersonID_registrar` int(11) NOT NULL DEFAULT '0',
   `ts_Created` datetime DEFAULT NULL,
   `ts_Updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`kp_RegistryID`)

@@ -23,7 +23,7 @@ CREATE TABLE `tbl_step` (
   `kp_StepID` int(11) NOT NULL AUTO_INCREMENT,
   `StepName` varchar(255) COLLATE utf8_bin NOT NULL,
   `StepDescription` varchar(255) COLLATE utf8_bin NOT NULL,
-  `kf_KindOfStepID` int(11) NOT NULL,  
+  `kf_KindOfStepID` int(11) NOT NULL DEFAULT '0',  
   `ts_Created` datetime DEFAULT NULL,
   `ts_Updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`kp_StepID`),

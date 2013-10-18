@@ -21,9 +21,9 @@ SET FOREIGN_KEY_CHECKS = 0;
 DROP TABLE IF EXISTS `tbl_journal`;
 CREATE TABLE `tbl_journal` (
   `kp_JournalID` int(11) NOT NULL AUTO_INCREMENT,
-  `kf_KindOfJournalID` int(11) NOT NULL,
-  `kf_BatchID` int(11) NOT NULL,
-  `kf_DateID` int(11) NOT NULL,
+  `kf_KindOfJournalID` int(11) NOT NULL DEFAULT '0',
+  `kf_BatchID` int(11) NOT NULL DEFAULT '0',
+  `kf_DateID` int(11) NOT NULL DEFAULT '0',
   `ts_Created` datetime DEFAULT NULL,
   `ts_Updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`kp_JournalID`),

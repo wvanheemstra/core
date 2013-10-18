@@ -21,9 +21,9 @@ SET FOREIGN_KEY_CHECKS = 0;
 DROP TABLE IF EXISTS `tbl_activity_source_target`;
 CREATE TABLE `tbl_activity_source_target` (
   `kp_ActivitySourceTargetID` int(11) NOT NULL AUTO_INCREMENT,
-  `kf_ActivityID` int(11) NOT NULL,  
-  `kf_SourceID` int(11) NOT NULL,
-  `kf_TargetID` int(11) NOT NULL,
+  `kf_ActivityID` int(11) NOT NULL DEFAULT '0',  
+  `kf_SourceID` int(11) NOT NULL DEFAULT '0',
+  `kf_TargetID` int(11) NOT NULL DEFAULT '0',
   `ts_Created` datetime DEFAULT NULL,
   `ts_Updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`kp_ActivitySourceTargetID`),

@@ -21,7 +21,7 @@ SET FOREIGN_KEY_CHECKS = 0;
 DROP TABLE IF EXISTS `tbl_multimedia`;
 CREATE TABLE `tbl_multimedia` (
   `kp_MultimediaID` int(11) NOT NULL AUTO_INCREMENT,
-  `kf_KindOfMultimediaID` int(11) NOT NULL,
+  `kf_KindOfMultimediaID` int(11) NOT NULL DEFAULT '0',
   `ts_Created` datetime DEFAULT NULL,
   `ts_Updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`kp_MultimediaID`),

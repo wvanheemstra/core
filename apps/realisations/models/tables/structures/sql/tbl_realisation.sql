@@ -23,7 +23,7 @@ CREATE TABLE `tbl_realisation` (
   `kp_RealisationID` int(11) NOT NULL AUTO_INCREMENT,
   `RealisationName` varchar(255) COLLATE utf8_bin NOT NULL,
   `RealisationDescription` varchar(255) COLLATE utf8_bin NOT NULL,
-  `kf_KindOfRealisationID` int(11) NOT NULL,  
+  `kf_KindOfRealisationID` int(11) NOT NULL DEFAULT '0',  
   `ts_Created` datetime DEFAULT NULL,
   `ts_Updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`kp_RealisationID`),

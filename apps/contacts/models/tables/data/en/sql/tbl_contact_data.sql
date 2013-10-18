@@ -20,10 +20,10 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP TABLE IF EXISTS `tbl_contact_data`;
 CREATE TABLE `tbl_contact_data` (
-  `kp_ContactID` int(11) NOT NULL,
-  `kf_KindOfContactID` int(11) NOT NULL,
+  `kp_ContactID` int(11) NOT NULL DEFAULT '0',
+  `kf_KindOfContactID` int(11) NOT NULL DEFAULT '0',
   `ContactValue` varchar(255) COLLATE utf8_bin NOT NULL,
-  `kf_MembershipID` int(11) NOT NULL,
+  `kf_MembershipID` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`kp_ContactID`),
   UNIQUE KEY `kp_ContactID` (`kp_ContactID`) USING BTREE,
   KEY `kf_KindOfContactID` (`kf_KindOfContactID`) USING BTREE,

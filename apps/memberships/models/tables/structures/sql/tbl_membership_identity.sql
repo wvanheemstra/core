@@ -20,8 +20,8 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP TABLE IF EXISTS `tbl_membership_identity`;
 CREATE TABLE `tbl_membership_identity` (
-  `kf_MembershipID` int(11) NOT NULL,
-  `kf_IdentityID` int(11) NOT NULL,
+  `kf_MembershipID` int(11) NOT NULL DEFAULT '0',
+  `kf_IdentityID` int(11) NOT NULL DEFAULT '0',
   `ts_Created` datetime DEFAULT NULL,
   `ts_Updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   FOREIGN KEY (`kf_MembershipID`) REFERENCES `tbl_membership` (`kp_MembershipID`) ON DELETE CASCADE,

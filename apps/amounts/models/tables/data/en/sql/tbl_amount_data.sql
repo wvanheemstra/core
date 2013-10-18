@@ -22,8 +22,8 @@ DROP TABLE IF EXISTS `tbl_amount_data`;
 CREATE TABLE `tbl_amount_data` (
   `kp_AmountID` int(11) NOT NULL AUTO_INCREMENT,
   `AmountName` varchar(255) COLLATE utf8_bin NOT NULL,
-  `kf_WhereaboutsID` int(11) NOT NULL,
-  `kf_KindOfAmountID` int(11) NOT NULL,
+  `kf_WhereaboutsID` int(11) NOT NULL DEFAULT '0',
+  `kf_KindOfAmountID` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`kp_AmountID`),
   UNIQUE KEY `kp_AmountID` (`kp_AmountID`) USING BTREE,
   KEY `kf_WhereaboutsID` (`kf_WhereaboutsID`) USING BTREE,

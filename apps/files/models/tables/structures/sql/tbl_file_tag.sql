@@ -20,8 +20,8 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP TABLE IF EXISTS `tbl_file_tag`;
 CREATE TABLE `tbl_file_tag` (
-  `kf_FileID` int(11) NOT NULL,
-  `kf_TagID` int(11) NOT NULL,
+  `kf_FileID` int(11) NOT NULL DEFAULT '0',
+  `kf_TagID` int(11) NOT NULL DEFAULT '0',
   `ts_Created` datetime DEFAULT NULL,
   `ts_Updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   FOREIGN KEY (`kf_FileID`) REFERENCES `tbl_file` (`kp_FileID`) ON DELETE CASCADE,

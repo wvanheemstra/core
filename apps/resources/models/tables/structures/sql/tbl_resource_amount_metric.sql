@@ -21,9 +21,9 @@ SET FOREIGN_KEY_CHECKS = 0;
 DROP TABLE IF EXISTS `tbl_resource_amount_metric`;
 CREATE TABLE `tbl_resource_amount_metric` (
   `kp_ResourceAmountMetricID` int(11) NOT NULL AUTO_INCREMENT,
-  `kf_ResourceID` int(11) NOT NULL,  
-  `kf_AmountID` int(11) NOT NULL,
-  `kf_MetricID` int(11) NOT NULL,
+  `kf_ResourceID` int(11) NOT NULL DEFAULT '0',  
+  `kf_AmountID` int(11) NOT NULL DEFAULT '0',
+  `kf_MetricID` int(11) NOT NULL DEFAULT '0',
   `ts_Created` datetime DEFAULT NULL,
   `ts_Updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`kp_ResourceAmountMetricID`),

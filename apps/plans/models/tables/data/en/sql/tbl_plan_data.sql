@@ -21,7 +21,7 @@ SET FOREIGN_KEY_CHECKS = 0;
 DROP TABLE IF EXISTS `tbl_plan_data`;
 CREATE TABLE `tbl_plan_data` (
   `kp_PlanID` int(11) NOT NULL AUTO_INCREMENT,
-  `kf_KindOfPlanID` int(11) NOT NULL,
+  `kf_KindOfPlanID` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`kp_PlanID`),
   KEY `kf_KindOfPlanID` (`kf_KindOfPlanID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;

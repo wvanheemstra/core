@@ -21,7 +21,7 @@ SET FOREIGN_KEY_CHECKS = 0;
 DROP TABLE IF EXISTS `tbl_photo`;
 CREATE TABLE `tbl_photo` (
   `kp_PhotoID` int(11) NOT NULL AUTO_INCREMENT,
-  `kf_MultimediaID` int(11) NOT NULL,
+  `kf_MultimediaID` int(11) NOT NULL DEFAULT '0',
   `PhotoFile` blob NOT NULL,
   `ts_Created` datetime DEFAULT NULL,
   `ts_Updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,

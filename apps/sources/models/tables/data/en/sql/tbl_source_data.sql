@@ -21,7 +21,7 @@ SET FOREIGN_KEY_CHECKS = 0;
 DROP TABLE IF EXISTS `tbl_source_data`;
 CREATE TABLE `tbl_source_data` (
   `kp_SourceID` int(11) NOT NULL AUTO_INCREMENT,
-  `kf_KindOfSourceID` int(11) NOT NULL,
+  `kf_KindOfSourceID` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`kp_SourceID`),
   KEY `kf_KindOfSourceID` (`kf_KindOfSourceID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;

@@ -21,7 +21,7 @@ SET FOREIGN_KEY_CHECKS = 0;
 DROP TABLE IF EXISTS `tbl_account_data`;
 CREATE TABLE `tbl_account_data` (
   `kp_AccountID` int(11) NOT NULL AUTO_INCREMENT,
-  `kf_KindOfAccountID` int(11) NOT NULL,
+  `kf_KindOfAccountID` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`kp_AccountID`),
   KEY `kf_KindOfAccountID` (`kf_KindOfAccountID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;

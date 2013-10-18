@@ -21,7 +21,7 @@ SET FOREIGN_KEY_CHECKS = 0;
 DROP TABLE IF EXISTS `tbl_multimedia_data`;
 CREATE TABLE `tbl_multimedia_data` (
   `kp_MultimediaID` int(11) NOT NULL AUTO_INCREMENT,
-  `kf_KindOfMultimediaID` int(11) NOT NULL,
+  `kf_KindOfMultimediaID` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`kp_MultimediaID`),
   UNIQUE KEY `kp_MultimediaID` (`kp_MultimediaID`) USING BTREE,
   KEY `kf_KindOfMultimediaID` (`kf_KindOfMultimediaID`) USING BTREE

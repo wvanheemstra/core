@@ -21,7 +21,7 @@ SET FOREIGN_KEY_CHECKS = 0;
 DROP TABLE IF EXISTS `tbl_asset_data`;
 CREATE TABLE `tbl_asset_data` (
   `kp_AssetID` int(11) NOT NULL AUTO_INCREMENT,
-  `kf_KindOfAssetID` int(11) NOT NULL,
+  `kf_KindOfAssetID` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`kp_AssetID`),
   KEY `kf_KindOfAssetID` (`kf_KindOfAssetID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;

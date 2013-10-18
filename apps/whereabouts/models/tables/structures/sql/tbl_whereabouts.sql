@@ -21,9 +21,9 @@ SET FOREIGN_KEY_CHECKS = 0;
 DROP TABLE IF EXISTS `tbl_whereabouts`;
 CREATE TABLE `tbl_whereabouts` (
   `kp_WhereaboutsID` int(11) NOT NULL AUTO_INCREMENT,
-  `kf_TimeID` int(11) NOT NULL,
-  `kf_LocationID` int(11) NOT NULL,
-  `kf_DateID` int(11) NOT NULL,
+  `kf_TimeID` int(11) NOT NULL DEFAULT '0',
+  `kf_LocationID` int(11) NOT NULL DEFAULT '0',
+  `kf_DateID` int(11) NOT NULL DEFAULT '0',
   `ts_Created` datetime DEFAULT NULL,
   `ts_Updated` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`kp_WhereaboutsID`),

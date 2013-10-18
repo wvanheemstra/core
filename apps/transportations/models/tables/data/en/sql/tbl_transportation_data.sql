@@ -22,8 +22,8 @@ DROP TABLE IF EXISTS `tbl_transportation_data`;
 CREATE TABLE `tbl_transportation_data` (
   `kp_TransportationID` int(11) NOT NULL AUTO_INCREMENT,
   `TransportationName` varchar(255) COLLATE utf8_bin NOT NULL,
-  `kf_LanguageID` int(11) NOT NULL,
-  `kf_KindOfTransportationID` int(11) NOT NULL,
+  `kf_LanguageID` int(11) NOT NULL DEFAULT '0',
+  `kf_KindOfTransportationID` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`kp_TransportationID`),
   KEY `kf_LanguageID` (`kf_LanguageID`) USING BTREE,
   KEY `kf_KindOfTransportationID` (`kf_KindOfTransportationID`) USING BTREE

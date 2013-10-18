@@ -20,8 +20,8 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP TABLE IF EXISTS `tbl_step_expectation`;
 CREATE TABLE `tbl_step_expectation` (
-  `kf_StepID` int(11) NOT NULL DEFAULT '0',
-  `kf_ExpectationID` int(11) NOT NULL DEFAULT '0',
+  `kf_StepID` int(11) NOT NULL DEFAULT 0,
+  `kf_ExpectationID` int(11) NOT NULL DEFAULT 0,
   `ts_Created` datetime DEFAULT NULL,
   `ts_Updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   FOREIGN KEY (`kf_StepID`) REFERENCES `tbl_step` (`kp_StepID`) ON DELETE CASCADE,

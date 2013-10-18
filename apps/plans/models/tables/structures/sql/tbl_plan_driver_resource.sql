@@ -21,9 +21,9 @@ SET FOREIGN_KEY_CHECKS = 0;
 DROP TABLE IF EXISTS `tbl_plan_driver_resource`;
 CREATE TABLE `tbl_plan_driver_resource` (
   `kp_PlanDriverResourceID` int(11) NOT NULL AUTO_INCREMENT,
-  `kf_PlanID` int(11) NOT NULL DEFAULT '0',  
-  `kf_DriverID` int(11) NOT NULL DEFAULT '0',
-  `kf_ResourceID` int(11) NOT NULL DEFAULT '0',
+  `kf_PlanID` int(11) NOT NULL DEFAULT 0,  
+  `kf_DriverID` int(11) NOT NULL DEFAULT 0,
+  `kf_ResourceID` int(11) NOT NULL DEFAULT 0,
   `ts_Created` datetime DEFAULT NULL,
   `ts_Updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`kp_PlanDriverResourceID`),

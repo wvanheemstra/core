@@ -22,8 +22,8 @@ DROP TABLE IF EXISTS `tbl_amount`;
 CREATE TABLE `tbl_amount` (
   `kp_AmountID` int(11) NOT NULL AUTO_INCREMENT,
   `AmountName` varchar(255) COLLATE utf8_bin NOT NULL,
-  `kf_WhereaboutsID` int(11) NOT NULL DEFAULT '0',
-  `kf_KindOfAmountID` int(11) NOT NULL DEFAULT '0',
+  `kf_WhereaboutsID` int(11) NOT NULL DEFAULT 0,
+  `kf_KindOfAmountID` int(11) NOT NULL DEFAULT 0,
   `ts_Created` datetime DEFAULT NULL,
   `ts_Updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`kp_AmountID`),

@@ -21,9 +21,9 @@ SET FOREIGN_KEY_CHECKS = 0;
 DROP TABLE IF EXISTS `tbl_whereabouts_data`;
 CREATE TABLE `tbl_whereabouts_data` (
   `kp_WhereaboutsID` int(11) NOT NULL AUTO_INCREMENT,
-  `kf_TimeID` int(11) NOT NULL DEFAULT '0',
-  `kf_LocationID` int(11) NOT NULL DEFAULT '0',
-  `kf_DateID` int(11) NOT NULL DEFAULT '0',
+  `kf_TimeID` int(11) NOT NULL DEFAULT 0,
+  `kf_LocationID` int(11) NOT NULL DEFAULT 0,
+  `kf_DateID` int(11) NOT NULL DEFAULT 0,
   PRIMARY KEY (`kp_WhereaboutsID`),
   KEY `kf_TimeID` (`kf_TimeID`) USING BTREE,
   KEY `kf_LocationID` (`kf_LocationID`) USING BTREE,

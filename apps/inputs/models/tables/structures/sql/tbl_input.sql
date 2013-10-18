@@ -23,7 +23,7 @@ CREATE TABLE `tbl_input` (
   `kp_InputID` int(11) NOT NULL AUTO_INCREMENT,
   `InputName` varchar(255) COLLATE utf8_bin NOT NULL,
   `InputDescription` varchar(255) COLLATE utf8_bin NOT NULL,
-  `kf_KindOfInputID` int(11) NOT NULL DEFAULT '0',  
+  `kf_KindOfInputID` int(11) NOT NULL DEFAULT 0,  
   `ts_Created` datetime DEFAULT NULL,
   `ts_Updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`kp_InputID`),

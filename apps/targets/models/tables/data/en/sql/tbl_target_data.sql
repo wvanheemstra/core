@@ -21,7 +21,7 @@ SET FOREIGN_KEY_CHECKS = 0;
 DROP TABLE IF EXISTS `tbl_target_data`;
 CREATE TABLE `tbl_target_data` (
   `kp_TargetID` int(11) NOT NULL AUTO_INCREMENT,
-  `kf_KindOfTargetID` int(11) NOT NULL DEFAULT '0',
+  `kf_KindOfTargetID` int(11) NOT NULL DEFAULT 0,
   PRIMARY KEY (`kp_TargetID`),
   KEY `kf_KindOfTargetID` (`kf_KindOfTargetID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;

@@ -23,7 +23,7 @@ CREATE TABLE `tbl_output` (
   `kp_OutputID` int(11) NOT NULL AUTO_INCREMENT,
   `OutputName` varchar(255) COLLATE utf8_bin NOT NULL,
   `OutputDescription` varchar(255) COLLATE utf8_bin NOT NULL,
-  `kf_KindOfOutputID` int(11) NOT NULL DEFAULT '0',  
+  `kf_KindOfOutputID` int(11) NOT NULL DEFAULT 0,  
   `ts_Created` datetime DEFAULT NULL,
   `ts_Updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`kp_OutputID`),

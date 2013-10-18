@@ -21,8 +21,8 @@ SET FOREIGN_KEY_CHECKS = 0;
 DROP TABLE IF EXISTS `tbl_schedule_activity`;
 CREATE TABLE `tbl_schedule_activity` (
   `kp_ScheduleActivityID` int(11) NOT NULL AUTO_INCREMENT,
-  `kf_ScheduleID` int(11) NOT NULL DEFAULT '0',
-  `kf_ActivityID` int(11) NOT NULL DEFAULT '0',
+  `kf_ScheduleID` int(11) NOT NULL DEFAULT 0,
+  `kf_ActivityID` int(11) NOT NULL DEFAULT 0,
   `ts_Created` datetime DEFAULT NULL,
   `ts_Updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`kp_ScheduleActivityID`),

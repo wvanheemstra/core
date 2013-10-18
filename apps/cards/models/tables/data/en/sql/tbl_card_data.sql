@@ -23,7 +23,7 @@ CREATE TABLE `tbl_card_data` (
   `kp_CardID` int(11) NOT NULL AUTO_INCREMENT,
   `CardName` varchar(255) COLLATE utf8_bin NOT NULL,
   `CardDescription` varchar(255) COLLATE utf8_bin NOT NULL,
-  `kf_KindOfCardID` int(11) NOT NULL DEFAULT '0',
+  `kf_KindOfCardID` int(11) NOT NULL DEFAULT 0,
   PRIMARY KEY (`kp_CardID`),
   KEY `kf_KindOfCardID` (`kf_KindOfCardID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;

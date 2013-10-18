@@ -22,8 +22,8 @@ DROP TABLE IF EXISTS `tbl_transportation`;
 CREATE TABLE `tbl_transportation` (
   `kp_TransportationID` int(11) NOT NULL AUTO_INCREMENT,
   `TransportationName` varchar(255) COLLATE utf8_bin NOT NULL,
-  `kf_LanguageID` int(11) NOT NULL DEFAULT '0',
-  `kf_KindOfTransportationID` int(11) NOT NULL DEFAULT '0',
+  `kf_LanguageID` int(11) NOT NULL DEFAULT 0,
+  `kf_KindOfTransportationID` int(11) NOT NULL DEFAULT 0,
   `ts_Created` datetime DEFAULT NULL,
   `ts_Updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`kp_TransportationID`),

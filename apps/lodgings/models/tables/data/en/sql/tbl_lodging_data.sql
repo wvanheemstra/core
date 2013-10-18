@@ -21,11 +21,11 @@ SET FOREIGN_KEY_CHECKS = 0;
 DROP TABLE IF EXISTS `tbl_lodging_data`;
 CREATE TABLE `tbl_lodging_data` (
   `kp_LodgingID` int(11) NOT NULL AUTO_INCREMENT,
-  `kf_PersonID` int(11) NOT NULL DEFAULT '0',
-  `kf_AccommodationID` int(11) NOT NULL DEFAULT '0',
-  `kf_RoleID` int(11) NOT NULL DEFAULT '0',
-  `kf_ContactID` int(11) NOT NULL DEFAULT '0',
-  `kf_MultimediaID` int(11) NOT NULL DEFAULT '0',
+  `kf_PersonID` int(11) NOT NULL DEFAULT 0,
+  `kf_AccommodationID` int(11) NOT NULL DEFAULT 0,
+  `kf_RoleID` int(11) NOT NULL DEFAULT 0,
+  `kf_ContactID` int(11) NOT NULL DEFAULT 0,
+  `kf_MultimediaID` int(11) NOT NULL DEFAULT 0,
   PRIMARY KEY (`kp_LodgingID`),
   UNIQUE KEY `kp_LodgingID` (`kp_LodgingID`) USING BTREE,
   KEY `kf_PersonID` (`kf_PersonID`) USING BTREE,

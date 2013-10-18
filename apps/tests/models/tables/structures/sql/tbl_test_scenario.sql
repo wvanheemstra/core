@@ -20,8 +20,8 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP TABLE IF EXISTS `tbl_test_scenario`;
 CREATE TABLE `tbl_test_scenario` (
-  `kf_TestID` int(11) NOT NULL DEFAULT '0',
-  `kf_ScenarioID` int(11) NOT NULL DEFAULT '0',
+  `kf_TestID` int(11) NOT NULL DEFAULT 0,
+  `kf_ScenarioID` int(11) NOT NULL DEFAULT 0,
   `ts_Created` datetime DEFAULT NULL,
   `ts_Updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   FOREIGN KEY (`kf_TestID`) REFERENCES `tbl_test` (`kp_TestID`) ON DELETE CASCADE,

@@ -22,8 +22,8 @@ DROP TABLE IF EXISTS `tbl_role_data`;
 CREATE TABLE `tbl_role_data` (
   `kp_RoleID` int(11) NOT NULL AUTO_INCREMENT,
   `RoleName` varchar(255) COLLATE utf8_bin NOT NULL,
-  `kf_KindOfRoleID` int(11) NOT NULL DEFAULT '0',
-  `kf_MembershipID` int(11) NOT NULL DEFAULT '0',
+  `kf_KindOfRoleID` int(11) NOT NULL DEFAULT 0,
+  `kf_MembershipID` int(11) NOT NULL DEFAULT 0,
   PRIMARY KEY (`kp_RoleID`),
   KEY `kf_KindOfRoleID` (`kf_KindOfRoleID`) USING BTREE,
   KEY `kf_MembershipID` (`kf_MembershipID`) USING BTREE

@@ -22,9 +22,9 @@ DROP TABLE IF EXISTS `tbl_programme`;
 CREATE TABLE `tbl_programme` (
   `kp_ProgrammeID` int(11) NOT NULL AUTO_INCREMENT,
   `ProgrammeName` varchar(255) COLLATE utf8_bin NOT NULL,
-  `kf_WhereaboutsID` int(11) NOT NULL DEFAULT '0',
-  `kf_KindOfProgrammeID` int(11) NOT NULL DEFAULT '0',
-  `kf_EventID` int(11) NOT NULL DEFAULT '0',
+  `kf_WhereaboutsID` int(11) NOT NULL DEFAULT 0,
+  `kf_KindOfProgrammeID` int(11) NOT NULL DEFAULT 0,
+  `kf_EventID` int(11) NOT NULL DEFAULT 0,
   `ts_Created` datetime DEFAULT NULL,
   `ts_Updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`kp_ProgrammeID`),

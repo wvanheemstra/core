@@ -21,7 +21,7 @@ SET FOREIGN_KEY_CHECKS = 0;
 DROP TABLE IF EXISTS `tbl_photo_data`;
 CREATE TABLE `tbl_photo_data` (
   `kp_PhotoID` int(11) NOT NULL AUTO_INCREMENT,
-  `kf_MultimediaID` int(11) NOT NULL DEFAULT '0',
+  `kf_MultimediaID` int(11) NOT NULL DEFAULT 0,
   `PhotoFile` blob NOT NULL,
   PRIMARY KEY (`kp_PhotoID`),
   UNIQUE KEY `kp_PhotoID` (`kp_PhotoID`) USING BTREE,

@@ -21,10 +21,10 @@ SET FOREIGN_KEY_CHECKS = 0;
 DROP TABLE IF EXISTS `tbl_global`;
 CREATE TABLE `tbl_global` (
   `kp_GlobalID` int(11) NOT NULL AUTO_INCREMENT,
-  `KindOfContactID_telephone` int(11) NOT NULL DEFAULT '0',
-  `KindOfContactID_fax` int(11) NOT NULL DEFAULT '0',
-  `KindOfContactID_email` int(11) NOT NULL DEFAULT '0',
-  `KindOfContactID_mobile` int(11) NOT NULL DEFAULT '0',
+  `KindOfContactID_telephone` int(11) NOT NULL DEFAULT 0,
+  `KindOfContactID_fax` int(11) NOT NULL DEFAULT 0,
+  `KindOfContactID_email` int(11) NOT NULL DEFAULT 0,
+  `KindOfContactID_mobile` int(11) NOT NULL DEFAULT 0,
   `ts_Created` datetime DEFAULT NULL,
   `ts_Updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`kp_GlobalID`),

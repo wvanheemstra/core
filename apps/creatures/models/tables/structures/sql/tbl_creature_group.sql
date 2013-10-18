@@ -20,8 +20,8 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP TABLE IF EXISTS `tbl_creature_group`;
 CREATE TABLE `tbl_creature_group` (
-  `kf_CreatureID` int(11) NOT NULL DEFAULT '0',
-  `kf_GroupID` int(11) NOT NULL DEFAULT '0',
+  `kf_CreatureID` int(11) NOT NULL DEFAULT 0,
+  `kf_GroupID` int(11) NOT NULL DEFAULT 0,
   `ts_Created` datetime DEFAULT NULL,
   `ts_Updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   FOREIGN KEY (`kf_CreatureID`) REFERENCES `tbl_creature` (`kp_CreatureID`) ON DELETE CASCADE,

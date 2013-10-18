@@ -21,9 +21,9 @@ SET FOREIGN_KEY_CHECKS = 0;
 DROP TABLE IF EXISTS `tbl_journal_data`;
 CREATE TABLE `tbl_journal_data` (
   `kp_JournalID` int(11) NOT NULL AUTO_INCREMENT,
-  `kf_KindOfJournalID` int(11) NOT NULL DEFAULT '0',
-  `kf_BatchID` int(11) NOT NULL DEFAULT '0',
-  `kf_DateID` int(11) NOT NULL DEFAULT '0',
+  `kf_KindOfJournalID` int(11) NOT NULL DEFAULT 0,
+  `kf_BatchID` int(11) NOT NULL DEFAULT 0,
+  `kf_DateID` int(11) NOT NULL DEFAULT 0,
   PRIMARY KEY (`kp_JournalID`),
   KEY `kf_KindOfJournalID` (`kf_KindOfJournalID`),
   KEY `kf_BatchID` (`kf_BatchID`),

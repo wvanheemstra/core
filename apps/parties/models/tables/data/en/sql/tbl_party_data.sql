@@ -21,7 +21,7 @@ SET FOREIGN_KEY_CHECKS = 0;
 DROP TABLE IF EXISTS `tbl_party_data`;
 CREATE TABLE `tbl_party_data` (
   `kp_PartyID` int(11) NOT NULL AUTO_INCREMENT,
-  `kf_KindOfPartyID` int(11) NOT NULL DEFAULT '0',
+  `kf_KindOfPartyID` int(11) NOT NULL DEFAULT 0,
   PRIMARY KEY (`kp_PartyID`),
   KEY `kf_KindOfPartyID` (`kf_KindOfPartyID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;

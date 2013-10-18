@@ -21,11 +21,11 @@ SET FOREIGN_KEY_CHECKS = 0;
 DROP TABLE IF EXISTS `tbl_management`;
 CREATE TABLE `tbl_management` (
   `kp_ManagementID` int(11) NOT NULL AUTO_INCREMENT,
-  `kf_EventID` int(11) NOT NULL DEFAULT '0',
-  `kf_OrganisationID` int(11) NOT NULL DEFAULT '0',
-  `kf_RoleID` int(11) NOT NULL DEFAULT '0',
-  `kf_ContactID` int(11) NOT NULL DEFAULT '0',
-  `kf_MultimediaID` int(11) NOT NULL DEFAULT '0',
+  `kf_EventID` int(11) NOT NULL DEFAULT 0,
+  `kf_OrganisationID` int(11) NOT NULL DEFAULT 0,
+  `kf_RoleID` int(11) NOT NULL DEFAULT 0,
+  `kf_ContactID` int(11) NOT NULL DEFAULT 0,
+  `kf_MultimediaID` int(11) NOT NULL DEFAULT 0,
   `ts_Created` datetime DEFAULT NULL,
   `ts_Updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`kp_ManagementID`),

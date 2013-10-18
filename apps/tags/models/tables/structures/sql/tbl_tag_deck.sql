@@ -20,8 +20,8 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP TABLE IF EXISTS `tbl_tag_deck`;
 CREATE TABLE `tbl_tag_deck` (
-  `kf_TagID` int(11) NOT NULL DEFAULT '0',
-  `kf_DeckID` int(11) NOT NULL DEFAULT '0',
+  `kf_TagID` int(11) NOT NULL DEFAULT 0,
+  `kf_DeckID` int(11) NOT NULL DEFAULT 0,
   `ts_Created` datetime DEFAULT NULL,
   `ts_Updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   FOREIGN KEY (`kf_TagID`) REFERENCES `tbl_tag` (`kp_TagID`) ON DELETE CASCADE,

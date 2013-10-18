@@ -21,7 +21,7 @@ SET FOREIGN_KEY_CHECKS = 0;
 DROP TABLE IF EXISTS `tbl_driver_data`;
 CREATE TABLE `tbl_driver_data` (
   `kp_DriverID` int(11) NOT NULL AUTO_INCREMENT,
-  `kf_KindOfDriverID` int(11) NOT NULL DEFAULT '0',
+  `kf_KindOfDriverID` int(11) NOT NULL DEFAULT 0,
   PRIMARY KEY (`kp_DriverID`),
   KEY `kf_KindOfDriverID` (`kf_KindOfDriverID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;

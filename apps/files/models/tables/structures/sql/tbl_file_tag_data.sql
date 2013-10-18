@@ -20,8 +20,8 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP TABLE IF EXISTS `tbl_file_tag_data`;
 CREATE TABLE `tbl_file_tag_data` (
-  `kf_FileID` int(11) NOT NULL DEFAULT '0',
-  `kf_TagID` int(11) NOT NULL DEFAULT '0',
+  `kf_FileID` int(11) NOT NULL DEFAULT 0,
+  `kf_TagID` int(11) NOT NULL DEFAULT 0,
   `ts_Created` datetime DEFAULT NULL,
   `ts_Updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   KEY `kf_FileID` (`kf_FileID`) USING BTREE,

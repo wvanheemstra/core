@@ -22,8 +22,8 @@ DROP TABLE IF EXISTS `tbl_accommodation`;
 CREATE TABLE `tbl_accommodation` (
   `kp_AccommodationID` int(11) NOT NULL AUTO_INCREMENT,
   `AccommodationName` varchar(255) COLLATE utf8_bin NOT NULL,
-  `kf_WhereaboutsID` int(11) NOT NULL DEFAULT '0',
-  `kf_KindOfAccommodationID` int(11) NOT NULL DEFAULT '0',
+  `kf_WhereaboutsID` int(11) NOT NULL DEFAULT 0,
+  `kf_KindOfAccommodationID` int(11) NOT NULL DEFAULT 0,
   `ts_Created` datetime DEFAULT NULL,
   `ts_Updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`kp_AccommodationID`),

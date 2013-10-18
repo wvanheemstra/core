@@ -21,7 +21,7 @@ SET FOREIGN_KEY_CHECKS = 0;
 DROP TABLE IF EXISTS `tbl_schedule_data`;
 CREATE TABLE `tbl_schedule_data` (
   `kp_ScheduleID` int(11) NOT NULL AUTO_INCREMENT,
-  `kf_KindOfScheduleID` int(11) NOT NULL DEFAULT '0',
+  `kf_KindOfScheduleID` int(11) NOT NULL DEFAULT 0,
   PRIMARY KEY (`kp_ScheduleID`),
   KEY `kf_KindOfScheduleID` (`kf_KindOfScheduleID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;

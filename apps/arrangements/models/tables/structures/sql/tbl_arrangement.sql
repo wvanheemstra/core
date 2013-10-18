@@ -22,7 +22,7 @@ DROP TABLE IF EXISTS `tbl_arrangement`;
 CREATE TABLE `tbl_arrangement` (
   `kp_ArrangementID` int(11) NOT NULL AUTO_INCREMENT,
   `ArrangementName` varchar(255) COLLATE utf8_bin NOT NULL,
-  `kf_KindOfArrangementID` int(11) NOT NULL DEFAULT '0',
+  `kf_KindOfArrangementID` int(11) NOT NULL DEFAULT 0,
   `ts_Created` datetime DEFAULT NULL,
   `ts_Updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`kp_ArrangementID`),

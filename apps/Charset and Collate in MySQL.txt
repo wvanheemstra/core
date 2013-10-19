@@ -1,0 +1,3 @@
+Read below document for Charset and Collate in MySQL
+
+http://mysql.rjweb.org/doc.php/charcoll

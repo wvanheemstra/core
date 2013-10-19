@@ -16,21 +16,21 @@ SET NAMES utf8;
 SET FOREIGN_KEY_CHECKS = 0;
 
 -- ----------------------------
---  Table structure for `tbl_kind_of_location_data`
+--  Table structure for `tbl_kind_of_geometry_data`
 -- ----------------------------
-DROP TABLE IF EXISTS `tbl_kind_of_location_data`;
-CREATE TABLE `tbl_kind_of_location_data` (
-  `kp_KindOfLocationID` int(11) NOT NULL AUTO_INCREMENT,
-  `KindOfLocationName` varchar(255) COLLATE utf8_bin NOT NULL,
-  PRIMARY KEY (`kp_KindOfLocationID`),
-  UNIQUE KEY `kp_KindOfLocationID` (`kp_KindOfLocationID`) USING BTREE
+DROP TABLE IF EXISTS `tbl_kind_of_geometry_data`;
+CREATE TABLE `tbl_kind_of_geometry_data` (
+  `kp_KindOfGeometryID` int(11) NOT NULL AUTO_INCREMENT,
+  `KindOfGeometryName` varchar(255) COLLATE utf8_bin NOT NULL,
+  PRIMARY KEY (`kp_KindOfGeometryID`),
+  UNIQUE KEY `kp_KindOfGeometryID` (`kp_KindOfGeometryID`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- ----------------------------
---  Records of `tbl_kind_of_location_data`
+--  Records of `tbl_kind_of_geometry_data`
 -- ----------------------------
 BEGIN;
-INSERT INTO `tbl_kind_of_location_data` VALUES ('1', 'Primary Address'), ('2', 'Emergency Address');
+INSERT INTO `tbl_kind_of_geometry_data` VALUES ('1', 'Primary Address'), ('2', 'Emergency Address');
 COMMIT;
 
 SET FOREIGN_KEY_CHECKS = 1;

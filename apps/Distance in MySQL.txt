@@ -1,0 +1,3 @@
+Read below document for Latitude and Longitude in MySQL in order to calculate the distance between two points.
+
+http://mysql.rjweb.org/doc.php/latlng

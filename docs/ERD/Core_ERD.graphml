@@ -1605,7 +1605,7 @@ ts_Modified<y:LabelModel>
     <node id="n64">
       <data key="d6">
         <y:ShapeNode>
-          <y:Geometry height="58.222565687789825" width="159.0" x="1585.1281797663735" y="403.6731066460588"/>
+          <y:Geometry height="58.222565687789825" width="159.0" x="1607.8068006182384" y="403.6731066460588"/>
           <y:Fill color="#FFFF99" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="48.103515625" modelName="custom" textColor="#000000" visible="true" width="81.3671875" x="38.81640625" y="5.059525031394912">KindOfPicture:

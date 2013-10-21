@@ -124,6 +124,11 @@ Ext.define("Core.view.touch.login.View", {
 				//html:  "Built using Sencha Ext JS " + Ext.getVersion('extjs')				
 				html:  "Built using Sencha Touch " + Ext.getVersion('touch'),
 			}
-        ]
+        ],
+		listeners: {
+			orientationchange: function(viewport, orientation, width, height) {
+				alert('orientation:' + orientation + ' width:' + width + ' height:' + height);
+			}
+		}
     }
 });

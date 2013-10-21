@@ -42,8 +42,19 @@ Ext.define("Core.mediator.touch.viewport.person.Mediator", {
      */
     init: function() {
         this.logger.debug("init");
+		// Add a Listener. Listen for [Viewport ~ Orientation] Change.
+        //Ext.Viewport.on('orientationchange', 'handleOrientationChange', this, {buffer: 50 });
         return this.callParent();
     },
+
+    /**
+     * Handles orientation change. 
+     */	
+/* 	handleOrientationChange: function(viewport, orientation, width, height) {
+        console.log("handleOrientationChange");
+        // Execute the code that needs to fire on Orientation Change.
+		alert('orientation:' + orientation + ' width:' + width + ' height:' + height);
+    }, */
 
     /**
      * Sets up global event bus handlers. Called by the parent superclass during the initialization phase.

@@ -32,7 +32,7 @@
  * 7) Calling setter() function does not seem to set the instance. 
  *    Set object.belongsToInstance = obj  if calling the setter().
  */
-Ext.define("Core.model.person.Model", {
+Ext.define("Core.model.person.Model", Sencha.modelCompatibility({
     extend: "Core.model.person.base.Model",
 	
 	// Associated models of hasMany relationships
@@ -40,8 +40,7 @@ Ext.define("Core.model.person.Model", {
 		"Core.model.membership.Model",
 		"Core.model.person.group.Model"
 	],
-	
-    // Touch uses properties inside of config
+
 	config: {
 	    idProperty: "kp_PersonID",
 	    fields: [
@@ -212,175 +211,6 @@ Ext.define("Core.model.person.Model", {
 			}//eof for
 			return parentDiv;
 		}
-	},//eof config
-	// Ext requires properties outside of config
-    idProperty: "kp_PersonID",
-	fields: [
-        { name: "kp_PersonID", type: "int", useNull: true },
-        { name: "PersonFirstName", type: "string"  },
-		{ name: "PersonLastName", type: "string"  },
-		{ name: 'kf_GenderID', type: 'int', defaultValue: '0' },
-		{ name: 'kf_SalutationID', type: 'int', defaultValue: '0' },
-		{ name: 'kf_NationalityID', type: 'int', defaultValue: '0' },
-		{ name: 'kf_DateID', type: 'int', defaultValue: '0' },
-		{ name: 'ts_Created', type: 'date', persist: false },
-		{ name: 'ts_Modified', type: 'date', persist: false }
-	],
-	belongsTo:[
-		{
-		  name: "Salutation",
-		  associationKey: "Salutation", 
-		  instanceName: "Salutation",
-		  getterName: "getSalutation",
-		  setterName: "setSalutation",			  
-		  model: "Core.model.salutation.Model",
-		  primaryKey: "kp_SalutationID", // the field in the parent that identifies it.
-		  foreignKey: "kf_SalutationID", // the key that identifies the parent in the child. In a belongsTo or hasOne relation, this is part of the model itself, in a hasMany relation this is a field of the child objects that refer to my Id.
-		  foreignStore: "salutationStore", //WAS "Core.store.salutation.Store", // the store name that contains the related records
-		  foreignStoreId: "salutationStore" // the store id  of the foreign store
-		},
-		{
-		  name: "Gender",
-		  associationKey: "Gender",	
-		  instanceName: "Gender",
-		  getterName: "getGender",
-		  setterName: "setGender",			  
-		  model: "Core.model.gender.Model",
-		  primaryKey: "kp_GenderID", // the field in the parent that identifies it.
-		  foreignKey: "kf_GenderID", // the key that identifies the parent in the child. In a belongsTo or hasOne relation, this is part of the model itself, in a hasMany relation this is a field of the child objects that refer to my Id.
-		  foreignStore: "genderStore", //WAS "Core.store.gender.Store", // the store name that contains the related records
-		  foreignStoreId: "genderStore" // the store id  of the foreign store
-		},
-		{
-		  name: "Nationality",
-		  associationKey: "Nationality",	
-		  instanceName: "Nationality",
-		  getterName: "getNationality",
-		  setterName: "setNationality",			  
-		  model: "Core.model.nationality.Model",
-		  primaryKey: "kp_NationalityID", // the field in the parent that identifies it.
-		  foreignKey: "kf_NationalityID", // the key that identifies the parent in the child. In a belongsTo or hasOne relation, this is part of the model itself, in a hasMany relation this is a field of the child objects that refer to my Id.
-		  foreignStore: "nationalityStore", //WAS "Core.store.nationality.Store", // the store name that contains the related records
-		  foreignStoreId: "nationalityStore" // the store id  of the foreign store
-		}			
-	],
-	hasOne:[
-		{
-		  name: "Date",
-		  associationKey: "Date",	
-		  instanceName: "Date",
-		  getterName: "getDate",
-		  setterName: "setDate",			  
-		  model: "Core.model.date.Model",
-		  primaryKey: "kp_DateID", // the field in the parent that identifies it.
-		  foreignKey: "kf_DateID", // the key that identifies the parent in the child. In a belongsTo or hasOne relation, this is part of the model itself, in a hasMany relation this is a field of the child objects that refer to my Id.
-		  foreignStore: "dateStore",  //WAS "Core.store.date.Store", // the store name that contains the related records
-		  foreignStoreId: "dateStore" // the store id  of the foreign store
-		}		
-	],
-	hasMany:[
-		{
-		  name: "Membership",
-		  associationKey: "Membership",	
-		  instanceName: "Membership",
-		  getterName: "getMembership",
-		  setterName: "setMembership",			  
-		  model: "Core.model.membership.Model",
-		  primaryKey: "kp_PersonID", // the field in the parent that identifies it.
-		  foreignKey: "kf_PersonID", // the key that identifies the parent in the child. In a belongsTo or hasOne relation, this is part of the model itself, in a hasMany relation this is a field of the child objects that refer to my Id.
-		  foreignStore: "membershipStore",  //WAS "Core.store.date.Store", // the store name that contains the related records
-		  foreignStoreId: "membershipStore" // the store id  of the foreign store
-		},{
-		  name: "PersonGroup",
-		  associationKey: "PersonGroup",	
-		  instanceName: "PersonGroup",
-		  getterName: "getPersonGroup",
-		  setterName: "setPersonGroup",			  
-		  model: "Core.model.person.group.Model",
-		  primaryKey: "kp_PersonID", // the field in the parent that identifies it.
-		  foreignKey: "kf_PersonID", // the key that identifies the parent in the child. In a belongsTo or hasOne relation, this is part of the model itself, in a hasMany relation this is a field of the child objects that refer to my Id.
-		  foreignStore: "personGroupStore",  //WAS "Core.store.date.Store", // the store name that contains the related records
-		  foreignStoreId: "personGroupStore" // the store id  of the foreign store
-		}		
-	],	
-    validations: [
-        { type: "presence", field: "kp_PersonID" },
-        { type: "presence", field: "PersonFirstName",     message: "Please enter a first name." },
-		{ type: "presence", field: "PersonLastName",     message: "Please enter a last name." }
-    ],
-	proxy: {
-		type: 'ajax',
-		url: 'data/?action=write&model=person&format=json', // Required placeholder
-		actionMethods: {
-			create: 'POST',
-			write: 'POST',
-			read: 'POST',
-			update: 'POST',
-			destroy: 'POST'
-		},
-		jsonData: {}, // default to {} 
-		// A modification to get JSON data in the body of the message
-		// See http://irscomp.blogspot.co.uk/2012/01/how-to-post-data-in-json-format-in.html
-		doRequest: function(operation, callback, scope) {
-			var writer = this.getWriter(),
-				request = this.buildRequest(operation, callback, scope);
-			if(operation.allowWrite()) {
-				request = writer.write(request);
-			}
-			Ext.apply(request, {
-				headers			: this.headers,
-				timeout 		: this.timeout, 
-				scope			: this, 
-				callback		: this.createRequestCallback(request, operation, callback, scope), 
-				method			: 'POST', //this.getMethod(request), 
-				jsonData		: this.jsonData, 
-				disableCaching	: false // explicitly set it to false, ServerProxy handles caching 
-			});
-			Ext.Ajax.request(request); 
-			return request;
-		},
-		useDefaultXhrHeader: false, // set this to false to prevent a cross-domain issue
-		useDefaultHeader: false,
-		headers: this.ajaxCallHeaders,
-		timeout: this.ajaxCallTimeout, 
-		contentType: "application/json; charset=utf-8",
-		api: {
-			//read: 'data/read-persons-success.json',
-			//read: 'http://api.vanheemstrapictures.com/services/mql/read', // use this in the future when Bluehost allows for this
-			read: 'http://localhost:5001/?api=person&action=read',
-			//read: 'http://localhost:5001/services/mql/read',
-			//write: 'core/components/core/apps/core/data/mql-single-person.json',
-			write: 'data/?action=write&model=person&format=json'
-		},
-		reader: {
-			type: 'json',
-			root: 'result.result', // change from data to result.result when used with MQL
-			totalProperty: 'total'
-		},
-		writer: {
-			type: 'json',
-			encode: true
-		},
-		simpleSortMode: true
-	},
-	/*
-	 * Gets the Model instance and returns it in HTML format.
-	 *
-	 */
-	getHTML: function()
-    {
-		var parentDiv = document.createElement("DIV");
-		parentDiv.className = "person";
-		var data = this.data;
-		for(field in data){
-			if(typeof field !== []){
-				var childDiv = document.createElement("DIV");
-				childDiv.className = field;
-				childDiv.setAttribute('key', field);
-				childDiv.setAttribute('value', data[field]);
-				parentDiv.appendChild(childDiv);
-			}
-		}//eof for
-		return parentDiv;
-    }
-});
+	}//eof config
+})//eof modelCompatibility
+);

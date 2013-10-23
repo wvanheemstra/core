@@ -110,7 +110,7 @@ Ext.define("Core.mediator.touch.organisation.list.Mediator", {
      */
     showOrganisationDetail: function(record) {
     	this.logger.debug("showOrganisationDetail");	
-        var logMsg = (record != null)
+        var logMsg = (record !== null)
             ? ": kp_OrganisationID = " + record.get("kp_OrganisationID") 
 			+ ", organisation = " + record.get("OrganisationName") : "new organisation";
         this.logger.debug("showOrganisationDetail = " + logMsg);
@@ -401,7 +401,7 @@ Ext.define("Core.mediator.touch.organisation.list.Mediator", {
 	                    matched.push(didMatch);
 	                }
 	                //if nothing was found, return false (dont so in the store)
-	                if (regexps.length > 1 && matched.indexOf(false) != -1) {
+	                if (regexps.length > 1 && matched.indexOf(false) !== -1) {
 	                    return false;
 	                } else {
 	                    //else true true (show in the store)

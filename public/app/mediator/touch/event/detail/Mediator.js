@@ -66,9 +66,9 @@ Ext.define("Core.mediator.touch.event.detail.Mediator", {
         this.logger.debug("saveEvent");
         var evt;
         var msg;
-        if(event != null) {
+        if(event !== null) {
             var id = event.kp_EventID;
-            if( (id != null) && (id != "") ) {
+            if( (id !== null) && (id !== "") ) {
                 evt = Ext.create("Core.event.event.Event", Core.event.event.Event.UPDATE_EVENT);
                 msg = nineam.locale.LocaleManager.getProperty("eventDetail.updatingEvent");
             } else {
@@ -98,7 +98,7 @@ Ext.define("Core.mediator.touch.event.detail.Mediator", {
 		var callbackFunction = function(btn, text){
 			if(btn === 'deleteYes'){
 				continueDeletion = true;
-				if(event != null && continueDeletion ) {
+				if(event !== null && continueDeletion ) {
 					view.setMasked({
 						xtype: "loadmask",
 						message: nineam.locale.LocaleManager.getProperty("eventDetail.deletingEvent")
@@ -472,7 +472,7 @@ Ext.define("Core.mediator.touch.event.detail.Mediator", {
      * @param {Core.model.event.Model} record The selected record of the store.
      */
     onSelectedRecordChange: function(store, record) {
-        var logMsg = (record != null)
+        var logMsg = (record !== null)
             ? ": kp_EventID = " + record.get("kp_EventID") + ", event = " + record.get("EventName"): "new event";
         this.logger.debug("onSelectedRecordChange = " + logMsg);
         if (record) {
@@ -503,7 +503,7 @@ Ext.define("Core.mediator.touch.event.detail.Mediator", {
         var event = this.getView().getRecord();
         var newEvent = this.getView().getValues();
         // if this is a new event record, there's no id available
-        if(event != null) {
+        if(event !== null) {
             newEvent.kp_EventID = event.data.kp_EventID;
         }
         this.saveEvent(newEvent);
@@ -573,7 +573,7 @@ Ext.define("Core.mediator.touch.event.detail.Mediator", {
 	                    matched.push(didMatch);
 	                }
 	                //if nothing was found, return false (don't so in the store)
-	                if (regexps.length > 1 && matched.indexOf(false) != -1) {
+	                if (regexps.length > 1 && matched.indexOf(false) !== -1) {
 	                    return false;
 	                } else {
 	                    //else true true (show in the store)

@@ -103,9 +103,9 @@ Ext.define("Core.mediator.touch.person.detail.Mediator", {
         this.logger.debug("savePerson");
         var evt;
         var msg;
-        if(person != null) {
+        if(person !== null) {
             var id = person.kp_PersonID;
-            if( (id != null) && (id != "") ) {
+            if( (id !== null) && (id !== "") ) {
                 evt = Ext.create("Core.event.person.Event", Core.event.person.Event.UPDATE_PERSON);
                 msg = nineam.locale.LocaleManager.getProperty("personDetail.updatingPerson");
             } else {
@@ -135,7 +135,7 @@ Ext.define("Core.mediator.touch.person.detail.Mediator", {
 		var callbackFunction = function(btn, text){
 			if(btn === 'deleteYes'){
 				continueDeletion = true;
-				if(person != null && continueDeletion ) {
+				if(person !== null && continueDeletion ) {
 					view.setMasked({
 						xtype: "loadmask",
 						message: nineam.locale.LocaleManager.getProperty("personDetail.deletingPerson")
@@ -802,7 +802,7 @@ Ext.define("Core.mediator.touch.person.detail.Mediator", {
      * @param {Core.model.person.Model} record The selected record of the store.
      */
     onSelectedRecordChange: function(store, record) {
-        var logMsg = (record != null)
+        var logMsg = (record !== null)
             ? ": kp_PersonID = " + record.get("kp_PersonID") + ", person = " + record.get("PersonFirstName") + " " + record.get("PersonLastName") 
             + ", gender = " + record.get("Gender")["GenderName"] : "new person";
         this.logger.debug("onSelectedRecordChange = " + logMsg);
@@ -834,7 +834,7 @@ Ext.define("Core.mediator.touch.person.detail.Mediator", {
         var person = this.getView().getRecord();
         var newPerson = this.getView().getValues();
         // if this is a new person record, there's no id available
-        if(person != null) {
+        if(person !== null) {
             newPerson.kp_PersonID = person.data.kp_PersonID;
         }
         this.savePerson(newPerson);
@@ -995,7 +995,7 @@ Ext.define("Core.mediator.touch.person.detail.Mediator", {
 	                    matched.push(didMatch);
 	                }
 	                //if nothing was found, return false (don't so in the store)
-	                if (regexps.length > 1 && matched.indexOf(false) != -1) {
+	                if (regexps.length > 1 && matched.indexOf(false) !== -1) {
 	                    return false;
 	                } else {
 	                    //else true true (show in the store)

@@ -179,7 +179,7 @@ Ext.define("Core.mediator.extjs.viewport.Mediator", {
         }
 
         // only navigate to the screen if the view exists
-        if(view != null) {
+        if(view !== null) {
 //            this.slidleft(this.getViewByXType("extjsLoginView"));
             this.logger.debug("navigate = " + view.getItemId());
             this.getView().setView(view.getItemId());

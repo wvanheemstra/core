@@ -37,9 +37,9 @@ Ext.define("Core.mediator.extjs.product.detail.Mediator", {
         this.logger.debug("saveProduct");
         var evt;
         var msg;
-        if(product != null) {
+        if(product !== null) {
             var id = product.id;
-            if( (id != null) && (id != "") ) {
+            if( (id !== null) && (id !== "") ) {
                 evt = Ext.create("Core.event.product.Event", Core.event.product.Event.UPDATE_PRODUCT);
                 msg = nineam.locale.LocaleManager.getProperty("productDetail.updatingProduct");
             } else {
@@ -59,7 +59,7 @@ Ext.define("Core.mediator.extjs.product.detail.Mediator", {
      */
     deleteProduct: function(product) {
         this.logger.debug("deleteProduct");
-        if(product != null) {
+        if(product !== null) {
             this.getView().setLoading(nineam.locale.LocaleManager.getProperty("productDetail.deletingProduct"));
             var evt = Ext.create("Core.event.product.Event", Core.event.product.Event.DELETE_PRODUCT);
             evt.product = product;
@@ -200,7 +200,7 @@ Ext.define("Core.mediator.extjs.product.detail.Mediator", {
      */
     onSelectedRecordChange: function(store, record) {
 		//Do not put within if() statement 
-		var logMsg = (record != null)
+		var logMsg = (record !== null)
 			? ": id = " + record.get("id") + ", product = " + record.get("name")
 			: "new product";
 		this.logger.debug("onSelectedRecordChange = " + logMsg);
@@ -232,7 +232,7 @@ Ext.define("Core.mediator.extjs.product.detail.Mediator", {
         var product = this.getView().getRecord();
         var newProduct = this.getView().getValues();
         // if this is a new product record, there's no id available
-        if(product != null) {
+        if(product !== null) {
             newProduct.id = product.data.id;
         }
         this.saveProduct(newProduct);

@@ -226,7 +226,7 @@ Ext.define("Core.mediator.touch.viewport.event.Mediator", {
         }
 
         // only navigate to the screen if the view exist
-        if(view != null) {
+        if(view !== null) {
 			animation['duration'] = duration;
 			animation['type'] = type;
 			animation['direction'] = direction;

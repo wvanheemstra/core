@@ -53,9 +53,9 @@ Ext.define("Core.mediator.touch.booking.detail.Mediator", {
         this.logger.debug("saveBooking");
         var evt;
         var msg;
-        if(booking != null) {
+        if(booking !== null) {
             var id = booking.id;
-            if( (id != null) && (id != "") ) {
+            if( (id !== null) && (id !== "") ) {
                 evt = Ext.create("Core.event.booking.Event", Core.event.booking.Event.UPDATE_BOOKING);
                 msg = nineam.locale.LocaleManager.getProperty("bookingDetail.updatingBooking");
             } else {
@@ -78,7 +78,7 @@ Ext.define("Core.mediator.touch.booking.detail.Mediator", {
      */
     deleteBooking: function(booking) {
         this.logger.debug("deleteBooking");
-        if(booking != null) {
+        if(booking !== null) {
             this.getView().setMasked({
                 xtype: "loadmask",
                 message: nineam.locale.LocaleManager.getProperty("bookingDetail.deletingBooking")
@@ -211,7 +211,7 @@ Ext.define("Core.mediator.touch.booking.detail.Mediator", {
      * @param {Core.model.booking.Model} record The selected record of the store.
      */
     onSelectedRecordChange: function(store, record) {
-        var logMsg = (record != null)
+        var logMsg = (record !== null)
             ? ": id = " + record.get("id") + ", booking = " + record.get("name")
             : "new booking";
         this.logger.debug("onSelectedRecordChange = " + logMsg);
@@ -243,7 +243,7 @@ Ext.define("Core.mediator.touch.booking.detail.Mediator", {
         var booking = this.getView().getRecord();
         var newBooking = this.getView().getValues();
         // if this is a new booking record, there's no id available
-        if(booking != null) {
+        if(booking !== null) {
             newBooking.id = booking.data.id;
         }
         this.saveBooking(newBooking);

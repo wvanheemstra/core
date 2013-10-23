@@ -207,7 +207,7 @@ Ext.define("Core.mediator.touch.person.list.Mediator", {
      */
     showPersonDetail: function(record) {
     	this.logger.debug("showPersonDetail");	
-        var logMsg = (record != null)
+        var logMsg = (record !== null)
             ? ": kp_PersonID = " + record.get("kp_PersonID") 
 			+ ", person = " + record.get("PersonFirstName") + " " + record.get("PersonLastName") 
             + ", gender = " + record.get("Gender")["GenderName"] 
@@ -585,7 +585,7 @@ Ext.define("Core.mediator.touch.person.list.Mediator", {
 	                    matched.push(didMatch);
 	                }
 	                //if nothing was found, return false (dont so in the store)
-	                if (regexps.length > 1 && matched.indexOf(false) != -1) {
+	                if (regexps.length > 1 && matched.indexOf(false) !== -1) {
 	                    return false;
 	                } else {
 	                    //else true true (show in the store)

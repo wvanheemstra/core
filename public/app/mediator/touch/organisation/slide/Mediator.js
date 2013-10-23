@@ -53,7 +53,7 @@ Ext.define("Core.mediator.touch.organisation.slide.Mediator", {
 			showmodal: function(args) {
 				console.log('Container showmodal: title = ' + args['title'] + ', url = ' + args['url']);
 				// Avoid the next call if the url is an object, not a string
-				if(typeof args['url'] != null) {
+				if(typeof args['url'] !== null) {
 					this.showOrganisationModal(args);
 				}
 			}
@@ -100,7 +100,7 @@ Ext.define("Core.mediator.touch.organisation.slide.Mediator", {
      * @param record    The record is the data model for the item in the slide currently selected.
      */
     showOrganisationDetail: function(record) {
-        var logMsg = (record != null)
+        var logMsg = (record !== null)
             ? ": id = " + record.get("id") + ", organisation = " + record.get("name")
             : "new organisation";
         this.logger.debug("showOrganisationDetail = " + logMsg);
@@ -306,7 +306,7 @@ Ext.define("Core.mediator.touch.organisation.slide.Mediator", {
 	                    matched.push(didMatch);
 	                }
 	                //if nothing was found, return false (don't so in the store)
-	                if (regexps.length > 1 && matched.indexOf(false) != -1) {
+	                if (regexps.length > 1 && matched.indexOf(false) !== -1) {
 	                    return false;
 	                } else {
 	                    //else true true (show in the store)

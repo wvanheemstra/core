@@ -66,9 +66,9 @@ Ext.define("Core.mediator.touch.organisation.detail.Mediator", {
         this.logger.debug("saveOrganisation");
         var evt;
         var msg;
-        if(organisation != null) {
+        if(organisation !== null) {
             var id = organisation.kp_OrganisationID;
-            if( (id != null) && (id != "") ) {
+            if( (id !== null) && (id !== "") ) {
                 evt = Ext.create("Core.event.organisation.Event", Core.event.organisation.Event.UPDATE_ORGANISATION);
                 msg = nineam.locale.LocaleManager.getProperty("organisationDetail.updatingOrganisation");
             } else {
@@ -98,7 +98,7 @@ Ext.define("Core.mediator.touch.organisation.detail.Mediator", {
 		var callbackFunction = function(btn, text){
 			if(btn === 'deleteYes'){
 				continueDeletion = true;
-				if(organisation != null && continueDeletion ) {
+				if(organisation !== null && continueDeletion ) {
 					view.setMasked({
 						xtype: "loadmask",
 						message: nineam.locale.LocaleManager.getProperty("organisationDetail.deletingOrganisation")
@@ -472,7 +472,7 @@ Ext.define("Core.mediator.touch.organisation.detail.Mediator", {
      * @param {Core.model.organisation.Model} record The selected record of the store.
      */
     onSelectedRecordChange: function(store, record) {
-        var logMsg = (record != null)
+        var logMsg = (record !== null)
             ? ": kp_OrganisationID = " + record.get("kp_OrganisationID") + ", organisation = " + record.get("OrganisationName"): "new organisation";
         this.logger.debug("onSelectedRecordChange = " + logMsg);
         if (record) {
@@ -503,7 +503,7 @@ Ext.define("Core.mediator.touch.organisation.detail.Mediator", {
         var organisation = this.getView().getRecord();
         var newOrganisation = this.getView().getValues();
         // if this is a new organisation record, there's no id available
-        if(organisation != null) {
+        if(organisation !== null) {
             newOrganisation.kp_OrganisationID = organisation.data.kp_OrganisationID;
         }
         this.saveOrganisation(newOrganisation);
@@ -573,7 +573,7 @@ Ext.define("Core.mediator.touch.organisation.detail.Mediator", {
 	                    matched.push(didMatch);
 	                }
 	                //if nothing was found, return false (don't so in the store)
-	                if (regexps.length > 1 && matched.indexOf(false) != -1) {
+	                if (regexps.length > 1 && matched.indexOf(false) !== -1) {
 	                    return false;
 	                } else {
 	                    //else true true (show in the store)

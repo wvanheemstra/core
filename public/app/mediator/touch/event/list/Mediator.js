@@ -107,7 +107,7 @@ Ext.define("Core.mediator.touch.event.list.Mediator", {
      */
     showEventDetail: function(record) {
     	this.logger.debug("showEventDetail");	
-        var logMsg = (record != null)
+        var logMsg = (record !== null)
             ? ": kp_EventID = " + record.get("kp_EventID") 
 			+ ", event = " + record.get("EventName") : "new event";
         this.logger.debug("showEventDetail = " + logMsg);
@@ -379,7 +379,7 @@ Ext.define("Core.mediator.touch.event.list.Mediator", {
 	                    matched.push(didMatch);
 	                }
 	                //if nothing was found, return false (dont so in the store)
-	                if (regexps.length > 1 && matched.indexOf(false) != -1) {
+	                if (regexps.length > 1 && matched.indexOf(false) !== -1) {
 	                    return false;
 	                } else {
 	                    //else true true (show in the store)

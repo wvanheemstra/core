@@ -58,7 +58,7 @@ Ext.define("Core.mediator.touch.product.tile.Mediator", {
      * @param record    The record is the data model for the item in the tile currently selected.
      */
     showProductDetail: function(record) {
-        var logMsg = (record != null)
+        var logMsg = (record !== null)
             ? ": id = " + record.get("id") + ", product = " + record.get("name")
             : "new product";
         this.logger.debug("showProductDetail = " + logMsg);
@@ -224,7 +224,7 @@ Ext.define("Core.mediator.touch.product.tile.Mediator", {
 	                    matched.push(didMatch);
 	                }
 	                //if nothing was found, return false (don't so in the store)
-	                if (regexps.length > 1 && matched.indexOf(false) != -1) {
+	                if (regexps.length > 1 && matched.indexOf(false) !== -1) {
 	                    return false;
 	                } else {
 	                    //else true true (show in the store)

@@ -53,9 +53,9 @@ Ext.define("Core.mediator.touch.product.detail.Mediator", {
         this.logger.debug("saveProduct");
         var evt;
         var msg;
-        if(product != null) {
+        if(product !== null) {
             var id = product.id;
-            if( (id != null) && (id != "") ) {
+            if( (id !== null) && (id !== "") ) {
                 evt = Ext.create("Core.event.product.Event", Core.event.product.Event.UPDATE_PRODUCT);
                 msg = nineam.locale.LocaleManager.getProperty("productDetail.updatingProduct");
             } else {
@@ -78,7 +78,7 @@ Ext.define("Core.mediator.touch.product.detail.Mediator", {
      */
     deleteProduct: function(product) {
         this.logger.debug("deleteProduct");
-        if(product != null) {
+        if(product !== null) {
             this.getView().setMasked({
                 xtype: "loadmask",
                 message: nineam.locale.LocaleManager.getProperty("productDetail.deletingProduct")
@@ -211,7 +211,7 @@ Ext.define("Core.mediator.touch.product.detail.Mediator", {
      * @param {Core.model.product.Model} record The selected record of the store.
      */
     onSelectedRecordChange: function(store, record) {
-        var logMsg = (record != null)
+        var logMsg = (record !== null)
             ? ": id = " + record.get("id") + ", product = " + record.get("name")
             : "new product";
         this.logger.debug("onSelectedRecordChange = " + logMsg);
@@ -243,7 +243,7 @@ Ext.define("Core.mediator.touch.product.detail.Mediator", {
         var product = this.getView().getRecord();
         var newProduct = this.getView().getValues();
         // if this is a new product record, there's no id available
-        if(product != null) {
+        if(product !== null) {
             newProduct.id = product.data.id;
         }
         this.saveProduct(newProduct);

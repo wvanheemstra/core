@@ -62,4 +62,4 @@ Ext.define("Core.event.authentication.Event", {
         this.username = username;
         this.password = password;
     }
-})
+});

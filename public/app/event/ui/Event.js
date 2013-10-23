@@ -39,4 +39,4 @@ Ext.define("Core.event.ui.Event", {
 
         this.ui = ui;
     }
-})
+});

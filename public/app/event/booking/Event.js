@@ -160,4 +160,4 @@ Ext.define("Core.event.booking.Event", {
         this.id = id;
         this.booking = booking;
     }
-})	
+});

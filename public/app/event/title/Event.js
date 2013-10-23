@@ -39,4 +39,4 @@ Ext.define("Core.event.title.Event", {
 
         this.title = title;
     }
-})
+});

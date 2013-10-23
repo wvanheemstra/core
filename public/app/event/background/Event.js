@@ -39,4 +39,4 @@ Ext.define("Core.event.background.Event", {
 
         this.background = background;
     }
-})
+});

@@ -176,4 +176,4 @@ Ext.define("Core.event.group.Event", {
         this.id = id;
         this.group = group;
     }
-})	
+});	

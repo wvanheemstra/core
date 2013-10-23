@@ -176,4 +176,4 @@ Ext.define("Core.event.membership.Event", {
         this.id = id;
         this.membership = membership;
     }
-})	
+});	

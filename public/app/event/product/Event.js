@@ -160,4 +160,4 @@ Ext.define("Core.event.product.Event", {
         this.id = id;
         this.product = product;
     }
-})	
+});	

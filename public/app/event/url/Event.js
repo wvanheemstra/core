@@ -39,4 +39,4 @@ Ext.define("Core.event.url.Event", {
 
         this.url = url;
     }
-})
+});

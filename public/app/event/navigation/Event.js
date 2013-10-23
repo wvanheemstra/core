@@ -56,4 +56,4 @@ Ext.define("Core.event.navigation.Event", {
         this.action = action;
         this.direction = direction;
     }
-})
+});

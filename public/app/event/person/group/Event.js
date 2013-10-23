@@ -108,4 +108,4 @@ Ext.define("Core.event.person.group.Event", {
         this.id = id;
         this.personGroup = personGroup;
     }
-})	
+});	

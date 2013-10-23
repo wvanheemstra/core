@@ -176,4 +176,4 @@ Ext.define("Core.event.date.Event", {
         this.id = id;
         this.date = date;
     }
-})	
+});	

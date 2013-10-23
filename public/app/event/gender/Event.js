@@ -176,4 +176,4 @@ Ext.define("Core.event.gender.Event", {
         this.id = id;
         this.gender = gender;
     }
-})	
+});	

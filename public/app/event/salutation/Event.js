@@ -176,4 +176,4 @@ Ext.define("Core.event.salutation.Event", {
         this.id = id;
         this.salutation = salutation;
     }
-})	
+});	

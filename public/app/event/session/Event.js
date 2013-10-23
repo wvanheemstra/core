@@ -77,4 +77,4 @@ Ext.define("Core.event.session.Event", {
         this.id = id;
         this.sessionId = sessionId;
     }
-})
+});

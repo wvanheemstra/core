@@ -176,4 +176,4 @@ Ext.define("Core.event.nationality.Event", {
         this.id = id;
         this.nationality = nationality;
     }
-})	
+});	

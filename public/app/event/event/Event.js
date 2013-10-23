@@ -183,4 +183,4 @@ Ext.define("Core.event.event.Event", {
         this.id = id;
         this.event = event;
     }
-})	
+});	

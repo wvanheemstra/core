@@ -39,7 +39,7 @@ Ext.define("Core.controller.membership.Controller", {
         this.eventBus.addGlobalEventListener(Core.event.membership.Event.GET_MEMBERSHIP_SLIDE, this.onGetMembershipSlide, this);
         this.eventBus.addGlobalEventListener(Core.event.membership.Event.GET_MEMBERSHIP_LIST, this.onGetMembershipList, this); 
         this.eventBus.addGlobalEventListener(Core.event.membership.Event.GET_MEMBERSHIP_TILE, this.onGetMembershipTile, this);
-		this.eventBus.addGlobalEventListener(Core.event.membership.Event.GET_MEMBERSHIP_MODAL, this.onGetMembershipModal, this)               
+		this.eventBus.addGlobalEventListener(Core.event.membership.Event.GET_MEMBERSHIP_MODAL, this.onGetMembershipModal, this);               
         this.eventBus.addGlobalEventListener(Core.event.membership.Event.CREATE_MEMBERSHIP, this.onCreateMembership, this);
         this.eventBus.addGlobalEventListener(Core.event.membership.Event.UPDATE_MEMBERSHIP, this.onUpdateMembership, this);
         this.eventBus.addGlobalEventListener(Core.event.membership.Event.DELETE_MEMBERSHIP, this.onDeleteMembership, this);

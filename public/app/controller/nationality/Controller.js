@@ -39,7 +39,7 @@ Ext.define("Core.controller.nationality.Controller", {
         this.eventBus.addGlobalEventListener(Core.event.nationality.Event.GET_NATIONALITY_SLIDE, this.onGetNationalitySlide, this);
         this.eventBus.addGlobalEventListener(Core.event.nationality.Event.GET_NATIONALITY_LIST, this.onGetNationalityList, this); 
         this.eventBus.addGlobalEventListener(Core.event.nationality.Event.GET_NATIONALITY_TILE, this.onGetNationalityTile, this);
-		this.eventBus.addGlobalEventListener(Core.event.nationality.Event.GET_NATIONALITY_MODAL, this.onGetNationalityModal, this)               
+		this.eventBus.addGlobalEventListener(Core.event.nationality.Event.GET_NATIONALITY_MODAL, this.onGetNationalityModal, this);               
         this.eventBus.addGlobalEventListener(Core.event.nationality.Event.CREATE_NATIONALITY, this.onCreateNationality, this);
         this.eventBus.addGlobalEventListener(Core.event.nationality.Event.UPDATE_NATIONALITY, this.onUpdateNationality, this);
         this.eventBus.addGlobalEventListener(Core.event.nationality.Event.DELETE_NATIONALITY, this.onDeleteNationality, this);

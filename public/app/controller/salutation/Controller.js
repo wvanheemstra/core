@@ -39,7 +39,7 @@ Ext.define("Core.controller.salutation.Controller", {
         this.eventBus.addGlobalEventListener(Core.event.salutation.Event.GET_SALUTATION_SLIDE, this.onGetSalutationSlide, this);
         this.eventBus.addGlobalEventListener(Core.event.salutation.Event.GET_SALUTATION_LIST, this.onGetSalutationList, this); 
         this.eventBus.addGlobalEventListener(Core.event.salutation.Event.GET_SALUTATION_TILE, this.onGetSalutationTile, this);
-		this.eventBus.addGlobalEventListener(Core.event.salutation.Event.GET_SALUTATION_MODAL, this.onGetSalutationModal, this)               
+		this.eventBus.addGlobalEventListener(Core.event.salutation.Event.GET_SALUTATION_MODAL, this.onGetSalutationModal, this);               
         this.eventBus.addGlobalEventListener(Core.event.salutation.Event.CREATE_SALUTATION, this.onCreateSalutation, this);
         this.eventBus.addGlobalEventListener(Core.event.salutation.Event.UPDATE_SALUTATION, this.onUpdateSalutation, this);
         this.eventBus.addGlobalEventListener(Core.event.salutation.Event.DELETE_SALUTATION, this.onDeleteSalutation, this);

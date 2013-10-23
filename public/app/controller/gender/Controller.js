@@ -39,7 +39,7 @@ Ext.define("Core.controller.gender.Controller", {
         this.eventBus.addGlobalEventListener(Core.event.gender.Event.GET_GENDER_SLIDE, this.onGetGenderSlide, this);
         this.eventBus.addGlobalEventListener(Core.event.gender.Event.GET_GENDER_LIST, this.onGetGenderList, this); 
         this.eventBus.addGlobalEventListener(Core.event.gender.Event.GET_GENDER_TILE, this.onGetGenderTile, this);
-		this.eventBus.addGlobalEventListener(Core.event.gender.Event.GET_GENDER_MODAL, this.onGetGenderModal, this)               
+		this.eventBus.addGlobalEventListener(Core.event.gender.Event.GET_GENDER_MODAL, this.onGetGenderModal, this);               
         this.eventBus.addGlobalEventListener(Core.event.gender.Event.CREATE_GENDER, this.onCreateGender, this);
         this.eventBus.addGlobalEventListener(Core.event.gender.Event.UPDATE_GENDER, this.onUpdateGender, this);
         this.eventBus.addGlobalEventListener(Core.event.gender.Event.DELETE_GENDER, this.onDeleteGender, this);

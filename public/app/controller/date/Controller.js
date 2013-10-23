@@ -39,7 +39,7 @@ Ext.define("Core.controller.date.Controller", {
         this.eventBus.addGlobalEventListener(Core.event.date.Event.GET_DATE_SLIDE, this.onGetDateSlide, this);
         this.eventBus.addGlobalEventListener(Core.event.date.Event.GET_DATE_LIST, this.onGetDateList, this); 
         this.eventBus.addGlobalEventListener(Core.event.date.Event.GET_DATE_TILE, this.onGetDateTile, this);
-		this.eventBus.addGlobalEventListener(Core.event.date.Event.GET_DATE_MODAL, this.onGetDateModal, this)               
+		this.eventBus.addGlobalEventListener(Core.event.date.Event.GET_DATE_MODAL, this.onGetDateModal, this);               
         this.eventBus.addGlobalEventListener(Core.event.date.Event.CREATE_DATE, this.onCreateDate, this);
         this.eventBus.addGlobalEventListener(Core.event.date.Event.UPDATE_DATE, this.onUpdateDate, this);
         this.eventBus.addGlobalEventListener(Core.event.date.Event.DELETE_DATE, this.onDeleteDate, this);

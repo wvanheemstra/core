@@ -38,7 +38,8 @@ Ext.define("Core.controller.product.Controller", {
         this.logger.debug("setupGlobalEventListeners");
         this.eventBus.addGlobalEventListener(Core.event.product.Event.GET_PRODUCT_SLIDE, this.onGetProductSlide, this);
         this.eventBus.addGlobalEventListener(Core.event.product.Event.GET_PRODUCT_LIST, this.onGetProductList, this); 
-        this.eventBus.addGlobalEventListener(Core.event.product.Event.GET_PRODUCT_TILE, this.onGetProductTile, this);        this.eventBus.addGlobalEventListener(Core.event.product.Event.GET_PRODUCT_MODAL, this.onGetProductModal, this);               
+        this.eventBus.addGlobalEventListener(Core.event.product.Event.GET_PRODUCT_TILE, this.onGetProductTile, this);
+        this.eventBus.addGlobalEventListener(Core.event.product.Event.GET_PRODUCT_MODAL, this.onGetProductModal, this);               
         this.eventBus.addGlobalEventListener(Core.event.product.Event.CREATE_PRODUCT, this.onCreateProduct, this);
         this.eventBus.addGlobalEventListener(Core.event.product.Event.UPDATE_PRODUCT, this.onUpdateProduct, this);
         this.eventBus.addGlobalEventListener(Core.event.product.Event.DELETE_PRODUCT, this.onDeleteProduct, this);

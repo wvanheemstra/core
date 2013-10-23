@@ -39,7 +39,7 @@ Ext.define("Core.controller.group.Controller", {
         this.eventBus.addGlobalEventListener(Core.event.group.Event.GET_GROUP_SLIDE, this.onGetGroupSlide, this);
         this.eventBus.addGlobalEventListener(Core.event.group.Event.GET_GROUP_LIST, this.onGetGroupList, this); 
         this.eventBus.addGlobalEventListener(Core.event.group.Event.GET_GROUP_TILE, this.onGetGroupTile, this);
-		this.eventBus.addGlobalEventListener(Core.event.group.Event.GET_GROUP_MODAL, this.onGetGroupModal, this)               
+		this.eventBus.addGlobalEventListener(Core.event.group.Event.GET_GROUP_MODAL, this.onGetGroupModal, this);               
         this.eventBus.addGlobalEventListener(Core.event.group.Event.CREATE_GROUP, this.onCreateGroup, this);
         this.eventBus.addGlobalEventListener(Core.event.group.Event.UPDATE_GROUP, this.onUpdateGroup, this);
         this.eventBus.addGlobalEventListener(Core.event.group.Event.DELETE_GROUP, this.onDeleteGroup, this);

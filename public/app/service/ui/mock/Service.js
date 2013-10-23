@@ -16,7 +16,7 @@ Ext.define("Core.service.ui.mock.Service", {
     set: function(ui) {
         this.logger.debug("set: ui = " + ui);
 
-        if(ui == ui) { // Allow any ui for now
+        if(ui === ui) { // Allow any ui for now
 
             var response = {
                 success: true,

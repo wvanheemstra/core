@@ -40,9 +40,9 @@ Ext.define("Core.mediator.extjs.person.detail.Mediator", {
         this.logger.debug("savePerson");
         var evt;
         var msg;
-        if(person != null) {
+        if(person !== null) {
             var id = person.id;
-            if( (id != null) && (id != "") ) {
+            if( (id !== null) && (id !== "") ) {
                 evt = Ext.create("Core.event.person.Event", Core.event.person.Event.UPDATE_PERSON);
                 msg = nineam.locale.LocaleManager.getProperty("personDetail.updatingPerson");
             } else {
@@ -62,7 +62,7 @@ Ext.define("Core.mediator.extjs.person.detail.Mediator", {
      */
     deletePerson: function(person) {
         this.logger.debug("deletePerson");
-        if(person != null) {
+        if(person !== null) {
             this.getView().setLoading(nineam.locale.LocaleManager.getProperty("personDetail.deletingPerson"));
             var evt = Ext.create("Core.event.person.Event", Core.event.person.Event.DELETE_PERSON);
             evt.person = person;
@@ -77,7 +77,7 @@ Ext.define("Core.mediator.extjs.person.detail.Mediator", {
 	readSalutations: function() {
         this.logger.debug("readSalutations");
 		var salutationPicker = this.getView().getSalutationPicker();
-        if(salutationPicker == null) {
+        if(salutationPicker === null) {
             this.getView().setMasked({
                 xtype: "loadmask",
                 message: nineam.locale.LocaleManager.getProperty("personDetail.readingSalutations")
@@ -245,7 +245,7 @@ Ext.define("Core.mediator.extjs.person.detail.Mediator", {
      */
     onSelectedRecordChange: function(store, record) {
 		//Do not put within if() statement 
-		var logMsg = (record != null)
+		var logMsg = (record !== null)
 			? ": id = " + record.get("id") + ", person = " + record.get("name")
 			: "new person";
 		this.logger.debug("onSelectedRecordChange = " + logMsg);
@@ -277,7 +277,7 @@ Ext.define("Core.mediator.extjs.person.detail.Mediator", {
         var person = this.getView().getRecord();
         var newPerson = this.getView().getValues();
         // if this is a new person record, there's no id available
-        if(person != null) {
+        if(person !== null) {
             newPerson.id = person.data.id;
         }
         this.savePerson(newPerson);

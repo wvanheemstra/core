@@ -145,11 +145,11 @@ Ext.define("Core.mediator.touch.viewport.booking.Mediator", {
 				var nextView = Core.config.booking.Config.getNextView();
                 console.log("next view: " + nextView); // added by wvh, for testing only
 				// LOGIN
-				if(nextView == 'login') {view = this.getViewByXType("loginView");}
+				if(nextView === 'login') {view = this.getViewByXType("loginView");}
 				// BOOKING
-				if(nextView == 'bookingslide') {view = this.getViewByXType("bookingSlideView");}
-				if(nextView == 'bookinglist') {view = this.getViewByXType("bookingListView");}
-				if(nextView == 'bookingtile') {view = this.getViewByXType("bookingTileView");}
+				if(nextView === 'bookingslide') {view = this.getViewByXType("bookingSlideView");}
+				if(nextView === 'bookinglist') {view = this.getViewByXType("bookingListView");}
+				if(nextView === 'bookingtile') {view = this.getViewByXType("bookingTileView");}
 				Core.config.booking.Config.setCurrentView(nextView);
                 direction = 'left';
                 break;

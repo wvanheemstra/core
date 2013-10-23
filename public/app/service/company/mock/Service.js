@@ -16,7 +16,7 @@ Ext.define("Core.service.company.mock.Service", {
     set: function(company) {
         this.logger.debug("set: company = " + company);
 
-        if(company == company) { //Allow any company for now
+        if(company === company) { //Allow any company for now
 
             var response = {
                 success: true,

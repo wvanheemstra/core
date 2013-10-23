@@ -145,11 +145,11 @@ Ext.define("Core.mediator.touch.viewport.product.Mediator", {
 				var nextView = Core.config.product.Config.getNextView();
                 console.log("next view: " + nextView); // added by wvh, for testing only
 				// LOGIN
-				if(nextView == 'login') {view = this.getViewByXType("loginView");}
+				if(nextView === 'login') {view = this.getViewByXType("loginView");}
 				// PRODUCT
-				if(nextView == 'productslide') {view = this.getViewByXType("productSlideView");}
-				if(nextView == 'productlist') {view = this.getViewByXType("productListView");}
-				if(nextView == 'producttile') {view = this.getViewByXType("productTileView");}
+				if(nextView === 'productslide') {view = this.getViewByXType("productSlideView");}
+				if(nextView === 'productlist') {view = this.getViewByXType("productListView");}
+				if(nextView === 'producttile') {view = this.getViewByXType("productTileView");}
 				Core.config.product.Config.setCurrentView(nextView);
                 direction = 'left';
                 break;

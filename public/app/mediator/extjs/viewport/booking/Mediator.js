@@ -125,12 +125,12 @@ Ext.define("Core.mediator.extjs.viewport.Mediator", {
 				var nextView = Core.config.booking.Config.getNextView();
                 console.log("next view: " + nextView);
 				// LOGIN
-				if(nextView == 'login') {view = this.getViewByXType("loginView");}			
+				if(nextView === 'login') {view = this.getViewByXType("loginView");}			
 				// BOOKING
-				if(nextView == 'bookingslide') {view = this.getViewByXType("bookingSlideView");}
-				if(nextView == 'bookinglist') {view = this.getViewByXType("bookingListView");}
-				if(nextView == 'bookingtile') {view = this.getViewByXType("bookingTileView");}	
-				if(nextView == 'bookingmodal') {view = this.getViewByXType("bookingModalView");}				
+				if(nextView === 'bookingslide') {view = this.getViewByXType("bookingSlideView");}
+				if(nextView === 'bookinglist') {view = this.getViewByXType("bookingListView");}
+				if(nextView === 'bookingtile') {view = this.getViewByXType("bookingTileView");}	
+				if(nextView === 'bookingmodal') {view = this.getViewByXType("bookingModalView");}				
 				
 				Core.config.booking.Config.setCurrentView(nextView);
                 direction = this.getSlideLeftTransition();
@@ -213,7 +213,7 @@ Ext.define("Core.mediator.extjs.viewport.Mediator", {
 //            for ( var i=0; i<this.getView().items.length; i++)
 //            {
 //                var id = this.getView().items.getAt(i).getItemId();
-//                if (id == view)
+//                if (id === view)
 //                {
 //                    this.getView().items.getAt(i).show();
 //                } else {

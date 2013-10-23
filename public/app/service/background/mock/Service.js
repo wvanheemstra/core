@@ -16,7 +16,7 @@ Ext.define("Core.service.background.mock.Service", {
     set: function(background) {
         this.logger.debug("set: background = " + background);
 
-        if(background == background) { // allow any background for now
+        if(background === background) { // allow any background for now
 
             var response = {
                 success: true,

@@ -145,11 +145,11 @@ Ext.define("Core.mediator.touch.viewport.organisation.Mediator", {
 				var nextView = Core.config.organisation.Config.getNextView();
                 console.log("next view: " + nextView); // added by wvh, for testing only
 				// LOGIN
-				if(nextView == 'login') {view = this.getViewByXType("loginView");}
+				if(nextView === 'login') {view = this.getViewByXType("loginView");}
 				// ORGANISATION
-				if(nextView == 'organisationslide') {view = this.getViewByXType("organisationSlideView");}
-				if(nextView == 'organisationlist') {view = this.getViewByXType("organisationListView");}
-				if(nextView == 'organisationtile') {view = this.getViewByXType("organisationTileView");}
+				if(nextView === 'organisationslide') {view = this.getViewByXType("organisationSlideView");}
+				if(nextView === 'organisationlist') {view = this.getViewByXType("organisationListView");}
+				if(nextView === 'organisationtile') {view = this.getViewByXType("organisationTileView");}
 				Core.config.organisation.Config.setCurrentView(nextView);
                 direction = 'left';
                 break;

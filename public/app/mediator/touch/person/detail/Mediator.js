@@ -179,7 +179,7 @@ Ext.define("Core.mediator.touch.person.detail.Mediator", {
      */
 	readSalutations: function() {
         this.logger.debug("readSalutations");
-        if(this.self.SALUTATION_PICKER_SET == false) {
+        if(this.self.SALUTATION_PICKER_SET === false) {
             this.getView().setMasked({
                 xtype: "loadmask",
                 message: nineam.locale.LocaleManager.getProperty("personDetail.readingSalutations")
@@ -198,7 +198,7 @@ Ext.define("Core.mediator.touch.person.detail.Mediator", {
      */
 	readGenders: function() {
         this.logger.debug("readGenders");
-        if(this.self.GENDER_PICKER_SET == false) {
+        if(this.self.GENDER_PICKER_SET === false) {
             this.getView().setMasked({
                 xtype: "loadmask",
                 message: nineam.locale.LocaleManager.getProperty("personDetail.readingGenders")
@@ -217,7 +217,7 @@ Ext.define("Core.mediator.touch.person.detail.Mediator", {
      */
 	readNationalities: function() {
         this.logger.debug("readNationalities");
-        if(this.self.NATIONALITY_PICKER_SET == false) {
+        if(this.self.NATIONALITY_PICKER_SET === false) {
             this.getView().setMasked({
                 xtype: "loadmask",
                 message: nineam.locale.LocaleManager.getProperty("personDetail.readingNationalities")
@@ -236,7 +236,7 @@ Ext.define("Core.mediator.touch.person.detail.Mediator", {
      */
 	readDates: function() {
         this.logger.debug("readDates");
-        if(this.self.DATE_PICKER_SET == false) {
+        if(this.self.DATE_PICKER_SET === false) {
             this.getView().setMasked({
                 xtype: "loadmask",
                 message: nineam.locale.LocaleManager.getProperty("personDetail.readingDates")

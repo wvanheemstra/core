@@ -26,7 +26,7 @@ Ext.define("Core.service.session.mock.Service", {
 	    var key = "Core.session.ApplicationKey";
 	    var value = localStorage.getItem(key);
 		
-		if (typeof sessionModel == 'undefined'){
+		if (typeof sessionModel === 'undefined'){
 			var sessionModel = new Core.model.session.Model({
 				id: null,
 				sessionId: null

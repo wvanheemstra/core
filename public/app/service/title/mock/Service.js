@@ -16,7 +16,7 @@ Ext.define("Core.service.title.mock.Service", {
     set: function(title) {
         this.logger.debug("set: title = " + title);
 
-        if(title == title) { // allow any title for now
+        if(title === title) { // allow any title for now
 
             var response = {
                 success: true,

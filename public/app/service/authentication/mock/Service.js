@@ -17,7 +17,7 @@ Ext.define("Core.service.authentication.mock.Service", {
     authenticate: function(username, password) {
         this.logger.debug("authenticate: username = " + username + ", password = " + password);
 
-        if(password == "password") { // only allow 'password' for now
+        if(password === "password") { // only allow 'password' for now
 
             var response = {
                 success: true,

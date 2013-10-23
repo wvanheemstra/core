@@ -37,9 +37,9 @@ Ext.define("Core.mediator.extjs.organisation.detail.Mediator", {
         this.logger.debug("saveOrganisation");
         var evt;
         var msg;
-        if(organisation != null) {
+        if(organisation !== null) {
             var id = organisation.id;
-            if( (id != null) && (id != "") ) {
+            if( (id !== null) && (id !== "") ) {
                 evt = Ext.create("Core.event.organisation.Event", Core.event.organisation.Event.UPDATE_ORGANISATION);
                 msg = nineam.locale.LocaleManager.getProperty("organisationDetail.updatingOrganisation");
             } else {
@@ -59,7 +59,7 @@ Ext.define("Core.mediator.extjs.organisation.detail.Mediator", {
      */
     deleteOrganisation: function(organisation) {
         this.logger.debug("deleteOrganisation");
-        if(organisation != null) {
+        if(organisation !== null) {
             this.getView().setLoading(nineam.locale.LocaleManager.getProperty("organisationDetail.deletingOrganisation"));
             var evt = Ext.create("Core.event.organisation.Event", Core.event.organisation.Event.DELETE_ORGANISATION);
             evt.organisation = organisation;
@@ -200,7 +200,7 @@ Ext.define("Core.mediator.extjs.organisation.detail.Mediator", {
      */
     onSelectedRecordChange: function(store, record) {
 		//Do not put within if() statement 
-		var logMsg = (record != null)
+		var logMsg = (record !== null)
 			? ": id = " + record.get("id") + ", organisation = " + record.get("name")
 			: "new organisation";
 		this.logger.debug("onSelectedRecordChange = " + logMsg);
@@ -232,7 +232,7 @@ Ext.define("Core.mediator.extjs.organisation.detail.Mediator", {
         var organisation = this.getView().getRecord();
         var newOrganisation = this.getView().getValues();
         // if this is a new organisation record, there's no id available
-        if(organisation != null) {
+        if(organisation !== null) {
             newOrganisation.id = organisation.data.id;
         }
         this.saveOrganisation(newOrganisation);

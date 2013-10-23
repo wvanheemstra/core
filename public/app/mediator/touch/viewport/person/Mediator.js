@@ -156,11 +156,11 @@ Ext.define("Core.mediator.touch.viewport.person.Mediator", {
 				var nextView = Core.config.person.Config.getNextView();
                 console.log("next view: " + nextView); // added by wvh, for testing only
 				// LOGIN
-				if(nextView == 'login') {view = this.getViewByXType("loginView");}
+				if(nextView === 'login') {view = this.getViewByXType("loginView");}
 				// PERSON
-				if(nextView == 'personslide') {view = this.getViewByXType("personSlideView");}
-				if(nextView == 'personlist') {view = this.getViewByXType("personListView");}
-				if(nextView == 'persontile') {view = this.getViewByXType("personTileView");}
+				if(nextView === 'personslide') {view = this.getViewByXType("personSlideView");}
+				if(nextView === 'personlist') {view = this.getViewByXType("personListView");}
+				if(nextView === 'persontile') {view = this.getViewByXType("personTileView");}
 				Core.config.person.Config.setCurrentView(nextView);
                 direction = 'left';
                 break;

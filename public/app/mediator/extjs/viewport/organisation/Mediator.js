@@ -125,12 +125,12 @@ Ext.define("Core.mediator.extjs.viewport.Mediator", {
 				var nextView = Core.config.organisation.Config.getNextView();
                 console.log("next view: " + nextView);
 				// LOGIN
-				if(nextView == 'login') {view = this.getViewByXType("loginView");}			
+				if(nextView === 'login') {view = this.getViewByXType("loginView");}			
 				// ORGANISATION
-				if(nextView == 'ORGANISATIONslide') {view = this.getViewByXType("ORGANISATIONSlideView");}
-				if(nextView == 'ORGANISATIONlist') {view = this.getViewByXType("ORGANISATIONListView");}
-				if(nextView == 'ORGANISATIONtile') {view = this.getViewByXType("ORGANISATIONTileView");}	
-				if(nextView == 'ORGANISATIONmodal') {view = this.getViewByXType("ORGANISATIONModalView");}				
+				if(nextView === 'ORGANISATIONslide') {view = this.getViewByXType("ORGANISATIONSlideView");}
+				if(nextView === 'ORGANISATIONlist') {view = this.getViewByXType("ORGANISATIONListView");}
+				if(nextView === 'ORGANISATIONtile') {view = this.getViewByXType("ORGANISATIONTileView");}	
+				if(nextView === 'ORGANISATIONmodal') {view = this.getViewByXType("ORGANISATIONModalView");}				
 				
 				Core.config.organisation.Config.setCurrentView(nextView);
                 direction = this.getSlideLeftTransition();
@@ -213,7 +213,7 @@ Ext.define("Core.mediator.extjs.viewport.Mediator", {
 //            for ( var i=0; i<this.getView().items.length; i++)
 //            {
 //                var id = this.getView().items.getAt(i).getItemId();
-//                if (id == view)
+//                if (id === view)
 //                {
 //                    this.getView().items.getAt(i).show();
 //                } else {

@@ -38,7 +38,7 @@ Ext.define("Core.mediator.extjs.booking.tile.Mediator", {
      * @param record    The record is the data model for the item in the list currently selected.
      */
     showBookingDetail: function(record) {
-        var logMsg = (record != null)
+        var logMsg = (record !== null)
             ? ": id = " + record.get("id") + ", booking = " + record.get("name")
             : "";
         this.logger.debug("showBookingDetail = " + logMsg);
@@ -255,7 +255,7 @@ Ext.define("Core.mediator.extjs.booking.tile.Mediator", {
 //
 //
 //                //if nothing was found, return false (dont so in the store)
-//                if (regexps.length > 1 && matched.indexOf(false) != -1) {
+//                if (regexps.length > 1 && matched.indexOf(false) !== -1) {
 //                    return false;
 //                } else {
 //                    //else true true (show in the store)

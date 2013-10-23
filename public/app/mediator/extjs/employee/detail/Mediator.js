@@ -49,9 +49,9 @@ Ext.define("Core.mediator.extjs.employee.detail.Mediator", {
         this.logger.debug("saveEmployee");
         var evt;
         var msg;
-        if(employee != null) {
+        if(employee !== null) {
             var id = employee.id;
-            if( (id != null) && (id != "") ) {
+            if( (id !== null) && (id !== "") ) {
                 evt = Ext.create("Core.event.employee.Event", Core.event.employee.Event.UPDATE_EMPLOYEE);
                 msg = nineam.locale.LocaleManager.getProperty("employeeDetail.updatingEmployee");
             } else {
@@ -71,7 +71,7 @@ Ext.define("Core.mediator.extjs.employee.detail.Mediator", {
      */
     deleteEmployee: function(employee) {
         this.logger.debug("deleteEmployee");
-        if(employee != null) {
+        if(employee !== null) {
             this.getView().setLoading(nineam.locale.LocaleManager.getProperty("employeeDetail.deletingEmployee"));
             var evt = Ext.create("Core.event.employee.Event", Core.event.employee.Event.DELETE_EMPLOYEE);
             evt.employee = employee;
@@ -195,7 +195,7 @@ Ext.define("Core.mediator.extjs.employee.detail.Mediator", {
      * @param {Core.model.EmployeeModel} record The selected record of the store.
      */
     onSelectedRecordChange: function(store, record) {
-        var logMsg = (record != null)
+        var logMsg = (record !== null)
             ? ": id = " + record.get("id") + ", employee = " + record.get("firstName")
             : "new employee";
         this.logger.debug("onSelectedRecordChange = " + logMsg);
@@ -227,7 +227,7 @@ Ext.define("Core.mediator.extjs.employee.detail.Mediator", {
         var employee = this.getView().getRecord();
         var newEmployee = this.getView().getValues();
         // if this is a new employee record, there's no id available
-        if(employee != null) {
+        if(employee !== null) {
             newEmployee.id = employee.data.id;
         }
         this.saveEmployee(newEmployee);

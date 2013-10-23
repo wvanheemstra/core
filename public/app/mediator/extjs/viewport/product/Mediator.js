@@ -125,12 +125,12 @@ Ext.define("Core.mediator.extjs.viewport.Mediator", {
 				var nextView = Core.config.product.Config.getNextView();
                 console.log("next view: " + nextView);
 				// LOGIN
-				if(nextView == 'login') {view = this.getViewByXType("loginView");}			
+				if(nextView === 'login') {view = this.getViewByXType("loginView");}			
 				// PRODUCT
-				if(nextView == 'productslide') {view = this.getViewByXType("productSlideView");}
-				if(nextView == 'productlist') {view = this.getViewByXType("productListView");}
-				if(nextView == 'producttile') {view = this.getViewByXType("productTileView");}	
-				if(nextView == 'productmodal') {view = this.getViewByXType("productModalView");}				
+				if(nextView === 'productslide') {view = this.getViewByXType("productSlideView");}
+				if(nextView === 'productlist') {view = this.getViewByXType("productListView");}
+				if(nextView === 'producttile') {view = this.getViewByXType("productTileView");}	
+				if(nextView === 'productmodal') {view = this.getViewByXType("productModalView");}				
 				
 				Core.config.product.Config.setCurrentView(nextView);
                 direction = this.getSlideLeftTransition();
@@ -213,7 +213,7 @@ Ext.define("Core.mediator.extjs.viewport.Mediator", {
 //            for ( var i=0; i<this.getView().items.length; i++)
 //            {
 //                var id = this.getView().items.getAt(i).getItemId();
-//                if (id == view)
+//                if (id === view)
 //                {
 //                    this.getView().items.getAt(i).show();
 //                } else {

@@ -16,7 +16,7 @@ Ext.define("Core.service.url.mock.Service", {
     set: function(url) {
         this.logger.debug("set: url = " + url);
 
-        if(url == url) { // allow all urls for now
+        if(url === url) { // allow all urls for now
 
             var response = {
                 success: true,

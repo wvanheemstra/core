@@ -110,7 +110,7 @@ Ext.define("Core.mediator.touch.product.modal.Mediator", {
     	this.logger.debug("setTitle: title = " + title);
 		for ( var i=0; i<this.getView().items.length; i++)
         {
-			if(this.getView().items.getAt(i).getItemId() == "titlebar"){
+			if(this.getView().items.getAt(i).getItemId() === "titlebar"){
 				this.getView().items.getAt(i).setTitle(title);
 			}
         }

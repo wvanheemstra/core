@@ -286,8 +286,10 @@
 	    <script type="text/javascript" src="resources/js/flow-mvc/flowmvc.js"></script>
 		<! -- place SenchaCompatibility before the app -->
 		<script type="text/javascript" src="resources/js/sencha-compatibility/SenchaCompatibility.js"></script>	
+		<script type="text/javascript">glu = {debug:true};</script>
 		<script type="text/javascript" src="resources/js/glu/glu-extjs-4.js"></script>	
-		<script type="text/javascript" src="resources/js/glu/glu.js"></script>		
+		<script type="text/javascript" src="resources/js/glu/glu.js"></script>	
+		<script type="text/javascript" src="resources/js/glu/glu-test.js"></script>		
     	<script type="text/javascript" src="glu-extjs.js"></script>
     <% } %>	
     <% if (is_phone) { %>
@@ -297,7 +299,10 @@
 	    <script type="text/javascript" src="resources/js/flow-mvc/flowmvc.js"></script>
 		<! -- place SenchaCompatibility before the app -->
 		<script type="text/javascript" src="resources/js/sencha-compatibility/SenchaCompatibility.js"></script>	
-		<script type="text/javascript" src="resources/js/glu/glu.js"></script>		
+		<script type="text/javascript">glu = {debug:true};</script>
+		<script type="text/javascript" src="resources/js/glu/glu-extjs-4.js"></script>			
+		<script type="text/javascript" src="resources/js/glu/glu.js"></script>	
+		<script type="text/javascript" src="resources/js/glu/glu-test.js"></script>		
     	<script type="text/javascript" src="glu-touch.js"></script>
     <% } %>
     <% if (is_tablet) { %>
@@ -307,7 +312,10 @@
 	    <script type="text/javascript" src="resources/js/flow-mvc/flowmvc.js"></script>
 		<! -- place SenchaCompatibility before the app -->
 		<script type="text/javascript" src="resources/js/sencha-compatibility/SenchaCompatibility.js"></script>	
+		<script type="text/javascript">glu = {debug:true};</script>
+		<script type="text/javascript" src="resources/js/glu/glu-extjs-4.js"></script>			
 		<script type="text/javascript" src="resources/js/glu/glu.js"></script>		
+		<script type="text/javascript" src="resources/js/glu/glu-test.js"></script>		
     	<script type="text/javascript" src="glu-touch.js"></script>
 		<script type="text/javascript">
 			if (!Ext.browser.is.WebKit) {

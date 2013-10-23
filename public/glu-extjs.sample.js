@@ -12,7 +12,10 @@
 Ext.onReady(function () {
     console.log("app.onReady");	
 	
-	glu.viewport('helloworld.main');
+	//glu.viewport('helloworld.main');
+	
+	Core.spec.Backend.createMockBackend(true);
+    glu.viewport('Core.viewmodel.main.ViewModel');
 	
 
     // pull all of this in so they can be injected
@@ -197,8 +200,6 @@ glu.ns('helloworld').locale = {
     greeting:'Hello World!',
     farewell:'Goodbye World!'
 }
-
-
 
 
 /* Ext.application({

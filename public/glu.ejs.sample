@@ -289,7 +289,32 @@
 		<script type="text/javascript">glu = {debug:true};</script>
 		<script type="text/javascript" src="resources/js/glu/glu-extjs-4.js"></script>	
 		<script type="text/javascript" src="resources/js/glu/glu.js"></script>	
-		<script type="text/javascript" src="resources/js/glu/glu-test.js"></script>		
+		<script type="text/javascript" src="resources/js/glu/glu-test.js"></script>	
+
+        <!-- MODELS - TO BE MOVED -->
+		<script type="text/javascript" src="app/model/asset/Model.js"></script>
+		
+        <!-- VIEWMODELS - TO BE MOVED -->
+		<script type="text/javascript" src="app/viewmodel/main/ViewModel.js"></script>
+		<script type="text/javascript" src="app/viewmodel/asset/set/ViewModel.js"></script>
+		<script type="text/javascript" src="app/viewmodel/asset/ViewModel.js"></script>
+		<script type="text/javascript" src="app/viewmodel/options/ViewModel.js"></script>	
+		
+		<!-- VIEWS - TO BE MOVED -->
+		<script type="text/javascript" src="app/view/extjs/main/View.js"></script>
+		<script type="text/javascript" src="app/view/extjs/asset/View.js"></script>
+		<script type="text/javascript" src="app/view/extjs/asset/set/View.js"></script>
+		<script type="text/javascript" src="app/view/extjs/asset/schedule/View.js"></script>
+		<script type="text/javascript" src="app/view/extjs/asset/summary/View.js"></script>
+		<script type="text/javascript" src="app/view/extjs/options/View.js"></script>		
+
+		<!-- LOCALES - TO BE MOVED -->
+		<script type="text/javascript" src="app/locale/locale_en.js"></script>		
+		
+        <!-- SPECS - TO BE MOVED -->
+		<script type="text/javascript" src="app/spec/Backend.js"></script>
+		
+		<!-- APP - NOT TO BE MOVED -->
     	<script type="text/javascript" src="glu-extjs.js"></script>
     <% } %>	
     <% if (is_phone) { %>

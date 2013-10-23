@@ -10,7 +10,8 @@ module.exports.configs = {
 		'organisation':true,
 		'product':true,
 		'booking':true,
-		'event':true
+		'event':true,
+		'glu':true
 	}, // put your apps here
 	api_port : 4001, // put your port number here
 	api_gid : 'root', // put your group id here
@@ -25,7 +26,8 @@ module.exports.configs = {
 		'organisation':true,
 		'product':true,
 		'booking':true,
-		'event':true
+		'event':true,
+		'glu':true
 	}, // put your models here	
 	format_list: {
 		'json':true	

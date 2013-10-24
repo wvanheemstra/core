@@ -290,6 +290,8 @@
 		<script type="text/javascript" src="resources/js/glu/glu-extjs-4.js"></script>	
 		<script type="text/javascript" src="resources/js/glu/glu.js"></script>	
 		<script type="text/javascript" src="resources/js/glu/glu-test.js"></script>	
+		
+		<script type="text/javascript" src="resources/js/moment/moment-with-langs.js"></script>
 
         <!-- MODELS - TO BE MOVED -->
 		<script type="text/javascript" src="app/model/asset/Model.js"></script>

@@ -1,5 +1,5 @@
-(glu.ns 'Core.spec.Backend').createMockBackend = (auto, recordNum)->
-  assets = glu.test.createTable Core.model.asset.Model, 8
+(glu.ns 'Core.assets').createMockBackend = (auto, recordNum)->
+  assets = glu.test.createTable Core.assets.models.asset, 8
   assets.create({id:'7777', name:'aardvark',status:'active'});
   assets.create({id:'8888', name:'aare',status:'active'});
   assets.create({id:'9999', name:'aarf',status:'active'});

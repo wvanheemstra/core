@@ -14,8 +14,8 @@ Ext.onReady(function () {
 	
 	//glu.viewport('helloworld.main');
 	
-	Core.spec.Backend.createMockBackend(true);
-    glu.viewport('Core.viewmodel.main.ViewModel');
+	Core.assets.createMockBackend(true);
+    glu.viewport('Core.assets.main');
 	
 
     // pull all of this in so they can be injected

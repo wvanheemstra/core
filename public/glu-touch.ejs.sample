@@ -135,7 +135,7 @@
 	<script type="text/javascript" src="resources/js/flow-mvc/flowmvc-debug.js"></script>
 	<! -- place SenchaCompatibility before the app -->
 	<script type="text/javascript" src="resources/js/sencha-compatibility/SenchaCompatibility.js"></script>	
-    <script type="text/javascript" src="resources/js/glu/glu.js"></script>		
+    <script type="text/javascript" src="resources/js/glu/glu.js"></script>	
     <script type="text/javascript" src="glu-touch.js"></script>
 	<script type="text/javascript">
 		if (!Ext.browser.is.WebKit) {

@@ -281,44 +281,11 @@
 
     <!-- Libraries, Loader, Application -->
     <% if (is_desktop) { %>
-    	<script type="text/javascript" src="resources/js/ext/ext-all.js"></script>
-    	<script type="text/javascript" src="app/app-loader-extjs.js"></script>
-		<script type="text/javascript" src="resources/js/deft/deft.js"></script>
-	    <script type="text/javascript" src="resources/js/flow-mvc/flowmvc.js"></script>
-		<! -- place SenchaCompatibility before the app -->
-		<script type="text/javascript" src="resources/js/sencha-compatibility/SenchaCompatibility.js"></script>	
-		<script type="text/javascript">glu = {debug:true};</script>
-		<script type="text/javascript" src="resources/js/glu/glu-extjs-4.js"></script>	
-		<script type="text/javascript" src="resources/js/glu/glu.js"></script>	
-		<script type="text/javascript" src="resources/js/glu/glu-test.js"></script>	
-		
-		<script type="text/javascript" src="resources/js/moment/moment-with-langs.js"></script>
-
-        <!-- MODELS - TO BE MOVED -->
-		<script type="text/javascript" src="app/model/asset/Model.js"></script>
-		
-        <!-- VIEWMODELS - TO BE MOVED -->
-		<script type="text/javascript" src="app/viewmodel/main/ViewModel.js"></script>
-		<script type="text/javascript" src="app/viewmodel/asset/set/ViewModel.js"></script>
-		<script type="text/javascript" src="app/viewmodel/asset/ViewModel.js"></script>
-		<script type="text/javascript" src="app/viewmodel/options/ViewModel.js"></script>	
-		
-		<!-- VIEWS - TO BE MOVED -->
-		<script type="text/javascript" src="app/view/extjs/main/View.js"></script>
-		<script type="text/javascript" src="app/view/extjs/asset/View.js"></script>
-		<script type="text/javascript" src="app/view/extjs/asset/set/View.js"></script>
-		<script type="text/javascript" src="app/view/extjs/asset/schedule/View.js"></script>
-		<script type="text/javascript" src="app/view/extjs/asset/summary/View.js"></script>
-		<script type="text/javascript" src="app/view/extjs/options/View.js"></script>		
-
-		<!-- LOCALES - TO BE MOVED -->
-		<script type="text/javascript" src="app/locale/locale_en.js"></script>		
-		
-        <!-- SPECS - TO BE MOVED -->
-		<script type="text/javascript" src="app/spec/Backend.js"></script>
-		
-		<!-- APP - NOT TO BE MOVED -->
-    	<script type="text/javascript" src="glu-extjs.js"></script>
+	
+		<!-- data-main attribute tells require.js to load
+            resources/js/core/desktop.js after require.js loads. -->	 
+        <script data-main="require/asset/desktop" src="resources/js/require/require.js"></script>
+	
     <% } %>	
     <% if (is_phone) { %>
     	<script type="text/javascript" src="resources/js/touch/sencha-touch.js"></script>

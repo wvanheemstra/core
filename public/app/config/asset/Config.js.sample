@@ -1,14 +1,14 @@
 /*
- * Config for values that belong to glu and set at runtime
+ * Config for values that belong to asset and set at runtime
  *
- * Example to set a glu value:
- * Core.config.glu.Config.setMyLastCustomer(12345);
+ * Example to set a asset value:
+ * Core.config.asset.Config.setMyLastCustomer(12345);
  *
- * Example to get a glu value:
- * Core.config.glu.Config.getMyLastCustomer();
+ * Example to get a asset value:
+ * Core.config.asset.Config.getMyLastCustomer();
  *
  */
-Ext.define("Core.config.glu.Config",{
+Ext.define("Core.config.asset.Config",{
     singleton : true,
     config : {
         //myLastCustomer : 0,     // initialize to 0
@@ -18,7 +18,7 @@ Ext.define("Core.config.glu.Config",{
 		initialView: 'login',     // initialize to 'login'
         previousView: '',         // initialize to empty
         currentView: '',          // initialize to empty
-        nextView: 'glulist',   // initialize to empty
+        nextView: 'assetlist',   // initialize to empty
         ui: 'neutral',        	  // initialize to 'neutral'
         company: 'Your Company',  // initialize to 'Your Company'
 		locale: 'en_us',	      // initialize to 'en_us'
@@ -85,7 +85,7 @@ Ext.define("Core.config.glu.Config",{
 				store: true
 			}]
 		},{
-			glu:  [{
+			asset:  [{
 				mock: true,
 				store: true
 			}]

@@ -17,7 +17,7 @@ Ext.onReady(function () {
 	
     // pull all of this in so they can be injected
 /*     Ext.syncRequire([
-	    "Core.view.extjs.viewport.person.View",		
+	    "Core.view.extjs.viewport.asset.View",		
         "FlowMVC.mvc.event.EventDispatcher",
         "FlowMVC.logger.Logger"
     ]); */
@@ -43,7 +43,7 @@ Ext.onReady(function () {
         eventBus:               "FlowMVC.mvc.event.EventDispatcher"
 	}); */
 	
-	// MOVE THIS TO THE Core.config.person.Config AS SOON AS Core IS NOT undefined
+	// MOVE THIS TO THE Core.config.asset.Config AS SOON AS Core IS NOT undefined
 /* 	var services = [{
 		authentication:  [{
 			mock: true
@@ -99,7 +99,7 @@ Ext.onReady(function () {
 			store: true
 		}]
 	},{
-		personGroup:  [{
+		assetGroup:  [{
 			mock: true,
 			store: true
 		}]
@@ -127,11 +127,11 @@ Ext.onReady(function () {
 				if(key == 'mock'){
 					var mock = value[key];
 					var serviceService = serviceName+"Service";
-					var servicePath = "";  // TO DO: Make e.g. person to person, but personGroup to person.group
-					// TO DO: Make e.g. person to person, but personGroup to person.group
+					var servicePath = "";  // TO DO: Make e.g. asset to asset, but assetGroup to asset.group
+					// TO DO: Make e.g. asset to asset, but assetGroup to asset.group
 						// TEMP FIX:
-						if(serviceName == 'personGroup'){
-							servicePath = 'person.group'; 
+						if(serviceName == 'assetGroup'){
+							servicePath = 'asset.group'; 
 						}
 						else {
 							servicePath = serviceName;
@@ -151,10 +151,10 @@ Ext.onReady(function () {
 				if(key == 'store'){
 					var store = value[key];
 					var serviceStore = serviceName+"Store";
-					var storePath = "";  // TO DO: Make e.g. person to person, but personGroup to person.group
+					var storePath = "";  // TO DO: Make e.g. asset to asset, but assetGroup to asset.group
 						// TEMP FIX:
-						if(serviceName == 'personGroup'){
-							storePath = 'person.group'; 
+						if(serviceName == 'assetGroup'){
+							storePath = 'asset.group'; 
 						}
 						else {
 							storePath = serviceName;
@@ -215,7 +215,7 @@ glu.ns('helloworld').locale = {
     ////////////////////////////////////////////    
     requires: [
     	"Core.config.global.Config",
-		"Core.config.person.Config"
+		"Core.config.asset.Config"
     ],
 
     ////////////////////////////////////////////
@@ -228,29 +228,29 @@ glu.ns('helloworld').locale = {
 		"nationality.Model",	
 		"date.Model",	
 		"membership.Model",	
-		"person.group.Model",		
+		"asset.group.Model",		
 		"group.Model",			
-    	"person.Model"
+    	"asset.Model"
     ],
 
     ////////////////////////////////////////////
     // VIEWS
     ////////////////////////////////////////////
     views: [
-        "Core.view.extjs.viewport.person.View",
+        "Core.view.extjs.viewport.asset.View",
         "Core.view.extjs.login.View",
-        "Core.view.extjs.person.slide.View",		
-        "Core.view.extjs.person.list.View",
-        "Core.view.extjs.person.detail.View",
-        "Core.view.extjs.person.tile.View",
-        "Core.view.extjs.person.modal.View"		
+        "Core.view.extjs.asset.slide.View",		
+        "Core.view.extjs.asset.list.View",
+        "Core.view.extjs.asset.detail.View",
+        "Core.view.extjs.asset.tile.View",
+        "Core.view.extjs.asset.modal.View"		
     ],
 
     ////////////////////////////////////////////
     // CONTROLLERS
     ////////////////////////////////////////////
     controllers:[
-        //"bootstrap.Controller", // DEPRECATED, now part of "person.Controller"
+        //"bootstrap.Controller", // DEPRECATED, now part of "asset.Controller"
         "session.Controller",  
         "background.Controller",		
         "ui.Controller",
@@ -262,9 +262,9 @@ glu.ns('helloworld').locale = {
 		"nationality.Controller",	
 		"date.Controller",
 		"membership.Controller",
-		"person.group.Controller",			
+		"asset.group.Controller",			
 		"group.Controller",		
-        "person.Controller"	
+        "asset.Controller"	
     ],
 
     /**
@@ -281,7 +281,7 @@ glu.ns('helloworld').locale = {
 
         // Set up QuickTips and create the Viewport
         Ext.tip.QuickTipManager.init();
-        var viewport = Ext.create("Core.view.extjs.viewport.person.View");
+        var viewport = Ext.create("Core.view.extjs.viewport.asset.View");
 		// BELOW IS MOVED TO GET_SESSION_SUCCESS and GET_SESSION_FAILURE
 		// viewport.setView(Core.config.global.Config.getInitialView());
 		var viewportMediator = viewport.getController();

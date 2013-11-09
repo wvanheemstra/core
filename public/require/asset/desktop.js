@@ -1,9 +1,9 @@
 /*
- * glu - desktop
+ * asset - desktop
  * See: https://github.com/Alxandr/pipeline-js
  */
  
-var app = 'glu';
+var app = 'asset';
 console.log("app = " + app);	
 var device = 'desktop';
 console.log("device = " + device);
@@ -11,7 +11,7 @@ var lib = 'extjs';
 console.log("lib = " + lib);	
 var models = ['asset'];
 console.log("models = " + models);
-var viewmodels = ['main', 'asset/set', 'asset', 'options'];
+var viewmodels = ['main', 'asset', 'asset/set', 'options'];
 console.log("viewmodels = " + viewmodels);
 var views = ['main', 'asset', 'asset/set', 'asset/schedule', 'asset/summary', 'options'];
 console.log("views = " + views);

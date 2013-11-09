@@ -1,8 +1,8 @@
-/*
- * asset - desktop
- * See: https://github.com/Alxandr/pipeline-js
+/**
+ * The asset desktop application class.
+ *
+ * See also: https://github.com/Alxandr/pipeline-js
  */
- 
 var app = 'asset';
 console.log("app = " + app);	
 var device = 'desktop';
@@ -187,12 +187,12 @@ require({
 		var app = state.app;
 		var lib = state.lib;
 		console.log("PIPELINE: " + app + "-" + lib);
-		require(["../../" + app + "-" + lib], function() {
+		require(["./" + device + "/app"], function() {
 			// empty
-		});
+		}); 
 	}).stop(function() {
 		console.log("PIPELINE: stopped");
 		// stopped
 	}).create();
-	pipeline(state);
+	pipeline(state); 
 });

@@ -281,37 +281,19 @@
 
     <!-- Libraries, Loader, Application -->
     <% if (is_desktop) { %>
-	
 		<!-- data-main attribute tells require.js to load
-            resources/js/core/desktop.js after require.js loads. -->	 
+             require/asset/desktop.js after require.js loads. -->	 
         <script data-main="require/asset/desktop" src="resources/js/require/require.js"></script>
-	
     <% } %>	
     <% if (is_phone) { %>
-    	<script type="text/javascript" src="resources/js/touch/sencha-touch.js"></script>
-    	<script type="text/javascript" src="app/app-loader-touch.js"></script>
-		<script type="text/javascript" src="resources/js/deft/deft.js"></script>
-	    <script type="text/javascript" src="resources/js/flow-mvc/flowmvc.js"></script>
-		<! -- place SenchaCompatibility before the app -->
-		<script type="text/javascript" src="resources/js/sencha-compatibility/SenchaCompatibility.js"></script>	
-		<script type="text/javascript">glu = {debug:true};</script>
-		<script type="text/javascript" src="resources/js/glu/glu-extjs-4.js"></script>			
-		<script type="text/javascript" src="resources/js/glu/glu.js"></script>	
-		<script type="text/javascript" src="resources/js/glu/glu-test.js"></script>		
-    	<script type="text/javascript" src="glu-touch.js"></script>
+		<!-- data-main attribute tells require.js to load
+             require/asset/phone.js after require.js loads. -->	 
+        <script data-main="require/asset/phone" src="resources/js/require/require.js"></script>
     <% } %>
     <% if (is_tablet) { %>
-    	<script type="text/javascript" src="resources/js/touch/sencha-touch.js"></script>
-    	<script type="text/javascript" src="app/app-loader-touch.js"></script>
-		<script type="text/javascript" src="resources/js/deft/deft.js"></script>
-	    <script type="text/javascript" src="resources/js/flow-mvc/flowmvc.js"></script>
-		<! -- place SenchaCompatibility before the app -->
-		<script type="text/javascript" src="resources/js/sencha-compatibility/SenchaCompatibility.js"></script>	
-		<script type="text/javascript">glu = {debug:true};</script>
-		<script type="text/javascript" src="resources/js/glu/glu-extjs-4.js"></script>			
-		<script type="text/javascript" src="resources/js/glu/glu.js"></script>		
-		<script type="text/javascript" src="resources/js/glu/glu-test.js"></script>		
-    	<script type="text/javascript" src="glu-touch.js"></script>
+		<!-- data-main attribute tells require.js to load
+             require/asset/tablet.js after require.js loads. -->	 
+        <script data-main="require/asset/tablet" src="resources/js/require/require.js"></script>
 		<script type="text/javascript">
 			if (!Ext.browser.is.WebKit) {
 				alert("The current browser is unsupported.\n\nSupported browsers:\n" +
@@ -322,7 +304,7 @@
 					"BlackBerry Browser"
 				);
 			}
-		</script>		
+		</script>	
     <% } %>
 </head>
 <body>

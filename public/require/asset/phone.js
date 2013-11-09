@@ -186,7 +186,7 @@ require({
 		// APP
 		var app = state.app;
 		var lib = state.lib;
-		console.log("PIPELINE: " + app + "-" + lib);
+		console.log("PIPELINE: app");
 		require(["./" + device + "/app"], function() {
 			// empty
 		}); 

@@ -8,23 +8,11 @@ console.log("app = " + app);
 var device = 'desktop';
 console.log("device = " + device);
 var lib = 'extjs';
-console.log("lib = " + lib);	
-var models = ['asset'];
-console.log("models = " + models);
-var viewmodels = ['main', 'asset', 'asset/set', 'options'];
-console.log("viewmodels = " + viewmodels);
-var views = ['main', 'asset', 'asset/set', 'asset/schedule', 'asset/summary', 'options'];
-console.log("views = " + views);
-var locales = ['locale_en'];
-console.log("locales = " + locales);
+console.log("lib = " + lib);
 var state = {
 	app: app, 
 	device: device, 
-	lib: lib, 
-	models: models, 
-	viewmodels: viewmodels, 
-	views: views,
-	locales: locales
+	lib: lib
 };
 
 // Moment
@@ -132,40 +120,6 @@ require({
 			console.log("PIPELINE: glu-test");
 			callback();
 		});
-	}).pipe(function(state) {
-		// MODELS	
-		var models = state.models;
-		for (key in models){
-			console.log("PIPELINE: " + models[key] + " model");
-			require(["../../app/model/" + models[key] + "/Model"], function() {
-				// empty
-			});
-		}
-	}).pipe(function(state) {
-		// VIEWMODELS
-		var viewmodels = state.viewmodels;		
-		for (key in viewmodels){
-			console.log("PIPELINE: " + viewmodels[key] + " view model");
-			require(["../../app/viewmodel/" + viewmodels[key] + "/ViewModel"], function() {
-				// empty
-			});
-		}
-	}).pipe(function(state) {
-		// VIEWS
-		var views = state.views;
-		var lib = state.lib;
-		for (key in views){
-			console.log("PIPELINE: " + views[key] + " view");	
-			require(["../../app/view/" + lib + "/" + views[key] + "/View"], function() {
-				// empty
-			});
-		}
-	}).pipeAsync(function(state, callback) {
-		// SPECS
-		require(["../../app/spec/Backend"], function() {
-			console.log("PIPELINE: Backend");
-			callback();
-		});
 	}).pipeAsync(function(state, callback) {
 		// LOADER
 		var lib = state.lib;
@@ -173,15 +127,6 @@ require({
 		require(["../../app/app-loader-" + lib], function() {
 			callback();
 		});
-	}).pipeAsync(function(state, callback) {
-		// LOCALES
-		var locales = state.locales;
-		for (key in locales){
-			console.log("PIPELINE: " + locales[key] + " locale");	
-			require(["../../app/locale/" + locales[key]], function() {
-				callback();
-			});
-		}
 	}).pipe(function(state) {
 		// APP
 		var app = state.app;

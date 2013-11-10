@@ -61,31 +61,6 @@ Ext.onReady(function () {
 			mock: true
 		}]
 	},{
-		salutation:  [{
-			mock: true,
-			store: true
-		}]
-	},{
-		gender:  [{
-			mock: true,
-			store: true
-		}]
-	},{
-		nationality:  [{
-			mock: true,
-			store: true
-		}]
-	},{
-		date:  [{
-			mock: true,
-			store: true
-		}]
-	},{
-		membership:  [{
-			mock: true,
-			store: true
-		}]
-	},{
 		assetGroup:  [{
 			mock: true,
 			store: true
@@ -217,11 +192,6 @@ Ext.application({
         "url.Controller",
         "title.Controller",
         "authentication.Controller",
-		"salutation.Controller",
-		"gender.Controller",
-		"nationality.Controller",
-		"date.Controller",
-		"membership.Controller",
 		"asset.group.Controller",		
 		"group.Controller",
         "asset.Controller"

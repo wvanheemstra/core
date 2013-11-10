@@ -123,8 +123,8 @@ require({
 	}).pipeAsync(function(state, callback) {
 		// LOADER
 		var lib = state.lib;
-		console.log("PIPELINE: app-loader-" + lib);
-		require(["../../app/app-loader-" + lib], function() {
+		console.log("PIPELINE: app-loader");
+		require(["./" + device + "/app-loader"], function() {
 			callback();
 		});
 	}).pipe(function(state) {

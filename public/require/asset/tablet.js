@@ -132,56 +132,13 @@ require({
 			console.log("PIPELINE: glu-test");
 			callback();
 		});
-	}).pipe(function(state) {
-		// MODELS	
-		var models = state.models;
-		for (key in models){
-			console.log("PIPELINE: " + models[key] + " model");
-			require(["../../app/model/" + models[key] + "/Model"], function() {
-				// empty
-			});
-		}
-	}).pipe(function(state) {
-		// VIEWMODELS
-		var viewmodels = state.viewmodels;		
-		for (key in viewmodels){
-			console.log("PIPELINE: " + viewmodels[key] + " view model");
-			require(["../../app/viewmodel/" + viewmodels[key] + "/ViewModel"], function() {
-				// empty
-			});
-		}
-	}).pipe(function(state) {
-		// VIEWS
-		var views = state.views;
-		var lib = state.lib;
-		for (key in views){
-			console.log("PIPELINE: " + views[key] + " view");	
-			require(["../../app/view/" + lib + "/" + views[key] + "/View"], function() {
-				// empty
-			});
-		}
-	}).pipeAsync(function(state, callback) {
-		// SPECS
-		require(["../../app/spec/Backend"], function() {
-			console.log("PIPELINE: Backend");
-			callback();
-		});
 	}).pipeAsync(function(state, callback) {
 		// LOADER
 		var lib = state.lib;
-		console.log("PIPELINE: app-loader-" + lib);
-		require(["../../app/app-loader-" + lib], function() {
+		console.log("PIPELINE: app-loader");
+		require(["./" + device + "/app-loader"], function() {
 			callback();
 		});
-	}).pipeAsync(function(state, callback) {
-		// LOCALES
-		var locales = state.locales;
-		for (key in locales){
-			console.log("PIPELINE: " + locales[key] + " locale");	
-			require(["../../app/locale/" + locales[key]], function() {
-				callback();
-			});
-		}
 	}).pipe(function(state) {
 		// APP
 		var app = state.app;

@@ -9,7 +9,7 @@
 Ext.define("Core.view.extjs.viewport.booking.View", {
     extend: "Ext.container.Viewport",
     alias: "widget.viewportView",
-    controller: "Core.mediator.extjs.viewport.Mediator",
+    controller: "Core.mediator.extjs.viewport.booking.Mediator",
     width: 800,
 
     requires: [

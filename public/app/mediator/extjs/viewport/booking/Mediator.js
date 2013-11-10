@@ -6,7 +6,7 @@
  *
  * TODO: BMR: 02/22/13: Don't add all the views to the stage at once. Do it on demand.
  */
-Ext.define("Core.mediator.extjs.viewport.Mediator", {
+Ext.define("Core.mediator.extjs.viewport.booking.Mediator", {
     extend: "Core.mediator.abstract.Mediator",
 
     requires: [

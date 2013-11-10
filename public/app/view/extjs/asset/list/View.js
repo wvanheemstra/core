@@ -75,7 +75,7 @@ Ext.define("Core.view.extjs.asset.list.View", {
                     ]
                 }
             ]
-        },
+        }/*,
         {
             xtype: "livesearchgridpanel",
             //ui: "neutral",			
@@ -106,6 +106,6 @@ Ext.define("Core.view.extjs.asset.list.View", {
                     key: "assetList.search"
                 }
             ]
-        }
+        }*/
     ]
 });

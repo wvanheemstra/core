@@ -17,10 +17,10 @@ Ext.define("Core.mediator.extjs.person.detail.Mediator", {
         },
         deleteButton: {
             click: "onDeleteButtonClick"
-        },
+        }/*,
 		salutationAbbreviationTextField: {
 			focus: "onSalutationAbbreviationTextFieldFocus"
-		}
+		}*/
     },
 
     // set up injected object event listening

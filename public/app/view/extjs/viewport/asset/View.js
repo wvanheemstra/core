@@ -6,7 +6,7 @@
  * application or business logic; this is all done in the view's corresponding mediator.
  * </p>
  */
-Ext.define("Core.view.extjs.viewport.View", {
+Ext.define("Core.view.extjs.viewport.asset.View", {
     extend: "Ext.container.Viewport",
     alias: "widget.viewportView",
     controller: "Core.mediator.extjs.viewport.asset.Mediator",

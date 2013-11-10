@@ -13,7 +13,7 @@ Ext.define("Core.view.extjs.viewport.View", {
     width: 800,
 
     requires: [
-		"Core.config.global.Config"//,
+		"Core.config.global.Config",
         "Core.view.extjs.login.View",
 		"Core.view.extjs.asset.slide.View",
         "Core.view.extjs.asset.list.View",

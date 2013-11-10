@@ -12,26 +12,26 @@
 Ext.onReady(function () {
     console.log("app.onReady");	
 	
-	Core.assets.createMockBackend(true);
-//    glu.viewport('Core.assets.main'); // Moved to Core.view.extjs.viewport.asset.View
+//	  Core.assets.createMockBackend(true);  // Moved to Core.view.extjs.viewport.asset.View
+//    glu.viewport('Core.assets.main');     // Moved to Core.view.extjs.viewport.asset.View
 	
     // pull all of this in so they can be injected
-/*     Ext.syncRequire([
-	    "Core.view.extjs.viewport.asset.View",		
+    Ext.syncRequire([
+	    "Core.view.extjs.viewport.asset.View",	
         "FlowMVC.mvc.event.EventDispatcher",
         "FlowMVC.logger.Logger"
-    ]); */
+    ]);
 
     /**
      * Locale Manager core classes. These might only need to be required for dev.
      */
-/*     Ext.syncRequire([
+    Ext.syncRequire([
         "nineam.locale.LocaleManager",
         "nineam.locale.plugin.extjs.LocalePlugin"
-    ]); */
+    ]);
 
 	// Configure the DeftJS IoC container in general
-/*     Deft.Injector.configure({
+    Deft.Injector.configure({
         ////////////////////////////////////////////
         // LOGGER
         ////////////////////////////////////////////
@@ -41,10 +41,10 @@ Ext.onReady(function () {
         // EVENT DISPATCHER
         ////////////////////////////////////////////
         eventBus:               "FlowMVC.mvc.event.EventDispatcher"
-	}); */
+	});
 	
 	// MOVE THIS TO THE Core.config.asset.Config AS SOON AS Core IS NOT undefined
-/* 	var services = [{
+ 	var services = [{
 		authentication:  [{
 			mock: true
 		}]
@@ -74,31 +74,6 @@ Ext.onReady(function () {
 			mock: true
 		}]
 	},{
-		salutation:  [{
-			mock: true,
-			store: true
-		}]
-	},{
-		gender:  [{
-			mock: true,
-			store: true
-		}]
-	},{
-		nationality:  [{
-			mock: true,
-			store: true
-		}]
-	},{
-		date:  [{
-			mock: true,
-			store: true
-		}]
-	},{
-		membership:  [{
-			mock: true,
-			store: true
-		}]
-	},{
 		assetGroup:  [{
 			mock: true,
 			store: true
@@ -109,13 +84,13 @@ Ext.onReady(function () {
 			store: true
 		}]
 	},{
-		glu:  [{
+		asset:  [{
 			mock: true,  // Set to 'false' when retrieving live data
 			store: true
 		}]
-	}]; */
+	}];
 	
-	/* for (var n = 0; n < services.length; n++) {
+	for (var n = 0; n < services.length; n++) {
 		var service = services[n];
 		for (var key in service) {
 			if (key === 'length' || !service.hasOwnProperty(key)) continue;
@@ -169,37 +144,39 @@ Ext.onReady(function () {
 				}
 			}	
 		}
-	} */
+	}
 });
 
 
 
 //View model
-glu.defModel('helloworld.main', {
-    arriving:true,
-    message$:function () {
-        return this.localize(this.arriving ? 'greeting' : 'farewell')
-    }
-});
+//glu.defModel('helloworld.main', {
+//    arriving:true,
+//    message$:function () {
+//        return this.localize(this.arriving ? 'greeting' : 'farewell')
+//    }
+//});
+
 //View
-glu.defView('helloworld.main', {
-    title:'@{message}',
-    tbar:[
-        {
-            text:'Toggle',
-            enableToggle:true,
-            pressed:'@{arriving}'
-        }
-    ]
-});
+//glu.defView('helloworld.main', {
+//    title:'@{message}',
+//    tbar:[
+//        {
+//            text:'Toggle',
+//            enableToggle:true,
+//            pressed:'@{arriving}'
+//        }
+//    ]
+//});
+
 //Locale
-glu.ns('helloworld').locale = {
-    greeting:'Hello World!',
-    farewell:'Goodbye World!'
-}
+//glu.ns('helloworld').locale = {
+//    greeting:'Hello World!',
+//    farewell:'Goodbye World!'
+//}
 
 
-/* Ext.application({
+Ext.application({
 
     name: "Core",
     
@@ -223,11 +200,6 @@ glu.ns('helloworld').locale = {
     ////////////////////////////////////////////
     models: [
         "session.Model",
-		"salutation.Model",	
-		"gender.Model",	
-		"nationality.Model",	
-		"date.Model",	
-		"membership.Model",	
 		"asset.group.Model",		
 		"group.Model",			
     	"asset.Model"
@@ -257,11 +229,6 @@ glu.ns('helloworld').locale = {
         "company.Controller",
         "url.Controller",		
         "authentication.Controller",
-		"salutation.Controller",
-		"gender.Controller",
-		"nationality.Controller",	
-		"date.Controller",
-		"membership.Controller",
 		"asset.group.Controller",			
 		"group.Controller",		
         "asset.Controller"	
@@ -273,7 +240,7 @@ glu.ns('helloworld').locale = {
      *
      * TODO: BMR: 02/22/13: Don"t add all the views to the stage at once. Do it on demand.
      */
-/*     launch: function () {
+    launch: function () {
         console.log("app.launch");
         
     	// Destroy the #appLoadingIndicator element
@@ -286,9 +253,9 @@ glu.ns('helloworld').locale = {
 		// viewport.setView(Core.config.global.Config.getInitialView());
 		var viewportMediator = viewport.getController();
 		viewportMediator.setupViewport();
-    }, */
+    },
     
-/*     onUpdated: function() {
+    onUpdated: function() {
         Ext.Msg.confirm(
             "Application Update",
             "This application has just successfully been updated to the latest version. Reload now?",
@@ -296,5 +263,5 @@ glu.ns('helloworld').locale = {
                 window.location.reload();
             }
         );
-    } */
-//}); */
+    }
+});

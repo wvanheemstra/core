@@ -1,0 +1,119 @@
+{
+    /////////////////////////////////////////////
+    // LOGIN
+    /////////////////////////////////////////////
+    "login": {
+        "title": "Login",
+        "username": "Username",
+        "password": "Password",
+        "passwordHint": "Hint: password",
+        "keepmeloggedin": "Keep me logged in",
+        "submit": "Log In",
+        "reset": "Clear",
+        "loggingIn" : "Logging In...",
+        "credentialsRequired": "Please enter your username and password.",
+        "loginFailed": "Login failed. Please enter the correct credentials."
+    },
+
+    /////////////////////////////////////////////
+    // ASSET SLIDE
+    /////////////////////////////////////////////
+    "assetSlide": {
+        "title": "Assets",
+        "title1": "Assets1",	
+        "title2": "Assets2",
+        "title3": "Assets3",	
+        "title4": "Assets4",			
+        "logOut": "Log Out",
+        "new": "New",
+        "search": "live search",
+		"salutationAbbreviation": "Salutation",
+        "assetFirstName": "First Name",
+        "assetLastName": "Last Name",	
+        "loading": "Loading Assets...",
+        "noAssets": "No Assets found."
+    },	
+	
+    /////////////////////////////////////////////
+    // ASSET LIST
+    /////////////////////////////////////////////
+    "assetList": {
+        "title": "Assets",
+        "logOut": "Log Out",
+        "new": "New",
+        "search": "live search",
+		"salutationAbbreviation": "Salutation",
+        "assetFirstName": "First Name",
+        "assetLastName": "Last Name",
+        "loading": "Loading Assets...",
+        "noAssets": "No Assets found."
+    },
+
+    /////////////////////////////////////////////
+    // ASSET TILE
+    /////////////////////////////////////////////
+    "assetTile": {
+        "title": "Assets",
+        "logOut": "Log Out",
+        "new": "New",
+        "search": "live search",
+		"salutationAbbreviation": "Salutation",
+        "assetFirstName": "First Name",
+        "assetLastName": "Last Name",
+        "loading": "Loading Assets...",
+        "noAssets": "No Assets found."
+    },
+
+    /////////////////////////////////////////////
+    // ASSET ITEMS
+    /////////////////////////////////////////////
+    "assetItem1": {
+        "title": "Item 1"
+    },	
+    "assetItem2": {
+        "title": "Item 2"
+    },
+    "assetItem3": {
+        "title": "Item 3"
+    },		
+    "assetItem4": {
+        "title": "Item 4"
+    },	
+	
+    /////////////////////////////////////////////
+    // ASSET CATEGORIES
+    /////////////////////////////////////////////
+    "assetCategory0": {
+        "title": "Home"
+    },
+		
+    /////////////////////////////////////////////
+    // ASSET DETAIL
+    /////////////////////////////////////////////
+    "assetDetail": {
+        "title": "Asset",
+        "back": "Back",
+        "save": "Save",
+		"salutationAbbreviation": "Salutation",
+        "assetFirstName": "First Name",
+        "assetLastName": "Last Name",
+		"genderName": "Gender",
+		"nationalityName": "Nationality",		
+        "delete": "Delete",
+        "creatingAsset": "Creating Asset ...",
+        "updatingAsset": "Updating Asset ...",
+        "deletingAsset": "Deleting Asset...",
+		"readingSalutations": "Reading Salutations...",
+		"readingGenders": "Reading Genders...",
+		"readingNationalities": "Reading Nationalities...",
+		"readingDates": "Reading Dates..."				
+    },
+
+    /////////////////////////////////////////////
+    // ASSET MODAL
+    /////////////////////////////////////////////
+    "assetModal": {
+        "title": "Asset",
+        "close": "Close"
+    }
+}

@@ -1,0 +1,119 @@
+{
+    /////////////////////////////////////////////
+    // LOGIN
+    /////////////////////////////////////////////
+    "login": {
+        "title": "Login",
+        "username": "Gebruikersnaam",
+        "password": "Wachtwoord",
+        "passwordHint": "Hint: password",
+        "keepmeloggedin": "Houd me ingelogd",
+        "submit": "Log In",
+        "reset": "Wissen",
+        "loggingIn" : "Verifieren...",
+        "credentialsRequired": "Voer alsjeblieft gebruikersnaam en wachtwoord in.",
+        "loginFailed": "Login mislukt. Voer alsjeblieft de juiste gegevens in."
+    },	
+
+    /////////////////////////////////////////////
+    // ASSET SLIDE
+    /////////////////////////////////////////////
+    "assetSlide": {
+        "title": "Persoon",
+        "title1": "Persoon1",	
+        "title2": "Persoon2",
+        "title3": "Persoon3",	
+        "title4": "Persoon4",			
+        "logOut": "Log Uit",
+        "new": "Nieuw",
+        "search": "live zoeken",
+		"salutationAbbreviation": "Aanhef",
+        "assetFirstName": "Voornaam",
+        "assetLastName": "Achternaam",	
+        "loading": "Laad Persoon...",
+        "noAssets": "Geen Persoon gevonden."
+    },	
+	
+    /////////////////////////////////////////////
+    // ASSET LIST
+    /////////////////////////////////////////////
+    "assetList": {
+        "title": "Persoon",
+        "logOut": "Log Uit",
+        "new": "Nieuw",
+        "search": "live zoeken",
+		"salutationAbbreviation": "Aanhef",
+        "assetFirstName": "Voornaam",
+        "assetLastName": "Achternaam",		
+        "loading": "Laad Persoon...",
+        "noAssets": "Geen Persoon gevonden."
+    },
+
+    /////////////////////////////////////////////
+    // ASSET TILE
+    /////////////////////////////////////////////
+    "assetTile": {
+        "title": "Persoon",
+        "logOut": "Log Uit",
+        "new": "Nieuw",
+        "search": "live zoeken",
+		"salutationAbbreviation": "Aanhef",
+        "assetFirstName": "Voornaam",
+        "assetLastName": "Achternaam",	
+        "loading": "Laad Persoon...",
+        "noAssets": "Geen Persoon gevonden."
+    },
+
+    /////////////////////////////////////////////
+    // ASSET ITEMS
+    /////////////////////////////////////////////
+    "assetItem1": {
+        "title": "Item 1"
+    },	
+    "assetItem2": {
+        "title": "Item 2"
+    },
+    "assetItem3": {
+        "title": "Item 3"
+    },		
+    "assetItem4": {
+        "title": "Item 4"
+    },	
+	
+    /////////////////////////////////////////////
+    // ASSET CATEGORIES
+    /////////////////////////////////////////////
+    "assetCategory0": {
+        "title": "Home"
+    },
+		
+    /////////////////////////////////////////////
+    // ASSET DETAIL
+    /////////////////////////////////////////////
+    "assetDetail": {
+        "title": "Asset",
+        "back": "Terug",
+        "save": "Bewaar",
+		"salutationAbbreviation": "Aanhef",
+        "assetFirstName": "Voornaam",
+        "assetLastName": "Achternaam",	
+		"genderName": "Geslacht",
+		"nationalityName": "Nationaliteit",		
+        "delete": "Verwijder",
+        "creatingAsset": "Maak Persoon aan ...",
+        "updatingAsset": "Werk Persoon bij ...",
+        "deletingAsset": "Verwijder Persoon...",
+		"readingSalutations": "Lees Aanheven...",
+		"readingGenders": "Lees Geslachten...",
+		"readingNationalities": "Lees Nationaliteiten...",
+		"readingDates": "Lees Datums..."		
+    },
+
+    /////////////////////////////////////////////
+    // ASSET MODAL
+    /////////////////////////////////////////////
+    "assetModal": {
+        "title": "Persoon",
+        "close": "Sluiten"
+    }
+}

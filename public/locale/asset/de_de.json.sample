@@ -1,0 +1,120 @@
+{
+    /////////////////////////////////////////////
+    // LOGIN
+    /////////////////////////////////////////////
+    "login": {
+        "title": "Anmelden",
+        "username": "Benutzername",
+        "password": "Kennwort",
+        "passwordHint": "Hinweis: password",
+        "keepmeloggedin": "Angemeldet bleiben",
+        "submit": "Meld an",
+        "reset": "Neu stellen",
+        "loggingIn" : "Überprüfen...",
+        "credentialsRequired": "Tragen Sie bitte Ihre Benutzername und Kennwort ein.",
+        "loginFailed": "Anmelden hat gefählt. Bitte tragen Sie die richtige Daten ein."
+    },
+
+    /////////////////////////////////////////////
+    // ASSET SLIDE
+    /////////////////////////////////////////////
+    "assetSlide": {
+        "title": "Asseten",
+        "title1": "Asseten1",	
+        "title2": "Asseten2",
+        "title3": "Asseten3",	
+        "title4": "Asseten4",			
+        "logOut": "Abmelden",
+        "new": "Neu",
+        "search": "live suchen",
+		"salutationAbbreviation": "Anrede",
+        "assetFirstName": "Vorame",
+        "assetLastName": "Nachname",
+        "loading": "Laad Asseten...",
+        "noAssets": "Keine Asseten wurden gefunden."
+    },	
+	
+    /////////////////////////////////////////////
+    // ASSET LIST
+    /////////////////////////////////////////////
+    "assetList": {
+        "title": "Asseten",
+        "logOut": "Abmelden",
+        "new": "Neu",
+        "search": "live suchen",
+		"salutationAbbreviation": "Anrede",
+        "assetFirstName": "Vorame",
+        "assetLastName": "Nachname",
+        "loading": "Laad Asseten...",
+        "noAssets": "Keine Asseten wurden gefunden."
+    },
+
+    /////////////////////////////////////////////
+    // ASSET TILE
+    /////////////////////////////////////////////
+    "assetTile": {
+        "title": "Asseten",
+        "logOut": "Abmelden",
+        "new": "Neu",
+        "search": "live suchen",
+		"salutationAbbreviation": "Anrede",
+        "assetFirstName": "Vorame",
+        "assetLastName": "Nachname",
+		"gender": "Geschlecht",		
+        "loading": "Laad Asseten...",
+        "noAssets": "Keine Asseten wurden gefunden."
+    },
+
+    /////////////////////////////////////////////
+    // ASSET ITEMS
+    /////////////////////////////////////////////
+    "assetItem1": {
+        "title": "Item 1"
+    },	
+    "assetItem2": {
+        "title": "Item 2"
+    },
+    "assetItem3": {
+        "title": "Item 3"
+    },		
+    "assetItem4": {
+        "title": "Item 4"
+    },	
+	
+    /////////////////////////////////////////////
+    // ASSET CATEGORIES
+    /////////////////////////////////////////////
+    "assetCategory0": {
+        "title": "Home"
+    },
+	
+    /////////////////////////////////////////////
+    // ASSET DETAIL
+    /////////////////////////////////////////////
+    "assetDetail": {
+        "title": "Asset",
+        "back": "Zurück",
+        "save": "Speichern",
+		"salutationAbbreviation": "Anrede",
+        "assetFirstName": "Vorame",
+        "assetLastName": "Nachname",
+		"genderName": "Geschlecht",
+		"nationalityName": "Nationalität",		
+        "delete": "Löschen",
+        "creatingAsset": "Mach Asset neu an ...",
+        "updatingAsset": "Bearbeit Asset ...",
+        "deletingAsset": "Lösch Asset...",
+		"readingSalutations": "Lese Anreden...",
+		"readingGenders": "Lese Geschlechten...",
+		"readingNationalities": "Lese Nationalitäten...",
+		"readingDates": "Lese Datums..."		
+    },
+
+    /////////////////////////////////////////////
+    // ASSET MODAL
+    /////////////////////////////////////////////
+    "assetModal": {
+        "title": "Asset",
+        "close": "schließen"
+    }
+}

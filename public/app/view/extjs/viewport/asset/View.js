@@ -14,12 +14,12 @@ Ext.define("Core.view.extjs.viewport.asset.View", {
 
     requires: [
 		"Core.config.global.Config",
-        "Core.view.extjs.login.View",
-		"Core.view.extjs.asset.slide.View",
-        "Core.view.extjs.asset.list.View",
-        "Core.view.extjs.asset.detail.View",
-        "Core.view.extjs.asset.tile.View",
-        "Core.view.extjs.asset.modal.View"
+        "Core.view.extjs.login.View"//,
+	//	  "Core.view.extjs.asset.slide.View",
+    //    "Core.view.extjs.asset.list.View",
+    //    "Core.view.extjs.asset.detail.View",
+    //    "Core.view.extjs.asset.tile.View",
+    //    "Core.view.extjs.asset.modal.View"
     ],
 
     config: {
@@ -38,32 +38,32 @@ Ext.define("Core.view.extjs.viewport.asset.View", {
             xtype: "loginView",
             itemId: "login",
             hidden: true
-        },
-        {
-            xtype: "assetSlideView",
-            itemId: "assetslide", 
-            hidden: true
-        },		
-        {
-            xtype: "assetListView",
-            itemId: "assetlist",
-            hidden: true
-        },
-        {
-            xtype: "assetDetailView",
-            itemId: "assetdetail",
-            hidden: true
-        },
-        {
-            xtype: "assetTileView",
-            itemId: "maintile",
-            hidden: true
-        },
-        {
-            xtype: "assetModalView",
-            itemId: "assetmodal",
-            hidden: true
-        }
+        }//,
+    //    {
+    //        xtype: "assetSlideView",
+    //        itemId: "assetslide", 
+    //        hidden: true
+    //    },		
+    //    {
+    //        xtype: "assetListView",
+    //        itemId: "assetlist",
+    //        hidden: true
+    //    },
+    //    {
+    //        xtype: "assetDetailView",
+    //        itemId: "assetdetail",
+    //        hidden: true
+    //    },
+    //    {
+    //        xtype: "assetTileView",
+    //        itemId: "maintile",
+    //        hidden: true
+    //    },
+    //    {
+    //        xtype: "assetModalView",
+    //        itemId: "assetmodal",
+    //        hidden: true
+    //    }
     ],
 
     // TODO: BMR: Remove all logic from views

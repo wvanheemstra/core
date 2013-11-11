@@ -16,7 +16,7 @@ Ext.define("Core.view.extjs.asset.list.View", {
         "Ext.data.*",
         "Ext.util.*",
         "Ext.view.View",
-        "Core.view.extjs.component.LiveSearchGridPanel",
+        //"Core.view.extjs.component.LiveSearchGridPanel",
         "nineam.locale.LocaleManager"
     ],
 

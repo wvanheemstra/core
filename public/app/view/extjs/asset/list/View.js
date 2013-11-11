@@ -13,10 +13,10 @@ Ext.define("Core.view.extjs.asset.list.View", {
     header: false,
 
     requires: [
-        "Ext.data.*",
-        "Ext.util.*",
+//        "Ext.data.*",  // THIS CAUSES AN ERROR Uncaught TypeError: Object function A(){return this.constructor.apply(this,arguments)||null} has no method 'search'
+//        "Ext.util.*",  // THIS CAUSES AN ERROR Uncaught TypeError: Object function A(){return this.constructor.apply(this,arguments)||null} has no method 'search' 
         "Ext.view.View",
-        //"Core.view.extjs.component.LiveSearchGridPanel",
+        "Core.view.extjs.component.LiveSearchGridPanel",
         "nineam.locale.LocaleManager"
     ],
 
@@ -75,7 +75,7 @@ Ext.define("Core.view.extjs.asset.list.View", {
                     ]
                 }
             ]
-        }/*,
+        },
         {
             xtype: "livesearchgridpanel",
             //ui: "neutral",			
@@ -106,6 +106,6 @@ Ext.define("Core.view.extjs.asset.list.View", {
                     key: "assetList.search"
                 }
             ]
-        }*/
+        }
     ]
 });

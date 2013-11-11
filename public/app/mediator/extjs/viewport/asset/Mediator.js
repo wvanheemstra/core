@@ -148,9 +148,9 @@ Ext.define("Core.mediator.extjs.viewport.asset.Mediator", {
 				// ASSET
 				if(nextView === 'assetslide') {view = this.getViewByXType("assetSlideView");}
 				if(nextView === 'assetlist') {view = this.getViewByXType("assetListView");}
-				if(nextView === 'assettile') {view = this.getViewByXType("assetTileView");}	
-				if(nextView === 'assetmodal') {view = this.getViewByXType("assetModalView");}				
-				
+				if(nextView === 'assettile') {view = this.getViewByXType("assetTileView");}
+				if(nextView === 'assetmodal') {view = this.getViewByXType("assetModalView");}
+
 				Core.config.asset.Config.setCurrentView(nextView);
                 direction = this.getSlideLeftTransition();
                 break;
@@ -196,13 +196,10 @@ Ext.define("Core.mediator.extjs.viewport.asset.Mediator", {
 				Core.config.asset.Config.setCurrentView('assetslide');
                 direction = this.getSlideRightTransition(); // CHANGE THIS TO A CLOSE TRANSITION
         }
-
         // only navigate to the screen if the view exists
         if(view !== null) {
-//            this.slidleft(this.getViewByXType("extjsLoginView"));
             this.logger.debug("navigate = " + view.getItemId());
             this.getView().setView(view.getItemId());
-//            this.setView(view.getItemId());
         } else {
             this.logger.warn("ViewportMediator.navigate: couldn't map navigation to action = " + action + " because " +
                 "the view is null. Check the xtype.");
@@ -237,7 +234,7 @@ Ext.define("Core.mediator.extjs.viewport.asset.Mediator", {
 				// started
 				console.log("PIPELINE: started");
 			}).pipe(function(state) {
-				// MODELS	// Moved to Core.view.extjs.viewport.asset.View
+				// MODELS
 				var models = state.models;
 				for (key in models){
 					console.log("PIPELINE: " + models[key] + " model");
@@ -246,7 +243,7 @@ Ext.define("Core.mediator.extjs.viewport.asset.Mediator", {
 					});
 				}
 			}).pipe(function(state) {
-				// VIEWMODELS	// Moved to Core.view.extjs.viewport.asset.View
+				// VIEWMODELS
 				var viewmodels = state.viewmodels;		
 				for (key in viewmodels){
 					console.log("PIPELINE: " + viewmodels[key] + " view model");
@@ -255,7 +252,7 @@ Ext.define("Core.mediator.extjs.viewport.asset.Mediator", {
 					});
 				}
 			}).pipe(function(state) {
-				// VIEWS	// Moved to Core.view.extjs.viewport.asset.View
+				// VIEWS
 				var views = state.views;
 				var lib = state.lib;
 				for (key in views){
@@ -265,7 +262,7 @@ Ext.define("Core.mediator.extjs.viewport.asset.Mediator", {
 					});
 				}
 			}).pipeAsync(function(state, callback) {
-				// SPECS	// Moved to Core.view.extjs.viewport.asset.View
+				// SPECS
 				require(["../../app/spec/Backend"], function() {
 					console.log("PIPELINE: Backend");
 					callback();
@@ -287,29 +284,27 @@ Ext.define("Core.mediator.extjs.viewport.asset.Mediator", {
 		});	
 	},
 	
-//    /**
-//     * TODO
-//     * @param view
-//     */
-//    setView: function(view) {
-//        console.log("Viewport.setView: " + view);
-//
-//        try {
-//            for ( var i=0; i<this.getView().items.length; i++)
-//            {
-//                var id = this.getView().items.getAt(i).getItemId();
-//                if (id === view)
-//                {
-//                    this.getView().items.getAt(i).show();
-//                } else {
-//                    this.getView().items.getAt(i).hide();
-//                }
-//            }
-//        } catch(e) {
-//
-//        }
-//
-//    },
+    /**
+     * TODO
+     * @param view
+     */
+    setView: function(view) {
+        console.log("Viewport.setView: " + view);
+        try {
+            for ( var i=0; i<this.getView().items.length; i++)
+            {
+                var id = this.getView().items.getAt(i).getItemId();
+                if (id === view)
+                {
+                    this.getView().items.getAt(i).show();
+                } else {
+                    this.getView().items.getAt(i).hide();
+                }
+            }
+        } catch(e) {
+			// nothing
+        }
+    },
 
     ////////////////////////////////////////////////
     // EVENT BUS HANDLERS
@@ -349,21 +344,4 @@ Ext.define("Core.mediator.extjs.viewport.asset.Mediator", {
         this.logger.debug("onNavigate");
         this.navigate(event.action);
     }
-	
-    // slidleft: function (view) {
-        // var results = this.getView().getState();
-        // view.animate({
-            // to: {
-                // x: -results.width,
-                // y: 0
-            // },
-            // duration: 1000,
-            // listeners: {
-                // afteranimate: function() {
-                    // this.getView().getLayout().setActiveItem(this.getViewByXType("extjsMainListView")); // IS THIS NOT A TYPO, SHOULD IT BE mainListView INSTEAD ?
-                    // this.logger.debug("after")
-                // }
-            // }
-        // })
-    // }
 });

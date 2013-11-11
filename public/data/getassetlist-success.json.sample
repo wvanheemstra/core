@@ -1,0 +1,32 @@
+{
+    "success": true,
+    "sessionToken": "qwerty1234567890",
+	"assetList": [
+		{ "kp_AssetID": 1,   "AssetName": "Alfa" },
+		{ "kp_AssetID": 2,   "AssetName": "Bravo" },
+		{ "kp_AssetID": 3,   "AssetName": "Charlie" },
+		{ "kp_AssetID": 4,   "AssetName": "Delta" },
+		{ "kp_AssetID": 5,   "AssetName": "Echo" },
+		{ "kp_AssetID": 6,   "AssetName": "Foxtrot" },
+		{ "kp_AssetID": 7,   "AssetName": "Golf" },
+		{ "kp_AssetID": 8,   "AssetName": "Hotel" },
+		{ "kp_AssetID": 9,   "AssetName": "India" },
+		{ "kp_AssetID": 10,  "AssetName": "Juliet" },
+		{ "kp_AssetID": 11,  "AssetName": "Kilo" },
+		{ "kp_AssetID": 12,  "AssetName": "Lima" },
+		{ "kp_AssetID": 13,  "AssetName": "Mike" },
+		{ "kp_AssetID": 14,  "AssetName": "November" },
+		{ "kp_AssetID": 15,  "AssetName": "Oscar" },
+		{ "kp_AssetID": 16,  "AssetName": "Papa" },
+		{ "kp_AssetID": 17,  "AssetName": "Quebec" },
+		{ "kp_AssetID": 18,  "AssetName": "Romeo" },
+		{ "kp_AssetID": 19,  "AssetName": "Sierra" },
+		{ "kp_AssetID": 20,  "AssetName": "Tango" },
+		{ "kp_AssetID": 21,  "AssetName": "Uniform" },
+		{ "kp_AssetID": 22,  "AssetName": "Victor" },
+		{ "kp_AssetID": 23,  "AssetName": "Whiskey" },
+		{ "kp_AssetID": 24,  "AssetName": "X-ray" },
+		{ "kp_AssetID": 25,  "AssetName": "Yankee" },
+		{ "kp_AssetID": 26,  "AssetName": "Zulu" }
+	]
+}

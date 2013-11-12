@@ -26,9 +26,9 @@ Ext.define("Core.mediator.extjs.asset.base.Mediator", {
         this.logger.debug("setupGlobalEventListeners");
         this.eventBus.addGlobalEventListener(Core.event.ui.Event.SET_UI_SUCCESS, this.onSetUISuccess, this);
         this.eventBus.addGlobalEventListener(Core.event.url.Event.SET_URL_SUCCESS, this.onSetURLSuccess, this);
-        this.eventBus.addGlobalEventListener(Core.event.company.Event.SET_COMPANY_SUCCESS, this.onSetCompanySuccess, this);	
-        this.eventBus.addGlobalEventListener(Core.event.background.Event.SET_BACKGROUND_SUCCESS, this.onSetBackgroundSuccess, this);			
-		
+        this.eventBus.addGlobalEventListener(Core.event.company.Event.SET_COMPANY_SUCCESS, this.onSetCompanySuccess, this);
+        this.eventBus.addGlobalEventListener(Core.event.background.Event.SET_BACKGROUND_SUCCESS, this.onSetBackgroundSuccess, this);
+
         this.eventBus.addGlobalEventListener(Core.event.authentication.Event.LOGIN_SUCCESS, this.onLoginSuccess, this);
 		
         this.eventBus.addGlobalEventListener(Core.event.asset.Event.GET_ASSET_SLIDE_SUCCESS, this.onGetAssetSlideSuccess, this);
@@ -36,12 +36,12 @@ Ext.define("Core.mediator.extjs.asset.base.Mediator", {
         this.eventBus.addGlobalEventListener(Core.event.asset.Event.GET_ASSET_LIST_SUCCESS, this.onGetAssetListSuccess, this);
         this.eventBus.addGlobalEventListener(Core.event.asset.Event.GET_ASSET_LIST_FAILURE, this.onGetAssetListFailure, this);
         this.eventBus.addGlobalEventListener(Core.event.asset.Event.GET_ASSET_TILE_SUCCESS, this.onGetAssetTileSuccess, this);
-        this.eventBus.addGlobalEventListener(Core.event.asset.Event.GET_ASSET_TILE_FAILURE, this.onGetAssetTileFailure, this);	
+        this.eventBus.addGlobalEventListener(Core.event.asset.Event.GET_ASSET_TILE_FAILURE, this.onGetAssetTileFailure, this);
         this.eventBus.addGlobalEventListener(Core.event.asset.Event.GET_ASSET_MODAL_SUCCESS, this.onGetAssetModalSuccess, this);
         this.eventBus.addGlobalEventListener(Core.event.asset.Event.GET_ASSET_MODAL_FAILURE, this.onGetAssetModalFailure, this);
         this.eventBus.addGlobalEventListener(Core.event.asset.Event.GET_ASSET_DETAIL_SUCCESS, this.onGetAssetDetailSuccess, this);
-        this.eventBus.addGlobalEventListener(Core.event.asset.Event.GET_ASSET_DETAIL_FAILURE, this.onGetAssetDetailFailure, this);		
-		
+        this.eventBus.addGlobalEventListener(Core.event.asset.Event.GET_ASSET_DETAIL_FAILURE, this.onGetAssetDetailFailure, this);
+
         this.eventBus.addGlobalEventListener(Core.event.asset.Event.UPDATE_ASSET_SUCCESS, this.onUpdateAssetSuccess, this);
         this.eventBus.addGlobalEventListener(Core.event.asset.Event.DELETE_ASSET_SUCCESS, this.onDeleteAssetSuccess, this);
         this.eventBus.addGlobalEventListener(Core.event.asset.Event.CREATE_ASSET_SUCCESS, this.onCreateAssetSuccess, this);

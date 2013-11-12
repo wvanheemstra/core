@@ -9,20 +9,19 @@ Ext.define("Core.mediator.extjs.asset.modal.Mediator", {
 	
 	    closeButton: {
             tap: "onCloseButtonTap"
-        }	
-	
-//    	toolbar: {
-//    		painted: "onPainted"
-//    	},	
-//        logoutButton: {
-//            click: "onLogoutButtonClick"
-//        },
-//        newAssetButton: {
-//            click: "onNewAssetButtonClick"
-//        },
-//        list: {
-//            itemclick: "onListSelect"
-//        }
+        },
+    	toolbar: {
+    		painted: "onPainted"
+    	},	
+        logoutButton: {
+            click: "onLogoutButtonClick"
+        },
+        newAssetButton: {
+            click: "onNewAssetButtonClick"
+        },
+        list: {
+            itemclick: "onListSelect"
+        }
     },
 
 

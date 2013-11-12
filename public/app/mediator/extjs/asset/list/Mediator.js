@@ -235,8 +235,7 @@ Ext.define("Core.mediator.extjs.asset.list.Mediator", {
                 //loop through each of the regular expressions
                 for (i = 0; i < regexps.length; i++) {
                     var search = regexps[i],
-                        didMatch = record.get("firstName").match(search) ||
-                            record.get("lastName").match(search);
+                        didMatch = record.get("name").match(search);
                     //if it matched the first or last name, push it into the matches array
                     matched.push(didMatch);
                 }

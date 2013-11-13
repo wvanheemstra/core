@@ -196,7 +196,11 @@ app.configure('development', function(){
     app.set('view options', { layout: true });
     app.set('views', __dirname + '/../public');
     
-    app.use(express.bodyParser());
+	// https://github.com/senchalabs/connect/wiki/Connect-3.0
+    // app.use(express.bodyParser()); // DEPRECATED
+	app.use(express.urlencoded()); // NEW IN CONNECT 3.0
+	app.use(express.json()); // NEW IN CONNECT 3.0
+	
     app.use(express.methodOverride());
     app.use(express.cookieParser());
     app.use(device.capture());
@@ -231,7 +235,11 @@ app.configure('production', function(){
     app.set('view options', { layout: true });
     app.set('views', __dirname + '/../public');
     
-    app.use(express.bodyParser());
+	// https://github.com/senchalabs/connect/wiki/Connect-3.0
+    //app.use(express.bodyParser()); // DEPRECATED
+	app.use(express.urlencoded()); // NEW IN CONNECT 3.0
+	app.use(express.json()); // NEW IN CONNECT 3.0
+	
     app.use(express.methodOverride());
     app.use(express.cookieParser());
     app.use(device.capture());

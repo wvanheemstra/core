@@ -1,7 +1,7 @@
 /**
- * The abstract mediator provides base functionality for all CafeTownsend mediators.
+ * The abstract mediator provides base functionality for all mediators.
  *
- * Most notable is the navigate method which broadcasts a navigate event that dives the screen/view creation
+ * Most notable is the navigate method which broadcasts a navigate event that drives the screen/view creation
  * and show/hide.
  */
 Ext.define("Core.mediator.abstract.Mediator", {

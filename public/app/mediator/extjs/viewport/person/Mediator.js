@@ -202,30 +202,29 @@ Ext.define("Core.mediator.extjs.viewport.person.Mediator", {
         this.eventBus.dispatchGlobalEvent(evt);
 	},	
 	
-    /**
-     * TODO
-     * @param view
-     */
-    setView: function(view) {
-        console.log("Viewport.setView: ");
-		console.log(view);
-
-        try {
-            for ( var i=0; i<this.getView().items.length; i++)
-            {
-                var id = this.getView().items.getAt(i).getItemId();
-                if (id === view)
-                {
-                    this.getView().items.getAt(i).show();
-                } else {
-                    this.getView().items.getAt(i).hide();
-                }
-            }
-        } catch(e) {
-
-        }
-
-    },
+//    /**
+//     * TODO
+//     * @param view
+//     */
+//    setView: function(view) {
+//        console.log("Viewport.setView: ");
+//		  console.log(view);
+//
+//        try {
+//           for ( var i=0; i<this.getView().items.length; i++)
+//            {
+//                var id = this.getView().items.getAt(i).getItemId();
+//                if (id === view)
+//                {
+//                    this.getView().items.getAt(i).show();
+//                } else {
+//                    this.getView().items.getAt(i).hide();
+//                }
+//            }
+//        } catch(e) {
+//
+//        }
+//    },
 
     ////////////////////////////////////////////////
     // EVENT BUS HANDLERS

@@ -60,7 +60,7 @@ Ext.define("Core.mediator.extjs.viewport.asset.Mediator", {
 		var id = Core.config.asset.Config.getId();
 		var sessionId = Core.config.asset.Config.getSessionId();
 		this.getSession(id, sessionId);
-		
+		/*
 		var lib = ['extjs'];
 		console.log("lib = " + lib);		
 		var models = ['asset'];
@@ -79,6 +79,7 @@ Ext.define("Core.mediator.extjs.viewport.asset.Mediator", {
 			locales: locales
 		};
 		this.setState(state);
+		*/
 	}, 
 	
     /**
@@ -283,28 +284,6 @@ Ext.define("Core.mediator.extjs.viewport.asset.Mediator", {
 			pipeline(state); 
 		});	
 	},
-	
-    /**
-     * TODO
-     * @param view
-     */
-    setView: function(view) {
-        console.log("Viewport.setView: " + view);
-        try {
-            for ( var i=0; i<this.getView().items.length; i++)
-            {
-                var id = this.getView().items.getAt(i).getItemId();
-                if (id === view)
-                {
-                    this.getView().items.getAt(i).show();
-                } else {
-                    this.getView().items.getAt(i).hide();
-                }
-            }
-        } catch(e) {
-			// nothing
-        }
-    },
 
     ////////////////////////////////////////////////
     // EVENT BUS HANDLERS
@@ -314,7 +293,7 @@ Ext.define("Core.mediator.extjs.viewport.asset.Mediator", {
      * Handles the get session success event
      */
     onGetSessionSuccess: function() { 
-    	this.logger.debug("onGetSessionSuccess"); 	
+    	this.logger.debug("onGetSessionSuccess");
     	//Core.config.asset.Config.setNextView('maintile');
         //var view = this.getView();
         //view.setLoading(false);

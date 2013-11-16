@@ -60,7 +60,7 @@ Ext.define("Core.mediator.extjs.viewport.asset.Mediator", {
 		var id = Core.config.asset.Config.getId();
 		var sessionId = Core.config.asset.Config.getSessionId();
 		this.getSession(id, sessionId);
-		/*
+
 		var lib = ['extjs'];
 		console.log("lib = " + lib);		
 		var models = ['asset'];
@@ -79,7 +79,6 @@ Ext.define("Core.mediator.extjs.viewport.asset.Mediator", {
 			locales: locales
 		};
 		this.setState(state);
-		*/
 	}, 
 	
     /**

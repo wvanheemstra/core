@@ -13,8 +13,8 @@ Ext.define("Core.view.extjs.asset.list.View", {
     header: false,
 
     requires: [
-//        "Ext.data.*",  // THIS CAUSES AN ERROR Uncaught TypeError: Object function A(){return this.constructor.apply(this,arguments)||null} has no method 'search'
-//        "Ext.util.*",  // THIS CAUSES AN ERROR Uncaught TypeError: Object function A(){return this.constructor.apply(this,arguments)||null} has no method 'search' 
+        "Ext.data.*",
+        "Ext.util.*", 
         "Ext.view.View",
         "Core.view.extjs.component.LiveSearchGridPanel",
         "nineam.locale.LocaleManager"

@@ -185,7 +185,7 @@ Ext.define("Core.mediator.extjs.asset.tile.Mediator", {
 			this.logger.debug("onTileSelect");
 			this.showAssetDetail(record);
     	}			
-    }
+    },
 
     /**
      * Handles the clear icon tap event on the search field. Clears all filter on the list's store.

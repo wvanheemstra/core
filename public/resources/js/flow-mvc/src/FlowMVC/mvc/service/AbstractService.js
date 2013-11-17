@@ -1,20 +1,3 @@
-/*
- Copyright (c) 2013 [Web App Solution, Inc.](mailto:admin@webappsolution.com)
-
- FlowMVC is free software: you can redistribute it and/or modify
- it under the terms of the GNU General Public License as published by
- the Free Software Foundation, either version 3 of the License, or
- (at your option) any later version.
-
- FlowMVC is distributed in the hope that it will be useful,
- but WITHOUT ANY WARRANTY; without even the implied warranty of
- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- GNU General Public License for more details.
-
- You should have received a copy of the GNU General Public License
- along with FlowMVC.  If not, see <http://www.gnu.org/licenses/>.
- */
-
 /**
  * The base class for services. Provides some helper methods for calling the successful and failed callbacks
  * provided by the client object using this service.
@@ -50,13 +33,16 @@ Ext.define("FlowMVC.mvc.service.AbstractService", {
     ],
 
     statics: {
-        /**
-         * The logger for the object.
-         */
+
+	    /**
+	     * @property {FlowMVC.logger.Logger} logger The logger for the object.
+	     * @static
+	     */
         logger: FlowMVC.logger.Logger.getLogger("FlowMVC.mvc.service.AbstractService"),
 
         /**
-         * Error message for no responder defined.
+         * @property {String} NO_RESPONDER_DEFINED Error message for no responder defined.
+         * @static
          */
         NO_RESPONDER_DEFINED:
             "You must provide a responder object to the service that contains either a custom defined " +
@@ -108,12 +94,11 @@ Ext.define("FlowMVC.mvc.service.AbstractService", {
                 FlowMVC.mvc.service.AbstractService.logger.debug("applyResponderMethod: using service caller's default " + responderMethod + " callback");
                 callbackFunction = scope[responderMethod];
             } else {
-                throw new Error(
-                    "["+ Ext.getDisplayName(arguments.callee) +"] " +
-                    // WAS CafeTownsend.service.AbstractService.NO_RESPONDER_DEFINED
-					FlowMVC.mvc.service.AbstractService.NO_RESPONDER_DEFINED
-					
-                );
+	            Ext.Error.raise({
+		            msg: "["+ Ext.getDisplayName(arguments.callee) +"] " +
+			            //WAS: CafeTownsend.service.AbstractService.NO_RESPONDER_DEFINED
+						FlowMVC.mvc.service.AbstractService.NO_RESPONDER_DEFINED
+	            });
             }
 
             FlowMVC.mvc.service.AbstractService.logger.groupEnd();
@@ -124,30 +109,14 @@ Ext.define("FlowMVC.mvc.service.AbstractService", {
             this.setResponder(null);
 
         } else {
-            throw new Error(
-                "["+ Ext.getDisplayName(arguments.callee) +"] " +
-                //WAS CafeTownsend.service.AbstractService.NO_RESPONDER_DEFINED
-				FlowMVC.mvc.service.AbstractService.NO_RESPONDER_DEFINED
-            );
+	        Ext.Error.raise({
+		        msg: "["+ Ext.getDisplayName(arguments.callee) +"] " +
+			        //WAS: CafeTownsend.service.AbstractService.NO_RESPONDER_DEFINED
+					FlowMVC.mvc.service.AbstractService.NO_RESPONDER_DEFINED
+	        });
 
         }
-    },
-
-	// BELOW FUNCTION COPIED FROM FlowMVC.mvc.service.mock.AbstractServiceMock, 
-	// BY wvh 
-	// AS FlowMVC.mvc.service.AbstractService NOW USES THIS FUNCTION TOO
-	/**
-     * Accessor method that determines if this sercvice uses promises or asyn tokens.
-     *
-     * @returns {FlowMVC.mvc.service.rpc.AsyncToken/Deft.promise.Deferred} Reference to the AsyncToken or
-     * Promise
-     */
-    getTokenOrPromise: function() {
-        FlowMVC.mvc.service.mock.AbstractServiceMock.logger.debug("getTokenOrPromise");
-        return (this.getUsePromise()) ?
-            Ext.create("Deft.promise.Deferred") :
-            Ext.create("FlowMVC.mvc.service.rpc.AsyncToken");
-    },
+    },	
 	
     /**
      * Default handler for service's successful execution. Relies on the applyResponderMethod() to
@@ -175,6 +144,8 @@ Ext.define("FlowMVC.mvc.service.AbstractService", {
         } else {
             this.applyResponderMethod(response, "success");
         }
+
+	    return token;
     },
 
     /**
@@ -190,10 +161,23 @@ Ext.define("FlowMVC.mvc.service.AbstractService", {
         if(token && (token instanceof FlowMVC.mvc.service.rpc.AsyncToken)) {
             token.applyFailure(response);
         } else if(token && (token instanceof Deft.promise.Deferred)) {
-            deferred.reject("There was a service error.");
+	        token.reject("There was a service error.");
         } else {
             this.applyResponderMethod(response, "failure");
         }
-    }
+    },
+
+	/**
+	 * Accessor method that determines if this service uses promises or AsyncTokens.
+	 *
+	 * @returns {FlowMVC.mvc.service.rpc.AsyncToken/Deft.promise.Deferred} Reference to the AsyncToken or
+	 * Promise
+	 */
+	getTokenOrPromise: function() {
+		FlowMVC.mvc.service.AbstractService.logger.debug("getTokenOrPromise");
+		return (this.getUsePromise()) ?
+			Ext.create("Deft.promise.Deferred") :
+			Ext.create("FlowMVC.mvc.service.rpc.AsyncToken");
+	}
 });
 

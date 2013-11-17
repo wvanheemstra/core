@@ -1,4 +1,4 @@
-/**
+/** 
  * The base class for services. Provides some helper methods for calling the successful and failed callbacks
  * provided by the client object using this service.
  *

@@ -7,7 +7,7 @@ Ext.Loader.setConfig({
 		"Core": "../../../app",
 		"Ext": "../../../resources/js/ext/src",
 		"Ext.ux": "../../../resources/js/touch-custom/src/ux",
-		"FlowMVC": "../../../resources/js/flow-mvc/FlowMVC",
+		"FlowMVC": "../../../resources/js/flow-mvc/src/FlowMVC",
     	"Deft": "../../../resources/js/deft/Deft",
     	"nineam": "../../../resources/js/locale/nineam",
     	enabled:            true,

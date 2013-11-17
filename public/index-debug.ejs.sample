@@ -287,7 +287,7 @@
     	<!--<script type="text/javascript" src="resources/js/log4javascript/log4javascript.js"></script>-->
     	<script type="text/javascript" src="app/app-loader-extjs.js"></script>
 		<script type="text/javascript" src="resources/js/deft/deft-debug.js"></script>
-	    <script type="text/javascript" src="resources/js/flow-mvc/flowmvc-debug.js"></script>
+	    <script type="text/javascript" src="resources/js/flow-mvc/build/flowmvc-debug.js"></script>
 		<! -- place SenchaCompatibility before the app -->
 		<script type="text/javascript" src="resources/js/sencha-compatibility/SenchaCompatibility.js"></script>		
     	<script type="text/javascript" src="app-extjs.js"></script>
@@ -296,7 +296,7 @@
     	<script type="text/javascript" src="resources/js/touch/sencha-touch-debug.js"></script>
     	<script type="text/javascript" src="app/app-loader-touch.js"></script>
 		<script type="text/javascript" src="resources/js/deft/deft-debug.js"></script>
-	    <script type="text/javascript" src="resources/js/flow-mvc/flowmvc-debug.js"></script>
+	    <script type="text/javascript" src="resources/js/flow-mvc/build/flowmvc-debug.js"></script>
 		<! -- place SenchaCompatibility before the app -->
 		<script type="text/javascript" src="resources/js/sencha-compatibility/SenchaCompatibility.js"></script>		
     	<script type="text/javascript" src="app-touch.js"></script>
@@ -305,7 +305,7 @@
     	<script type="text/javascript" src="resources/js/touch/sencha-touch-debug.js"></script>
     	<script type="text/javascript" src="app/app-loader-touch.js"></script>
 		<script type="text/javascript" src="resources/js/deft/deft-debug.js"></script>
-	    <script type="text/javascript" src="resources/js/flow-mvc/flowmvc-debug.js"></script>
+	    <script type="text/javascript" src="resources/js/flow-mvc/build/flowmvc-debug.js"></script>
 		<! -- place SenchaCompatibility before the app -->
 		<script type="text/javascript" src="resources/js/sencha-compatibility/SenchaCompatibility.js"></script>		
     	<script type="text/javascript" src="app-touch.js"></script>

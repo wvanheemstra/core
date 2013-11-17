@@ -34,7 +34,7 @@ require({
 		"SenchaCompatibility": "../../resources/js/sencha-compatibility/SenchaCompatibility",
 		"glu-extjs-4": "../../resources/js/glu/glu-extjs-4",
 		"deft": "../../resources/js/deft/deft",
-		"flowmvc": "../../resources/js/flow-mvc/flowmvc",
+		"flowmvc": "../../resources/js/flow-mvc/build/flowmvc",
 		"moment-with-langs": "../../resources/js/moment/moment-with-langs",
 		"glu": "../../resources/js/glu/glu",
 		"glu-test": "../../resources/js/glu/glu-test"

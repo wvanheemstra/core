@@ -13,8 +13,8 @@ Ext.define("Core.view.extjs.asset.list.View", {
     header: false,
 
     requires: [
-        "Ext.data.*",
-        "Ext.util.*", 
+//        "Ext.data.*",  // Causes an error
+//        "Ext.util.*",  // Causes an error
         "Ext.view.View",
         "Core.view.extjs.component.LiveSearchGridPanel",
         "nineam.locale.LocaleManager"

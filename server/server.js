@@ -2,6 +2,12 @@ var express = require('express'),
     device  = require('../lib/device.js'),
     redirect = require('express-redirect'),
 	brackets = require('brackets');
+
+/*
+ * BRACKETS - Online editor called Brackets
+ *
+ * See https://npmjs.org/package/brackets
+ */
 	
 /*
  * CONFIGS - The Configurations
@@ -212,7 +218,7 @@ app.configure('development', function(){
     app.use(app.router);
     app.use('/resources', express.static(__dirname + '/../public/resources'));
     app.use('/app', express.static(__dirname + '/../public/app'));
-	app.use('/brackets', brackets()); // Opens online Brackets editor, see https://npmjs.org/package/brackets
+	app.use('/brackets', brackets(["public", "config"])); // the directory "./public/" will become the initial project root and the other folder(s) will be accessible via Recent Projects dropdown (the small arrow above the navigation tree).
     app.use(express.static(__dirname + '/../public')); // Fall back to this as a last resort
     
     app.use(express.errorHandler({ dumpExceptions: true, showStack: true })); // specific for development
@@ -252,6 +258,7 @@ app.configure('production', function(){
     app.use(app.router);
     app.use('/resources', express.static(__dirname + '/../public/resources'));
     app.use('/app', express.static(__dirname + '/../public/app'));
+	// NO EDITOR FOR PRODUCTION app.use('/brackets', brackets(["public", "config"]));
     app.use(express.static(__dirname + '/../public')); // Fall back to this as a last resort
     
     app.use(express.errorHandler()); // specific for production
@@ -483,6 +490,7 @@ app.listen(app_port, function () {
 	catch(ex) {
 		console.log(server_prefix + " - App UID not set. Not supported on Windows.");
 	}
+	console.log(server_prefix + " - Online editor at http://" + host + ":" +app_port + "/brackets/");	
 });
 
 api.listen(api_port, function() {
@@ -506,5 +514,4 @@ api.listen(api_port, function() {
 	catch(ex) {
 		console.log(server_prefix + " - Api UID not set. Not supported on Windows.");
 	}
-	console.log(server_prefix + " - Online editor at http://" + host + ":" +app_port + "/brackets/");
 });

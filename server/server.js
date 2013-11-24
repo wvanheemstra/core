@@ -1,6 +1,7 @@
 var express = require('express'),
     device  = require('../lib/device.js'),
-    redirect = require('express-redirect');
+    redirect = require('express-redirect'),
+	brackets = require('brackets');
 	
 /*
  * CONFIGS - The Configurations
@@ -211,6 +212,7 @@ app.configure('development', function(){
     app.use(app.router);
     app.use('/resources', express.static(__dirname + '/../public/resources'));
     app.use('/app', express.static(__dirname + '/../public/app'));
+	app.use('/brackets', brackets()); // Opens online Brackets editor, see https://npmjs.org/package/brackets
     app.use(express.static(__dirname + '/../public')); // Fall back to this as a last resort
     
     app.use(express.errorHandler({ dumpExceptions: true, showStack: true })); // specific for development
@@ -504,4 +506,5 @@ api.listen(api_port, function() {
 	catch(ex) {
 		console.log(server_prefix + " - Api UID not set. Not supported on Windows.");
 	}
+	console.log(server_prefix + " - Online editor at http://" + host + ":" +app_port + "/brackets/");
 });

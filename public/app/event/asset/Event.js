@@ -20,77 +20,77 @@ Ext.define("Core.event.asset.Event", {
 			/**
 			 * The get asset slide event type.
 			 */
-			GET_ASSET_SLIDE:          "getAssetSlide",
+		//	GET_ASSET_SLIDE:          "getAssetSlide",
 			
 			/**
 			 * The get asset slide success event type.
 			 */
-			GET_ASSET_SLIDE_SUCCESS:  "getAssetSlideSuccess",
+		//	GET_ASSET_SLIDE_SUCCESS:  "getAssetSlideSuccess",
 
 			/**
 			 * The get asset slide failure event type.
 			 */
-			GET_ASSET_SLIDE_FAILURE:  "getAssetSlideFailure",	
+		//	GET_ASSET_SLIDE_FAILURE:  "getAssetSlideFailure",	
 		
 			/**
 			 * The get asset list event type.
 			 */
-			GET_ASSET_LIST:          "getAssetList",
+		//	GET_ASSET_LIST:          "getAssetList",
 			
 			/**
 			 * The get asset list success event type.
 			 */
-			GET_ASSET_LIST_SUCCESS:  "getAssetListSuccess",
+		//	GET_ASSET_LIST_SUCCESS:  "getAssetListSuccess",
 
 			/**
 			 * The get asset list failure event type.
 			 */
-			GET_ASSET_LIST_FAILURE:  "getAssetListFailure",
+		//	GET_ASSET_LIST_FAILURE:  "getAssetListFailure",
 			
 			/**
 			 * The get asset tile event type.
 			 */
-			GET_ASSET_TILE:          "getAssetTile",
+		//	GET_ASSET_TILE:          "getAssetTile",
 			
 			/**
 			 * The get asset tile success event type.
 			 */
-			GET_ASSET_TILE_SUCCESS:  "getAssetTileSuccess",
+		//	GET_ASSET_TILE_SUCCESS:  "getAssetTileSuccess",
 
 			/**
 			 * The get asset tile failure event type.
 			 */
-			GET_ASSET_TILE_FAILURE:  "getAssetTileFailure",        
+		//	GET_ASSET_TILE_FAILURE:  "getAssetTileFailure",        
 
 			/**
 			 * The get asset modal event type.
 			 */
-			GET_ASSET_MODAL:          "getAssetModal",
+		//	GET_ASSET_MODAL:          "getAssetModal",
 			
 			/**
 			 * The get asset modal success event type.
 			 */
-			GET_ASSET_MODAL_SUCCESS:  "getAssetModalSuccess",
+		//	GET_ASSET_MODAL_SUCCESS:  "getAssetModalSuccess",
 
 			/**
 			 * The get asset modal failure event type.
 			 */
-			GET_ASSET_MODAL_FAILURE:  "getAssetModalFailure",	
+		//	GET_ASSET_MODAL_FAILURE:  "getAssetModalFailure",	
 			
 			/**
 			 * The get asset event type.
 			 */
-			GET_ASSET:               "getAsset",
+		//	GET_ASSET:               "getAsset",
 
 			/**
 			 * The get asset success event type.
 			 */
-			GET_ASSET_SUCCESS:       "getAssetSuccess",
+		//	GET_ASSET_SUCCESS:       "getAssetSuccess",
 
 			/**
 			 * The get asset failure event type.
 			 */
-			GET_ASSET_FAILURE:       "getAssetFailure",
+		//	GET_ASSET_FAILURE:       "getAssetFailure",
 		
 		
 		//////////////////////////

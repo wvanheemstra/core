@@ -30,18 +30,7 @@ Ext.define("Core.mediator.extjs.asset.base.Mediator", {
         this.eventBus.addGlobalEventListener(Core.event.background.Event.SET_BACKGROUND_SUCCESS, this.onSetBackgroundSuccess, this);
 
         this.eventBus.addGlobalEventListener(Core.event.authentication.Event.LOGIN_SUCCESS, this.onLoginSuccess, this);
-		
-        this.eventBus.addGlobalEventListener(Core.event.asset.Event.GET_ASSET_SLIDE_SUCCESS, this.onGetAssetSlideSuccess, this);
-        this.eventBus.addGlobalEventListener(Core.event.asset.Event.GET_ASSET_SLIDE_FAILURE, this.onGetAssetSlideFailure, this);		
-        this.eventBus.addGlobalEventListener(Core.event.asset.Event.GET_ASSET_LIST_SUCCESS, this.onGetAssetListSuccess, this);
-        this.eventBus.addGlobalEventListener(Core.event.asset.Event.GET_ASSET_LIST_FAILURE, this.onGetAssetListFailure, this);
-        this.eventBus.addGlobalEventListener(Core.event.asset.Event.GET_ASSET_TILE_SUCCESS, this.onGetAssetTileSuccess, this);
-        this.eventBus.addGlobalEventListener(Core.event.asset.Event.GET_ASSET_TILE_FAILURE, this.onGetAssetTileFailure, this);
-        this.eventBus.addGlobalEventListener(Core.event.asset.Event.GET_ASSET_MODAL_SUCCESS, this.onGetAssetModalSuccess, this);
-        this.eventBus.addGlobalEventListener(Core.event.asset.Event.GET_ASSET_MODAL_FAILURE, this.onGetAssetModalFailure, this);
-        this.eventBus.addGlobalEventListener(Core.event.asset.Event.GET_ASSET_DETAIL_SUCCESS, this.onGetAssetDetailSuccess, this);
-        this.eventBus.addGlobalEventListener(Core.event.asset.Event.GET_ASSET_DETAIL_FAILURE, this.onGetAssetDetailFailure, this);
-
+        this.eventBus.addGlobalEventListener(Core.event.asset.Event.READ_ASSETS_SUCCESS, this.onReadAssetsSuccess, this);		
         this.eventBus.addGlobalEventListener(Core.event.asset.Event.UPDATE_ASSET_SUCCESS, this.onUpdateAssetSuccess, this);
         this.eventBus.addGlobalEventListener(Core.event.asset.Event.DELETE_ASSET_SUCCESS, this.onDeleteAssetSuccess, this);
         this.eventBus.addGlobalEventListener(Core.event.asset.Event.CREATE_ASSET_SUCCESS, this.onCreateAssetSuccess, this);
@@ -94,76 +83,6 @@ Ext.define("Core.mediator.extjs.asset.base.Mediator", {
     onLoginSuccess: function() {
         // placeholder
     },
-
-    /**
-     * Handles the get assets success application-level event.
-     */
-    onGetAssetSlideSuccess: function() {
-        // placeholder
-    },
-
-    /**
-     * Handles the get assets failure event from the login controller.
-     */
-    onGetAssetSlideFailure: function() {
-        // placeholder
-    },
-	
-    /**
-     * Handles the get assets success application-level event.
-     */
-    onGetAssetListSuccess: function() {
-        // placeholder
-    },
-
-    /**
-     * Handles the get assets failure event from the login controller.
-     */
-    onGetAssetListFailure: function() {
-        // placeholder
-    },
-
-    /**
-     * Handles the get assets success application-level event.
-     */
-    onGetAssetTileSuccess: function() {
-        // placeholder
-    },
-
-    /**
-     * Handles the get assets failure event from the login controller.
-     */
-    onGetAssetTileFailure: function() {
-        // placeholder
-    },
-
-    /**
-     * Handles the get assets success application-level event.
-     */
-    onGetAssetDetailSuccess: function() {
-        // placeholder
-    },
-
-    /**
-     * Handles the get assets failure event from the login controller.
-     */
-    onGetAssetDetailFailure: function() {
-        // placeholder
-    },
-
-    /**
-     * Handles the get assets success application-level event.
-     */
-    onGetAssetModalSuccess: function() {
-        // placeholder
-    },
-
-    /**
-     * Handles the get assets failure event from the login controller.
-     */
-    onGetAssetModalFailure: function() {
-        // placeholder
-    },
 	
     /**
      * Handles the create asset success application-level event. Navigates back to the asset list view.
@@ -186,6 +105,13 @@ Ext.define("Core.mediator.extjs.asset.base.Mediator", {
         // placeholder
     },
 
+    /**
+     * Handles the read assets success application-level event. 
+     */
+    onReadAssetsSuccess: function() {
+        // placeholder
+    },	
+	
     /**
      * Handles the change of the selected record in the asset store. Loads the appropriate record in the view or
      * resets it if the record is null.

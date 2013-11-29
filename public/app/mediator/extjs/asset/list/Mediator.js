@@ -26,7 +26,8 @@ Ext.define("Core.mediator.extjs.asset.list.Mediator", {
     getAssetListData: function() {
         this.logger.debug("getAssetListData");
         this.getView().setLoading(nineam.locale.LocaleManager.getProperty("assetList.loading"));
-        var evt = Ext.create("Core.event.asset.Event", Core.event.asset.Event.GET_ASSET_LIST);
+        // DEPRECATED var evt = Ext.create("Core.event.asset.Event", Core.event.asset.Event.GET_ASSET_LIST);
+		var evt = Ext.create("Core.event.asset.Event", Core.event.asset.Event.READ_ASSETS);
         this.eventBus.dispatchGlobalEvent(evt);
     },
 
@@ -94,27 +95,6 @@ Ext.define("Core.mediator.extjs.asset.list.Mediator", {
     onSetUISuccess: function() {
         this.logger.debug("onSetUISuccess");
         this.setUI(Core.config.asset.Config.getUi());
-    },	
-	
-    /**
-     * Handles the get assets success application-level event.
-     */
-    onGetAssetListSuccess: function() {
-		if(Core.config.asset.Config.getNextView()==='assetlist') {
-			this.logger.debug("onGetAssetListSuccess");
-			this.getView().setLoading(false);
-			this.getList().getStore().loadRecords(this.assetStore.getRange());
-		}
-    },
-
-    /**
-     * Handles the get assets failure event from the login controller.
-     */
-    onGetAssetListFailure: function() {
-		if(Core.config.asset.Config.getNextView()==='assetlist') {
-			this.logger.debug("onGetAssetListFailure");
-			this.getView().setLoading(false);
-		}
     },
 
     /**
@@ -149,6 +129,27 @@ Ext.define("Core.mediator.extjs.asset.list.Mediator", {
 			this.getList().getStore().loadRecords(this.assetStore.getRange());
 		}
     },
+	
+    /**
+     * Handles the read assets success application-level event.
+     */
+    onReadAssetsSuccess: function() {
+		if(Core.config.asset.Config.getNextView()==='assetlist') {
+			this.logger.debug("onReadAssetsSuccess");
+			this.getView().setLoading(false);
+			this.getList().getStore().loadRecords(this.assetStore.getRange());
+		}
+    },
+
+    /**
+     * Handles the read assets failure application-level event.
+     */
+    onReadAssetsFailure: function() {
+		if(Core.config.asset.Config.getNextView()==='assetlist') {
+			this.logger.debug("onReadAssetsFailure");
+			this.getView().setLoading(false);
+		}
+    },	
 
     ////////////////////////////////////////////////
     // VIEW EVENT HANDLERS

@@ -89,7 +89,7 @@ Ext.define("Core.view.extjs.booking.list.View", {
             },
             columns: [
                 {
-                    dataIndex:  "name",
+                    dataIndex:  "BookingName",
                     plugins: [
                         {
                             ptype: "localization",

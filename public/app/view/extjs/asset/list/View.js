@@ -13,10 +13,10 @@ Ext.define("Core.view.extjs.asset.list.View", {
     header: false,
 
     requires: [
-//        "Ext.data.*",  // Causes an error
-//        "Ext.util.*",  // Causes an error
+    //    "Ext.data.*",  // Causes an error
+    //    "Ext.util.*",  // Causes an error
         "Ext.view.View",
-//        "Core.view.extjs.component.LiveSearchGridPanel",
+        "Core.view.extjs.component.LiveSearchGridPanel",
         "nineam.locale.LocaleManager"
     ],
 
@@ -89,7 +89,7 @@ Ext.define("Core.view.extjs.asset.list.View", {
             },
             columns: [
                 {
-                    dataIndex:  "name",
+                    dataIndex:  "AssetName",
                     plugins: [
                         {
                             ptype: "localization",
@@ -98,14 +98,14 @@ Ext.define("Core.view.extjs.asset.list.View", {
                         }
                     ]
                 }
-            ]/*,
+            ],
             plugins: [
                 {
                     ptype: "localization",
                     method: "setTitle",
                     key: "assetList.search"
                 }
-            ]*/
+            ]
         }
     ]
 });

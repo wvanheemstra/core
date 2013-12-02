@@ -27,9 +27,7 @@
         "logOut": "Log Out",
         "new": "New",
         "search": "live search",
-		"salutationAbbreviation": "Salutation",
-        "assetFirstName": "First Name",
-        "assetLastName": "Last Name",	
+        "assetName": "Name",
         "loading": "Loading Assets...",
         "noAssets": "No Assets found."
     },	
@@ -42,9 +40,7 @@
         "logOut": "Log Out",
         "new": "New",
         "search": "live search",
-		"salutationAbbreviation": "Salutation",
-        "assetFirstName": "First Name",
-        "assetLastName": "Last Name",
+        "assetName": "Name",
         "loading": "Loading Assets...",
         "noAssets": "No Assets found."
     },
@@ -57,9 +53,7 @@
         "logOut": "Log Out",
         "new": "New",
         "search": "live search",
-		"salutationAbbreviation": "Salutation",
-        "assetFirstName": "First Name",
-        "assetLastName": "Last Name",
+        "assetName": "Name",
         "loading": "Loading Assets...",
         "noAssets": "No Assets found."
     },
@@ -94,19 +88,11 @@
         "title": "Asset",
         "back": "Back",
         "save": "Save",
-		"salutationAbbreviation": "Salutation",
-        "assetFirstName": "First Name",
-        "assetLastName": "Last Name",
-		"genderName": "Gender",
-		"nationalityName": "Nationality",		
+        "assetName": "Name",	
         "delete": "Delete",
         "creatingAsset": "Creating Asset ...",
         "updatingAsset": "Updating Asset ...",
-        "deletingAsset": "Deleting Asset...",
-		"readingSalutations": "Reading Salutations...",
-		"readingGenders": "Reading Genders...",
-		"readingNationalities": "Reading Nationalities...",
-		"readingDates": "Reading Dates..."			
+        "deletingAsset": "Deleting Asset..."			
     },
 
     /////////////////////////////////////////////

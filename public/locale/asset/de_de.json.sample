@@ -19,50 +19,43 @@
     // ASSET SLIDE
     /////////////////////////////////////////////
     "assetSlide": {
-        "title": "Asseten",
-        "title1": "Asseten1",	
-        "title2": "Asseten2",
-        "title3": "Asseten3",	
-        "title4": "Asseten4",			
+        "title": "Vermögen",
+        "title1": "Vermögen1",	
+        "title2": "Vermögen2",
+        "title3": "Vermögen3",	
+        "title4": "Vermögen4",			
         "logOut": "Abmelden",
         "new": "Neu",
         "search": "live suchen",
-		"salutationAbbreviation": "Anrede",
-        "assetFirstName": "Vorame",
-        "assetLastName": "Nachname",
-        "loading": "Laad Asseten...",
-        "noAssets": "Keine Asseten wurden gefunden."
+        "assetName": "Name",
+        "loading": "Laad Vermögen...",
+        "noAssets": "Keine Vermögen wurden gefunden."
     },	
 	
     /////////////////////////////////////////////
     // ASSET LIST
     /////////////////////////////////////////////
     "assetList": {
-        "title": "Asseten",
+        "title": "Vermögen",
         "logOut": "Abmelden",
         "new": "Neu",
         "search": "live suchen",
-		"salutationAbbreviation": "Anrede",
-        "assetFirstName": "Vorame",
-        "assetLastName": "Nachname",
-        "loading": "Laad Asseten...",
-        "noAssets": "Keine Asseten wurden gefunden."
+        "assetName": "Name",
+        "loading": "Laad Vermögen...",
+        "noAssets": "Keine Vermögen wurden gefunden."
     },
 
     /////////////////////////////////////////////
     // ASSET TILE
     /////////////////////////////////////////////
     "assetTile": {
-        "title": "Asseten",
+        "title": "Vermögen",
         "logOut": "Abmelden",
         "new": "Neu",
         "search": "live suchen",
-		"salutationAbbreviation": "Anrede",
-        "assetFirstName": "Vorame",
-        "assetLastName": "Nachname",
-		"gender": "Geschlecht",		
-        "loading": "Laad Asseten...",
-        "noAssets": "Keine Asseten wurden gefunden."
+        "assetName": "Name",	
+        "loading": "Laad Vermögen...",
+        "noAssets": "Keine Vermögen wurden gefunden."
     },
 
     /////////////////////////////////////////////
@@ -92,29 +85,21 @@
     // ASSET DETAIL
     /////////////////////////////////////////////
     "assetDetail": {
-        "title": "Asset",
+        "title": "Vermögen",
         "back": "Zurück",
         "save": "Speichern",
-		"salutationAbbreviation": "Anrede",
-        "assetFirstName": "Vorame",
-        "assetLastName": "Nachname",
-		"genderName": "Geschlecht",
-		"nationalityName": "Nationalität",		
+        "assetName": "Name",	
         "delete": "Löschen",
-        "creatingAsset": "Mach Asset neu an ...",
-        "updatingAsset": "Bearbeit Asset ...",
-        "deletingAsset": "Lösch Asset...",
-		"readingSalutations": "Lese Anreden...",
-		"readingGenders": "Lese Geschlechten...",
-		"readingNationalities": "Lese Nationalitäten...",
-		"readingDates": "Lese Datums..."		
+        "creatingAsset": "Mach Vermögen neu an ...",
+        "updatingAsset": "Bearbeit Vermögen ...",
+        "deletingAsset": "Lösch Vermögen..."		
     },
 
     /////////////////////////////////////////////
     // ASSET MODAL
     /////////////////////////////////////////////
     "assetModal": {
-        "title": "Asset",
+        "title": "Vermögen",
         "close": "schließen"
     }
 }

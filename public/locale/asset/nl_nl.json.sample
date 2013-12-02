@@ -19,49 +19,43 @@
     // ASSET SLIDE
     /////////////////////////////////////////////
     "assetSlide": {
-        "title": "Persoon",
-        "title1": "Persoon1",	
-        "title2": "Persoon2",
-        "title3": "Persoon3",	
-        "title4": "Persoon4",			
+        "title": "Vermogen",
+        "title1": "Vermogen1",	
+        "title2": "Vermogen2",
+        "title3": "Vermogen3",	
+        "title4": "Vermogen4",			
         "logOut": "Log Uit",
         "new": "Nieuw",
         "search": "live zoeken",
-		"salutationAbbreviation": "Aanhef",
-        "assetFirstName": "Voornaam",
-        "assetLastName": "Achternaam",	
-        "loading": "Laad Persoon...",
-        "noAssets": "Geen Persoon gevonden."
+        "assetName": "Naam",
+        "loading": "Laad Vermogen...",
+        "noAssets": "Geen Vermogen gevonden."
     },	
 	
     /////////////////////////////////////////////
     // ASSET LIST
     /////////////////////////////////////////////
     "assetList": {
-        "title": "Persoon",
+        "title": "Vermogen",
         "logOut": "Log Uit",
         "new": "Nieuw",
         "search": "live zoeken",
-		"salutationAbbreviation": "Aanhef",
-        "assetFirstName": "Voornaam",
-        "assetLastName": "Achternaam",		
-        "loading": "Laad Persoon...",
-        "noAssets": "Geen Persoon gevonden."
+        "assetName": "Naam",	
+        "loading": "Laad Vermogen...",
+        "noAssets": "Geen Vermogen gevonden."
     },
 
     /////////////////////////////////////////////
     // ASSET TILE
     /////////////////////////////////////////////
     "assetTile": {
-        "title": "Persoon",
+        "title": "Vermogen",
         "logOut": "Log Uit",
         "new": "Nieuw",
         "search": "live zoeken",
-		"salutationAbbreviation": "Aanhef",
-        "assetFirstName": "Voornaam",
-        "assetLastName": "Achternaam",	
-        "loading": "Laad Persoon...",
-        "noAssets": "Geen Persoon gevonden."
+        "assetName": "Naam",	
+        "loading": "Laad Vermogen...",
+        "noAssets": "Geen Vermogen gevonden."
     },
 
     /////////////////////////////////////////////
@@ -94,26 +88,18 @@
         "title": "Asset",
         "back": "Terug",
         "save": "Bewaar",
-		"salutationAbbreviation": "Aanhef",
-        "assetFirstName": "Voornaam",
-        "assetLastName": "Achternaam",	
-		"genderName": "Geslacht",
-		"nationalityName": "Nationaliteit",		
+        "assetName": "Naam",	
         "delete": "Verwijder",
-        "creatingAsset": "Maak Persoon aan ...",
-        "updatingAsset": "Werk Persoon bij ...",
-        "deletingAsset": "Verwijder Persoon...",
-		"readingSalutations": "Lees Aanheven...",
-		"readingGenders": "Lees Geslachten...",
-		"readingNationalities": "Lees Nationaliteiten...",
-		"readingDates": "Lees Datums..."		
+        "creatingAsset": "Maak Vermogen aan ...",
+        "updatingAsset": "Werk Vermogen bij ...",
+        "deletingAsset": "Verwijder Vermogen..."	
     },
 
     /////////////////////////////////////////////
     // ASSET MODAL
     /////////////////////////////////////////////
     "assetModal": {
-        "title": "Persoon",
+        "title": "Vermogen",
         "close": "Sluiten"
     }
 }

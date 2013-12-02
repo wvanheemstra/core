@@ -17,10 +17,7 @@ Ext.define("Core.mediator.extjs.asset.detail.Mediator", {
         },
         deleteButton: {
             click: "onDeleteButtonClick"
-        },
-		salutationAbbreviationTextField: {
-			focus: "onSalutationAbbreviationTextFieldFocus"
-		}
+        }
     },
 
     // set up injected object event listening
@@ -43,10 +40,10 @@ Ext.define("Core.mediator.extjs.asset.detail.Mediator", {
         if(asset !== null) {
             var id = asset.id;
             if( (id !== null) && (id !== "") ) {
-                evt = Ext.create("Core.event.asset.Event", Core.event.asset.Event.UPDATE_PERSON);
+                evt = Ext.create("Core.event.asset.Event", Core.event.asset.Event.UPDATE_ASSET);
                 msg = nineam.locale.LocaleManager.getProperty("assetDetail.updatingAsset");
             } else {
-                evt = Ext.create("Core.event.asset.Event", Core.event.asset.Event.CREATE_PERSON);
+                evt = Ext.create("Core.event.asset.Event", Core.event.asset.Event.CREATE_ASSET);
                 msg = nineam.locale.LocaleManager.getProperty("assetDetail.creatingAsset");
             }
             this.getView().setLoading(msg);
@@ -64,31 +61,11 @@ Ext.define("Core.mediator.extjs.asset.detail.Mediator", {
         this.logger.debug("deleteAsset");
         if(asset !== null) {
             this.getView().setLoading(nineam.locale.LocaleManager.getProperty("assetDetail.deletingAsset"));
-            var evt = Ext.create("Core.event.asset.Event", Core.event.asset.Event.DELETE_PERSON);
+            var evt = Ext.create("Core.event.asset.Event", Core.event.asset.Event.DELETE_ASSET);
             evt.asset = asset;
             this.eventBus.dispatchGlobalEvent(evt);
         }
     },
-	
-    /**
-     * Functional method to read salutations. Fires off the corresponding application-level event.
-     *
-     */
-	readSalutations: function() {
-        this.logger.debug("readSalutations");
-		var salutationPicker = this.getView().getSalutationPicker();
-        if(salutationPicker === null) {
-            this.getView().setMasked({
-                xtype: "loadmask",
-                message: nineam.locale.LocaleManager.getProperty("assetDetail.readingSalutations")
-            });
-            var evt = Ext.create("Core.event.asset.Event", Core.event.asset.Event.READ_SALUTATIONS);
-            this.eventBus.dispatchGlobalEvent(evt);
-        }
-		else{
-			salutationPicker.show();
-		}
-	},
 	
     /**
      * Simple navigation method used to navigate back, depending on the previous view.
@@ -115,7 +92,7 @@ Ext.define("Core.mediator.extjs.asset.detail.Mediator", {
      */
     backToAssetSlide: function() {
         this.logger.debug("backToAssetSlide");
-        this.navigate(Core.event.navigation.Event.ACTION_BACK_SHOW_PERSON_SLIDE);
+        this.navigate(Core.event.navigation.Event.ACTION_BACK_SHOW_ASSET_SLIDE);
     },	
 	
     /**
@@ -123,7 +100,7 @@ Ext.define("Core.mediator.extjs.asset.detail.Mediator", {
      */
     backToAssetList: function() {
         this.logger.debug("backToAssetList");
-        this.navigate(Core.event.navigation.Event.ACTION_BACK_SHOW_PERSON_LIST);
+        this.navigate(Core.event.navigation.Event.ACTION_BACK_SHOW_ASSET_LIST);
     },
 
     /**
@@ -131,7 +108,7 @@ Ext.define("Core.mediator.extjs.asset.detail.Mediator", {
      */
     backToAssetTile: function() {
         this.logger.debug("backToAssetTile");
-        this.navigate(Core.event.navigation.Event.ACTION_BACK_SHOW_PERSON_TILE);
+        this.navigate(Core.event.navigation.Event.ACTION_BACK_SHOW_ASSET_TILE);
     },
 
     /**
@@ -212,28 +189,6 @@ Ext.define("Core.mediator.extjs.asset.detail.Mediator", {
 			this.reset();
 			this.backToPrevious(Core.config.asset.Config.getPreviousView());
 		}
-    },
-	
-	/**
-     * Handles the read salutations success application-level event.
-     */
-    onReadSalutationsSuccess: function() {
-		if(Core.config.asset.Config.getCurrentView()==='assetdetail') {
-			this.logger.debug("onReadSalutationsSuccess");
-			// to do ...
-			
-			this.getView().setMasked(false);
-		}
-    },
-
-    /**
-     * Handles the read salutations failure application-level event.
-     */
-    onReadSalutationsFailure: function() {
-		if(Core.config.asset.Config.getCurrentView()==='assetdetail') {
-			this.logger.debug("onReadSalutationsFailure");
-			this.getView().setLoading(false);
-		}
     },	
 	
     /**
@@ -246,7 +201,7 @@ Ext.define("Core.mediator.extjs.asset.detail.Mediator", {
     onSelectedRecordChange: function(store, record) {
 		//Do not put within if() statement 
 		var logMsg = (record !== null)
-			? ": id = " + record.get("id") + ", asset = " + record.get("name")
+			? ": id = " + record.get("kp_AssetID") + ", asset = " + record.get("AssetName")
 			: "new asset";
 		this.logger.debug("onSelectedRecordChange = " + logMsg);
 		if (record) {
@@ -293,14 +248,5 @@ Ext.define("Core.mediator.extjs.asset.detail.Mediator", {
 	    if(asset) {
 		    this.deleteAsset(asset.data);
 	    }
-    },
-
-    /**
-     * Handles the salutation abbreviation text field focus event. 
-     * 
-     */
-    onSalutationAbbreviationTextFieldFocus: function() {
-        this.logger.debug("onSalutationAbbreviationTextFieldFocus");
-		this.readSalutations();
     }
 });

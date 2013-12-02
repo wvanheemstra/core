@@ -26,7 +26,6 @@ Ext.define("Core.controller.asset.Controller", {
     init: function() {
         this.callParent();
         this.logger.debug("init");
-
         this.initLocaleManager();
     },
     
@@ -37,7 +36,8 @@ Ext.define("Core.controller.asset.Controller", {
     setupGlobalEventListeners: function() {
         this.callParent();
         this.logger.debug("setupGlobalEventListeners");
-        this.eventBus.addGlobalEventListener(Core.event.asset.Event.READ_ASSETS, this.onReadAssets, this);
+		this.eventBus.addGlobalEventListener(Core.event.asset.Event.READ_ASSETS, this.onReadAssets, this);
+    //    this.eventBus.addGlobalEventListener(Core.event.asset.Event.GET_ASSET_LIST, this.onGetAssetList, this);		
         this.eventBus.addGlobalEventListener(Core.event.asset.Event.CREATE_ASSET, this.onCreateAsset, this);
         this.eventBus.addGlobalEventListener(Core.event.asset.Event.UPDATE_ASSET, this.onUpdateAsset, this);
         this.eventBus.addGlobalEventListener(Core.event.asset.Event.DELETE_ASSET, this.onDeleteAsset, this);

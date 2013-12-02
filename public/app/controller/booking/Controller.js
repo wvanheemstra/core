@@ -25,7 +25,6 @@ Ext.define("Core.controller.booking.Controller", {
     init: function() {
         this.callParent();
         this.logger.debug("init");
-
         this.initLocaleManager();
     },
     

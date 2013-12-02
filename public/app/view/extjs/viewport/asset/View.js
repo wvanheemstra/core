@@ -15,8 +15,8 @@ Ext.define("Core.view.extjs.viewport.asset.View", {
     requires: [
 		"Core.config.global.Config",
         "Core.view.extjs.login.View",
-	//	"Core.view.extjs.asset.slide.View",
-    //    "Core.view.extjs.asset.list.View", // THROWS AN ERROR
+	//	"Core.view.extjs.asset.slide.View", // THROWS AN ERROR
+        "Core.view.extjs.asset.list.View",
         "Core.view.extjs.asset.detail.View",
     //    "Core.view.extjs.asset.tile.View", // THROWS AN ERROR
         "Core.view.extjs.asset.modal.View"

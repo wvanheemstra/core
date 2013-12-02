@@ -74,13 +74,13 @@ Ext.define("Core.view.extjs.asset.detail.View", {
                 {
                     xtype: "textfield",
                     itemId: "nameTextField",
-                    name: "name",
+                    name: "assetName",
                     required: true,
                     plugins: [
                         {
                             ptype: "localization",
                             method: "emptyText",
-                            key: "assetDetail.name"
+                            key: "assetDetail.assetName"
                         }
                     ]
                 }

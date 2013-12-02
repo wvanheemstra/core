@@ -94,7 +94,7 @@ Ext.define("Core.view.extjs.asset.list.View", {
                         {
                             ptype: "localization",
                             method: "setText",
-                            key: "assetList.name"
+                            key: "assetList.assetName"
                         }
                     ]
                 }

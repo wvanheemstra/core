@@ -48,12 +48,12 @@ Ext.define("Core.view.extjs.viewport.asset.View", {
             xtype: "assetListView",
             itemId: "assetlist",
             hidden: true
+        },
+        {
+            xtype: "assetDetailView",
+            itemId: "assetdetail",
+            hidden: true
         }//,
-    //    {
-    //        xtype: "assetDetailView",
-    //        itemId: "assetdetail",
-    //        hidden: true
-    //    },
     //    {
     //        xtype: "assetTileView",
     //        itemId: "maintile",

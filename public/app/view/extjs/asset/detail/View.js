@@ -74,7 +74,7 @@ Ext.define("Core.view.extjs.asset.detail.View", {
                 {
                     xtype: "textfield",
                     itemId: "nameTextField",
-                    name: "assetName",
+                    name: "AssetName",
                     required: true,
                     plugins: [
                         {

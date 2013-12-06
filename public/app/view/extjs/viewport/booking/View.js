@@ -48,12 +48,12 @@ Ext.define("Core.view.extjs.viewport.booking.View", {
             xtype: "bookingListView",
             itemId: "bookinglist",
             hidden: true
+        },
+        {
+            xtype: "bookingDetailView",
+            itemId: "bookingdetail",
+            hidden: true
         }//,
-    //    {
-    //        xtype: "bookingDetailView",
-    //        itemId: "bookingdetail",
-    //        hidden: true
-    //    },
     //    {
     //        xtype: "bookingTileView",
     //        itemId: "maintile",

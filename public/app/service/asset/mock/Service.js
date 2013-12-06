@@ -102,5 +102,4 @@ Ext.define("Core.service.asset.mock.Service", {
 
         return this.delayedSuccess(response);
     }
-	
 });

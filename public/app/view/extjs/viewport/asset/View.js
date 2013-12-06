@@ -28,7 +28,13 @@ Ext.define("Core.view.extjs.viewport.asset.View", {
     ],
 
     config: {
+		/**
+		 * @property {Number} width
+		 */
         width: 800,
+		/**
+		 * @property {Number} currentItem
+		 */
         currentItem: null
     },
 

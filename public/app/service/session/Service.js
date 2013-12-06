@@ -61,7 +61,7 @@ Ext.define("Core.service.session.Service", {
      * @param {String} sessionId The sessionId being set.
      */
     setSession: function(id, sessionId) {
-        this.logger.debug("set session: id = " + id + ", sessionId = " + sessionId");
+        this.logger.debug("set session: id = " + id + ", sessionId = " + sessionId);
 
         var me = this;
 		me.id = id;

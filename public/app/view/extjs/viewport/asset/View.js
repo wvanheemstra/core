@@ -1,6 +1,8 @@
 /**
+ * @class Core.view.extjs.viewport.asset.View
  * The basic Viewport for the application.
  *
+ * @extends Ext.container.Viewport
  * <p>
  * All views are purely layout and don't contain event handling,
  * application or business logic; this is all done in the view's corresponding mediator.
@@ -10,6 +12,9 @@ Ext.define("Core.view.extjs.viewport.asset.View", {
     extend: "Ext.container.Viewport",
     alias: "widget.viewportView",
     controller: "Core.mediator.extjs.viewport.asset.Mediator",
+	/**
+	 * @property {Number} width
+	 */
     width: 800,
 
     requires: [

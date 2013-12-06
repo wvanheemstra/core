@@ -1,5 +1,5 @@
 /**
- * The asset phone application class.
+ * The asset tablet application class.
  *
  * See also: https://github.com/Alxandr/pipeline-js
  */

@@ -89,7 +89,7 @@ Ext.onReady(function () {
 				if(key == 'mock'){
 					var mock = value[key];
 					var serviceService = serviceName+"Service";
-					var servicePath = "";  // TO DO: Make e.g. booking to booking, but bookingGroup to booking.group
+					var servicePath = "";
 					// TO DO: Make e.g. booking to booking, but bookingGroup to booking.group
 						// TEMP FIX:
 						if(serviceName == 'bookingGroup'){
@@ -113,7 +113,8 @@ Ext.onReady(function () {
 				if(key == 'store'){
 					var store = value[key];
 					var serviceStore = serviceName+"Store";
-					var storePath = "";  // TO DO: Make e.g. booking to booking, but bookingGroup to booking.group
+					var storePath = "";  
+					// TO DO: Make e.g. booking to booking, but bookingGroup to booking.group
 						// TEMP FIX:
 						if(serviceName == 'bookingGroup'){
 							storePath = 'booking.group'; 

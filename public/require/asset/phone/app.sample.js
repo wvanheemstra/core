@@ -89,7 +89,7 @@ Ext.onReady(function () {
 				if(key == 'mock'){
 					var mock = value[key];
 					var serviceService = serviceName+"Service";
-					var servicePath = "";  // TO DO: Make e.g. asset to asset, but assetGroup to asset.group
+					var servicePath = "";
 					// TO DO: Make e.g. asset to asset, but assetGroup to asset.group
 						// TEMP FIX:
 						if(serviceName == 'assetGroup'){
@@ -113,7 +113,8 @@ Ext.onReady(function () {
 				if(key == 'store'){
 					var store = value[key];
 					var serviceStore = serviceName+"Store";
-					var storePath = "";  // TO DO: Make e.g. asset to asset, but assetGroup to asset.group
+					var storePath = "";  
+					// TO DO: Make e.g. asset to asset, but assetGroup to asset.group
 						// TEMP FIX:
 						if(serviceName == 'assetGroup'){
 							storePath = 'asset.group'; 

@@ -129,14 +129,9 @@
 	<![endif]-->
 	
     <!-- Libraries, Loader, Application -->
-    <script type="text/javascript" src="resources/js/touch/sencha-touch-debug.js"></script>
-    <!--<script type="text/javascript" src="resources/js/log4javascript/log4javascript.js"></script>-->
-    <script type="text/javascript" src="app/app-loader-touch.js"></script>
-	<script type="text/javascript" src="resources/js/deft/deft-debug.js"></script>
-	<script type="text/javascript" src="resources/js/flow-mvc/build/flowmvc-debug.js"></script>
-	<! -- place SenchaCompatibility before the app -->
-	<script type="text/javascript" src="resources/js/sencha-compatibility/SenchaCompatibility.js"></script>	
-    <script type="text/javascript" src="booking-touch.js"></script>
+	<!-- data-main attribute tells require.js to load
+		 require/booking/tablet.js after require.js loads. -->	 
+	<script data-main="require/booking/tablet" src="resources/js/require/require.js"></script>
 	<script type="text/javascript">
 		if (!Ext.browser.is.WebKit) {
 	    	alert("The current browser is unsupported.\n\nSupported browsers:\n" +

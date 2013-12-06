@@ -1,0 +1,1 @@
+jsduck *.js -o doc --title=Core

@@ -15,10 +15,10 @@ Ext.define("Core.view.extjs.viewport.booking.View", {
     requires: [
 		"Core.config.global.Config",
         "Core.view.extjs.login.View",
-		"Core.view.extjs.booking.slide.View",
+	//	"Core.view.extjs.booking.slide.View", // THROWS AN ERROR
         "Core.view.extjs.booking.list.View",
         "Core.view.extjs.booking.detail.View",
-        "Core.view.extjs.booking.tile.View",
+    //    "Core.view.extjs.booking.tile.View", // THROWS AN ERROR
         "Core.view.extjs.booking.modal.View"
     ],
 
@@ -39,31 +39,31 @@ Ext.define("Core.view.extjs.viewport.booking.View", {
             itemId: "login",
             hidden: true
         },
-        {
-            xtype: "bookingSlideView",
-            itemId: "bookingslide", 
-            hidden: true
-        },		
+    //    {
+    //        xtype: "bookingSlideView",
+    //        itemId: "bookingslide", 
+    //        hidden: true
+    //    },		
         {
             xtype: "bookingListView",
             itemId: "bookinglist",
             hidden: true
-        },
-        {
-            xtype: "bookingDetailView",
-            itemId: "bookingdetail",
-            hidden: true
-        },
-        {
-            xtype: "bookingTileView",
-            itemId: "maintile",
-            hidden: true
-        },
-        {
-            xtype: "bookingModalView",
-            itemId: "bookingmodal",
-            hidden: true
-        }
+        }//,
+    //    {
+    //        xtype: "bookingDetailView",
+    //        itemId: "bookingdetail",
+    //        hidden: true
+    //    },
+    //    {
+    //        xtype: "bookingTileView",
+    //        itemId: "maintile",
+    //        hidden: true
+    //    },
+    //    {
+    //        xtype: "bookingModalView",
+    //        itemId: "bookingmodal",
+    //        hidden: true
+    //    }
     ],
 
     // TODO: BMR: Remove all logic from views

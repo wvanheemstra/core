@@ -201,7 +201,7 @@ Ext.define("Core.mediator.extjs.booking.detail.Mediator", {
     onSelectedRecordChange: function(store, record) {
 		//Do not put within if() statement 
 		var logMsg = (record !== null)
-			? ": id = " + record.get("id") + ", booking = " + record.get("name")
+			? ": kp_BookingID = " + record.get("kp_BookingID") + ", BookingName = " + record.get("BookingName")
 			: "new booking";
 		this.logger.debug("onSelectedRecordChange = " + logMsg);
 		if (record) {

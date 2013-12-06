@@ -5,24 +5,24 @@ Ext.define("Core.model.booking.Model", {
     extend: "Ext.data.Model",
     // Touch uses properties inside of config
 	config: {
-	    idProperty: "id",
+	    idProperty: "kp_BookingID",
 	    fields: [
-	        { name: "id",      type: "int"     },
+	        { name: "kp_BookingID",      type: "int"     },
 	        { name: "BookingName",    type: "string"  }
 	    ],
 	    validations: [
-	        { type: "presence", field: "id" },
+	        { type: "presence", field: "kp_BookingID" },
 	        { type: "presence", field: "BookingName",     message: "Please enter a name." }
 	    ]
 	},//eof config
 	// Ext requires properties outside of config
-    idProperty: "id",
+    idProperty: "kp_BookingID",
 	fields: [
-        { name: "id",      type: "int"     },
+        { name: "kp_BookingID",      type: "int"     },
         { name: "BookingName",    type: "string"  }
 	],
     validations: [
-        { type: "presence", field: "id" },
+        { type: "presence", field: "kp_BookingID" },
         { type: "presence", field: "BookingName",     message: "Please enter a name." }
     ]	
 });

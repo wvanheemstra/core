@@ -39,7 +39,7 @@ Ext.define("Core.mediator.extjs.booking.list.Mediator", {
      */
     showBookingDetail: function(record) {
         var logMsg = (record !== null)
-            ? ": id = " + record.get("id") + ", booking = " + record.get("name")
+            ? ": kp_BookingID = " + record.get("kp_BookingID") + ", BookingName = " + record.get("BookingName")
             : "";
         this.logger.debug("showBookingDetail = " + logMsg);
 		Core.config.booking.Config.setPreviousView('bookinglist');

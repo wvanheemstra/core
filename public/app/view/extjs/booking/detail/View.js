@@ -74,7 +74,7 @@ Ext.define("Core.view.extjs.booking.detail.View", {
                 {
                     xtype: "textfield",
                     itemId: "nameTextField",
-                    name: "name",
+                    name: "BookingName",
                     required: true,
                     plugins: [
                         {

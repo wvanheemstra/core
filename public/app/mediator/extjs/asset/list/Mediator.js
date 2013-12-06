@@ -98,6 +98,27 @@ Ext.define("Core.mediator.extjs.asset.list.Mediator", {
     },
 
     /**
+     * Handles the get assets success application-level event.
+     */
+    onGetAssetListSuccess: function() {
+		if(Core.config.asset.Config.getNextView()==='assetlist') {
+			this.logger.debug("onGetAssetListSuccess");
+			this.getView().setLoading(false);
+			this.getList().getStore().loadRecords(this.assetStore.getRange());
+		}
+    },
+
+    /**
+     * Handles the get assets failure application-level event.
+     */
+    onGetAssetListFailure: function() {
+		if(Core.config.asset.Config.getNextView()==='assetlist') {
+			this.logger.debug("onGetAssetListFailure");
+			this.getView().setLoading(false);
+		}
+    },	
+	
+    /**
      * Handles the delete of a asset by refreshing the grid
      * Touch takes care of this for you, not so ext
      */

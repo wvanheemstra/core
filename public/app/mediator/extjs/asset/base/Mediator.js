@@ -30,6 +30,12 @@ Ext.define("Core.mediator.extjs.asset.base.Mediator", {
         this.eventBus.addGlobalEventListener(Core.event.background.Event.SET_BACKGROUND_SUCCESS, this.onSetBackgroundSuccess, this);
 
         this.eventBus.addGlobalEventListener(Core.event.authentication.Event.LOGIN_SUCCESS, this.onLoginSuccess, this);
+		
+        this.eventBus.addGlobalEventListener(Core.event.asset.Event.GET_ASSET_LIST_SUCCESS, this.onGetAssetListSuccess, this);
+        this.eventBus.addGlobalEventListener(Core.event.asset.Event.GET_ASSET_LIST_FAILURE, this.onGetAssetListFailure, this);		
+        this.eventBus.addGlobalEventListener(Core.event.asset.Event.		GET_ASSET_DETAIL_SUCCESS, this.onGetAssetDetailSuccess, this);
+        this.eventBus.addGlobalEventListener(Core.event.asset.Event.GET_ASSET_DETAIL_FAILURE, this.onGetAssetDetailFailure, this);		
+		
         this.eventBus.addGlobalEventListener(Core.event.asset.Event.READ_ASSETS_SUCCESS, this.onReadAssetsSuccess, this);		
         this.eventBus.addGlobalEventListener(Core.event.asset.Event.UPDATE_ASSET_SUCCESS, this.onUpdateAssetSuccess, this);
         this.eventBus.addGlobalEventListener(Core.event.asset.Event.DELETE_ASSET_SUCCESS, this.onDeleteAssetSuccess, this);
@@ -81,6 +87,34 @@ Ext.define("Core.mediator.extjs.asset.base.Mediator", {
      * onto stage.
      */
     onLoginSuccess: function() {
+        // placeholder
+    },
+
+    /**
+     * Handles the get assets success application-level event.
+     */
+    onGetAssetListSuccess: function() {
+        // placeholder
+    },
+
+    /**
+     * Handles the get assets failure application-level event.
+     */
+    onGetAssetListFailure: function() {
+        // placeholder
+    },
+
+	/**
+     * Handles the get assets success application-level event.
+     */
+    onGetAssetDetailSuccess: function() {
+        // placeholder
+    },
+
+    /**
+     * Handles the get assets failure application-level event.
+     */
+    onGetAssetDetailFailure: function() {
         // placeholder
     },
 	

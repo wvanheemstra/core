@@ -201,7 +201,7 @@ Ext.define("Core.mediator.extjs.asset.detail.Mediator", {
     onSelectedRecordChange: function(store, record) {
 		//Do not put within if() statement 
 		var logMsg = (record !== null)
-			? ": id = " + record.get("kp_AssetID") + ", asset = " + record.get("AssetName")
+			? ": kp_AssetID = " + record.get("kp_AssetID") + ", AssetName = " + record.get("AssetName")
 			: "new asset";
 		this.logger.debug("onSelectedRecordChange = " + logMsg);
 		if (record) {

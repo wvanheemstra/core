@@ -40,7 +40,7 @@ Ext.define("Core.mediator.extjs.asset.list.Mediator", {
      */
     showAssetDetail: function(record) {
         var logMsg = (record !== null)
-            ? ": id = " + record.get("kp_AssetID") + ", asset = " + record.get("AssetName")
+            ? ": kp_AssetID = " + record.get("kp_AssetID") + ", AssetName = " + record.get("AssetName")
             : "";
         this.logger.debug("showAssetDetail = " + logMsg);
 		Core.config.asset.Config.setPreviousView('assetlist');

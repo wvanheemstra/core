@@ -57,12 +57,14 @@ module.exports = function (grunt) {
 
 	grunt.loadNpmTasks("grunt-contrib-jshint");	
     grunt.loadNpmTasks("grunt-contrib-clean");
-    grunt.loadNpmTasks("grunt-sencha-jasmine");	
+	grunt.loadNpmTasks('grunt-contrib-jasmine'); // TEMP, 
+    //grunt.loadNpmTasks("grunt-sencha-jasmine");	// Extends grunt-contrib-jasmine
 
     grunt.registerTask("default", [
         "jshint", "clean:build"
     ]);	
 	
-	grunt.registerTask("test", ["sencha_jasmine:app"]);
+	grunt.registerTask("test", ["jasmine:app"]);
+	//grunt.registerTask("test", ["sencha_jasmine:app"]);
 	
 };

@@ -26,15 +26,43 @@ module.exports = function (grunt) {
             options: {
                 jshintrc: ".jshintrc"
             }
+        },
+
+        /**
+         * Sencha Jasmine
+         *
+         * Setup Jasmine and runs them using PhantomJS headlessly.
+         */
+        sencha_jasmine: {
+            options: {
+                specs: ["test/specs/**/*.js"],
+                extFramework: "public/resources/js/ext",
+                extLoaderPaths   : {
+                    "Core" : "public/app" // Is this the right instruction?
+                }
+            },
+            // app configuration is for when we want to test without code coverage
+            app: {},
+            // coverage configuration is for when you want code coverage on your files
+            coverage: {
+                options: {
+                    extLoaderPaths: {
+                        "Core": "build/output/coverage/www/app"
+                    }
+                }
+            }
         }   
    
     });//eof initConfig 
 
 	grunt.loadNpmTasks("grunt-contrib-jshint");	
     grunt.loadNpmTasks("grunt-contrib-clean");
+    grunt.loadNpmTasks("grunt-sencha-jasmine");	
 
     grunt.registerTask("default", [
         "jshint", "clean:build"
     ]);	
+	
+	grunt.registerTask("test", ["sencha_jasmine:app"]);
 	
 };

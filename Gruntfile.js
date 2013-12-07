@@ -29,6 +29,20 @@ module.exports = function (grunt) {
         },
 
         /**
+         * Jasmine
+         *
+         * Setup Jasmine and runs them using PhantomJS headlessly.
+         */		
+		jasmine: {
+			app: {
+			  src: 'public/app/**/*.js',
+			  options: {
+				specs: ['test/specs/**/*.js']
+			  }
+			}
+		},		
+		
+        /**
          * Sencha Jasmine
          *
          * Setup Jasmine and runs them using PhantomJS headlessly.

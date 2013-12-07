@@ -47,25 +47,40 @@ module.exports = function (grunt) {
          *
          * Setup Jasmine and runs them using PhantomJS headlessly.
          */
-        sencha_jasmine: {
-            options: {
-                specs: ["test/specs/**/*.js"],
-                extFramework: "public/resources/js/ext",
-                extLoaderPaths   : {
-                    "Core" : "public/app" // Is this the right instruction?
-                }
-            },
-            // app configuration is for when we want to test without code coverage
-            app: {},
-            // coverage configuration is for when you want code coverage on your files
-            coverage: {
-                options: {
-                    extLoaderPaths: {
-                        "Core": "build/output/coverage/www/app"
-                    }
-                }
-            }
-        }   
+//        sencha_jasmine: {
+//            options: {
+//                specs: ["test/specs/**/*.js"],
+//                extFramework: "public/resources/js/ext",
+//                extLoaderPaths   : {
+//                    "Core" : "public/app" // Is this the right instruction?
+//                }
+//            },
+//            // app configuration is for when we want to test without code coverage
+//            app: {},
+//            // coverage configuration is for when you want code coverage on your files
+//            coverage: {
+//                options: {
+//                    extLoaderPaths: {
+//                        "Core": "build/output/coverage/www/app"
+//                    }
+//                }
+//            }
+//        },
+
+		/**
+		 * JSDuck
+		 *
+		 * Creates JSDuckumentation
+		 */
+		jsduck: {
+			app: {
+			  src: ['public/app/**/*.js'],
+			  dest: 'public/app/doc',
+			  options: {
+				// none
+			  }
+			}
+		}
    
     });//eof initConfig 
 
@@ -73,12 +88,15 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks("grunt-contrib-clean");
 	grunt.loadNpmTasks('grunt-contrib-jasmine'); // TEMP, 
     //grunt.loadNpmTasks("grunt-sencha-jasmine");	// Extends grunt-contrib-jasmine
-
+	grunt.loadNpmTasks('grunt-jsduck');
+	
     grunt.registerTask("default", [
         "jshint", "clean:build"
     ]);	
 	
 	grunt.registerTask("test", ["jasmine:app"]);
 	//grunt.registerTask("test", ["sencha_jasmine:app"]);
+	
+	grunt.registerTask("doc", ["jsduck:app"]);
 	
 };

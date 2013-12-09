@@ -26,47 +26,68 @@ module.exports = function (grunt) {
             options: {
                 jshintrc: ".jshintrc"
             }
-        },
-
+        },	
+		
+        /**
+         * Sencha Dependencies
+		 *
+		 * Get ordered project Sencha dependencies
+		 * See https://github.com/mattgoldspink/grunt-sencha-dependencies
+		 * 
+         */			
+		sencha_dependencies: {
+			asset_desktop: {
+				options : {
+					appFile: 'require/asset/desktop.js',
+					pageToProcess: 'asset-desktop.html',
+					pageRoot: 'public',
+					senchaDir: 'resources/js/ext'
+				}
+			},
+			asset_phone: {
+				options : {
+					appFile: 'require/asset/phone.js',
+					pageToProcess: 'asset-phone.html',
+					pageRoot: 'public',
+					senchaDir: 'resources/js/touch'
+				}
+			},
+			asset_tablet: {
+				options : {
+					appFile: 'require/asset/tablet.js',
+					pageToProcess: 'asset-tablet.html',
+					pageRoot: 'public',
+					senchaDir: 'resources/js/touch'
+				}
+			}
+        },	
+		
         /**
          * Jasmine
          *
          * Setup Jasmine and runs them using PhantomJS headlessly.
          */		
 		jasmine: {
-			app: {
-			  src: 'public/app/**/*.js',
+			asset_desktop: {
+			  src: '<%= sencha_dependencies_asset_desktop_app %>',
 			  options: {
-				specs: ['test/specs/**/*.js']
+				specs: 'test/specs/app/view/extjs/viewport/asset/View.js'
 			  }
-			}
+			},
+			asset_phone: {
+			  src: '<%= sencha_dependencies_asset_phone_app %>',
+			  options: {
+				specs: 'test/specs/app/mediator/touch/viewport/asset/Mediator.js'
+			  }
+			},
+			asset_tablet: {
+			  src: '<%= sencha_dependencies_asset_tablet_app %>',
+			  options: {
+				specs: 'test/specs/app/mediator/touch/viewport/asset/Mediator.js'
+			  }
+			}			
 		},		
 		
-        /**
-         * Sencha Jasmine
-         *
-         * Setup Jasmine and runs them using PhantomJS headlessly.
-         */
-//        sencha_jasmine: {
-//            options: {
-//                specs: ["test/specs/**/*.js"],
-//                extFramework: "public/resources/js/ext",
-//                extLoaderPaths   : {
-//                    "Core" : "public/app" // Is this the right instruction?
-//                }
-//            },
-//            // app configuration is for when we want to test without code coverage
-//            app: {},
-//            // coverage configuration is for when you want code coverage on your files
-//            coverage: {
-//                options: {
-//                    extLoaderPaths: {
-//                        "Core": "build/output/coverage/www/app"
-//                    }
-//                }
-//            }
-//        },
-
 		/**
 		 * JSDuck
 		 *
@@ -86,17 +107,15 @@ module.exports = function (grunt) {
 
 	grunt.loadNpmTasks("grunt-contrib-jshint");	
     grunt.loadNpmTasks("grunt-contrib-clean");
-	grunt.loadNpmTasks('grunt-contrib-jasmine'); // TEMP, 
-    //grunt.loadNpmTasks("grunt-sencha-jasmine");	// Extends grunt-contrib-jasmine
-	grunt.loadNpmTasks('grunt-jsduck');
+	grunt.loadNpmTasks("grunt-sencha-dependencies");	
+	grunt.loadNpmTasks("grunt-contrib-jasmine");
+	grunt.loadNpmTasks("grunt-jsduck");
 	
-    grunt.registerTask("default", [
-        "jshint", "clean:build"
-    ]);	
-	
-	grunt.registerTask("test", ["jasmine:app"]);
-	//grunt.registerTask("test", ["sencha_jasmine:app"]);
-	
+    grunt.registerTask("default", ["jshint", "clean:build"]);
+	grunt.registerTask("test_asset_desktop", ["sencha_dependencies:asset_desktop", "jasmine:asset_desktop"]);
+	grunt.registerTask("test_asset_phone", ["sencha_dependencies:asset_phone", "jasmine:asset_phone"]);
+	grunt.registerTask("test_asset_tablet", ["sencha_dependencies:asset_tablet", "jasmine:asset_tablet"]);
+	grunt.registerTask("test_all", ["sencha_dependencies:asset_desktop", "jasmine:asset_desktop"]);
 	grunt.registerTask("doc", ["jsduck:app"]);
 	
 };

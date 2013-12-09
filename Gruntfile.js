@@ -142,7 +142,7 @@ module.exports = function (grunt) {
 				options: {
 					specs: "test/specs/app/sanity.js"
 				}
-			},		
+			},
 			asset_desktop: {
 				src: "<%= sencha_dependencies_asset_desktop_app %>",
 				options: {

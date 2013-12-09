@@ -94,13 +94,47 @@ module.exports = function (grunt) {
 		 * Creates JSDuckumentation
 		 */
 		jsduck: {
-			app: {
-			  src: ['public/app/**/*.js'],
-			  dest: 'public/app/doc',
+			asset_desktop: {
+			  src: [
+				'public/app/config/global/Config.js',
+				'public/app/config/asset/**/*.js',
+				'public/app/view/extjs/login/**/*.js',
+				'public/app/view/extjs/asset/**/*.js',
+				'public/app/view/extjs/viewport/asset/**/*.js'
+			  ],
+			  dest: 'public/app/doc/asset/desktop',
 			  options: {
-				// none
+				'title': 'Core - Asset [desktop]'
 			  }
-			}
+			},
+			asset_phone: {
+			  src: [
+				'public/app/config/global/Config.js',
+				'public/app/config/asset/**/*.js',
+				'public/app/view/touch/login/**/*.js',
+				'public/app/view/touch/asset/**/*.js',
+				'public/app/mediator/touch/asset/**/*.js',			
+				'public/app/mediator/touch/viewport/asset/**/*.js'
+			  ],
+			  dest: 'public/app/doc/asset/phone',
+			  options: {
+				'title': 'Core - Asset [phone]'
+			  }
+			},
+			asset_tablet: {
+			  src: [
+				'public/app/config/global/Config.js',
+				'public/app/config/asset/**/*.js',
+				'public/app/view/touch/login/**/*.js',
+				'public/app/view/touch/asset/**/*.js',
+				'public/app/mediator/touch/asset/**/*.js',			
+				'public/app/mediator/touch/viewport/asset/**/*.js'
+			  ],
+			  dest: 'public/app/doc/asset/tablet',
+			  options: {
+				'title': 'Core - Asset [tablet]'
+			  }
+			}			
 		}
    
     });//eof initConfig 
@@ -116,6 +150,8 @@ module.exports = function (grunt) {
 	grunt.registerTask("test_asset_phone", ["sencha_dependencies:asset_phone", "jasmine:asset_phone"]);
 	grunt.registerTask("test_asset_tablet", ["sencha_dependencies:asset_tablet", "jasmine:asset_tablet"]);
 	grunt.registerTask("test_all", ["sencha_dependencies:asset_desktop", "jasmine:asset_desktop"]);
-	grunt.registerTask("doc", ["jsduck:app"]);
+	grunt.registerTask("doc_asset_desktop", ["jsduck:asset_desktop"]);
+	grunt.registerTask("doc_asset_phone", ["jsduck:asset_phone"]);
+	grunt.registerTask("doc_asset_tablet", ["jsduck:asset_tablet"]);	
 	
 };

@@ -4,7 +4,7 @@ module.exports = function (grunt) {
 	
 	var dateFormat = require("dateformat");
 	var tests = "test/**/*.js";
-	var tasks = "task/**/*.js";
+	var tasks = "tasks/**/*.js";
 	var reportDir = "build/reports/" + dateFormat(new Date(), "yyyymmdd-HHMMss");
 
 	grunt.initConfig({
@@ -97,8 +97,16 @@ module.exports = function (grunt) {
 		 * 
 		*/
 		sencha_dependencies: {
+			sanity: {
+				options: {
+					appFile: "require/sanity.js",
+					pageToProcess: "sanity.html",
+					pageRoot: "public",
+					senchaDir: "resources/js/ext"
+				}
+			},		
 			asset_desktop: {
-				options : {
+				options: {
 					appFile: "require/asset/desktop.js",
 					pageToProcess: "asset-desktop.html",
 					pageRoot: "public",
@@ -106,7 +114,7 @@ module.exports = function (grunt) {
 				}
 			},
 			asset_phone: {
-				options : {
+				options: {
 					appFile: "require/asset/phone.js",
 					pageToProcess: "asset-phone.html",
 					pageRoot: "public",
@@ -114,7 +122,7 @@ module.exports = function (grunt) {
 				}
 			},
 			asset_tablet: {
-				options : {
+				options: {
 					appFile: "require/asset/tablet.js",
 					pageToProcess: "asset-tablet.html",
 					pageRoot: "public",
@@ -129,6 +137,12 @@ module.exports = function (grunt) {
          * Setup Jasmine and runs them using PhantomJS headlessly.
          */		
 		jasmine: {
+			sanity: {
+				src: ["<%= sencha_dependencies_sanity_app %>"],
+				options: {
+					specs: "test/specs/app/sanity.js"
+				}
+			},		
 			asset_desktop: {
 				src: "<%= sencha_dependencies_asset_desktop_app %>",
 				options: {
@@ -210,6 +224,7 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks("grunt-istanbul");
 
 	grunt.registerTask("default", ["jshint", "clean:build"]);
+	grunt.registerTask("test_sanity", ["sencha_dependencies:sanity", "jasmine:sanity"]);
 	grunt.registerTask("test_asset_desktop", ["sencha_dependencies:asset_desktop", "jasmine:asset_desktop"]);
 	grunt.registerTask("test_asset_phone", ["sencha_dependencies:asset_phone", "jasmine:asset_phone"]);
 	grunt.registerTask("test_asset_tablet", ["sencha_dependencies:asset_tablet", "jasmine:asset_tablet"]);

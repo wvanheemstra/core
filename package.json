@@ -39,7 +39,10 @@
       "ejs": "*",
       "mocha": "*",
       "supertest": "*",
-	  "dateformat": "~1.0.3-1.2.3"
+	  "dateformat": "~1.0.3-1.2.3",
+	  "nodeunit": "*",
+	  "nue": ">=0.7.0-dev",
+	  "istanbul": ">=0.1.46"
   },
   "scripts": {
       "test": "mocha"

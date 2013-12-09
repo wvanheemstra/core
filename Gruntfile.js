@@ -1,6 +1,9 @@
 /*global module, global*/
 module.exports = function (grunt) {
 	"use strict";
+	
+	var dateFormat = require('dateformat');
+	
 	grunt.initConfig({
         /**
          * Clean
@@ -144,6 +147,7 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks("grunt-sencha-dependencies");	
 	grunt.loadNpmTasks("grunt-contrib-jasmine");
 	grunt.loadNpmTasks("grunt-jsduck");
+	grunt.loadNpmTasks("grunt-istanbul");
 	
     grunt.registerTask("default", ["jshint", "clean:build"]);
 	grunt.registerTask("test_asset_desktop", ["sencha_dependencies:asset_desktop", "jasmine:asset_desktop"]);

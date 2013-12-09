@@ -34,11 +34,12 @@
 	  "grunt-contrib-jshint": "~0.1.1",
 	  "grunt-contrib-clean": "~0.4.0",
 	  "grunt": "~0.4.1",
-	  "grunt-istanbul": "~0.2.1",
+	  "grunt-istanbul": ">=0.2.3",
 	  "grunt-plato": "~0.1.5",
       "ejs": "*",
       "mocha": "*",
-      "supertest": "*"
+      "supertest": "*",
+	  "dateformat": "~1.0.3-1.2.3"
   },
   "scripts": {
       "test": "mocha"

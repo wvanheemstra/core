@@ -244,4 +244,10 @@ module.exports = function (grunt) {
 								'makeReport' 
 							]
 						);
+	/*
+	 * Usage:
+	 *
+	 * From a command prompt in the same directory as Gruntfile.js
+	 * type e.g.:   grunt test_all --verbose --force
+	 */
 };

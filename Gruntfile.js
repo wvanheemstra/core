@@ -16,7 +16,7 @@ module.exports = function (grunt) {
 		clean: {
 			build: ["build"]
 		},
-		
+
 		/**
 		 * Watch
 		 *
@@ -45,7 +45,50 @@ module.exports = function (grunt) {
 			},
 			globals: {}
 		},
+
+		/**
+		 * Instrument
+		 *
+		 */
+		instrument: {
+			files: tasks,
+			options: {
+				lazy: true,
+				basePath: "build/instrument/"
+			}
+		},
+
+		/**
+		 * Reload Tasks
+		 *
+		 */
+		reloadTasks: {
+			rootPath: "build/instrument/tasks"
+		},
 		
+		/**
+		 * Store Coverage
+		 *
+		 */		
+		storeCoverage: {
+			options: {
+				dir: reportDir
+			}
+		},
+
+		/**
+		 * Make Report
+		 *
+		 */
+		makeReport: {
+			src: "build/reports/**/*.json",
+			options: {
+				type: "lcov",
+				dir: reportDir,
+				print: "detail"
+			}
+		},
+
 		/**
 		 * Sencha Dependencies
 		 *
@@ -157,6 +200,8 @@ module.exports = function (grunt) {
 
 	});//eof initConfig 
 
+	grunt.loadTasks('tasks');
+
 	grunt.loadNpmTasks("grunt-contrib-jshint");
 	grunt.loadNpmTasks("grunt-contrib-clean");
 	grunt.loadNpmTasks("grunt-sencha-dependencies");
@@ -174,4 +219,14 @@ module.exports = function (grunt) {
 	grunt.registerTask("doc_asset_tablet", ["jsduck:asset_tablet"]);
 	grunt.registerTask("doc_asset_all", ["jsduck:asset_desktop", "jsduck:asset_phone", "jsduck:asset_tablet"]);
 	
+	grunt.registerTask('cover', 
+							[
+								'clean',
+								'instrument',
+								'reloadTasks',
+								'test_all',
+								'storeCoverage',
+								'makeReport' 
+							]
+						);
 };

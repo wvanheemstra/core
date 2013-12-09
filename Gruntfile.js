@@ -153,5 +153,6 @@ module.exports = function (grunt) {
 	grunt.registerTask("doc_asset_desktop", ["jsduck:asset_desktop"]);
 	grunt.registerTask("doc_asset_phone", ["jsduck:asset_phone"]);
 	grunt.registerTask("doc_asset_tablet", ["jsduck:asset_tablet"]);	
+	grunt.registerTask("doc_asset_all", ["jsduck:asset_desktop", "jsduck:asset_phone", "jsduck:asset_tablet"]);	
 	
 };

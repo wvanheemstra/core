@@ -55,6 +55,31 @@ Ext.define("Core.config.individual.Config",{
 				mock: true
 			}]
 		},{
+			salutation:  [{
+				mock: true,
+				store: true
+			}]
+		},{
+			gender:  [{
+				mock: true,
+				store: true
+			}]
+		},{
+			nationality:  [{
+				mock: true,
+				store: true
+			}]
+		},{
+			date:  [{
+				mock: true,
+				store: true
+			}]
+		},{
+			membership:  [{
+				mock: true,
+				store: true
+			}]
+		},{
 			group:  [{
 				mock: true,
 				store: true

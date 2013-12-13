@@ -1,0 +1,72 @@
+/*
+ * Config for values that belong to individual and set at runtime
+ *
+ * Example to set a individual value:
+ * Core.config.individual.Config.setMyLastCustomer(12345);
+ *
+ * Example to get a individual value:
+ * Core.config.individual.Config.getMyLastCustomer();
+ *
+ */
+Ext.define("Core.config.individual.Config",{
+    singleton : true,
+    config : {
+        //myLastCustomer : 0,     // initialize to 0
+        id: 0,     				  // initialize to 0
+        sessionId: '',            // initialize to empty
+        keepMeLoggedIn: false,	  // initialize to false
+		initialView: 'login',     // initialize to 'login'
+        previousView: '',         // initialize to empty
+        currentView: '',          // initialize to empty
+        nextView: 'individuallist',   // initialize to empty
+        ui: 'neutral',        	  // initialize to 'neutral'
+        company: 'Your Company',  // initialize to 'Your Company'
+		locale: 'en_us',	      // initialize to 'en_us'
+		background: 'noise',      // initialize to 'noise'
+		url: '',				  // initialize to ''
+		title: '',				  // initialize to ''
+		services: [{
+			authentication:  [{
+				mock: true
+			}]
+		},{
+			background:  [{
+				mock: true
+			}]
+		},{
+			session:  [{
+				mock: true,
+				store: true
+			}]
+		},{
+			title:  [{
+				mock: true
+			}]
+		},{
+			ui:  [{
+				mock: true
+			}]
+		},{
+			url:  [{
+				mock: true
+			}]
+		},{
+			company:  [{
+				mock: true
+			}]
+		},{
+			group:  [{
+				mock: true,
+				store: true
+			}]
+		},{
+			individual:  [{
+				mock: true,
+				store: true
+			}]
+		}]	 // put your services here
+    },
+    constructor : function(config){
+        this.initConfig(config);
+    }
+});

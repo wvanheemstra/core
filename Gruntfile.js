@@ -332,12 +332,14 @@ module.exports = function (grunt) {
 	grunt.registerTask("doc_asset_desktop", ["jsduck:asset_desktop"]);
 	grunt.registerTask("doc_asset_phone", ["jsduck:asset_phone"]);
 	grunt.registerTask("doc_asset_tablet", ["jsduck:asset_tablet"]);
+	grunt.registerTask("doc_asset_all", ["jsduck:asset_desktop", "jsduck:asset_phone", "jsduck:asset_tablet"]);
 	
 	grunt.registerTask("doc_individual_desktop", ["jsduck:individual_desktop"]);
 	grunt.registerTask("doc_individual_phone", ["jsduck:individual_phone"]);
 	grunt.registerTask("doc_individual_tablet", ["jsduck:individual_tablet"]);
+	grunt.registerTask("doc_individual_all", ["jsduck:individual_desktop", "jsduck:individual_phone", "jsduck:individual_tablet"]);
 	
-	grunt.registerTask("doc_individual_all", [
+	grunt.registerTask("doc_all", [
 		"jsduck:asset_desktop", "jsduck:asset_phone", "jsduck:asset_tablet",
 		"jsduck:individual_desktop", "jsduck:individual_phone", "jsduck:individual_tablet"
 	]);

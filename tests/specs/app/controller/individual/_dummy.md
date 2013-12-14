@@ -1,4 +1,0 @@
-core
-====
-
-Dummy file

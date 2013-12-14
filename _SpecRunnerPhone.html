@@ -3,33 +3,22 @@
 <head>
     <meta charset="utf-8">
     <title>Jasmine Spec Runner - Phone</title>
-
     <link rel="stylesheet" type="text/css" href=".grunt/grunt-contrib-jasmine/jasmine.css">
-
     <script src="./public/resources/js/touch/sencha-touch-all-debug.js"></script>
-
     <script src="./.grunt/grunt-contrib-jasmine/jasmine.js"></script>
-    
     <script src="./.grunt/grunt-contrib-jasmine/jasmine-html.js"></script>
-	
 	<script src="./tests/specs/app/asset_phone.js"></script>
-	
 	<script src="./tests/specs/app/individual_phone.js"></script>    
-
     <script>
         (function(){
             'use strict';
-
             var jasmineEnv = jasmine.getEnv();
-
             jasmineEnv.updateInterval = 1000;
             var htmlReporter = new jasmine.HtmlReporter();
             jasmineEnv.addReporter(htmlReporter);
-
             jasmineEnv.specFilter = function(spec) {
                 return htmlReporter.specFilter(spec);
             };
-
             function sendMessage() {
                 var args = [].slice.call(arguments);
                 var payload = JSON.stringify(args);
@@ -39,7 +28,6 @@
                     console.log(payload);
                 }
             }
-
             var reporter = new jasmine.Reporter();
             reporter.reportRunnerResults = function (runner) {
                 if (window.__coverage__) {
@@ -47,22 +35,17 @@
                 }
             };
             jasmine.getEnv().addReporter(reporter);
-
             Ext.onReady(function() {
                 Ext.Loader.setPath(
                     {"Core":"build/output/coverage/www/app"}
                 );
                 jasmineEnv.execute();
             });
-
         }());
     </script>
-    
-        
-            <script src="./.grunt/grunt-contrib-jasmine/reporter.js"></script>
-        
-    
+	<script src="./.grunt/grunt-contrib-jasmine/reporter.js"></script>
 </head>
 <body>
+<h3>Core: Phone</h3>
 </body>
 </html>

@@ -3,7 +3,7 @@ module.exports = function (grunt) {
 	"use strict";
 	
 	var dateFormat = require("dateformat");
-	var tests = "test/**/*.js";
+	var tests = "tests/**/*.js";
 	var tasks = "tasks/**/*.js";
 	var reportDir = "build/reports/" + dateFormat(new Date(), "yyyymmdd-HHMMss");
 
@@ -179,37 +179,37 @@ module.exports = function (grunt) {
 			asset_desktop: {
 				src: "<%= sencha_dependencies_asset_desktop_app %>",
 				options: {
-					specs: "test/specs/app/view/extjs/viewport/asset/View.js"
+					specs: "test/specs/app/asset_desktop.js"
 				}
 			},
 			asset_phone: {
 				src: "<%= sencha_dependencies_asset_phone_app %>",
 				options: {
-					specs: "test/specs/app/mediator/touch/viewport/asset/Mediator.js"
+					specs: "test/specs/app/asset_phone.js"
 				}
 			},
 			asset_tablet: {
 				src: "<%= sencha_dependencies_asset_tablet_app %>",
 				options: {
-					specs: "test/specs/app/mediator/touch/viewport/asset/Mediator.js"
+					specs: "test/specs/app/asset_tablet.js"
 				}
 			},
 			individual_desktop: {
 				src: "<%= sencha_dependencies_individual_desktop_app %>",
 				options: {
-					specs: "test/specs/app/view/extjs/viewport/individual/View.js"
+					specs: "test/specs/app/individual_desktop.js"
 				}
 			},
 			individual_phone: {
 				src: "<%= sencha_dependencies_individual_phone_app %>",
 				options: {
-					specs: "test/specs/app/mediator/touch/viewport/individual/Mediator.js"
+					specs: "test/specs/app/individual_phone.js"
 				}
 			},
 			individual_tablet: {
 				src: "<%= sencha_dependencies_individual_tablet_app %>",
 				options: {
-					specs: "test/specs/app/mediator/touch/viewport/individual/Mediator.js"
+					specs: "test/specs/app/individual_tablet.js"
 				}
 			}			
 		},		

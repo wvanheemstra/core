@@ -1,3 +1,4 @@
+/*global describe:true, beforeEach:true, it:true, expect:true, Core:true*/
 describe("Test Core.view.extjs.viewport.asset.View", function () {
 
     beforeEach(function () {

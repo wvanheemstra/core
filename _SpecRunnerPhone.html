@@ -2,44 +2,19 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Jasmine Spec Runner</title>
+    <title>Jasmine Spec Runner - Phone</title>
 
     <link rel="stylesheet" type="text/css" href=".grunt/grunt-contrib-jasmine/jasmine.css">
 
+    <script src="./public/resources/js/touch/sencha-touch-all-debug.js"></script>
 
-    <script src="public/resources/js/ext/ext-all-debug.js"></script>
-
-    
     <script src="./.grunt/grunt-contrib-jasmine/jasmine.js"></script>
     
     <script src="./.grunt/grunt-contrib-jasmine/jasmine-html.js"></script>
-    
-    <script src="./tests/specs/app/controller/Song.js"></script>
-    
-    <script src="./tests/specs/app/controller/Station.js"></script>
-    
-    <script src="./tests/specs/app/model/Song.js"></script>
-    
-    <script src="./tests/specs/app/model/Station.js"></script>
-    
-    <script src="./tests/specs/app/store/RecentSongs.js"></script>
-    
-    <script src="./tests/specs/app/store/SearchResults.js"></script>
-    
-    <script src="./tests/specs/app/store/Stations.js"></script>
-    
-    <script src="./tests/specs/app/view/NewStation.js"></script>
-    
-    <script src="./tests/specs/app/view/RecentlyPlayedScroller.js"></script>
-    
-    <script src="./tests/specs/app/view/SongControls.js"></script>
-    
-    <script src="./tests/specs/app/view/SongInfo.js"></script>
-    
-    <script src="./tests/specs/app/view/StationsList.js"></script>
-    
-    <script src="./tests/specs/app/view/Viewport.js"></script>
-    
+	
+	<script src="./tests/specs/app/asset_phone.js"></script>
+	
+	<script src="./tests/specs/app/individual_phone.js"></script>    
 
     <script>
         (function(){
@@ -75,7 +50,7 @@
 
             Ext.onReady(function() {
                 Ext.Loader.setPath(
-                    {"Pandora":"build/output/coverage/www/app"}
+                    {"Core":"build/output/coverage/www/app"}
                 );
                 jasmineEnv.execute();
             });

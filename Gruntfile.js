@@ -12,6 +12,9 @@ module.exports = function (grunt) {
 		 * Clean
 		 *
 		 * Before generating any new files, remove any previously-created output files.
+		 *
+		 * Can be called as follows:
+		 * grunt clean:build		 
 		 */
 		clean: {
 			build: ["build"]
@@ -31,6 +34,9 @@ module.exports = function (grunt) {
 		 *
 		 * Validate the source code files to ensure they follow our coding convention and
 		 * don"t contain any common errors.
+		 *
+		 * Can be called as follows:
+		 * grunt jshint:all
 		 */
 		jshint: {
 			all: [
@@ -159,6 +165,9 @@ module.exports = function (grunt) {
          * Jasmine
          *
          * Setup Jasmine and runs them using PhantomJS headlessly.
+		 *
+		 * Can be called as follows:
+		 * grunt jasmine:sanity		 
          */		
 		jasmine: {
 			sanity: {
@@ -297,7 +306,7 @@ module.exports = function (grunt) {
 
 	});//eof initConfig 
 
-	grunt.loadTasks('tasks');
+	grunt.loadTasks("tasks");
 
 	grunt.loadNpmTasks("grunt-contrib-jshint");
 	grunt.loadNpmTasks("grunt-contrib-clean");
@@ -346,16 +355,16 @@ module.exports = function (grunt) {
 	/*
 	 * COVER
 	 */	
-	grunt.registerTask('cover', 
-							[
-								'clean',
-								'instrument',
-								'reloadTasks',
-								'test_all',
-								'storeCoverage',
-								'makeReport' 
-							]
-						);
+	grunt.registerTask("cover", 
+		[
+			"clean",
+			"instrument",
+			"reloadTasks",
+			"test_all",
+			"storeCoverage",
+			"makeReport" 
+		]
+	);
 	/*
 	 * Usage:
 	 *

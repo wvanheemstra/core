@@ -1,0 +1,32 @@
+{
+    "success": true,
+    "sessionToken": "qwerty1234567890",
+	"individualList": [
+		{ "kp_IndividualID": 1,   "IndividualName": "Alfa" },
+		{ "kp_IndividualID": 2,   "IndividualName": "Bravo" },
+		{ "kp_IndividualID": 3,   "IndividualName": "Charlie" },
+		{ "kp_IndividualID": 4,   "IndividualName": "Delta" },
+		{ "kp_IndividualID": 5,   "IndividualName": "Echo" },
+		{ "kp_IndividualID": 6,   "IndividualName": "Foxtrot" },
+		{ "kp_IndividualID": 7,   "IndividualName": "Golf" },
+		{ "kp_IndividualID": 8,   "IndividualName": "Hotel" },
+		{ "kp_IndividualID": 9,   "IndividualName": "India" },
+		{ "kp_IndividualID": 10,  "IndividualName": "Juliet" },
+		{ "kp_IndividualID": 11,  "IndividualName": "Kilo" },
+		{ "kp_IndividualID": 12,  "IndividualName": "Lima" },
+		{ "kp_IndividualID": 13,  "IndividualName": "Mike" },
+		{ "kp_IndividualID": 14,  "IndividualName": "November" },
+		{ "kp_IndividualID": 15,  "IndividualName": "Oscar" },
+		{ "kp_IndividualID": 16,  "IndividualName": "Papa" },
+		{ "kp_IndividualID": 17,  "IndividualName": "Quebec" },
+		{ "kp_IndividualID": 18,  "IndividualName": "Romeo" },
+		{ "kp_IndividualID": 19,  "IndividualName": "Sierra" },
+		{ "kp_IndividualID": 20,  "IndividualName": "Tango" },
+		{ "kp_IndividualID": 21,  "IndividualName": "Uniform" },
+		{ "kp_IndividualID": 22,  "IndividualName": "Victor" },
+		{ "kp_IndividualID": 23,  "IndividualName": "Whiskey" },
+		{ "kp_IndividualID": 24,  "IndividualName": "X-ray" },
+		{ "kp_IndividualID": 25,  "IndividualName": "Yankee" },
+		{ "kp_IndividualID": 26,  "IndividualName": "Zulu" }
+	]
+}

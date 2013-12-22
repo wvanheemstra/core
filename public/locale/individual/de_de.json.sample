@@ -1,0 +1,105 @@
+{
+    /////////////////////////////////////////////
+    // LOGIN
+    /////////////////////////////////////////////
+    "login": {
+        "title": "Anmelden",
+        "username": "Benutzername",
+        "password": "Kennwort",
+        "passwordHint": "Hinweis: password",
+        "keepmeloggedin": "Angemeldet bleiben",
+        "submit": "Meld an",
+        "reset": "Neu stellen",
+        "loggingIn" : "Überprüfen...",
+        "credentialsRequired": "Tragen Sie bitte Ihre Benutzername und Kennwort ein.",
+        "loginFailed": "Anmelden hat gefählt. Bitte tragen Sie die richtige Daten ein."
+    },
+
+    /////////////////////////////////////////////
+    // INDIVIDUAL SLIDE
+    /////////////////////////////////////////////
+    "individualSlide": {
+        "title": "individu",
+        "title1": "individu1",	
+        "title2": "individu2",
+        "title3": "individu3",	
+        "title4": "individu4",			
+        "logOut": "Abmelden",
+        "new": "Neu",
+        "search": "live suchen",
+        "individualName": "Name",
+        "loading": "Laad individu...",
+        "noIndividuals": "Keine individu wurden gefunden."
+    },	
+	
+    /////////////////////////////////////////////
+    // INDIVIDUAL LIST
+    /////////////////////////////////////////////
+    "individualList": {
+        "title": "individu",
+        "logOut": "Abmelden",
+        "new": "Neu",
+        "search": "live suchen",
+        "individualName": "Name",
+        "loading": "Laad individu...",
+        "noIndividuals": "Keine individu wurden gefunden."
+    },
+
+    /////////////////////////////////////////////
+    // INDIVIDUAL TILE
+    /////////////////////////////////////////////
+    "individualTile": {
+        "title": "individu",
+        "logOut": "Abmelden",
+        "new": "Neu",
+        "search": "live suchen",
+        "individualName": "Name",	
+        "loading": "Laad individu...",
+        "noIndividuals": "Keine individu wurden gefunden."
+    },
+
+    /////////////////////////////////////////////
+    // INDIVIDUAL ITEMS
+    /////////////////////////////////////////////
+    "individualItem1": {
+        "title": "Item 1"
+    },	
+    "individualItem2": {
+        "title": "Item 2"
+    },
+    "individualItem3": {
+        "title": "Item 3"
+    },		
+    "individualItem4": {
+        "title": "Item 4"
+    },	
+	
+    /////////////////////////////////////////////
+    // INDIVIDUAL CATEGORIES
+    /////////////////////////////////////////////
+    "individualCategory0": {
+        "title": "Home"
+    },
+	
+    /////////////////////////////////////////////
+    // INDIVIDUAL DETAIL
+    /////////////////////////////////////////////
+    "individualDetail": {
+        "title": "individu",
+        "back": "Zurück",
+        "save": "Speichern",
+        "individualName": "Name",	
+        "delete": "Löschen",
+        "creatingIndividual": "Mach individu neu an ...",
+        "updatingIndividual": "Bearbeit individu ...",
+        "deletingIndividual": "Lösch individu..."		
+    },
+
+    /////////////////////////////////////////////
+    // INDIVIDUAL MODAL
+    /////////////////////////////////////////////
+    "individualModal": {
+        "title": "individu",
+        "close": "schließen"
+    }
+}

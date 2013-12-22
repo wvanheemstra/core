@@ -1,0 +1,105 @@
+{
+    /////////////////////////////////////////////
+    // LOGIN
+    /////////////////////////////////////////////
+    "login": {
+        "title": "Login",
+        "username": "Username",
+        "password": "Password",
+        "passwordHint": "Hint: password",
+        "keepmeloggedin": "Keep me logged in",
+        "submit": "Log In",
+        "reset": "Clear",
+        "loggingIn" : "Logging In...",
+        "credentialsRequired": "Please enter your username and password.",
+        "loginFailed": "Login failed. Please enter the correct credentials."
+    },
+
+    /////////////////////////////////////////////
+    // INDIVIDUAL SLIDE
+    /////////////////////////////////////////////
+    "individualSlide": {
+        "title": "Individuals",
+        "title1": "Individuals1",	
+        "title2": "Individuals2",
+        "title3": "Individuals3",	
+        "title4": "Individuals4",			
+        "logOut": "Log Out",
+        "new": "New",
+        "search": "live search",
+        "individualName": "Name",
+        "loading": "Loading Individuals...",
+        "noIndividuals": "No Individuals found."
+    },	
+	
+    /////////////////////////////////////////////
+    // INDIVIDUAL LIST
+    /////////////////////////////////////////////
+    "individualList": {
+        "title": "Individuals",
+        "logOut": "Log Out",
+        "new": "New",
+        "search": "live search",
+        "individualName": "Name",
+        "loading": "Loading Individuals...",
+        "noIndividuals": "No Individuals found."
+    },
+
+    /////////////////////////////////////////////
+    // INDIVIDUAL TILE
+    /////////////////////////////////////////////
+    "individualTile": {
+        "title": "Individuals",
+        "logOut": "Log Out",
+        "new": "New",
+        "search": "live search",
+        "individualName": "Name",
+        "loading": "Loading Individuals...",
+        "noIndividuals": "No Individuals found."
+    },
+
+    /////////////////////////////////////////////
+    // INDIVIDUAL ITEMS
+    /////////////////////////////////////////////
+    "individualItem1": {
+        "title": "Item 1"
+    },	
+    "individualItem2": {
+        "title": "Item 2"
+    },
+    "individualItem3": {
+        "title": "Item 3"
+    },		
+    "individualItem4": {
+        "title": "Item 4"
+    },	
+	
+    /////////////////////////////////////////////
+    // INDIVIDUAL CATEGORIES
+    /////////////////////////////////////////////
+    "individualCategory0": {
+        "title": "Home"
+    },
+		
+    /////////////////////////////////////////////
+    // INDIVIDUAL DETAIL
+    /////////////////////////////////////////////
+    "individualDetail": {
+        "title": "Individual",
+        "back": "Back",
+        "save": "Save",
+        "individualName": "Name",	
+        "delete": "Delete",
+        "creatingIndividual": "Creating Individual ...",
+        "updatingIndividual": "Updating Individual ...",
+        "deletingIndividual": "Deleting Individual..."			
+    },
+
+    /////////////////////////////////////////////
+    // INDIVIDUAL MODAL
+    /////////////////////////////////////////////
+    "individualModal": {
+        "title": "Individual",
+        "close": "Close"
+    }
+}

@@ -1,0 +1,36 @@
+glu.namespace('Core.individuals.models').individual = {
+	alias:'widget.individualModel',
+    fields:[
+        {
+            name:'id',
+            type:'int'
+        },
+        {
+            name:'name',
+            type:'string'
+        },
+        {
+            name:'status',
+            type:'string',
+            oneOf : ['active','storage','verifying']
+        },
+        {
+            name:'lastVerified',
+            type:'date'
+        }, {
+            name:'yearsOfMaintenance',
+            type:'number'
+        }, {
+            name:'maintenanceStartDate',
+            type:'date'
+        }
+    ]
+};
+var rowModel = glu.deepApply({
+    formulas:{
+        yearsMatter: function(){
+            return this.status=='active';
+        }
+    }
+},Core.individuals.models.individual );
+glu.defRowModel('Core.individuals.models.Individual', rowModel);

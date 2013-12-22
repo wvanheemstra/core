@@ -41,7 +41,12 @@ Ext.define("Core.event.navigation.Event", {
 		ACTION_BACK_SHOW_ASSET_LIST: 		"actionBackShowAssetList",
         ACTION_BACK_SHOW_ASSET_TILE: 		"actionBackShowAssetTile",
         ACTION_SHOW_ASSET_DETAIL:    		"actionShowAssetDetail",  
-        ACTION_SHOW_ASSET_MODAL:     		"actionShowAssetModal"
+        ACTION_SHOW_ASSET_MODAL:     		"actionShowAssetModal",
+		
+		ACTION_BACK_SHOW_INDIVIDUAL_LIST:	"actionBackShowIndividualList",
+        ACTION_BACK_SHOW_INDIVIDUAL_TILE:	"actionBackShowIndividualTile",
+        ACTION_SHOW_INDIVIDUAL_DETAIL:		"actionShowIndividualDetail",  
+        ACTION_SHOW_INDIVIDUAL_MODAL:		"actionShowIndividualModal"		
 		
     },
 

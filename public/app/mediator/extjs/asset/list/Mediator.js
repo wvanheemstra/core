@@ -5,31 +5,39 @@ Ext.define("Core.mediator.extjs.asset.list.Mediator", {
     extend: "Core.mediator.extjs.asset.base.Mediator",
 
     // set up view event to mediator mapping
-    control: {
-    	toolbar: {
-    		painted: "onPainted"
-    	},	
-        logoutButton: {
-            click: "onLogoutButtonClick"
-        },
-        newAssetButton: {
-            click: "onNewAssetButtonClick"
-        },
-        list: {
-            itemclick: "onListSelect"
-        }
-    },
+//    control: {
+//    	toolbar: {
+//    		painted: "onPainted"
+//    	},	
+//        logoutButton: {
+//            click: "onLogoutButtonClick"
+//        },
+//        newAssetButton: {
+//            click: "onNewAssetButtonClick"
+//        },
+//        list: {
+//            itemclick: "onListSelect"
+//        }
+//    },
+	
+	/**
+	 * Set viewport to Glu View
+	 */
+	setViewportToGluView: function() {
+        this.logger.debug("setViewportToGluView");	
+		glu.viewport('Core.assets.main');
+	},
 
     /**
      * Dispatches the application event to get the list of assets.
      */
-    getAssetListData: function() {
-        this.logger.debug("getAssetListData");
-        this.getView().setLoading(nineam.locale.LocaleManager.getProperty("assetList.loading"));
-        // DEPRECATED var evt = Ext.create("Core.event.asset.Event", Core.event.asset.Event.GET_ASSET_LIST);
-		var evt = Ext.create("Core.event.asset.Event", Core.event.asset.Event.READ_ASSETS);
-        this.eventBus.dispatchGlobalEvent(evt);
-    },
+//    getAssetListData: function() {
+//        this.logger.debug("getAssetListData");
+//        this.getView().setLoading(nineam.locale.LocaleManager.getProperty("assetList.loading"));
+//        // DEPRECATED var evt = Ext.create("Core.event.asset.Event", Core.event.asset.Event.GET_ASSET_LIST);
+//		var evt = Ext.create("Core.event.asset.Event", Core.event.asset.Event.READ_ASSETS);
+//        this.eventBus.dispatchGlobalEvent(evt);
+//    },
 
     /**
      * Handles the show asset detail event from the asset list view. Grab the data model
@@ -38,32 +46,32 @@ Ext.define("Core.mediator.extjs.asset.list.Mediator", {
      *
      * @param record    The record is the data model for the item in the list currently selected.
      */
-    showAssetDetail: function(record) {
-        var logMsg = (record !== null)
-            ? ": kp_AssetID = " + record.get("kp_AssetID") + ", AssetName = " + record.get("AssetName")
-            : "";
-        this.logger.debug("showAssetDetail = " + logMsg);
-		Core.config.asset.Config.setPreviousView('assetlist');
-        this.assetStore.setSelectedRecord(record);
-		
-		console.log("selected record:");
-		console.log(this.assetStore.getSelectedRecord());
-		
-        this.navigate(Core.event.navigation.Event.ACTION_SHOW_ASSET_DETAIL);
-    },
+//    showAssetDetail: function(record) {
+//        var logMsg = (record !== null)
+//            ? ": kp_AssetID = " + record.get("kp_AssetID") + ", AssetName = " + record.get("AssetName")
+//            : "";
+//        this.logger.debug("showAssetDetail = " + logMsg);
+//		Core.config.asset.Config.setPreviousView('assetlist');
+//        this.assetStore.setSelectedRecord(record);
+//		
+//		console.log("selected record:");
+//		console.log(this.assetStore.getSelectedRecord());
+//		
+//        this.navigate(Core.event.navigation.Event.ACTION_SHOW_ASSET_DETAIL);
+//    },
     
     /**
      * Handles the set UI event. 
 	 *
      * @param ui    The ui to be set.
      */
-    setUI: function(ui) {
-    	this.logger.debug("setUI: ui = " + ui);
-		for ( var i=0; i<this.getView().items.length; i++)
-        {
-            this.getView().items.getAt(i).setUI(ui);
-        }
-    },
+//    setUI: function(ui) {
+//    	this.logger.debug("setUI: ui = " + ui);
+//		for ( var i=0; i<this.getView().items.length; i++)
+//        {
+//            this.getView().items.getAt(i).setUI(ui);
+//        }
+//    },
 	
     ////////////////////////////////////////////////
     // EVENT BUS HANDLERS
@@ -73,9 +81,9 @@ Ext.define("Core.mediator.extjs.asset.list.Mediator", {
      * Handles the painted application-level event. Set the asset list view
      * as the current view.
      */    
-    onPainted: function() {
-        this.logger.debug("onPainted");	
-    },
+//    onPainted: function() {
+//        this.logger.debug("onPainted");	
+//    },
 	
     /**
      * Handles the login success application-level event. Slide the asset list view
@@ -85,92 +93,93 @@ Ext.define("Core.mediator.extjs.asset.list.Mediator", {
 		if(Core.config.asset.Config.getNextView()==='assetlist') {
 			this.logger.debug("onLoginSuccess");		
         	this.navigate(Core.event.authentication.Event.LOGIN_SUCCESS);
-        	this.getAssetListData();
+        //	this.getAssetListData();	
+			this.setViewportToGluView(); // TEMP set viewport here
 		}
     },
 
     /**
      * Handles the set ui success application-level event. Update the components for the ui.
      */
-    onSetUISuccess: function() {
-        this.logger.debug("onSetUISuccess");
-        this.setUI(Core.config.asset.Config.getUi());
-    },
+//    onSetUISuccess: function() {
+//        this.logger.debug("onSetUISuccess");
+//        this.setUI(Core.config.asset.Config.getUi());
+//    },
 
     /**
      * Handles the get assets success application-level event.
      */
-    onGetAssetListSuccess: function() {
-		if(Core.config.asset.Config.getNextView()==='assetlist') {
-			this.logger.debug("onGetAssetListSuccess");
-			this.getView().setLoading(false);
-			this.getList().getStore().loadRecords(this.assetStore.getRange());
-		}
-    },
+//    onGetAssetListSuccess: function() {
+//		if(Core.config.asset.Config.getNextView()==='assetlist') {
+//			this.logger.debug("onGetAssetListSuccess");
+//			this.getView().setLoading(false);
+//			this.getList().getStore().loadRecords(this.assetStore.getRange());
+//		}
+//    },
 
     /**
      * Handles the get assets failure application-level event.
      */
-    onGetAssetListFailure: function() {
-		if(Core.config.asset.Config.getNextView()==='assetlist') {
-			this.logger.debug("onGetAssetListFailure");
-			this.getView().setLoading(false);
-		}
-    },	
+//    onGetAssetListFailure: function() {
+//		if(Core.config.asset.Config.getNextView()==='assetlist') {
+//			this.logger.debug("onGetAssetListFailure");
+//			this.getView().setLoading(false);
+//		}
+//    },	
 	
     /**
      * Handles the delete of a asset by refreshing the grid
      * Touch takes care of this for you, not so ext
      */
-    onDeleteAssetSuccess: function() {
-		if(Core.config.asset.Config.getNextView()==='assetlist') {
-			this.logger.debug("onDeleteAssetSuccess");
-			this.getList().getStore().loadRecords(this.assetStore.getRange());
-		}
-    },
+//    onDeleteAssetSuccess: function() {
+//		if(Core.config.asset.Config.getNextView()==='assetlist') {
+//			this.logger.debug("onDeleteAssetSuccess");
+//			this.getList().getStore().loadRecords(this.assetStore.getRange());
+//		}
+//    },
 	
 	/**
      * Handles the update asset success application-level event.
      */
-    onUpdateAssetSuccess: function() {
-		if(Core.config.asset.Config.getNextView()==='assetlist') {
-			this.logger.debug("onUpdateAssetSuccess");
-			this.getView().setLoading(false);
-			this.getList().getStore().loadRecords(this.assetStore.getRange());
-		}
-    },
+//    onUpdateAssetSuccess: function() {
+//		if(Core.config.asset.Config.getNextView()==='assetlist') {
+//			this.logger.debug("onUpdateAssetSuccess");
+//			this.getView().setLoading(false);
+//			this.getList().getStore().loadRecords(this.assetStore.getRange());
+//		}
+//    },
 
     /**
      * Handles the add of a asset by refreshing the grid
      * Touch takes care of this for you, not so ext
      */
-    onCreateAssetSuccess: function() {
-		if(Core.config.asset.Config.getNextView()==='assetlist') {
-			this.logger.debug("onCreateAssetSuccess");
-			this.getList().getStore().loadRecords(this.assetStore.getRange());
-		}
-    },
+//    onCreateAssetSuccess: function() {
+//		if(Core.config.asset.Config.getNextView()==='assetlist') {
+//			this.logger.debug("onCreateAssetSuccess");
+//			this.getList().getStore().loadRecords(this.assetStore.getRange());
+//		}
+//    },
 	
     /**
      * Handles the read assets success application-level event.
      */
-    onReadAssetsSuccess: function() {
-		if(Core.config.asset.Config.getNextView()==='assetlist') {
-			this.logger.debug("onReadAssetsSuccess");
-			this.getView().setLoading(false);
-			this.getList().getStore().loadRecords(this.assetStore.getRange());
-		}
-    },
+//    onReadAssetsSuccess: function() {
+//		if(Core.config.asset.Config.getNextView()==='assetlist') {
+//			this.logger.debug("onReadAssetsSuccess");
+//			this.getView().setLoading(false);
+//			this.getList().getStore().loadRecords(this.assetStore.getRange());
+//		}
+//    },
 
     /**
      * Handles the read assets failure application-level event.
      */
-    onReadAssetsFailure: function() {
-		if(Core.config.asset.Config.getNextView()==='assetlist') {
-			this.logger.debug("onReadAssetsFailure");
-			this.getView().setLoading(false);
-		}
-    },	
+//    onReadAssetsFailure: function() {
+//		if(Core.config.asset.Config.getNextView()==='assetlist') {
+//			this.logger.debug("onReadAssetsFailure");
+//			this.getView().setLoading(false);
+//		}
+//    },	
 
     ////////////////////////////////////////////////
     // VIEW EVENT HANDLERS
@@ -179,23 +188,23 @@ Ext.define("Core.mediator.extjs.asset.list.Mediator", {
     /**
      * Handles the tap of the logout button. Dispatches the logout application-level event.
      */
-    onLogoutButtonClick: function() {
-    	if(Core.config.asset.Config.getCurrentView()==='assetlist') {	
-			this.logger.debug("onLogoutButtonClick");
-			var evt = Ext.create("Core.event.authentication.Event", Core.event.authentication.Event.LOGOUT);
-			this.eventBus.dispatchGlobalEvent(evt);
-    	}	
-    },
+//    onLogoutButtonClick: function() {
+//    	if(Core.config.asset.Config.getCurrentView()==='assetlist') {	
+//			this.logger.debug("onLogoutButtonClick");
+//			var evt = Ext.create("Core.event.authentication.Event", Core.event.authentication.Event.LOGOUT);
+//			this.eventBus.dispatchGlobalEvent(evt);
+//    	}	
+//    },
 
     /**
      * Handles the tap of the new asset button. Shows the asset detail view.
      */
-    onNewAssetButtonClick: function() {
-    	if(Core.config.asset.Config.getCurrentView()==='assetlist') { 	
-			this.logger.debug("onNewAssetButtonClick");
-			this.showAssetDetail(null);
-    	}		
-    },
+//    onNewAssetButtonClick: function() {
+//    	if(Core.config.asset.Config.getCurrentView()==='assetlist') { 	
+//			this.logger.debug("onNewAssetButtonClick");
+//			this.showAssetDetail(null);
+//    	}		
+//    },
 
     /**
      * Handles the list select of a asset list item. Shows the asset detail view passing in a reference to
@@ -206,12 +215,12 @@ Ext.define("Core.mediator.extjs.asset.list.Mediator", {
      * @param {Number} index The index of the selected item.
      * @param {Object} options ???
      */
-    onListSelect: function(list, record, index, options) {
-    	if(Core.config.asset.Config.getCurrentView()==='assetlist') {	
-			this.logger.debug("onListSelect");
-			this.showAssetDetail(record);
-    	}	
-    },
+//    onListSelect: function(list, record, index, options) {
+//    	if(Core.config.asset.Config.getCurrentView()==='assetlist') {	
+//			this.logger.debug("onListSelect");
+//			this.showAssetDetail(record);
+//    	}	
+//    },
 
     /**
      * Handles the clear icon tap event on the search field. Clears all filter on the list's store.

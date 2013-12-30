@@ -9,7 +9,7 @@
 Ext.define("Core.view.extjs.asset.list.View", {
     extend: "Ext.Panel",
     alias: "widget.assetListView",
-    controller: "Core.mediator.extjs.asset.list.Mediator",
+    controller: "Core.mediator.extjs.asset.list.Mediator"//,
 //    header: false,
 //
 //    requires: [
@@ -23,10 +23,10 @@ Ext.define("Core.view.extjs.asset.list.View", {
 //    layout: {
 //        type: "fit" // WHY DOES 'fit' NOT WORK AS DESIGNED ??
 //    },
-
+//
 //    height: 330,
 //	width: 400,
-	
+//	
 //    items: [
 //        {
 //            xtype: "toolbar",

@@ -2,6 +2,8 @@ glu.defModel('Core.assets.asset', {
 	alias:'widget.assetViewModel',
     model:'asset',
 
+	host:'http://localhost:4001', // ADDED by wvh, MAKE DYNAMIC
+	
     isSaving : false,
 
     isExpanded$ : function(){
@@ -44,7 +46,8 @@ glu.defModel('Core.assets.asset', {
 		console.log("save");		
         this.set('isSaving', true)
         this.ajax({
-            url:'/json/assets/' + this.id +'/action/save',
+            //WAS: url:'/json/assets/' + this.id +'/action/save',
+			url:this.host + '/json/assets/' + this.id +'/action/save',
             method:'post',
             params:Ext.encode(this.asObject()),
             success:function (r) {

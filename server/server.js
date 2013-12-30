@@ -179,9 +179,25 @@ api.all('*', function(req, res, next){
   next();
 });
 
+// START: TEST ONLY
+//api.post('*', function(req,res){
+//  console.log(server_prefix + " - Api post request received");
+//  console.log(req.body);
+//  res.send(201);
+//});
+// END: TEST ONLY
+
 api.post('/login', function(req, res){
   console.log(req.body);
   res.send(201);
+});
+
+api.post('/json/assets/*', function(req, res){
+  console.log(server_prefix + " - Api post request received: json/assets");
+  //console.log(req);
+  console.log(server_prefix + " - Api post request params: " + req.params);
+  //console.log(req.body);
+  res.send(201); // 201 = Created
 });
 
 /*

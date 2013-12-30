@@ -166,38 +166,75 @@ else {
 
 api.configure(function(){
 	api.use(api.router);
+	// https://github.com/senchalabs/connect/wiki/Connect-3.0
+    // api.use(express.bodyParser()); // DEPRECATED
+	api.use(express.urlencoded()); // NEW IN CONNECT 3.0
+	api.use(express.json()); // NEW IN CONNECT 3.0	
 });
 
 api.all('*', function(req, res, next){
   if (!req.get('Origin')) return next();
   // use "*" here to accept any origin
   res.set('Access-Control-Allow-Origin', '*');  // Accepts requests coming from anyone, replace '*' by configs.allowedHost to restrict it
-  res.set('Access-Control-Allow-Methods', 'GET, PUT, POST');
+  res.set('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE');
   res.set('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type');
   // res.set('Access-Control-Allow-Max-Age', 3600);
   if ('OPTIONS' == req.method) return res.send(200);
   next();
 });
 
-// START: TEST ONLY
-//api.post('*', function(req,res){
-//  console.log(server_prefix + " - Api post request received");
-//  console.log(req.body);
-//  res.send(201);
-//});
-// END: TEST ONLY
-
 api.post('/login', function(req, res){
   console.log(req.body);
   res.send(201);
 });
 
-api.post('/json/assets/*', function(req, res){
+/* READ (GET)
+ * GET /json/assets/    : return the assets list
+ * GET /json/assets/:id : return the asset identified by the given :id
+ */
+api.get('/json/assets/:id', function(req, res) {
+  console.log(server_prefix + " - Api get request received: json/assets");
+  console.log(server_prefix + " - Api get request params: " + req.params);  
+  if(req.params.id <0) {
+	console.log(server_prefix + " - Api get request ERROR: id < 0");
+	res.statusCode = 404;
+	return res.send("Error 404: id < 0");
+  }
+  res.send(200); // 200 = OK  
+});
+
+/* CREATE (POST)
+ * POST /json/assets/ : create a new asset corresponding to the JSON object given in the body request
+ */
+api.post('/json/assets/*', function(req, res) {
   console.log(server_prefix + " - Api post request received: json/assets");
-  //console.log(req);
   console.log(server_prefix + " - Api post request params: " + req.params);
   //console.log(req.body);
   res.send(201); // 201 = Created
+});
+
+/* UPDATE (PUT)
+ * PUT /json/assets/:id : update the asset with values of the JSON object given in the body request
+ */
+api.put('/json/assets/:id', function(req, res) {
+  console.log(server_prefix + " - Api put request received: json/assets");
+  console.log(server_prefix + " - Api put request params: " + req.params);
+  //console.log(req.body);
+  res.send(201); // 201 = Created  
+});
+
+/* DELETE (DELETE)
+ * 
+ */
+api.delete('/json/assets/*', function(req, res) {
+  console.log(server_prefix + " - Api delete request received: json/assets"); 
+  console.log(server_prefix + " - Api delete request params: " + req.params);  
+  if(req.params.id <0) {
+	console.log(server_prefix + " - Api delete request ERROR: id < 0");
+	res.statusCode = 404;
+	return res.send("Error 404: id < 0");
+  } 
+  res.send(202); // 202 = Marked for Deletion (Accepted)
 });
 
 /*

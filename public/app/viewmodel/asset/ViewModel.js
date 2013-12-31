@@ -44,20 +44,35 @@ glu.defModel('Core.assets.asset', {
 
     save:function(){
 		console.log("save");		
-        this.set('isSaving', true)
-        this.ajax({
-            //WAS: url:'/json/assets/' + this.id +'/action/save',
-			url:this.host + '/json/assets/' + this.id +'/action/save',
-            method:'post',
-            params:Ext.encode(this.asObject()),
-            success:function (r) {
-                this.commit();
-                this.set('isSaving',false);
-                this.refresh();
-                //how best to notify grid that we've changed? For now just notify direct
-                this.parentVM.notifyAssetChanged();
-            }
-        })
+        this.set('isSaving', true);
+		if(this.id) {
+			this.ajax({
+				url:this.host + '/json/assets/' + this.id,
+				method:'put', // for UPDATE
+				params:Ext.encode(this.asObject()),
+				success:function (r) {
+					this.commit();
+					this.set('isSaving',false);
+					this.refresh();
+					//how best to notify grid that we've changed? For now just notify direct
+					this.parentVM.notifyAssetChanged();
+				}
+			});
+		}
+		else {
+			this.ajax({
+				url:this.host + '/json/assets',
+				method:'post', // for CREATE
+				params:Ext.encode(this.asObject()),
+				success:function (r) {
+					this.commit();
+					this.set('isSaving',false);
+					this.refresh();
+					//how best to notify grid that we've changed? For now just notify direct
+					this.parentVM.notifyAssetChanged();
+				}
+			});		
+		}
     },
 
     saveIsEnabled$:function(){

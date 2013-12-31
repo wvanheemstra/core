@@ -178,6 +178,8 @@ api.all('*', function(req, res, next){
   res.set('Access-Control-Allow-Origin', '*');  // Accepts requests coming from anyone, replace '*' by configs.allowedHost to restrict it
   res.set('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE');
   res.set('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type');
+  res.set('X-Powered-By', 'Express');
+  res.set('Content-Type', 'application/json; charset=utf-8');
   // res.set('Access-Control-Allow-Max-Age', 3600);
   if ('OPTIONS' == req.method) return res.send(200);
   next();
@@ -188,25 +190,40 @@ api.post('/login', function(req, res){
   res.send(201);
 });
 
-/* READ (GET)
- * GET /json/assets/    : return the assets list
+/*
+ * REST: 
+ * see http://erichonorez.wordpress.com/2013/02/10/how-create-a-rest-api-with-node-js-and-express/
+ */
+
+/* READ (GET) 
  * GET /json/assets/:id : return the asset identified by the given :id
  */
 api.get('/json/assets/:id', function(req, res) {
   console.log(server_prefix + " - Api get request received: json/assets");
   console.log(server_prefix + " - Api get request params: " + req.params);  
-  if(req.params.id <0) {
+  if(req.params.id < 0) {
 	console.log(server_prefix + " - Api get request ERROR: id < 0");
 	res.statusCode = 404;
 	return res.send("Error 404: id < 0");
   }
+  res.contentType("application/json; charset=utf-8");
+  res.send(200); // 200 = OK  
+});
+ 
+/* READ (GET)
+ * GET /json/assets    : return the assets list
+ */
+api.get('/json/assets', function(req, res) {
+  console.log(server_prefix + " - Api get request received: json/assets");
+  console.log(server_prefix + " - Api get request params: " + req.params);
+  res.contentType("application/json; charset=utf-8");  
   res.send(200); // 200 = OK  
 });
 
 /* CREATE (POST)
- * POST /json/assets/ : create a new asset corresponding to the JSON object given in the body request
+ * POST /json/assets : create a new asset corresponding to the JSON object given in the body request
  */
-api.post('/json/assets/*', function(req, res) {
+api.post('/json/assets', function(req, res) {
   console.log(server_prefix + " - Api post request received: json/assets");
   console.log(server_prefix + " - Api post request params: " + req.params);
   //console.log(req.body);
@@ -220,13 +237,13 @@ api.put('/json/assets/:id', function(req, res) {
   console.log(server_prefix + " - Api put request received: json/assets");
   console.log(server_prefix + " - Api put request params: " + req.params);
   //console.log(req.body);
-  res.send(201); // 201 = Created  
+  res.send(202); // 202 = Accepted (Marked for Update)
 });
 
 /* DELETE (DELETE)
- * 
+ * DELETE /json/assets/:id : delete the asset with the given id
  */
-api.delete('/json/assets/*', function(req, res) {
+api.delete('/json/assets/:id', function(req, res) {
   console.log(server_prefix + " - Api delete request received: json/assets"); 
   console.log(server_prefix + " - Api delete request params: " + req.params);  
   if(req.params.id <0) {
@@ -234,7 +251,7 @@ api.delete('/json/assets/*', function(req, res) {
 	res.statusCode = 404;
 	return res.send("Error 404: id < 0");
   } 
-  res.send(202); // 202 = Marked for Deletion (Accepted)
+  res.send(202); // 202 = Accepted (Marked for Deletion)
 });
 
 /*

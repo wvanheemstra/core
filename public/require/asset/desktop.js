@@ -18,7 +18,7 @@ var state = {
 // Moment
 require({
     paths: {
-        "moment": "../../resources/js/moment/moment-with-langs"
+        "moment": "../../resources/js/moment/moment"
     }
 }, ["moment"], function (moment) {
     moment().format();
@@ -100,11 +100,9 @@ require({
 		});
 	}).pipeAsync(function(state, callback) {
 		// MOMENT
-		require(["moment-with-langs"], function(moment) {
+		require(["moment"], function(moment) {
 			console.log("PIPELINE: moment");
-			
-		//	moment().format(); // WHY IS moment UNDEFINED ???
-			
+			moment().format();
 			callback();
 		});
 	}).pipeAsync(function(state, callback) {

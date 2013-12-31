@@ -80,31 +80,6 @@ Ext.define("Core.mediator.extjs.viewport.asset.Mediator", {
 		};
 
 		this.setState(state);
-		//// START:  TEST AREA ////
-		console.log("START:  TEST AREA");
-		
-		console.log("glu");
-		console.log(glu);
-
-		console.log("glu.ns('Core.assets')");
-		console.log(glu.ns('Core.assets'));	
-
-		//examples.assets.createMockBackend(true);
-		//glu.ns('Core.assets').createMockBackend(true);
-		//Core.assets.createMockBackend(true);
-		//glu.viewport('Core.assets.main');				
-		
-		console.log("glu.namespace('Core.assets.models')");
-		console.log(glu.namespace('Core.assets.models'));
-		
-		console.log("glu.namespace('Core.assets.viewmodels')");
-		console.log(glu.namespace('Core.assets.viewmodels'));		
-
-		console.log("glu.namespace('Core.assets.views')");
-		console.log(glu.namespace('Core.assets.views'));
-		
-		console.log("END:    TEST AREA");
-		//// END:    TEST AREA ////
 	}, 
 	
     /**
@@ -226,9 +201,6 @@ Ext.define("Core.mediator.extjs.viewport.asset.Mediator", {
         if(view !== null) {
             this.logger.debug("navigate = " + view.getItemId());
             this.getView().setView(view.getItemId());
-			
-			//glu.viewport('Core.assets.main'); // MOVE THIS TO THE VIEW ITSELF
-			
         } else {
             this.logger.warn("ViewportMediator.navigate: couldn't map navigation to action = " + action + " because " +
                 "the view is null. Check the xtype.");
@@ -309,7 +281,6 @@ Ext.define("Core.mediator.extjs.viewport.asset.Mediator", {
 				console.log("PIPELINE: stopped");
 				// stopped
 				glu.ns('Core.assets').createMockBackend(true);
-				//glu.viewport('Core.assets.main'); // CALL THIS THROUGH NAVIGATION
 			}).create();
 			pipeline(state);
 		});	

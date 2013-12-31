@@ -16,14 +16,13 @@ var state = {
 };
 
 // Moment
-/* require({
+require({
     paths: {
-        "moment": "../../resources/js/moment/moment-with-langs",
+        "moment": "../../resources/js/moment/moment-with-langs"
     }
 }, ["moment"], function (moment) {
     moment().format();
-}); */
-
+});
 
 // CAN WE MOVE THE BELOW TO SOMEWHERE GENERAL, FOR REUSE ???
 require({

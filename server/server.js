@@ -199,10 +199,10 @@ api.post('/login', function(req, res){
  * GET /json/assets/:id : return the asset identified by the given :id
  */
 api.get('/json/assets/:id', function(req, res) {
-  console.log(server_prefix + " - Api get request received: json/assets");
-  console.log(server_prefix + " - Api get request params: " + req.params);  
+  console.log(server_prefix + " - Api get (one) request received: json/assets/:id");
+  console.log(server_prefix + " - Api request params: " + req.params);  
   if(req.params.id < 0) {
-	console.log(server_prefix + " - Api get request ERROR: id < 0");
+	console.log(server_prefix + " - Api request ERROR: id < 0");
 	res.statusCode = 404;
 	return res.send("Error 404: id < 0");
   }
@@ -214,8 +214,8 @@ api.get('/json/assets/:id', function(req, res) {
  * GET /json/assets    : return the assets list
  */
 api.get('/json/assets', function(req, res) {
-  console.log(server_prefix + " - Api get request received: json/assets");
-  console.log(server_prefix + " - Api get request params: " + req.params);
+  console.log(server_prefix + " - Api get (all) request received: json/assets");
+  console.log(server_prefix + " - Api request params: " + req.params);
   res.contentType("application/json; charset=utf-8");  
   res.send(200); // 200 = OK  
 });
@@ -224,8 +224,8 @@ api.get('/json/assets', function(req, res) {
  * POST /json/assets : create a new asset corresponding to the JSON object given in the body request
  */
 api.post('/json/assets', function(req, res) {
-  console.log(server_prefix + " - Api post request received: json/assets");
-  console.log(server_prefix + " - Api post request params: " + req.params);
+  console.log(server_prefix + " - Api post (create) request received: json/assets");
+  console.log(server_prefix + " - Api request params: " + req.params);
   //console.log(req.body);
   res.send(201); // 201 = Created
 });
@@ -234,8 +234,8 @@ api.post('/json/assets', function(req, res) {
  * PUT /json/assets/:id : update the asset with values of the JSON object given in the body request
  */
 api.put('/json/assets/:id', function(req, res) {
-  console.log(server_prefix + " - Api put request received: json/assets");
-  console.log(server_prefix + " - Api put request params: " + req.params);
+  console.log(server_prefix + " - Api put (update) request received: json/assets/:id");
+  console.log(server_prefix + " - Api request params: " + req.params);
   //console.log(req.body);
   res.send(202); // 202 = Accepted (Marked for Update)
 });
@@ -244,10 +244,10 @@ api.put('/json/assets/:id', function(req, res) {
  * DELETE /json/assets/:id : delete the asset with the given id
  */
 api.delete('/json/assets/:id', function(req, res) {
-  console.log(server_prefix + " - Api delete request received: json/assets"); 
-  console.log(server_prefix + " - Api delete request params: " + req.params);  
+  console.log(server_prefix + " - Api delete request received: json/assets/:id");
+  console.log(server_prefix + " - Api request params: " + req.params);
   if(req.params.id <0) {
-	console.log(server_prefix + " - Api delete request ERROR: id < 0");
+	console.log(server_prefix + " - Api request ERROR: id < 0");
 	res.statusCode = 404;
 	return res.send("Error 404: id < 0");
   } 

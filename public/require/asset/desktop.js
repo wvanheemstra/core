@@ -15,15 +15,6 @@ var state = {
 	lib: lib
 };
 
-// Moment
-require({
-    paths: {
-        "moment": "../../resources/js/moment/moment"
-    }
-}, ["moment"], function (moment) {
-    moment().format();
-});
-
 // CAN WE MOVE THE BELOW TO SOMEWHERE GENERAL, FOR REUSE ???
 require({
     paths: {
@@ -34,7 +25,7 @@ require({
 		"glu-extjs-4": "../../resources/js/glu/glu-extjs-4",
 		"deft": "../../resources/js/deft/deft",
 		"flowmvc": "../../resources/js/flow-mvc/build/flowmvc",
-		"moment-with-langs": "../../resources/js/moment/moment-with-langs",
+		"moment": "../../resources/js/moment/min/moment-with-langs",
 		"glu": "../../resources/js/glu/glu",
 		"glu-test": "../../resources/js/glu/glu-test"
     }

@@ -26,6 +26,8 @@ require({
 		"deft": "../../resources/js/deft/deft",
 		"flowmvc": "../../resources/js/flow-mvc/build/flowmvc",
 		"moment": "../../resources/js/moment/min/moment-with-langs",
+		"underscore": "../../resources/js/underscore/underscore",
+		"postal": "../../resources/js/postal/src/postal",
 		"glu": "../../resources/js/glu/glu",
 		"glu-test": "../../resources/js/glu/glu-test"
     }
@@ -94,6 +96,18 @@ require({
 		require(["moment"], function(moment) {
 			console.log("PIPELINE: moment");
 			moment().format();
+			callback();
+		});
+	}).pipeAsync(function(state, callback) {
+		// UNDERSCORE
+		require(["underscore"], function() {
+			console.log("PIPELINE: underscore");	
+			callback();
+		});
+	}).pipeAsync(function(state, callback) {
+		// POSTAL
+		require(["postal"], function() {
+			console.log("PIPELINE: postal");
 			callback();
 		});
 	}).pipeAsync(function(state, callback) {

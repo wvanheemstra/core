@@ -2,7 +2,7 @@ glu.defView('Core.assets.main', {
     alias:'widget.mainView',
     title:'@{title}',
     layout:'border',
-    tbar : ['cloneSet',{xtype:'tbfill'},'openOptions'],
+    tbar : ['cloneSet',{xtype:'tbfill'},'openPubsub','openOptions'],
     items:[
 //        {
 //            layout:{

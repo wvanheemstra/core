@@ -6,6 +6,7 @@ glu.namespace('Core.assets').locale = {
     valid_needOneCharacter:'The name cannot be empty',
     main :{
         title: 'Asset Management ({focusName})',
+		openPubsub: 'Pub Sub',
         openOptions: 'Options'
     },
     asset:{
@@ -22,6 +23,12 @@ glu.namespace('Core.assets').locale = {
         storage : 'Storage',
         verifying : 'Verifying'
     },
+    pubsub : {
+        title : 'Pub Sub'//,
+        //warnings : 'Enable warnings',
+        //offMaintenanceWarning : 'Enable off-maintenance warnings',
+        //missingWarning : 'Enable gone-missing warnings'
+    },	
     options : {
         title : 'Asset Options',
         warnings : 'Enable warnings',

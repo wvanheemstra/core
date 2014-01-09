@@ -13,6 +13,10 @@ glu.defModel('Core.assets.main', {
 	 * (glu is for full applications so view models are always in a hierarchy with a single root). 
 	 * There is also a special 'parentVM' property to find any view model's container.
 	 */
+	pubsub:{
+        mtype:'pubsub'
+    }, 
+	 
     options:{
         mtype:'options'
     },	 
@@ -61,6 +65,11 @@ glu.defModel('Core.assets.main', {
         this.set('assetSetWithFocus', newSlice);
     },
 
+    openPubsub:function () {
+		console.log("openPubsub");	
+        this.open(this.pubsub);
+    },	
+	
     openOptions:function () {
 		console.log("openOptions");	
         this.open(this.options);

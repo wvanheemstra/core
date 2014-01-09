@@ -65,9 +65,9 @@ Ext.define("Core.mediator.extjs.viewport.asset.Mediator", {
 		console.log("lib = " + lib);		
 		var models = ['asset'];
 		console.log("models = " + models);
-		var viewmodels = ['main', 'asset', 'asset/set', 'options'];
+		var viewmodels = ['main', 'asset', 'asset/set', 'pubsub', 'options'];
 		console.log("viewmodels = " + viewmodels);
-		var views = ['main', 'asset', 'asset/set', 'asset/schedule', 'asset/summary', 'options'];
+		var views = ['main', 'asset', 'asset/set', 'asset/schedule', 'asset/summary', 'pubsub', 'options'];
 		console.log("views = " + views);
 		var locales = ['locale_en'];
 		console.log("locales = " + locales);

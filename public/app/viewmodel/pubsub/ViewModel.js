@@ -1,5 +1,5 @@
 glu.defModel('Core.assets.pubsub', {
-	alias:'widget.pubsubViewModel'//,
+	alias:'widget.pubsubViewModel',
 //    warnings : true,
 //    offMaintenanceWarning : false,
 //    missingWarning : false,
@@ -19,4 +19,60 @@ glu.defModel('Core.assets.pubsub', {
 //		console.log("missingWarningIsEnabled$");		
 //        return this.warnings;
 //    }
+
+	// call below function from a browser console like so:
+	// Core.assets.viewmodels.pubsub.testPubSub(1)
+	testPubSub: function(id, options, callback) {
+		console.log("TESTING PUB SUB IN VIEW MODEL");
+		//var postal = require("postal");
+		//console.log("postal:");
+		//console.log(postal);
+		this.requestData( {id: id}, function(err, result) {
+			if (err) {
+				return callback(err);
+			}
+			// Do something with the result before executing callback
+			callback(null, result);
+		});
+		
+		//postal.subscribe("breakfastComplete", function(data, envelope) {
+		//	alert("Breakfast is Served!  Let's eat some tasty " + data.item + "!");
+		//});
+		// publish a message
+		//postal.publish("breakfastComplete", { item: "bacon" } );
+	},
+	
+	// Example taken from:
+	// http://appendto.com/blog/2013/04/request-response-pattern-in-postal-js/
+	requestData: function(data, callback){
+		console.log("requestData");
+	
+		var postal = require("postal");
+		var uuid = require("uuid");
+	
+		var replyTo = {
+			channel: "model.data",
+			topic: "get." + uuid.v1()
+		};
+		
+		console.log("replyTo:");
+		console.log(replyTo);
+		
+		postal.subscribe({
+			channel: replyTo.channel,
+			topic: replyTo.topic,
+			callback: function(msg, envelope) {
+				console.log("Subscribed");
+				callback(msg.err, msg.data);
+			}
+		}).once();
+		
+		postal.publish({
+			channel: "model.data",
+			topic: "get",
+			replyTo: replyTo,
+			data: data
+		});
+	}
+
 });

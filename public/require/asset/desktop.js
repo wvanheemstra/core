@@ -26,10 +26,16 @@ require({
 		"deft": "../../resources/js/deft/deft",
 		"flowmvc": "../../resources/js/flow-mvc/build/flowmvc",
 		"moment": "../../resources/js/moment/min/moment-with-langs",
+		"uuid": "../../resources/js/uuid/uuid",
 		"underscore": "../../resources/js/underscore/underscore",
-		"postal": "../../resources/js/postal/src/postal",
+		"postal": "../../resources/js/postal/lib/postal",
 		"glu": "../../resources/js/glu/glu",
 		"glu-test": "../../resources/js/glu/glu-test"
+    },
+	shim: {
+		"underscore": {
+			exports: "_"
+		}
     }
 }, ["pipeline"], function() {
 	var pipeline = Pipeline().start(function() {
@@ -99,14 +105,20 @@ require({
 			callback();
 		});
 	}).pipeAsync(function(state, callback) {
+		// UUID
+		require(["uuid"], function(uuid) {
+			console.log("PIPELINE: uuid");
+			callback();
+		});
+	}).pipeAsync(function(state, callback) {
 		// UNDERSCORE
-		require(["underscore"], function() {
+		require(["underscore"], function(underscore) {
 			console.log("PIPELINE: underscore");	
 			callback();
 		});
 	}).pipeAsync(function(state, callback) {
 		// POSTAL
-		require(["postal"], function() {
+		require(["postal"], function(postal) {
 			console.log("PIPELINE: postal");
 			callback();
 		});

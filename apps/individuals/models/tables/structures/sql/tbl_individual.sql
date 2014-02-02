@@ -21,16 +21,13 @@ SET FOREIGN_KEY_CHECKS = 0;
 DROP TABLE IF EXISTS `tbl_individual`;
 CREATE TABLE `tbl_individual` (
   `kp_IndividualID` int(11) NOT NULL AUTO_INCREMENT,
+  `IndividualKey` varchar(255) COLLATE utf8_bin NOT NULL,
+  `IndividualValue` varchar(255) COLLATE utf8_bin NOT NULL,
   `kf_KindOfIndividualID` int(11) NOT NULL DEFAULT 0,
-  `RelationshipWithSelf` varchar(255) COLLATE utf8_bin NOT NULL,
-  `kf_RequirementID` int(11) NOT NULL DEFAULT 0,
-  `kf_SkillID` int(11) NOT NULL DEFAULT 0,
   `ts_Created` datetime DEFAULT NULL,
   `ts_Updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`kp_IndividualID`),
-  KEY `kf_KindOfIndividualID` (`kf_KindOfIndividualID`) USING BTREE,
-  KEY `kf_RequirementID` (`kf_RequirementID`) USING BTREE,
-  KEY `kf_SkillID` (`kf_SkillID`) USING BTREE
+  FOREIGN KEY (`kf_KindOfIndividualID`) REFERENCES `tbl_kind_of_individual` (`kp_KindOfIndividualID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 delimiter ;;
 CREATE TRIGGER `Individual.ts_Created` BEFORE INSERT ON `tbl_individual` FOR EACH ROW BEGIN

@@ -25,7 +25,7 @@ CREATE TABLE `tbl_product` (
   `ts_Created` datetime DEFAULT NULL,
   `ts_Updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`kp_ProductID`),
-  KEY `kf_KindOfProductID` (`kf_KindOfProductID`) USING BTREE
+  FOREIGN KEY (`kf_KindOfProductID`) REFERENCES `tbl_kind_of_product` (`kp_KindOfProductID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 delimiter ;;
 CREATE TRIGGER `Product.ts_Created` BEFORE INSERT ON `tbl_product` FOR EACH ROW BEGIN

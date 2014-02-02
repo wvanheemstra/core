@@ -19,10 +19,9 @@ SET FOREIGN_KEY_CHECKS = 0;
 DROP VIEW IF EXISTS `individual`;
 CREATE VIEW `individual` AS 
   SELECT `kp_IndividualID`,
-	`RelationshipWithSelf`,
+	`IndividualKey`,
+	`IndividualValue`,	
 	`kf_KindOfIndividualID`,
-	`kf_RequirementID`,
-	`kf_SkillID`,
 	`ts_Created`,
 	`ts_Updated`
 FROM tbl_individual;

@@ -14,15 +14,15 @@ SET NAMES utf8;
 SET FOREIGN_KEY_CHECKS = 0;
 
 -- ----------------------------
---  View structure for `kind_of_name`
+--  View structure for `product_name`
 -- ----------------------------
-DROP VIEW IF EXISTS `kind_of_name`;
-CREATE VIEW `kind_of_name` AS 
-  SELECT `kp_KindOfNameID`,
-	`KindOfNameKey`,
-	`KindOfNameValue`,	
+DROP VIEW IF EXISTS `product_name`;
+CREATE VIEW `product_name` AS 
+  SELECT `kp_ProductNameID`,
+    `kf_ProductID`,
+	`kf_NameID`,
 	`ts_Created`,
 	`ts_Updated`
-FROM tbl_kind_of_name;
+FROM tbl_product_name;
 
 SET FOREIGN_KEY_CHECKS = 1;

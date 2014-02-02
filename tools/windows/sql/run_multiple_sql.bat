@@ -97,6 +97,9 @@ mysql --host=127.0.0.1 --port=3306 --user=root --database=core < ".\plans\models
 mysql --host=127.0.0.1 --port=3306 --user=root --database=core < ".\plans\models\tables\structures\sql\tbl_plan_driver_resource.sql"
 mysql --host=127.0.0.1 --port=3306 --user=root --database=core < ".\plans\models\tables\structures\sql\tbl_plan_event.sql"
 mysql --host=127.0.0.1 --port=3306 --user=root --database=core < ".\plans\models\tables\structures\sql\tbl_kind_of_plan.sql"
+mysql --host=127.0.0.1 --port=3306 --user=root --database=core < ".\products\models\tables\structures\sql\tbl_product.sql"
+mysql --host=127.0.0.1 --port=3306 --user=root --database=core < ".\products\models\tables\structures\sql\tbl_kind_of_product.sql"
+mysql --host=127.0.0.1 --port=3306 --user=root --database=core < ".\products\models\tables\structures\sql\tbl_product_individual.sql"
 mysql --host=127.0.0.1 --port=3306 --user=root --database=core < ".\programmes\models\tables\structures\sql\tbl_programme.sql"
 mysql --host=127.0.0.1 --port=3306 --user=root --database=core < ".\programmes\models\tables\structures\sql\tbl_kind_of_programme.sql"
 mysql --host=127.0.0.1 --port=3306 --user=root --database=core < ".\realisations\models\tables\structures\sql\tbl_realisation.sql"
@@ -246,6 +249,9 @@ mysql --host=127.0.0.1 --port=3306 --user=root --database=core < ".\plans\models
 mysql --host=127.0.0.1 --port=3306 --user=root --database=core < ".\plans\models\views\structures\sql\plan_driver_resource.sql"
 mysql --host=127.0.0.1 --port=3306 --user=root --database=core < ".\plans\models\views\structures\sql\plan_event.sql"
 mysql --host=127.0.0.1 --port=3306 --user=root --database=core < ".\plans\models\views\structures\sql\kind_of_plan.sql"
+mysql --host=127.0.0.1 --port=3306 --user=root --database=core < ".\products\models\views\structures\sql\product.sql"
+mysql --host=127.0.0.1 --port=3306 --user=root --database=core < ".\products\models\views\structures\sql\kind_of_product.sql"
+mysql --host=127.0.0.1 --port=3306 --user=root --database=core < ".\products\models\views\structures\sql\product_individual.sql"
 mysql --host=127.0.0.1 --port=3306 --user=root --database=core < ".\programmes\models\views\structures\sql\programme.sql"
 mysql --host=127.0.0.1 --port=3306 --user=root --database=core < ".\programmes\models\views\structures\sql\kind_of_programme.sql"
 mysql --host=127.0.0.1 --port=3306 --user=root --database=core < ".\realisations\models\views\structures\sql\realisation.sql"
@@ -309,8 +315,8 @@ mysql --host=127.0.0.1 --port=3306 --user=root --database=core < ".\nationalitie
 mysql --host=127.0.0.1 --port=3306 --user=root --database=core < ".\salutations\models\tables\data\en\sql\tbl_salutation_data.sql"
 
 REM Data: Samples !!! .... do not use in a production database
-mysql --host=127.0.0.1 --port=3306 --user=root --database=core < ".\persons\models\tables\data\en\sql\tbl_person_data.sql"
-mysql --host=127.0.0.1 --port=3306 --user=root --database=core < ".\persons\models\tables\data\en\sql\tbl_person_group_data.sql"
+REM DEPRECATED mysql --host=127.0.0.1 --port=3306 --user=root --database=core < ".\persons\models\tables\data\en\sql\tbl_person_data.sql"
+REM DEPRECATED mysql --host=127.0.0.1 --port=3306 --user=root --database=core < ".\persons\models\tables\data\en\sql\tbl_person_group_data.sql"
 mysql --host=127.0.0.1 --port=3306 --user=root --database=core < ".\groups\models\tables\data\en\sql\tbl_group_data.sql"
 mysql --host=127.0.0.1 --port=3306 --user=root --database=core < ".\tests\models\tables\data\en\sql\tbl_kind_of_test_data.sql"
 

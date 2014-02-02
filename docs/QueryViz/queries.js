@@ -24,8 +24,13 @@ SCHEMA["Abstract"] = "R(A,B,C)" + "\n"
 		      + "U(A,B,C)";
 
 SCHEMA["Core"] = "tblname(kpNameID, NameKey, NameValue)" + "\n"
-			  + "tblproductname(kfNameID, kfProductID)" + "\n"
-			  + "tblproduct(kpProductID)";		  
+			  + "tblproductname(kfProductID, kfNameID)" + "\n"
+			  + "tblproduct(kpProductID)" + "\n"
+			  + "tblproductmultimedia(kfProductID, kfMultimediaID)" + "\n"
+			  + "tblmultimedia(kpMultimediaID)" + "\n"
+			  + "tblmultimediapicture(kfMultimediaID, kfPictureID)" + "\n"
+			  + "tblpicture(kpPictureID, PictureKey, PictureValue, kfKindOfPictureID)" + "\n"
+			  + "tblkindofpicture(kpKindOfPictureID, KindOfPictureKey, KindOfPictureValue)";	  
 		  
 // Sample queries
 QUERY[0] = "";	// reset
@@ -547,3 +552,14 @@ QUERY[602] =
 	"WHERE	PN.kfProductID = P.kpProductID\n" +
 	"AND	N.kpNameID = PN.kfNameID\n" +
 	"AND	P.kpProductID = 1";
+
+// Still Pictures of Products
+QUERY[603] = 
+	"SELECT	PC.PictureKey, PC.PictureValue\n" +
+	"FROM	tblproduct PR, tblproductmultimedia PM, tblmultimedia M, tblmultimediapicture MP, tblpicture PC, tblkindofpicture KP\n" +
+	"WHERE	PM.kfProductID = PR.kpProductID\n" +
+	"AND	M.kpMultimediaID = PM.kfMultimediaID\n" +
+    "AND	M.kpMultimediaID = MP.kfMultimediaID\n" +	
+	"AND	PC.kpPictureID = MP.kfPictureID\n" +	
+	"AND	KP.kpKindOfPictureID = PC.kfKindOfPictureID\n" +	
+	"AND	KP.KindOfPictureValue = 'Still'";

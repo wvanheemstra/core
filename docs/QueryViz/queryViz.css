@@ -1,0 +1,145 @@
+
+body {
+	margin-left: 8em;
+	margin-right: 8em;
+	padding: 5px;
+	background: #E7FEFE;
+	font: 13px Georgia, Garamond, sans-serif;
+	color: #287C98;
+	width: 535px;
+	margin: auto;
+}
+
+#header {
+	width: 535px;
+	margin: 0px auto;
+	/*background-image: url('hat.png');*/
+	overflow: hidden;
+	margin-left:0em;
+	text-align:center
+}
+
+#header a {
+	text-decoration: none;
+}
+
+#header h1{
+	font-size: 24pt;
+	letter-spacing: 3px;
+	margin-bottom: 14px;
+}
+
+p, ol, ul {
+	margin-bottom: 1.8em;
+	line-height: 160%;
+}
+
+p {
+	margin-bottom: 0;
+}
+
+em {
+	/* font-family: Courier; /* Helvetica */
+	text-decoration: none; /* underline */
+}
+
+
+a {
+	color: #097193;
+}
+
+a:hover {
+	text-decoration: none;
+	color: #FF0000;
+}
+
+a img {
+	border: none;
+}
+
+}
+
+/* Page */
+
+#page {
+	width: 900px;
+	margin: 0px auto;
+	padding: 30px 0px;
+}
+
+/* Content */
+
+strong a{
+	font-size: 120%;
+}
+
+
+#w3c {
+	float:right;
+	bottom: 0;
+	right: 0;
+}
+
+/* Form */
+#content strong {
+	letter-spacing: 0.1em;
+	margin: 0;
+}
+
+fieldset{
+	border: outset #097193 4px;
+	padding: 1em;
+	margin: 1em auto;
+	width: 500px;
+	background-color: #D4E0FC;
+}
+
+fieldset div{
+	margin-bottom: 1em;
+}
+
+legend {
+	border: outset #097193 2px;
+	padding: 4px;
+	font-size: 140%;
+	font-weight: bold;
+	letter-spacing: 0.2em;
+	background-color: #ECF1FC;
+}
+
+select {
+	width: 498px;
+}
+
+button {
+	background-color: #C5E3ED;
+	font-weight: bold;
+	margin-top: 10px;
+	font-size: 90%;
+	color: #097193;
+}
+
+#buttons {
+	padding: 5px;
+	margin-bottom: 0;
+}
+
+#buttons p{
+	text-align: center;
+}
+textarea {
+	width: 498px;
+}
+
+#image{
+	width: 498px;
+}
+
+/* Help */
+.help {
+	float: right;
+}
+
+.grammar {
+	font-family: Georgia, "Courier New", Courier, monospace
+}

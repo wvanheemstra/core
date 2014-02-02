@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+	<title>SQL Query Visualization</title>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<link rel="stylesheet" type="text/css" href="queryViz.css">
+	<link href="http://queryviz.com/online/images/favicon.gif" type="image/gif" rel="shortcut icon">
+	<script type="text/javascript" src="http://queryviz.com/online/prototype.js"></script>
+    <script type="text/javascript" src="http://queryviz.com/online/jquery-1.5.1.min.js"></script>
+    <script>jQuery.noConflict();</script>   <!-- to make prototype and jquery play nice together -->
+	<script type="text/javascript" src="queries.js"></script>
+	<script type="text/javascript" src="queryViz.js"></script>
+    <script type="text/javascript" src="http://queryviz.com/online/jquery.textarea-expander.js"></script>
+</head>
+	<body>
+		<div id="header">
+				<div id="logo">
+					<h1><a href="http://queryviz.com/">SQL Query Visualization</a></h1>
+				</div>
+				<!-- end #logo -->
+		</div>
+			<div id="content">
+					<fieldset>
+						<legend> Your Input </legend>
+                        
+    <div>
+        <p style="float: left; width:40%"><strong>1. Specify  a Schema</strong></p>
+    <!--    <p style="float: right; width: 60%" align="right">
+            <span class="grammar">Table(col[,col]) [{, | \n} Table(col[,col])] </span></p>
+    -->        
+    </div>
+    <div style="clear: both;"></div>
+
+    <textarea id="schema" rows="3" cols="50" class="expand60-150" style="overflow: hidden; height: 60px; padding-top: 0px; padding-bottom: 0px;"> </textarea>
+	<p></p>
+    
+    <div>
+        <p style="float: left; width:60%"><strong>2. Specify or choose a  Query</strong></p>
+        <p style="float: right; width: 40%" align="right">
+        	<a href="http://queryviz.com/grammar.html">Supported grammar</a> </p>
+	</div>
+    <div style="clear: both;"></div>
+
+<select id="select_query">
+    <option value="0"> (clean) </option>
+    <option value="101">101 Bars: Persons who frequent a bar. </option>
+    <option value="102">102 Bars: Persons, bars they frequent, and drinks that are served. </option>
+    <option selected="selected" value="103">103 Bars: Persons who frequent some bar that serves some drink they like. </option>
+    <option value="104">104 Bars: Persons who frequent some bar that serves some drink they like. </option>
+    <option value="111">111 Bars: Persons who frequent only bars that serve some drink they like. </option>
+    <option value="112">112 Bars: Persons who frequent only bars that serve some drink they like. </option>
+    <option value="121">121 Bars: Persons who frequent some bar that serves only drinks they like. </option>
+    <option value="131">131 Bars: Bars that serve a drink liked by Joe, but none liked by Michael. </option>
+    <option value="136">136 Bars: Persons who frequent a bar with &gt;= 2 beers they like, one &lt;3$ and one &gt;5$.</option>
+    <option value="137">137 Bars: Persons who frequent bars with a drink &lt; 3$ and at least two with &gt; 5$. </option>
+    <option value="140">140 Bars: Persons who do not frequent bars with 'Golden' and a more expensive drink. </option>
+    <option value="151">151 Bars: Bars that serve every beer that Joe likes. </option>
+    <option value="155">155 Bars: Persons who like a beer that Joe likes and is served somewhere at &gt; $5. </option>
+    <option value="156">156 Bars: Persons who like a beer that Joe likes and is served somewhere at &gt; $5. </option>
+    <option value="160">160 Bars: Drinks that are the unique drinks liked by a person. </option>
+    <option value="161">161 Bars: Drinks that are the unique drinks liked by a person. </option>
+    <option value="201">201 IMDB: Random node placement. </option>
+    <option value="202">202 IMDB: Actors who have played in movies before 1900. </option>
+    <option value="203">203 IMDB: Movies in which Kevin Bacon plays, together with all its actors.</option>
+    <option value="204">204 IMDB: Movies in which Kevin Bacon plays, together with all its actors.</option>
+    <option value="205">205 IMDB: Actors with Kevin Bacon number 1. </option>
+    <option value="206">206 IMDB: Actors with Kevin Bacon number 2. </option>
+    <option value="207">207 IMDB: Movies and actors in with Kevin Bacon does not play. </option> 
+    <option value="301">301 Sailors: Sailors who have reserved all boats. </option>
+    <option value="302">302 Sailors: Sailors who have reserved all red boats. </option>
+    <option value="303">303 Sailors: Sailors who have not reserved a red boats. </option>
+    <option value="401">401 Worlds: Worlds where each tuple is already contained in some earlier world.</option>
+    <option value="411">411 Worlds: Worlds for which there exists one other, earlier world that contains all its tuples.</option>
+    <option value="412">412 Worlds: Worlds for which there is no earlier world that contains all its tuples.</option>    
+    <option value="416">416 Worlds: Worlds for which there is no earlier world with exactly the same tuples.</option>        
+    <option value="451">451 Worlds: Worlds with a tuple that does not appear in a later world.</option>   
+    <option value="501">501 Abstract: Attribute value between numerical values.</option>
+    <option value="503">503 Abstract: Attribute comparisons.</option>        
+    <option value="505">505 Abstract: Attribute comparisons inside a component.</option>        
+    <option value="506">506 Abstract: Attribute comparisons inside a component.</option>
+    <option value="507">507 Abstract: Attribute comparisons inside a component.</option>
+    <option value="508">508 Abstract: Attribute comparisons between components.</option>                
+    <option value="511">511 Abstract: Multiple conjunctive selections on predicates.</option>        
+    <option value="551">551 Abstract: R.A with R.B biggest among all R.Bs.</option>
+    <option value="561">561 Abstract: R.A where R.B is different from at least one S.B.</option>        
+    <option value="562">562 Abstract: R.A where R.B is different from at least one S.B.</option>        
+    <option value="571">571 Abstract: R.A so that R.B is different from all S.B.</option>        
+    <option value="573">573 Abstract: R.A for which R.B is not in S.B.</option>
+    <option value="601">601 Core: Names of Products</option>
+    <option value="602">602 Core: Names of Product(s) with ID = 1</option>
+</select>
+<p></p>
+    <textarea id="query" rows="5" cols="50" class="expand180-800" style="overflow: hidden; height: 180px; padding-top: 0px; padding-bottom: 0px;"> </textarea>
+    <div id="buttons">
+        <button id="submit" style="float: left; width:80px">Submit</button>
+      <button id="reset" style="float: left; width:80px">Reset</button>
+        <p style="float: right; width: 60%; text-align: right"><a href="http://queryviz.com/">http://queryviz.com/</a> (Version: 2011.03.22)</p>
+		<div style="clear: both;"></div>
+      <p style="text-align: left"><strong id="message" style="">Image loaded.</strong></p>
+    </div>
+   </fieldset>
+<fieldset>
+<legend> QueryViz Result </legend>
+<img id="image" src="http://queryviz.com/online/common/src/qvisualization/output/1183399820/output.png">
+</fieldset>
+</div>
+</body>
+</html>

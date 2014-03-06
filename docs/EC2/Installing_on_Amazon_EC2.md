@@ -22,6 +22,55 @@ Once Signed In, to see the AWS Management Console, go to
 From the AWS Management Console choose **EC2** from the Compute &
 Networking category.
 
+### EC2 Dashboard
+
+From the upper right **EC2 Dashboard** page select the region (i.e. EU
+(Ireland)). Next, click 'Launch Instance'.
+
+### Step 1: Choose an Amazon Machine Image (AMI)
+
+From the Quick Start tab, click 'Select' next to the **Amazon Linux
+AMI**, with the **64-bit** checkbox selected.
+
+### Step 2: Choose an Instance Type
+
+From the Micro instances tab, choose the **t1.micro** instance type.
+Choose 'Next: Configure Instance Details'.
+
+...
+
+to do ...
+
+...
+
+### Step 7: Review Instance Launch
+
+...
+
+Optional: *Edit the Security Groups*
+
+...
+
+Click the button '**Launch**'
+
+### Select an existing key pair or create a new key pair
+
+A dialogue will prompt for 'Create a new key pair' or 'Choose an
+existing key pair'. For the second option select a key pair from the
+list (e.g. **vanheemstrasystems-key-pair-eu**).
+
+Confirm by ticking the checkbox for '*I acknowledge...*' before clicking
+the '**Launch Instances**' button.
+
+### Launch Status
+
+If all goes well, a notification will state: *Your instance is now
+launching*.
+
+Click the '**View Instances**' button.
+
+### EC2 Dashboard: Instances
+
 ...
 
 ## Amazon Machine Image (AMI) Setup

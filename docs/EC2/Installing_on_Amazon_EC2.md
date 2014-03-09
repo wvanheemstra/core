@@ -71,6 +71,21 @@ Click the '**View Instances**' button.
 
 ### EC2 Dashboard: Instances
 
+Select the newly created instance and edit its Name (e.g. Tacit - Core).
+On the bottom half of the EC2 Management Console, on tab 'Description', one is shown the Public DNS for the selected instance (e.g. ec2-54-72-60-113.eu-west-1.compute.amazonaws.com). This Public DNS can be used to connect to the server at Amazon via SSH. 
+
+### Connecting via SSH
+
+Use the Public DNS (e.g. ec2-54-72-60-113.eu-west-1.compute.amazonaws.com) to connect to the running EC2 instance (e.g. Tacit - Core) on Amazon. Amazon does **not** provide a custom username and password for SSH connections. Instead, they use the key pair file one created a couple of steps ago (a more secure method of authentication).
+
+This example is for Mac OS X:
+
+Software used:
+- **vSSH**: vSSH is a customizable SSH and Telnet client with macros and keys sharing. One can use this app on their Mac and iPad to remotely log into their AWS instances. Get it from the Mac App Store at https://itunes.apple.com/us/app/vssh/id583272886?mt=12&affId=1503186
+
+
+
+This example is for Windows:
 ...
 
 ## Amazon Machine Image (AMI) Setup

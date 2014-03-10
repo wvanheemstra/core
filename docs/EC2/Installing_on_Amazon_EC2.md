@@ -83,6 +83,16 @@ This example is for **Mac OS X**:
 Software used:
 - **vSSH**: vSSH is a customizable SSH and Telnet client with macros and keys sharing. One can use this app on their Mac and iPad to remotely log into their AWS instances. Get it from the Mac App Store at https://itunes.apple.com/us/app/vssh/id583272886?mt=12&affId=1503186
 
+Configure the security private key in vSSH by choosing vSSH > Preferences and navigate to the Security tab. Click + and open the **.pem** file saved earlier. Once this is added, close the Preferences window.
+
+Connect with vSSH by entering the instance's Public DNS address (e.g. ec2-54-72-60-113.eu-west-1.compute.amazonaws.com) shown in the EC2 Management Console in the Host field. From the dropdown menu for the Private key select the **.pem** file added before.
+
+Click the 'Connect' button.
+
+A Terminal window will appear. If asked to log in, enter 'ec2-user' as the username.
+
+You are now logged-in into your instance!
+
 ...
 
 This example is for **Windows**:

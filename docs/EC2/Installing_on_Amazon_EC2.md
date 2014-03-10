@@ -57,7 +57,7 @@ Click the button '**Launch**'
 
 A dialogue will prompt for 'Create a new key pair' or 'Choose an
 existing key pair'. For the second option select a key pair from the
-list (e.g. **vanheemstrasystems-key-pair-eu**).
+list (e.g. **tacit-core-key-pair-eu**).
 
 Confirm by ticking the checkbox for '*I acknowledge...*' before clicking
 the '**Launch Instances**' button.

@@ -85,7 +85,7 @@ Software used:
 
 Configure the security private key in vSSH by choosing vSSH > Preferences and navigate to the Security tab. Click + and open the **.pem** file saved earlier. Once this is added, close the Preferences window.
 
-Connect with vSSH by entering the instance's Public DNS address (e.g. ec2-54-72-60-113.eu-west-1.compute.amazonaws.com) shown in the EC2 Management Console in the Host field. From the dropdown menu for the Private key select the **.pem** file added before.
+Connect with vSSH by entering the instance's Public DNS address (e.g. ec2-54-72-60-113.eu-west-1.compute.amazonaws.com) shown in the EC2 Management Console in the Host field. For the Name field type something meaningful (e.g. Tacit - Core). For the Protocol choose SSH, and for the Port type 22. Optionally enter a Username (i.e. ec2-user). From the dropdown menu for the Private key select the **.pem** file added before. For easy future reference, make sure to Save the connection by choosing 'Save' (first time saving requires clicking Save New).
 
 Click the 'Connect' button.
 

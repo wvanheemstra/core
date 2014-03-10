@@ -83,9 +83,13 @@ This example is for Mac OS X:
 Software used:
 - **vSSH**: vSSH is a customizable SSH and Telnet client with macros and keys sharing. One can use this app on their Mac and iPad to remotely log into their AWS instances. Get it from the Mac App Store at https://itunes.apple.com/us/app/vssh/id583272886?mt=12&affId=1503186
 
-
+...
 
 This example is for Windows:
+
+Software used:
+- **PuTTY**: PuTTY is an SSH and Telnet client for Windows. Get it at http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
+
 ...
 
 ## Amazon Machine Image (AMI) Setup

@@ -132,12 +132,70 @@ The first step is to sign up for RDS. RDS is one of the tools available via the 
 
 Once signed up for RDS, Amazon makes it easy to set up a database instance using the AWS Management Console for RDS. Once you have an Amazon Web Services account and have signed up for RDS, you can login to the AWS Management Console to manage your RDS database instances. Once logged in, select the Amazon RDS tab via the management console. The Launch DB Instance option will take the user through the steps of creating the database instance. These include configuration options such as the version of the MySQL database, the size of the database, the allocated storage, the master user name and password, and the database name.
 
+For Tacit - Core, we choose '**MySQL Community Edition**', followed by clicking the 'Select' button to the right.
+
+For testing and development purposes, as well as for finacial reasons, we choose '**No, this instance is intended for use outside of production or under the RDS Free Usage Tier**'. Click on the 'Next Step' button.
+
+**DB Instance Details**
+
+Here is the setting for Tacit - Core:
+
+DB Engine: mysql
+License Model: general-public-license
+DB Engine Version: 5.6.13
+DB Instance Class: db.t1.micro
+Multi-AZ deployment: No
+Auto Minor Version Upgrade: Yes
+Allocated Storage: 5 GB
+Use Provisioned IOPS: No
+DB Instance Identifier: tacitcoredbinstance
+Master Username: master
+Master Password: ******** (e.g. password)
+
 When configuring the instance via the Launch DB Instance tool, make sure to remember the master user name and master password entered when creating the db instance. These are the user and password you will use when connecting. Also, remember the database name entered during the db instance configuration as you will need this when setting up a connection.
+
+Click on the 'Next Step' button.
+
+**Additional Config**
+
+Here is the setting for Tacit - Core:
+
+Database Name: tacitcoredb
+Database Port: 3306
+Choose a VPC: Default VPC (vpc-8bf2e0e9)
+DB Subnet Group: default
+Publicly Accessible: Yes
+Availability Zone: No Preference
+Option Group: default:mysql-5-6
+Parameter Group: default:mysql5.6
+VPC Security Group(s): default (VPC)
+
+Click on the 'Next Step' button.
+
+**Management Options**
+
+Here is the setting for Tacit - Core:
+
+Enabled Automatic Backups: Yes
+Backup Retention Period: 1 days
+Backup Window: No Preference
+Maintenance Window: No Preference
+
+Click on the 'Next Step' button.
+
+**Review**
+
+When OK with all settings, click the 'Launch DB Instance' button.
+
+A confirmation in green, **Your DB instance is being created**, will show.
+Click 'View your DB instances on the DB instances page'.
 
 After completing the Launch DB Instance process, your MySQL database instance is up and running. However, to allow connections to your database from over the network, there are some security settings that need configured via the DB Security Groups section of the RDS management console.
 
-Click the DB Security Groups option, then select an existing security group such as the default security group or create a new security group. Click the checkbox next to the security group, and add IP addresses that are allowed to connect to the MySQL RDS instance via the CIDR/IP option. In order to connect to the instance from your local machine, you will need to add the IP address of your computer. You can add a single IP address, i.e., 1.1.1.1, or a range of IP addresses such as 1.1.1.1/32.
+Click the **DB Security Groups** option, then select an existing security group such as the default security group or create a new security group. NOTE: As in our settings we are in the EU region, we have to go to the EC2 Console and select our VPC Security Group. Here we use the **default vpc security group**. Name it 'Tacit - Core'.
 
-Once the database instance is up and running, and the appropriate IP addresses are added via the DB Security Groups option, you can click on the DB instance via the AWS console to get the endpoint of the database. This is the host name to enter when configuring a connection to the database. The following is an example of an endpoint: dbinstancename.something..us-east-1.rds.amazonaws.com
+Click the checkbox next to the security group, and add IP addresses that are allowed to connect to the MySQL RDS instance via the CIDR/IP option. In order to connect to the instance from your local machine, you will need to add the IP address of your computer. You can add a single IP address, i.e., 1.1.1.1, or a range of IP addresses such as 1.1.1.1/32.
+
+Once the database instance is up and running, and the appropriate IP addresses are added via the DB Security Groups option, you can click on the DB instance via the AWS console to get the endpoint of the database. This is the host name to enter when configuring a connection to the database. The following is an example of an endpoint: tacitcoredbinstance.cva2malahinw.eu-west-1.rds.amazonaws.com:3306
 
 To create a connection to the Amazon RDS MySQL database via RazorSQL, select the Connections -> Add Connection Profile option, select MySQL as the database type, and select JDBC (MySQL Connector/J) as the connection type. Enter the master user name entered via the Launch DB Instance process as the Login, and the master password entered via the Launch DB Instance process as the password. Enter the endpoint displayed in the RDS management console as the Host, and enter the database name entered via the Launch DB Instance option as the database name. Click Connect. Assuming the information entered was correct, and the IP address of your machine was added via the DB Security Group, the connection should be successful.

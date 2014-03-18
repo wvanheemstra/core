@@ -123,3 +123,21 @@ the advantage of handling your database management tasks, such as
 patching the software, backing up, and storing the backups.
 
   [Amazon Elastic Compute Cloud (EC2) User Guide]: docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html‎
+  
+Make the next more readable:
+
+Amazon offers a cloud-based relational database service called RDS. The first type of database available via RDS was MySQL. This article contains information on how to setup and then connect to a MySQL RDS instance.
+
+The first step is to sign up for RDS. RDS is one of the tools available via the Amazon Web Services (AWS) family of products. To sign up, visit http://aws.amazon.com/rds/
+
+Once signed up for RDS, Amazon makes it easy to set up a database instance using the AWS Management Console for RDS. Once you have an Amazon Web Services account and have signed up for RDS, you can login to the AWS Management Console to manage your RDS database instances. Once logged in, select the Amazon RDS tab via the management console. The Launch DB Instance option will take the user through the steps of creating the database instance. These include configuration options such as the version of the MySQL database, the size of the database, the allocated storage, the master user name and password, and the database name.
+
+When configuring the instance via the Launch DB Instance tool, make sure to remember the master user name and master password entered when creating the db instance. These are the user and password you will use when connecting. Also, remember the database name entered during the db instance configuration as you will need this when setting up a connection.
+
+After completing the Launch DB Instance process, your MySQL database instance is up and running. However, to allow connections to your database from over the network, there are some security settings that need configured via the DB Security Groups section of the RDS management console.
+
+Click the DB Security Groups option, then select an existing security group such as the default security group or create a new security group. Click the checkbox next to the security group, and add IP addresses that are allowed to connect to the MySQL RDS instance via the CIDR/IP option. In order to connect to the instance from your local machine, you will need to add the IP address of your computer. You can add a single IP address, i.e., 1.1.1.1, or a range of IP addresses such as 1.1.1.1/32.
+
+Once the database instance is up and running, and the appropriate IP addresses are added via the DB Security Groups option, you can click on the DB instance via the AWS console to get the endpoint of the database. This is the host name to enter when configuring a connection to the database. The following is an example of an endpoint: dbinstancename.something..us-east-1.rds.amazonaws.com
+
+To create a connection to the Amazon RDS MySQL database via RazorSQL, select the Connections -> Add Connection Profile option, select MySQL as the database type, and select JDBC (MySQL Connector/J) as the connection type. Enter the master user name entered via the Launch DB Instance process as the Login, and the master password entered via the Launch DB Instance process as the password. Enter the endpoint displayed in the RDS management console as the Host, and enter the database name entered via the Launch DB Instance option as the database name. Click Connect. Assuming the information entered was correct, and the IP address of your machine was added via the DB Security Group, the connection should be successful.

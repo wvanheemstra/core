@@ -102,6 +102,15 @@ Software used:
 
 ...
 
+## Installing Node.js and NPM on EC2
+
+Sources: 
+- http://thefloppydisk.wordpress.com/2013/04/25/a-node-js-application-on-the-amazon-cloud-part-1-installing-node-on-an-ec2-instance/comment-page-1/
+- http://thefloppydisk.wordpress.com/2013/04/25/a-node-js-application-on-the-amazon-cloud-part-2-adding-a-database/
+
+... more to follow
+...
+
 ## Amazon Machine Image (AMI) Setup
 
 An Amazon Machine Image (AMI) is a template that contains a software

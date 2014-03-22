@@ -213,4 +213,21 @@ Back in the AWS console, click "Add Rule". For Type choose “MySQL”. Leave Pr
 
 Once the database instance is up and running, and the appropriate IP addresses are added via the DB Security Groups option, you can click on the DB instance via the AWS console to get the endpoint of the database. This is the host name to enter when configuring a connection to the database. The following is an example of an endpoint: **tacitcoredbinstance.cva2malahinw.eu-west-1.rds.amazonaws.com:3306**
 
+Before being able to create triggers on tables in the database, please follow the following instructions to avoid triggers being ignored because of a lack of SUPER privileges:
+
+- Open the RDS web console.
+- Open the “Parameter Groups” tab.
+- Click "Create DB Parameter Group". On the dialog, select the MySQL family compatible to your MySQL database version (e.g. mysql5.6), give it a name (e.g. **tacitcore**), description (e.g. **Tacit - Core**) and confirm with "Yes, Create".
+- Select the just created Parameter Group and issue “Edit Parameters”.
+- Look for the parameters ‘character_set_client’, ‘character_set_connection’, ‘character_set_database’, ‘character_set_filesystem’, ‘character_set_results’, ‘character_set_server’ and set their values to ’utf8′.
+- Look for the parameter ‘default_storage_engine’ and make sure its value is set to ’InnoDB′.
+- Look for the parameter ‘log_bin_trust_function_creators’ and set its value to ’1′.
+- Save the changes.
+- Open the “Instances” tab. Expand your MySQL instance (i.e. **tacitcoredbinstance**) and issue the “Instance Action” named “Modify”.
+- Select the just created Parameter Group and enable “Apply Immediately”.
+- Click on “Continue” and confirm the changes with “Modify DB Instance”.
+- Again, open the “Instances” tab. Expand your MySQL instance (**tacitcoredbinstance**) and wait for the name for the Parameter Group change from tacitcore (applying) to tacitcore (pending-reboot).
+- Don't forget: Issue the “Instance Action” named “Reboot”. Confirm with "Yes, Reboot". The name of the Parameter Group will change to tacitcore (in-sync) and the Status of the instance will change from "rebooting" to "available".
+From now on this instance will accept table generation with triggers.
+
 To create a connection to the Amazon RDS MySQL database via **Navicat** (see http://www.navicat.com), select from the button on the bottom left -> New Connection ... option, select MySQL as the database type. Give the connection a suitable name, such as **tacit_core_eu_rds**. Enter the endpoint displayed in the RDS management console as the Host Name / IP Address (e.g. **tacitcoredbinstance.cva2malahinw.eu-west-1.rds.amazonaws.com**). Enter the master user name (i.e. **master**) entered via the Launch DB Instance process as the Login, and the master password (e.g. **password**) entered via the Launch DB Instance process as the password. Click "Test Connection". Assuming the information entered was correct, and the IP address of your machine was added via the DB Security Group, the connection should be successful. Confirm your new connection with "OK".

@@ -19,7 +19,8 @@ SET FOREIGN_KEY_CHECKS = 0;
 DROP VIEW IF EXISTS `kind_of_individual`;
 CREATE VIEW `kind_of_individual` AS 
   SELECT `kp_KindOfIndividualID`,
-	`KindOfIndividualName`,
+	`KindOfIndividualKey`,
+	`KindOfIndividualValue`,
 	`ts_Created`,
 	`ts_Updated`
 FROM tbl_kind_of_individual;

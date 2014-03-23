@@ -21,7 +21,8 @@ SET FOREIGN_KEY_CHECKS = 0;
 DROP TABLE IF EXISTS `tbl_kind_of_individual_data`;
 CREATE TABLE `tbl_kind_of_individual_data` (
   `kp_KindOfIndividualID` int(11) NOT NULL AUTO_INCREMENT,
-  `KindOfIndividualName` varchar(255) COLLATE utf8_bin NOT NULL,
+  `KindOfIndividualKey` varchar(255) COLLATE utf8_bin NOT NULL,
+  `KindOfIndividualValue` varchar(255) COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`kp_KindOfIndividualID`),
   UNIQUE KEY `kp_KindOfIndividualID` (`kp_KindOfIndividualID`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
@@ -30,7 +31,7 @@ CREATE TABLE `tbl_kind_of_individual_data` (
 --  Records of `tbl_kind_of_individual_data`
 -- ----------------------------
 BEGIN;
-INSERT INTO `tbl_kind_of_individual_data` VALUES ('1', 'Self'), ('2', 'Emergency'), ('3', 'Registrar');
+INSERT INTO `tbl_kind_of_individual_data` VALUES ('1', 'Kind', 'Self'), ('2', 'Kind', 'Emergency'), ('3', 'Kind', 'Registrar');
 COMMIT;
 
 SET FOREIGN_KEY_CHECKS = 1;

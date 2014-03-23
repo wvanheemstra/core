@@ -21,7 +21,8 @@ SET FOREIGN_KEY_CHECKS = 0;
 DROP TABLE IF EXISTS `tbl_kind_of_individual`;
 CREATE TABLE `tbl_kind_of_individual` (
   `kp_KindOfIndividualID` int(11) NOT NULL AUTO_INCREMENT,
-  `KindOfIndividualName` varchar(255) COLLATE utf8_bin NOT NULL,
+  `KindOfIndividualKey` varchar(255) COLLATE utf8_bin NOT NULL,
+  `KindOfIndividualValue` varchar(255) COLLATE utf8_bin NOT NULL,
   `ts_Created` datetime DEFAULT NULL,
   `ts_Updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`kp_KindOfIndividualID`),

@@ -22,7 +22,7 @@ CREATE VIEW `individual_salutation` AS
     `kf_IndividualID`,
 	`kf_SalutationID`,
 	`ts_Created`,
-	`ts_Upsalutationd`
+	`ts_Updated`
 FROM tbl_individual_salutation;
 
 SET FOREIGN_KEY_CHECKS = 1;

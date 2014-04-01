@@ -20,7 +20,9 @@ DROP VIEW IF EXISTS `kind_of_name`;
 CREATE VIEW `kind_of_name` AS 
   SELECT `kp_KindOfNameID`,
 	`KindOfNameKey`,
-	`KindOfNameValue`,	
+	`KindOfNameValue`,
+	`kf_LanguageID`,
+	`kf_ParentID`,
 	`ts_Created`,
 	`ts_Updated`
 FROM tbl_kind_of_name;

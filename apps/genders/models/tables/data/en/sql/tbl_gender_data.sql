@@ -23,7 +23,9 @@ DELETE FROM `tbl_gender`;
 --  Records of `tbl_gender`
 -- ----------------------------
 BEGIN;
-INSERT INTO `tbl_gender` VALUES ('1', 'Male', 0x277b22656e2d4742223a224d616c65222c226e6c2d4e4c223a224d616e227d27, '0', null, '2012-07-03 10:20:37'), ('2', 'Female', 0x277b22656e2d4742223a2246656d616c65222c226e6c2d4e4c223a2256726f7577227d27, '0', null, '2012-07-03 10:24:39');
+INSERT INTO `tbl_gender` VALUES 
+('1', 'Gender', 'Male', '0', null, '0000-00-00 00:00:00'), 
+('2', 'Gender', 'Female', '0', null, '0000-00-00 00:00:00');
 COMMIT;
 
 SET FOREIGN_KEY_CHECKS = 1;

@@ -21,14 +21,13 @@ SET FOREIGN_KEY_CHECKS = 0;
 DROP TABLE IF EXISTS `tbl_gender`;
 CREATE TABLE `tbl_gender` (
   `kp_GenderID` int(11) NOT NULL AUTO_INCREMENT,
-  `GenderName` varchar(255) COLLATE utf8_bin NOT NULL,
-  `GenderNameTranslation` text COLLATE utf8_bin NOT NULL,
-  `kf_LanguageID` int(11) NOT NULL DEFAULT 0,
+  `GenderKey` varchar(255) COLLATE utf8_bin NOT NULL,
+  `GenderValue` varchar(255) COLLATE utf8_bin NOT NULL,
+  `kf_KindOfGenderID` int(11) NOT NULL DEFAULT 0,
   `ts_Created` datetime DEFAULT NULL,
   `ts_Updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`kp_GenderID`),
-  UNIQUE KEY `kp_GenderID` (`kp_GenderID`) USING BTREE,
-  KEY `kf_LanguageID` (`kf_LanguageID`) USING BTREE
+  FOREIGN KEY (`kf_KindOfGenderID`) REFERENCES `tbl_kind_of_gender` (`kp_KindOfGenderID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 delimiter ;;
 CREATE TRIGGER `Gender.ts_Created` BEFORE INSERT ON `tbl_gender` FOR EACH ROW BEGIN

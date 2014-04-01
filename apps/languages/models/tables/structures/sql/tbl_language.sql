@@ -21,11 +21,17 @@ SET FOREIGN_KEY_CHECKS = 0;
 DROP TABLE IF EXISTS `tbl_language`;
 CREATE TABLE `tbl_language` (
   `kp_LanguageID` int(11) NOT NULL AUTO_INCREMENT,
-  `LanguageName` varchar(255) COLLATE utf8_bin NOT NULL,
+  `LanguageKey` varchar(255) COLLATE utf8_bin NOT NULL,
+  `LanguageValue` varchar(255) COLLATE utf8_bin NOT NULL,
+  `kf_KindOfLanguageID` int(11) NOT NULL DEFAULT 0,
+  `kf_LanguageID` int(11) NOT NULL DEFAULT 0,
+  `kf_ParentID` int(11) NOT NULL DEFAULT 0,
   `ts_Created` datetime DEFAULT NULL,
   `ts_Updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`kp_LanguageID`),
-  UNIQUE KEY `kp_LanguageID` (`kp_LanguageID`) USING BTREE
+  FOREIGN KEY (`kf_KindOfLanguageID`) REFERENCES `tbl_kind_of_language` (`kp_KindOfLanguageID`),
+  FOREIGN KEY (`kf_LanguageID`) REFERENCES `tbl_language` (`kp_LanguageID`),
+  FOREIGN KEY (`kf_ParentID`) REFERENCES `tbl_language` (`kp_LanguageID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 delimiter ;;
 CREATE TRIGGER `Language.ts_Created` BEFORE INSERT ON `tbl_language` FOR EACH ROW BEGIN

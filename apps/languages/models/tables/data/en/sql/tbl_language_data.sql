@@ -16,21 +16,15 @@ SET NAMES utf8;
 SET FOREIGN_KEY_CHECKS = 0;
 
 -- ----------------------------
---  Table structure for `tbl_language_data`
+--  Delete all records of `tbl_language`
 -- ----------------------------
-DROP TABLE IF EXISTS `tbl_language_data`;
-CREATE TABLE `tbl_language_data` (
-  `kp_LanguageID` int(11) NOT NULL AUTO_INCREMENT,
-  `LanguageName` varchar(255) COLLATE utf8_bin NOT NULL,
-  PRIMARY KEY (`kp_LanguageID`),
-  UNIQUE KEY `kp_LanguageID` (`kp_LanguageID`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+DELETE FROM `tbl_language`;
 
 -- ----------------------------
---  Records of `tbl_language_data`
+--  Records of `tbl_language`
 -- ----------------------------
 BEGIN;
-INSERT INTO `tbl_language_data` VALUES ('1', 'en-GB');
+INSERT INTO `tbl_language` VALUES ('1', 'Language', 'English', '0', '1', '1', null, '0000-00-00 00:00:00');
 COMMIT;
 
 SET FOREIGN_KEY_CHECKS = 1;

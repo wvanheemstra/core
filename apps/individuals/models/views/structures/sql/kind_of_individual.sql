@@ -21,6 +21,8 @@ CREATE VIEW `kind_of_individual` AS
   SELECT `kp_KindOfIndividualID`,
 	`KindOfIndividualKey`,
 	`KindOfIndividualValue`,
+	`kf_LanguageID`,
+	`kf_ParentID`,		
 	`ts_Created`,
 	`ts_Updated`
 FROM tbl_kind_of_individual;

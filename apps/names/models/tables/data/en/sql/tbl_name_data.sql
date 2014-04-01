@@ -23,7 +23,17 @@ DELETE FROM `tbl_name`;
 --  Records of `tbl_name`
 -- ----------------------------
 BEGIN;
-INSERT INTO `tbl_name` VALUES ('1', 'Adam', 0x277b22656e2d4742223a224d616c65222c226e6c2d4e4c223a224d616e227d27, '0', null, '2012-07-03 10:20:37'), ('2', 'Eve', 0x277b22656e2d4742223a2246656d616c65222c226e6c2d4e4c223a2256726f7577227d27, '0', null, '2012-07-03 10:24:39');
+INSERT INTO `tbl_name` VALUES 
+('1', 'Name', 'Zenaida', '1', null, '0000-00-00 00:00:00'), ('2', 'Name', 'Rodarte', '3', null, '0000-00-00 00:00:00'), 
+('3', 'Name', 'Giuseppe', '1', null, '0000-00-00 00:00:00'), ('4', 'Name', 'Cerda', '3', null, '0000-00-00 00:00:00'),
+('5', 'Name', 'Ettiene', '1', null, '0000-00-00 00:00:00'), ('6', 'Name', 'Montero', '3', null, '0000-00-00 00:00:00'),
+('7', 'Name', 'Lilibet', '1', null, '0000-00-00 00:00:00'), ('8', 'Name', 'Suárez', '3', null, '0000-00-00 00:00:00'),
+('9', 'Name', 'Encarnación', '1', null, '0000-00-00 00:00:00'), ('10', 'Name', 'Correa', '3', null, '0000-00-00 00:00:00'),
+('11', 'Name', 'Cesáreo', '1', null, '0000-00-00 00:00:00'), ('12', 'Name', 'Almonte', '3', null, '0000-00-00 00:00:00'),
+('13', 'Name', 'Wenzel', '1', null, '0000-00-00 00:00:00'), ('14', 'Name', 'Solórzano', '3', null, '0000-00-00 00:00:00'),
+('15', 'Name', 'Nikita', '1', null, '0000-00-00 00:00:00'), ('16', 'Name', 'Cardona', '3', null, '0000-00-00 00:00:00'),
+('17', 'Name', 'Hermelando', '1', null, '0000-00-00 00:00:00'), ('18', 'Name', 'Medina', '3', null, '0000-00-00 00:00:00'),
+('19', 'Name', 'Benilda', '1', null, '0000-00-00 00:00:00'), ('20', 'Name', 'Castellanos', '3', null, '0000-00-00 00:00:00');
 COMMIT;
 
 SET FOREIGN_KEY_CHECKS = 1;

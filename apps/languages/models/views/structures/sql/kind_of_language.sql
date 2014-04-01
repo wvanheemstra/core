@@ -14,18 +14,17 @@ SET NAMES utf8;
 SET FOREIGN_KEY_CHECKS = 0;
 
 -- ----------------------------
---  View structure for `name`
+--  View structure for `kind_of_language`
 -- ----------------------------
-DROP VIEW IF EXISTS `name`;
-CREATE VIEW `name` AS 
-  SELECT `kp_NameID`,
-	`NameKey`,
-	`NameValue`,
-	`kf_KindOfNameID`,
+DROP VIEW IF EXISTS `kind_of_language`;
+CREATE VIEW `kind_of_language` AS 
+  SELECT `kp_KindOfLanguageID`,
+	`KindOfLanguageKey`,
+	`KindOfLanguageValue`,
 	`kf_LanguageID`,
-	`kf_ParentID`,		
+	`kf_ParentID`,
 	`ts_Created`,
 	`ts_Updated`
-FROM tbl_name;
+FROM tbl_kind_of_language;
 
 SET FOREIGN_KEY_CHECKS = 1;

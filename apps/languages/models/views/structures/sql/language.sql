@@ -19,7 +19,10 @@ SET FOREIGN_KEY_CHECKS = 0;
 DROP VIEW IF EXISTS `language`;
 CREATE VIEW `language` AS 
   SELECT `kp_LanguageID`,
-	`LanguageName`,
+	`LanguageKey`,
+	`LanguageValue`,
+	`kf_KindOfLanguageID`,
+	`kf_ParentID`,			
 	`ts_Created`,
 	`ts_Updated`
 FROM tbl_language;

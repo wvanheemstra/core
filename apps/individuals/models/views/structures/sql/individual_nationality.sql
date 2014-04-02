@@ -22,7 +22,7 @@ CREATE VIEW `individual_nationality` AS
     `kf_IndividualID`,
 	`kf_NationalityID`,
 	`ts_Created`,
-	`ts_Upnationalityd`
+	`ts_Updated`
 FROM tbl_individual_nationality;
 
 SET FOREIGN_KEY_CHECKS = 1;

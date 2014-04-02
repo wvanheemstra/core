@@ -19,8 +19,11 @@ SET FOREIGN_KEY_CHECKS = 0;
 DROP VIEW IF EXISTS `nationality`;
 CREATE VIEW `nationality` AS 
   SELECT `kp_NationalityID`,
-	`NationalityName`,
+	`NationalityKey`,
+	`NationalityValue`,
+	`kf_KindOfNationalityID`,
 	`kf_LanguageID`,
+	`kf_ParentID`,
 	`ts_Created`,
 	`ts_Updated`
 FROM tbl_nationality;

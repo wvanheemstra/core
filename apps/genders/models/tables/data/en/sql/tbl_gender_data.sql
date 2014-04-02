@@ -24,8 +24,8 @@ DELETE FROM `tbl_gender`;
 -- ----------------------------
 BEGIN;
 INSERT INTO `tbl_gender` VALUES 
-('1', 'Gender', 'Male', '0', null, '0000-00-00 00:00:00'), 
-('2', 'Gender', 'Female', '0', null, '0000-00-00 00:00:00');
+('1', 'Gender', 'Male', '0', '1', '1', null, '0000-00-00 00:00:00'), 
+('2', 'Gender', 'Female', '0', '1', '2', null, '0000-00-00 00:00:00');
 COMMIT;
 
 SET FOREIGN_KEY_CHECKS = 1;

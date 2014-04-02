@@ -22,6 +22,8 @@ CREATE VIEW `gender` AS
 	`GenderKey`,
 	`GenderValue`,
 	`kf_KindOfGenderID`,
+	`kf_LanguageID`,
+	`kf_ParentID`,
 	`ts_Created`,
 	`ts_Updated`
 FROM tbl_gender;

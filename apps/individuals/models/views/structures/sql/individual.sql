@@ -20,8 +20,10 @@ DROP VIEW IF EXISTS `individual`;
 CREATE VIEW `individual` AS 
   SELECT `kp_IndividualID`,
 	`IndividualKey`,
-	`IndividualValue`,	
+	`IndividualValue`,
 	`kf_KindOfIndividualID`,
+	`kf_LanguageID`,
+	`kf_ParentID`,
 	`ts_Created`,
 	`ts_Updated`
 FROM tbl_individual;

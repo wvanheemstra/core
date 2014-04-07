@@ -51,7 +51,7 @@ INSERT INTO `tbl_plot` VALUES
 ('25','Plot','Rivalry','2','0','25',null,'0000-00-00 00:00:00'),
 ('26','Plot','Underdog','2','0','26',null,'0000-00-00 00:00:00'),
 ('27','Plot','Temptation','2','0','27',null,'0000-00-00 00:00:00'),
-('26','Plot','Madness','3','0','26',null,'0000-00-00 00:00:00');
+('28','Plot','Madness','3','0','26',null,'0000-00-00 00:00:00');
 COMMIT;
 
 SET FOREIGN_KEY_CHECKS = 1;

@@ -27,7 +27,9 @@ BEGIN;
 INSERT INTO `tbl_kind_of_plot` VALUES 
 ('1','Kind of Plot','Master Plot','0','1',null,'0000-00-00 00:00:00'),
 ('2','Kind of Plot','Sub Plot','0','2',null,'0000-00-00 00:00:00'),
-('3','Kind of Plot','Detail Plot','0','3',null,'0000-00-00 00:00:00');
+('3','Kind of Plot','Detail Plot','0','3',null,'0000-00-00 00:00:00'),
+('4','Kind of Plot','Character Plot','0','4',null,'0000-00-00 00:00:00'),
+('5','Kind of Plot','Action Plot','0','5',null,'0000-00-00 00:00:00');
 COMMIT;
 
 SET FOREIGN_KEY_CHECKS = 1;
